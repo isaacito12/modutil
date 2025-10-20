@@ -1,0 +1,22 @@
+component samplecomponent_BlockSelectorUI_1
+  % Sample Component
+
+  % Copyright 2025 The MathWorks, Inc.
+
+  parameters
+    k = {1, 'N/(m/s)'}
+  end  % parameters
+
+  inputs
+    v = {1, 'm/s'}
+  end  % inptus
+
+  outputs
+    f = {0, 'N'}
+  end  % outputs
+
+  equations
+    f == k*v
+  end  % equations
+
+end  % component

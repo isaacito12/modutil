@@ -1,0 +1,72 @@
+function App = Panel_testapp_7_piechart_donutchart
+% piechart and donutchart in Panel
+
+% Copyright 2025 The MathWorks, Inc.
+
+arguments (Output)
+  App (:,1) struct
+end  % arguments
+
+main_figure = uifigure(Visible="off");
+main_figure.Position(3) = 600;  % width
+main_figure.Position(4) = 400;  % height
+
+main_layout = AppUtil1.AppUtilLayout(main_figure);
+
+build_gui(main_layout);
+
+%%
+main_figure.Visible = "on";
+
+drawnow
+main_figure.Theme = "light";
+
+if nargout > 0
+  App = struct;
+  App.Window.MainFigure = main_figure;
+end  % if
+end  % function
+
+function build_gui(layout)
+%%
+arguments (Input)
+  layout (1,1) AppUtil1.AppUtilLayout
+end  % arguments
+
+common_height = 190;
+
+area = NewArea(layout);
+column = NewColumn(layout, area);
+
+% -----------------------------------------------------------------------------
+row = NewRow(layout, column);
+
+graphics_panel_ui_1 = AppUtil1.Graphics.Panel(NewSlot(layout, row));  % !test-target
+graphics_panel_ui_1.ComponentHeight = common_height;
+p = piechart(graphics_panel_ui_1.MainPanel, [1 2 3 4]);  % !test-target
+title(p, "Pie in panel 1")
+
+graphics_panel_ui_2 = AppUtil1.Graphics.Panel(NewSlot(layout, row));  % !test-target
+graphics_panel_ui_2.ComponentHeight = common_height;
+p = donutchart(graphics_panel_ui_2.MainPanel, [10 3 1 5 6 4]);  % !test-target
+title(p, "Donut in panel 2")
+
+% -----------------------------------------------------------------------------
+row = NewRow(layout, column);
+
+% charts in tiledlayout
+
+graphics_panel_ui_3 = AppUtil1.Graphics.Panel(NewSlot(layout, row));  % !test-target
+graphics_panel_ui_3.ComponentHeight = common_height;
+
+tile = tiledlayout(graphics_panel_ui_3.MainPanel, 1, 2);
+
+nexttile(tile)
+p = piechart(tile, [1 2 3 4]);  % !test-target
+title(p, "Pie in tile in panel 3")
+
+nexttile(tile)
+p = donutchart(tile, [10 3 1 5 6 4]);  % !test-target
+title(p, "Donut in tile in panel 3")
+
+end  % function
