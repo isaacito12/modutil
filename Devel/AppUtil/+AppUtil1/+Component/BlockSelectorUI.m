@@ -56,6 +56,15 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
     % -------------------------------------------------------------------------
     % Optional proeprties
 
+    % Set AutoGet to true to automatically trigger the Get callback when the "Block path" drop down item is changed.
+    AutoGet (1,1) logical = false
+
+    % Show the "Get" button and hide the "Set" button. (The Set button component is deleted from the object.)
+    GetOnly (1,1) logical = false
+
+    % Show the "Set" button and hide the "Get" button. (The Get button component is deleted from the object.)
+    SetOnly (1,1) logical = false
+
     ModelName (1,1) string = ""
 
     HighlightedBlock (1,1) string = ""
@@ -67,11 +76,13 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
     % GUI parts
 
     % For the "Model file"
+    ModelRow matlab.ui.container.GridLayout
     ModelFileTextUI AppUtil1.Component.Label
     ModelFileDropDownUI AppUtil1.Component.DropDown
     OpenModelUI AppUtil1.Component.Button
 
     % For the "Block path"
+    BlockRow matlab.ui.container.GridLayout
     BlockPathTextUI AppUtil1.Component.Label
     BlockPathDropDownUI AppUtil1.Component.DropDown
     HilitBlockUI AppUtil1.Component.StateButton
@@ -83,7 +94,7 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
   properties (Dependent)
 
     % Assign a full path to a model file to this property, and it adds
-    % the specified model file to the Model file drop down and selects it.
+    % the specified model file to the "Model file" drop down and selects it.
     % If the specified model file already exists in the drop down items,
     % the existing item is selected.
     %
@@ -97,6 +108,11 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
 
   end  % properties
 
+  properties
+    % Callbacks may not work until components are initialized.
+    Initialized (1,1) logical = false
+  end  % properties
+
   properties (Constant, Access=private)
     common_ui_height = AppUtil1.Constant.Height{"oneline++"}
 
@@ -105,10 +121,7 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
   end  % properties
 
   properties (Access=private)
-
     current_modelfile_fullpath (1,1) string = ""
-
-    initialized (1,1) logical = false
   end  % properties
 
   methods
@@ -495,6 +508,10 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
         callback_hilit(component)
       end  % if
 
+      if component.AutoGet
+        callback_get_parameters(component)
+      end  % if
+
       if component.Reporting
         FileUtil1.displayTimeAndFileLocation("End")
       end  % if
@@ -584,30 +601,38 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
       % The first and third rows contain UI components while the second row is a spacer.
       component.base_grid.RowHeight = {component.common_ui_height, 4, component.common_ui_height};
 
-      % Create five columns.
-      % The setting of each element is overridden in the update method.
-      component.base_grid.ColumnWidth = {'fit', '1x', 'fit', 'fit', 'fit'};
+      % Create one column.
+      component.base_grid.ColumnWidth = {'1x'};
 
       % -----------------------------------------------------------------------
       % First row
+
+      component.ModelRow = uigridlayout(component.base_grid, [1 1]);
+      component.ModelRow.Layout.Row = 1;
+      component.ModelRow.Layout.Column = 1;
+      component.ModelRow.RowHeight = component.common_ui_height;
+      component.ModelRow.ColumnWidth = {'fit', '1x', 'fit'};
+      component.ModelRow.Padding = [0 0 0 0];
+      component.ModelRow.ColumnSpacing = 0;
+      component.ModelRow.RowSpacing = 0;
  
-      component.ModelFileTextUI = AppUtil1.Component.Label(component.base_grid);
+      component.ModelFileTextUI = AppUtil1.Component.Label(component.ModelRow);
       component.ModelFileTextUI.Layout.Row = 1;
       component.ModelFileTextUI.Layout.Column = 1;
       component.ModelFileTextUI.Text = CodeUtil1.i18n("Model file");
       component.ModelFileTextUI.ComponentWidth = label_width;
 
-      component.ModelFileDropDownUI = AppUtil1.Component.DropDown(component.base_grid);
+      component.ModelFileDropDownUI = AppUtil1.Component.DropDown(component.ModelRow);
       component.ModelFileDropDownUI.Layout.Row = 1;
-      component.ModelFileDropDownUI.Layout.Column = [2, 4];
+      component.ModelFileDropDownUI.Layout.Column = 2;
       component.ModelFileDropDownUI.Items = "";
       component.ModelFileDropDownUI.Value = "";
       component.ModelFileDropDownUI.ValueChangedCallback = @() callback_change_modelfile_dropdown(component);
       component.ModelFileDropDownUI.MainDropDown.Enable = "off";
 
-      component.OpenModelUI = AppUtil1.Component.Button(component.base_grid);
+      component.OpenModelUI = AppUtil1.Component.Button(component.ModelRow);
       component.OpenModelUI.Layout.Row = 1;
-      component.OpenModelUI.Layout.Column = 5;
+      component.OpenModelUI.Layout.Column = 3;
       component.OpenModelUI.ComponentWidth = component.button_width;
       component.OpenModelUI.ButtonWidth = component.button_width - 8;
       component.OpenModelUI.Text = CodeUtil1.i18n("Open model");
@@ -616,20 +641,29 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
 
       % -----------------------------------------------------------------------
       % Second row - vertical spacing
-      % Already specified for the RowHeight property of the base grid.
+      % This is specified in the RowHeight property of the base grid.
 
       % -----------------------------------------------------------------------
       % Third row
 
-      component.BlockPathTextUI = AppUtil1.Component.Label(component.base_grid);
-      component.BlockPathTextUI.Layout.Row = 3;
+      component.BlockRow = uigridlayout(component.base_grid, [1 1]);
+      component.BlockRow.Layout.Row = 3;
+      component.BlockRow.Layout.Column = 1;
+      component.BlockRow.RowHeight = component.common_ui_height;
+      component.BlockRow.ColumnWidth = {'fit', '1x', 'fit', 'fit', 'fit'};
+      component.BlockRow.Padding = [0 0 0 0];
+      component.BlockRow.ColumnSpacing = 0;
+      component.BlockRow.RowSpacing = 0;
+
+      component.BlockPathTextUI = AppUtil1.Component.Label(component.BlockRow);
+      component.BlockPathTextUI.Layout.Row = 1;
       component.BlockPathTextUI.Layout.Column = 1;
       component.BlockPathTextUI.ComponentWidth = label_width;
       component.BlockPathTextUI.ComponentHeight = component.common_ui_height;
       component.BlockPathTextUI.Text = CodeUtil1.i18n("Block path");
 
-      component.BlockPathDropDownUI = AppUtil1.Component.DropDown(component.base_grid);
-      component.BlockPathDropDownUI.Layout.Row = 3;
+      component.BlockPathDropDownUI = AppUtil1.Component.DropDown(component.BlockRow);
+      component.BlockPathDropDownUI.Layout.Row = 1;
       component.BlockPathDropDownUI.Layout.Column = 2;
       component.BlockPathDropDownUI.ComponentHeight = component.common_ui_height;
       component.BlockPathDropDownUI.Items = "";
@@ -637,8 +671,8 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
       component.BlockPathDropDownUI.ValueChangedCallback = @() callback_change_blockpath_dropdown(component);
       component.BlockPathDropDownUI.MainDropDown.Enable = "off";
 
-      component.HilitBlockUI = AppUtil1.Component.StateButton(component.base_grid);
-      component.HilitBlockUI.Layout.Row = 3;
+      component.HilitBlockUI = AppUtil1.Component.StateButton(component.BlockRow);
+      component.HilitBlockUI.Layout.Row = 1;
       component.HilitBlockUI.Layout.Column = 3;
       component.HilitBlockUI.ComponentWidth = component.button_width;
       component.HilitBlockUI.ButtonWidth = component.button_width - 8;
@@ -648,8 +682,8 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
       component.HilitBlockUI.MainButton.Enable = "off";
       component.HilitBlockUI.ValueChangedCallback = @() callback_hilit(component);
 
-      component.GetParametersFromBlockUI = AppUtil1.Component.Button(component.base_grid);
-      component.GetParametersFromBlockUI.Layout.Row = 3;
+      component.GetParametersFromBlockUI = AppUtil1.Component.Button(component.BlockRow);
+      component.GetParametersFromBlockUI.Layout.Row = 1;
       component.GetParametersFromBlockUI.Layout.Column = 4;
       component.GetParametersFromBlockUI.ComponentWidth = component.button_width;
       component.GetParametersFromBlockUI.ButtonWidth = component.button_width - 8;
@@ -659,8 +693,8 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
       component.GetParametersFromBlockUI.MainButton.Enable = "off";
       component.GetParametersFromBlockUI.ButtonPushedCallback = @() callback_get_parameters(component);
 
-      component.SetParametersToBlockUI = AppUtil1.Component.Button(component.base_grid);
-      component.SetParametersToBlockUI.Layout.Row = 3;
+      component.SetParametersToBlockUI = AppUtil1.Component.Button(component.BlockRow);
+      component.SetParametersToBlockUI.Layout.Row = 1;
       component.SetParametersToBlockUI.Layout.Column = 5;
       component.SetParametersToBlockUI.ComponentWidth = component.button_width;
       component.SetParametersToBlockUI.ButtonWidth = component.button_width - 8;
@@ -676,7 +710,7 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
       %%
       update@AppUtil1.Component.ComponentBase(component)
 
-      if component.initialized
+      if component.Initialized
         regular_update(component)
 
         return
@@ -684,7 +718,7 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
       end  % if
 
       first_update(component)
-      component.initialized = true;
+      component.Initialized = true;
     end  % function
 
     function regular_update(component)
@@ -711,6 +745,15 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
       if component.Reporting
         FileUtil1.displayTimeAndFileLocation("first update")
       end  % if
+
+      if component.GetOnly && component.SetOnly
+        id = component.errorID + "InvalidButtonSetting";
+        msg = CodeUtil1.i18n("GetOnly and SetOnly options cannot be true at the same time.");
+
+        throw(MException(id, msg))
+
+      end  % if
+
       component.ModelFileTextUI.MainFigure = component.MainFigure;
       component.ModelFileDropDownUI.MainFigure = component.MainFigure;
       component.OpenModelUI.MainFigure = component.MainFigure;
@@ -719,8 +762,21 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
       component.HilitBlockUI.MainFigure = component.MainFigure;
       component.GetParametersFromBlockUI.MainFigure = component.MainFigure;
       component.SetParametersToBlockUI.MainFigure = component.MainFigure;
+
+      if component.AutoGet
+        component.GetParametersFromBlockUI.MainButton.Enable = "off";
+        component.GetParametersFromBlockUI.MainButton.Tooltip = CodeUtil1.i18n("Auto-get is enabled.");
+      end  % if
+
+      if component.GetOnly
+        % Hide the "Set" button.
+        component.BlockRow.ColumnWidth{5} = 0;
+      end  % if
+      if component.SetOnly
+        % Hide the "Get" button.
+        component.BlockRow.ColumnWidth{4} = 0;
+      end  % if
     end  % function
 
   end  % methods
-
 end  % classdef
