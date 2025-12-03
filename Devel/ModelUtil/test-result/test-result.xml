@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<testsuites>
+  <testsuite errors="1" failures="0" name="uitest_ModelUtil" skipped="0" tests="2" time="8.9507">
+    <testcase classname="uitest_ModelUtil" name="PassingTest_1" time="8.9358"/>
+    <testcase classname="uitest_ModelUtil" name="Test_LookupTable1DBlockPlotApp_1" time="0.014911">
+      <error>Error occurred in uitest_ModelUtil/Test_LookupTable1DBlockPlotApp_1 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'LookupTable1DBlockPlotApp:InvalidModelFilePath'
+    --------------
+    Error Details:
+    --------------
+    Error using LookupTable1DBlockPlotApp (line 20)
+    The file specified for ModelFilePath is not valid.
+    
+    Error in uitest_ModelUtil/Test_LookupTable1DBlockPlotApp_1 (line 76)
+            testcase.App = LookupTable1DBlockPlotApp(ModelFilePath="Test/plotLookupTable1DBlocks/testmodel_plotLookupTable1DBlocks_refsub.mdl");</error>
+    </testcase>
+  </testsuite>
+  <testsuite errors="2" failures="0" name="unittest_checkEditInCallbackButton" skipped="0" tests="5" time="8.2732">
+    <testcase classname="unittest_checkEditInCallbackButton" name="ErrorCase_1" time="0.18725"/>
+    <testcase classname="unittest_checkEditInCallbackButton" name="ErrorCase_2" time="0.015421"/>
+    <testcase classname="unittest_checkEditInCallbackButton" name="ErrorCase_3" time="7.2774"/>
+    <testcase classname="unittest_checkEditInCallbackButton" name="Test_1" time="0.1617">
+      <error>Error occurred in unittest_checkEditInCallbackButton/Test_1 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'checkEditInCallbackButton:InvalidCode'
+    --------------
+    Error Details:
+    --------------
+    Error using ModelUtil1.checkEditInCallbackButton (line 54)
+    samplemodel_checkEditInCallbackButton_24b/Callback Button: ClickFcn: Code must not be empty.
+    
+    Error in unittest_checkEditInCallbackButton/Test_1 (line 63)
+            result = ModelUtil1.checkEditInCallbackButton("samplemodel_checkEditInCallbackButton_24b");</error>
+    </testcase>
+    <testcase classname="unittest_checkEditInCallbackButton" name="PassingTest_1" time="0.63147">
+      <error>Error occurred in unittest_checkEditInCallbackButton/PassingTest_1 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'checkEditInCallbackButton:InvalidCode'
+    --------------
+    Error Details:
+    --------------
+    Error using ModelUtil1.checkEditInCallbackButton (line 54)
+    samplemodel_checkEditInCallbackButton/Callback Button: ClickFcn: Code must not be empty.
+    
+    Error in demo_checkEditInCallbackButton (line 3)
+    result = ModelUtil1.checkEditInCallbackButton(model_name, DisplayInfo=true); %[output:378e0404]
+    
+    Error in unittest_checkEditInCallbackButton/PassingTest_1 (line 77)
+          demo_checkEditInCallbackButton</error>
+    </testcase>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_checkEditInCode" skipped="0" tests="7" time="0.39829">
+    <testcase classname="unittest_checkEditInCode" name="ErrorTest_1" time="0.071451"/>
+    <testcase classname="unittest_checkEditInCode" name="ErrorTest_2" time="0.036579"/>
+    <testcase classname="unittest_checkEditInCode" name="ErrorTest_3" time="0.05277"/>
+    <testcase classname="unittest_checkEditInCode" name="Test_1" time="0.032651"/>
+    <testcase classname="unittest_checkEditInCode" name="Test_2" time="0.046605"/>
+    <testcase classname="unittest_checkEditInCode" name="Test_3" time="0.01617"/>
+    <testcase classname="unittest_checkEditInCode" name="PassingTest_1" time="0.14206"/>
+  </testsuite>
+  <testsuite errors="3" failures="0" name="unittest_checkRefSubInCallbackButton" skipped="0" tests="6" time="1.1866">
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="ErrorTest_1" time="0.026586"/>
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="ErrorTest_2" time="0.0071778"/>
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="Test_1" time="0.11467"/>
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="Test_2" time="0.41256">
+      <error>Error occurred in unittest_checkRefSubInCallbackButton/Test_2 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'checkRefSubInSetParam:EmptyCode'
+    --------------
+    Error Details:
+    --------------
+    Error using ModelUtil1.checkRefSubInSetParam (line 39)
+    Code must be nonempty.
+    
+    Error in ModelUtil1.checkRefSubInCallbackButton (line 54)
+      data = ModelUtil1.checkRefSubInSetParam(lines, DisplayInfo=NameValuePair.DisplayInfo);
+    
+    Error in unittest_checkRefSubInCallbackButton/Test_2 (line 60)
+            result = ModelUtil1.checkRefSubInCallbackButton("samplemodel_checkRefSubInCallbackButton_24b");</error>
+    </testcase>
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="Test_3" time="0.24911">
+      <error>Error occurred in unittest_checkRefSubInCallbackButton/Test_3 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'checkRefSubInSetParam:EmptyCode'
+    --------------
+    Error Details:
+    --------------
+    Error using ModelUtil1.checkRefSubInSetParam (line 39)
+    Code must be nonempty.
+    
+    Error in ModelUtil1.checkRefSubInCallbackButton (line 54)
+      data = ModelUtil1.checkRefSubInSetParam(lines, DisplayInfo=NameValuePair.DisplayInfo);
+    
+    Error in unittest_checkRefSubInCallbackButton/Test_3 (line 71)
+            result = ModelUtil1.checkRefSubInCallbackButton("samplemodel_checkRefSubInCallbackButton_24b");</error>
+    </testcase>
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="PassingTest_1" time="0.37651">
+      <error>Error occurred in unittest_checkRefSubInCallbackButton/PassingTest_1 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'checkRefSubInSetParam:EmptyCode'
+    --------------
+    Error Details:
+    --------------
+    Error using ModelUtil1.checkRefSubInSetParam (line 39)
+    Code must be nonempty.
+    
+    Error in ModelUtil1.checkRefSubInCallbackButton (line 54)
+      data = ModelUtil1.checkRefSubInSetParam(lines, DisplayInfo=NameValuePair.DisplayInfo);
+    
+    Error in demo_checkRefSubInCallbackButton (line 3)
+    result = ModelUtil1.checkRefSubInCallbackButton(model_name, DisplayInfo=true); %[output:769dd1df]
+    
+    Error in unittest_checkRefSubInCallbackButton/PassingTest_1 (line 84)
+          demo_checkRefSubInCallbackButton</error>
+    </testcase>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_checkRefSubInSetParam" skipped="0" tests="9" time="1.6014">
+    <testcase classname="unittest_checkRefSubInSetParam" name="ErrorTest_1" time="0.025108"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="ErrorTest_2" time="0.0090775"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="ErrorTest_3" time="0.38579"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="Test_1" time="0.027893"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="Test_2" time="0.12818"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="Test_3" time="0.14301"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="Test_4" time="0.13993"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="Test_5" time="0.10815"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="PassingTest_1" time="0.63427"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_findLookupTable1DBlocks" skipped="0" tests="8" time="5.5952">
+    <testcase classname="unittest_findLookupTable1DBlocks" name="ErrorTest_1" time="0.076134"/>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="PassingTest_1" time="3.9999"/>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="PassingTest_2" time="0.31312"/>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="PassingTest_3" time="0.20007"/>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="PassingTest_4" time="0.31401"/>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="TestDefault" time="0.31385"/>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="TestSubsystemPath" time="0.18728"/>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="TestSearchDepth" time="0.19082"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_getSimscapeValueFromBlockParameter" skipped="0" tests="3" time="0.62046">
+    <testcase classname="unittest_getSimscapeValueFromBlockParameter" name="ErrorTest_1" time="0.023675"/>
+    <testcase classname="unittest_getSimscapeValueFromBlockParameter" name="ErrorTest_2" time="0.0068449"/>
+    <testcase classname="unittest_getSimscapeValueFromBlockParameter" name="PassingTest_1" time="0.58994"/>
+  </testsuite>
+  <testsuite errors="0" failures="1" name="uitest_plotLookupTable1DBlocks" skipped="0" tests="1" time="2.4885">
+    <testcase classname="uitest_plotLookupTable1DBlocks" name="WarningFree_1" time="2.4885">
+      <failure type="VerificationFailure">Verification failed in uitest_plotLookupTable1DBlocks/WarningFree_1.
+    ---------------------
+    Framework Diagnostic:
+    ---------------------
+    verifyWarningFree failed.
+    --&gt; The function issued warnings.
+        
+        Warnings Issued:
+            --&gt; Identifier: "Simulink:Commands:LoadingNewerModel"
+                   Message: Model 'testmodel_plotLookupTable1DBlocks_refsub' was created with a newer version (R2025b) of Simulink
+                            To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+            --&gt; Identifier: "Simulink:LoadSave:UnexpectedArrayType"
+                   Message: testmodel_plotLookupTable1DBlocks_refsub (configSet0.xml, line 10): Unknown array type "Simulink.ConfigComponent"
+    
+    Evaluated Function:
+      function_handle with value:
+    
+        @()target()
+    ------------------
+    Stack Information:
+    ------------------
+    In C:\local\modutil\modeling-utility\Devel\ModelUtil\Test\plotLookupTable1DBlocks\uitest_plotLookupTable1DBlocks.m (uitest_plotLookupTable1DBlocks.WarningFree_1) at 73</failure>
+    </testcase>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_plotLookupTable1DBlocks" skipped="0" tests="3" time="2.3221">
+    <testcase classname="unittest_plotLookupTable1DBlocks" name="ErrorTest_1" time="0.022882"/>
+    <testcase classname="unittest_plotLookupTable1DBlocks" name="PassingTest_1" time="0.12854"/>
+    <testcase classname="unittest_plotLookupTable1DBlocks" name="PassingTest_2" time="2.1707"/>
+  </testsuite>
+  <testsuite errors="0" failures="2" name="unittest_saveModels" skipped="0" tests="4" time="0.59196">
+    <testcase classname="unittest_saveModels" name="PassingTest_1" time="0.15035"/>
+    <testcase classname="unittest_saveModels" name="Test_FolderTree_1" time="0.024033"/>
+    <testcase classname="unittest_saveModels" name="Test_WithProject_1" time="0.30774">
+      <failure type="AssertionFailure">Assertion failed in unittest_saveModels/Test_WithProject_1 and it did not run to completion.
+    ---------------------
+    Framework Diagnostic:
+    ---------------------
+    assertFalse failed.
+    --&gt; The value must evaluate to "false".
+    
+    Actual Value:
+      logical
+    
+       1
+    ------------------
+    Stack Information:
+    ------------------
+    In C:\local\modutil\modeling-utility\Devel\ModelUtil\Test\saveModels\unittest_saveModels.m (unittest_saveModels.Test_WithProject_1) at 52</failure>
+    </testcase>
+    <testcase classname="unittest_saveModels" name="Test_WithProject_2" time="0.10984">
+      <failure type="AssertionFailure">Assertion failed in unittest_saveModels/Test_WithProject_2 and it did not run to completion.
+    ---------------------
+    Framework Diagnostic:
+    ---------------------
+    assertFalse failed.
+    --&gt; The value must evaluate to "false".
+    
+    Actual Value:
+      logical
+    
+       1
+    ------------------
+    Stack Information:
+    ------------------
+    In C:\local\modutil\modeling-utility\Devel\ModelUtil\Test\saveModels\unittest_saveModels.m (unittest_saveModels.Test_WithProject_2) at 61</failure>
+    </testcase>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_screenshotSimulink" skipped="0" tests="7" time="10.3052">
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_1" time="0.20632"/>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_2" time="5.6661"/>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_3" time="0.94066"/>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_4" time="0.84502"/>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_5" time="0.80007"/>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_6" time="0.54858"/>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_7" time="1.2984"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_setSystemMaskIcon" skipped="0" tests="2" time="1.8502">
+    <testcase classname="unittest_setSystemMaskIcon" name="PassingTest_1" time="1.2185"/>
+    <testcase classname="unittest_setSystemMaskIcon" name="PassingTest_2" time="0.63167"/>
+  </testsuite>
+</testsuites>

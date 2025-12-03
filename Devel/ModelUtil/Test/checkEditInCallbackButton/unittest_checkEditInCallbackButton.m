@@ -1,5 +1,5 @@
 classdef unittest_checkEditInCallbackButton < matlab.unittest.TestCase
-  %% Class-based unit test
+  % Class-based unit test
 
   % Author Class-Based Unit Tests in MATLAB
   % https://www.mathworks.com/help/matlab/matlab_prog/author-class-based-unit-tests-in-matlab.html
@@ -31,6 +31,11 @@ classdef unittest_checkEditInCallbackButton < matlab.unittest.TestCase
   methods (Test)
 
     function ErrorCase_1(testcase)
+      if isMATLABReleaseOlderThan("R2025a")
+
+        return
+
+      end  % if
       verifyError(testcase, @test_target, "checkEditInCallbackButton:InvalidModelName")
       function test_target()
         % The function requires a model name to be passed.
@@ -39,6 +44,11 @@ classdef unittest_checkEditInCallbackButton < matlab.unittest.TestCase
     end  % function
 
     function ErrorCase_2(testcase)
+      if isMATLABReleaseOlderThan("R2025a")
+
+        return
+
+      end  % if
       verifyError(testcase, @test_target, "checkEditInCallbackButton:InvalidModelName")
       function test_target()
         % The passed argument must not be zero-length text.
@@ -47,15 +57,25 @@ classdef unittest_checkEditInCallbackButton < matlab.unittest.TestCase
     end  % function
 
     function ErrorCase_3(testcase)
+      if isMATLABReleaseOlderThan("R2025a")
+
+        return
+
+      end  % if
       verifyError(testcase, @test_target, "checkEditInCallbackButton:InvalidCode")
       function test_target()
         % The ClickFcn callback must not be an empty.
-        ModelUtil1.checkEditInCallbackButton("testmodel_checkEditInCallbackButton_emptycode")  % !test-target
+        ModelUtil1.checkEditInCallbackButton("samplemodel_checkEditInCallbackButton_emptycode")  % !test-target
       end  % nested function
     end  % function
 
     function Test_1(testcase)
-      result = ModelUtil1.checkEditInCallbackButton("testmodel_checkEditInCallbackButton");
+      if isMATLABReleaseOlderThan("R2025a")
+
+        return
+
+      end  % if
+      result = ModelUtil1.checkEditInCallbackButton("samplemodel_checkEditInCallbackButton");
       verifyEqual(testcase, result.Found(1), true)
       verifyEqual(testcase, result.Found(2), true)
       verifyEqual(testcase, result.Found(3), true)
@@ -66,9 +86,13 @@ classdef unittest_checkEditInCallbackButton < matlab.unittest.TestCase
     % Make sure that scripts, functions, classes, and models run right out of the box.
 
     function PassingTest_1(~)
+      if isMATLABReleaseOlderThan("R2025a")
+
+        return
+
+      end  % if
       demo_checkEditInCallbackButton
     end  % function
 
   end  % methods
-
 end  % classdef

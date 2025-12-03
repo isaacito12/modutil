@@ -14,16 +14,13 @@ main_figure = uifigure(Visible="off");
 main_figure.Position(3) = 280 * 3;  % width
 main_figure.Position(4) = 340;  % height
 
-main_layout = AppUtil1.AppUtilLayout(main_figure);
-app_area = NewArea(main_layout);
-
-% =============================================================================
-app_column = NewColumn(main_layout, app_area);
+main_row_layout = AppUtil1.RowLayout(main_figure);
 
 % -----------------------------------------------------------------------------
-app_row = NewRow(main_layout, app_column);
+row_grid = NewRowGrid(main_row_layout);
+left_column_layout = AppUtil1.ColumnLayout(row_grid);
 
-label_ui = AppUtil1.Component.Label(NewSlot(main_layout, app_row));  % !test-target
+label_ui = AppUtil1.Component.Label(NewColumnGrid(left_column_layout));  % !test-target
 label_ui.MainFigure = main_figure;
 label_ui.ComponentHeight = height_label;
 label_ui.WordWrap = "on";
@@ -32,10 +29,7 @@ label_ui.HorizontalAlignment = "left";
 label_ui.Text = "Vertical alignment is ""top"". Horizontal alignment is ""left"".";
 label_ui.HighlightBackground = "on";
 
-% -----------------------------------------------------------------------------
-app_row = NewRow(main_layout, app_column);
-
-label_ui = AppUtil1.Component.Label(NewSlot(main_layout, app_row));  % !test-target
+label_ui = AppUtil1.Component.Label(NewColumnGrid(left_column_layout));  % !test-target
 label_ui.MainFigure = main_figure;
 label_ui.ComponentHeight = height_label;
 label_ui.WordWrap = "on";
@@ -44,10 +38,7 @@ label_ui.HorizontalAlignment = "left";
 label_ui.Text = "Vertical alignment is ""center"". Horizontal alignment is ""left"".";
 label_ui.HighlightBackground = "off";
 
-% -----------------------------------------------------------------------------
-app_row = NewRow(main_layout, app_column);
-
-label_ui = AppUtil1.Component.Label(NewSlot(main_layout, app_row));  % !test-target
+label_ui = AppUtil1.Component.Label(NewColumnGrid(left_column_layout));  % !test-target
 label_ui.MainFigure = main_figure;
 label_ui.ComponentHeight = height_label;
 label_ui.WordWrap = "on";
@@ -56,13 +47,11 @@ label_ui.HorizontalAlignment = "left";
 label_ui.Text = "Vertical alignment is ""bottom"". Horizontal alignment is ""left"".";
 label_ui.HighlightBackground = "on";
 
-% =============================================================================
-app_column = NewColumn(main_layout, app_area);
-
 % -----------------------------------------------------------------------------
-app_row = NewRow(main_layout, app_column);
+row_grid = NewRowGrid(main_row_layout);
+center_column_layout = AppUtil1.ColumnLayout(row_grid);
 
-label_ui = AppUtil1.Component.Label(NewSlot(main_layout, app_row));  % !test-target
+label_ui = AppUtil1.Component.Label(NewColumnGrid(center_column_layout));  % !test-target
 label_ui.MainFigure = main_figure;
 label_ui.ComponentHeight = height_label;
 label_ui.WordWrap = "on";
@@ -71,10 +60,7 @@ label_ui.HorizontalAlignment = "center";
 label_ui.Text = "Vertical alignment is ""top"". Horizontal alignment is ""center"".";
 label_ui.HighlightBackground = "off";
 
-% -----------------------------------------------------------------------------
-app_row = NewRow(main_layout, app_column);
-
-label_ui = AppUtil1.Component.Label(NewSlot(main_layout, app_row));  % !test-target
+label_ui = AppUtil1.Component.Label(NewColumnGrid(center_column_layout));  % !test-target
 label_ui.MainFigure = main_figure;
 label_ui.ComponentHeight = height_label;
 label_ui.WordWrap = "on";
@@ -83,10 +69,7 @@ label_ui.HorizontalAlignment = "center";
 label_ui.Text = "Vertical alignment is ""center"". Horizontal alignment is ""center"".";
 label_ui.HighlightBackground = "on";
 
-% -----------------------------------------------------------------------------
-app_row = NewRow(main_layout, app_column);
-
-label_ui = AppUtil1.Component.Label(NewSlot(main_layout, app_row));  % !test-target
+label_ui = AppUtil1.Component.Label(NewColumnGrid(center_column_layout));  % !test-target
 label_ui.MainFigure = main_figure;
 label_ui.ComponentHeight = height_label;
 label_ui.WordWrap = "on";
@@ -95,13 +78,11 @@ label_ui.HorizontalAlignment = "center";
 label_ui.Text = "Vertical alignment is ""bottom"". Horizontal alignment is ""center"".";
 label_ui.HighlightBackground = "off";
 
-% =============================================================================
-app_column = NewColumn(main_layout, app_area);
-
 % -----------------------------------------------------------------------------
-app_row = NewRow(main_layout, app_column);
+row_grid = NewRowGrid(main_row_layout);
+right_column_layout = AppUtil1.ColumnLayout(row_grid);
 
-label_ui = AppUtil1.Component.Label(NewSlot(main_layout, app_row));  % !test-target
+label_ui = AppUtil1.Component.Label(NewColumnGrid(right_column_layout));  % !test-target
 label_ui.MainFigure = main_figure;
 label_ui.ComponentHeight = height_label;
 label_ui.WordWrap = "on";
@@ -110,10 +91,7 @@ label_ui.HorizontalAlignment = "right";
 label_ui.Text = "Vertical alignment is ""top"". Horizontal alignment is ""right"".";
 label_ui.HighlightBackground = "on";
 
-% -----------------------------------------------------------------------------
-app_row = NewRow(main_layout, app_column);
-
-label_ui = AppUtil1.Component.Label(NewSlot(main_layout, app_row));  % !test-target
+label_ui = AppUtil1.Component.Label(NewColumnGrid(right_column_layout));  % !test-target
 label_ui.MainFigure = main_figure;
 label_ui.ComponentHeight = height_label;
 label_ui.WordWrap = "on";
@@ -122,10 +100,7 @@ label_ui.HorizontalAlignment = "right";
 label_ui.Text = "Vertical alignment is ""center"". Horizontal alignment is ""right"".";
 label_ui.HighlightBackground = "off";
 
-% -----------------------------------------------------------------------------
-app_row = NewRow(main_layout, app_column);
-
-label_ui = AppUtil1.Component.Label(NewSlot(main_layout, app_row));  % !test-target
+label_ui = AppUtil1.Component.Label(NewColumnGrid(right_column_layout));  % !test-target
 label_ui.MainFigure = main_figure;
 label_ui.ComponentHeight = height_label;
 label_ui.WordWrap = "on";
@@ -135,11 +110,13 @@ label_ui.Text = "Vertical alignment is ""bottom"". Horizontal alignment is ""rig
 label_ui.HighlightBackground = "on";
 
 %%
+if not(isMATLABReleaseOlderThan("R2025a"))
+  main_figure.Theme = "light";
+end  % if
+
+movegui(main_figure, "center")
 main_figure.Visible = "on";
-
 drawnow
-main_figure.Theme = "light";
-
 if nargout > 0
   App = struct;
   App.Window.MainFigure = main_figure;

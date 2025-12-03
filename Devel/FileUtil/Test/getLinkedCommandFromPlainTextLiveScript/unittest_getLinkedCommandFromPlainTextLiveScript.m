@@ -1,5 +1,5 @@
 classdef unittest_getLinkedCommandFromPlainTextLiveScript < matlab.unittest.TestCase
-  %% Class-based unit test
+  % Class-based unit test
 
   % Author Class-Based Unit Tests in MATLAB
   % https://www.mathworks.com/help/matlab/matlab_prog/author-class-based-unit-tests-in-matlab.html
@@ -49,7 +49,7 @@ classdef unittest_getLinkedCommandFromPlainTextLiveScript < matlab.unittest.Test
     end  % function
 
     function Test_2(testcase)
-      fullpath = string( which("testscript_getLinkedCommandFromPlainTextLiveScript"));
+      fullpath = string( which("sampleScript_getLinkedCommandFromPlainTextLiveScript_1"));
       result = FileUtil1.getLinkedCommandFromPlainTextLiveScript(fullpath);
       verifyEqual(testcase, result.Line, [2 2 3 3]')
       verifyEqual(testcase, result.LinkText, ["linked text" "another link" "Yet another linked text" "This"]')
@@ -57,5 +57,4 @@ classdef unittest_getLinkedCommandFromPlainTextLiveScript < matlab.unittest.Test
     end  % function
 
   end  % methods
-
 end  % classdef

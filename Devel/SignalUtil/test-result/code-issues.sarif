@@ -1,0 +1,259 @@
+{
+  "version": "2.1.0",
+  "properties": {
+    "Date": "20-Nov-2025 08:16:59",
+    "Release": "R2025b",
+    "CodeAnalyzerConfiguration": "active"
+  },
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Code Analyzer"
+        }
+      },
+      "originalUriBaseIds": {
+        "SourceRoot": {
+          "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+SignalUtil1/SignalDesignAppMain.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+SignalUtil1/TraceGeneratorAppMain.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+SignalUtil1/buildPropertyDictionaryFromSimscapeBlock.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+SignalUtil1/checkSignalDesignMatrix.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+SignalUtil1/find1DLookupTableBlocks.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+SignalUtil1/generateSignalDesignMatrixFromTraceProperties.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+SignalUtil1/getSignalDesignMatrixFromBlockDescription.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+SignalUtil1/getTimetableFromLoggedSignal.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+SignalUtil1/getVectorsFromSignalDesignMatrix.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+SignalUtil1/plotDifference.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+SignalUtil1/plotLookupTable1D.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+SignalUtil1/plotSimscapePSLookupTable1DBlock.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+SignalUtil1/plotSimulink1DLookupTableBlock.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+SignalUtil1/plotTimedData.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+SignalUtil1/setMinimumYRange.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+SignalUtil1/validateSignalSetup_PSLookupTable1D.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "SignalDesignApp.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "SignalDesignApp_Description.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/SignalDesignAppMain/apptest_SignalDesignAppMain.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/SignalDesignAppMain/uitest_SignalDesignAppMain.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/TraceGeneratorAppMain/uitest_TraceGeneratorAppMain.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/generateSignalDesignMatrixFromTraceProperties/demo_generateSignalDesignMatrixFromTraceProperties.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/generateSignalDesignMatrixFromTraceProperties/unittest_generateSignalDesignMatrixFromTraceProperties.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/getTimetableFromLoggedSignal/demo_getTimetableFromLoggedSignal.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/getTimetableFromLoggedSignal/unittest_getTimetableFromLoggedSignal.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/getVectorsFromSignalDesignMatrix/demo_getVectorsFromSignalDesignMatrix.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/getVectorsFromSignalDesignMatrix/unittest_getVectorsFromSignalDesignMatrix.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/plotDifference/demo_plotDifference.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/plotDifference/unittest_plotDifference.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/plotDifference/uptodatetest_plotDifference.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "TraceGeneratorApp.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "TraceGeneratorApp_Description.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "buildfile.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "demo_TimedTrace.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "uitest_SignalUtil.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "uiuptodatetest_SignalUtil.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "unittest_SignalUtil.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "unittest_SignalUtil_settings.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "uptodatetest_SignalUtil.m"
+          }
+        }
+      ],
+      "results": []
+    }
+  ]
+}

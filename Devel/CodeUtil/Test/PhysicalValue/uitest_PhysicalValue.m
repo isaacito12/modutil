@@ -25,22 +25,13 @@ classdef uitest_PhysicalValue < matlab.uitest.TestCase
       function closeAll
         % Delete the app's figure object from memory.
         if class(testcase.App) ~= "double"
-          if isstruct(testcase.App)
-            % Function-based app
-            if not(isfield(testcase.App, "Window"))
-              % There is no window to delete.
+          if isstruct(testcase.App) && not(isfield(testcase.App, "Window"))
+            % Function-based app with no window to delete.
 
-              return
+            return
 
-            end  % if
-            % App.Window is a struct field which does not trigger destructor.
-            % Delete the figure directly.
-            delete(testcase.App.Window.MainFigure)
-          else
-            % Class-based app
-            % App.Window's destructor deletes the figure.
-            delete(testcase.App.Window)
           end  % if
+          delete(testcase.App.Window.MainFigure)
         end  % if
         close all
         bdclose all
@@ -80,13 +71,27 @@ classdef uitest_PhysicalValue < matlab.uitest.TestCase
       end  % nested function
     end  % function
 
+    function PassingTest_1(~)
+      demo_PhysicalValue_1_basics
+    end  % function
+
+    function PassingTest_2(~)
+      evalin("base", "demo_PhysicalValue_2_workspace")
+    end  % function
+
+    function PassingTest_3(~)
+      demo_PhysicalValue_3_watch
+    end  % function
+
     %% Color theme
     % Take screenshots of the app. Visually inspect the saved images.
 
     function LightTheme_1(testcase)
       testcase.App = apptest_PhysicalValue_1_workspace;
       drawnow
-      testcase.App.Window.MainFigure.Theme = "light";
+      if not(isMATLABReleaseOlderThan("R2025a"))
+        testcase.App.Window.MainFigure.Theme = "light";
+      end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-1.png");
       exportapp(testcase.App.Window.MainFigure, save_path)
     end  % function
@@ -94,12 +99,19 @@ classdef uitest_PhysicalValue < matlab.uitest.TestCase
     function LightTheme_2(testcase)
       testcase.App = apptest_PhysicalValue_2_watch;
       drawnow
-      testcase.App.Window.MainFigure.Theme = "light";
+      if not(isMATLABReleaseOlderThan("R2025a"))
+        testcase.App.Window.MainFigure.Theme = "light";
+      end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-2.png");
       exportapp(testcase.App.Window.MainFigure, save_path)
     end  % function
 
     function DarkTheme_1(testcase)
+      if isMATLABReleaseOlderThan("R2025a")
+
+        return
+
+      end  % if
       testcase.App = apptest_PhysicalValue_1_workspace;
       drawnow
       testcase.App.Window.MainFigure.Theme = "dark";
@@ -108,6 +120,11 @@ classdef uitest_PhysicalValue < matlab.uitest.TestCase
     end  % function
 
     function DarkTheme_2(testcase)
+      if isMATLABReleaseOlderThan("R2025a")
+
+        return
+
+      end  % if
       testcase.App = apptest_PhysicalValue_2_watch;
       drawnow
       testcase.App.Window.MainFigure.Theme = "dark";

@@ -1,7 +1,5 @@
 function App = apptest_DropDown_2_add_item
-% This test app directly uses uifigure.
-% Component layout is handled with AppUtilLayout.
-%
+
 % Items can be modified programmaticaly.
 
 % Copyright 2025 The MathWorks, Inc.
@@ -14,17 +12,17 @@ main_figure = uifigure(Visible="off");
 main_figure.Position(3) = 300;  % width
 main_figure.Position(4) = 300;  % height
 
-app_layout = AppUtil1.AppUtilLayout(main_figure);
+app_column_layout = AppUtil1.ColumnLayout(main_figure);
 
 %%
 
-button_ui = AppUtil1.Component.Button(NewArea(app_layout));
+button_ui = AppUtil1.Component.Button(NewColumnGrid(app_column_layout));
 button_ui.MainFigure = main_figure;
 button_ui.Text = "Add an item";
 button_ui.ButtonWidth = 140;
 button_ui.ButtonPushedCallback = @() react_ButtonPushed();
 
-drop_down_ui = AppUtil1.Component.DropDown(NewArea(app_layout));  % !test-target
+drop_down_ui = AppUtil1.Component.DropDown(NewColumnGrid(app_column_layout));  % !test-target
 drop_down_ui.MainFigure = main_figure;
 drop_down_ui.Items = ["aa", "bb", "cc"];
 
@@ -35,11 +33,13 @@ drop_down_ui.Items = ["aa", "bb", "cc"];
   end  % nested function
 
 %%
+if not(isMATLABReleaseOlderThan("R2025a"))
+  main_figure.Theme = "light";
+end  % if
+
+movegui(main_figure, "center")
 main_figure.Visible = "on";
-
 drawnow
-main_figure.Theme = "light";
-
 if nargout > 0
   App = struct;
   App.Window.MainFigure = main_figure;

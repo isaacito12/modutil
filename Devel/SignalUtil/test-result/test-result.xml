@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" name="uitest_SignalUtil" skipped="0" tests="2" time="9.3662">
+    <testcase classname="uitest_SignalUtil" name="app_launches_without_warnings_1" time="4.9343"/>
+    <testcase classname="uitest_SignalUtil" name="app_launches_without_warnings_2" time="4.432"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiuptodatetest_SignalUtil" skipped="0" tests="2" time="0.15517">
+    <testcase classname="uiuptodatetest_SignalUtil" name="app_screenshot_is_uptodate_1" time="0.12358"/>
+    <testcase classname="uiuptodatetest_SignalUtil" name="app_screenshot_is_uptodate_2" time="0.031593"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_SignalUtil" skipped="0" tests="3" time="0.74617">
+    <testcase classname="unittest_SignalUtil" name="PassingTest_1" time="0.20079"/>
+    <testcase classname="unittest_SignalUtil" name="PassingTest_2" time="0.40878"/>
+    <testcase classname="unittest_SignalUtil" name="PassingTest_3" time="0.1366"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_SignalUtil_settings" skipped="0" tests="2" time="1.4471">
+    <testcase classname="unittest_SignalUtil_settings" name="linked_app_in_live_script_1" time="1.3203"/>
+    <testcase classname="unittest_SignalUtil_settings" name="linked_app_in_live_script_2" time="0.12681"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uptodatetest_SignalUtil" skipped="0" tests="2" time="0.044099">
+    <testcase classname="uptodatetest_SignalUtil" name="html_with_code_is_uptodate_1" time="0.032274"/>
+    <testcase classname="uptodatetest_SignalUtil" name="html_with_code_is_uptodate_2" time="0.011824"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_SignalDesignAppMain" skipped="0" tests="3" time="22.2978">
+    <testcase classname="uitest_SignalDesignAppMain" name="app_launches_without_warnings_1" time="1.4053"/>
+    <testcase classname="uitest_SignalDesignAppMain" name="PassingTest_1" time="11.0561"/>
+    <testcase classname="uitest_SignalDesignAppMain" name="uitest_1" time="9.8365"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_TraceGeneratorAppMain" skipped="0" tests="3" time="26.7139">
+    <testcase classname="uitest_TraceGeneratorAppMain" name="app_launches_without_warnings_1" time="4.4472"/>
+    <testcase classname="uitest_TraceGeneratorAppMain" name="Test_1" time="10.9513"/>
+    <testcase classname="uitest_TraceGeneratorAppMain" name="uitest_1" time="11.3154"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_generateSignalDesignMatrixFromTraceProperties" skipped="0" tests="2" time="0.24473">
+    <testcase classname="unittest_generateSignalDesignMatrixFromTraceProperties" name="PassingTest_1" time="0.015657"/>
+    <testcase classname="unittest_generateSignalDesignMatrixFromTraceProperties" name="PassingTest_2" time="0.22907"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_getTimetableFromLoggedSignal" skipped="0" tests="9" time="9.16">
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_1" time="0.16755"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_2" time="0.37225"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_3" time="0.030192"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_4" time="0.13905"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_5" time="7.9897"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_1" time="0.20568"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_2" time="0.13284"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_3" time="0.076346"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_4" time="0.046433"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_getVectorsFromSignalDesignMatrix" skipped="0" tests="2" time="0.2156">
+    <testcase classname="unittest_getVectorsFromSignalDesignMatrix" name="PassingTest_1" time="0.01833"/>
+    <testcase classname="unittest_getVectorsFromSignalDesignMatrix" name="PassingTest_2" time="0.19727"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_plotDifference" skipped="0" tests="5" time="0.46331">
+    <testcase classname="unittest_plotDifference" name="PassingTest_1" time="0.11707"/>
+    <testcase classname="unittest_plotDifference" name="PassingTest_2" time="0.078637"/>
+    <testcase classname="unittest_plotDifference" name="PassingTest_3" time="0.095388"/>
+    <testcase classname="unittest_plotDifference" name="PassingTest_4" time="0.10772"/>
+    <testcase classname="unittest_plotDifference" name="PassingTest_5" time="0.064502"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uptodatetest_plotDifference" skipped="0" tests="2" time="0.26108">
+    <testcase classname="uptodatetest_plotDifference" name="markdowns_are_uptodate" time="0.25645"/>
+    <testcase classname="uptodatetest_plotDifference" name="markdown_files_exist" time="0.004637"/>
+  </testsuite>
+</testsuites>

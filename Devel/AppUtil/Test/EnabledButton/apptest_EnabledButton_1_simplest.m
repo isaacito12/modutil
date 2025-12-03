@@ -1,6 +1,4 @@
 function App = apptest_EnabledButton_1_simplest
-% This test app directly uses uifigure and uigridlayout instead of AppUtilLayout.
-% This keeps the dependency of this test minimal.
 
 % Copyright 2024-2025 The MathWorks, Inc.
 
@@ -31,11 +29,13 @@ enabled_button_ui.CheckBoxValueChangedCallback = @() disp("Enabled button: Check
 enabled_button_ui.HighlightBackground = "on";
 
 %%
+if not(isMATLABReleaseOlderThan("R2025a"))
+  main_figure.Theme = "light";
+end  % if
+
+movegui(main_figure, "center")
 main_figure.Visible = "on";
-
 drawnow
-main_figure.Theme = "light";
-
 if nargout > 0
   App = struct;
   App.Window.MainFigure = main_figure;

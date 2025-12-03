@@ -57,7 +57,7 @@ classdef unittest_SignalUtil_settings < matlab.unittest.TestCase
 
     function linked_app_in_live_script_2(testcase)
       %%
-      script_fullpath = string( which("TimedTraceBuilderApp_Description"));
+      script_fullpath = string( which("TraceGeneratorApp_Description"));
 
       result = FileUtil1.getLinkedCommandFromPlainTextLiveScript(script_fullpath);
       if isempty(result)

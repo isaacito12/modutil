@@ -38,7 +38,7 @@ classdef unittest_plotLookupTable1DBlocks < matlab.unittest.TestCase
     end  % function
 
     function PassingTest_1(~)
-      load_system("testmodel_plotLookupTable1DBlocks_refsub")
+      load_system("samplemodel_plotLookupTable1DBlocks_refsub")
     end  % function
 
     function PassingTest_2(~)

@@ -14,55 +14,50 @@ main_figure = uifigure(Visible="off");
 main_figure.Position(3) = 900;  % width
 main_figure.Position(4) = 300;  % height
 
-main_grid = uigridlayout(main_figure, [1 1]);
-main_grid.RowHeight = {'fit'};
-main_grid.ColumnWidth = {'1x'};
-main_grid.Padding = [0 0 0 0];
-main_grid.ColumnSpacing = 0;
-main_grid.RowSpacing = 0;
+app_row_layout = AppUtil1.RowLayout(main_figure);
 
-app_layout = AppUtil1.AppUtilLayout(main_grid);
+left_grid = NewRowGrid(app_row_layout);
+build_ui(main_figure, left_grid, [1 0 1])
+build_ui(main_figure, left_grid, [0 1 0])
+build_ui(main_figure, left_grid, [1 0 1])
 
-area = NewArea(app_layout);
-
-column = NewColumn(app_layout, area);
-build_ui(main_figure, app_layout, column, [1 0 1])
-build_ui(main_figure, app_layout, column, [0 1 0])
-build_ui(main_figure, app_layout, column, [1 0 1])
-
-column = NewColumn(app_layout, area);
-build_ui(main_figure, app_layout, column, [0 1 0])
-build_ui(main_figure, app_layout, column, [1 0 1])
-build_ui(main_figure, app_layout, column, [0 1 0])
+right_grid = NewRowGrid(app_row_layout);
+build_ui(main_figure, right_grid, [0 1 0])
+build_ui(main_figure, right_grid, [1 0 1])
+build_ui(main_figure, right_grid, [0 1 0])
 
 %%
+if not(isMATLABReleaseOlderThan("R2025a"))
+  main_figure.Theme = "light";
+end  % if
+
+movegui(main_figure, "center")
 main_figure.Visible = "on";
-
 drawnow
-main_figure.Theme = "light";
-
 if nargout > 0
   App.Window.MainFigure = main_figure;
 end  % if
 end  % function
 
-function build_ui(main_figure, layout, column, hilit)
+function build_ui(main_figure, grid_layout, hilit)
 %%
+column_layout = AppUtil1.ColumnLayout(grid_layout);
 for column_count = 1 : 3
-  row = NewRow(layout, column);
+  column_grid = NewColumnGrid(column_layout);  
+  row_layout = AppUtil1.RowLayout(column_grid);
 
   % left
-  ui_1 = AppUtil1.Component.CheckBox(NewSlot(layout, row, Width=160));  % #test-target
+  ui_1 = AppUtil1.Component.CheckBox(NewRowGrid(row_layout, width=160));  % #test-target
   ui_1.MainFigure = main_figure;
   ui_1.HighlightBackground = hilit(1);
 
   % center
-  ui_2 = AppUtil1.Component.CheckBox(NewSlot(layout, row, Width="1x"));  % #test-target
+  ui_2 = AppUtil1.Component.CheckBox(NewRowGrid(row_layout, Width="1x"));  % #test-target
   ui_2.MainFigure = main_figure;
   ui_2.HighlightBackground = hilit(2);
 
   % right
-  ui_3 = AppUtil1.Component.CheckBox(NewSlot(layout, row, Width="2x"));  % #test-target
+  ui_3 = AppUtil1.Component.CheckBox(NewRowGrid(row_layout, Width="2x"));  % #test-target
   ui_3.MainFigure = main_figure;
   ui_3.HighlightBackground = hilit(3);
 end  % for

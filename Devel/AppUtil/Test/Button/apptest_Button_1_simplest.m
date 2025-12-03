@@ -1,6 +1,4 @@
 function App = apptest_Button_1_simplest
-% This test app directly uses uifigure and uigridlayout instead of AppUtilLayout
-% to keep the dependency of this code minimal.
 
 % Copyright 2024-2025 The MathWorks, Inc.
 
@@ -29,11 +27,13 @@ button_ui_1.ButtonPushedCallback = @() disp("Testing button");
 button_ui_1.HighlightBackground = "on";
 
 %%
+if not(isMATLABReleaseOlderThan("R2025a"))
+  main_figure.Theme = "light";
+end  % if
+
+movegui(main_figure, "center")
 main_figure.Visible = "on";
-
 drawnow
-main_figure.Theme = "light";
-
 if nargout > 0
   App = struct;
   App.Window.MainFigure = main_figure;

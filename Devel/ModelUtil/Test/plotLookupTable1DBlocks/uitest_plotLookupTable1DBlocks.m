@@ -1,7 +1,5 @@
 classdef uitest_plotLookupTable1DBlocks < matlab.uitest.TestCase
-  %% Class-based unit test for app
-  % This uitest class is the App.m file.
-  % There is another uitest class for the AppMain.m file and the related files.
+  % Class-based unit test for app
 
   % Overview of App Testing Framework
   % https://www.mathworks.com/help/matlab/matlab_prog/overview-of-app-testing-framework.html
@@ -12,12 +10,10 @@ classdef uitest_plotLookupTable1DBlocks < matlab.uitest.TestCase
   % Copyright 2024-2025 The MathWorks, Inc.
 
   properties
-
     % Do not specify the class name for a property to hold a handle to an app.
     % For class-based test apps, the class name is the app name, making
     % it difficult to use a common teardown if the class name is specified here.
     App (1,1)
-
   end  % properties
 
   methods (TestMethodSetup)
@@ -29,22 +25,13 @@ classdef uitest_plotLookupTable1DBlocks < matlab.uitest.TestCase
       function closeAll
         % Delete the app's figure object from memory.
         if class(testcase.App) ~= "double"
-          if isstruct(testcase.App)
-            % Function-based app
-            if not(isfield(testcase.App, "Window"))
-              % There is no window to delete.
+          if isstruct(testcase.App) && not(isfield(testcase.App, "Window"))
+            % Function-based app with no window to delete.
 
-              return
+            return
 
-            end  % if
-            % App.Window is a struct field which does not trigger destructor.
-            % Delete the figure directly.
-            delete(testcase.App.Window.MainFigure)
-          else
-            % Class-based app
-            % App.Window's destructor deletes the figure.
-            delete(testcase.App.Window)
           end  % if
+          delete(testcase.App.Window.MainFigure)
         end  % if
         close all
         bdclose all

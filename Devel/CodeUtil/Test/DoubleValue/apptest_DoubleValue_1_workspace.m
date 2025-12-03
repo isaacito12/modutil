@@ -10,39 +10,52 @@ double_value_1 = CodeUtil1.DoubleValue;  % !test-target
 
 width_left_label = 100;
 
-app_window = AppUtil1.AppUtilWindow(SourceFilename=mfilename);
+main_figure = uifigure(Visible="off");
+
+app_window = AppUtil1.AppWindow(main_figure, SourceFile=mfilename);
 app_window.Width = 400;
 app_window.Height = 180;
 app_window.Name = "Test";
 
-main_layout = app_window.MainLayout;
+main_column_layout = app_window.MainLayout;
 
-app_area = NewArea(main_layout);
-app_column = NewColumn(main_layout, app_area);
-
-app_row = NewRow(main_layout, app_column);
-label_ui = AppUtil1.Component.Label(NewSlot(main_layout, app_row, Width="fit"));
+% -----------------------------------------------------------------------------
+column_grid = NewColumnGrid(main_column_layout);
+label_ui = AppUtil1.Component.Label(column_grid);
+label_ui.MainFigure = app_window.MainFigure;
 label_ui.Text = "Enter a value of type double." ...
   + newline + "The value can use base workspace variables.";
+label_ui.WordWrap = "on";
 label_ui.ComponentHeight = AppUtil1.Constant.Height{"oneline"}*2;
 
-app_row = NewRow(main_layout, app_column);
-editfield_ui = AppUtil1.Component.EditField(NewSlot(main_layout, app_row));
+% -----------------------------------------------------------------------------
+column_grid = NewColumnGrid(main_column_layout);
+editfield_ui = AppUtil1.Component.EditField(column_grid);
 editfield_ui.ValueChangedCallback = @() react_EditField_ValueChanged();
 
 % -----------------------------------------------------------------------------
-app_row = NewRow(main_layout, app_column);
-AppUtil1.Component.HorizontalLine(app_row);
+column_grid = NewColumnGrid(main_column_layout);
+AppUtil1.Component.HorizontalLine(column_grid);
 
-app_row = NewRow(main_layout, app_column);
-label_ui = AppUtil1.Component.Label(NewSlot(main_layout, app_row, Width="fit"));
+% -----------------------------------------------------------------------------
+column_grid = NewColumnGrid(main_column_layout);
+row_layout = AppUtil1.RowLayout(column_grid);
+
+row_grid = NewRowGrid(row_layout, Width="fit");
+label_ui = AppUtil1.Component.Label(row_grid);
+label_ui.MainFigure = app_window.MainFigure;
 label_ui.Text = "Value";
 label_ui.ComponentWidth = width_left_label;
-value_ui = AppUtil1.Component.EditField(NewSlot(main_layout, app_row));
+
+row_grid = NewRowGrid(row_layout);
+value_ui = AppUtil1.Component.EditField(row_grid);
+value_ui.MainFigure = app_window.MainFigure;
 value_ui.ReadOnly = "on";
 
-app_row = NewRow(main_layout, app_column);
-button_ui = AppUtil1.Component.Button(NewSlot(main_layout, app_row));
+% -----------------------------------------------------------------------------
+column_grid = NewColumnGrid(main_column_layout);
+button_ui = AppUtil1.Component.Button(column_grid);
+button_ui.MainFigure = app_window.MainFigure;
 button_ui.ButtonWidth = 100;
 button_ui.HorizontalAlignment = "center";
 button_ui.Text = "Refresh";
@@ -62,11 +75,13 @@ button_ui.ButtonPushedCallback = @() react_ButtonPushed();
 editfield_ui.Value = "[1 2 3]";
 react_EditField_ValueChanged()
 
-Show(app_window)
+if not(isMATLABReleaseOlderThan("R2025a"))
+  app_window.MainFigure.Theme = "light";
+end  % if
 
+movegui(main_figure, "center")
+main_figure.Visible = "on";
 drawnow
-app_window.MainFigure.Theme = "light";
-
 if nargout > 0
   App = struct;
   App.Window = app_window;

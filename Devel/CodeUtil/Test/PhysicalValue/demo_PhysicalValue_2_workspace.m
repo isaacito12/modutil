@@ -25,7 +25,7 @@ disp(a.SimscapeValue) %[output:5fb7d824]
 %   data: {"dataType":"text","outputData":{"text":"     1     2\n\n    (ft^2)\n\n","truncated":false}}
 %---
 %[output:24b909b6]
-%   data: {"dataType":"text","outputData":{"text":"  PhysicalValue with properties:\n\n        ValueText: \"bwv.S1\"\n         UnitText: \"ft^2\"\n        UnitAlias: \"\"\n    SimscapeValue: [1 2] (ft^2)\n\n","truncated":false}}
+%   data: {"dataType":"text","outputData":{"text":"  <a href=\"matlab:helpPopup('CodeUtil1.PhysicalValue')\" style=\"font-weight:bold\">PhysicalValue<\/a> with properties:\n\n                   ValueText: \"bwv.S1\"\n    ValueTextIsSimscapeValue: 1\n                    UnitText: \"ft^2\"\n                   UnitAlias: \"\"\n               SimscapeValue: [1 2] (ft^2)\n\n","truncated":false}}
 %---
 %[output:0b3646c7]
 %   data: {"dataType":"text","outputData":{"text":"     3     4\n\n    (m^2)\n\n","truncated":false}}

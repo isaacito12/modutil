@@ -1,4 +1,4 @@
-%% Delete test-related files under the "Devel" folder.
+%% Delete auto-generated files and folders under the "Devel" folder.
 
 % Copyright 2025 The MathWorks, Inc.
 

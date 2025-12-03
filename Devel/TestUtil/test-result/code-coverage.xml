@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<coverage branch-rate="NaN" branches-covered="NaN" branches-valid="NaN" complexity="NaN" line-rate="0.68182" lines-covered="45" lines-valid="66" timestamp="1763987273.3622" version="">
+  <sources>
+    <source>C:\local\modutil\modeling-utility\Devel\TestUtil\</source>
+  </sources>
+  <packages>
+    <package branch-rate="NaN" complexity="NaN" line-rate="1" name="TestUtil1">
+      <classes>
+        <class branch-rate="NaN" complexity="NaN" filename="+TestUtil1\summarizeTestResult.m" line-rate="1" name="TestUtil1.summarizeTestResult">
+          <methods/>
+          <lines>
+            <line hits="2" number="6"/>
+            <line hits="2" number="13"/>
+            <line hits="2" number="14"/>
+            <line hits="2" number="16"/>
+            <line hits="2" number="19"/>
+            <line hits="2" number="20"/>
+            <line hits="2" number="21"/>
+            <line hits="2" number="23"/>
+            <line hits="2" number="24"/>
+            <line hits="10" number="25"/>
+            <line hits="10" number="26"/>
+            <line hits="10" number="28"/>
+            <line hits="10" number="30"/>
+            <line hits="76" number="32"/>
+            <line hits="76" number="33"/>
+            <line hits="76" number="35"/>
+            <line hits="2" number="39"/>
+            <line hits="2" number="40"/>
+            <line hits="2" number="41"/>
+            <line hits="2" number="42"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package branch-rate="NaN" complexity="NaN" line-rate="0.54348" name="">
+      <classes>
+        <class branch-rate="NaN" complexity="NaN" filename="Test\summarizeTestResult\demo_summarizeTestResult_1.m" line-rate="1" name="demo_summarizeTestResult_1">
+          <methods/>
+          <lines>
+            <line hits="1" number="4"/>
+            <line hits="1" number="5"/>
+            <line hits="1" number="6"/>
+            <line hits="1" number="7"/>
+            <line hits="1" number="9"/>
+            <line hits="1" number="11"/>
+            <line hits="1" number="12"/>
+            <line hits="1" number="14"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="Test\summarizeTestResult\unittest_summarizeTestResult.m" line-rate="1" name="unittest_summarizeTestResult">
+          <methods>
+            <method branch-rate="NaN" line-rate="1" name="test_method_setup_1" signature="test_method_setup_1(testcase)">
+              <lines>
+                <line hits="6" number="20"/>
+                <line hits="6" number="21"/>
+                <line hits="3" number="23"/>
+                <line hits="3" number="26"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="Test_error_1" signature="Test_error_1(testcase)">
+              <lines>
+                <line hits="1" number="41"/>
+                <line hits="1" number="43"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="PassingTest_1" signature="PassingTest_1(~)">
+              <lines>
+                <line hits="1" number="50"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="Test_1" signature="Test_1(testcase)">
+              <lines>
+                <line hits="1" number="58"/>
+                <line hits="1" number="59"/>
+                <line hits="1" number="60"/>
+                <line hits="1" number="61"/>
+                <line hits="1" number="62"/>
+                <line hits="1" number="63"/>
+                <line hits="1" number="64"/>
+                <line hits="1" number="65"/>
+                <line hits="1" number="66"/>
+                <line hits="1" number="67"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line hits="6" number="20"/>
+            <line hits="6" number="21"/>
+            <line hits="3" number="23"/>
+            <line hits="3" number="26"/>
+            <line hits="1" number="41"/>
+            <line hits="1" number="43"/>
+            <line hits="1" number="50"/>
+            <line hits="1" number="58"/>
+            <line hits="1" number="59"/>
+            <line hits="1" number="60"/>
+            <line hits="1" number="61"/>
+            <line hits="1" number="62"/>
+            <line hits="1" number="63"/>
+            <line hits="1" number="64"/>
+            <line hits="1" number="65"/>
+            <line hits="1" number="66"/>
+            <line hits="1" number="67"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="buildfile.m" line-rate="0" name="buildfile">
+          <methods/>
+          <lines>
+            <line hits="0" number="13"/>
+            <line hits="0" number="14"/>
+            <line hits="0" number="16"/>
+            <line hits="0" number="17"/>
+            <line hits="0" number="18"/>
+            <line hits="0" number="19"/>
+            <line hits="0" number="20"/>
+            <line hits="0" number="21"/>
+            <line hits="0" number="22"/>
+            <line hits="0" number="24"/>
+            <line hits="0" number="25"/>
+            <line hits="0" number="26"/>
+            <line hits="0" number="27"/>
+            <line hits="0" number="28"/>
+            <line hits="0" number="29"/>
+            <line hits="0" number="30"/>
+            <line hits="0" number="31"/>
+            <line hits="0" number="32"/>
+            <line hits="0" number="33"/>
+            <line hits="0" number="34"/>
+            <line hits="0" number="35"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+  </packages>
+</coverage>

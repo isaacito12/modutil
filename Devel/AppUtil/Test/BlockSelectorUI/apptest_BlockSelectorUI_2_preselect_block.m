@@ -1,6 +1,4 @@
 function App = apptest_BlockSelectorUI_2_preselect_block
-% This is a function-based test app with direct use of uifigure and uigridlayout,
-% instead of using AppUtilWindow and its layout property.
 
 % Copyright 2025 The MathWorks, Inc.
 
@@ -10,7 +8,11 @@ end  % arguments
 
 % Use getFileFullPath to validate that the specified file is found.
 % If not, an error is issued and the app does not open.
-modelfile_fullpath = FileUtil1.getFileFullPath("samplemodel_BlockSelectorUI_test_1_fric.mdl");
+if isMATLABReleaseOlderThan("R2025a")
+  modelfile_fullpath = FileUtil1.getFileFullPath("samplemodel_BlockSelectorUI_test_1_fric_24b.mdl");
+else
+  modelfile_fullpath = FileUtil1.getFileFullPath("samplemodel_BlockSelectorUI_test_1_fric.mdl");
+end  % if
 
 % -----------------------------------------------------------------------------
 main_figure = uifigure(Visible="off");
@@ -47,7 +49,11 @@ block_selector_ui.GetParametersFromBlockCallback = @() getp();  % !test-target
 block_selector_ui.ModelFileFullPath = modelfile_fullpath;  % !test-target
 
 % Optionally, select the target block path programmatically.
-block_selector_ui.BlockPath = "samplemodel_BlockSelectorUI_test_1_fric/Subsystem/Rotational Friction2";  % !test-target
+if isMATLABReleaseOlderThan("R2025a")
+  block_selector_ui.BlockPath = "samplemodel_BlockSelectorUI_test_1_fric_24b/Subsystem/Rotational Friction2";  % !test-target
+else
+  block_selector_ui.BlockPath = "samplemodel_BlockSelectorUI_test_1_fric/Subsystem/Rotational Friction2";  % !test-target
+end  % if
 
 % Optionally, press the Highlight button programmatically.
 % This opens the model and highlights the target block.
@@ -56,7 +62,7 @@ openSystemWithBlockHighlight(block_selector_ui)  % !test-target
 %%
 movegui(main_figure, "center")
 main_figure.Visible = "on";
-
+drawnow
 if nargout > 0
   App = struct;
   App.Window.MainFigure = main_figure;

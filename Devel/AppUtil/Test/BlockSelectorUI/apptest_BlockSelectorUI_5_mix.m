@@ -1,6 +1,4 @@
 function App = apptest_BlockSelectorUI_5_mix
-% This is a function-based test app with direct use of uifigure and uigridlayout,
-% instead of using AppUtilWindow and its layout property.
 
 % Test:
 % Use both TargetSimscapeBlockNames and FindBlockCallback properties to find blocks
@@ -15,7 +13,11 @@ end  % arguments
 
 % Use getFileFullPath to validate that the specified file is found.
 % If not, an error is issued and the app does not open.
-modelfile_fullpath = FileUtil1.getFileFullPath("samplemodel_BlockSelectorUI_test_5_mix.mdl");
+if isMATLABReleaseOlderThan("R2025a")
+  modelfile_fullpath = FileUtil1.getFileFullPath("samplemodel_BlockSelectorUI_test_5_mix_24b.mdl");
+else
+  modelfile_fullpath = FileUtil1.getFileFullPath("samplemodel_BlockSelectorUI_test_5_mix.mdl");
+end
 
 % -----------------------------------------------------------------------------
 main_figure = uifigure(Visible="off");
@@ -69,7 +71,7 @@ block_selector_ui.ModelFileFullPath = modelfile_fullpath;
 %%
 movegui(main_figure, "center")
 main_figure.Visible = "on";
-
+drawnow
 if nargout > 0
   App = struct;
   App.Window.MainFigure = main_figure;

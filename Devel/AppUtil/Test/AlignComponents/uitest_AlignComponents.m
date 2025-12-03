@@ -25,22 +25,13 @@ classdef uitest_AlignComponents < matlab.uitest.TestCase
       function closeAll
         % Delete the app's figure object from memory.
         if class(testcase.App) ~= "double"
-          if isstruct(testcase.App)
-            % Function-based app
-            if not(isfield(testcase.App, "Window"))
-              % There is no window to delete.
+          if isstruct(testcase.App) && not(isfield(testcase.App, "Window"))
+            % Function-based app with no window to delete.
 
-              return
+            return
 
-            end  % if
-            % App.Window is a struct field which does not trigger destructor.
-            % Delete the figure directly.
-            delete(testcase.App.Window.MainFigure)
-          else
-            % Class-based app
-            % App.Window's destructor deletes the figure.
-            delete(testcase.App.Window)
           end  % if
+          delete(testcase.App.Window.MainFigure)
         end  % if
         close all
         bdclose all
@@ -63,81 +54,125 @@ classdef uitest_AlignComponents < matlab.uitest.TestCase
     %% Minimum quality check
     % Check that models, scripts, functions, and classes run right out of the box.
 
+    % Warnings can be displayed even when the app opens and starts working seemingly normally.
+    % Make sure there is no warning when opening an app.
+
     function app_launches_without_warnings_1(testcase)
-      % Warnings can be displayed even when the app opens and starts working seemingly normally.
-      % Make surfe there is no warning when opening an app.
       verifyWarningFree(testcase, @() target())
       function target()
-        testcase.App = apptest_AlignComponents_1_horizontal;  % !test-target
+        testcase.App = apptest_Align_EditField_DropDown_1_horizontal;  % !test-target
       end  % nested function
     end  % function
 
     function app_launches_without_warnings_2(testcase)
-      % Warnings can be displayed even when the app opens and starts working seemingly normally.
-      % Make surfe there is no warning when opening an app.
-      verifyWarningFree(testcase, @() target())
-      function target()
-        testcase.App = apptest_AlignComponents_2_vertical;  % !test-target
-      end  % nested function
-    end  % function
-
-    function app_launches_without_warnings_3(testcase)
-      % Warnings can be displayed even when the app opens and starts working seemingly normally.
-      % Make surfe there is no warning when opening an app.
       verifyWarningFree(testcase, @() target())
       function target()
         testcase.App = apptest_Align_EditField_DropDown_2_vertical;  % !test-target
       end  % nested function
     end  % function
 
+    function app_launches_without_warnings_3(testcase)
+      verifyWarningFree(testcase, @() target())
+      function target()
+        testcase.App = apptest_AlignComponents_1_horizontal;  % !test-target
+      end  % nested function
+    end  % function
+
+    function app_launches_without_warnings_4(testcase)
+      verifyWarningFree(testcase, @() target())
+      function target()
+        testcase.App = apptest_AlignComponents_2_vertical;  % !test-target
+      end  % nested function
+    end  % function
+
     %% Color theme
     % Take screenshots of the app. Visually inspect the saved images.
 
-    function LightTheme_1(testcase)
-      testcase.App = apptest_AlignComponents_1_horizontal;
-      drawnow
-      testcase.App.Window.MainFigure.Theme = "light";
-      save_path = fullfile(pwd, "screenshot-testing-light-1-horizontal.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
-    end  % function
-
-    function LightTheme_2(testcase)
-      testcase.App = apptest_AlignComponents_2_vertical;
-      drawnow
-      testcase.App.Window.MainFigure.Theme = "light";
-      save_path = fullfile(pwd, "screenshot-testing-light-2-vertical.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
-    end  % function
-
-    function LightTheme_3(testcase)
-      testcase.App = apptest_Align_EditField_DropDown_2_vertical;
-      drawnow
-      testcase.App.Window.MainFigure.Theme = "light";
-      save_path = fullfile(pwd, "screenshot-testing-light-3-vertical.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
-    end  % function
-
     function DarkTheme_1(testcase)
-      testcase.App = apptest_AlignComponents_1_horizontal;
+      if isMATLABReleaseOlderThan("R2025a")
+
+        return
+
+      end  % if
+      testcase.App = apptest_Align_EditField_DropDown_1_horizontal;
       drawnow
       testcase.App.Window.MainFigure.Theme = "dark";
-      save_path = fullfile(pwd, "screenshot-testing-dark-1-horizontal.png");
+      save_path = fullfile(pwd, "screenshot-testing-dark-1-editfield.png");
+      exportapp(testcase.App.Window.MainFigure, save_path)
+    end  % function
+
+    function LightTheme_1(testcase)
+      testcase.App = apptest_Align_EditField_DropDown_1_horizontal;
+      drawnow
+      if not(isMATLABReleaseOlderThan("R2025a"))
+        testcase.App.Window.MainFigure.Theme = "light";
+      end  % if
+      save_path = fullfile(pwd, "screenshot-testing-light-1-editfield.png");
       exportapp(testcase.App.Window.MainFigure, save_path)
     end  % function
 
     function DarkTheme_2(testcase)
-      testcase.App = apptest_AlignComponents_2_vertical;
+      if isMATLABReleaseOlderThan("R2025a")
+
+        return
+
+      end  % if
+      testcase.App = apptest_Align_EditField_DropDown_2_vertical;
       drawnow
       testcase.App.Window.MainFigure.Theme = "dark";
-      save_path = fullfile(pwd, "screenshot-testing-dark-2-vertical.png");
+      save_path = fullfile(pwd, "screenshot-testing-dark-2-editfield.png");
+      exportapp(testcase.App.Window.MainFigure, save_path)
+    end  % function
+
+    function LightTheme_2(testcase)
+      testcase.App = apptest_Align_EditField_DropDown_2_vertical;
+      drawnow
+      if not(isMATLABReleaseOlderThan("R2025a"))
+        testcase.App.Window.MainFigure.Theme = "light";
+      end  % if
+      save_path = fullfile(pwd, "screenshot-testing-light-2-editfield.png");
       exportapp(testcase.App.Window.MainFigure, save_path)
     end  % function
 
     function DarkTheme_3(testcase)
-      testcase.App = apptest_Align_EditField_DropDown_2_vertical;
+      if isMATLABReleaseOlderThan("R2025a")
+
+        return
+
+      end  % if
+      testcase.App = apptest_AlignComponents_1_horizontal;
       drawnow
       testcase.App.Window.MainFigure.Theme = "dark";
-      save_path = fullfile(pwd, "screenshot-testing-dark-3-vertical.png");
+      save_path = fullfile(pwd, "screenshot-testing-dark-3-horizontal.png");
+      exportapp(testcase.App.Window.MainFigure, save_path)
+    end  % function
+
+    function LightTheme_3(testcase)
+      testcase.App = apptest_AlignComponents_1_horizontal;
+      drawnow
+      testcase.App.Window.MainFigure.Theme = "light";
+      save_path = fullfile(pwd, "screenshot-testing-light-3-horizontal.png");
+      exportapp(testcase.App.Window.MainFigure, save_path)
+    end  % function
+
+    function DarkTheme_4(testcase)
+      if isMATLABReleaseOlderThan("R2025a")
+
+        return
+
+      end  % if
+      testcase.App = apptest_AlignComponents_1_horizontal;
+      drawnow
+      testcase.App.Window.MainFigure.Theme = "dark";
+      save_path = fullfile(pwd, "screenshot-testing-dark-4-horizontal.png");
+      exportapp(testcase.App.Window.MainFigure, save_path)
+    end  % function
+
+    function LightTheme_4(testcase)
+      testcase.App = apptest_AlignComponents_1_horizontal;
+      drawnow
+      testcase.App.Window.MainFigure.Theme = "light";
+      save_path = fullfile(pwd, "screenshot-testing-light-4-horizontal.png");
       exportapp(testcase.App.Window.MainFigure, save_path)
     end  % function
 

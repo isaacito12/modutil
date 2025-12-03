@@ -25,11 +25,13 @@ main_grid.RowSpacing = 0;
 AppUtil1.Component.HorizontalLine(main_grid);  % !test-target
 
 %%
+if not(isMATLABReleaseOlderThan("R2025a"))
+  main_figure.Theme = "light";
+end  % if
+
+movegui(main_figure, "center")
 main_figure.Visible = "on";
-
 drawnow
-main_figure.Theme = "dark";
-
 if nargout > 0
   App = struct;
   App.Window.MainFigure = main_figure;

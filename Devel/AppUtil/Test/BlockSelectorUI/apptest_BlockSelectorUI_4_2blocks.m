@@ -1,6 +1,4 @@
 function App = apptest_BlockSelectorUI_4_2blocks
-% This is a function-based test app with direct use of uifigure and uigridlayout,
-% instead of using AppUtilWindow and its layout property.
 
 % Copyright 2025 The MathWorks, Inc.
 
@@ -17,7 +15,11 @@ target_blockname = [
   "Motor & Drive" + newline + "(System Level)"
   ];
 
-modelfile_fullpath = FileUtil1.getFileFullPath("samplemodel_BlockSelectorUI_test_3_motor.mdl");
+if isMATLABReleaseOlderThan("R2025a")
+  modelfile_fullpath = FileUtil1.getFileFullPath("samplemodel_BlockSelectorUI_test_3_motor_24b.mdl");
+else
+  modelfile_fullpath = FileUtil1.getFileFullPath("samplemodel_BlockSelectorUI_test_3_motor.mdl");
+end
 
 main_figure = uifigure(Visible="off");
 main_figure.Position(3) = 1200;  % width
@@ -55,7 +57,7 @@ block_selector_ui.ModelFileFullPath = modelfile_fullpath;
 %%
 movegui(main_figure, "center")
 main_figure.Visible = "on";
-
+drawnow
 if nargout > 0
   App = struct;
   App.Window.MainFigure = main_figure;

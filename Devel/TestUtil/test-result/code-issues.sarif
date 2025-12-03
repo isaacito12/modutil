@@ -1,0 +1,49 @@
+{
+  "version": "2.1.0",
+  "properties": {
+    "Date": "24-Nov-2025 12:27:38",
+    "Release": "R2025b",
+    "CodeAnalyzerConfiguration": "active"
+  },
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Code Analyzer"
+        }
+      },
+      "originalUriBaseIds": {
+        "SourceRoot": {
+          "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+TestUtil1/summarizeTestResult.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/summarizeTestResult/demo_summarizeTestResult_1.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/summarizeTestResult/unittest_summarizeTestResult.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "buildfile.m"
+          }
+        }
+      ],
+      "results": []
+    }
+  ]
+}

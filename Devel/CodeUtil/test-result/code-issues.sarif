@@ -1,0 +1,331 @@
+{
+  "version": "2.1.0",
+  "properties": {
+    "Date": "27-Oct-2025 11:39:42",
+    "Release": "R2025b",
+    "CodeAnalyzerConfiguration": "active"
+  },
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Code Analyzer"
+        }
+      },
+      "originalUriBaseIds": {
+        "SourceRoot": {
+          "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+CodeUtil1/DoubleValue.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+CodeUtil1/PhysicalValue.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+CodeUtil1/cleanupCodeText.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+CodeUtil1/getDoubleOrSimscapeValueFromString.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+CodeUtil1/getDoubleOrSimscapeValueFromText.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+CodeUtil1/getNumberArrayFromString.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+CodeUtil1/getNumericValueFromString.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+CodeUtil1/i18n.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+CodeUtil1/mustBeAllCommensurateUnit.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+CodeUtil1/mustBeFunctionHandleOrEmpty.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+CodeUtil1/mustBeNumericValueStringOrValidNameOrEmpty.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+CodeUtil1/mustBeSimscapeValueNonnegative.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+CodeUtil1/mustBeSimscapeValuePositive.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+CodeUtil1/mustBeSimscapeValueStrictAscend.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+CodeUtil1/mustBeStrictAscend.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+CodeUtil1/mustBeStringOrPositiveInteger.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+CodeUtil1/mustBeTextOrNonnegativeNumber.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+CodeUtil1/mustBeTextOrPositiveInteger.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+CodeUtil1/mustBeTextOrPositiveNumber.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+CodeUtil1/squashCodeText.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "+CodeUtil1/stringify.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/DoubleValue/apptest_DoubleValue_1_workspace.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/DoubleValue/apptest_DoubleValue_2_watch.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/DoubleValue/demo_DoubleValue_1_basics.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/DoubleValue/demo_DoubleValue_2_workspace.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/DoubleValue/demo_DoubleValue_3_watch.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/DoubleValue/uitest_DoubleValue.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/DoubleValue/unittest_DoubleValue.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/PhysicalValue/apptest_PhysicalValue_1_workspace.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/PhysicalValue/apptest_PhysicalValue_2_watch.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/PhysicalValue/demo_PhysicalValue_1_basics.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/PhysicalValue/demo_PhysicalValue_2_workspace.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/PhysicalValue/demo_PhysicalValue_3_watch.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/PhysicalValue/uitest_PhysicalValue.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/PhysicalValue/unittest_PhysicalValue.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/cleanupCodeText/demo_cleanupCodeText.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/cleanupCodeText/unittest_cleanupCodeText.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/getDoubleOrSimscapeValueFromText/unittest_getDoubleOrSimscapeValueFromText.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/mustBe/unittest_mustBeSimscapeValueNonnegative.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/mustBe/unittest_mustBeSimscapeValuePositive.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/mustBe/unittest_mustBeSimscapeValueStrictAscend.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/mustBe/unittest_mustBeStrictAscend.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/mustBe/unittest_mustBeStringOrPositiveInteger.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/mustBe/unittest_mustBeTextOrNonnegativeNumber.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/mustBe/unittest_mustBeTextOrPositiveInteger.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/mustBe/unittest_mustBeTextOrPositiveNumber.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/squashCodeText/unittest_squashCodeText.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "buildfile.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "demoapp_PhysicalValue_1.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "demoapp_PhysicalValue_2_derive.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "uitest_CodeUtil.m"
+          }
+        }
+      ],
+      "results": []
+    }
+  ]
+}

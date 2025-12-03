@@ -1,5 +1,5 @@
 classdef uitest_SignalUtil < matlab.uitest.TestCase
-  %% Class-based unit test for app
+  % Class-based unit test for app
 
   % Overview of App Testing Framework
   % https://www.mathworks.com/help/matlab/matlab_prog/overview-of-app-testing-framework.html
@@ -10,12 +10,10 @@ classdef uitest_SignalUtil < matlab.uitest.TestCase
   % Copyright 2024-2025 The MathWorks, Inc.
 
   properties
-
     % Do not specify the class name for a property to hold a handle to an app.
     % For class-based test apps, the class name is the app name, making
     % it difficult to use a common teardown if the class name is specified here.
     App (1,1)
-
   end  % properties
 
   methods (TestMethodSetup)
@@ -27,22 +25,13 @@ classdef uitest_SignalUtil < matlab.uitest.TestCase
       function closeAll
         % Delete the app's figure object from memory.
         if class(testcase.App) ~= "double"
-          if isstruct(testcase.App)
-            % Function-based app
-            if not(isfield(testcase.App, "Window"))
-              % There is no window to delete.
+          if isstruct(testcase.App) && not(isfield(testcase.App, "Window"))
+            % Function-based app with no window to delete.
 
-              return
+            return
 
-            end  % if
-            % App.Window is a struct field which does not trigger destructor.
-            % Delete the figure directly.
-            delete(testcase.App.Window.MainFigure)
-          else
-            % Class-based app
-            % App.Window's destructor deletes the figure.
-            delete(testcase.App.Window)
           end  % if
+          delete(testcase.App.Window.MainFigure)
         end  % if
         close all
         bdclose all
@@ -65,14 +54,21 @@ classdef uitest_SignalUtil < matlab.uitest.TestCase
     %% Minimum quality check
     % Check that models, scripts, functions, and classes run right out of the box.
 
-    function PassingTest_1(testcase)
-        % More tests for SignalDesignApp are done in Test > SignalDesignApp folder.
-        testcase.App = SignalDesignApp;
+    % Warnings can be displayed even when the app opens and starts working seemingly normally.
+    % Make sure there is no warning when opening an app.
+
+    function app_launches_without_warnings_1(testcase)
+      verifyWarningFree(testcase, @() target())
+      function target()
+        testcase.App = SignalDesignApp;  % !test-target
+      end  % nested function
     end  % function
 
-    function PassingTest_2(testcase)
-         % More tests for TimedTraceBuilderApp are done in Test > TimedTraceBuilderApp folder.
-       testcase.App = TimedTraceBuilderApp;
+    function app_launches_without_warnings_2(testcase)
+      verifyWarningFree(testcase, @() target())
+      function target()
+        testcase.App = TraceGeneratorApp;  % !test-target
+      end  % nested function
     end  % function
 
   end  % methods

@@ -1,6 +1,4 @@
 function App = apptest_DropDown_1_simplest
-% This test app directly uses uifigure and uigridlayout instead of AppUtilLayout.
-% This keeps the dependency of this test minimal.
 
 % Copyright 2025 The MathWorks, Inc.
 
@@ -25,11 +23,13 @@ drop_down_ui = AppUtil1.Component.DropDown(main_grid);  % !test-target
 drop_down_ui.MainFigure = main_figure;
 
 %%
+if not(isMATLABReleaseOlderThan("R2025a"))
+  main_figure.Theme = "light";
+end  % if
+
+movegui(main_figure, "center")
 main_figure.Visible = "on";
-
 drawnow
-main_figure.Theme = "light";
-
 if nargout > 0
   App = struct;
   App.Window.MainFigure = main_figure;

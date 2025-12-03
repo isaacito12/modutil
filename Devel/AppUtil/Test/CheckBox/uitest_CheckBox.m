@@ -10,12 +10,10 @@ classdef uitest_CheckBox < matlab.uitest.TestCase
   % Copyright 2024-2025 The MathWorks, Inc.
 
   properties
-
     % Do not specify the class name for a property to hold a handle to an app.
     % For class-based test apps, the class name is the app name, making
     % it difficult to use a common teardown if the class name is specified here.
     App (1,1)
-
   end  % properties
 
   methods (TestMethodSetup)
@@ -27,22 +25,13 @@ classdef uitest_CheckBox < matlab.uitest.TestCase
       function closeAll
         % Delete the app's figure object from memory.
         if class(testcase.App) ~= "double"
-          if isstruct(testcase.App)
-            % Function-based app
-            if not(isfield(testcase.App, "Window"))
-              % There is no window to delete.
+          if isstruct(testcase.App) && not(isfield(testcase.App, "Window"))
+            % Function-based app with no window to delete.
 
-              return
+            return
 
-            end  % if
-            % App.Window is a struct field which does not trigger destructor.
-            % Delete the figure directly.
-            delete(testcase.App.Window.MainFigure)
-          else
-            % Class-based app
-            % App.Window's destructor deletes the figure.
-            delete(testcase.App.Window)
           end  % if
+          delete(testcase.App.Window.MainFigure)
         end  % if
         close all
         bdclose all
@@ -66,7 +55,7 @@ classdef uitest_CheckBox < matlab.uitest.TestCase
     % Check that models, scripts, functions, and classes run right out of the box.
 
     % Warnings can be displayed even when the app opens and starts working seemingly normally.
-    % Make surfe there is no warning when opening an app.
+    % Make sure there is no warning when opening an app.
 
     function app_launches_without_warnings_1(testcase)
       verifyWarningFree(testcase, @() target())
@@ -106,26 +95,37 @@ classdef uitest_CheckBox < matlab.uitest.TestCase
 
     function LightTheme_1(testcase)
       testcase.App = apptest_CheckBox_1_simplest;
-      testcase.App.Window.MainFigure.Theme = "light";
+      if not(isMATLABReleaseOlderThan("R2025a"))
+        testcase.App.Window.MainFigure.Theme = "light";
+      end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-1.png");
       exportapp(testcase.App.Window.MainFigure, save_path)
     end  % function
 
     function LightTheme_2(testcase)
       testcase.App = apptest_CheckBox_2_align_inside;
-      testcase.App.Window.MainFigure.Theme = "light";
+      if not(isMATLABReleaseOlderThan("R2025a"))
+        testcase.App.Window.MainFigure.Theme = "light";
+      end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-2.png");
       exportapp(testcase.App.Window.MainFigure, save_path)
     end  % function
 
     function LightTheme_3(testcase)
       testcase.App = apptest_CheckBox_3_tiling;
-      testcase.App.Window.MainFigure.Theme = "light";
+      if not(isMATLABReleaseOlderThan("R2025a"))
+        testcase.App.Window.MainFigure.Theme = "light";
+      end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-3.png");
       exportapp(testcase.App.Window.MainFigure, save_path)
     end  % function
 
     function DarkTheme_1(testcase)
+      if isMATLABReleaseOlderThan("R2025a")
+
+        return
+
+      end  % if
       testcase.App = apptest_CheckBox_1_simplest;
       testcase.App.Window.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-1.png");
@@ -133,6 +133,11 @@ classdef uitest_CheckBox < matlab.uitest.TestCase
     end  % function
 
     function DarkTheme_2(testcase)
+      if isMATLABReleaseOlderThan("R2025a")
+
+        return
+
+      end  % if
       testcase.App = apptest_CheckBox_2_align_inside;
       testcase.App.Window.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-2.png");
@@ -140,6 +145,11 @@ classdef uitest_CheckBox < matlab.uitest.TestCase
     end  % function
 
     function DarkTheme_3(testcase)
+      if isMATLABReleaseOlderThan("R2025a")
+
+        return
+
+      end  % if
       testcase.App = apptest_CheckBox_3_tiling;
       testcase.App.Window.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-3.png");

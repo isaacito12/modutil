@@ -1,7 +1,6 @@
 %[text] # getLinkedCommandFromPlainTextLiveScript demo
-fullpath = string( which("testscript_getLinkedCommandFromPlainTextLiveScript"));
-links = FileUtil1.getLinkedCommandFromPlainTextLiveScript(fullpath);
-disp(links) %[output:3a8da3e1]
+fullpath = string( which("sampleScript_getLinkedCommandFromPlainTextLiveScript_1"));
+FileUtil1.getLinkedCommandFromPlainTextLiveScript(fullpath) %[output:5d9160b8]
 %[text] *Copyright 2025 The MathWorks, Inc.*
 
 %[appendix]{"version":"1.0"}
@@ -9,6 +8,6 @@ disp(links) %[output:3a8da3e1]
 %[metadata:view]
 %   data: {"layout":"inline"}
 %---
-%[output:3a8da3e1]
-%   data: {"dataType":"text","outputData":{"text":"    <strong>Line<\/strong>            <strong>LinkText<\/strong>                 <strong>Command<\/strong>     \n    <strong>____<\/strong>    <strong>_________________________<\/strong>    <strong>________________<\/strong>\n\n     2      \"linked text\"                \"disp(\"test 1\")\"\n     2      \"another link\"               \"disp(\"test 2\")\"\n     3      \"Yet another linked text\"    \"datetime\"      \n     3      \"This\"                       \"logo\"          \n\n","truncated":false}}
+%[output:5d9160b8]
+%   data: {"dataType":"tabular","outputData":{"columnNames":["Line","LinkText","Command"],"columns":3,"dataTypes":["double","string","string"],"header":"4×3 table","name":"ans","rows":4,"type":"table","value":[["2","\"linked text\"","\"disp(\"test 1\")\""],["2","\"another link\"","\"disp(\"test 2\")\""],["3","\"Yet another linked text\"","\"datetime\""],["3","\"This\"","\"logo\""]]}}
 %---

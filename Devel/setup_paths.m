@@ -1,3 +1,5 @@
+addpath(genpath("AppsForPhysicalSystems"))
+
 addpath("AppUtil")
 addpath(genpath("AppUtil/Test"))
 
@@ -15,3 +17,6 @@ addpath(genpath("SearchUtil/Test"))
 
 addpath("SignalUtil")
 addpath(genpath("SignalUtil/Test"))
+
+addpath("TestUtil")
+addpath(genpath("TestUtil/Test"))

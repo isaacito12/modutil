@@ -32,11 +32,13 @@ polar_axes_ui = AppUtil1.Graphics.PolarAxes(main_layout);  % !test-target
 polar_axes_ui.ComponentHeight = 390;
 
 %%
+if not(isMATLABReleaseOlderThan("R2025a"))
+  main_figure.Theme = "light";
+end  % if
+
+movegui(main_figure, "center")
 main_figure.Visible = "on";
-
 drawnow
-main_figure.Theme = "light";
-
 if nargout > 0
   App = struct;
   App.Window.MainFigure = main_figure;

@@ -1,0 +1,14 @@
+component samplecomponent_findAllSimscapeBlocks
+
+% Copyright 2025 The MathWorks, Inc.
+
+inputs
+  x = {0 "1"}
+end
+outputs
+  f = {0 "1"}
+end
+equations
+  f == x
+end
+end  % component

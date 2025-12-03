@@ -1,6 +1,4 @@
 function App = apptest_EditableDropDown_2
-% This test app directly uses uifigure.
-% Component layout is handled with AppUtilLayout.
 
 % If Editable is "off" in an EditableDropDown component, interactive edit is disabled,
 % but, it is still possible to modify the Items property programmaticaly.
@@ -15,17 +13,17 @@ main_figure = uifigure(Visible="off");
 main_figure.Position(3) = 500;  % width
 main_figure.Position(4) = 300;  % height
 
-app_layout = AppUtil1.AppUtilLayout(main_figure);
+app_column_layout = AppUtil1.ColumnLayout(main_figure);
 
 %%
 
-button_ui = AppUtil1.Component.Button(NewArea(app_layout));
+button_ui = AppUtil1.Component.Button(NewColumnGrid(app_column_layout));
 button_ui.MainFigure = main_figure;
 button_ui.Text = "Add an item";
 button_ui.ButtonWidth = 140;
 button_ui.ButtonPushedCallback = @() react_ButtonPushed();
 
-editable_drop_down_ui = AppUtil1.Component.EditableDropDown(NewArea(app_layout));  % !test-target
+editable_drop_down_ui = AppUtil1.Component.EditableDropDown(NewColumnGrid(app_column_layout));  % !test-target
 editable_drop_down_ui.MainFigure = main_figure;
 
 % Set Items before turning off MainDropDown's Editable property.
@@ -43,11 +41,13 @@ editable_drop_down_ui.Items = ["aa", "bb", "cc"];
   end  % nested function
 
 %%
+if not(isMATLABReleaseOlderThan("R2025a"))
+  main_figure.Theme = "light";
+end  % if
+
+movegui(main_figure, "center")
 main_figure.Visible = "on";
-
 drawnow
-main_figure.Theme = "light";
-
 if nargout > 0
   App = struct;
   App.Window.MainFigure = main_figure;

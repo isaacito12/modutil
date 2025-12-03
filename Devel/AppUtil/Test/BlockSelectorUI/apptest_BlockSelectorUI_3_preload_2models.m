@@ -1,6 +1,4 @@
 function App = apptest_BlockSelectorUI_3_preload_2models
-% This is a function-based test app with direct use of uifigure and uigridlayout,
-% instead of using AppUtilWindow and its layout property.
 
 % Copyright 2025 The MathWorks, Inc.
 
@@ -27,17 +25,25 @@ block_selector_ui.MainFigure = main_figure;  % !test-target
 block_selector_ui.TargetSimscapeBlockNames = "Rotational Friction";  % !test-target
 
 % Add two models to the drop down.
-block_selector_ui.ModelFileFullPath = FileUtil1.getFileFullPath("samplemodel_BlockSelectorUI_test_1_fric.mdl");  % !test-target
-block_selector_ui.ModelFileFullPath = FileUtil1.getFileFullPath("samplemodel_BlockSelectorUI_test_2_fric2.mdl");  % !test-target
+if isMATLABReleaseOlderThan("R2025a")
+  block_selector_ui.ModelFileFullPath = FileUtil1.getFileFullPath("samplemodel_BlockSelectorUI_test_1_fric_24b.mdl");  % !test-target
+  block_selector_ui.ModelFileFullPath = FileUtil1.getFileFullPath("samplemodel_BlockSelectorUI_test_2_fric2_24b.mdl");  % !test-target
+else
+  block_selector_ui.ModelFileFullPath = FileUtil1.getFileFullPath("samplemodel_BlockSelectorUI_test_1_fric.mdl");  % !test-target
+  block_selector_ui.ModelFileFullPath = FileUtil1.getFileFullPath("samplemodel_BlockSelectorUI_test_2_fric2.mdl");  % !test-target
+end  % if
 
 % Select an existing item to make it the current in the drop down.
-block_selector_ui.ModelFileFullPath = FileUtil1.getFileFullPath("samplemodel_BlockSelectorUI_test_1_fric.mdl");  % !test-target
-% block_selector_ui.ModelFileFullPath = "";  % !test-target
+if isMATLABReleaseOlderThan("R2025a")
+  block_selector_ui.ModelFileFullPath = FileUtil1.getFileFullPath("samplemodel_BlockSelectorUI_test_1_fric_24b.mdl");  % !test-target
+else
+  block_selector_ui.ModelFileFullPath = FileUtil1.getFileFullPath("samplemodel_BlockSelectorUI_test_1_fric.mdl");  % !test-target
+end  % if
 
 %%
 movegui(main_figure, "center")
 main_figure.Visible = "on";
-
+drawnow
 if nargout > 0
   App = struct;
   App.Window.MainFigure = main_figure;

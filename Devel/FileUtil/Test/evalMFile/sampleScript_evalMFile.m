@@ -1,0 +1,3 @@
+% Sample script
+
+% Copyright 2025 The MathWorks, Inc.

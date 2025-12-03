@@ -6,32 +6,44 @@ arguments (Output)
   App (:,1) struct
 end  % arguments
 
-app_window = LiteApp8.LiteAppWindow(SourceFilename=mfilename);
+if isMATLABReleaseOlderThan("R2025a")
+  % colormaplist was introduced in R2025a.
+  id = "ColormapApp:NotSupported";
+  msg = CodeUtil1.i18n("The app requires MATLAB R2025a or newer.");
+
+  throw(MException(id, msg))
+
+end  % if
+
+main_figure = uifigure(Visible="off");
+
+app_window = AppUtil1.AppWindow(main_figure, SourceFile=mfilename);
 app_window.Width = 900;
 app_window.Height = 500;
-app_window.Name = CodeTool1.i18n("Colormap");
+app_window.Name = CodeUtil1.i18n("Colormap");
 
-main_layout = app_window.MainLayout;
-
-app_area = NewArea(main_layout);
+main_column_layout = app_window.MainLayout;
+main_column_grid = NewColumnGrid(main_column_layout);
+main_row_layout = AppUtil1.RowLayout(main_column_grid);
 
 % =============================================================================
-app_column = NewColumn(main_layout, app_area, Width=140);
+% Left pane
 
-app_row = NewRow(main_layout, app_column);
-listbox_ui = LiteApp8.Component.ListBox(NewSlot(main_layout, app_row));
+listbox_ui = AppUtil1.Component.ListBox(NewRowGrid(main_row_layout, Width=140));
 listbox_ui.MainFigure = app_window.MainFigure;
 listbox_ui.ComponentHeight = "1x";
 listbox_ui.MainListBox.Items = colormaplist;
 listbox_ui.ValueChangedCallback = @() react_ColormapChanged();
 
 % =============================================================================
-app_column = NewColumn(main_layout, app_area);
+% Center pane
+center_grid = NewRowGrid(main_row_layout);
+column_layout = AppUtil1.ColumnLayout(center_grid);
 
 % -----------------------------------------------------------------------------
-app_row = NewRow(main_layout, app_column);
+column_grid = NewColumnGrid(column_layout);
 
-axes_ui = LiteApp8.Graphics.Axes(NewSlot(main_layout, app_row));
+axes_ui = AppUtil1.Graphics.Axes(column_grid);
 axes_ui.MainFigure = app_window.MainFigure;
 axes_ui.ComponentHeight = 400;
 
@@ -41,32 +53,36 @@ contourf(axes_ui.MainAxes, peaks)
 colorbar(axes_ui.MainAxes)
 
 % -----------------------------------------------------------------------------
-app_row = NewRow(main_layout, app_column);
+column_grid = NewColumnGrid(column_layout);
 
-label_ui_1 = LiteApp8.Component.Label(NewSlot(main_layout, app_row));
+label_ui_1 = AppUtil1.Component.Label(column_grid);
 label_ui_1.MainFigure = app_window.MainFigure;
-label_ui_1.Text = CodeTool1.i18n("Row");
+label_ui_1.Text = CodeUtil1.i18n("Row");
 
 % -----------------------------------------------------------------------------
-app_row = NewRow(main_layout, app_column);
+column_grid = NewColumnGrid(column_layout);
 
-label_ui_2 = LiteApp8.Component.Label(NewSlot(main_layout, app_row));
+row_layout = AppUtil1.RowLayout(column_grid);
+
+label_ui_2 = AppUtil1.Component.Label(NewRowGrid(row_layout));
 label_ui_2.MainFigure = app_window.MainFigure;
-label_ui_2.Text = CodeTool1.i18n("Light");
+label_ui_2.Text = CodeUtil1.i18n("Light");
 label_ui_2.MainLabel.FontColor = "black";
 
-label_ui_3 = LiteApp8.Component.Label(NewSlot(main_layout, app_row));
+label_ui_3 = AppUtil1.Component.Label(NewRowGrid(row_layout));
 label_ui_3.MainFigure = app_window.MainFigure;
-label_ui_3.Text = CodeTool1.i18n("Dark");
+label_ui_3.Text = CodeUtil1.i18n("Dark");
 label_ui_3.MainLabel.FontColor = "white";
 
 % =============================================================================
-app_column = NewColumn(main_layout, app_area, Width=320);
+% Right pane
+right_grid = NewRowGrid(main_row_layout, Width=320);
+column_layout = AppUtil1.ColumnLayout(right_grid);
 
 % -----------------------------------------------------------------------------
-app_row = NewRow(main_layout, app_column);
+column_grid = NewColumnGrid(column_layout);
 
-table_ui = LiteApp8.Component.Table(NewSlot(main_layout, app_row));
+table_ui = AppUtil1.Component.Table(column_grid);
 table_ui.ComponentHeight = app_window.Height - 40;
 table_ui.MainFigure = app_window.MainFigure;
 table_ui.MainTable.Data = parula;
@@ -111,10 +127,10 @@ hex_text = "#000000";
 
 %%
 react_ColormapChanged()
-Show(app_window)
 
-app_window.MainFigure.Theme = "dark";
-
+movegui(main_figure, "center")
+main_figure.Visible = "on";
+drawnow
 if nargout > 0
   App.Window = app_window;
 end  % if

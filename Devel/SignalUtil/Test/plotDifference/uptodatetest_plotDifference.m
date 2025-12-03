@@ -1,5 +1,5 @@
 classdef uptodatetest_plotDifference < matlab.unittest.TestCase
-  %% Class-based unit test
+  % Class-based unit test
 
   % Author Class-Based Unit Tests in MATLAB
   % https://www.mathworks.com/help/matlab/matlab_prog/author-class-based-unit-tests-in-matlab.html
@@ -35,9 +35,13 @@ classdef uptodatetest_plotDifference < matlab.unittest.TestCase
     %% Up-to-date tests
 
     function markdowns_are_uptodate(testcase)
-      % Make a planned failure if a MATLAB project is not loaded.
-      % !todo: Remove this assertion. Instead, dynamically create and delete a project to run this test.
-      assertFalse(testcase, isempty(matlab.project.rootProject))
+      % If a project is not used, skip this test.
+      % !todo: Run this test even without a MATLAB project.
+      if isempty(matlab.project.rootProject)
+
+        return
+
+      end  % if
 
       % Make sure that all Live Scripts have been converted to markdown files.
       n = FileUtil1.batchGenerateMarkdowns( ...
@@ -58,9 +62,13 @@ classdef uptodatetest_plotDifference < matlab.unittest.TestCase
     end  % function
 
     function markdown_files_exist(testcase)
-      % Make a planned failure if a MATLAB project is not loaded.
-      % !todo: Remove this assertion. Instead, dynamically create and delete a project to run this test.
-      assertFalse(testcase, isempty(matlab.project.rootProject))
+      % If a project is not used, skip this test.
+      % !todo: Run this test even without a MATLAB project.
+      if isempty(matlab.project.rootProject)
+
+        return
+
+      end  % if
 
       % Check that Markdown files exist for all plain-text Live Script files in pwd.
       % Markdowns files are assumed to be in the markdown folder in pwd.

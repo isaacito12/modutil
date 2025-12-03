@@ -41,7 +41,7 @@ classdef unittest_SignalUtil < matlab.unittest.TestCase
     end  % function
 
     function PassingTest_3(~)
-      TimedTraceBuilderApp_Description
+      TraceGeneratorApp_Description
     end  % function
 
   end  % methods

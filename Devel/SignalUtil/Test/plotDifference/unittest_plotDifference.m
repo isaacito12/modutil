@@ -73,6 +73,10 @@ classdef unittest_plotDifference < matlab.unittest.TestCase
       delete(uifig)
     end  % function
 
+    function PassingTest_6(~)
+      demo_plotDifference
+    end  % function
+
   end  % methods
 
 end  % classdef

@@ -22,11 +22,13 @@ app_struct.LengthUI.Value = "[1 2 3]";
 % ValueChangedCallback(app_struct.LengthUI) does not work because LengthUI is a struct field.
 app_struct.LengthUI.ValueChangedCallback()
 
-Show(app_struct.Window)
+if not(isMATLABReleaseOlderThan("R2025a"))
+  app_struct.Window.MainFigure.Theme = "light";
+end  % if
 
+movegui(app_struct.Window.MainFigure, "center")
+app_struct.Window.MainFigure.Visible = "on";
 drawnow
-app_struct.Window.MainFigure.Theme = "light";
-
 if nargout > 0
   App = struct;
   App.Window = app_struct.Window;
@@ -57,46 +59,62 @@ end  % arguments
 
 width_left_label = 140;
 
-app_window = AppUtil1.AppUtilWindow(SourceFilename=mfilename);
+main_figure = uifigure(Visible="off");
+
+app_window = AppUtil1.AppWindow(main_figure, SourceFile=mfilename);
 app_window.Width = 500;
 app_window.Height = 200;
 app_window.Name = "Test";
 
-main_layout = app_window.MainLayout;
+main_column_layout = app_window.MainLayout;
 
-app_area = NewArea(main_layout);
-app_column = NewColumn(main_layout, app_area);
-
-app_row = NewRow(main_layout, app_column);
-label_ui = AppUtil1.Component.Label(NewSlot(main_layout, app_row, Width="fit"));
+% -----------------------------------------------------------------------------
+column_grid = NewColumnGrid(main_column_layout);
+label_ui = AppUtil1.Component.Label(column_grid);
 label_ui.Text = "Enter a value of type double."...
   + newline + "The value can also use base workspace variables.";
 label_ui.ComponentHeight = AppUtil1.Constant.Height{"oneline"}*2;
 
-app_row = NewRow(main_layout, app_column);
-label_ui = AppUtil1.Component.Label(NewSlot(main_layout, app_row, Width="fit"));
+% -----------------------------------------------------------------------------
+column_grid = NewColumnGrid(main_column_layout);
+row_layout = AppUtil1.RowLayout(column_grid);
+
+row_grid = NewRowGrid(row_layout, Width="fit");
+label_ui = AppUtil1.Component.Label(row_grid);
 label_ui.Text = "Length, $L$";
 label_ui.ComponentWidth = width_left_label;
-length_ui = AppUtil1.Component.EditField(NewSlot(main_layout, app_row));
+
+row_grid = NewRowGrid(row_layout);
+length_ui = AppUtil1.Component.EditField(row_grid);
 length_ui.ValueChangedCallback = @() react_LengthUI_ValueChanged();
 
 % -----------------------------------------------------------------------------
-app_row = NewRow(main_layout, app_column);
-AppUtil1.Component.HorizontalLine(app_row);
+column_grid = NewColumnGrid(main_column_layout);
+AppUtil1.Component.HorizontalLine(column_grid);
 
-app_row = NewRow(main_layout, app_column);
-label_ui = AppUtil1.Component.Label(NewSlot(main_layout, app_row));
+% -----------------------------------------------------------------------------
+column_grid = NewColumnGrid(main_column_layout);
+
+label_ui = AppUtil1.Component.Label(column_grid);
 label_ui.Text = "\textbf{Derived}";
 
-app_row = NewRow(main_layout, app_column);
-label_ui = AppUtil1.Component.Label(NewSlot(main_layout, app_row, Width="fit"));
+% -----------------------------------------------------------------------------
+column_grid = NewColumnGrid(main_column_layout);
+row_layout = AppUtil1.RowLayout(column_grid);
+
+row_grid = NewRowGrid(row_layout, Width="fit");
+label_ui = AppUtil1.Component.Label(row_grid);
 label_ui.Text = "Area, $S=L^{2}$";
 label_ui.ComponentWidth = width_left_label;
-area_ui = AppUtil1.Component.EditField(NewSlot(main_layout, app_row));
+
+row_grid = NewRowGrid(row_layout);
+area_ui = AppUtil1.Component.EditField(row_grid);
 area_ui.ReadOnly = "on";
 
-app_row = NewRow(main_layout, app_column);
-button_ui = AppUtil1.Component.Button(NewSlot(main_layout, app_row));
+% -----------------------------------------------------------------------------
+column_grid = NewColumnGrid(main_column_layout);
+
+button_ui = AppUtil1.Component.Button(column_grid);
 button_ui.ButtonWidth = 100;
 button_ui.HorizontalAlignment = "center";
 button_ui.Text = "Refresh";

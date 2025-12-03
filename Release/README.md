@@ -3,6 +3,17 @@
 A collection of MATLAB® apps and APIs to streamline modeling workflows
 with Simscape for physical modeling.
 
+Input signals
+
+Lookup tables
+
+Building apps
+
+- Easy to build.
+- Can use base workspace variables.
+
+Text search and replace
+
 ## Set up
 
 To use the utility, copy the `ModelingUtilityForSimscape` folder

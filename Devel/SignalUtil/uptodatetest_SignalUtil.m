@@ -59,8 +59,8 @@ classdef uptodatetest_SignalUtil < matlab.unittest.TestCase
       % Make sure the main script HTML file is up to date.
       % HideCode option for the export command is false.
 
-      source_fullpath = FileUtil1.getFileFullPath("TimedTraceBuilderApp_Description.m");
-      destination_fullpath = FileUtil1.getFileFullPath("TimedTraceBuilderApp_Description.html");
+      source_fullpath = FileUtil1.getFileFullPath("TraceGeneratorApp_Description.m");
+      destination_fullpath = FileUtil1.getFileFullPath("TraceGeneratorApp_Description.html");
 
       % This test uses a conditional branch as a special case because it is practical.
       newer = FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);

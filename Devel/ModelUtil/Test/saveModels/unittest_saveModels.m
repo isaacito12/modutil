@@ -1,5 +1,5 @@
 classdef unittest_saveModels < matlab.unittest.TestCase
-  %% Class-based unit test
+  % Class-based unit test
 
   % Author Class-Based Unit Tests in MATLAB
   % https://www.mathworks.com/help/matlab/matlab_prog/author-class-based-unit-tests-in-matlab.html
@@ -47,19 +47,21 @@ classdef unittest_saveModels < matlab.unittest.TestCase
     end  % function
 
     function Test_WithProject_1(testcase)
-      % Make a planned failure if a MATLAB project is not loaded.
-      % !todo: Remove this assertion. Instead, dynamically create and delete a project to run this test.
-      assertFalse(testcase, isempty(matlab.project.rootProject))
+      if isempty(matlab.project.rootProject)
 
+        return
+
+      end  % if
       [num_files_to_be_saved, tbl] = ModelUtil1.saveModels( DryRun=true, Target="Project" );
       verifyTrue(testcase, num_files_to_be_saved <= height(tbl))
     end  % function
 
     function Test_WithProject_2(testcase)
-      % Make a planned failure if a MATLAB project is not loaded.
-      % !todo: Remove this assertion. Instead, dynamically create and delete a project to run this test.
-      assertFalse(testcase, isempty(matlab.project.rootProject))
+      if isempty(matlab.project.rootProject)
 
+        return
+
+      end  % if
       [num_files_to_be_saved, tbl] = ModelUtil1.saveModels( ...
         DryRun = true, ...
         DisplayInfo = false, ...

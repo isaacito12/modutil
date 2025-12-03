@@ -26,11 +26,13 @@ ta.ComponentHeight = main_figure.Position(4) - 20;
 ta.ValueChangedCallback = @() disp(ta.ValueString);
 
 %%
+if not(isMATLABReleaseOlderThan("R2025a"))
+  main_figure.Theme = "light";
+end  % if
+
+movegui(main_figure, "center")
 main_figure.Visible = "on";
-
 drawnow
-main_figure.Theme = "light";
-
 if nargout > 0
   App = struct;
   App.Window.MainFigure = main_figure;

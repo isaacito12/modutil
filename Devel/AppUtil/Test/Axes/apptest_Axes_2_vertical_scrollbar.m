@@ -33,11 +33,13 @@ axes_ui.ComponentHeight = main_figure.Position(4) + 100;
 axes_ui.HighlightBackground = "on";
 
 %%
+if not(isMATLABReleaseOlderThan("R2025a"))
+  main_figure.Theme = "light";
+end  % if
+
+movegui(main_figure, "center")
 main_figure.Visible = "on";
-
 drawnow
-main_figure.Theme = "dark";
-
 if nargout > 0
   App = struct;
   App.Window.MainFigure = main_figure;

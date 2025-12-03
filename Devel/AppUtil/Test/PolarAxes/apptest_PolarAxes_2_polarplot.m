@@ -11,24 +11,31 @@ main_figure = uifigure(Visible="off");
 main_figure.Position(3) = 400;  % width
 main_figure.Position(4) = 400;  % height
 
-main_layout = AppUtil1.AppUtilLayout(main_figure);
+main_column_layout = AppUtil1.ColumnLayout(main_figure);
 
-build_gui(main_layout)
+build_gui(main_column_layout)
 
 %%
+if not(isMATLABReleaseOlderThan("R2025a"))
+  main_figure.Theme = "light";
+end  % if
+
+movegui(main_figure, "center")
 main_figure.Visible = "on";
 drawnow
-
-App.Window.MainFigure = main_figure;
+if nargout > 0
+  App = struct;
+  App.Window.MainFigure = main_figure;
+end  % if
 end  % function
 
-function build_gui(app_layout)
+function build_gui(column_layout)
 %%
 arguments (Input)
-  app_layout (1,1) AppUtil1.AppUtilLayout
+  column_layout (1,1) AppUtil1.ColumnLayout
 end  % arguments
 
-pax_ui = AppUtil1.Graphics.PolarAxes(NewArea(app_layout));  % !test-target
+pax_ui = AppUtil1.Graphics.PolarAxes(NewColumnGrid(column_layout));  % !test-target
 pax_ui.ComponentHeight = 390;  % !test-target
 
 main_polar_axes = pax_ui.MainPloarAxes;
