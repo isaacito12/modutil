@@ -17,6 +17,8 @@ function CommandText = buildReplaceCommandText(NameValuePair)
 % Copyright 2025 The MathWorks, Inc.
 
 arguments (Input)
+
+  % Target files for text replacement
   NameValuePair.FilePaths (:,1) string {mustBeFile}
 
   NameValuePair.TextPattern (1,1) pattern
@@ -26,6 +28,7 @@ arguments (Input)
   NameValuePair.NewText (1,1) string
 
   NameValuePair.CommandName (1,1) string = "SearchUtil1.replaceText"
+
 end  % arguments
 
 arguments (Output)

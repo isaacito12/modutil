@@ -340,9 +340,10 @@ classdef SignalDesignAppMain < handle
         design_matrix = evalin("base", design_matrix_text);  % !todo: Avoid evaluation.
       catch exception
         App.IsValidMatrix = false;
+        msg = exception.message;
         if App.Window.MainFigure.Visible
           window_title = "Error";
-          uialert(App.Window.MainFigure, exception.message, window_title)
+          uialert(App.Window.MainFigure, msg, window_title)
         else
           disp(msg)
         end  % if
@@ -355,9 +356,10 @@ classdef SignalDesignAppMain < handle
       result = SignalUtil1.checkSignalDesignMatrix(design_matrix);
       if not(result.IsValid)
         App.IsValidMatrix = false;
+        msg = result.Message;
         if App.Window.MainFigure.Visible
           window_title = "Error";
-          uialert(App.Window.MainFigure, result.Message, window_title)
+          uialert(App.Window.MainFigure, msg, window_title)
         else
           disp(msg)
         end  % if

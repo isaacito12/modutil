@@ -1,70 +1,67 @@
 # Modeling Utility for Simscape™
 
-A collection of MATLAB® apps and APIs to streamline modeling workflows
-with Simscape for physical modeling.
-
-Input signals
-
-Lookup tables
-
-Building apps
-
-- Easy to build.
-- Can use base workspace variables.
-
-Text search and replace
+This is a collection of MATLAB® apps and APIs to streamline
+modeling workflows with Simscape.
 
 ## Set up
 
-To use the utility, copy the `ModelingUtilityForSimscape` folder
-to a desired location on your computer and add the folder to your MATLAB path.
+To use this utility, put the `ModelingUtilityForSimscape` folder
+in a desired location in your computer and add the folder to the MATLAB path.
 
-## Description
+## Highlights
 
-### Apps
+### Building apps programmatically with **AppUtil**
 
-The utility includes apps to assist you with various modeling tasks.
+- Use the `AppUtil` API to easily build simple apps programmatically.
+- The API uses the `uifigure` and `uigridlayout` functions.
+- The API is fully compatible with all UI components that work
+  with `uifigure` and `uigridlayout`.
+- All of the apps included in this utility are built with the `AppUtil` API.
 
-Signal design app
+### Input signal handling with **SignalUtil**
 
-Timed trace generation app
+- Use the `SignalDesignApp` and the `TraceGeneratorApp` to create
+  input signals for simulations.
 
-Lookup-table app
+<img src="ModelingUtilityForSimscape/media/screenshot-SignalDesignApp-dark.png"
+ alt="Signal Design App" width="600"/>
 
-Text search and replace app
+### Lookup table visualization with **ModelUtil**
 
-### Demos
+- Use the `LookupTable1DBlockPlotApp` to find and visualize
+  Simscape PS Lookup Table (1D) blocks and Simulink 1-D Lookup Table blocks
+  in models.
 
-Rotational friction model app
+<img src="ModelingUtilityForSimscape/media/screenshot-LookupTable1DBlockPlotApp-dark.png"
+ alt="Lookup Table 1D Block Plot App" width="600"/>
 
-Monitor info app
+### Text search and replace with **SearchUtil**
 
-Colormap app
+- Use the `TextSearchApp` and the `TextSearchResultViewerApp` to search
+  and replace text in files and models.
+- Use the `SearchUtil` API for complex search and replace operations.
 
-### APIs
+<img src="ModelingUtilityForSimscape/media/screenshot-TextSearchApp-dark.png"
+ alt="Lookup Table 1D Block Plot App" width="500"/>
 
-The utility consists of app, code, file, model, search, and signal utilities.
-They are organized into the following name spaces.
+<img src="ModelingUtilityForSimscape/media/screenshot-TextSearchResultViewerApp-dark.png"
+ alt="Lookup Table 1D Block Plot App" width="600"/>
 
-### AppUtil
+## Apps for physical systems
 
-### CodeUtil
+### Rotational friction app
 
-### FileUtil
+- Use the `RotationalFrictionApp` to understand the friction model
+  and its parameters used in the Rotational Friction block in Simscape.
 
-### ModelUtil
+<img src="ModelingUtilityForSimscape/media/screenshot-RotationalFrictionApp-dark-1.png"
+ alt="Lookup Table 1D Block Plot App" width="800"/>
 
-### SearchUtil
+## Development of the utility
 
-### SignalUtil
+The development repository is hosted in GitHub:
 
-## Development
-
-_This section will become valid after the repository is created._
-
-The development of this utility takes place on GitHub:
-
-https://github.com/mathworks/ModelingUtilityForSimscape
+https://github.com/isaacito12/modutil
 
 ## License
 

@@ -22,6 +22,10 @@ classdef TextSearchAppMain < handle
 
     Window AppUtil1.AppWindow
 
+    SearchTextUI AppUtil1.Component.EditableDropDown
+    IgnoreCaseUI AppUtil1.Component.CheckBox
+    MatchWholeWordUI AppUtil1.Component.CheckBox
+
     TargetFolderUI AppUtil1.Component.DropDown
     IncludeSubfoldersUI AppUtil1.Component.CheckBox
     SelectFolderUI AppUtil1.Component.Button
@@ -39,10 +43,6 @@ classdef TextSearchAppMain < handle
 
     ExcludeLiveScriptUI AppUtil1.Component.CheckBox
     ExcludeMATLABCodeFileUI AppUtil1.Component.CheckBox
-
-    IgnoreCaseUI AppUtil1.Component.CheckBox
-    MatchWholeWordUI AppUtil1.Component.CheckBox
-    SearchTextUI AppUtil1.Component.EditableDropDown
 
     CopyCommandButtonUI AppUtil1.Component.Button
     SearchButtonUI AppUtil1.Component.Button
@@ -106,7 +106,7 @@ classdef TextSearchAppMain < handle
 
       App.Window = AppUtil1.AppWindow(main_figure, SourceFile=which(meta_data.Name));
       App.Window.Name = CodeUtil1.i18n("Text search");
-      App.Window.Height = 340;
+      App.Window.Height = 290;
       App.Window.Width = 600;
 
       build_app_gui(App)
@@ -117,6 +117,10 @@ classdef TextSearchAppMain < handle
       switch NameValuePair.StatesSource
 
         case "options"
+
+          App.SearchTextUI.Value = NameValuePair.SearchText;
+          App.IgnoreCaseUI.Value = NameValuePair.IgnoreCase;
+          App.MatchWholeWordUI.Value = NameValuePair.MatchWholeWord;
 
           App.IncludeSubfoldersUI.Value = NameValuePair.IncludeSubfolders;
 
@@ -138,10 +142,6 @@ classdef TextSearchAppMain < handle
           App.ExcludeLiveScriptUI.Value = NameValuePair.ExcludeLiveScript;
           App.ExcludeMATLABCodeFileUI.Value = NameValuePair.ExcludeMATLABCodeFile;
 
-          App.IgnoreCaseUI.Value = NameValuePair.IgnoreCase;
-          App.MatchWholeWordUI.Value = NameValuePair.MatchWholeWord;
-          App.SearchTextUI.Value = NameValuePair.SearchText;
-
         case "external"
           if not(isfield(NameValuePair, "SearchStates"))
             id = App.errorID + "InvalidSearchStates";
@@ -152,6 +152,13 @@ classdef TextSearchAppMain < handle
           end  % if
 
           states = NameValuePair.SearchStates;
+
+          x = char(string(states.SearchTextPattern));
+          x = x(2:end-1);  % Remove double quotes.
+          App.SearchTextUI.Value = x;
+
+          App.IgnoreCaseUI.Value = states.IgnoreCase;
+          App.MatchWholeWordUI.Value = states.MatchWholeWord;
 
           App.IncludeSubfoldersUI.Value = states.IncludeSubfolders;
 
@@ -170,12 +177,6 @@ classdef TextSearchAppMain < handle
 
           App.ExcludeLiveScriptUI.Value = states.ExcludeLiveScript;
           App.ExcludeMATLABCodeFileUI.Value = states.ExcludeMATLABCodeFile;
-
-          App.IgnoreCaseUI.Value = states.IgnoreCase;
-          App.MatchWholeWordUI.Value = states.MatchWholeWord;
-          x = char(string(states.SearchTextPattern));
-          x = x(2:end-1);  % Remove double quotes...
-          App.SearchTextUI.Value = x;
 
       end  % switch
 
@@ -197,21 +198,48 @@ classdef TextSearchAppMain < handle
       main_column_layout = App.Window.MainLayout;
 
       % =======================================================================
-      % Target folder
-      column_grid = NewColumnGrid(main_column_layout);
-
-      label_ui = AppUtil1.Component.Label(column_grid);
-      label_ui.Text = "\textbf{" + CodeUtil1.i18n("Target folder") + "}";
-
-      % -----------------------------------------------------------------------
+      % Text to search
       column_grid = NewColumnGrid(main_column_layout);
       row_layout = AppUtil1.RowLayout(column_grid);
 
-      App.IncludeSubfoldersUI = AppUtil1.Component.CheckBox(NewRowGrid(row_layout));
+      row_grid = NewRowGrid(row_layout, Width="fit");
+      label_ui = AppUtil1.Component.Label(row_grid);
+      label_ui.MainFigure = App.Window.MainFigure;
+      label_ui.Text = "\textbf{" + CodeUtil1.i18n("Text to search") + "}";
+
+      App.IgnoreCaseUI = AppUtil1.Component.CheckBox(NewRowGrid(row_layout, Width="fit"));
+      App.IgnoreCaseUI.MainFigure = App.Window.MainFigure;
+      App.IgnoreCaseUI.Text = CodeUtil1.i18n("Ignore case");
+      App.IgnoreCaseUI.ValueChangedCallback = @() update_SearcherStatesFromUIComponents(App);
+
+      App.MatchWholeWordUI = AppUtil1.Component.CheckBox(NewRowGrid(row_layout, Width="fit"));
+      App.MatchWholeWordUI.MainFigure = App.Window.MainFigure;
+      App.MatchWholeWordUI.Text = CodeUtil1.i18n("Match whole word");
+      App.MatchWholeWordUI.ValueChangedCallback = @() update_SearcherStatesFromUIComponents(App);
+
+      % -----------------------------------------------------------------------
+      column_grid = NewColumnGrid(main_column_layout);
+
+      App.SearchTextUI = AppUtil1.Component.EditableDropDown(column_grid);
+      App.SearchTextUI.Items = [];
+      App.SearchTextUI.ValueChangedCallback = @() react_SearchTextChanged(App);
+
+      % =======================================================================
+      % Target folder
+      column_grid = NewColumnGrid(main_column_layout);
+      row_layout = AppUtil1.RowLayout(column_grid);
+
+      row_grid = NewRowGrid(row_layout, Width="fit");
+      label_ui = AppUtil1.Component.Label(row_grid);
+      label_ui.Text = "\textbf{" + CodeUtil1.i18n("Target folder") + "}";
+
+      row_grid = NewRowGrid(row_layout, Width="fit");
+      App.IncludeSubfoldersUI = AppUtil1.Component.CheckBox(row_grid);
       App.IncludeSubfoldersUI.Text = CodeUtil1.i18n("Include subfolders");
       App.IncludeSubfoldersUI.ValueChangedCallback = @() update_SearcherStatesFromUIComponents(App);
 
-      App.SelectFolderUI = AppUtil1.Component.Button(NewRowGrid(row_layout, Width="fit"));
+      row_grid = NewRowGrid(row_layout, Width="fit");
+      App.SelectFolderUI = AppUtil1.Component.Button(row_grid);
       App.SelectFolderUI.ButtonWidth = App.width_button;
       App.SelectFolderUI.Text = CodeUtil1.i18n("Select...");
       App.SelectFolderUI.MainButton.Tooltip = CodeUtil1.i18n("Select a target folder and add to the drop down.");
@@ -293,38 +321,12 @@ classdef TextSearchAppMain < handle
       row_layout = AppUtil1.RowLayout(column_grid);
 
       App.ExcludeLiveScriptUI = AppUtil1.Component.CheckBox(NewRowGrid(row_layout, Width="fit"));
-      App.ExcludeLiveScriptUI.Text = CodeUtil1.i18n("Exclude Live Script");
+      App.ExcludeLiveScriptUI.Text = CodeUtil1.i18n("Exclude Live Script files from *.m");
       App.ExcludeLiveScriptUI.ValueChangedCallback = @() update_FileTypes(App);
 
       App.ExcludeMATLABCodeFileUI = AppUtil1.Component.CheckBox(NewRowGrid(row_layout, Width="fit"));
-      App.ExcludeMATLABCodeFileUI.Text = CodeUtil1.i18n("Exclude MATLAB code");
+      App.ExcludeMATLABCodeFileUI.Text = CodeUtil1.i18n("Exclude MATLAB code files from *.m");
       App.ExcludeMATLABCodeFileUI.ValueChangedCallback = @() update_FileTypes(App);
-
-      % =======================================================================
-      % Text to search
-      column_grid = NewColumnGrid(main_column_layout);
-
-      label_ui = AppUtil1.Component.Label(column_grid);
-      label_ui.Text = "\textbf{" + CodeUtil1.i18n("Text to search") + "}";
-
-      % -----------------------------------------------------------------------
-      column_grid = NewColumnGrid(main_column_layout);
-      row_layout = AppUtil1.RowLayout(column_grid);
-
-      App.IgnoreCaseUI = AppUtil1.Component.CheckBox(NewRowGrid(row_layout, Width="fit"));
-      App.IgnoreCaseUI.Text = CodeUtil1.i18n("Ignore case");
-      App.IgnoreCaseUI.ValueChangedCallback = @() update_SearcherStatesFromUIComponents(App);
-
-      App.MatchWholeWordUI = AppUtil1.Component.CheckBox(NewRowGrid(row_layout, Width="fit"));
-      App.MatchWholeWordUI.Text = CodeUtil1.i18n("Match whole word");
-      App.MatchWholeWordUI.ValueChangedCallback = @() update_SearcherStatesFromUIComponents(App);
-
-      % -----------------------------------------------------------------------
-      column_grid = NewColumnGrid(main_column_layout);
-
-      App.SearchTextUI = AppUtil1.Component.EditableDropDown(column_grid);
-      App.SearchTextUI.Items = [];
-      App.SearchTextUI.ValueChangedCallback = @() react_SearchTextChanged(App);
 
       % =======================================================================
       column_grid = NewColumnGrid(main_column_layout);

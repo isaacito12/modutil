@@ -35,12 +35,18 @@ classdef unittest_buildReplaceCommandText < matlab.unittest.TestCase
     %% Minimum quality check
     % Check that models, scripts, functions, and classes run right out of the box.
 
-    function PassingTest_1(~)
-      evalin("base", "demo_buildReplaceCommandText_1")
+    function PassingTest_1(testcase)
+      target_file = "demo_buildReplaceCommandText_1";
+      file_path = which(target_file);
+      verifyTrue(testcase, isfile(file_path))
+      evalin("base", target_file)  % !test-target
     end  % function
 
-    function PassingTest_2(~)
-      evalin("base", "demo_buildReplaceCommandText_2")
+    function PassingTest_2(testcase)
+      target_file = "demo_buildReplaceCommandText_2";
+      file_path = which(target_file);
+      verifyTrue(testcase, isfile(file_path))
+      evalin("base", target_file)  % !test-target
     end  % function
 
     function Error_1(testcase)
@@ -58,24 +64,27 @@ classdef unittest_buildReplaceCommandText < matlab.unittest.TestCase
     end  % function
 
     function Error_3(testcase)
-      file_path = which("demo_buildReplaceCommandText.m");
-      verifyError(testcase, @test_target, "MATLAB:validators:mustBeNonzeroLengthText")
+      file_path = which("demo_buildReplaceCommandText_1.m");
+      verifyTrue(testcase, isfile(file_path))
+      verifyError(testcase, @test_target, "buildReplaceCommandText:MissingTextPattern")
       function test_target()
         SearchUtil1.buildReplaceCommandText(FilePaths=file_path)  % !test-target
       end  % function
     end  % function
 
     function Error_4(testcase)
-      file_path = which("demo_buildReplaceCommandText.m");
-      verifyError(testcase, @test_target, "MATLAB:validators:mustBeNonzeroLengthText")
+      file_path = which("demo_buildReplaceCommandText_1.m");
+      verifyTrue(testcase, isfile(file_path))
+      verifyError(testcase, @test_target, "buildReplaceCommandText:MissingIgnoreCase")
       function test_target()
         SearchUtil1.buildReplaceCommandText(FilePaths=file_path, TextPattern="test")  % !test-target
       end  % function
     end  % function
 
     function Error_5(testcase)
-      file_path = which("demo_buildReplaceCommandText.m");
-      verifyError(testcase, @test_target, "MATLAB:validators:mustBeNonzeroLengthText")
+      file_path = which("demo_buildReplaceCommandText_1.m");
+      verifyTrue(testcase, isfile(file_path))
+      verifyError(testcase, @test_target, "buildReplaceCommandText:MissingMatchWholeWord")
       function test_target()
         SearchUtil1.buildReplaceCommandText(FilePaths=file_path, TextPattern="test", ...
           IgnoreCase=true)  % !test-target
@@ -83,8 +92,9 @@ classdef unittest_buildReplaceCommandText < matlab.unittest.TestCase
     end  % function
 
     function Error_6(testcase)
-      file_path = which("demo_buildReplaceCommandText.m");
-      verifyError(testcase, @test_target, "MATLAB:validators:mustBeNonzeroLengthText")
+      file_path = which("demo_buildReplaceCommandText_1.m");
+      verifyTrue(testcase, isfile(file_path))
+      verifyError(testcase, @test_target, "buildReplaceCommandText:MissingNewText")
       function test_target()
         SearchUtil1.buildReplaceCommandText(FilePaths=file_path, TextPattern="test", ...
           IgnoreCase=true, MatchWholeWord=false)  % !test-target
@@ -92,11 +102,12 @@ classdef unittest_buildReplaceCommandText < matlab.unittest.TestCase
     end  % function
 
     function Error_7(testcase)
-      file_path = which("demo_buildReplaceCommandText.m");
-      verifyError(testcase, @test_target, "MATLAB:validators:mustBeNonzeroLengthText")
+      file_path = which("demo_buildReplaceCommandText_1.m");
+      verifyTrue(testcase, isfile(file_path))
+      verifyError(testcase, @test_target, "buildReplaceCommandText:InvalidCommandName")
       function test_target()
         SearchUtil1.buildReplaceCommandText(FilePaths=file_path, TextPattern="test", ...
-          IgnoreCase=true, MatchWholeWord=false, NewText="test", CommandName="dummy_command_name")  % !test-target
+          IgnoreCase=true, MatchWholeWord=false, NewText="test", CommandName="dummy_command_name")  % !test-target: CommandName
       end  % function
     end  % function
 

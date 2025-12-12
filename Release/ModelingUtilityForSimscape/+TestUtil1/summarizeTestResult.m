@@ -22,7 +22,13 @@ TestTime = zeros(num_tests, 1);
 
 test_count = 1;
 for ii = 1 : height(result_table)
-  subresult_table = struct2table(result_table.testcase{ii});
+  if class(result_table.testcase) == "struct"
+    % There is only one testcase as a struct. Accessing testcase{ii} is illegal.
+    assert(ii == 1)
+    subresult_table = struct2table(result_table.testcase);
+  else
+    subresult_table = struct2table(result_table.testcase{ii});
+  end  % if
   num_subresult = result_table.testsAttribute(ii);
 
   TestClass(test_count : test_count + num_subresult - 1) = result_table.nameAttribute(ii);
@@ -39,11 +45,12 @@ end  % for
 TestSummary = sortrows(table(TestClass, TestFunction, TestTime), 'TestTime', 'descend');
 
 TestSummary = addprop(TestSummary, ...
-  ["NumTests", "TotalTestTime", "MedianTestTime"], ...
-  ["table",    "table",         "table"]);
+  ["NumTests", "TotalTestTime", "MeanTestTime", "MedianTestTime"], ...
+  ["table",    "table",         "table",        "table"]);
 
 TestSummary.Properties.CustomProperties.NumTests = num_tests;
-TestSummary.Properties.CustomProperties.TotalTestTime = sum(result_table.timeAttribute);
-TestSummary.Properties.CustomProperties.MedianTestTime = median(result_table.timeAttribute);
+TestSummary.Properties.CustomProperties.TotalTestTime = sum(TestTime);
+TestSummary.Properties.CustomProperties.MeanTestTime = mean(TestTime);
+TestSummary.Properties.CustomProperties.MedianTestTime = median(TestTime);
 
 end  % function

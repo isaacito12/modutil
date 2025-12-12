@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<testsuites>
-  <testsuite errors="0" failures="0" name="unittest_summarizeTestResult" skipped="0" tests="3" time="0.063233">
-    <testcase classname="unittest_summarizeTestResult" name="Test_error_1" time="0.014599"/>
-    <testcase classname="unittest_summarizeTestResult" name="PassingTest_1" time="0.030534"/>
-    <testcase classname="unittest_summarizeTestResult" name="Test_1" time="0.0181"/>
-  </testsuite>
-</testsuites>

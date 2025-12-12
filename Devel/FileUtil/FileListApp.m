@@ -14,9 +14,8 @@ function App = FileListApp(FileList, NameValuePair)
 %
 %   FileListApp(<file_list>, TopFolder=<path/to/folder>)
 %
-% The file list can have 3 more columns.
-% Two of the columns must be "FilePath" and "LineNumber" while the other columns
-% can have any column names.
+% If the file list is a table, two of the columns must be "FilePath" and "LineNumber".
+% Other columns can have any column names.
 % To customize the column names, use the ColumnNames option.
 % To customize the column width, use the ColumnWidth option.
 % ColumnNames and ColumnWidth are passed to uitable.

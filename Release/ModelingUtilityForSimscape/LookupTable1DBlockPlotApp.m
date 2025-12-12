@@ -1,4 +1,10 @@
 function App = LookupTable1DBlockPlotApp(NameValuePair)
+% App to visualize lookup table blocks in a model
+%
+% By default, the app opens with no model being linked. Use the "Open model" button
+% to select a target model. To open the app with a model, use the ModelFilePath option.
+%
+% This app automatically finds Simscape LUT blocks and Simulink LUT blocks in the model.
 
 % Copyright 2025 The MathWorks, Inc.
 
@@ -78,9 +84,9 @@ panel_ui.ComponentHeight = 380;
 %%
 movegui(main_figure, "center")
 main_figure.Visible = "on";
-% Call this after Visible="on".
-get_parameters_from_block()
 drawnow
+% Call this after Visible="on" and drawnow.
+get_parameters_from_block()
 if nargout > 0
   App.Window = app_window;
 end  % if

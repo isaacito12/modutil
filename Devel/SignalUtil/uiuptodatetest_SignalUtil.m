@@ -53,18 +53,28 @@ classdef uiuptodatetest_SignalUtil < matlab.uitest.TestCase
 
     %% Up-to-date tests
 
-    function app_screenshot_is_uptodate_1(testcase)
-
-      target_app = @SignalDesignApp;
+    function app_screenshot_is_uptodate_1_1_dark(testcase)
+      %%
       source_fullpath = FileUtil1.getFileFullPath("SignalDesignApp.m");
-      destination_fullpath = FileUtil1.getFileFullPath("screenshot-SignalDesignApp.png");
 
-      newer = FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
-      if newer
+      theme_name = "dark";
+      destination_filename = "screenshot-SignalDesignApp-" + theme_name + ".png";
+      destination_fullpath = which(destination_filename);
+
+      if isempty(destination_fullpath)
+        needs_update = true;
+        destination_fullpath = fullfile(pwd, destination_filename);
+      else
+        needs_update = FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
+      end  % if
+
+      if needs_update
         % Display the time stamps.
         FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath, DisplayInfo=true);
 
-        testcase.App = target_app();
+        testcase.App = SignalDesignApp();  % !screenshot-target
+
+        testcase.App.Window.MainFigure.Theme = theme_name;
 
         % Take screenshot
         disp("Update screenshot")
@@ -78,21 +88,30 @@ classdef uiuptodatetest_SignalUtil < matlab.uitest.TestCase
 
       newer = FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
       verifyFalse(testcase, newer)
-
     end  % function
 
-    function app_screenshot_is_uptodate_2(testcase)
+    function app_screenshot_is_uptodate_1_2_light(testcase)
+      %%
+      source_fullpath = FileUtil1.getFileFullPath("SignalDesignApp.m");
 
-      target_app = @TraceGeneratorApp;
-      source_fullpath = FileUtil1.getFileFullPath("TraceGeneratorApp.m");
-      destination_fullpath = FileUtil1.getFileFullPath("screenshot-TraceGeneratorApp.png");
+      theme_name = "light";
+      destination_filename = "screenshot-SignalDesignApp-" + theme_name + ".png";
+      destination_fullpath = which(destination_filename);
 
-      newer = FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
-      if newer
+      if isempty(destination_fullpath)
+        needs_update = true;
+        destination_fullpath = fullfile(pwd, destination_filename);
+      else
+        needs_update = FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
+      end  % if
+
+      if needs_update
         % Display the time stamps.
         FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath, DisplayInfo=true);
 
-        testcase.App = target_app();
+        testcase.App = SignalDesignApp();  % !screenshot-target
+
+        testcase.App.Window.MainFigure.Theme = theme_name;
 
         % Take screenshot
         disp("Update screenshot")
@@ -106,7 +125,80 @@ classdef uiuptodatetest_SignalUtil < matlab.uitest.TestCase
 
       newer = FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
       verifyFalse(testcase, newer)
+    end  % function
 
+    function app_screenshot_is_uptodate_2_1_dark(testcase)
+      %%
+      source_fullpath = FileUtil1.getFileFullPath("TraceGeneratorApp.m");
+
+      theme_name = "dark";
+      destination_filename = "screenshot-TraceGeneratorApp-" + theme_name + ".png";
+      destination_fullpath = which(destination_filename);
+
+      if isempty(destination_fullpath)
+        needs_update = true;
+        destination_fullpath = fullfile(pwd, destination_filename);
+      else
+        needs_update = FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
+      end  % if
+
+      if needs_update
+        % Display the time stamps.
+        FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath, DisplayInfo=true);
+
+        testcase.App = TraceGeneratorApp();  % !screenshot-target
+
+        testcase.App.Window.MainFigure.Theme = theme_name;
+
+        % Take screenshot
+        disp("Update screenshot")
+        exportapp(testcase.App.Window.MainFigure, destination_fullpath)
+
+      else
+        % The closeAll function checks class(testcase.App) ~= "double"
+        % when finishing the execution of a test.
+        testcase.App = 0;
+      end  % if
+
+      newer = FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
+      verifyFalse(testcase, newer)
+    end  % function
+
+    function app_screenshot_is_uptodate_2_2_light(testcase)
+      %%
+      source_fullpath = FileUtil1.getFileFullPath("TraceGeneratorApp.m");
+
+      theme_name = "light";
+      destination_filename = "screenshot-TraceGeneratorApp-" + theme_name + ".png";
+      destination_fullpath = which(destination_filename);
+
+      if isempty(destination_fullpath)
+        needs_update = true;
+        destination_fullpath = fullfile(pwd, destination_filename);
+      else
+        needs_update = FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
+      end  % if
+
+      if needs_update
+        % Display the time stamps.
+        FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath, DisplayInfo=true);
+
+        testcase.App = TraceGeneratorApp();  % !screenshot-target
+
+        testcase.App.Window.MainFigure.Theme = theme_name;
+
+        % Take screenshot
+        disp("Update screenshot")
+        exportapp(testcase.App.Window.MainFigure, destination_fullpath)
+
+      else
+        % The closeAll function checks class(testcase.App) ~= "double"
+        % when finishing the execution of a test.
+        testcase.App = 0;
+      end  % if
+
+      newer = FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
+      verifyFalse(testcase, newer)
     end  % function
 
   end  % methods

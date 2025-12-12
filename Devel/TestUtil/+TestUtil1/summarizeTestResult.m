@@ -39,11 +39,12 @@ end  % for
 TestSummary = sortrows(table(TestClass, TestFunction, TestTime), 'TestTime', 'descend');
 
 TestSummary = addprop(TestSummary, ...
-  ["NumTests", "TotalTestTime", "MedianTestTime"], ...
-  ["table",    "table",         "table"]);
+  ["NumTests", "TotalTestTime", "MeanTestTime", "MedianTestTime"], ...
+  ["table",    "table",         "table",        "table"]);
 
 TestSummary.Properties.CustomProperties.NumTests = num_tests;
-TestSummary.Properties.CustomProperties.TotalTestTime = sum(result_table.timeAttribute);
-TestSummary.Properties.CustomProperties.MedianTestTime = median(result_table.timeAttribute);
+TestSummary.Properties.CustomProperties.TotalTestTime = sum(TestTime);
+TestSummary.Properties.CustomProperties.MeanTestTime = mean(TestTime);
+TestSummary.Properties.CustomProperties.MedianTestTime = median(TestTime);
 
 end  % function
