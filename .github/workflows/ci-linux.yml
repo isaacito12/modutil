@@ -86,7 +86,7 @@ jobs:
           command: |
             cd Devel
             setup_paths
-            buildtool -buildFile $GITHUB_WORKSPACE/Devel/buildfile.m CodeIssues TestAndReport
+            buildtool -buildFile /home/runner/work/modutil/modutil/Devel/buildfile.m CodeIssues TestAndReport
 
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3
