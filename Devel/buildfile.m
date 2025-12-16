@@ -14,11 +14,20 @@ function plan = buildfile
 
 % Copyright 2023-2025 The MathWorks, Inc.
 
+% Passing the handles of local functions to buildplan makes them available as build tasks.
 plan = buildplan(localfunctions);
+
 plan.DefaultTasks = "CodeIssues";
 
+% The "TestAndReport" task is defined by the TestAndReportTask local function.
+plan("TestAndReport").Dependencies = ["SetupPaths", "Test"];
+
 plan("CodeIssues") = matlab.buildtool.tasks.CodeIssuesTask( ...
+  ... The "DisplayRelease" plan is defined by the DisplayReleaseTask local function.
+  Dependencies = ["SetupPaths", "DisplayRelease"], ...
+  ...
   WarningThreshold = Inf, ...
+  ...
   SourceFiles = ["**/*.m", "**/*.mlx"], ...
   Results = [
   "test-result/code-issues.mat"
@@ -26,9 +35,11 @@ plan("CodeIssues") = matlab.buildtool.tasks.CodeIssuesTask( ...
   ]);
 
 plan("Test") = matlab.buildtool.tasks.TestTask( ...
-  ... Dependencies = "CodeIssues", ...
+  Dependencies = ["SetupPaths", "DisplayRelease"], ...
+  ...
   SourceFiles = ["**/*.m", "**/*.mlx"], ...
   SupportingFiles = [
+  "TestAndCoverageReport.m"
   "**/buildfile.m"
   "**/sample folder/**"
   ], ...
@@ -41,19 +52,28 @@ plan("Test") = matlab.buildtool.tasks.TestTask( ...
   "test-result/code-coverage.xml"
   ] );
 
-plan("CodeIssues").Dependencies = "DisplayRelease";
-plan("Test").Dependencies = "DisplayRelease";
-plan("TestAndReport").Dependencies = "Test";
-
 end  % function
+
+function SetupPathsTask(~)
+% This function is available as "SetupPaths" for the build plan.
+setup_paths
+end  % local function
 
 function DisplayReleaseTask(~)
+% This function is available as "DisplayRelease" for the build plan.
 matlabRelease
-end  % function
+end  % local function
 
 function TestAndReportTask(~)
-% This function itself does the final reporting only.
-% Set a dependency on the Test task so that the tests are performed before this function.
-generatedfile_fullpath = export("test_summary", HideCode=true, Run=true, Format="markdown", IncludeOutputs=true);
+% Generate a Markdown file containing test summary and code coverage.
+%
+% This function is available as "TestAndReport" task for the build plan.
+% This function itself does not run tests.
+% Set a dependency on the Test task so that the tests are performed before this task.
+target_file = "TestAndCoverageReport.m";
+assert(isfile(target_file))
+
+generatedfile_fullpath = export(target_file, HideCode=true, Run=true, Format="markdown", IncludeOutputs=true);
+
 disp("Generated: " + generatedfile_fullpath)
-end  % function
+end  % local function

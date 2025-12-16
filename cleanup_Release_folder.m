@@ -2,8 +2,21 @@
 
 % Copyright 2025 The MathWorks, Inc.
 
-target_folder = "C:\local\modutil\modeling-utility\Release\ModelingUtilityForSimscape";
-assert(isfolder(target_folder))
+release_top_folder = "C:\local\modutil\modeling-utility\Release";
+assert(isfolder(release_top_folder))
+
+rmdir(fullfile(release_top_folder, ".buildtool"), "s")
+rmdir(fullfile(release_top_folder, "test-result"), "s")
+
+% -----------------------------------------------------------------------------
+target_folder = fullfile(release_top_folder, "ModelingUtilityForSimscape");
+if not(isfolder(target_folder))
+  disp("There is no ModelingUtilityForSimscape folder.")
+
+  return
+
+end  % if
+disp("Removing the ModelingUtilityForSimscape folder")
 
 targets_to_delete = matlab.buildtool.io.FileCollection.fromPaths(fullfile(target_folder, "**")).paths';
 

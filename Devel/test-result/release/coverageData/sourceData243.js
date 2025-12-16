@@ -1,1 +1,0 @@
-var sourceData243 = {"FileName":"C:\\local\\modutil\\modeling-utility\\Devel\\FileUtil\\Test\\isPlainTextLiveScript\\sample folder\\subfolder 2\\samplescript22.mlx","RawFileContents":" ","CoverageDisplayDataPerLine":{"Function":[],"Statement":[]},"FilterData":[]}

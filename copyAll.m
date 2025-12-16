@@ -1,0 +1,6 @@
+dry_run_tf = false;
+copyAPIFromDevToRelease(DryRun=dry_run_tf)
+copyComponent_ModelUtil_additional_files(DryRun=dry_run_tf)
+copyComponent_RotationalFrictionApp(DryRun=dry_run_tf)
+copyComponent_SearchUtil_additional_files(DryRun=dry_run_tf)
+copyComponent_SignalUtil_additional_files(DryRun=dry_run_tf)

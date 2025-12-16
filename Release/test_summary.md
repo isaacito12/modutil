@@ -2,7 +2,7 @@
 # Test summary
 
 ```matlabTextOutput
-UTC 2025-12-12 13:42:25
+UTC 2025-12-16 13:26:39
 ```
 
 
@@ -19,31 +19,32 @@ UTC 2025-12-12 13:42:25
 ```matlabTextOutput
 CustomProperties with properties:
 
-          NumTests: 14
-     TotalTestTime: 282.1296
-      MeanTestTime: 20.1521
-    MedianTestTime: 0.9987
+              NumberOfTests: 15
+     TotalTestTimeInSeconds: 57.0718
+      MeanTestTimeInSeconds: 3.8048
+    MedianTestTimeInSeconds: 1.0174
 ```
 
 
 ```matlabTextOutput
-               TestClass                           TestFunction                TestTime 
-    ________________________________    ___________________________________    _________
+               TestClass                           TestFunction                TestTimeInSeconds
+    ________________________________    ___________________________________    _________________
 
-    "PassingTestsForModelingUtility"    "app_launches_without_warnings_2_1"       70.336
-    "PassingTestsForModelingUtility"    "app_launches_without_warnings_8"          69.65
-    "PassingTestsForModelingUtility"    "app_launches_without_warnings_2_2"       68.302
-    "PassingTestsForModelingUtility"    "app_launches_without_warnings_3"         67.035
-    "PassingTestsForModelingUtility"    "app_launches_without_warnings_7"         2.4406
-    "PassingTestsForModelingUtility"    "app_launches_without_warnings_6"         1.7859
-    "PassingTestsForModelingUtility"    "app_launches_without_warnings_1"         1.5972
-    "PassingTestsForModelingUtility"    "PassingTest_1"                           0.4002
-    "PassingTestsForModelingUtility"    "PassingTest_3"                          0.29058
-    "PassingTestsForModelingUtility"    "PassingTest_2"                          0.14026
-    "PassingTestsForModelingUtility"    "PassingTest_4"                         0.075642
-    "PassingTestsForModelingUtility"    "PassingTest_7"                          0.03709
-    "PassingTestsForModelingUtility"    "PassingTest_6"                         0.033139
-    "PassingTestsForModelingUtility"    "PassingTest_5"                        0.0059624
+    "PassingTestsForModelingUtility"    "app_launches_without_warnings_8"            12.647     
+    "PassingTestsForModelingUtility"    "app_launches_without_warnings_2_2"          11.936     
+    "PassingTestsForModelingUtility"    "app_launches_without_warnings_2_1"          11.089     
+    "PassingTestsForModelingUtility"    "app_launches_without_warnings_3"            7.5182     
+    "PassingTestsForModelingUtility"    "app_launches_without_warnings_7"            4.2123     
+    "PassingTestsForModelingUtility"    "app_launches_without_warnings_1"            3.7393     
+    "PassingTestsForModelingUtility"    "app_launches_without_warnings_6"            2.5881     
+    "PassingTestsForModelingUtility"    "PassingTest_3"                              1.0174     
+    "PassingTestsForModelingUtility"    "PassingTest_2"                             0.93581     
+    "PassingTestsForModelingUtility"    "PassingTest_1"                               0.898     
+    "test_summary"                      "test_summary"                              0.15975     
+    "PassingTestsForModelingUtility"    "PassingTest_4"                              0.1415     
+    "PassingTestsForModelingUtility"    "PassingTest_6"                             0.10344     
+    "PassingTestsForModelingUtility"    "PassingTest_7"                            0.081135     
+    "PassingTestsForModelingUtility"    "PassingTest_5"                            0.005509     
 ```
 
 
