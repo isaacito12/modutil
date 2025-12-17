@@ -5,8 +5,15 @@
 release_top_folder = "C:\local\modutil\modeling-utility\Release";
 assert(isfolder(release_top_folder))
 
-rmdir(fullfile(release_top_folder, ".buildtool"), "s")
-rmdir(fullfile(release_top_folder, "test-result"), "s")
+folder_to_delete = fullfile(release_top_folder, ".buildtool");
+if isfolder(folder_to_delete)
+  rmdir(folder_to_delete, "s")
+end  % if
+
+folder_to_delete = fullfile(release_top_folder, "test-result");
+if isfolder(folder_to_delete)
+  rmdir(folder_to_delete, "s")
+end  % if
 
 % -----------------------------------------------------------------------------
 target_folder = fullfile(release_top_folder, "ModelingUtilityForSimscape");

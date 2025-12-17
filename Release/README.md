@@ -8,9 +8,7 @@ modeling workflows with Simscape.
 To use this utility, put the `ModelingUtilityForSimscape` folder
 in a desired location in your computer and add the folder to the MATLAB path.
 
-## Highlights
-
-### Building apps programmatically with **AppUtil**
+## **AppUtil** - Build apps programmatically
 
 - Use the `AppUtil` API to easily build simple apps programmatically.
 - The API uses the `uifigure` and `uigridlayout` functions.
@@ -18,28 +16,42 @@ in a desired location in your computer and add the folder to the MATLAB path.
   with `uifigure` and `uigridlayout`.
 - All of the apps included in this utility are built with the `AppUtil` API.
 
-### Input signal handling with **SignalUtil**
+## **SignalUtil** - Design signals for simulation
 
-- Use the `SignalDesignApp` and the `TraceGeneratorApp` to create
-  input signals for simulations.
+### `SignalDesignApp`
+
+Use the `SignalDesignApp` to create input signals for simulation.
+
+The app can transfer the signal parameters to Lookup Table blocks
+in Simscape or in Simulink.
+The app can also get signal parameters from existing Lookup Table blocks.
 
 <img src="ModelingUtilityForSimscape/media/screenshot-SignalDesignApp-dark.png"
  alt="Signal Design App" width="600"/>
 
-### Lookup table visualization with **ModelUtil**
+### `TraceGeneratorApp`
 
-- Use the `LookupTable1DBlockPlotApp` to find and visualize
-  Simscape PS Lookup Table (1D) blocks and Simulink 1-D Lookup Table blocks
-  in models.
+Use the `TraceGeneratorApp` to generate signal traces from high-level signal properties
+and a random number generator.
+
+<img src="ModelingUtilityForSimscape/media/screenshot-TraceGeneratorApp-dark.png"
+ alt="Trace Generator App" width="600"/>
+
+## **ModelUtil** - Lookup table visualization
+
+Use the `LookupTable1DBlockPlotApp` to find and visualize
+Simscape PS Lookup Table (1D) blocks and Simulink 1-D Lookup Table blocks
+in models.
 
 <img src="ModelingUtilityForSimscape/media/screenshot-LookupTable1DBlockPlotApp-dark.png"
  alt="Lookup Table 1D Block Plot App" width="600"/>
 
-### Text search and replace with **SearchUtil**
+## **SearchUtil** - Text search and replace
 
-- Use the `TextSearchApp` and the `TextSearchResultViewerApp` to search
-  and replace text in files and models.
-- Use the `SearchUtil` API for complex search and replace operations.
+Use the `TextSearchApp` and the `TextSearchResultViewerApp` to search
+and replace text in files and models.
+
+Use the `SearchUtil` API for complex search and replace operations.
 
 <img src="ModelingUtilityForSimscape/media/screenshot-TextSearchApp-dark.png"
  alt="Lookup Table 1D Block Plot App" width="500"/>
@@ -51,8 +63,8 @@ in a desired location in your computer and add the folder to the MATLAB path.
 
 ### Rotational friction app
 
-- Use the `RotationalFrictionApp` to understand the friction model
-  and its parameters used in the Rotational Friction block in Simscape.
+Use the `RotationalFrictionApp` to understand the friction model
+and its parameters used in the Rotational Friction block in Simscape.
 
 <img src="ModelingUtilityForSimscape/media/screenshot-RotationalFrictionApp-dark-1.png"
  alt="Lookup Table 1D Block Plot App" width="800"/>

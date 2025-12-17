@@ -62,9 +62,9 @@ classdef unittest_summarizeTestResult < matlab.unittest.TestCase
       verifyTrue(testcase, height(result) > 0)
       verifyTrue(testcase, ismember("TestClass", string(result.Properties.VariableNames)))
       verifyTrue(testcase, ismember("TestFunction", string(result.Properties.VariableNames)))
-      verifyTrue(testcase, ismember("TestTime", string(result.Properties.VariableNames)))
-      verifyTrue(testcase, isprop(result.Properties.CustomProperties, "NumTests"))
-      verifyTrue(testcase, isprop(result.Properties.CustomProperties, "TotalTestTime"))
+      verifyTrue(testcase, ismember("TestTimeInSeconds", string(result.Properties.VariableNames)))
+      verifyTrue(testcase, isprop(result.Properties.CustomProperties, "NumberOfTests"))
+      verifyTrue(testcase, isprop(result.Properties.CustomProperties, "TotalTestTimeInSeconds"))
     end  % function
 
   end  % methods

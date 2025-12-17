@@ -34,6 +34,7 @@ on:
       - '**.txt'
       - '**.xml'
 
+  # Allow manually trigger the workflow. (optional)
   workflow_dispatch:
 
 jobs:
@@ -74,22 +75,28 @@ jobs:
             Simscape_Electrical
             Simscape_Driveline
 
-      - name: Start display server for running headless Linux with graphics
+      - name: Start XVFB display server
+        # Enable graphics using X11 virtual framebuffer in a headless Linux.
+        # Some tests require graphics.
         run: |
           sudo apt-get install xvfb
           Xvfb :99 &
           echo "DISPLAY=:99" >> $GITHUB_ENV
 
-      - name: Run tests via buildtool using buildfile.m
+      - name: Run tests in MATLAB
         uses: matlab-actions/run-command@v2
         with:
+          # Commands below run within MATLAB.
+          # The top folder of the repo is the initial working folder.
           command: |
             cd Devel
             setup_paths
-            buildtool -buildFile /home/runner/work/modutil/modutil/Devel/buildfile.m CodeIssues TestAndReport
+            buildtool CodeIssues TestAndReport
+            #buildtool -buildFile /home/runner/work/modutil/modutil/Devel/buildfile.m CodeIssues TestAndReport
 
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v3
+        #uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v4
         if: always()         
         with:
           sarif_file: test-result/code-issues.sarif

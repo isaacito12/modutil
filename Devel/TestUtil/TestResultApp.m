@@ -2,15 +2,17 @@ function App = TestResultApp(TestResultFile)
 % App to view test result and double-click to open a test file
 %
 % This app takes a test result XML file which the Build Tool generated.
-% This function internally builds a table containing TestClass, TestFunction, and TestTime
-% columns using the summarizeTestResult function in the Test Utility (TestUtil)
+% This function internally builds a table containing TestClass, TestFunction, and
+% TestTimeInSeconds columns using the summarizeTestResult function in the TestUtil
 % and shows the table. You can double-click a row in the table to open the test file.
+%
+% If no test result file is specified, the app opens with empty data, and
+% the user has to load a test result file using the "Select file" button.
 
 % Copyright 2025 The MathWorks, Inc.
 
 arguments (Input)
-  TestResultFile (1,1) string = which("sample-test-result.xml")
-  % TestResultFile (1,1) string = ""
+  TestResultFile (1,1) string = ""
 end  % arguments
 
 arguments (Output)
@@ -165,10 +167,10 @@ table_ui.MainTable.DoubleClickedFcn = @(~, DoubleClickedData) ...
     link_ui.HyperlinkClickedCallback = @() edit(TestResultFile);
     link_ui.Tooltip = CodeUtil1.i18n("Open in the editor.");
 
-    num_tests_ui.Text = test_summary.Properties.CustomProperties.NumTests;
-    total_time_label_ui.Text = test_summary.Properties.CustomProperties.TotalTestTime;
-    mean_time_label_ui.Text = test_summary.Properties.CustomProperties.MeanTestTime;
-    median_time_label_ui.Text = test_summary.Properties.CustomProperties.MedianTestTime;
+    num_tests_ui.Text = test_summary.Properties.CustomProperties.NumberOfTests;
+    total_time_label_ui.Text = test_summary.Properties.CustomProperties.TotalTestTimeInSeconds;
+    mean_time_label_ui.Text = test_summary.Properties.CustomProperties.MeanTestTimeInSeconds;
+    median_time_label_ui.Text = test_summary.Properties.CustomProperties.MedianTestTimeInSeconds;
 
     table_ui.MainTable.Data = test_summary;
     table_ui.MainTable.ColumnWidth = {'fit', '1x', 'fit'};

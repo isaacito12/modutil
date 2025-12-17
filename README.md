@@ -7,4 +7,7 @@ In MATLAB, cd to the `Devel` folder and run `setup_paths` to set up the MATLAB®
 
 The `Release` folder is used to create a release.
 
+For a general introduction to the Modeling Utility for Simscape,
+see `README.md` in the `Release` folder.
+
 _Copyright 2025 The MathWorks, Inc._

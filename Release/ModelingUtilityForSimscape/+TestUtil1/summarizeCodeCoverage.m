@@ -44,15 +44,15 @@ LinesValid = cov_struct.lines_validAttribute;
 time_stamp_posix = cov_struct.timestampAttribute;
 TimeStamp = "UTC " + string(datetime(time_stamp_posix, ConvertFrom="posixtime", TimeZone="UTC", Format="yyyy-MM-dd HH:mm:ss"));
 
-TotalCoverage = table(StatementCoveragePercent, LinesCovered, LinesValid, TimeStamp);
+total_cov_table = table(StatementCoveragePercent, LinesCovered, LinesValid, TimeStamp);
 
 top_folder = cov_struct.sources.source;
 
-TotalCoverage = addprop(TotalCoverage, "TopFolder", "table");
-TotalCoverage.Properties.CustomProperties.TopFolder = top_folder;
+total_cov_table = addprop(total_cov_table, "TopFolder", "table");
+total_cov_table.Properties.CustomProperties.TopFolder = top_folder;
 
 CoverageSummary = struct;
-CoverageSummary.TotalCoverage = TotalCoverage;
+CoverageSummary.TotalCoverageTable = total_cov_table;
 
 % -----------------------------------------------------------------------------
 % Component-level coverage
@@ -76,10 +76,10 @@ for pp = 1 : num_packages
   ComponentCoveragePercent(cnt1) = current_package.line_rateAttribute * 100;
 end  % for
 
-ComponentCoveragePercent = table(ComponentName, ComponentCoveragePercent);
-ComponentCoveragePercent = sortrows(ComponentCoveragePercent, 'ComponentName');
+component_cov_table = table(ComponentName, ComponentCoveragePercent);
+component_cov_table = sortrows(component_cov_table, 'ComponentName');
 
-CoverageSummary.ComponentCoverage = ComponentCoveragePercent;
+CoverageSummary.ComponentCoverageTable = component_cov_table;
 
 % -----------------------------------------------------------------------------
 % File-level coverage
@@ -103,9 +103,9 @@ for cc = 1 : num_targets
   StatementCoveragePercent(cc) = line_rate * 100;
 end  % for
 
-FileCoverage = table(StatementCoveragePercent, TestClassName, FilePath);
-FileCoverage = sortrows(FileCoverage, {'StatementCoveragePercent', 'FilePath'});
+file_cov_table = table(StatementCoveragePercent, TestClassName, FilePath);
+file_cov_table = sortrows(file_cov_table, {'StatementCoveragePercent', 'FilePath'});
 
-CoverageSummary.FileCoverage = FileCoverage;
+CoverageSummary.FileCoverageTable = file_cov_table;
 
 end  % function
