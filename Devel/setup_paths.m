@@ -1,3 +1,7 @@
+% Set up MATLAB path for developing Modeling Utility for Simscape
+
+% Copyright 2025 The MathWorks, Inc.
+
 addpath(genpath("AppsForPhysicalSystems"))
 
 addpath("AppUtil")

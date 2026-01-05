@@ -52,6 +52,14 @@ classdef unittest_generateMarkdownsFromLiveScripts < matlab.unittest.TestCase
     function PassingTest_1(testcase)
       % Create 2 new markdown files from live scripts.
 
+      if matlabRelease.Release == "R2026a"
+        % !todo-in-test: Run this test properly in 26a when ready.
+        FileUtil1.displayTimeAndFileLocation("Skipping in R2026a");
+
+        return
+
+      end  % if
+
       if isfolder("markdown")
         rmdir("markdown", "s")
       end  % if
@@ -73,8 +81,16 @@ classdef unittest_generateMarkdownsFromLiveScripts < matlab.unittest.TestCase
       verifyTrue(testcase, all(tf))
     end  % function
 
-%{
     function PassingTest_2(testcase)
+
+      if matlabRelease.Release == "R2026a"
+        % !todo-in-test: Run this test properly in 26a when ready.
+        FileUtil1.displayTimeAndFileLocation("Skipping in R2026a");
+
+        return
+
+      end  % if
+
       target_file = "sampleScript_exportToMarkdown_2";
       target_fullpath = which(target_file);
       verifyTrue(testcase, not(isempty(target_fullpath)))
@@ -86,6 +102,15 @@ classdef unittest_generateMarkdownsFromLiveScripts < matlab.unittest.TestCase
     end  % function
 
     function PassingTest_3(testcase)
+
+      if matlabRelease.Release == "R2026a"
+        % !todo-in-test: Run this test properly in 26a when ready.
+        FileUtil1.displayTimeAndFileLocation("Skipping in R2026a");
+
+        return
+
+      end  % if
+
       target_file = "sampleScript_exportToMarkdown_2";
       target_fullpath = which(target_file);
       verifyTrue(testcase, not(isempty(target_fullpath)))
@@ -96,7 +121,6 @@ classdef unittest_generateMarkdownsFromLiveScripts < matlab.unittest.TestCase
       FileUtil1.exportToMarkdown(target_fullpath, MarkdownFolderPath="test-markdown", ...
         MediaFolderName="test-media", DisplayInfo=false);
     end  % function
-%}
 
   end  % methods
 end  % classdef

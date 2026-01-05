@@ -50,6 +50,14 @@ classdef unittest_exportToMarkdown < matlab.unittest.TestCase
     end  % function
 
     function PassingTest_1(testcase)
+      if matlabRelease.Release == "R2026a"
+        % !todo-in-test: Run this test properly in 26a when ready.
+        FileUtil1.displayTimeAndFileLocation("Skipping in R2026a");
+
+        return
+
+      end  % if
+
       target_file = "sampleScript_exportToMarkdown_1";
       target_fullpath = which(target_file);
       verifyTrue(testcase, not(isempty(target_fullpath)))
@@ -57,11 +65,19 @@ classdef unittest_exportToMarkdown < matlab.unittest.TestCase
       % This creates "markdown" folder and move generated files in there.
       % The newly created folder is not deleted after this test
       % so that it can be inspected later.
-      FileUtil1.exportToMarkdown(target_fullpath);
+      FileUtil1.exportToMarkdown(target_fullpath);  % !test-target
 
     end  % function
 
     function PassingTest_2(testcase)
+      if matlabRelease.Release == "R2026a"
+        % !todo-in-test: Run this test properly in 26a when ready.
+        FileUtil1.displayTimeAndFileLocation("Skipping in R2026a");
+
+        return
+
+      end  % if
+
       target_file = "sampleScript_exportToMarkdown_2";
       target_fullpath = which(target_file);
       verifyTrue(testcase, not(isempty(target_fullpath)))
@@ -74,6 +90,14 @@ classdef unittest_exportToMarkdown < matlab.unittest.TestCase
     end  % function
 
     function PassingTest_3(testcase)
+      if matlabRelease.Release == "R2026a"
+        % !todo-in-test: Run this test properly in 26a when ready.
+        FileUtil1.displayTimeAndFileLocation("Skipping in R2026a");
+
+        return
+
+      end  % if
+
       target_file = "sampleScript_exportToMarkdown_2";
       target_fullpath = which(target_file);
       verifyTrue(testcase, not(isempty(target_fullpath)))

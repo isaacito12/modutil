@@ -119,7 +119,7 @@ export( LiveScriptFilename, ...
   IncludeOutputs = true, ... Include MATLAB output
   EmbedImages = false, ... Save images to individual image files
   FigureFormat = "png", ...
-  FigureResolution = 120 ); ... This affects the size of image file
+  FigureResolution = 120 );  % This affects the size of image file
 
 %% Update path strings in markdown file to point to the new image file path
 

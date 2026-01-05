@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" name="PassingTestsForModelingUtility" skipped="0" tests="14" time="57.5876">
-    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_1" time="1.4317"/>
-    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_2" time="1.5155"/>
-    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_3" time="4.7315"/>
-    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_4" time="0.13288"/>
-    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_5" time="0.034763"/>
-    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_6" time="0.13537"/>
-    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_7" time="0.14501"/>
-    <testcase classname="PassingTestsForModelingUtility" name="app_launches_without_warnings_1" time="4.5498"/>
-    <testcase classname="PassingTestsForModelingUtility" name="app_launches_without_warnings_2_1" time="10.8512"/>
-    <testcase classname="PassingTestsForModelingUtility" name="app_launches_without_warnings_2_2" time="11.0654"/>
-    <testcase classname="PassingTestsForModelingUtility" name="app_launches_without_warnings_3" time="7.5053"/>
-    <testcase classname="PassingTestsForModelingUtility" name="app_launches_without_warnings_6" time="2.4703"/>
-    <testcase classname="PassingTestsForModelingUtility" name="app_launches_without_warnings_7" time="4.4981"/>
-    <testcase classname="PassingTestsForModelingUtility" name="app_launches_without_warnings_8" time="8.5206"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="test_summary" skipped="0" tests="1" time="0.1871">
-    <testcase classname="test_summary" name="test_summary" time="0.1871"/>
+  <testsuite errors="0" failures="0" name="PassingTestsForModelingUtility" skipped="0" tests="14" time="99.0727">
+    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_1" time="3.3539"/>
+    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_2" time="23.1669"/>
+    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_3" time="10.1729"/>
+    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_4" time="0.17683"/>
+    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_5" time="0.06625"/>
+    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_6" time="9.9052"/>
+    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_7" time="9.841"/>
+    <testcase classname="PassingTestsForModelingUtility" name="app_launches_without_warnings_1" time="4.982"/>
+    <testcase classname="PassingTestsForModelingUtility" name="app_launches_without_warnings_2_1" time="10.7787"/>
+    <testcase classname="PassingTestsForModelingUtility" name="app_launches_without_warnings_2_2" time="7.2432"/>
+    <testcase classname="PassingTestsForModelingUtility" name="app_launches_without_warnings_3" time="5.6469"/>
+    <testcase classname="PassingTestsForModelingUtility" name="app_launches_without_warnings_6" time="2.6195"/>
+    <testcase classname="PassingTestsForModelingUtility" name="app_launches_without_warnings_7" time="3.8027"/>
+    <testcase classname="PassingTestsForModelingUtility" name="app_launches_without_warnings_8" time="7.3168"/>
   </testsuite>
 </testsuites>

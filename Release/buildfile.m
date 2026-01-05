@@ -14,17 +14,17 @@ function plan = buildfile
 
 % Copyright 2023-2025 The MathWorks, Inc.
 
-% Passing the handles of local functions to buildplan makes them available as build tasks.
 plan = buildplan(localfunctions);
 
 plan.DefaultTasks = "CodeIssues";
 
-% The "TestAndReport" task is defined by the TestAndReportTask local function.
 plan("TestAndReport").Dependencies = "Test";
 
 plan("CodeIssues") = matlab.buildtool.tasks.CodeIssuesTask( ...
   Dependencies = "DisplayRelease", ...
+  ...
   WarningThreshold = Inf, ...
+  ...
   SourceFiles = ["**/*.m", "**/*.mlx"], ...
   Results = [
   "test-result/code-issues.mat"
@@ -36,7 +36,7 @@ plan("Test") = matlab.buildtool.tasks.TestTask( ...
   ...
   SourceFiles = ["**/*.m", "**/*.mlx"], ...
   SupportingFiles = [
-  "test_summary.m"
+  "reportTestResult.m"
   "**/buildfile.m"
   "**/sample folder/**"
   ], ...
@@ -48,20 +48,21 @@ plan("Test") = matlab.buildtool.tasks.TestTask( ...
 end  % function
 
 function DisplayReleaseTask(~)
-% This function is available as "DisplayRelease" for the build plan.
-matlabRelease
-end  % local function
+disp(datetime("now", TimeZone="UTC", Format="uuuu-MM-dd HH:mm:ss"))
+disp(matlabRelease)
+end  % function
 
 function TestAndReportTask(~)
-% Generate a Markdown file containing test summary.
-%
-% This function is available as "TestAndReport" task for the build plan.
-% This function itself does not run tests.
-% Set a dependency on the Test task so that the tests are performed before this task.
-target_file = "test_summary.m";
+% This function itself does the final reporting only.
+% Set a dependency on the Test task so that the tests are performed before this function.
+disp("UTC " + string(datetime("now", TimeZone="UTC", Format="uuuu-MM-dd HH:mm:ss")))
+
+target_file = "reportTestResult.m";
 assert(isfile(target_file))
 
 generatedfile_fullpath = export(target_file, HideCode=true, Run=true, Format="markdown", IncludeOutputs=true);
 
-disp("Generated: " + generatedfile_fullpath)
-end  % local function
+disp("Generated: <a href=""" + generatedfile_fullpath + """>" + generatedfile_fullpath + "</a>")
+
+disp("UTC " + string(datetime("now", TimeZone="UTC", Format="uuuu-MM-dd HH:mm:ss")))
+end  % function

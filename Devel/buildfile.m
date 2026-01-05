@@ -39,7 +39,7 @@ plan("Test") = matlab.buildtool.tasks.TestTask( ...
   ...
   SourceFiles = ["**/*.m", "**/*.mlx"], ...
   SupportingFiles = [
-  "TestAndCoverageReport.m"
+  "reportTestAndCoverage.m"
   "**/buildfile.m"
   "**/sample folder/**"
   ], ...
@@ -61,7 +61,8 @@ end  % local function
 
 function DisplayReleaseTask(~)
 % This function is available as "DisplayRelease" for the build plan.
-matlabRelease
+disp(datetime("now", TimeZone="UTC", Format="uuuu-MM-dd HH:mm:ss"))
+disp(matlabRelease)
 end  % local function
 
 function TestAndReportTask(~)
@@ -70,10 +71,13 @@ function TestAndReportTask(~)
 % This function is available as "TestAndReport" task for the build plan.
 % This function itself does not run tests.
 % Set a dependency on the Test task so that the tests are performed before this task.
-target_file = "TestAndCoverageReport.m";
+
+target_file = "reportTestAndCoverage.m";
 assert(isfile(target_file))
 
+disp(datetime("now", TimeZone="UTC", Format="uuuu-MM-dd HH:mm:ss"))
 generatedfile_fullpath = export(target_file, HideCode=true, Run=true, Format="markdown", IncludeOutputs=true);
+disp(datetime("now", TimeZone="UTC", Format="uuuu-MM-dd HH:mm:ss"))
 
-disp("Generated: " + generatedfile_fullpath)
+disp("Generated: <a href=""" + generatedfile_fullpath + """>" + generatedfile_fullpath + "</a>")
 end  % local function

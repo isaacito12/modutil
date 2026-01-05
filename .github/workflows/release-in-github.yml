@@ -1,0 +1,56 @@
+# Tag-release workflow
+#
+# Create a GitHub release when a new git tag has been pushed.
+# The file name of a zip for a release is
+#   <archive_base_name>-<version>-<matlab_release>.zip
+# where
+#   <archive_base_name> is defined as a workflow environment
+#   <version> is a tag representing a semantic version, e.g., v1.2.3
+#   <matlab_release> represents MATLAB Release, e.g., R2025b
+
+name: Create GitHub Release
+
+env:
+  ArchiveBaseName: "modutil-simscape"
+  MatlabRelease: "R2025b"
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  # To create a zip file during a CI process, enable the write permission.
+  contents: write
+
+jobs:
+  ReleaseJob:
+    name: Release job
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Check out the repository
+      uses: actions/checkout@v6
+
+    - name: Create ZIP from Release folder
+      run: |
+          TAG="${GITHUB_REF_NAME:-notag}"
+          echo "TAG: $TAG"
+          ARCHIVE="${{ env.ArchiveBaseName }}-${TAG}-${{ env.MatlabRelease }}.zip"
+          # Zip the contents of the "Release" folder.
+          cd Release
+          rm -rf .buildtool
+          rm -rf test-result
+          zip -r "../$ARCHIVE" .
+          echo "ARCHIVE=$ARCHIVE" >> $GITHUB_ENV
+
+    - name: Create a GitHub Release and upload assets
+      uses: softprops/action-gh-release@v2
+      with:
+          # ${{ github.ref_name }} is a tag that triggered the workflow, e.g., v1.2.3
+          name: ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          files: ${{ env.ARCHIVE }}
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
