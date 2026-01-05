@@ -29,13 +29,12 @@ Such files and folders include `.buildtool` folders created by the Build Tool,
 `test-result` folders created to store test results,
 and those in `Release` that were copied from `Devel`.
 
-## Test Automation
+## Test automation
 
-This repository uses GitHub Actions for test automation.
+This repository uses GitHub Actions for remote test automation.
 See `.github/workflows` for the workflow definitions.
 
-Running the tests in GitHub Actions requires MATLAB,
-for which the repository in GitHub must be public.
+Running the tests in GitHub Actions requires MATLAB.
 For more information, visit the MATLAB Actions site in GitHub.
 
 - https://github.com/matlab-actions
