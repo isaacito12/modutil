@@ -167,6 +167,9 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
       %%
       update@AppUtil1.Component.ComponentBase(component)
 
+      % !debugging !todo: This first_update should be unnecessary.
+      %first_update(component)
+
       if component.initialized
         regular_update(component)
         alertOnError(component)

@@ -1,11 +1,14 @@
 # Development repository of the Modeling Utility for Simscape™
 
+[![MATLAB](https://github.com/isaacito12/modutil/actions/workflows/linux-test-devel.yml/badge.svg)](https://github.com/isaacito12/modutil/actions/workflows/linux-test-devel.yml)
+[![MATLAB](https://github.com/isaacito12/modutil/actions/workflows/linux-test-release.yml/badge.svg)](https://github.com/isaacito12/modutil/actions/workflows/linux-test-release.yml)
+
 This is a development repository of the Modeling Utility for Simscape.
 
 - Development is made under the `Devel` folder.
 - The `Release` folder is used to create a release.
 
-For a general introduction, see `README.md` in the `Release` folder.
+For a general introduction, see [`README.md`](Release/README.md) in the `Release` folder.
 
 ## Development and testing
 
@@ -38,5 +41,16 @@ Running the tests in GitHub Actions requires MATLAB.
 For more information, visit the MATLAB Actions site in GitHub.
 
 - https://github.com/matlab-actions
+
+## Release automation
+
+This repository uses the GitHub Action for Creating GitHub Releases.
+For information, visit the Action's GitHub page.
+
+- https://github.com/softprops/action-gh-release
+
+For the workflow definition, see the following file.
+
+- [`.github/workflows/release-in-github.yml`](.github/workflows/release-in-github.yml)
 
 _Copyright 2025-2026 The MathWorks, Inc._

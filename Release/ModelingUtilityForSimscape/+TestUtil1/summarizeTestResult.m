@@ -22,7 +22,11 @@ TestTimeInSeconds = zeros(num_tests, 1);
 
 test_count = 1;
 for ii = 1 : height(result_table)
-  subresult_table = struct2table(result_table.testcase{ii});
+  if height(result_table) == 1
+    subresult_table = struct2table(result_table.testcase);
+  else
+    subresult_table = struct2table(result_table.testcase{ii});
+  end  % if
   num_subresult = result_table.testsAttribute(ii);
 
   TestClass(test_count : test_count + num_subresult - 1) = result_table.nameAttribute(ii);

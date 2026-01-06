@@ -72,12 +72,42 @@ function TestAndReportTask(~)
 % This function itself does not run tests.
 % Set a dependency on the Test task so that the tests are performed before this task.
 
+ReportTask
+
+%{
 target_file = "reportTestAndCoverage.m";
 assert(isfile(target_file))
 
 disp(datetime("now", TimeZone="UTC", Format="uuuu-MM-dd HH:mm:ss"))
-generatedfile_fullpath = export(target_file, HideCode=true, Run=true, Format="markdown", IncludeOutputs=true);
+
+generatedfile_fullpath_html = export(target_file, HideCode=true, Run=true, Format="html", IncludeOutputs=true);
+disp(datetime("now", TimeZone="UTC", Format="uuuu-MM-dd HH:mm:ss"))
+disp("Generated: <a href=""" + generatedfile_fullpath_html + """>" + generatedfile_fullpath_html + "</a>")
+
+generatedfile_fullpath_markdown = export(target_file, HideCode=true, Run=true, Format="markdown", IncludeOutputs=true);
+disp(datetime("now", TimeZone="UTC", Format="uuuu-MM-dd HH:mm:ss"))
+disp("Generated: <a href=""" + generatedfile_fullpath_markdown + """>" + generatedfile_fullpath_markdownk + "</a>")
+%}
+
+end  % local function
+
+function ReportTask(~)
+% Generate an HTML file and a Markdown file containing test summary and code coverage.
+%
+% This function is available as "Report" task for the build plan.
+
+target_file = "reportTestAndCoverage.m";
+assert(isfile(target_file))
+
 disp(datetime("now", TimeZone="UTC", Format="uuuu-MM-dd HH:mm:ss"))
 
-disp("Generated: <a href=""" + generatedfile_fullpath + """>" + generatedfile_fullpath + "</a>")
+% !fyi: The IncludeOutputs option works with Format="markdown" or Format="Jupyter" only.
+% !fyi: The IncludeOutputs option does not works with Format="html".
+% !fyi: To export to HTML with outputs, manually run the script in the editor, save it, and then export.
+generatedfile_fullpath_markdown = export(target_file, HideCode=true, Run=true, Format="markdown", IncludeOutputs=true);
+
+disp(datetime("now", TimeZone="UTC", Format="uuuu-MM-dd HH:mm:ss"))
+
+disp("Generated: <a href=""" + generatedfile_fullpath_markdown + """>" + generatedfile_fullpath_markdown + "</a>")
+
 end  % local function
