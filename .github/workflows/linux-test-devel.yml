@@ -51,8 +51,7 @@ jobs:
     #   https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow
     strategy:
       matrix:
-        matlab_version: [R2025b]
-        #matlab_version: [R2025b, R2026a]
+        matlab_version: [R2024b, R2025b]
 
     name: Test Devel in ${{ matrix.matlab_version }} on Linux
 
