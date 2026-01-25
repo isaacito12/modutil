@@ -9,9 +9,9 @@
 # For details about the syntax of this file, see
 # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
 
-# Copyright 2025 The MathWorks, Inc.
+# Copyright 2025-2026 The MathWorks, Inc.
 
-name: Testing Release on Linux
+name: Testing Devel on Linux
 
 on:
   push:
@@ -41,7 +41,7 @@ on:
 
 jobs:
 
-  TestJob:
+  test-job:
 
     runs-on: ubuntu-latest
 
@@ -52,10 +52,10 @@ jobs:
     strategy:
       matrix:
         config:
-          - name: R2024b
-            cmd: "cd Release; addpath('ModelingUtilityForSimscape'); buildtool -buildFile buildfile_24b.m -verbosity Verbose Test"
+          - name: R2025b
+            cmd: "cd Devel; setup_paths; buildtool -buildFile buildfile.m -verbosity Verbose Test"
 
-    name: Test Release in ${{ matrix.config.name }} on Linux
+    name: Test Devel in ${{ matrix.config.name }} on Linux
 
     permissions:
       # Required for saving files within a workflow.
@@ -66,7 +66,7 @@ jobs:
     steps:
 
       - name: Check out repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Set up MATLAB ${{ matrix.config.name }}
         uses: matlab-actions/setup-matlab@v2
@@ -87,9 +87,48 @@ jobs:
           Xvfb :99 &
           echo "DISPLAY=:99" >> $GITHUB_ENV
 
-      - name: Run tests in MATLAB
+      - name: Run tests in MATLAB ${{ matrix.config.name }}
         uses: matlab-actions/run-command@v2
         with:
           # Commands below run within MATLAB.
           # The initial working folder is the top folder of the repo.
           command: ${{ matrix.config.cmd }}
+
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v4
+        # Run this step regardless of the previous step's success/failure state.
+        if: always()
+        with:
+          sarif_file: Devel/test-result/code-issues.sarif
+          category: matlab-analysis
+
+      - name: Publish Test Report
+        uses: mikepenz/action-junit-report@v4
+        # Run this step regardless of the previous step's success/failure state.
+        if: always()
+        with:
+          report_paths: 'Devel/test-result/test-result.xml'
+
+      - name: Upload Test Result PDF
+        uses: actions/upload-artifact@v4
+        # Run this step regardless of the previous step's success/failure state.
+        if: always()
+        with:
+          name: Test Result PDF
+          path: Devel/test-result/test-result.pdf
+
+      - name: Upload Test Result Folder
+        uses: actions/upload-artifact@v4
+        # Run this step regardless of the previous step's success/failure state.
+        if: always()
+        with:
+          name: Test Result Folder
+          path: Devel/test-result
+
+      - name: Publish coverage
+        uses: 5monkeys/cobertura-action@master
+        # The failure of this step should not affect the entire job's pass/fail state.
+        continue-on-error: true
+        with:
+          path: Devel/test-result/code-coverage.xml
+          minimum_coverage: 75

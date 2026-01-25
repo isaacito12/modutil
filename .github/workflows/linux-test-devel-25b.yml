@@ -1,0 +1,134 @@
+# GitHub Actions Workflow with MATLAB Actions
+#
+# For a general overview of GitHub Actions, see
+# https://docs.github.com/en/actions
+#
+# For using MathWorks products in GitHub Actions, see
+# https://github.com/matlab-actions/overview
+#
+# For details about the syntax of this file, see
+# https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
+
+# Copyright 2025-2026 The MathWorks, Inc.
+
+name: Testing Devel on Linux
+
+on:
+  push:
+    branches: [ R2025b, R2025b-devel ]
+    # The following files in the pushed change should not trigger this workflow.
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+      - '**.png'
+      - '**.svg'
+      - '**.txt'
+      - '**.xml'
+
+  pull_request:
+    branches: [ R2025b, R2025b-devel ]
+    # The following files in the pushed change should not trigger this workflow.
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+      - '**.png'
+      - '**.svg'
+      - '**.txt'
+      - '**.xml'
+
+  # Allow manually start this workflow in the github repository web site. (optional)
+  workflow_dispatch:
+
+jobs:
+
+  test-job:
+
+    runs-on: ubuntu-latest
+
+    # Use the matrix strategy to run the same job in various MATLAB versions.
+    # For information about the matrix strategy, see the documentation.
+    # - Running variations of jobs in a workflow
+    #   https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow
+    strategy:
+      matrix:
+        config:
+          - name: R2024b
+            cmd: "cd Devel; setup_paths; buildtool -buildFile buildfile_24b.m -verbosity Verbose Test"
+
+    name: Test Devel in ${{ matrix.config.name }} on Linux
+
+    permissions:
+      # Required for saving files within a workflow.
+      checks: write
+      # Required for uploading the SARIF file.
+      security-events: write
+
+    steps:
+
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up MATLAB ${{ matrix.config.name }}
+        uses: matlab-actions/setup-matlab@v2
+        with:
+          release: ${{ matrix.config.name }}
+          cache: true
+          products: |
+            Simulink
+            Simscape
+            Simscape_Electrical
+            Simscape_Driveline
+
+      - name: Start XVFB display server
+        # Enable graphics using X11 virtual frame buffer in a headless Linux.
+        # Some tests require graphics.
+        run: |
+          sudo apt-get install xvfb
+          Xvfb :99 &
+          echo "DISPLAY=:99" >> $GITHUB_ENV
+
+      - name: Run tests in MATLAB ${{ matrix.config.name }}
+        uses: matlab-actions/run-command@v2
+        with:
+          # Commands below run within MATLAB.
+          # The initial working folder is the top folder of the repo.
+          command: ${{ matrix.config.cmd }}
+
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v4
+        # Run this step regardless of the previous step's success/failure state.
+        if: always()
+        with:
+          sarif_file: Devel/test-result/code-issues.sarif
+          category: matlab-analysis
+
+      - name: Publish Test Report
+        uses: mikepenz/action-junit-report@v4
+        # Run this step regardless of the previous step's success/failure state.
+        if: always()
+        with:
+          report_paths: 'Devel/test-result/test-result.xml'
+
+      - name: Upload Test Result PDF
+        uses: actions/upload-artifact@v4
+        # Run this step regardless of the previous step's success/failure state.
+        if: always()
+        with:
+          name: Test Result PDF
+          path: Devel/test-result/test-result.pdf
+
+      - name: Upload Test Result Folder
+        uses: actions/upload-artifact@v4
+        # Run this step regardless of the previous step's success/failure state.
+        if: always()
+        with:
+          name: Test Result Folder
+          path: Devel/test-result
+
+      - name: Publish coverage
+        uses: 5monkeys/cobertura-action@master
+        # The failure of this step should not affect the entire job's pass/fail state.
+        continue-on-error: true
+        with:
+          path: Devel/test-result/code-coverage.xml
+          minimum_coverage: 75
