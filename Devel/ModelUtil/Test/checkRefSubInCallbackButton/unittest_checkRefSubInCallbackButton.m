@@ -31,11 +31,11 @@ classdef unittest_checkRefSubInCallbackButton < matlab.unittest.TestCase
   methods (Test)
 
     function ErrorTest_1(testcase)
-      if isMATLABReleaseOlderThan("R2025a")
-
-        return
-
-      end  % if
+      % if isMATLABReleaseOlderThan("R2025a")
+      % 
+      %   return
+      % 
+      % end  % if
       verifyError(testcase, @test_target, "checkRefSubInCallbackButton:InvalidModelName")
       function test_target()
         % The function requires a model name to be passed.
@@ -44,11 +44,11 @@ classdef unittest_checkRefSubInCallbackButton < matlab.unittest.TestCase
     end  % function
 
     function ErrorTest_2(testcase)
-      if isMATLABReleaseOlderThan("R2025a")
-
-        return
-
-      end  % if
+      % if isMATLABReleaseOlderThan("R2025a")
+      % 
+      %   return
+      % 
+      % end  % if
       verifyError(testcase, @test_target, "checkRefSubInCallbackButton:InvalidModelName")
       function test_target()
         % The passed argument must not be zero-length text.
@@ -57,21 +57,21 @@ classdef unittest_checkRefSubInCallbackButton < matlab.unittest.TestCase
     end  % function
 
     function Test_1(testcase)
-      if isMATLABReleaseOlderThan("R2025a")
-
-        return
-
-      end  % if
+      % if isMATLABReleaseOlderThan("R2025a")
+      % 
+      %   return
+      % 
+      % end  % if
       result = ModelUtil1.checkRefSubInCallbackButton("samplemodel_checkRefSubInCallbackButton_empty");
       verifyTrue(testcase, isempty(result))
     end  % function
 
     function Test_2(testcase)
-      if isMATLABReleaseOlderThan("R2025a")
-
-        return
-
-      end  % if
+      % if isMATLABReleaseOlderThan("R2025a")
+      % 
+      %   return
+      % 
+      % end  % if
       result = ModelUtil1.checkRefSubInCallbackButton("samplemodel_checkRefSubInCallbackButton");
       verifyEqual(testcase, result.Found(1), true)
       verifyEqual(testcase, result.Found(2), true)
@@ -79,11 +79,11 @@ classdef unittest_checkRefSubInCallbackButton < matlab.unittest.TestCase
     end  % function
 
     function Test_3(testcase)
-      if isMATLABReleaseOlderThan("R2025a")
-
-        return
-
-      end  % if
+      % if isMATLABReleaseOlderThan("R2025a")
+      % 
+      %   return
+      % 
+      % end  % if
       result = ModelUtil1.checkRefSubInCallbackButton("samplemodel_checkRefSubInCallbackButton");
       verifyEqual(testcase, result.IsRefSub(1), true)
       verifyEqual(testcase, result.IsRefSub(2), true)
@@ -94,11 +94,11 @@ classdef unittest_checkRefSubInCallbackButton < matlab.unittest.TestCase
     % Make sure that scripts, functions, classes, and models run right out of the box.
 
     function PassingTest_1(~)
-      if isMATLABReleaseOlderThan("R2025a")
-
-        return
-
-      end  % if
+      % if isMATLABReleaseOlderThan("R2025a")
+      % 
+      %   return
+      % 
+      % end  % if
       demo_checkRefSubInCallbackButton
     end  % function
 

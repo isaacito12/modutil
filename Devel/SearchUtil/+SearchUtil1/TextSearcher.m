@@ -1,5 +1,5 @@
 classdef TextSearcher < handle
-  % Search text from files.
+  % Search text files for the specified text pattern.
   %
   % This class is designed to be used by tools such as
   % the SearchUtil1.searchText command or the TextSearchApp.
@@ -11,7 +11,7 @@ classdef TextSearcher < handle
   % If you specify Initialization="states", you must also specify the States option.
   % The States option is ignored if the Initialization is not "states".
 
-  % Copyright 2025 The MathWorks, Inc.
+  % Copyright 2025-2026 The MathWorks, Inc.
 
   properties (Access=private, Constant)
     errorID (1,1) string = "TextSearcher:"
@@ -131,7 +131,7 @@ classdef TextSearcher < handle
 
     function buildFileTypes(searcher)
       %% Build the FileTypes state from other states.
-      % FileTypes is a string scalar, e.g, "*.m", or a string arrary, e.g., ["*.m", "demo*.mdl"].
+      % FileTypes is a string scalar, e.g, "*.m", or a string array, e.g., ["*.m", "demo*.mdl"].
 
       if not(isempty(searcher.States.FileTypes)) && all(searcher.States.FileTypes ~= "")
         file_types = searcher.States.FileTypes;

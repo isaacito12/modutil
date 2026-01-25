@@ -35,7 +35,14 @@ classdef unittest_getLinkedCommandFromPlainTextLiveScript < matlab.unittest.Test
     %% Minimum quality check
     % Check that models, scripts, functions, and classes run right out of the box.
 
-    function PassingTest_1(~)
+    function PassingTest_1_R2025a_or_newer(~)
+      if isMATLABReleaseOlderThan("R2025a")
+        % R2024b or older
+        FileUtil1.displayTimeAndFileLocation("Skipping this test.");
+
+        return
+
+      end  % if
       demo_getLinkedCommandFromPlainTextLiveScript
     end  % function
 
@@ -48,7 +55,14 @@ classdef unittest_getLinkedCommandFromPlainTextLiveScript < matlab.unittest.Test
       end  % nested function
     end  % function
 
-    function Test_2(testcase)
+    function Test_2_R2025a_or_newer(testcase)
+      if isMATLABReleaseOlderThan("R2025a")
+        % R2024b or older
+        FileUtil1.displayTimeAndFileLocation("Skipping this test.");
+
+        return
+
+      end  % if
       fullpath = string( which("sampleScript_getLinkedCommandFromPlainTextLiveScript_1"));
       result = FileUtil1.getLinkedCommandFromPlainTextLiveScript(fullpath);
       verifyEqual(testcase, result.Line, [2 2 3 3]')

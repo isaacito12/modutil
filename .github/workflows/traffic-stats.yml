@@ -1,0 +1,225 @@
+name: Weekly GitHub Traffic + Release Stats
+
+on:
+  schedule:
+    - cron: "0 0 * * 0"   # weekly, Sunday 00:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize history file
+        run: |
+          mkdir -p traffic-data
+          [ ! -f traffic-data/history.json ] && echo "[]" > traffic-data/history.json
+
+      - name: Collect and store traffic data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          # Create consolidated data collection script
+          cat << 'EOF' > collect_stats.js
+          const fs = require('fs');
+          const { execSync } = require('child_process');
+          
+          function fetchAPI(endpoint) {
+            try {
+              const cmd = `curl -s -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${process.env.GITHUB_TOKEN}" "https://api.github.com/repos/${process.env.REPO}${endpoint}"`;
+              return JSON.parse(execSync(cmd, { encoding: 'utf8' }));
+            } catch (e) {
+              console.warn(`Failed to fetch ${endpoint}:`, e.message);
+              return null;
+            }
+          }
+          
+          // Collect all data
+          const timestamp = new Date().toISOString();
+          const entry = {
+            timestamp,
+            views: fetchAPI('/traffic/views'),
+            clones: fetchAPI('/traffic/clones'),
+            referrers: fetchAPI('/traffic/popular/referrers'),
+            paths: fetchAPI('/traffic/popular/paths'),
+            releases: fetchAPI('/releases')
+          };
+          
+          // Only proceed if we got valid data
+          if (!entry.views && !entry.clones) {
+            console.log('No valid data collected, skipping update');
+            process.exit(0);
+          }
+          
+          // Update history
+          const history = JSON.parse(fs.readFileSync('traffic-data/history.json', 'utf8'));
+          history.push(entry);
+          
+          // Optional: Keep only last 52*3 weeks (3 years) of data
+          if (history.length > 156) {
+            history.splice(0, history.length - 52);
+          }
+          
+          fs.writeFileSync('traffic-data/history.json', JSON.stringify(history, null, 2));
+          
+          // Generate HTML page for GitHub Pages
+          const htmlTemplate = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repository Traffic Stats</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #333; text-align: center; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0; }
+        .stat-card { background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 4px solid #007bff; }
+        .chart-container { margin: 20px 0; }
+        canvas { max-height: 400px; }
+        .last-updated { text-align: center; color: #666; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Repository Traffic Statistics</h1>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Views</h3>
+                <p id="total-views">Loading...</p>
+            </div>
+            <div class="stat-card">
+                <h3>Total Clones</h3>
+                <p id="total-clones">Loading...</p>
+            </div>
+            <div class="stat-card">
+                <h3>Unique Visitors</h3>
+                <p id="unique-visitors">Loading...</p>
+            </div>
+            <div class="stat-card">
+                <h3>Latest Release Downloads</h3>
+                <p id="release-downloads">Loading...</p>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="trafficChart"></canvas>
+        </div>
+
+        <div class="last-updated" id="last-updated">Last updated: Loading...</div>
+    </div>
+
+    <script>
+        // Load traffic data and create visualizations
+        fetch('./traffic-data/history.json')
+            .then(response => response.json())
+            .then(data => {
+                const latest = data[data.length - 1];
+                
+                // Update stats cards
+                document.getElementById('total-views').textContent = latest.views?.count || '0';
+                document.getElementById('total-clones').textContent = latest.clones?.count || '0';
+                document.getElementById('unique-visitors').textContent = latest.views?.uniques || '0';
+                
+                // Release downloads
+                const latestRelease = latest.releases?.[0];
+                const downloads = latestRelease?.assets?.reduce((sum, asset) => sum + (asset.download_count || 0), 0) || 0;
+                document.getElementById('release-downloads').textContent = downloads;
+                
+                // Last updated
+                document.getElementById('last-updated').textContent = 'Last updated: ' + new Date(latest.timestamp).toLocaleDateString();
+                
+                // Create chart
+                const ctx = document.getElementById('trafficChart').getContext('2d');
+                const chartData = data.slice(-12).map(entry => ({
+                    date: new Date(entry.timestamp).toLocaleDateString(),
+                    views: entry.views?.count || 0,
+                    clones: entry.clones?.count || 0
+                }));
+                
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: chartData.map(d => d.date),
+                        datasets: [{
+                            label: 'Views',
+                            data: chartData.map(d => d.views),
+                            borderColor: '#007bff',
+                            backgroundColor: 'rgba(0,123,255,0.1)',
+                            tension: 0.1
+                        }, {
+                            label: 'Clones',
+                            data: chartData.map(d => d.clones),
+                            borderColor: '#28a745',
+                            backgroundColor: 'rgba(40,167,69,0.1)',
+                            tension: 0.1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Traffic Trends (Last 12 Weeks)'
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Error loading traffic data:', error);
+                document.querySelector('.container').innerHTML = '<h1>Error loading traffic data</h1>';
+            });
+    </script>
+</body>
+</html>`;
+          
+          // Write the HTML file to docs directory for GitHub Pages
+          if (!fs.existsSync('docs')) fs.mkdirSync('docs');
+          fs.writeFileSync('docs/index.html', htmlTemplate);
+          
+          // Also copy the JSON data to docs directory so it's accessible
+          if (!fs.existsSync('docs/traffic-data')) fs.mkdirSync('docs/traffic-data');
+          fs.copyFileSync('traffic-data/history.json', 'docs/traffic-data/history.json');
+          
+          // Output summary for commit message
+          const views = entry.views?.count || 0;
+          const clones = entry.clones?.count || 0;
+          console.log(`STATS_SUMMARY=Views: ${views}, Clones: ${clones}`);
+          EOF
+          
+          node collect_stats.js
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "actions@github.com"
+          
+          if git diff --quiet traffic-data/ docs/; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          
+          git add traffic-data/ docs/
+          git commit -m "📊 Weekly traffic update $(date '+%Y-%m-%d')"
+          git push

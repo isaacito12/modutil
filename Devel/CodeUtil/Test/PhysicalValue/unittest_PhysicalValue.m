@@ -10,7 +10,7 @@ classdef unittest_PhysicalValue < matlab.unittest.TestCase
   % Test Browser
   % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
-  % Copyright 2025 The MathWorks, Inc.
+  % Copyright 2025-2026 The MathWorks, Inc.
 
   methods (TestMethodSetup)
     % Functions in this section always run before each test defined in the Test section runs.
@@ -37,6 +37,18 @@ classdef unittest_PhysicalValue < matlab.unittest.TestCase
 
     function PassingTest_1(~)
       CodeUtil1.PhysicalValue;
+    end  % function
+
+    function PassingTest_2(~)
+      demo_PhysicalValue_1_basics
+    end  % function
+
+    function PassingTest_3(~)
+      evalin("base", "demo_PhysicalValue_2_workspace")
+    end  % function
+
+    function PassingTest_4(~)
+      demo_PhysicalValue_3_watch
     end  % function
 
     %% Tests

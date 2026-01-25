@@ -23,7 +23,10 @@ if not(all(logical_index))
     msg = "Files are not plain-text Live Script:" + newline + join(filenames(not(logical_index)), newline);
   end  % if
 
-  throw(MException(id, msg))
+  % The message (msg) contains a file path for example "C:\local\work" on Windows.
+  % The backslash "\" may be interpreted as an escaped character such as '\l' by MException
+  % if it is in the second argument, causing an error. Use "%s" to avoid it.
+  throw(MException(id, "%s", msg))
 
 end  % if
 end  % function

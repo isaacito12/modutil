@@ -36,6 +36,12 @@ classdef unittest_batchGenerateMarkdowns < matlab.unittest.TestCase
     % Check that models, scripts, functions, and classes run right out of the box.
 
     function PassingTest_1(~)
+      % if isMATLABReleaseOlderThan("R2025a")
+      %   FileUtil1.displayTimeAndFileLocation("Skipping this test.");
+      % 
+      %   return
+      % 
+      % end  % if
       FileUtil1.batchGenerateMarkdowns
     end  % function
 
@@ -43,6 +49,13 @@ classdef unittest_batchGenerateMarkdowns < matlab.unittest.TestCase
 
     function Test_1(testcase)
       % Specify multiple folders containing Live Scripts.
+
+      % if isMATLABReleaseOlderThan("R2025a")
+      %   FileUtil1.displayTimeAndFileLocation("Skipping this test.");
+      % 
+      %   return
+      % 
+      % end  % if
 
       try
         % This fails (FolderNotFound) in GitHub Actions for some reason.

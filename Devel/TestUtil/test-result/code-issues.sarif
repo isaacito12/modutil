@@ -1,0 +1,75 @@
+{
+  "version": "2.1.0",
+  "properties": {
+    "Date": "18-Jan-2026 14:24:20",
+    "Release": "R2024b",
+    "CodeAnalyzerConfiguration": "active"
+  },
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Code Analyzer"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/+TestUtil1/summarizeCodeCoverage.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/+TestUtil1/summarizeTestResult.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/TestResultApp.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/Test/summarizeCodeCoverage/demo_summarizeCodeCoverage_1.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/Test/summarizeCodeCoverage/demo_summarizeCodeCoverage_2.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/Test/summarizeCodeCoverage/unittest_summarizeCodeCoverage.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/Test/summarizeTestResult/demo_summarizeTestResult_1.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/Test/summarizeTestResult/unittest_summarizeTestResult.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/buildfile.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/uitest_TestUtil.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/uiuptodatetest_TestUtil.m"
+          }
+        }
+      ],
+      "results": []
+    }
+  ]
+}

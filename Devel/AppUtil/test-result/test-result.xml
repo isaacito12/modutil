@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" name="uitest_AppUtil" skipped="0" tests="6" time="12.3473">
+    <testcase classname="uitest_AppUtil" name="app_launches_without_warnings_1" time="0.18002"/>
+    <testcase classname="uitest_AppUtil" name="app_launches_without_warnings_2" time="6.6091"/>
+    <testcase classname="uitest_AppUtil" name="test_ColormapApp_LightTheme" time="0.010695"/>
+    <testcase classname="uitest_AppUtil" name="test_ColormapApp_DarkTheme" time="0.0019158"/>
+    <testcase classname="uitest_AppUtil" name="test_MonitorInfoApp_LightTheme" time="5.5354"/>
+    <testcase classname="uitest_AppUtil" name="test_MonitorInfoApp_DarkTheme" time="0.010132"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_AlignComponents" skipped="0" tests="12" time="27.546">
+    <testcase classname="uitest_AlignComponents" name="app_launches_without_warnings_1" time="2.9379"/>
+    <testcase classname="uitest_AlignComponents" name="app_launches_without_warnings_2" time="1.8202"/>
+    <testcase classname="uitest_AlignComponents" name="app_launches_without_warnings_3" time="4.8554"/>
+    <testcase classname="uitest_AlignComponents" name="app_launches_without_warnings_4" time="2.3199"/>
+    <testcase classname="uitest_AlignComponents" name="DarkTheme_1" time="0.0036178"/>
+    <testcase classname="uitest_AlignComponents" name="LightTheme_1" time="2.5532"/>
+    <testcase classname="uitest_AlignComponents" name="DarkTheme_2" time="0.0020999"/>
+    <testcase classname="uitest_AlignComponents" name="LightTheme_2" time="1.8941"/>
+    <testcase classname="uitest_AlignComponents" name="DarkTheme_3" time="0.0035853"/>
+    <testcase classname="uitest_AlignComponents" name="LightTheme_3" time="5.6177"/>
+    <testcase classname="uitest_AlignComponents" name="DarkTheme_4" time="0.0015385"/>
+    <testcase classname="uitest_AlignComponents" name="LightTheme_4" time="5.5367"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_AppWindow" skipped="0" tests="2" time="3.3825">
+    <testcase classname="uitest_AppWindow" name="app_launches_without_warnings_1" time="1.6823"/>
+    <testcase classname="uitest_AppWindow" name="app_launches_without_warnings_2" time="1.7002"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_Axes" skipped="0" tests="8" time="13.1471">
+    <testcase classname="uitest_Axes" name="app_launches_without_warnings_1" time="3.09"/>
+    <testcase classname="uitest_Axes" name="app_launches_without_warnings_2" time="1.9807"/>
+    <testcase classname="uitest_Axes" name="app_launches_without_warnings_3" time="1.9649"/>
+    <testcase classname="uitest_Axes" name="app_launches_without_warnings_4" time="2.1081"/>
+    <testcase classname="uitest_Axes" name="LightTheme_1" time="2.0327"/>
+    <testcase classname="uitest_Axes" name="LightTheme_2" time="1.966"/>
+    <testcase classname="uitest_Axes" name="DarkTheme_1" time="0.0018957"/>
+    <testcase classname="uitest_Axes" name="DarkTheme_2" time="0.0027217"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_BlockSelectorUI" skipped="0" tests="15" time="85.6346">
+    <testcase classname="uitest_BlockSelectorUI" name="app_launches_without_warnings_1" time="2.0367"/>
+    <testcase classname="uitest_BlockSelectorUI" name="app_launches_without_warnings_2" time="30.5781"/>
+    <testcase classname="uitest_BlockSelectorUI" name="app_launches_without_warnings_3" time="2.5839"/>
+    <testcase classname="uitest_BlockSelectorUI" name="app_launches_without_warnings_4" time="4.6886"/>
+    <testcase classname="uitest_BlockSelectorUI" name="app_launches_without_warnings_5" time="3.1961"/>
+    <testcase classname="uitest_BlockSelectorUI" name="invalid_model" time="0.68906"/>
+    <testcase classname="uitest_BlockSelectorUI" name="duplicate_model_paths" time="2.4523"/>
+    <testcase classname="uitest_BlockSelectorUI" name="invalid_model_file" time="0.12503"/>
+    <testcase classname="uitest_BlockSelectorUI" name="Gesture_Highlight_Block" time="6.8186"/>
+    <testcase classname="uitest_BlockSelectorUI" name="Gesture_Model_Dropdown" time="6.3949"/>
+    <testcase classname="uitest_BlockSelectorUI" name="Gesture_Get_button" time="5.7167"/>
+    <testcase classname="uitest_BlockSelectorUI" name="Gesture_Set_button" time="5.3994"/>
+    <testcase classname="uitest_BlockSelectorUI" name="Gesture_Highlight_button" time="12.638"/>
+    <testcase classname="uitest_BlockSelectorUI" name="LightTheme_1" time="2.3146"/>
+    <testcase classname="uitest_BlockSelectorUI" name="DarkTheme_1" time="0.0027018"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_Button" skipped="0" tests="13" time="18.2179">
+    <testcase classname="uitest_Button" name="app_launches_without_warnings_1" time="1.5655"/>
+    <testcase classname="uitest_Button" name="app_launches_without_warnings_2" time="2.0025"/>
+    <testcase classname="uitest_Button" name="app_launches_without_warnings_3" time="1.8413"/>
+    <testcase classname="uitest_Button" name="app_launches_without_warnings_4" time="2.0679"/>
+    <testcase classname="uitest_Button" name="Gesture_1" time="1.9455"/>
+    <testcase classname="uitest_Button" name="LightTheme_1" time="1.6379"/>
+    <testcase classname="uitest_Button" name="LightTheme_2" time="2.3359"/>
+    <testcase classname="uitest_Button" name="LightTheme_3" time="2.1379"/>
+    <testcase classname="uitest_Button" name="LightTheme_4" time="2.6756"/>
+    <testcase classname="uitest_Button" name="DarkTheme_1" time="0.0024378"/>
+    <testcase classname="uitest_Button" name="DarkTheme_2" time="0.0014621"/>
+    <testcase classname="uitest_Button" name="DarkTheme_3" time="0.0016102"/>
+    <testcase classname="uitest_Button" name="DarkTheme_4" time="0.0024635"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_CheckBox" skipped="0" tests="10" time="19.4673">
+    <testcase classname="uitest_CheckBox" name="app_launches_without_warnings_1" time="1.6266"/>
+    <testcase classname="uitest_CheckBox" name="app_launches_without_warnings_2" time="2.0583"/>
+    <testcase classname="uitest_CheckBox" name="app_launches_without_warnings_3" time="4.3591"/>
+    <testcase classname="uitest_CheckBox" name="Gesture_1" time="1.8392"/>
+    <testcase classname="uitest_CheckBox" name="LightTheme_1" time="1.6635"/>
+    <testcase classname="uitest_CheckBox" name="LightTheme_2" time="2.3238"/>
+    <testcase classname="uitest_CheckBox" name="LightTheme_3" time="5.5911"/>
+    <testcase classname="uitest_CheckBox" name="DarkTheme_1" time="0.0021304"/>
+    <testcase classname="uitest_CheckBox" name="DarkTheme_2" time="0.001565"/>
+    <testcase classname="uitest_CheckBox" name="DarkTheme_3" time="0.0020886"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_ColumnLayout" skipped="0" tests="6" time="7.2472">
+    <testcase classname="uitest_ColumnLayout" name="app_launches_without_warnings_1" time="1.5783"/>
+    <testcase classname="uitest_ColumnLayout" name="app_launches_without_warnings_2" time="1.8202"/>
+    <testcase classname="uitest_ColumnLayout" name="LightTheme_1" time="1.6399"/>
+    <testcase classname="uitest_ColumnLayout" name="LightTheme_2" time="2.2022"/>
+    <testcase classname="uitest_ColumnLayout" name="DarkTheme_1" time="0.004665"/>
+    <testcase classname="uitest_ColumnLayout" name="DarkTheme_2" time="0.0019534"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_DoubleValueUI" skipped="0" tests="5" time="9.3">
+    <testcase classname="uitest_DoubleValueUI" name="app_launches_without_warnings_1" time="1.9602"/>
+    <testcase classname="uitest_DoubleValueUI" name="app_launches_without_warnings_2" time="2.941"/>
+    <testcase classname="uitest_DoubleValueUI" name="Gesture_UnitAlias_1" time="2.2841"/>
+    <testcase classname="uitest_DoubleValueUI" name="LightTheme_1" time="2.1114"/>
+    <testcase classname="uitest_DoubleValueUI" name="DarkTheme_1" time="0.0032293"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_DropDown" skipped="0" tests="7" time="8.9573">
+    <testcase classname="uitest_DropDown" name="app_launches_without_warnings_1" time="1.6878"/>
+    <testcase classname="uitest_DropDown" name="app_launches_without_warnings_2" time="1.7338"/>
+    <testcase classname="uitest_DropDown" name="Test_1" time="2.1585"/>
+    <testcase classname="uitest_DropDown" name="LightTheme_1" time="1.6337"/>
+    <testcase classname="uitest_DropDown" name="LightTheme_2" time="1.7399"/>
+    <testcase classname="uitest_DropDown" name="DarkTheme_1" time="0.0016332"/>
+    <testcase classname="uitest_DropDown" name="DarkTheme_2" time="0.0019585"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_EditField" skipped="0" tests="4" time="5.464">
+    <testcase classname="uitest_EditField" name="app_launches_without_warnings_1" time="1.5577"/>
+    <testcase classname="uitest_EditField" name="Gesture_1" time="2.3064"/>
+    <testcase classname="uitest_EditField" name="LightTheme_1" time="1.5969"/>
+    <testcase classname="uitest_EditField" name="DarkTheme_1" time="0.0029994"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_EditableDropDown" skipped="0" tests="8" time="12.0543">
+    <testcase classname="uitest_EditableDropDown" name="app_launches_without_warnings_1" time="1.5825"/>
+    <testcase classname="uitest_EditableDropDown" name="app_launches_without_warnings_2" time="1.6257"/>
+    <testcase classname="uitest_EditableDropDown" name="Test_1" time="3.1933"/>
+    <testcase classname="uitest_EditableDropDown" name="Test_2" time="2.1899"/>
+    <testcase classname="uitest_EditableDropDown" name="LightTheme_1" time="1.6525"/>
+    <testcase classname="uitest_EditableDropDown" name="LightTheme_2" time="1.8051"/>
+    <testcase classname="uitest_EditableDropDown" name="DarkTheme_1" time="0.0019536"/>
+    <testcase classname="uitest_EditableDropDown" name="DarkTheme_2" time="0.0032905"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_EnabledButton" skipped="0" tests="10" time="14.7164">
+    <testcase classname="uitest_EnabledButton" name="app_launches_without_warnings_1" time="1.6909"/>
+    <testcase classname="uitest_EnabledButton" name="app_launches_without_warnings_2" time="2.098"/>
+    <testcase classname="uitest_EnabledButton" name="app_launches_without_warnings_3" time="2.1353"/>
+    <testcase classname="uitest_EnabledButton" name="Gesture_1" time="2.0806"/>
+    <testcase classname="uitest_EnabledButton" name="LightTheme_1" time="1.8312"/>
+    <testcase classname="uitest_EnabledButton" name="LightTheme_2" time="2.1876"/>
+    <testcase classname="uitest_EnabledButton" name="LightTheme_3" time="2.6871"/>
+    <testcase classname="uitest_EnabledButton" name="DarkTheme_1" time="0.001928"/>
+    <testcase classname="uitest_EnabledButton" name="DarkTheme_2" time="0.0014809"/>
+    <testcase classname="uitest_EnabledButton" name="DarkTheme_3" time="0.0023376"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_HorizontalLine" skipped="0" tests="3" time="4.7433">
+    <testcase classname="uitest_HorizontalLine" name="app_launches_without_warnings_1" time="1.559"/>
+    <testcase classname="uitest_HorizontalLine" name="LightTheme_1" time="1.6353"/>
+    <testcase classname="uitest_HorizontalLine" name="DarkTheme_1" time="1.5491"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_Hyperlink" skipped="0" tests="6" time="11.2971">
+    <testcase classname="uitest_Hyperlink" name="app_launches_without_warnings_1" time="1.5607"/>
+    <testcase classname="uitest_Hyperlink" name="app_launches_without_warnings_2" time="1.9983"/>
+    <testcase classname="uitest_Hyperlink" name="LightTheme_1" time="1.6661"/>
+    <testcase classname="uitest_Hyperlink" name="LightTheme_2" time="2.4082"/>
+    <testcase classname="uitest_Hyperlink" name="DarkTheme_1" time="1.6455"/>
+    <testcase classname="uitest_Hyperlink" name="DarkTheme_2" time="2.0183"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_Label" skipped="0" tests="7" time="13.06">
+    <testcase classname="uitest_Label" name="app_launches_without_warnings_1" time="1.6223"/>
+    <testcase classname="uitest_Label" name="app_launches_without_warnings_2" time="1.99"/>
+    <testcase classname="uitest_Label" name="app_launches_without_warnings_3" time="1.9714"/>
+    <testcase classname="uitest_Label" name="LightTheme_1" time="1.6078"/>
+    <testcase classname="uitest_Label" name="LightTheme_2" time="2.377"/>
+    <testcase classname="uitest_Label" name="DarkTheme_1" time="1.5655"/>
+    <testcase classname="uitest_Label" name="DarkTheme_2" time="1.9259"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_ListBox" skipped="0" tests="4" time="5.2541">
+    <testcase classname="uitest_ListBox" name="app_launches_without_warnings_1" time="1.6776"/>
+    <testcase classname="uitest_ListBox" name="Gesture_1" time="1.9054"/>
+    <testcase classname="uitest_ListBox" name="LightTheme_1" time="1.6685"/>
+    <testcase classname="uitest_ListBox" name="DarkTheme_1" time="0.0025714"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_MixedLayout" skipped="0" tests="6" time="8.8902">
+    <testcase classname="uitest_MixedLayout" name="app_launches_without_warnings_1" time="1.9525"/>
+    <testcase classname="uitest_MixedLayout" name="app_launches_without_warnings_2" time="1.9959"/>
+    <testcase classname="uitest_MixedLayout" name="LightTheme_1" time="2.4651"/>
+    <testcase classname="uitest_MixedLayout" name="LightTheme_2" time="2.4711"/>
+    <testcase classname="uitest_MixedLayout" name="DarkTheme_1" time="0.003351"/>
+    <testcase classname="uitest_MixedLayout" name="DarkTheme_2" time="0.0022536"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_Panel" skipped="0" tests="24" time="60.0121">
+    <testcase classname="uitest_Panel" name="app_launches_without_warnings_1" time="1.6686"/>
+    <testcase classname="uitest_Panel" name="app_launches_without_warnings_2" time="3.2966"/>
+    <testcase classname="uitest_Panel" name="app_launches_without_warnings_3" time="6.1268"/>
+    <testcase classname="uitest_Panel" name="app_launches_without_warnings_4" time="2.831"/>
+    <testcase classname="uitest_Panel" name="app_launches_without_warnings_5" time="6.3992"/>
+    <testcase classname="uitest_Panel" name="app_launches_without_warnings_6" time="4.3813"/>
+    <testcase classname="uitest_Panel" name="app_launches_without_warnings_7" time="4.034"/>
+    <testcase classname="uitest_Panel" name="app_launches_without_warnings_8" time="6.409"/>
+    <testcase classname="uitest_Panel" name="LightTheme_1" time="1.6669"/>
+    <testcase classname="uitest_Panel" name="DarkTheme_1" time="0.001831"/>
+    <testcase classname="uitest_Panel" name="LightTheme_2" time="2.2397"/>
+    <testcase classname="uitest_Panel" name="DarkTheme_2" time="0.0017536"/>
+    <testcase classname="uitest_Panel" name="LightTheme_3" time="2.497"/>
+    <testcase classname="uitest_Panel" name="DarkTheme_3" time="0.002063"/>
+    <testcase classname="uitest_Panel" name="LightTheme_4" time="2.6475"/>
+    <testcase classname="uitest_Panel" name="DarkTheme_4" time="0.0020824"/>
+    <testcase classname="uitest_Panel" name="LightTheme_5" time="2.8178"/>
+    <testcase classname="uitest_Panel" name="DarkTheme_5" time="0.0035519"/>
+    <testcase classname="uitest_Panel" name="LightTheme_6" time="2.5819"/>
+    <testcase classname="uitest_Panel" name="DarkTheme_6" time="0.0022478"/>
+    <testcase classname="uitest_Panel" name="LightTheme_7" time="3.0894"/>
+    <testcase classname="uitest_Panel" name="DarkTheme_7" time="0.0016062"/>
+    <testcase classname="uitest_Panel" name="LightTheme_8" time="7.3068"/>
+    <testcase classname="uitest_Panel" name="DarkTheme_8" time="0.0032598"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_PhysicalValueUI" skipped="0" tests="15" time="38.1278">
+    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_1" time="2.1584"/>
+    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_2" time="2.6882"/>
+    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_3" time="2.5397"/>
+    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_4" time="3.6719"/>
+    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_5" time="2.1756"/>
+    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_6" time="2.0487"/>
+    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_7" time="2.0018"/>
+    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_8" time="3.3023"/>
+    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_9" time="1.796"/>
+    <testcase classname="uitest_PhysicalValueUI" name="Test_1" time="2.6257"/>
+    <testcase classname="uitest_PhysicalValueUI" name="Gesture_UnitAlias_1" time="2.4421"/>
+    <testcase classname="uitest_PhysicalValueUI" name="Gesture_UnitAlias_2" time="2.3436"/>
+    <testcase classname="uitest_PhysicalValueUI" name="Gesture_UnitItems_1" time="6.2176"/>
+    <testcase classname="uitest_PhysicalValueUI" name="LightTheme_1" time="2.1131"/>
+    <testcase classname="uitest_PhysicalValueUI" name="DarkTheme_1" time="0.0031803"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_PolarAxes" skipped="0" tests="6" time="8.1973">
+    <testcase classname="uitest_PolarAxes" name="app_launches_without_warnings_1" time="2.0087"/>
+    <testcase classname="uitest_PolarAxes" name="app_launches_without_warnings_2" time="2.0712"/>
+    <testcase classname="uitest_PolarAxes" name="LightTheme_1" time="2.0419"/>
+    <testcase classname="uitest_PolarAxes" name="DarkTheme_1" time="0.0020498"/>
+    <testcase classname="uitest_PolarAxes" name="LightTheme_2" time="2.0702"/>
+    <testcase classname="uitest_PolarAxes" name="DarkTheme_2" time="0.0031468"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_RowLayout" skipped="0" tests="6" time="6.6441">
+    <testcase classname="uitest_RowLayout" name="app_launches_without_warnings_1" time="1.5919"/>
+    <testcase classname="uitest_RowLayout" name="app_launches_without_warnings_2" time="1.586"/>
+    <testcase classname="uitest_RowLayout" name="LightTheme_1" time="1.6782"/>
+    <testcase classname="uitest_RowLayout" name="LightTheme_2" time="1.7811"/>
+    <testcase classname="uitest_RowLayout" name="DarkTheme_1" time="0.0035301"/>
+    <testcase classname="uitest_RowLayout" name="DarkTheme_2" time="0.0034025"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_StateButton" skipped="0" tests="4" time="5.2672">
+    <testcase classname="uitest_StateButton" name="app_launches_without_warnings_1" time="1.6456"/>
+    <testcase classname="uitest_StateButton" name="Gesture_1" time="1.9102"/>
+    <testcase classname="uitest_StateButton" name="LightTheme_1" time="1.7082"/>
+    <testcase classname="uitest_StateButton" name="DarkTheme_1" time="0.0031146"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_Table" skipped="0" tests="4" time="7.8302">
+    <testcase classname="uitest_Table" name="app_launches_without_warnings_1" time="1.7421"/>
+    <testcase classname="uitest_Table" name="Gesture_1" time="4.2622"/>
+    <testcase classname="uitest_Table" name="LightTheme_1" time="1.8233"/>
+    <testcase classname="uitest_Table" name="DarkTheme_1" time="0.0026076"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_TextArea" skipped="0" tests="4" time="5.8236">
+    <testcase classname="uitest_TextArea" name="app_launches_without_warnings_1" time="1.6107"/>
+    <testcase classname="uitest_TextArea" name="Gesture_1" time="2.5741"/>
+    <testcase classname="uitest_TextArea" name="LightTheme_1" time="1.6354"/>
+    <testcase classname="uitest_TextArea" name="DarkTheme_1" time="0.0034217"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_WindowHeader" skipped="0" tests="6" time="11.677">
+    <testcase classname="uitest_WindowHeader" name="app_launches_without_warnings_1" time="1.6574"/>
+    <testcase classname="uitest_WindowHeader" name="app_launches_without_warnings_2" time="1.6296"/>
+    <testcase classname="uitest_WindowHeader" name="app_launches_without_warnings_3" time="1.6368"/>
+    <testcase classname="uitest_WindowHeader" name="Gesture_1" time="4.3264"/>
+    <testcase classname="uitest_WindowHeader" name="LightTheme_1" time="2.4227"/>
+    <testcase classname="uitest_WindowHeader" name="DarkTheme_1" time="0.0040054"/>
+  </testsuite>
+</testsuites>

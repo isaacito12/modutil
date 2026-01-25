@@ -1,16 +1,19 @@
 function exportToMarkdown(LiveScriptFilename, NameValuePair)
 % Export a Live Script to a Markdown file.
 %
-% This is a wrapper function for MALTAB's export command to generate
+% This is a wrapper function of MALTAB's export command to generate
 % a Markdown file from a Live Script.
 
 % Copyright 2024-2025 The mathWorks, Inc.
 
-% If you convert "mycode1.m" (or .mlx) Live Script with the export command,
-% it creates "mycode1.md" Markdown file. If the live script includes
+% In R2024b, this command works with the "*.mlx" binary Live Script.
+% In R2025a or newer, this command also works with the "*.m" plain-text Live Script.
+%
+% If you convert the "mycode1.m" (or .mlx) Live Script with the export command,
+% it creates the "mycode1.md" Markdown file. If the Live Script includes
 % plots or animations, and if you select to create separate media files,
-% export also creates "mycode1_media" folder in the current folder.
-% "mycode1_media" folder is used to store image files or movie files
+% export also creates the "mycode1_media" folder in the current folder.
+% The "mycode1_media" folder is used to store image files or movie files
 % generated from the Live Script and used by the Markdown file.
 %
 %   pwd >
@@ -34,7 +37,7 @@ function exportToMarkdown(LiveScriptFilename, NameValuePair)
 %
 % With this wrapper function, by default, Markdown file is saved in
 % "markdown" folder in the current folder, and the "media" folder is
-% moved below "markdown > media" folder.
+% moved below the "markdown > media" folder.
 %
 %   pwd >
 %       markdown >
@@ -51,8 +54,7 @@ function exportToMarkdown(LiveScriptFilename, NameValuePair)
 
 arguments (Input)
   % A Live Script file to convert to a Markdown file.
-  % This filename can include either a relative or full path.
-  % Both plain-text Live Script (*.m) and binary Live Script (*.mlx) are supported.
+  % This filename can include either a relative path or a full path.
   LiveScriptFilename (1,1) string {FileUtil1.mustBeLiveScript}
 
   % A path to the folder to store Markdown files.

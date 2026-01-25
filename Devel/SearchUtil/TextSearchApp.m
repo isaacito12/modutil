@@ -1,7 +1,7 @@
 function App = TextSearchApp(NameValuePair)
 % App for searching text in files.
 %
-% Open the app without any options and the app will use the default values.
+% Open the app without any options and the app uses the default values.
 %
 %   TextSearchApp
 %
@@ -23,7 +23,7 @@ function App = TextSearchApp(NameValuePair)
 %   TextSearchApp(StatesSource="external", SearchStates=states)
 %
 
-% Copyright 2025 The MathWorks, Inc.
+% Copyright 2025-2026 The MathWorks, Inc.
 
 arguments (Input)
   NameValuePair.StatesSource (1,1) string {mustBeMember(NameValuePair.StatesSource, ["options", "external"])} = "options"

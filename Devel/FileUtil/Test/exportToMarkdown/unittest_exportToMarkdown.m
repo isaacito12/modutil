@@ -10,7 +10,7 @@ classdef unittest_exportToMarkdown < matlab.unittest.TestCase
   % Test Browser
   % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
-  % Copyright 2025 The MathWorks, Inc.
+  % Copyright 2025-2026 The MathWorks, Inc.
 
   methods (TestMethodSetup)
     % Functions in this section always run before each test defined in the Test section runs.
@@ -51,8 +51,8 @@ classdef unittest_exportToMarkdown < matlab.unittest.TestCase
 
     function PassingTest_1(testcase)
       if matlabRelease.Release == "R2026a"
-        % !todo-in-test: Run this test properly in 26a when ready.
-        FileUtil1.displayTimeAndFileLocation("Skipping in R2026a");
+        FileUtil1.displayTimeAndFileLocation("R2026a");
+        verifyFail(testcase, "Not performing this test for now.")
 
         return
 
@@ -71,8 +71,8 @@ classdef unittest_exportToMarkdown < matlab.unittest.TestCase
 
     function PassingTest_2(testcase)
       if matlabRelease.Release == "R2026a"
-        % !todo-in-test: Run this test properly in 26a when ready.
-        FileUtil1.displayTimeAndFileLocation("Skipping in R2026a");
+        FileUtil1.displayTimeAndFileLocation("R2026a");
+        verifyFail(testcase, "Not performing this test for now.")
 
         return
 
@@ -91,8 +91,8 @@ classdef unittest_exportToMarkdown < matlab.unittest.TestCase
 
     function PassingTest_3(testcase)
       if matlabRelease.Release == "R2026a"
-        % !todo-in-test: Run this test properly in 26a when ready.
-        FileUtil1.displayTimeAndFileLocation("Skipping in R2026a");
+        FileUtil1.displayTimeAndFileLocation("R2026a");
+        verifyFail(testcase, "Not performing this test for now.")
 
         return
 

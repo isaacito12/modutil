@@ -1,5 +1,5 @@
 classdef unittest_buildReplaceCommandText < matlab.unittest.TestCase
-  %% Class-based unit test
+  % Class-based unit test
 
   % Author Class-Based Unit Tests in MATLAB
   % https://www.mathworks.com/help/matlab/matlab_prog/author-class-based-unit-tests-in-matlab.html
@@ -10,7 +10,7 @@ classdef unittest_buildReplaceCommandText < matlab.unittest.TestCase
   % Test Browser
   % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
-  % Copyright 2025 The MathWorks, Inc.
+  % Copyright 2025-2026 The MathWorks, Inc.
 
   methods (TestMethodSetup)
     % Functions in this section always run before each test defined in the Test section runs.
@@ -64,7 +64,7 @@ classdef unittest_buildReplaceCommandText < matlab.unittest.TestCase
     end  % function
 
     function Error_3(testcase)
-      file_path = which("demo_buildReplaceCommandText_1.m");
+      file_path = which("demo_buildReplaceCommandText_1.mlx");
       verifyTrue(testcase, isfile(file_path))
       verifyError(testcase, @test_target, "buildReplaceCommandText:MissingTextPattern")
       function test_target()
@@ -73,7 +73,7 @@ classdef unittest_buildReplaceCommandText < matlab.unittest.TestCase
     end  % function
 
     function Error_4(testcase)
-      file_path = which("demo_buildReplaceCommandText_1.m");
+      file_path = which("demo_buildReplaceCommandText_1.mlx");
       verifyTrue(testcase, isfile(file_path))
       verifyError(testcase, @test_target, "buildReplaceCommandText:MissingIgnoreCase")
       function test_target()
@@ -82,7 +82,7 @@ classdef unittest_buildReplaceCommandText < matlab.unittest.TestCase
     end  % function
 
     function Error_5(testcase)
-      file_path = which("demo_buildReplaceCommandText_1.m");
+      file_path = which("demo_buildReplaceCommandText_1.mlx");
       verifyTrue(testcase, isfile(file_path))
       verifyError(testcase, @test_target, "buildReplaceCommandText:MissingMatchWholeWord")
       function test_target()
@@ -92,7 +92,7 @@ classdef unittest_buildReplaceCommandText < matlab.unittest.TestCase
     end  % function
 
     function Error_6(testcase)
-      file_path = which("demo_buildReplaceCommandText_1.m");
+      file_path = which("demo_buildReplaceCommandText_1.mlx");
       verifyTrue(testcase, isfile(file_path))
       verifyError(testcase, @test_target, "buildReplaceCommandText:MissingNewText")
       function test_target()
@@ -102,7 +102,7 @@ classdef unittest_buildReplaceCommandText < matlab.unittest.TestCase
     end  % function
 
     function Error_7(testcase)
-      file_path = which("demo_buildReplaceCommandText_1.m");
+      file_path = which("demo_buildReplaceCommandText_1.mlx");
       verifyTrue(testcase, isfile(file_path))
       verifyError(testcase, @test_target, "buildReplaceCommandText:InvalidCommandName")
       function test_target()

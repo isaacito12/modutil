@@ -1,9 +1,9 @@
 classdef TextSearchAppMain < handle
-  % App to search text in files
+  % App to search text files for the specified text in a folder
   %
   % This is the main implementation of the app.
 
-  % Copyright 2025 The MathWorks, Inc.
+  % Copyright 2025-2026 The MathWorks, Inc.
 
   properties (Access=private, Constant)
     errorID (1,1) string = "TextSearchAppMain:"
@@ -205,6 +205,7 @@ classdef TextSearchAppMain < handle
       row_grid = NewRowGrid(row_layout, Width="fit");
       label_ui = AppUtil1.Component.Label(row_grid);
       label_ui.MainFigure = App.Window.MainFigure;
+      label_ui.ComponentWidth = App.width_name_ui;
       label_ui.Text = "\textbf{" + CodeUtil1.i18n("Text to search") + "}";
 
       App.IgnoreCaseUI = AppUtil1.Component.CheckBox(NewRowGrid(row_layout, Width="fit"));
@@ -231,6 +232,7 @@ classdef TextSearchAppMain < handle
 
       row_grid = NewRowGrid(row_layout, Width="fit");
       label_ui = AppUtil1.Component.Label(row_grid);
+      label_ui.ComponentWidth = App.width_name_ui;
       label_ui.Text = "\textbf{" + CodeUtil1.i18n("Target folder") + "}";
 
       row_grid = NewRowGrid(row_layout, Width="fit");
@@ -499,7 +501,7 @@ classdef TextSearchAppMain < handle
 
       end  % if
 
-      SearchUtil1.TextSearchResultViewerAppMain(App.TextSearcher, SearchResult=App.SearchResult)
+      SearchUtil1.TextSearchResultAppMain(App.TextSearcher, SearchResult=App.SearchResult)
 
     end  % function
 

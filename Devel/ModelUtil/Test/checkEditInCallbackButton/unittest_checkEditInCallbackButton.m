@@ -31,11 +31,6 @@ classdef unittest_checkEditInCallbackButton < matlab.unittest.TestCase
   methods (Test)
 
     function ErrorCase_1(testcase)
-      if isMATLABReleaseOlderThan("R2025a")
-
-        return
-
-      end  % if
       verifyError(testcase, @test_target, "checkEditInCallbackButton:InvalidModelName")
       function test_target()
         % The function requires a model name to be passed.
@@ -44,11 +39,6 @@ classdef unittest_checkEditInCallbackButton < matlab.unittest.TestCase
     end  % function
 
     function ErrorCase_2(testcase)
-      if isMATLABReleaseOlderThan("R2025a")
-
-        return
-
-      end  % if
       verifyError(testcase, @test_target, "checkEditInCallbackButton:InvalidModelName")
       function test_target()
         % The passed argument must not be zero-length text.
@@ -57,36 +47,32 @@ classdef unittest_checkEditInCallbackButton < matlab.unittest.TestCase
     end  % function
 
     function ErrorCase_3(testcase)
-      if isMATLABReleaseOlderThan("R2025a")
-
-        return
-
-      end  % if
       verifyError(testcase, @test_target, "checkEditInCallbackButton:InvalidCode")
       function test_target()
         % The ClickFcn callback must not be an empty.
-        ModelUtil1.checkEditInCallbackButton("samplemodel_checkEditInCallbackButton_emptycode")  % !test-target
+        ModelUtil1.checkEditInCallbackButton("samplemodel_checkEditInCallbackButton_emptycode_24b")  % !test-target
       end  % nested function
     end  % function
 
-    function Test_1(testcase)
-      if isMATLABReleaseOlderThan("R2025a")
+    function Test_1_with_pause(testcase)
 
-        return
+      % !todo: Ideally these two lines should be unnecessary because checkEditInCallbackButton loads
+      % the specified model. However, there seems to be a timing issue in R2024b where
+      % the test proceeds before the model is fully loaded, resulting in a test failure.
+      open_system("samplemodel_checkEditInCallbackButton_24b")
+      pause(2)
 
-      end  % if
-      result = ModelUtil1.checkEditInCallbackButton("samplemodel_checkEditInCallbackButton");
+      result = ModelUtil1.checkEditInCallbackButton("samplemodel_checkEditInCallbackButton_24b");
       verifyEqual(testcase, result.Found(1), true)
       verifyEqual(testcase, result.Found(2), true)
-      verifyEqual(testcase, result.Found(3), true)
-      verifyEqual(testcase, result.Found(4), false)
     end  % function
 
     %% Minimum quality check
     % Make sure that scripts, functions, classes, and models run right out of the box.
 
-    function PassingTest_1(~)
+    function PassingTest_1_R2025a_or_newer(~)
       if isMATLABReleaseOlderThan("R2025a")
+        % R2024b or older
 
         return
 

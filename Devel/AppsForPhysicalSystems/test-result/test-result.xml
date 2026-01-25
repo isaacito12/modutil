@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" name="uitest_RotationalFriction" skipped="0" tests="17" time="122.1798">
+    <testcase classname="uitest_RotationalFriction" name="PassingTest_1" time="0.20713"/>
+    <testcase classname="uitest_RotationalFriction" name="app_launches_without_warnings_1" time="19.1973"/>
+    <testcase classname="uitest_RotationalFriction" name="app_launches_without_warnings_2" time="7.9968"/>
+    <testcase classname="uitest_RotationalFriction" name="app_launches_without_warnings_3" time="6.848"/>
+    <testcase classname="uitest_RotationalFriction" name="Test_error_1" time="0.2785"/>
+    <testcase classname="uitest_RotationalFriction" name="Test_error_2" time="4.5152"/>
+    <testcase classname="uitest_RotationalFriction" name="VisualTest_1_1" time="6.7407"/>
+    <testcase classname="uitest_RotationalFriction" name="VisualTest_1_2" time="7.3058"/>
+    <testcase classname="uitest_RotationalFriction" name="VisualTest_2_1" time="8.3005"/>
+    <testcase classname="uitest_RotationalFriction" name="VisualTest_2_2" time="7.5996"/>
+    <testcase classname="uitest_RotationalFriction" name="VisualTest_3" time="9.1724"/>
+    <testcase classname="uitest_RotationalFriction" name="Test_samplemodel_1" time="3.9007"/>
+    <testcase classname="uitest_RotationalFriction" name="Test_with_samplemodel_1" time="11.8116"/>
+    <testcase classname="uitest_RotationalFriction" name="Test_with_samplemodel_2" time="6.8049"/>
+    <testcase classname="uitest_RotationalFriction" name="Test_1" time="6.5219"/>
+    <testcase classname="uitest_RotationalFriction" name="Test_2" time="7.213"/>
+    <testcase classname="uitest_RotationalFriction" name="Gesture_1" time="7.7658"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiuptodatetest_RotationalFriction" skipped="0" tests="2" time="9.6499">
+    <testcase classname="uiuptodatetest_RotationalFriction" name="DarkTheme_1" time="0.01063"/>
+    <testcase classname="uiuptodatetest_RotationalFriction" name="LightTheme_1" time="9.6393"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uptodatetest_RotationalFriction" skipped="0" tests="3" time="1.4144">
+    <testcase classname="uptodatetest_RotationalFriction" name="PassingTest_1" time="1.3047"/>
+    <testcase classname="uptodatetest_RotationalFriction" name="description_html_is_uptodate" time="0.095299"/>
+    <testcase classname="uptodatetest_RotationalFriction" name="description_markdown_is_uptodate" time="0.014445"/>
+  </testsuite>
+</testsuites>

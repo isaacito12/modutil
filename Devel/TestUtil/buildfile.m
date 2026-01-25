@@ -8,7 +8,7 @@ function plan = buildfile
 % Run Build from Toolstrip
 % https://www.mathworks.com/help/matlab/matlab_prog/run-build-from-toolstrip.html
 
-% Copyright 2024-2025 The MathWorks, Inc.
+% Copyright 2024-2026 The MathWorks, Inc.
 
 plan = buildplan();
 plan.DefaultTasks = "CodeIssues";
@@ -31,7 +31,13 @@ plan("Test") = matlab.buildtool.tasks.TestTask( ...
   CodeCoverageResults = [ ...
   "test-result/code-coverage.html"
   "test-result/code-coverage.xml"
-  ], ...
-  SupportingFiles = ["**/buildfile.m", "**/sample folder/*.m"] );
+  ] );
 
 end  % function
+
+% R2025b
+% matlab.buildtool.tasks.TestTask
+%   SupportingFiles = [ ...
+%   "**/buildfile.m"
+%   "**/sample folder/*.m" ...
+%   ], ...

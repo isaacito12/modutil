@@ -1,11 +1,14 @@
 function FileFullPath = getFileFullPath(FileName, NameValuePair)
 % Return full path to the specified file name.
 %
-% This function searches the specified file name in MATLAB paths, including
-% MATLAB Project paths if a project is loaded, and returns the full path to it.
+% This function searches the specified name in MATLAB path and returns the full path to it.
+%
+% This function can take a name within a namespace. For example,
+%   getFileFullPath("myNamespace.myFunction")
+% returns the full path to the "myFunction.m" file in the "myNamespace" folder.
 %
 % This function is a wrapper of the which command with the "-all" option.
-% The which returns a charactor vector or a cell array of charactor vectors.
+% The which returns a character vector or a cell array of character vectors.
 % This function returns a string.
 %
 % If two or more matches are found, an error is issued by default.
@@ -20,7 +23,7 @@ function FileFullPath = getFileFullPath(FileName, NameValuePair)
 % relative path must start from the current working folder.
 % This function searches the specified file on any MATLAB paths.
 
-% Copyright 2023-2025 The MathWorks, Inc.
+% Copyright 2023-2026 The MathWorks, Inc.
 
 arguments (Input)
   FileName string {mustBeTextScalar}

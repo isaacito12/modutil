@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<coverage LineCoverage="0.80726" LinesCovered="578" LinesValid="716" TimeStamp="1768808204.9908">
+  <sources>
+    <source>C:\local\modutil\modeling-utility\Devel\AppsForPhysicalSystems\</source>
+  </sources>
+  <packages>
+    <package Name="RotationalFriction1">
+      <classes>
+        <class FilePath="RotationalFriction\+RotationalFriction1\RotationalFrictionAppMain.m" LineCoverage="0.8329" Name="RotationalFriction1.RotationalFrictionAppMain">
+          <methods>
+            <method LineCoverage="0.83099" Name="RotationalFrictionAppMain">
+            </method>
+            <method LineCoverage="0.8625" Name="build_app_gui">
+            </method>
+            <method LineCoverage="1" Name="react_TorquePlotUnitChanged">
+            </method>
+            <method LineCoverage="1" Name="react_VelocityPlotUnitChanged">
+            </method>
+            <method LineCoverage="0" Name="callback_set_parameters">
+            </method>
+            <method LineCoverage="0.80556" Name="callback_get_parameters">
+            </method>
+            <method LineCoverage="1" Name="react_UIChanged">
+            </method>
+            <method LineCoverage="1" Name="update_DerivedParameterUI">
+            </method>
+            <method LineCoverage="1" Name="auto_update_plot">
+            </method>
+            <method LineCoverage="0.83333" Name="update_plot">
+            </method>
+          </methods>
+        </class>
+        <class FilePath="RotationalFriction\+RotationalFriction1\RotationalFrictionData.m" LineCoverage="0.97727" Name="RotationalFriction1.RotationalFrictionData">
+          <methods>
+            <method LineCoverage="0.9375" Name="RotationalFrictionData">
+            </method>
+            <method LineCoverage="1" Name="resetTorqueData">
+            </method>
+            <method LineCoverage="1" Name="resetCommonTorqueData">
+            </method>
+            <method LineCoverage="1" Name="updateFrictionTorqueValues">
+            </method>
+          </methods>
+        </class>
+        <class FilePath="RotationalFriction\+RotationalFriction1\RotationalFrictionModelParameters.m" LineCoverage="0.90909" Name="RotationalFriction1.RotationalFrictionModelParameters">
+          <methods>
+            <method LineCoverage="1" Name="RotationalFrictionModelParameters">
+            </method>
+            <method LineCoverage="1" Name="resetPublicParameters">
+            </method>
+            <method LineCoverage="1" Name="updateDerivedParameters">
+            </method>
+          </methods>
+        </class>
+        <class FilePath="RotationalFriction\+RotationalFriction1\plotFrictionTorque.m" LineCoverage="0.91489" Name="RotationalFriction1.plotFrictionTorque">
+          <methods/>
+        </class>
+      </classes>
+    </package>
+    <package Name="">
+      <classes>
+        <class FilePath="RotationalFriction\RotationalFrictionApp.m" LineCoverage="1" Name="RotationalFrictionApp">
+          <methods/>
+        </class>
+        <class FilePath="RotationalFriction\RotationalFrictionCustomApp1.m" LineCoverage="1" Name="RotationalFrictionCustomApp1">
+          <methods/>
+        </class>
+        <class FilePath="RotationalFriction\RotationalFriction_Description.m" LineCoverage="1" Name="RotationalFriction_Description">
+          <methods/>
+        </class>
+        <class FilePath="RotationalFriction\sampleparams_RotationalFriction.m" LineCoverage="1" Name="sampleparams_RotationalFriction">
+          <methods/>
+        </class>
+        <class FilePath="Test\RotationalFriction\apptest_RotationalFrictionAppMain_1_simplest.m" LineCoverage="0" Name="apptest_RotationalFrictionAppMain_1_simplest">
+          <methods/>
+        </class>
+        <class FilePath="Test\RotationalFriction\apptest_RotationalFrictionApp_1_simplest.m" LineCoverage="0" Name="apptest_RotationalFrictionApp_1_simplest">
+          <methods/>
+        </class>
+        <class FilePath="Test\RotationalFriction\uitest_RotationalFriction.m" LineCoverage="0.98913" Name="uitest_RotationalFriction">
+          <methods>
+            <method LineCoverage="0.88889" Name="test_method_setup">
+            </method>
+            <method LineCoverage="1" Name="PassingTest_1">
+            </method>
+            <method LineCoverage="1" Name="app_launches_without_warnings_1">
+            </method>
+            <method LineCoverage="1" Name="app_launches_without_warnings_2">
+            </method>
+            <method LineCoverage="1" Name="app_launches_without_warnings_3">
+            </method>
+            <method LineCoverage="1" Name="Test_error_1">
+            </method>
+            <method LineCoverage="1" Name="Test_error_2">
+            </method>
+            <method LineCoverage="1" Name="VisualTest_1_1">
+            </method>
+            <method LineCoverage="1" Name="VisualTest_1_2">
+            </method>
+            <method LineCoverage="1" Name="VisualTest_2_1">
+            </method>
+            <method LineCoverage="1" Name="VisualTest_2_2">
+            </method>
+            <method LineCoverage="1" Name="VisualTest_3">
+            </method>
+            <method LineCoverage="1" Name="Test_samplemodel_1">
+            </method>
+            <method LineCoverage="1" Name="Test_with_samplemodel_1">
+            </method>
+            <method LineCoverage="1" Name="Test_with_samplemodel_2">
+            </method>
+            <method LineCoverage="1" Name="Test_1">
+            </method>
+            <method LineCoverage="1" Name="Test_2">
+            </method>
+            <method LineCoverage="1" Name="Gesture_1">
+            </method>
+          </methods>
+        </class>
+        <class FilePath="Test\RotationalFriction\uiuptodatetest_RotationalFriction.m" LineCoverage="0.65217" Name="uiuptodatetest_RotationalFriction">
+          <methods>
+            <method LineCoverage="0.88889" Name="test_method_setup">
+            </method>
+            <method LineCoverage="0.28571" Name="DarkTheme_1">
+            </method>
+            <method LineCoverage="0.71429" Name="LightTheme_1">
+            </method>
+          </methods>
+        </class>
+        <class FilePath="Test\RotationalFriction\uptodatetest_RotationalFriction.m" LineCoverage="0.66667" Name="uptodatetest_RotationalFriction">
+          <methods>
+            <method LineCoverage="1" Name="PassingTest_1">
+            </method>
+            <method LineCoverage="0.58333" Name="description_html_is_uptodate">
+            </method>
+            <method LineCoverage="0.7" Name="description_markdown_is_uptodate">
+            </method>
+          </methods>
+        </class>
+        <class FilePath="buildfile.m" LineCoverage="0" Name="buildfile">
+          <methods/>
+        </class>
+        <class FilePath="buildfile_R2024b.m" LineCoverage="0" Name="buildfile_R2024b">
+          <methods/>
+        </class>
+      </classes>
+    </package>
+  </packages>
+</coverage>

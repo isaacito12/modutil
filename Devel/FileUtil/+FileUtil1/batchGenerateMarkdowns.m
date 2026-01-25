@@ -7,7 +7,7 @@ function NumConversions = batchGenerateMarkdowns(NameValuePair)
 % DryRun is true by default. Specify DryRun=false to actually do the conversion.
 % With DryRun=true, this command displays the list of Live Scripts that are found
 % in the specified LiveScriptFolderNames folders.
-% With DryRun=flase, this command returns the number of files converted.
+% With DryRun=false, this command returns the number of files converted.
 %
 % By default, all the generated Markdown files are saved in the "markdown" folder.
 % Use the MarkdownFolderPath option to change the folder to save Markdown files.
@@ -16,7 +16,7 @@ function NumConversions = batchGenerateMarkdowns(NameValuePair)
 % no new Markdown file is generated. To always generate a Markdown file,
 % specify ForceExport=true.
 
-% Copyright 2024-2025 The MathWorks, Inc.
+% Copyright 2024-2026 The MathWorks, Inc.
 
 arguments (Input)
   NameValuePair.DryRun (1,1) logical = true

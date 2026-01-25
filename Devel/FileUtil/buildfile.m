@@ -7,8 +7,12 @@ function plan = buildfile
 %
 % Run Build from Toolstrip
 % https://www.mathworks.com/help/matlab/matlab_prog/run-build-from-toolstrip.html
+%
+% matlab.buildtool.tasks.TestTask Class
+% "SupportingFiles" property is supported from R2025a.
+% https://www.mathworks.com/help/matlab/ref/matlab.buildtool.tasks.testtask-class.html
 
-% Copyright 2023-2025 The MathWorks, Inc.
+% Copyright 2023-2026 The MathWorks, Inc.
 
 plan = buildplan();
 plan.DefaultTasks = "CodeIssues";
@@ -24,7 +28,10 @@ plan("CodeIssues") = matlab.buildtool.tasks.CodeIssuesTask( ...
 plan("Test") = matlab.buildtool.tasks.TestTask( ...
   Dependencies = "CodeIssues", ...
   SourceFiles = ["**/*.m", "**/*.mlx"], ...
-  SupportingFiles = "**/sample folder/**", ...
+  SupportingFiles = [ ... since R2025a
+  "**/buildfile.m"
+  "**/sample folder/*.m"
+  ], ...
   TestResults = [ ...
   "test-result/test-result.pdf"
   "test-result/test-result.xml"

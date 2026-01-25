@@ -44,7 +44,7 @@ button_ui = AppUtil1.Component.Button(row_grid);
 button_ui.MainFigure = main_figure;
 button_ui.ComponentWidth = 120;
 button_ui.Text = CodeUtil1.i18n("Select file");
-button_ui.ButtonPushedCallback = @() react_SelectBuuttonPushed();
+button_ui.ButtonPushedCallback = @() react_SelectButtonPushed();
 
 % -----------------------------------------------------------------------
 column_grid = NewColumnGrid(main_column_layout);
@@ -145,7 +145,7 @@ table_ui.MainTable.DoubleClickedFcn = @(~, DoubleClickedData) ...
     matlab.desktop.editor.openAndGoToFunction(target_file, target_function);
   end  % function
 
-  function react_SelectBuuttonPushed
+  function react_SelectButtonPushed
     % Open a dialog window to interactively get a test result file name from the user.
     [file, location] = uigetfile('*.xml');
     if not(isequal(file, 0))

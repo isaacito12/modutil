@@ -10,7 +10,7 @@ This is a development repository of the Modeling Utility for Simscape.
 
 For a general introduction, see [`README.md`](Release/README.md) in the `Release` folder.
 
-## Development and testing
+## Development and local testing
 
 In MATLAB®, cd to the `Devel` folder and run `setup_paths` to set up MATLAB path.
 
@@ -32,7 +32,7 @@ Such files and folders include `.buildtool` folders created by the Build Tool,
 `test-result` folders created to store test results,
 and those in `Release` that were copied from `Devel`.
 
-## Test automation
+## Remote test automation
 
 This repository uses GitHub Actions for remote test automation.
 See `.github/workflows` for the workflow definitions.
@@ -44,7 +44,7 @@ For more information, visit the MATLAB Actions site in GitHub.
 
 ## Release automation
 
-This repository uses the GitHub Action for Creating GitHub Releases.
+This repository uses the "GitHub Action for Creating GitHub Releases".
 For information, visit the Action's GitHub page.
 
 - https://github.com/softprops/action-gh-release

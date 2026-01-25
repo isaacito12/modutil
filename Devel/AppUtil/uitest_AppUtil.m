@@ -7,7 +7,11 @@ classdef uitest_AppUtil < matlab.uitest.TestCase
   % Table of Verifications, Assertions, and Other Qualifications
   % https://www.mathworks.com/help/matlab/matlab_prog/types-of-qualifications.html
 
-  % Copyright 2024-2025 The MathWorks, Inc.
+  % Copyright 2024-2026 The MathWorks, Inc.
+
+  properties
+    LocalTopFolder (1,1) string = "C:\local\modutil\modeling-utility"
+  end  % properties
 
   properties
     % Do not specify the class name for a property to hold a handle to an app.
@@ -75,6 +79,27 @@ classdef uitest_AppUtil < matlab.uitest.TestCase
       function target()
         testcase.App = MonitorInfoApp;  % !test-target
       end  % nested function
+    end  % function
+
+    function PassingTest_1_local_test_only(testcase)
+      if not(startsWith(pwd, testcase.LocalTopFolder))
+        disp("This test is running outside of the specified repository folder.")
+        disp("!Skipping")
+
+        return
+
+      end  % if
+      testcase.App = CodeCoverageApp_AppUtil;  % !test-target
+    end  % function
+
+    function PassingTest_2(testcase)
+      top_folder = testcase.LocalTopFolder;
+      if not(isfolder(top_folder))
+        % Assume that the repository root folder is the current working folder.
+        % This branch is executed, for example, during a remote test in a CI pipeline.
+        top_folder = pwd;
+      end  % if
+      testcase.App = CodeCoverageApp_AppUtil(top_folder);  % !test-target
     end  % function
 
     %% Color theme
