@@ -12,6 +12,10 @@ classdef uptodateTest_RotationalFriction < matlab.unittest.TestCase
 
   % Copyright 2021-2026 The MathWorks, Inc.
 
+  properties
+    LocalTopFolder (1,1) string = "C:\local\modutil\modeling-utility"
+  end  % properties
+
   methods (Test)
     % Functions in this "Test" section are the tests.
     % Before a function in this section runs, the TestSetup function
@@ -31,6 +35,17 @@ classdef uptodateTest_RotationalFriction < matlab.unittest.TestCase
     function description_html_is_uptodate(testcase)
       %%
       % Make sure the description HTML file is up to date.
+      if matlabRelease.Release == "R2026a"
+        verifyFail(testcase, "Skip this test in R2026a")
+
+      end  % if
+      if TestUtil1.isNonLocal(testcase.LocalTopFolder)
+        disp("!Skipping")
+
+        return
+
+      end  % if
+      % R2025a or newer
       source_fullpath = fullfile(pwd, "..", "RotationalFriction_Description.mlx");
       destination_fullpath = fullfile(pwd, "..", "RotationalFriction_Description.html");
       if isfile(destination_fullpath)
@@ -52,6 +67,16 @@ classdef uptodateTest_RotationalFriction < matlab.unittest.TestCase
     function description_markdown_is_uptodate(testcase)
       %%
       % Make sure the description Markdown file is up to date.
+      if matlabRelease.Release == "R2026a"
+        verifyFail(testcase, "Skip this test in R2026a")
+
+      end  % if
+      if TestUtil1.isNonLocal(testcase.LocalTopFolder)
+        disp("!Skipping")
+
+        return
+
+      end  % if
       source_fullpath = fullfile(pwd, "..", "RotationalFriction_Description.mlx");
       destination_fullpath = fullfile(pwd, "..", "RotationalFriction_Description.md");
       if isfile(destination_fullpath)
