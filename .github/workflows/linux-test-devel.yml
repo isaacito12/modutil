@@ -9,7 +9,7 @@
 # For details about the syntax of this file, see
 # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
 
-# Copyright 2025 The MathWorks, Inc.
+# Copyright 2025-2026 The MathWorks, Inc.
 
 name: Testing Devel on Linux
 
@@ -51,9 +51,13 @@ jobs:
     #   https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow
     strategy:
       matrix:
-        matlab_version: [R2024b, R2025b]
+        config:
+          - name: R2024b
+            cmd: "cd Devel; setup_path; buildtool -buildFile buildfile_24b.m -verbosity Verbose Test"
+          - name: R2025b
+            cmd: "cd Devel; setup_path; buildtool -buildFile buildfile.m -verbosity Verbose Test"
 
-    name: Test Devel in ${{ matrix.matlab_version }} on Linux
+    name: Test Devel in ${{ matrix.config.name }} on Linux
 
     permissions:
       # Required for saving files within a workflow.
@@ -66,10 +70,10 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v5
 
-      - name: Set up MATLAB ${{ matrix.matlab_version }}
+      - name: Set up MATLAB ${{ matrix.config.name }}
         uses: matlab-actions/setup-matlab@v2
         with:
-          release: ${{ matrix.matlab_version }}
+          release: ${{ matrix.config.name }}
           cache: true
           products: |
             Simulink
@@ -85,15 +89,12 @@ jobs:
           Xvfb :99 &
           echo "DISPLAY=:99" >> $GITHUB_ENV
 
-      - name: Run tests in MATLAB
+      - name: Run tests in MATLAB ${{ matrix.config.name }}
         uses: matlab-actions/run-command@v2
         with:
           # Commands below run within MATLAB.
           # The initial working folder is the top folder of the repo.
-          command: |
-            cd Devel
-            setup_paths
-            buildtool CodeIssues TestAndReport
+          command: ${{ matrix.config.cmd }}
 
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v4
