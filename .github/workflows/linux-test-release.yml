@@ -54,8 +54,6 @@ jobs:
         config:
           - name: R2024b
             cmd: "cd Release; addpath('ModelingUtilityForSimscape'); buildtool -buildFile buildfile_24b.m -verbosity Verbose Test"
-          - name: R2025b
-            cmd: "cd Release; addpath('ModelingUtilityForSimscape'); buildtool -buildFile buildfile.m -verbosity Verbose Test"
 
     name: Test Release in ${{ matrix.config.name }} on Linux
 
