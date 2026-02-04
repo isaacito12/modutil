@@ -8,20 +8,20 @@ variables:
 26a-test:
   stage: test
   tags:
-    - long-jobs
+    - on-prem
   script:
     - mw -using BR2026ad matlab -nodesktop -batch "cd Devel; setup_paths; buildtool -buildFile buildfile_24b.m -verbosity Verbose Test"
 
 25b-test:
   stage: test
   tags:
-    - long-jobs
+    - on-prem
   script:
     - mw -using BR2025bd matlab -nodesktop -batch "cd Devel; setup_paths; buildtool -buildFile buildfile_24b.m -verbosity Verbose Test"
 
 24b-test:
   stage: test
   tags:
-    - long-jobs
+    - on-prem
   script:
     - mw -using BR2024bd matlab -nodesktop -batch "cd Devel; setup_paths; buildtool -buildFile buildfile_24b.m -verbosity Verbose Test"
