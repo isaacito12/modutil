@@ -1,3 +1,17 @@
+# Ignore ".../test-result/release/" at any depth
+**/test-result/release/
+
+# Ignore ".../test-release-24b/release" at any depth
+**/test-release-24b/release/
+
+**/code-coverage.html
+
+**/tmp_*
+
+# ---
+# MATLAB specific ignores
+# ---
+
 # Autosave files
 *.asv
 *.m~
