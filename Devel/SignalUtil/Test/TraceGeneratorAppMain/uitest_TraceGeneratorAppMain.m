@@ -69,8 +69,17 @@ classdef uitest_TraceGeneratorAppMain < matlab.uitest.TestCase
     function Test_1(testcase)
       % 1. Specify a target block when launching the app.
       % 2. Click the "Set" button in the app.
+
+      if TestUtil1.isR2024bOrOlder
+        % Only R2024b works. 24a or older don't.
+        model_name = "samplemodel_TraceGeneratorAppMain_24b";
+      else
+        % R2025a or newer
+        model_name = "samplemodel_TraceGeneratorAppMain";
+      end  % if
+
       testcase.App = SignalUtil1.TraceGeneratorAppMain( ...
-        BlockPath = "samplemodel_TraceGeneratorAppMain/PS Lookup Table (1D)" );
+        BlockPath = model_name + "/PS Lookup Table (1D)" );
       press(testcase, testcase.App.SelectorUI.SetParametersToBlockUI.MainButton)
     end  % function
 

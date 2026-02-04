@@ -1,6 +1,9 @@
 function plan = buildfile_24b
 % Define tasks for the buildtool to check code and run tests.
-% In the Editor, use the "Run Build" button to start a task.
+%
+% If the Devel folder is the current folder,
+% start tests as follows.
+%   buildtool -buildFile SearchUtil\buildfile_24b.m -verbosity Verbose Test
 
 % Overview of MATLAB Build Tool
 % https://www.mathworks.com/help/matlab/matlab_prog/overview-of-matlab-build-tool.html
@@ -17,20 +20,20 @@ plan("CodeIssues") = matlab.buildtool.tasks.CodeIssuesTask( ...
   WarningThreshold = Inf, ...
   SourceFiles = ["**/*.m", "**/*.mlx"], ...
   Results = [ ...
-  "test-result/code-issues.mat"
-  "test-result/code-issues.sarif"
+  "test-result-24b/code-issues.mat"
+  "test-result-24b/code-issues.sarif"
   ]);
 
 plan("Test") = matlab.buildtool.tasks.TestTask( ...
   Dependencies = "CodeIssues", ...
   SourceFiles = ["**/*.m", "**/*.mlx"], ...
   TestResults = [ ...
-  "test-result/test-result.pdf"
-  "test-result/test-result.xml"
+  "test-result-24b/test-result.pdf"
+  "test-result-24b/test-result.xml"
   ], ...
   CodeCoverageResults = [ ...
-  "test-result/code-coverage.html"
-  "test-result/code-coverage.xml"
+  "test-result-24b/code-coverage.html"
+  "test-result-24b/code-coverage.xml"
   ] );
 
 end  % function

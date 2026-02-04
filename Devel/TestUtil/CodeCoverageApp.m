@@ -23,7 +23,7 @@ main_figure = uifigure(Visible="off");
 app_window = AppUtil1.AppWindow(main_figure, SourceFile=mfilename);
 app_window.Width = 900;
 app_window.Height = 450;
-app_window.Name = CodeUtil1.i18n("Code Coverage");
+app_window.Name = CodeUtil1.i18n("Code coverage");
 
 main_column_layout = app_window.MainLayout;
 
@@ -40,7 +40,7 @@ row_grid = NewRowGrid(row_layout);
 button_ui = AppUtil1.Component.Button(row_grid);
 button_ui.MainFigure = main_figure;
 button_ui.ComponentWidth = 120;
-button_ui.Text = CodeUtil1.i18n("Select");
+button_ui.Text = CodeUtil1.i18n("Select...");
 button_ui.ButtonPushedCallback = @() react_SelectButtonPushed();
 
 % -----------------------------------------------------------------------
@@ -111,11 +111,11 @@ label_ui.MainFigure = main_figure;
 label_ui.Text = CodeUtil1.i18n("Double-click a table row to open the file.");
 
 % -----------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout, Height="1x");
+column_grid = NewColumnGrid(main_column_layout, Height="1x");  % Expand vertically
 
 table_ui = AppUtil1.Component.Table(column_grid);
 table_ui.MainFigure = main_figure;
-table_ui.ComponentHeight = 300;
+table_ui.ComponentHeight = "1x";  % Expand vertically
 table_ui.MainTable.Data = table.empty;
 % uitable's DoubleClickedFcn callback is given a DoubleClickedData object as the second argument,
 % and the object provides information such as the clicked row via InteractionInformation.Row, etc.

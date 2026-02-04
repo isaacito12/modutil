@@ -1,23 +1,26 @@
 function FileFullPath = getFileFullPath(FileName, NameValuePair)
-% Return full path to the specified file name.
+% Return full path to the specified file name in MATLAB path.
 %
 % This function searches the specified name in MATLAB path and returns the full path to it.
-%
-% This function can take a name within a namespace. For example,
-%   getFileFullPath("myNamespace.myFunction")
-% returns the full path to the "myFunction.m" file in the "myNamespace" folder.
+% To search a file in a folder tree rather than in MATLAB path, 
+% use the searchFiles in the Search Utility.
 %
 % This function is a wrapper of the which command with the "-all" option.
 % The which returns a character vector or a cell array of character vectors.
-% This function returns a string.
-%
-% If two or more matches are found, an error is issued by default.
-% To allow multiple matches, specify WarningOnMultipleMatch=true and
-% this function returns the first match.
+% This function returns a string text or a column vector of string texts.
 %
 % By default, this function errors out if the specified file was not found.
 % Use this behavior if the target file must exist.
 % Use ReturnIfNotFound=true to get an empty string if the target file was not found.
+%
+% If two or more matches were found, an error is issued by default.
+% To get multiple matches, use ReturnMultipleMatches=true.
+% Use WarningOnMultipleMatch=true and
+% this function issues a warning and returns the matches.
+%
+% This function can take a name within a namespace. For example,
+%   getFileFullPath("myNamespace.myFunction")
+% returns the full path to the "myFunction.m" file in the "myNamespace" folder.
 %
 % isfile() takes either a full path or a relative path where
 % relative path must start from the current working folder.
@@ -27,12 +30,13 @@ function FileFullPath = getFileFullPath(FileName, NameValuePair)
 
 arguments (Input)
   FileName string {mustBeTextScalar}
+  NameValuePair.ReturnMultipleMatches (1,1) logical = false
   NameValuePair.WarningOnMultipleMatch (1,1) logical = false
   NameValuePair.ReturnIfNotFound (1,1) logical = false
 end  % arguments
 
 arguments (Output)
-  FileFullPath (1,1) string
+  FileFullPath (:,1) string
 end  % arguments
 
 errorID = "getFileFullPath:";
@@ -49,6 +53,7 @@ end  % if
 found_paths = string( which(FileName, "-all"));
 
 if numel(found_paths) == 0 || (isscalar(found_paths) && found_paths == "")
+  % The specified file was not found.
   if NameValuePair.ReturnIfNotFound
     FileFullPath = "";
 
@@ -63,20 +68,24 @@ if numel(found_paths) == 0 || (isscalar(found_paths) && found_paths == "")
 
 end  % if
 
-if ischar(found_paths) || (isstring(found_paths) && isscalar(found_paths))
+FileFullPath = found_paths;
+
+if ischar(FileFullPath) || (isstring(FileFullPath) && isscalar(FileFullPath))
   % Only one file was found.
-  FileFullPath = string(found_paths);
 
   return
 
 else
-  % There were two or more matches.
+  % Multiple matches.
   id = errorID + "TwoOrMoreMatches";
-  msg = CodeUtil1.i18n("There are two or more matches: ") + numel(found_paths);
+  msg = CodeUtil1.i18n("There are two or more matches: ") + numel(FileFullPath);
   if NameValuePair.WarningOnMultipleMatch
     warning(id, msg)
-    % Return the first match.
-    FileFullPath = string(found_paths{1});
+
+    return
+
+  end  % if
+  if NameValuePair.ReturnMultipleMatches
 
     return
 

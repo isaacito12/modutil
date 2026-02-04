@@ -45,7 +45,7 @@ classdef uiTest_FileUtil < matlab.uitest.TestCase
     % Warnings can be displayed even when the app opens and starts working seemingly normally.
     % Make sure there is no warning when opening an app.
 
-    function PassingTest_1(testcase)
+    function PassingTest_1(~)
       % Calling the command without any arguments opens the app with sample data.
       % This is to help users see the app.
       FileListApp  % !test-target

@@ -68,7 +68,13 @@ classdef unittest_generateMarkdownsFromLiveScripts < matlab.unittest.TestCase
       target_fullpath_1 = string(which(target_file_1));
       verifyTrue(testcase, not(isempty(target_fullpath_1)))
 
-      target_file_2 = "sampleScript_generateMarkdownsFromLiveScripts_2";
+      if isMATLABReleaseOlderThan("R2025a")
+        % R2024b or older
+        target_file_2 = "sampleScript_generateMarkdownsFromLiveScripts_3";
+      else
+        % R2025a or newer
+        target_file_2 = "sampleScript_generateMarkdownsFromLiveScripts_2";
+      end  % if
       target_fullpath_2 = string(which(target_file_2));
       verifyTrue(testcase, not(isempty(target_fullpath_2)))
 
@@ -79,47 +85,6 @@ classdef unittest_generateMarkdownsFromLiveScripts < matlab.unittest.TestCase
 
       verifyTrue(testcase, numel(tf) == 2)
       verifyTrue(testcase, all(tf))
-    end  % function
-
-    function PassingTest_2(testcase)
-
-      if matlabRelease.Release == "R2026a"
-        FileUtil1.displayTimeAndFileLocation("R2026a");
-        verifyFail(testcase, "Not performing this test for now.")
-
-        return
-
-      end  % if
-
-      target_file = "sampleScript_exportToMarkdown_2";
-      target_fullpath = which(target_file);
-      verifyTrue(testcase, not(isempty(target_fullpath)))
-
-      % This creates "markdown" folder and move generated files in there.
-      % The newly created folder is not deleted after this test
-      % so that it can be inspected later.
-      FileUtil1.exportToMarkdown(target_fullpath);
-    end  % function
-
-    function PassingTest_3(testcase)
-
-      if matlabRelease.Release == "R2026a"
-        FileUtil1.displayTimeAndFileLocation("R2026a");
-        verifyFail(testcase, "Not performing this test for now.")
-
-        return
-
-      end  % if
-
-      target_file = "sampleScript_exportToMarkdown_2";
-      target_fullpath = which(target_file);
-      verifyTrue(testcase, not(isempty(target_fullpath)))
-
-      % This creates "test-markdown" folder and move generated files in there.
-      % The newly created folder is not deleted after this test
-      % so that it can be inspected later.
-      FileUtil1.exportToMarkdown(target_fullpath, MarkdownFolderPath="test-markdown", ...
-        MediaFolderName="test-media", DisplayInfo=false);
     end  % function
 
   end  % methods

@@ -36,6 +36,14 @@ classdef unittest_SignalUtil_settings < matlab.unittest.TestCase
       %%
       script_fullpath = string( which("SignalDesignApp_Description"));
 
+      if endsWith(script_fullpath, ".mlx")
+        disp("The target file is not plain-text Live Script.")
+        disp("!Skipping")
+
+        return
+
+      end  % if
+
       result = FileUtil1.getLinkedCommandFromPlainTextLiveScript(script_fullpath);
       if isempty(result)
         disp("No linked apps were found.")
@@ -59,6 +67,14 @@ classdef unittest_SignalUtil_settings < matlab.unittest.TestCase
       %%
       script_fullpath = string( which("TraceGeneratorApp_Description"));
 
+      if endsWith(script_fullpath, ".mlx")
+        disp("The target file is not plain-text Live Script.")
+        disp("!Skipping")
+
+        return
+
+      end  % if
+
       result = FileUtil1.getLinkedCommandFromPlainTextLiveScript(script_fullpath);
       if isempty(result)
         disp("No linked apps were found.")
@@ -79,5 +95,4 @@ classdef unittest_SignalUtil_settings < matlab.unittest.TestCase
     end  % function
 
   end  % methods
-
 end  % classdef

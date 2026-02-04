@@ -1,16 +1,29 @@
-function App = CodeCoverageApp_AppUtil(TopFolder)
+function App = CodeCoverageApp_AppUtil
+% Open the code coverage app with the AppUtil's code coverage result.
 
-arguments (Input)
-  TopFolder (1,1) string = "C:\local\modutil\modeling-utility"
-end  % arguments
+% Copyright 2026 The MathWorks, Inc.
 
 arguments (Output)
-  App
+  App struct
 end  % arguments
 
-coverage_file_fullpath = fullfile(TopFolder, "Devel", "AppUtil", "test-result", "code-coverage.xml");
+result = matlab.buildtool.io.FileCollection.fromPaths("**/code-coverage.xml").paths';
 
-coverage_app = CodeCoverageApp(coverage_file_fullpath);
+if isempty(result)
+  target_file = "sample-code-coverage-AppUtil.xml";
+  assert(isfile(target_file), "A sample code coverage file was not found.")
+  disp("Using a sample file for the code coverage result.")
+
+else
+  logical_index = contains(result, "AppUtil") & contains(result, "test-result-24b");
+  if TestUtil1.isR2024bOrOlder
+    target_file = result(logical_index);
+  else
+    target_file = result(~logical_index);
+  end  % if
+end  % if
+
+coverage_app = CodeCoverageApp(target_file(1));
 
 if nargout > 0
   App = coverage_app;

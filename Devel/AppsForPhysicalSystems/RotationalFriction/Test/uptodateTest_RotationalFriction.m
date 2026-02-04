@@ -13,7 +13,7 @@ classdef uptodateTest_RotationalFriction < matlab.unittest.TestCase
   % Copyright 2021-2026 The MathWorks, Inc.
 
   properties
-    LocalTopFolder (1,1) string = "C:\local\modutil\modeling-utility"
+    LocalTopFolder (1,1) string = "C:\local"
   end  % properties
 
   methods (Test)
@@ -36,7 +36,7 @@ classdef uptodateTest_RotationalFriction < matlab.unittest.TestCase
       %%
       % Make sure the description HTML file is up to date.
       if matlabRelease.Release == "R2026a"
-        verifyFail(testcase, "Skip this test in R2026a")
+        verifyFail(testcase, "Skip this test in R2026a")  % !todo: don't skip
 
       end  % if
       if TestUtil1.isNonLocal(testcase.LocalTopFolder)
@@ -46,8 +46,10 @@ classdef uptodateTest_RotationalFriction < matlab.unittest.TestCase
 
       end  % if
       % R2025a or newer
-      source_fullpath = fullfile(pwd, "..", "RotationalFriction_Description.mlx");
-      destination_fullpath = fullfile(pwd, "..", "RotationalFriction_Description.html");
+
+      source_fullpath = FileUtil1.getFileFullPath("RotationalFriction_Description.mlx");
+      [folder, file_base_name, ~] = fileparts(source_fullpath);
+      destination_fullpath = fullfile(folder, file_base_name + ".html");
       if isfile(destination_fullpath)
         destination_is_newer = not(FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath));
         if destination_is_newer
@@ -68,7 +70,7 @@ classdef uptodateTest_RotationalFriction < matlab.unittest.TestCase
       %%
       % Make sure the description Markdown file is up to date.
       if matlabRelease.Release == "R2026a"
-        verifyFail(testcase, "Skip this test in R2026a")
+        verifyFail(testcase, "Skip this test in R2026a")  % !todo: don't skip
 
       end  % if
       if TestUtil1.isNonLocal(testcase.LocalTopFolder)
@@ -77,8 +79,9 @@ classdef uptodateTest_RotationalFriction < matlab.unittest.TestCase
         return
 
       end  % if
-      source_fullpath = fullfile(pwd, "..", "RotationalFriction_Description.mlx");
-      destination_fullpath = fullfile(pwd, "..", "RotationalFriction_Description.md");
+      source_fullpath = FileUtil1.getFileFullPath("RotationalFriction_Description.mlx");
+      [folder, file_base_name, ~] = fileparts(source_fullpath);
+      destination_fullpath = fullfile(folder, file_base_name + ".md");
       if isfile(destination_fullpath)
         destination_is_newer = not(FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath));
         if destination_is_newer

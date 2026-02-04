@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" name="uitest_AppsForPhysicalSystems" skipped="0" tests="2" time="8.1709">
+    <testcase classname="uitest_AppsForPhysicalSystems" name="PassingTest_1_local_test_only" time="5.4596"/>
+    <testcase classname="uitest_AppsForPhysicalSystems" name="PassingTest_2" time="2.7114"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiTest_RotationalFriction" skipped="0" tests="16" time="85.9769">
+    <testcase classname="uiTest_RotationalFriction" name="app_launches_without_warnings_1" time="6.497"/>
+    <testcase classname="uiTest_RotationalFriction" name="app_launches_without_warnings_2" time="6.0214"/>
+    <testcase classname="uiTest_RotationalFriction" name="app_launches_without_warnings_3" time="6.0916"/>
+    <testcase classname="uiTest_RotationalFriction" name="Test_error_1" time="0.05376"/>
+    <testcase classname="uiTest_RotationalFriction" name="Test_error_2" time="0.064145"/>
+    <testcase classname="uiTest_RotationalFriction" name="VisualTest_1_1" time="6.3697"/>
+    <testcase classname="uiTest_RotationalFriction" name="VisualTest_1_2" time="6.036"/>
+    <testcase classname="uiTest_RotationalFriction" name="VisualTest_2_1" time="7.1015"/>
+    <testcase classname="uiTest_RotationalFriction" name="VisualTest_2_2" time="7.0038"/>
+    <testcase classname="uiTest_RotationalFriction" name="VisualTest_3" time="8.4593"/>
+    <testcase classname="uiTest_RotationalFriction" name="Test_samplemodel_1" time="0.13393"/>
+    <testcase classname="uiTest_RotationalFriction" name="Test_with_samplemodel_1" time="6.3493"/>
+    <testcase classname="uiTest_RotationalFriction" name="Test_with_samplemodel_2" time="6.185"/>
+    <testcase classname="uiTest_RotationalFriction" name="Test_1" time="6.1337"/>
+    <testcase classname="uiTest_RotationalFriction" name="Test_2" time="6.0908"/>
+    <testcase classname="uiTest_RotationalFriction" name="Gesture_1" time="7.3859"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_RotationalFriction" skipped="0" tests="4" time="0.072337">
+    <testcase classname="uiUptodateTest_RotationalFriction" name="app_screenshot_1_1_dark" time="0.023176"/>
+    <testcase classname="uiUptodateTest_RotationalFriction" name="app_screenshot_1_2_dark" time="0.019878"/>
+    <testcase classname="uiUptodateTest_RotationalFriction" name="app_screenshot_2_1_light" time="0.016817"/>
+    <testcase classname="uiUptodateTest_RotationalFriction" name="app_screenshot_2_2_light" time="0.012465"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_RotationalFriction_24b" skipped="0" tests="2" time="0.019699">
+    <testcase classname="uiUptodateTest_RotationalFriction_24b" name="app_screenshot_dark_1" time="0.0069158"/>
+    <testcase classname="uiUptodateTest_RotationalFriction_24b" name="app_screenshot_light_1" time="0.012783"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_RotationalFriction" skipped="0" tests="1" time="0.0051866">
+    <testcase classname="unittest_RotationalFriction" name="PassingTest_1" time="0.0051866"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_RotationalFriction_settings" skipped="0" tests="2" time="0.026614">
+    <testcase classname="unittest_RotationalFriction_settings" name="Test_1" time="0.016667"/>
+    <testcase classname="unittest_RotationalFriction_settings" name="Test_2" time="0.0099468"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uptodateTest_RotationalFriction" skipped="0" tests="3" time="0.2517">
+    <testcase classname="uptodateTest_RotationalFriction" name="PassingTest_1" time="0.24566"/>
+    <testcase classname="uptodateTest_RotationalFriction" name="description_html_is_uptodate" time="0.0032402"/>
+    <testcase classname="uptodateTest_RotationalFriction" name="description_markdown_is_uptodate" time="0.0028046"/>
+  </testsuite>
+</testsuites>

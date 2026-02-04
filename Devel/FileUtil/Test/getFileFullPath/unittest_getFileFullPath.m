@@ -56,22 +56,37 @@ classdef unittest_getFileFullPath < matlab.unittest.TestCase
       end  % nested function
     end  % function
 
-    function Test_error_4(testcase)
+    % -------------------------------------------------------------------------
+    % Match exactly one file.
+
+    function SingleMatch_PassingTest_1(~)
+      % There is only 1 match.
+      FileUtil1.getFileFullPath("unittest_getFileFullPath");
+    end  % function
+
+    % -------------------------------------------------------------------------
+    % Multiple match
+
+    function MultipleMatch_error_1(testcase)
+      % There are 2 matches, for which generate an error.
       verifyError(testcase, @() test_target, "getFileFullPath:TwoOrMoreMatches")
       function test_target
-        FileUtil1.getFileFullPath("sample file getFileFullPath.txt")
+        FileUtil1.getFileFullPath("sample file getFileFullPath.txt")  % !test-target
       end  % nested function
     end  % function
 
-    function Test_warning_1(testcase)
+    function MultipleMatch_warning_1(testcase)
+      % There are 2 matches, for which issue a warning.
       verifyWarning(testcase, @test_target, "getFileFullPath:TwoOrMoreMatches")
       function test_target
-        FileUtil1.getFileFullPath("sample file getFileFullPath.txt", WarningOnMultipleMatch=true)
+        FileUtil1.getFileFullPath("sample file getFileFullPath.txt", WarningOnMultipleMatch=true)  % !test-target
       end  % nested function
     end  % function
 
-    function PassingTest_1(~)
-      FileUtil1.getFileFullPath("unittest_getFileFullPath");
+    function MultipleMatch_1(testcase)
+      % There are 2 matches. Get them normally.
+      result = FileUtil1.getFileFullPath("sample file getFileFullPath.txt", ReturnMultipleMatches=true);
+      verifyTrue(testcase, numel(result) > 1)  % !test-target
     end  % function
 
   end  % methods

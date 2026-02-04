@@ -1,7 +1,10 @@
 # Development repository of the Modeling Utility for Simscape™
 
-[![MATLAB](https://github.com/isaacito12/modutil/actions/workflows/linux-test-devel.yml/badge.svg)](https://github.com/isaacito12/modutil/actions/workflows/linux-test-devel.yml)
-[![MATLAB](https://github.com/isaacito12/modutil/actions/workflows/linux-test-release.yml/badge.svg)](https://github.com/isaacito12/modutil/actions/workflows/linux-test-release.yml)
+[![MATLAB](https://github.com/isaacito12/modutil/actions/workflows/linux-test-devel-24b.yml/badge.svg)](https://github.com/isaacito12/modutil/actions/workflows/linux-test-devel-24b.yml)
+[![MATLAB](https://github.com/isaacito12/modutil/actions/workflows/linux-test-release-24b.yml/badge.svg)](https://github.com/isaacito12/modutil/actions/workflows/linux-test-release-24b.yml)
+
+[![MATLAB](https://github.com/isaacito12/modutil/actions/workflows/linux-test-devel-25b.yml/badge.svg)](https://github.com/isaacito12/modutil/actions/workflows/linux-test-devel-25b.yml)
+[![MATLAB](https://github.com/isaacito12/modutil/actions/workflows/linux-test-release-25b.yml/badge.svg)](https://github.com/isaacito12/modutil/actions/workflows/linux-test-release-25b.yml)
 
 This is a development repository of the Modeling Utility for Simscape.
 

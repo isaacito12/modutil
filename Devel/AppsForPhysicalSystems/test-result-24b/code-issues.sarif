@@ -1,0 +1,120 @@
+{
+  "version": "2.1.0",
+  "properties": {
+    "Date": "27-Jan-2026 20:11:41",
+    "Release": "R2024b",
+    "CodeAnalyzerConfiguration": "active"
+  },
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Code Analyzer"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/AppsForPhysicalSystems/CodeCoverageApp_AppsForPhysicalSystems.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/AppsForPhysicalSystems/RotationalFriction/+RotationalFriction1/RotationalFrictionAppMain.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/AppsForPhysicalSystems/RotationalFriction/+RotationalFriction1/RotationalFrictionData.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/AppsForPhysicalSystems/RotationalFriction/+RotationalFriction1/RotationalFrictionModelParameters.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/AppsForPhysicalSystems/RotationalFriction/+RotationalFriction1/plotFrictionTorque.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/AppsForPhysicalSystems/RotationalFriction/RotationalFrictionApp.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/AppsForPhysicalSystems/RotationalFriction/RotationalFrictionCustomApp1.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/AppsForPhysicalSystems/RotationalFriction/Test/apptest_RotationalFrictionAppMain_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/AppsForPhysicalSystems/RotationalFriction/Test/apptest_RotationalFrictionApp_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/AppsForPhysicalSystems/RotationalFriction/Test/uiTest_RotationalFriction.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/AppsForPhysicalSystems/RotationalFriction/Test/uiUptodateTest_RotationalFriction.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/AppsForPhysicalSystems/RotationalFriction/Test/uiUptodateTest_RotationalFriction_24b.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/AppsForPhysicalSystems/RotationalFriction/Test/unittest_RotationalFriction.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/AppsForPhysicalSystems/RotationalFriction/Test/unittest_RotationalFriction_settings.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/AppsForPhysicalSystems/RotationalFriction/Test/uptodateTest_RotationalFriction.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/AppsForPhysicalSystems/RotationalFriction/sampleparams_RotationalFriction.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/AppsForPhysicalSystems/buildfile.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/AppsForPhysicalSystems/buildfile_R2024b.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/AppsForPhysicalSystems/uitest_AppsForPhysicalSystems.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/AppsForPhysicalSystems/RotationalFriction/RotationalFriction_Description.mlx"
+          }
+        }
+      ],
+      "results": []
+    }
+  ]
+}

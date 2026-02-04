@@ -10,7 +10,7 @@ classdef uiUptodateTest_FileSearchResultAppMain < matlab.uitest.TestCase
   % Copyright 2024-2026 The MathWorks, Inc.
 
   properties
-    LocalTopFolder (1,1) string = "C:\local\modutil\modeling-utility"
+    LocalTopFolder (1,1) string = "C:\local"
   end  % properties
 
   methods (TestMethodSetup)
@@ -55,8 +55,7 @@ classdef uiUptodateTest_FileSearchResultAppMain < matlab.uitest.TestCase
       end  % if
       % R2025a or newer
       source = FileUtil1.getFileFullPath("SearchUtil1.FileSearchResultAppMain");
-      destination = fullfile(testcase.LocalTopFolder, ...
-        "Devel", "SearchUtil", "Test", "FileSearchResultAppMain", "screenshot-FileSearchResultAppMain-dark-1.png");
+      destination = fullfile(pwd, "screenshot-FileSearchResultAppMain-dark-1.png");
 
       if not(isfile(destination)) || FileUtil1.sourceFileIsNewer(Source=source, Destination=destination)
         app = SearchUtil1.FileSearchResultAppMain;  % !screenshot-target
@@ -82,12 +81,10 @@ classdef uiUptodateTest_FileSearchResultAppMain < matlab.uitest.TestCase
       source = FileUtil1.getFileFullPath("SearchUtil1.FileSearchResultAppMain");
       if isMATLABReleaseOlderThan("R2025a")
         % R2024b
-        destination = fullfile(testcase.LocalTopFolder, ...
-          "Devel", "SearchUtil", "Test", "FileSearchResultAppMain", "screenshot-FileSearchResultAppMain-24b-1.png");
+        destination = fullfile(pwd, "screenshot-FileSearchResultAppMain-24b-1.png");
       else
         % R2025a or newer
-        destination = fullfile(testcase.LocalTopFolder, ...
-          "Devel", "SearchUtil", "Test", "FileSearchResultAppMain", "screenshot-FileSearchResultAppMain-light-1.png");
+        destination = fullfile(pwd, "screenshot-FileSearchResultAppMain-light-1.png");
       end  % if
 
       if not(isfile(destination)) || FileUtil1.sourceFileIsNewer(Source=source, Destination=destination)

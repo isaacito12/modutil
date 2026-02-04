@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<testsuites>
+  <testsuite errors="1" failures="0" name="uiTest_AppUtil" skipped="0" tests="3" time="3.9535">
+    <testcase classname="uiTest_AppUtil" name="app_launches_without_warnings_1" time="0.13495"/>
+    <testcase classname="uiTest_AppUtil" name="app_launches_without_warnings_2" time="3.7608"/>
+    <testcase classname="uiTest_AppUtil" name="app_launches_without_warnings_3" time="0.057795">
+      <error>Error occurred in uiTest_AppUtil/app_launches_without_warnings_3 and it did not run to completion.
+    
+    Error in uiTest_AppUtil/app_launches_without_warnings_3 (line 76)
+          verifyWarningFree(testcase, @() test_target())</error>
+    </testcase>
+  </testsuite>
+  <testsuite errors="1" failures="0" name="uiUptodateTest_AppUtil" skipped="0" tests="4" time="0.16054">
+    <testcase classname="uiUptodateTest_AppUtil" name="app_screenshot_dark_1" time="0.01414"/>
+    <testcase classname="uiUptodateTest_AppUtil" name="app_screenshot_light_1" time="0.05094">
+      <error>Error occurred in uiUptodateTest_AppUtil/app_screenshot_light_1 and it did not run to completion.
+    
+    Error in uiUptodateTest_AppUtil/app_screenshot_light_1 (line 91)
+            app = ColormapApp;  % !screenshot-target</error>
+    </testcase>
+    <testcase classname="uiUptodateTest_AppUtil" name="app_screenshot_dark_2" time="0.0046112"/>
+    <testcase classname="uiUptodateTest_AppUtil" name="app_screenshot_light_2" time="0.090846"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_BlockSelectorUI" skipped="0" tests="15" time="76.2923">
+    <testcase classname="uitest_BlockSelectorUI" name="app_launches_without_warnings_1" time="2.0305"/>
+    <testcase classname="uitest_BlockSelectorUI" name="app_launches_without_warnings_2" time="23.4687"/>
+    <testcase classname="uitest_BlockSelectorUI" name="app_launches_without_warnings_3" time="2.5539"/>
+    <testcase classname="uitest_BlockSelectorUI" name="app_launches_without_warnings_4" time="4.4124"/>
+    <testcase classname="uitest_BlockSelectorUI" name="app_launches_without_warnings_5" time="3.1295"/>
+    <testcase classname="uitest_BlockSelectorUI" name="invalid_model" time="0.64411"/>
+    <testcase classname="uitest_BlockSelectorUI" name="duplicate_model_paths" time="2.2403"/>
+    <testcase classname="uitest_BlockSelectorUI" name="invalid_model_file" time="0.10761"/>
+    <testcase classname="uitest_BlockSelectorUI" name="Gesture_Highlight_Block" time="5.5601"/>
+    <testcase classname="uitest_BlockSelectorUI" name="Gesture_Model_Dropdown" time="6.4667"/>
+    <testcase classname="uitest_BlockSelectorUI" name="Gesture_Get_button" time="5.8862"/>
+    <testcase classname="uitest_BlockSelectorUI" name="Gesture_Set_button" time="5.3255"/>
+    <testcase classname="uitest_BlockSelectorUI" name="Gesture_Highlight_button" time="12.2118"/>
+    <testcase classname="uitest_BlockSelectorUI" name="LightTheme_1" time="2.2499"/>
+    <testcase classname="uitest_BlockSelectorUI" name="DarkTheme_1" time="0.005084"/>
+  </testsuite>
+</testsuites>

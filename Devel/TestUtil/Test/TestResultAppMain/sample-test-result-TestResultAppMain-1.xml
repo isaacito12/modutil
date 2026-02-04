@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<testsuites>
+  <testsuite errors="3" failures="0" name="uiTest_ModelUtil" skipped="0" tests="4" time="3.0441">
+    <testcase classname="uiTest_ModelUtil" name="PassingTest_App_1" time="2.7514"/>
+    <testcase classname="uiTest_ModelUtil" name="PassingTest_App_2" time="0.225">
+      <error>Error occurred in uiTest_ModelUtil/PassingTest_App_2 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'samplemodel_LookupTable1DBlockPlotApp' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in ModelUtil1.findLookupTable1DBlocks (line 35)
+      load_system(model_name)
+    
+    Error in AppUtil1.Component.BlockSelectorUI/callback_change_modelfile_dropdown (line 290)
+            block_paths_from_callback = component.FindBlockCallback(component.ModelName);
+    
+    Error in AppUtil1.Component.BlockSelectorUI&gt;@()callback_change_modelfile_dropdown(component) (line 659)
+          component.ModelFileDropDownUI.ValueChangedCallback = @() callback_change_modelfile_dropdown(component);
+    
+    Error in AppUtil1.Component.DropDown/dropdownValueChanged (line 157)
+            component.ValueChangedCallback()
+    
+    Error in AppUtil1.Component.DropDown/set.Value (line 147)
+          dropdownValueChanged(component)
+    
+    Error in AppUtil1.Component.BlockSelectorUI/set.ModelFileFullPath (line 178)
+          component.ModelFileDropDownUI.Value = display_path;
+    
+    Error in LookupTable1DBlockPlotApp (line 50)
+    block_selector_ui.ModelFileFullPath = model_file_path;
+    
+    Error in uiTest_ModelUtil/PassingTest_App_2 (line 65)
+          testcase.App = LookupTable1DBlockPlotApp(ModelFilePath=target);</error>
+    </testcase>
+    <testcase classname="uiTest_ModelUtil" name="PassingTest_SampleModel_1" time="0.032643">
+      <error>Error occurred in uiTest_ModelUtil/PassingTest_SampleModel_1 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'samplemodel_LookupTable1DBlockPlotApp' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in uiTest_ModelUtil/PassingTest_SampleModel_1 (line 72)
+          load_system(model_name)</error>
+    </testcase>
+    <testcase classname="uiTest_ModelUtil" name="PassingTest_SampleModel_2" time="0.035102">
+      <error>Error occurred in uiTest_ModelUtil/PassingTest_SampleModel_2 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'samplemodel_LookupTable1DBlockPlotApp' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in uiTest_ModelUtil/PassingTest_SampleModel_2 (line 85)
+          load_system(model_name)</error>
+    </testcase>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_ModelUtil" skipped="0" tests="2" time="0.078169">
+    <testcase classname="uiUptodateTest_ModelUtil" name="app_screenshot_1_dark" time="0.028171"/>
+    <testcase classname="uiUptodateTest_ModelUtil" name="app_screenshot_2_light" time="0.049998"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_checkEditInCallbackButton" skipped="0" tests="5" time="3.3839">
+    <testcase classname="unittest_checkEditInCallbackButton" name="ErrorCase_1" time="0.02925"/>
+    <testcase classname="unittest_checkEditInCallbackButton" name="ErrorCase_2" time="0.010431"/>
+    <testcase classname="unittest_checkEditInCallbackButton" name="ErrorCase_3" time="0.1345"/>
+    <testcase classname="unittest_checkEditInCallbackButton" name="Test_1_with_pause" time="3.2056"/>
+    <testcase classname="unittest_checkEditInCallbackButton" name="PassingTest_1_R2025a_or_newer" time="0.0041289"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_checkEditInCode" skipped="0" tests="7" time="0.15412">
+    <testcase classname="unittest_checkEditInCode" name="ErrorTest_1" time="0.02015"/>
+    <testcase classname="unittest_checkEditInCode" name="ErrorTest_2" time="0.012475"/>
+    <testcase classname="unittest_checkEditInCode" name="ErrorTest_3" time="0.016469"/>
+    <testcase classname="unittest_checkEditInCode" name="Test_1" time="0.011567"/>
+    <testcase classname="unittest_checkEditInCode" name="Test_2" time="0.033122"/>
+    <testcase classname="unittest_checkEditInCode" name="Test_3" time="0.014051"/>
+    <testcase classname="unittest_checkEditInCode" name="PassingTest_1" time="0.046288"/>
+  </testsuite>
+  <testsuite errors="4" failures="0" name="unittest_checkRefSubInCallbackButton" skipped="0" tests="6" time="0.2006">
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="ErrorTest_1" time="0.017881"/>
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="ErrorTest_2" time="0.014008"/>
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="Test_1" time="0.043488">
+      <error>Error occurred in unittest_checkRefSubInCallbackButton/Test_1 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'samplemodel_checkRefSubInCallbackButton_empty' was created with a newer version (R2026a) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2026a and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in ModelUtil1.checkRefSubInCallbackButton (line 30)
+    load_system(ModelName)
+    
+    Error in unittest_checkRefSubInCallbackButton/Test_1 (line 65)
+          result = ModelUtil1.checkRefSubInCallbackButton("samplemodel_checkRefSubInCallbackButton_empty");</error>
+    </testcase>
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="Test_2" time="0.039842">
+      <error>Error occurred in unittest_checkRefSubInCallbackButton/Test_2 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'samplemodel_checkRefSubInCallbackButton' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in ModelUtil1.checkRefSubInCallbackButton (line 30)
+    load_system(ModelName)
+    
+    Error in unittest_checkRefSubInCallbackButton/Test_2 (line 75)
+          result = ModelUtil1.checkRefSubInCallbackButton("samplemodel_checkRefSubInCallbackButton");</error>
+    </testcase>
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="Test_3" time="0.037751">
+      <error>Error occurred in unittest_checkRefSubInCallbackButton/Test_3 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'samplemodel_checkRefSubInCallbackButton' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in ModelUtil1.checkRefSubInCallbackButton (line 30)
+    load_system(ModelName)
+    
+    Error in unittest_checkRefSubInCallbackButton/Test_3 (line 87)
+          result = ModelUtil1.checkRefSubInCallbackButton("samplemodel_checkRefSubInCallbackButton");</error>
+    </testcase>
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="PassingTest_1" time="0.047628">
+      <error>Error occurred in unittest_checkRefSubInCallbackButton/PassingTest_1 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'samplemodel_checkRefSubInCallbackButton' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in ModelUtil1.checkRefSubInCallbackButton (line 30)
+    load_system(ModelName)
+    
+    Error in demo_checkRefSubInCallbackButton (line 2)
+    result = ModelUtil1.checkRefSubInCallbackButton(model_name, DisplayInfo=true);
+    
+    Error in unittest_checkRefSubInCallbackButton/PassingTest_1 (line 102)
+          demo_checkRefSubInCallbackButton</error>
+    </testcase>
+  </testsuite>
+  <testsuite errors="5" failures="1" name="unittest_checkRefSubInSetParam" skipped="0" tests="9" time="0.8521">
+    <testcase classname="unittest_checkRefSubInSetParam" name="ErrorTest_1" time="0.019545"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="ErrorTest_2" time="0.011588"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="ErrorTest_3" time="0.58794">
+      <failure type="VerificationFailure">Verification failed in unittest_checkRefSubInSetParam/ErrorTest_3.
+    ---------------------
+    Framework Diagnostic:
+    ---------------------
+    verifyError failed.
+    --&gt; The function threw the wrong exception.
+        
+        Actual Exception:
+            'Simulink:Commands:LoadingNewerModel'
+        Expected Exception:
+            'checkRefSubInSetParam:TooMany'
+    --&gt; Actual Error Report:
+            Error using load_system (line 23)
+            Model 'testmodel_checkRefSubInSetParam_refsub1' was created with a newer version (R2025b) of Simulink
+            To disable this error message, use Simulink preferences.
+            To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+            
+            Error in ModelUtil1.checkRefSubInSetParam (line 87)
+                  load_system(refsub_name)
+            
+            Error in unittest_checkRefSubInSetParam/ErrorTest_3/test_target (line 54)
+                    ModelUtil1.checkRefSubInSetParam( ...
+    
+    Evaluated Function:
+      function_handle with value:
+    
+        @unittest_checkRefSubInSetParam.ErrorTest_3/test_target
+    ------------------
+    Stack Information:
+    ------------------
+    In C:\local\modutil\modeling-utility\Devel\ModelUtil\Test\checkRefSubInSetParam\unittest_checkRefSubInSetParam.m (unittest_checkRefSubInSetParam.ErrorTest_3) at 50</failure>
+    </testcase>
+    <testcase classname="unittest_checkRefSubInSetParam" name="Test_1" time="0.010361"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="Test_2" time="0.03636">
+      <error>Error occurred in unittest_checkRefSubInSetParam/Test_2 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'testmodel_checkRefSubInSetParam_refsub1' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in ModelUtil1.checkRefSubInSetParam (line 87)
+          load_system(refsub_name)
+    
+    Error in unittest_checkRefSubInSetParam/Test_2 (line 68)
+          result = ModelUtil1.checkRefSubInSetParam("set_param(ReferencedSubsystem=""testmodel_checkRefSubInSetParam_refsub1.mdl"")");</error>
+    </testcase>
+    <testcase classname="unittest_checkRefSubInSetParam" name="Test_3" time="0.04771">
+      <error>Error occurred in unittest_checkRefSubInSetParam/Test_3 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'testmodel_checkRefSubInSetParam' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in ModelUtil1.checkRefSubInSetParam (line 87)
+          load_system(refsub_name)
+    
+    Error in unittest_checkRefSubInSetParam/Test_3 (line 76)
+          result = ModelUtil1.checkRefSubInSetParam("set_param(ReferencedSubsystem='testmodel_checkRefSubInSetParam.mdl')");</error>
+    </testcase>
+    <testcase classname="unittest_checkRefSubInSetParam" name="Test_4" time="0.05095">
+      <error>Error occurred in unittest_checkRefSubInSetParam/Test_4 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'testmodel_checkRefSubInSetParam_refsub2' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in ModelUtil1.checkRefSubInSetParam (line 87)
+          load_system(refsub_name)
+    
+    Error in unittest_checkRefSubInSetParam/Test_4 (line 84)
+          result = ModelUtil1.checkRefSubInSetParam("set_param(""ReferencedSubsystem"", ""testmodel_checkRefSubInSetParam_refsub2.mdl"")");</error>
+    </testcase>
+    <testcase classname="unittest_checkRefSubInSetParam" name="Test_5" time="0.036876">
+      <error>Error occurred in unittest_checkRefSubInSetParam/Test_5 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'testmodel_checkRefSubInSetParam_refsub2' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in ModelUtil1.checkRefSubInSetParam (line 87)
+          load_system(refsub_name)
+    
+    Error in unittest_checkRefSubInSetParam/Test_5 (line 92)
+          result = ModelUtil1.checkRefSubInSetParam("set_param('ReferencedSubsystem', 'testmodel_checkRefSubInSetParam_refsub2.mdl')");</error>
+    </testcase>
+    <testcase classname="unittest_checkRefSubInSetParam" name="PassingTest_1" time="0.050773">
+      <error>Error occurred in unittest_checkRefSubInSetParam/PassingTest_1 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'testmodel_checkRefSubInSetParam' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in ModelUtil1.checkRefSubInSetParam (line 87)
+          load_system(refsub_name)
+    
+    Error in demo_checkRefSubInSetParam (line 18)
+    result = ModelUtil1.checkRefSubInSetParam(codetext);
+    
+    Error in unittest_checkRefSubInSetParam/PassingTest_1 (line 102)
+          demo_checkRefSubInSetParam</error>
+    </testcase>
+  </testsuite>
+  <testsuite errors="2" failures="0" name="unittest_findAllSimscapeBlocks" skipped="0" tests="3" time="0.095206">
+    <testcase classname="unittest_findAllSimscapeBlocks" name="Test_error_1" time="0.021411"/>
+    <testcase classname="unittest_findAllSimscapeBlocks" name="Test_1" time="0.039084">
+      <error>Error occurred in unittest_findAllSimscapeBlocks/Test_1 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'samplemodel_findAllSimscapeBlocks_test1_epmty' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in ModelUtil1.findAllSimscapeBlocks (line 26)
+    load_system(ModelName)
+    
+    Error in unittest_findAllSimscapeBlocks/Test_1 (line 50)
+          result = ModelUtil1.findAllSimscapeBlocks("samplemodel_findAllSimscapeBlocks_test1_epmty");</error>
+    </testcase>
+    <testcase classname="unittest_findAllSimscapeBlocks" name="Test_2" time="0.03471">
+      <error>Error occurred in unittest_findAllSimscapeBlocks/Test_2 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'samplemodel_findAllSimscapeBlocks_test2' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in ModelUtil1.findAllSimscapeBlocks (line 26)
+    load_system(ModelName)
+    
+    Error in unittest_findAllSimscapeBlocks/Test_2 (line 56)
+          result = ModelUtil1.findAllSimscapeBlocks(model_name);</error>
+    </testcase>
+  </testsuite>
+  <testsuite errors="7" failures="0" name="unittest_findLookupTable1DBlocks" skipped="0" tests="8" time="0.27462">
+    <testcase classname="unittest_findLookupTable1DBlocks" name="ErrorTest_1" time="0.031188"/>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="PassingTest_1" time="0.036166">
+      <error>Error occurred in unittest_findLookupTable1DBlocks/PassingTest_1 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'testmodel_findLookupTable1DBlocks_refsub' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in unittest_findLookupTable1DBlocks/PassingTest_1 (line 43)
+          load_system("testmodel_findLookupTable1DBlocks_refsub")</error>
+    </testcase>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="PassingTest_2" time="0.033816">
+      <error>Error occurred in unittest_findLookupTable1DBlocks/PassingTest_2 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'testmodel_findLookupTable1DBlocks_refsub' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in unittest_findLookupTable1DBlocks/PassingTest_2 (line 48)
+          load_system("testmodel_findLookupTable1DBlocks_refsub")</error>
+    </testcase>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="PassingTest_3" time="0.033187">
+      <error>Error occurred in unittest_findLookupTable1DBlocks/PassingTest_3 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'testmodel_findLookupTable1DBlocks_refsub' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in unittest_findLookupTable1DBlocks/PassingTest_3 (line 53)
+          load_system("testmodel_findLookupTable1DBlocks_refsub")</error>
+    </testcase>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="PassingTest_4" time="0.036041">
+      <error>Error occurred in unittest_findLookupTable1DBlocks/PassingTest_4 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'testmodel_findLookupTable1DBlocks_refsub' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in demo_findLookupTable1DBlocks (line 2)
+    load_system(model_name)
+    
+    Error in unittest_findLookupTable1DBlocks/PassingTest_4 (line 58)
+          demo_findLookupTable1DBlocks</error>
+    </testcase>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="TestDefault" time="0.033178">
+      <error>Error occurred in unittest_findLookupTable1DBlocks/TestDefault and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'testmodel_findLookupTable1DBlocks_refsub' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in unittest_findLookupTable1DBlocks/TestDefault (line 64)
+          load_system("testmodel_findLookupTable1DBlocks_refsub")</error>
+    </testcase>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="TestSubsystemPath" time="0.036075">
+      <error>Error occurred in unittest_findLookupTable1DBlocks/TestSubsystemPath and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'testmodel_findLookupTable1DBlocks_refsub' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in unittest_findLookupTable1DBlocks/TestSubsystemPath (line 85)
+          load_system("testmodel_findLookupTable1DBlocks_refsub")</error>
+    </testcase>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="TestSearchDepth" time="0.03497">
+      <error>Error occurred in unittest_findLookupTable1DBlocks/TestSearchDepth and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'testmodel_findLookupTable1DBlocks_refsub' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in unittest_findLookupTable1DBlocks/TestSearchDepth (line 101)
+          load_system("testmodel_findLookupTable1DBlocks_refsub")</error>
+    </testcase>
+  </testsuite>
+  <testsuite errors="1" failures="2" name="unittest_findSimscapeBlocks" skipped="0" tests="5" time="0.9359">
+    <testcase classname="unittest_findSimscapeBlocks" name="Test_error_1" time="0.016397"/>
+    <testcase classname="unittest_findSimscapeBlocks" name="Test_error_2" time="0.011095"/>
+    <testcase classname="unittest_findSimscapeBlocks" name="Test_error_3" time="0.46563">
+      <failure type="VerificationFailure">Verification failed in unittest_findSimscapeBlocks/Test_error_3.
+    ---------------------
+    Framework Diagnostic:
+    ---------------------
+    verifyError failed.
+    --&gt; The function threw the wrong exception.
+        
+        Actual Exception:
+            'Simulink:Commands:LoadingNewerModel'
+        Expected Exception:
+            'findSimscapeBlock:SimscapeBlockNotFound'
+    --&gt; Actual Error Report:
+            Error using load_system (line 23)
+            Model 'samplemodel_findSimscapeBlocks_test1_epmty' was created with a newer version (R2025b) of Simulink
+            To disable this error message, use Simulink preferences.
+            To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+            
+            Error in ModelUtil1.findAllSimscapeBlocks (line 26)
+            load_system(ModelName)
+            
+            Error in ModelUtil1.findSimscapeBlock (line 32)
+            result = ModelUtil1.findAllSimscapeBlocks(ModelName);
+            
+            Error in unittest_findSimscapeBlocks/Test_error_3/test_target (line 57)
+                    ModelUtil1.findSimscapeBlock("samplemodel_findSimscapeBlocks_test1_epmty", "Mass")
+    
+    Evaluated Function:
+      function_handle with value:
+    
+        @unittest_findSimscapeBlocks.Test_error_3/test_target
+    ------------------
+    Stack Information:
+    ------------------
+    In C:\local\modutil\modeling-utility\Devel\ModelUtil\Test\findSimscapeBlock\unittest_findSimscapeBlocks.m (unittest_findSimscapeBlocks.Test_error_3) at 55</failure>
+    </testcase>
+    <testcase classname="unittest_findSimscapeBlocks" name="Test_error_4" time="0.40559">
+      <failure type="VerificationFailure">Verification failed in unittest_findSimscapeBlocks/Test_error_4.
+    ---------------------
+    Framework Diagnostic:
+    ---------------------
+    verifyError failed.
+    --&gt; The function threw the wrong exception.
+        
+        Actual Exception:
+            'Simulink:Commands:LoadingNewerModel'
+        Expected Exception:
+            'findSimscapeBlock:TargetBlockNotFound'
+    --&gt; Actual Error Report:
+            Error using load_system (line 23)
+            Model 'samplemodel_findSimscapeBlocks_test2' was created with a newer version (R2025b) of Simulink
+            To disable this error message, use Simulink preferences.
+            To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+            
+            Error in ModelUtil1.findAllSimscapeBlocks (line 26)
+            load_system(ModelName)
+            
+            Error in ModelUtil1.findSimscapeBlock (line 32)
+            result = ModelUtil1.findAllSimscapeBlocks(ModelName);
+            
+            Error in unittest_findSimscapeBlocks/Test_error_4/test_target (line 64)
+                    ModelUtil1.findSimscapeBlock("samplemodel_findSimscapeBlocks_test2", "Inertia")
+    
+    Evaluated Function:
+      function_handle with value:
+    
+        @unittest_findSimscapeBlocks.Test_error_4/test_target
+    ------------------
+    Stack Information:
+    ------------------
+    In C:\local\modutil\modeling-utility\Devel\ModelUtil\Test\findSimscapeBlock\unittest_findSimscapeBlocks.m (unittest_findSimscapeBlocks.Test_error_4) at 62</failure>
+    </testcase>
+    <testcase classname="unittest_findSimscapeBlocks" name="Test_1" time="0.037178">
+      <error>Error occurred in unittest_findSimscapeBlocks/Test_1 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'samplemodel_findSimscapeBlocks_test2' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in ModelUtil1.findAllSimscapeBlocks (line 26)
+    load_system(ModelName)
+    
+    Error in ModelUtil1.findSimscapeBlock (line 32)
+    result = ModelUtil1.findAllSimscapeBlocks(ModelName);
+    
+    Error in unittest_findSimscapeBlocks/Test_1 (line 72)
+          result = ModelUtil1.findSimscapeBlock(model_name, "Mass");</error>
+    </testcase>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_getModelFileFullPath" skipped="0" tests="8" time="0.12351">
+    <testcase classname="unittest_getModelFileFullPath" name="Test_error_1" time="0.021614"/>
+    <testcase classname="unittest_getModelFileFullPath" name="Test_error_2" time="0.012361"/>
+    <testcase classname="unittest_getModelFileFullPath" name="Test_error_3" time="0.015981"/>
+    <testcase classname="unittest_getModelFileFullPath" name="Test_error_4" time="0.024526"/>
+    <testcase classname="unittest_getModelFileFullPath" name="PassingTest_1" time="0.018958"/>
+    <testcase classname="unittest_getModelFileFullPath" name="PassingTest_2" time="0.0055814"/>
+    <testcase classname="unittest_getModelFileFullPath" name="PassingTest_3" time="0.020093"/>
+    <testcase classname="unittest_getModelFileFullPath" name="PassingTest_4" time="0.0043991"/>
+  </testsuite>
+  <testsuite errors="1" failures="0" name="unittest_getSimscapeValueFromBlockParameter" skipped="0" tests="3" time="0.066741">
+    <testcase classname="unittest_getSimscapeValueFromBlockParameter" name="ErrorTest_1" time="0.017722"/>
+    <testcase classname="unittest_getSimscapeValueFromBlockParameter" name="ErrorTest_2" time="0.011913"/>
+    <testcase classname="unittest_getSimscapeValueFromBlockParameter" name="PassingTest_1" time="0.037106">
+      <error>Error occurred in unittest_getSimscapeValueFromBlockParameter/PassingTest_1 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'testmodel_getSimscapeValueFromBlockParameter' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in ModelUtil1.getSimscapeValueFromBlockParameter (line 43)
+    load_system(model_name)
+    
+    Error in demo_getSimscapeValueFromBlockParameter (line 4)
+    param = ModelUtil1.getSimscapeValueFromBlockParameter(block_path, "inertia");
+    
+    Error in unittest_getSimscapeValueFromBlockParameter/PassingTest_1 (line 48)
+          demo_getSimscapeValueFromBlockParameter</error>
+    </testcase>
+  </testsuite>
+  <testsuite errors="1" failures="0" name="uiTest_plotLookupTable1DBlocks" skipped="0" tests="1" time="0.058708">
+    <testcase classname="uiTest_plotLookupTable1DBlocks" name="WarningFree_1" time="0.058708">
+      <error>Error occurred in uiTest_plotLookupTable1DBlocks/WarningFree_1 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'samplemodel_plotLookupTable1DBlocks_refsub' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in demoapp_plotLookupTable1DBlocks (line 11)
+    load_system(model_name)
+    
+    Error in uiTest_plotLookupTable1DBlocks/WarningFree_1/target (line 62)
+            testcase.App = demoapp_plotLookupTable1DBlocks;  % !test-target
+    
+    Error in uiTest_plotLookupTable1DBlocks&gt;@()target() (line 60)
+          verifyWarningFree(testcase, @() target())
+    
+    Error in matlab.unittest.internal.constraints.FunctionHandleConstraint/invoke (line 35)
+                [varargout{1:nargout}] = fcn();
+    
+    Error in matlab.unittest.internal.constraints.WarningQualificationConstraint/invoke (line 43)
+                    constraint.invoke@matlab.unittest.internal.constraints.FunctionHandleConstraint(fcn);
+    
+    Error in matlab.unittest.constraints.IssuesNoWarnings/issuesNoWarnings (line 141)
+                constraint.invoke(actual);
+    
+    Error in matlab.unittest.constraints.IssuesNoWarnings/satisfiedBy (line 84)
+                    constraint.issuesNoWarnings(actual);
+    
+    Error in matlab.unittest.internal.constraints.CasualDiagnosticDecorator/satisfiedBy (line 42)
+                bool = decorator.Constraint.satisfiedBy(actual);
+    
+    Error in matlab.unittest.internal.qualifications.QualificationDelegate/qualifyThat (line 82)
+                    result = constraint.satisfiedBy(actual);
+    
+    Error in matlab.unittest.internal.qualifications.QualificationDelegate/qualifyWarningFree (line 224)
+                delegate.qualifyThat(qualifiable, notificationData, actual, issuesNoWarningsWithOutputs, varargin{:});
+    
+    Error in matlab.unittest.qualifications.Verifiable/verifyWarningFree (line 833)
+                [varargout{1:nargout}] = qualifyWarningFree(verifiable.VerificationDelegate, ...
+    
+    Error in uiTest_plotLookupTable1DBlocks/WarningFree_1 (line 60)
+          verifyWarningFree(testcase, @() target())</error>
+    </testcase>
+  </testsuite>
+  <testsuite errors="2" failures="0" name="unittest_plotLookupTable1DBlocks" skipped="0" tests="3" time="0.10758">
+    <testcase classname="unittest_plotLookupTable1DBlocks" name="ErrorTest_1" time="0.020041"/>
+    <testcase classname="unittest_plotLookupTable1DBlocks" name="PassingTest_1" time="0.03982">
+      <error>Error occurred in unittest_plotLookupTable1DBlocks/PassingTest_1 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'samplemodel_plotLookupTable1DBlocks_refsub' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in unittest_plotLookupTable1DBlocks/PassingTest_1 (line 41)
+          load_system("samplemodel_plotLookupTable1DBlocks_refsub")</error>
+    </testcase>
+    <testcase classname="unittest_plotLookupTable1DBlocks" name="PassingTest_2" time="0.047719">
+      <error>Error occurred in unittest_plotLookupTable1DBlocks/PassingTest_2 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'samplemodel_plotLookupTable1DBlocks_refsub' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in demo_plotLookupTable1DBlocks (line 3)
+    load_system(model_name)
+    
+    Error in unittest_plotLookupTable1DBlocks/PassingTest_2 (line 45)
+          demo_plotLookupTable1DBlocks</error>
+    </testcase>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_saveModels" skipped="0" tests="4" time="0.11514">
+    <testcase classname="unittest_saveModels" name="PassingTest_1" time="0.076313"/>
+    <testcase classname="unittest_saveModels" name="Test_FolderTree_1" time="0.026329"/>
+    <testcase classname="unittest_saveModels" name="Test_WithProject_1" time="0.0082119"/>
+    <testcase classname="unittest_saveModels" name="Test_WithProject_2" time="0.0042872"/>
+  </testsuite>
+  <testsuite errors="7" failures="0" name="unittest_screenshotSimulink" skipped="0" tests="7" time="0.23146">
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_1" time="0.015046">
+      <error>Error occurred in unittest_screenshotSimulink/PassingTest_1 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:UndefinedFunction'
+    --------------
+    Error Details:
+    --------------
+    Undefined function 'mustBeBetween' for input arguments of type 'string'.
+    
+    Error in ModelUtil1.screenshotSimulink (line 53)
+      NameValuePair.PaddingColorRGB (1,3) {mustBeBetween(NameValuePair.PaddingColorRGB, 0, 1, "closed")} = [1,1,1]
+    
+    Error in unittest_screenshotSimulink/PassingTest_1 (line 34)
+          ModelUtil1.screenshotSimulink( ...</error>
+    </testcase>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_2" time="0.037471">
+      <error>Error occurred in unittest_screenshotSimulink/PassingTest_2 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'testmodel_screenshotSimulink' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in unittest_screenshotSimulink/PassingTest_2 (line 45)
+          load_system(model_name)</error>
+    </testcase>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_3" time="0.038199">
+      <error>Error occurred in unittest_screenshotSimulink/PassingTest_3 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'testmodel_screenshotSimulink' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in unittest_screenshotSimulink/PassingTest_3 (line 61)
+          load_system(model_name)</error>
+    </testcase>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_4" time="0.036363">
+      <error>Error occurred in unittest_screenshotSimulink/PassingTest_4 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'testmodel_screenshotSimulink' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in unittest_screenshotSimulink/PassingTest_4 (line 81)
+          load_system(model_name)</error>
+    </testcase>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_5" time="0.033179">
+      <error>Error occurred in unittest_screenshotSimulink/PassingTest_5 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'testmodel_screenshotSimulink' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in unittest_screenshotSimulink/PassingTest_5 (line 101)
+          load_system(model_name)</error>
+    </testcase>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_6" time="0.033434">
+      <error>Error occurred in unittest_screenshotSimulink/PassingTest_6 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'testmodel_screenshotSimulink' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in setupLogging_testmodel_screenshotSimulink (line 2)
+    load_system(model_name)
+    
+    Error in unittest_screenshotSimulink/PassingTest_6 (line 119)
+          setupLogging_testmodel_screenshotSimulink</error>
+    </testcase>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_7" time="0.037764">
+      <error>Error occurred in unittest_screenshotSimulink/PassingTest_7 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'testmodel_screenshotSimulink' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in setupProbe_testmodel_screenshotSimulink (line 2)
+    load_system(model_name)
+    
+    Error in unittest_screenshotSimulink/PassingTest_7 (line 123)
+          setupProbe_testmodel_screenshotSimulink</error>
+    </testcase>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_setSystemMaskIcon" skipped="0" tests="2" time="0.78425">
+    <testcase classname="unittest_setSystemMaskIcon" name="PassingTest_1" time="0.33995"/>
+    <testcase classname="unittest_setSystemMaskIcon" name="PassingTest_2" time="0.44431"/>
+  </testsuite>
+</testsuites>
