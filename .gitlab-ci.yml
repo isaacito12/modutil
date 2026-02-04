@@ -10,20 +10,18 @@ variables:
   tags:
     - long-jobs
   script:
-    - cd Devel
-    - cd setup_paths
-    - mw -using BR2026ad matlab -nodesktop -batch "buildtool -buildFile buildfile_24b.m -verbosity Verbose Test"
+    - mw -using BR2026ad matlab -nodesktop -batch "cd Devel; setup_paths; buildtool -buildFile buildfile_24b.m -verbosity Verbose Test"
 
 25b-test:
   stage: test
   tags:
     - long-jobs
   script:
-    - mw -using BR2025bd matlab -nodesktop -batch "buildtool -buildFile buildfile_24b.m -verbosity Verbose Test"
+    - mw -using BR2025bd matlab -nodesktop -batch "cd Devel; setup_paths; buildtool -buildFile buildfile_24b.m -verbosity Verbose Test"
 
 24b-test:
   stage: test
   tags:
     - long-jobs
   script:
-    - mw -using BR2024bd matlab -nodesktop -batch "buildtool -buildFile buildfile_24b.m -verbosity Verbose Test"
+    - mw -using BR2024bd matlab -nodesktop -batch "cd Devel; setup_paths; buildtool -buildFile buildfile_24b.m -verbosity Verbose Test"
