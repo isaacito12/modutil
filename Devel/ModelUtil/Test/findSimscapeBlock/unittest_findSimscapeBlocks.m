@@ -10,8 +10,8 @@ classdef unittest_findSimscapeBlocks < matlab.unittest.TestCase
   % Test Browser
   % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
-  % Copyright 2023-2025 The MathWorks, Inc.
-
+  % Copyright 2023-2026 The MathWorks, Inc.
+  
   methods (TestMethodSetup)
     % Functions in this section always run before each test defined in the Test section runs.
 
@@ -54,21 +54,35 @@ classdef unittest_findSimscapeBlocks < matlab.unittest.TestCase
     function Test_error_3(testcase)
       verifyError(testcase, @test_target, "findSimscapeBlock:SimscapeBlockNotFound")
       function test_target()
-        ModelUtil1.findSimscapeBlock("samplemodel_findSimscapeBlocks_test1_epmty", "Mass")
+        if TestUtil1.isR2024bOrOlder
+          model_name = "samplemodel_findSimscapeBlocks_test1_epmty_24b";
+        else
+          model_name = "samplemodel_findSimscapeBlocks_test1_epmty";
+        end  % if
+        ModelUtil1.findSimscapeBlock(model_name, "Mass")
       end  % nested function
     end  % function
 
     function Test_error_4(testcase)
       verifyError(testcase, @test_target, "findSimscapeBlock:TargetBlockNotFound")
       function test_target()
-        ModelUtil1.findSimscapeBlock("samplemodel_findSimscapeBlocks_test2", "Inertia")
+        if TestUtil1.isR2024bOrOlder
+          model_name = "samplemodel_findSimscapeBlocks_test2_24b";
+        else
+          model_name = "samplemodel_findSimscapeBlocks_test2";
+        end  % if
+        ModelUtil1.findSimscapeBlock(model_name, "Inertia")
       end  % nested function
     end  % function
 
     %% Other tests
 
     function Test_1(testcase)
-      model_name = "samplemodel_findSimscapeBlocks_test2";
+      if TestUtil1.isR2024bOrOlder
+        model_name = "samplemodel_findSimscapeBlocks_test2_24b";
+      else
+        model_name = "samplemodel_findSimscapeBlocks_test2";
+      end  % if
       result = ModelUtil1.findSimscapeBlock(model_name, "Mass");
 
       paths = ["/Mass"; "/Mass1"; "/Subsystem/Mass2"];

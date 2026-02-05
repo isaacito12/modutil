@@ -1,5 +1,5 @@
 classdef unittest_checkRefSubInSetParam < matlab.unittest.TestCase
-  %% Class-based unit test
+  % Class-based unit test
 
   % Author Class-Based Unit Tests in MATLAB
   % https://www.mathworks.com/help/matlab/matlab_prog/author-class-based-unit-tests-in-matlab.html
@@ -10,7 +10,7 @@ classdef unittest_checkRefSubInSetParam < matlab.unittest.TestCase
   % Test Browser
   % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
-  % Copyright 2023-2025 The MathWorks, Inc.
+  % Copyright 2023-2026 The MathWorks, Inc.
 
   methods (TestMethodSetup)
     % Functions in this section always run before each test defined in the Test section runs.
@@ -50,9 +50,14 @@ classdef unittest_checkRefSubInSetParam < matlab.unittest.TestCase
       verifyError(testcase, @test_target, "checkRefSubInSetParam:TooMany")
       function test_target()
         codelines = 5;
-        thresh = 3;  % !test-target: Set this value to be greater than codelines for testing.
+        thresh = 3;  % !test-target: Set this value to be smaller than codelines for testing.
+        if TestUtil1.isR2024bOrOlder
+          code_text = "set_param(ReferencedSubsystem=""testmodel_checkRefSubInSetParam_refsub1_24b.mdl"")";
+        else
+          code_text = "set_param(ReferencedSubsystem=""testmodel_checkRefSubInSetParam_refsub1.mdl"")";
+        end  % if
         ModelUtil1.checkRefSubInSetParam( ...
-          repmat("set_param(ReferencedSubsystem=""testmodel_checkRefSubInSetParam_refsub1.mdl"")", codelines, 1), ...
+          repmat(code_text, codelines, 1), ...
           MaxThreshold = thresh, ...
           DisplayInfo = true);
       end  % nested function
@@ -65,32 +70,72 @@ classdef unittest_checkRefSubInSetParam < matlab.unittest.TestCase
 
     function Test_2(testcase)
       % name-value pair, double quotes
-      result = ModelUtil1.checkRefSubInSetParam("set_param(ReferencedSubsystem=""testmodel_checkRefSubInSetParam_refsub1.mdl"")");
-      verifyEqual(testcase, result.FileName, "testmodel_checkRefSubInSetParam_refsub1.mdl")
+      if TestUtil1.isR2024bOrOlder
+        code_text = "set_param(ReferencedSubsystem=""testmodel_checkRefSubInSetParam_refsub1_24b.mdl"")";
+      else
+        code_text = "set_param(ReferencedSubsystem=""testmodel_checkRefSubInSetParam_refsub1.mdl"")";
+      end  % if
+      result = ModelUtil1.checkRefSubInSetParam(code_text);
+      if TestUtil1.isR2024bOrOlder
+        file_name = "testmodel_checkRefSubInSetParam_refsub1_24b.mdl";
+      else
+        file_name = "testmodel_checkRefSubInSetParam_refsub1.mdl";
+      end  % if
+      verifyEqual(testcase, result.FileName, file_name)
       verifyEqual(testcase, result.Found, true)
       verifyEqual(testcase, result.IsRefSub, true)
     end  % function
 
     function Test_3(testcase)
       % name-value pair, single-quotes
-      result = ModelUtil1.checkRefSubInSetParam("set_param(ReferencedSubsystem='testmodel_checkRefSubInSetParam.mdl')");
-      verifyEqual(testcase, result.FileName, "testmodel_checkRefSubInSetParam.mdl")
+      if TestUtil1.isR2024bOrOlder
+        code_text = "set_param(ReferencedSubsystem='testmodel_checkRefSubInSetParam_24b.mdl')";
+      else
+        code_text = "set_param(ReferencedSubsystem='testmodel_checkRefSubInSetParam.mdl')";
+      end  % if
+      result = ModelUtil1.checkRefSubInSetParam(code_text);
+      if TestUtil1.isR2024bOrOlder
+        file_name = "testmodel_checkRefSubInSetParam_24b.mdl";
+      else
+        file_name = "testmodel_checkRefSubInSetParam.mdl";
+      end  % if
+      verifyEqual(testcase, result.FileName, file_name)
       verifyEqual(testcase, result.Found, true)
       verifyEqual(testcase, result.IsRefSub, false)
     end  % function
 
     function Test_4(testcase)
       % comma separated, double quotes
-      result = ModelUtil1.checkRefSubInSetParam("set_param(""ReferencedSubsystem"", ""testmodel_checkRefSubInSetParam_refsub2.mdl"")");
-      verifyEqual(testcase, result.FileName, "testmodel_checkRefSubInSetParam_refsub2.mdl")
+      if TestUtil1.isR2024bOrOlder
+        code_text = "set_param(""ReferencedSubsystem"", ""testmodel_checkRefSubInSetParam_refsub2_24b.mdl"")";
+      else
+        code_text = "set_param(""ReferencedSubsystem"", ""testmodel_checkRefSubInSetParam_refsub2.mdl"")";
+      end  % if
+      result = ModelUtil1.checkRefSubInSetParam(code_text);
+      if TestUtil1.isR2024bOrOlder
+        file_name = "testmodel_checkRefSubInSetParam_refsub2_24b.mdl";
+      else
+        file_name = "testmodel_checkRefSubInSetParam_refsub2.mdl";
+      end  % if
+      verifyEqual(testcase, result.FileName, file_name)
       verifyEqual(testcase, result.Found, true)
       verifyEqual(testcase, result.IsRefSub, true)
     end  % function
 
     function Test_5(testcase)
       % comma separated, single quotes
-      result = ModelUtil1.checkRefSubInSetParam("set_param('ReferencedSubsystem', 'testmodel_checkRefSubInSetParam_refsub2.mdl')");
-      verifyEqual(testcase, result.FileName, "testmodel_checkRefSubInSetParam_refsub2.mdl")
+      if TestUtil1.isR2024bOrOlder
+        code_text = "set_param('ReferencedSubsystem', 'testmodel_checkRefSubInSetParam_refsub2_24b.mdl')";
+      else
+        code_text = "set_param('ReferencedSubsystem', 'testmodel_checkRefSubInSetParam_refsub2.mdl')";
+      end  % if
+      result = ModelUtil1.checkRefSubInSetParam(code_text);
+      if TestUtil1.isR2024bOrOlder
+        file_name = "testmodel_checkRefSubInSetParam_refsub2_24b.mdl";
+      else
+        file_name = "testmodel_checkRefSubInSetParam_refsub2.mdl";
+      end  % if
+      verifyEqual(testcase, result.FileName, file_name)
       verifyEqual(testcase, result.Found, true)
       verifyEqual(testcase, result.IsRefSub, true)
     end  % function
@@ -99,7 +144,11 @@ classdef unittest_checkRefSubInSetParam < matlab.unittest.TestCase
     % Make sure that scripts, functions, classes, and models run right out of the box.
 
     function PassingTest_1(~)
-      demo_checkRefSubInSetParam
+      if TestUtil1.isR2024bOrOlder
+        demo_checkRefSubInSetParam_24b
+      else
+        demo_checkRefSubInSetParam
+      end  % if
     end  % function
 
   end  % methods

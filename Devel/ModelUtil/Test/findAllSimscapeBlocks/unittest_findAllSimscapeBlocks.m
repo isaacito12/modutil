@@ -10,7 +10,7 @@ classdef unittest_findAllSimscapeBlocks < matlab.unittest.TestCase
   % Test Browser
   % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
-  % Copyright 2023-2025 The MathWorks, Inc.
+  % Copyright 2023-2026 The MathWorks, Inc.
 
   methods (TestMethodSetup)
     % Functions in this section always run before each test defined in the Test section runs.
@@ -47,12 +47,21 @@ classdef unittest_findAllSimscapeBlocks < matlab.unittest.TestCase
     %% Other tests
 
     function Test_1(testcase)
-      result = ModelUtil1.findAllSimscapeBlocks("samplemodel_findAllSimscapeBlocks_test1_epmty");
+      if TestUtil1.isR2024bOrOlder
+        model_name = "samplemodel_findAllSimscapeBlocks_test1_epmty_24b";
+      else
+        model_name = "samplemodel_findAllSimscapeBlocks_test1_epmty";
+      end  % if
+      result = ModelUtil1.findAllSimscapeBlocks(model_name);
       verifyTrue(testcase, isempty(result))
     end  % function
 
     function Test_2(testcase)
-      model_name = "samplemodel_findAllSimscapeBlocks_test2";
+      if TestUtil1.isR2024bOrOlder
+        model_name = "samplemodel_findAllSimscapeBlocks_test2_24b";
+      else
+        model_name = "samplemodel_findAllSimscapeBlocks_test2";
+      end  % if
       result = ModelUtil1.findAllSimscapeBlocks(model_name);
 
       paths = [

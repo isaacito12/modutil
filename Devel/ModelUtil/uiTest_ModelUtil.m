@@ -9,40 +9,28 @@ classdef uiTest_ModelUtil < matlab.uitest.TestCase
 
   % Copyright 2024-2026 The MathWorks, Inc.
 
-  properties
-    % Do not specify the class name for a property to hold a handle to an app.
-    % For class-based test apps, the class name is the app name, making
-    % it difficult to use a common teardown if the class name is specified here.
-    App (1,1)
-  end  % properties
-
   methods (TestMethodSetup)
     % Functions in the TestMethodSetup section always run before
     % each test defined in the Test section runs.
 
     function test_method_setup(testcase)
       %%
-      function closeAll
-        % Delete the app's figure object from memory.
-        if class(testcase.App) ~= "double"
-          if isstruct(testcase.App) && not(isfield(testcase.App, "Window"))
-            % Function-based app with no window to delete.
-
-            return
-
-          end  % if
-          delete(testcase.App.Window.MainFigure)
-        end  % if
-        close all
-        bdclose all
-      end  % nested function
+      % Close all before test
+      close all
+      bdclose all
 
       % addTeardown adds a function which always runs after each test.
       % Even if the execution of a test ends with an error, the teardown function runs.
-      addTeardown(testcase, @closeAll)
-
-      close all
-      bdclose all
+      addTeardown(testcase, @closeAllAfterTest)
+      function closeAllAfterTest
+        % Close all figure windows. This closes not only the test targets but also other figure windows.
+        figs = findall(0, Type="Figure");
+        if not(any(isempty(figs)))
+          disp("Deleting figures (" + numel(figs) + ")")
+          delete(figs)
+        end  % if
+        bdclose all
+      end  % nested function
     end  % function
 
   end  % methods
@@ -54,41 +42,54 @@ classdef uiTest_ModelUtil < matlab.uitest.TestCase
     %% Minimum quality check
     % Check that models, scripts, functions, and classes run right out of the box.
 
-    function PassingTest_App_1(testcase)
-      % Check that the app opens without any arguments.
-      testcase.App = LookupTable1DBlockPlotApp;
+    % Warnings can be displayed even when the app opens and starts working seemingly normally.
+    % Make sure there is no warning when opening an app.
+
+    function app_launches_without_warnings_1(testcase)
+      verifyWarningFree(testcase, @() test_target())
+      function test_target()
+        LookupTable1DBlockPlotApp  % !test-target
+      end  % nested function
     end  % function
 
-    function PassingTest_App_2(testcase)
+    %% Passing tests
+
+    function PassingTest_App_1(~)
       % Check the ModelFilePath option.
-      target = which("samplemodel_LookupTable1DBlockPlotApp");
-      testcase.App = LookupTable1DBlockPlotApp(ModelFilePath=target);
+      if TestUtil1.isR2024bOrOlder
+        target = SearchUtil1.searchFiles("samplemodel_LookupTable1DBlockPlotApp_24b.mdl");
+      else
+        target = SearchUtil1.searchFiles("samplemodel_LookupTable1DBlockPlotApp.mdl");
+      end  % if
+      LookupTable1DBlockPlotApp(ModelFilePath=target)
     end  % function
 
     function PassingTest_SampleModel_1(~)
       % Check that the Callback Button works.
-      model_name = "samplemodel_LookupTable1DBlockPlotApp";
+      if TestUtil1.isR2024bOrOlder
+        model_name = "samplemodel_LookupTable1DBlockPlotApp_24b";
+      else
+        model_name = "samplemodel_LookupTable1DBlockPlotApp";
+      end  % if
       block_path = model_name + "/LookupTable1DBlockPlotApp";  % !test-target
       load_system(model_name)
       command = string( get_param(block_path, "ClickFcn"));
-      % This opens an app. The return value is not available.
+      % This opens an app.
       eval(command)
-      % Close all figures.
-      figs = findall(0, Type="Figure");
-      close(figs)
     end  % function
 
     function PassingTest_SampleModel_2(~)
       % Check that the Callback Button works.
-      model_name = "samplemodel_LookupTable1DBlockPlotApp";
+      if TestUtil1.isR2024bOrOlder
+        model_name = "samplemodel_LookupTable1DBlockPlotApp_24b";
+      else
+        model_name = "samplemodel_LookupTable1DBlockPlotApp";
+      end  % if
       block_path = model_name + "/plotLookupTable1DBlocks";  % !test-target
       load_system(model_name)
       command = string( get_param(block_path, "ClickFcn"));
       % This opens an app. The return value is not available.
       eval(command)
-      % Close all figures.
-      figs = findall(0, Type="Figure");
-      close(figs)
     end  % function
 
   end  % methods

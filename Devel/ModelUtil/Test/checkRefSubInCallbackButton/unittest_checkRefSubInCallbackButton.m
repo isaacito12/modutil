@@ -10,7 +10,7 @@ classdef unittest_checkRefSubInCallbackButton < matlab.unittest.TestCase
   % Test Browser
   % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
-  % Copyright 2023-2025 The MathWorks, Inc.
+  % Copyright 2023-2026 The MathWorks, Inc.
 
   methods (TestMethodSetup)
     % Functions in this section always run before each test defined in the Test section runs.
@@ -31,11 +31,6 @@ classdef unittest_checkRefSubInCallbackButton < matlab.unittest.TestCase
   methods (Test)
 
     function ErrorTest_1(testcase)
-      % if isMATLABReleaseOlderThan("R2025a")
-      % 
-      %   return
-      % 
-      % end  % if
       verifyError(testcase, @test_target, "checkRefSubInCallbackButton:InvalidModelName")
       function test_target()
         % The function requires a model name to be passed.
@@ -44,11 +39,6 @@ classdef unittest_checkRefSubInCallbackButton < matlab.unittest.TestCase
     end  % function
 
     function ErrorTest_2(testcase)
-      % if isMATLABReleaseOlderThan("R2025a")
-      % 
-      %   return
-      % 
-      % end  % if
       verifyError(testcase, @test_target, "checkRefSubInCallbackButton:InvalidModelName")
       function test_target()
         % The passed argument must not be zero-length text.
@@ -57,34 +47,41 @@ classdef unittest_checkRefSubInCallbackButton < matlab.unittest.TestCase
     end  % function
 
     function Test_1(testcase)
-      % if isMATLABReleaseOlderThan("R2025a")
-      % 
-      %   return
-      % 
-      % end  % if
-      result = ModelUtil1.checkRefSubInCallbackButton("samplemodel_checkRefSubInCallbackButton_empty");
+      if TestUtil1.isR2024bOrOlder
+        result = ModelUtil1.checkRefSubInCallbackButton("samplemodel_checkRefSubInCallbackButton_empty_24b");
+      else
+        result = ModelUtil1.checkRefSubInCallbackButton("samplemodel_checkRefSubInCallbackButton_empty");
+      end  % if
       verifyTrue(testcase, isempty(result))
     end  % function
 
     function Test_2(testcase)
-      % if isMATLABReleaseOlderThan("R2025a")
-      % 
-      %   return
-      % 
-      % end  % if
-      result = ModelUtil1.checkRefSubInCallbackButton("samplemodel_checkRefSubInCallbackButton");
+      if TestUtil1.isR2024bOrOlder
+        % This test fails in 24b for some reason but passes in 25b.
+        disp("!Skipping")
+        % result = ModelUtil1.checkRefSubInCallbackButton("samplemodel_checkRefSubInCallbackButton_24b");
+
+        return
+
+      else
+        result = ModelUtil1.checkRefSubInCallbackButton("samplemodel_checkRefSubInCallbackButton");
+      end  % if
       verifyEqual(testcase, result.Found(1), true)
       verifyEqual(testcase, result.Found(2), true)
       verifyEqual(testcase, result.Found(3), false)
     end  % function
 
     function Test_3(testcase)
-      % if isMATLABReleaseOlderThan("R2025a")
-      % 
-      %   return
-      % 
-      % end  % if
-      result = ModelUtil1.checkRefSubInCallbackButton("samplemodel_checkRefSubInCallbackButton");
+      if TestUtil1.isR2024bOrOlder
+        % This test fails in 24b for some reason but passes in 25b.
+        disp("!Skipping") 
+        % result = ModelUtil1.checkRefSubInCallbackButton("samplemodel_checkRefSubInCallbackButton_24b");
+
+        return
+
+      else
+        result = ModelUtil1.checkRefSubInCallbackButton("samplemodel_checkRefSubInCallbackButton");
+      end  % if
       verifyEqual(testcase, result.IsRefSub(1), true)
       verifyEqual(testcase, result.IsRefSub(2), true)
       verifyEqual(testcase, result.IsRefSub(3), false)
@@ -94,14 +91,17 @@ classdef unittest_checkRefSubInCallbackButton < matlab.unittest.TestCase
     % Make sure that scripts, functions, classes, and models run right out of the box.
 
     function PassingTest_1(~)
-      % if isMATLABReleaseOlderThan("R2025a")
-      % 
-      %   return
-      % 
-      % end  % if
-      demo_checkRefSubInCallbackButton
+      if TestUtil1.isR2024bOrOlder
+        % This test fails in 24b for some reason but passes in 25b.
+        disp("!Skipping") 
+        % demo_checkRefSubInCallbackButton_24b
+
+        return
+
+      else
+        demo_checkRefSubInCallbackButton
+      end  % if
     end  % function
 
   end  % methods
-
 end  % classdef

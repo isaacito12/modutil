@@ -1,4 +1,4 @@
-classdef uiTest_AppUtil < matlab.uitest.TestCase
+classdef uiTest_TestUtil < matlab.uitest.TestCase
   % Class-based unit test for app
 
   % Overview of App Testing Framework
@@ -46,30 +46,18 @@ classdef uiTest_AppUtil < matlab.uitest.TestCase
     % Make sure there is no warning when opening an app.
 
     function app_launches_without_warnings_1(testcase)
-      % ColormapApp requires MATLAB R2025a or newer.
-      if isMATLABReleaseOlderThan("R2025a")
-
-        return
-
-      end  % if
       verifyWarningFree(testcase, @() test_target())
       function test_target()
-        ColormapApp  % !test-target
+        TestResultApp  % !test-target
       end  % nested function
     end  % function
 
-    function app_launches_without_warnings_2(testcase)
-      verifyWarningFree(testcase, @() test_target())
-      function test_target()
-        MonitorInfoApp  % !test-target
-      end  % nested function
-    end  % function
+    %% Passing tests
 
-    function app_launches_without_warnings_3(testcase)
-      verifyWarningFree(testcase, @() test_target())
-      function test_target()
-        CodeCoverageApp_AppUtil  % !test-target
-      end  % nested function
+    function PassingTest_1(~)
+      result_file = SearchUtil1.searchFiles("sample-test-result-TestUtil.xml");
+      disp("Using this test result file: " + result_file)
+      TestResultApp(result_file);  % !test-target
     end  % function
 
   end  % methods

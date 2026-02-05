@@ -10,17 +10,28 @@ end  % arguments
 result = matlab.buildtool.io.FileCollection.fromPaths("**/code-coverage.xml").paths';
 
 if isempty(result)
-  target_file = "sample-code-coverage-AppUtil.xml";
-  assert(isfile(target_file), "A sample code coverage file was not found.")
-  disp("Using a sample file for the code coverage result.")
+  disp("Code coverage file was not found.")
+
+  return
+
+end  % if
+
+logical_index_24b = contains(result, "AppUtil") & contains(result, "test-result-24b");
+logical_index_25a_or_newer = contains(result, "AppUtil") & contains(result, "test-result" + ("/"|"\"));
+
+if any(logical_index_24b) && TestUtil1.isR2024bOrOlder
+  % R2024b
+  target_file = result(logical_index_24b);
+
+elseif any(logical_index_25a_or_newer) && not(TestUtil1.isR2024bOrOlder)
+  % R2025a or newer
+  target_file = result(logical_index_25a_or_newer);
 
 else
-  logical_index = contains(result, "AppUtil") & contains(result, "test-result-24b");
-  if TestUtil1.isR2024bOrOlder
-    target_file = result(logical_index);
-  else
-    target_file = result(~logical_index);
-  end  % if
+  disp("Code coverage file for AppUtil was not found.")
+
+  return
+
 end  % if
 
 coverage_app = CodeCoverageApp(target_file(1));
