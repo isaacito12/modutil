@@ -1,5 +1,5 @@
 classdef unittest_screenshotSimulink < matlab.unittest.TestCase
-  %% Class-based unit test
+  % Class-based unit test
 
   % Author Class-Based Unit Tests in MATLAB
   % https://www.mathworks.com/help/matlab/matlab_prog/author-class-based-unit-tests-in-matlab.html
@@ -10,7 +10,7 @@ classdef unittest_screenshotSimulink < matlab.unittest.TestCase
   % Test Browser
   % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
-  % Copyright 2023-2025 The MathWorks, Inc.
+  % Copyright 2023-2026 The MathWorks, Inc.
 
   methods (TestMethodSetup)
     % Functions in this section always run before each test defined in the Test section runs.
@@ -40,23 +40,32 @@ classdef unittest_screenshotSimulink < matlab.unittest.TestCase
     end  % function
 
     function PassingTest_2(~)
-      model_name = "testmodel_screenshotSimulink";
-
+      if TestUtil1.isR2024bOrOlder
+        model_name = "testmodel_screenshotSimulink_24b";
+        output_name = "test-result-screenshotSimulink-1-24b.png";
+      else
+        model_name = "testmodel_screenshotSimulink";
+        output_name = "test-result-screenshotSimulink-1.png";
+      end  % if
       load_system(model_name)
 
       % To show the Unit information overlay, the model must be updated.
       set_param(model_name, SimulationCommand = "update")
 
       ModelUtil1.screenshotSimulink( ...
-        OutputFileName = "screenshot-test-model-top.png", ...
+        OutputFileName = output_name, ...
         SimulinkModelName = model_name, ...
         SaveFolder = pwd );
-
-      delete("screenshot-test-model-top.png")
     end  % function
 
     function PassingTest_3(~)
-      model_name = "testmodel_screenshotSimulink";
+      if TestUtil1.isR2024bOrOlder
+        model_name = "testmodel_screenshotSimulink_24b";
+        output_name = "test-result-screenshotSimulink-2-subsystem-without-padding-24b.png";
+      else
+        model_name = "testmodel_screenshotSimulink";
+        output_name = "test-result-screenshotSimulink-2-subsystem-without-padding.png";
+      end  % if
 
       load_system(model_name)
 
@@ -64,19 +73,23 @@ classdef unittest_screenshotSimulink < matlab.unittest.TestCase
       set_param(model_name, SimulationCommand = "update")
 
       ModelUtil1.screenshotSimulink( ...
-        OutputFileName = "screenshot-test-model-subsystem-without-padding.png", ...
+        OutputFileName = output_name, ...
         SimulinkModelName = model_name, ...
         SubsystemPath = "/Subsystem1", ...
         PaddingHorizontal_px = 0, ...
         PaddingVertical_px = 0, ...
         PaddingColorRGB = [1, 1, 0], ...
         SaveFolder = pwd );
-
-      delete("screenshot-test-model-subsystem-without-padding.png")
     end  % function
 
     function PassingTest_4(~)
-      model_name = "testmodel_screenshotSimulink";
+      if TestUtil1.isR2024bOrOlder
+        model_name = "testmodel_screenshotSimulink_24b";
+        output_name = "test-result-screenshotSimulink-3-subsystem-with-padding-vertical-20px-24b.png";
+      else
+        model_name = "testmodel_screenshotSimulink";
+        output_name = "test-result-screenshotSimulink-3-subsystem-with-padding-vertical-20px.png";
+      end  % if
 
       load_system(model_name)
 
@@ -84,19 +97,23 @@ classdef unittest_screenshotSimulink < matlab.unittest.TestCase
       set_param(model_name, SimulationCommand = "update")
 
       ModelUtil1.screenshotSimulink( ...
-        OutputFileName = "screenshot-test-model-subsystem-with-padding-vertical-20px.png", ...
+        OutputFileName = output_name, ...
         SimulinkModelName = model_name, ...
         SubsystemPath = "/Subsystem1", ...
         PaddingHorizontal_px = 0, ...
         PaddingVertical_px = 20, ...
         PaddingColorRGB = [1, 1, 0], ...
         SaveFolder = pwd );
-
-      delete("screenshot-test-model-subsystem-with-padding-vertical-20px.png")
     end  % function
 
     function PassingTest_5(~)
-      model_name = "testmodel_screenshotSimulink";
+      if TestUtil1.isR2024bOrOlder
+        model_name = "testmodel_screenshotSimulink_24b";
+        output_name = "test-result-screenshotSimulink-4-subsystem-with-padding-horizontal-20px-24b.png";
+      else
+        model_name = "testmodel_screenshotSimulink";
+        output_name = "test-result-screenshotSimulink-4-subsystem-with-padding-horizontal-20px.png";
+      end  % if
 
       load_system(model_name)
 
@@ -104,25 +121,30 @@ classdef unittest_screenshotSimulink < matlab.unittest.TestCase
       set_param(model_name, SimulationCommand = "update")
 
       ModelUtil1.screenshotSimulink( ...
-        OutputFileName = "screenshot-test-model-subsystem-with-padding-horizontal-20px.png", ...
+        OutputFileName = output_name, ...
         SimulinkModelName = model_name, ...
         SubsystemPath = "/Subsystem1", ...
         PaddingHorizontal_px = 20, ...
         PaddingVertical_px = 0, ...
         PaddingColorRGB = [1, 1, 0], ...
         SaveFolder = pwd );
-
-      delete("screenshot-test-model-subsystem-with-padding-horizontal-20px.png")
     end  % function
 
     function PassingTest_6(~)
-      setupLogging_testmodel_screenshotSimulink
+      if TestUtil1.isR2024bOrOlder
+        setupLogging_testmodel_screenshotSimulink_24b
+      else
+        setupLogging_testmodel_screenshotSimulink
+      end  % if
     end  % function
 
     function PassingTest_7(~)
-      setupProbe_testmodel_screenshotSimulink
+      if TestUtil1.isR2024bOrOlder
+        setupProbe_testmodel_screenshotSimulink_24b
+      else
+        setupProbe_testmodel_screenshotSimulink
+      end  % if
     end  % function
 
   end  % methods
-
 end  % classdef

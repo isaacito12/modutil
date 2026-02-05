@@ -38,11 +38,19 @@ classdef unittest_plotLookupTable1DBlocks < matlab.unittest.TestCase
     end  % function
 
     function PassingTest_1(~)
-      load_system("samplemodel_plotLookupTable1DBlocks_refsub")
+      if TestUtil1.isR2024bOrOlder
+        load_system("samplemodel_plotLookupTable1DBlocks_refsub_24b")
+      else
+        load_system("samplemodel_plotLookupTable1DBlocks_refsub")
+      end  % if
     end  % function
 
     function PassingTest_2(~)
-      demo_plotLookupTable1DBlocks
+      if TestUtil1.isR2024bOrOlder
+        demo_plotLookupTable1DBlocks_24b
+      else
+        demo_plotLookupTable1DBlocks
+      end  % if
     end  % function
 
   end  % methods

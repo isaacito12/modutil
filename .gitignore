@@ -2,7 +2,7 @@
 **/test-result/release/
 
 # Ignore ".../test-release-24b/release" at any depth
-**/test-release-24b/release/
+**/test-result-24b/release/
 
 **/code-coverage.html
 

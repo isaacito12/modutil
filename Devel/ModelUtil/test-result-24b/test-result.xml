@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" name="uiTest_ModelUtil" skipped="0" tests="4" time="3.9024">
+    <testcase classname="uiTest_ModelUtil" name="app_launches_without_warnings_1" time="1.7892"/>
+    <testcase classname="uiTest_ModelUtil" name="PassingTest_App_1" time="1.9278"/>
+    <testcase classname="uiTest_ModelUtil" name="PassingTest_SampleModel_1" time="0.094273"/>
+    <testcase classname="uiTest_ModelUtil" name="PassingTest_SampleModel_2" time="0.091103"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_ModelUtil" skipped="0" tests="2" time="0.059714">
+    <testcase classname="uiUptodateTest_ModelUtil" name="app_screenshot_1_dark" time="0.019274"/>
+    <testcase classname="uiUptodateTest_ModelUtil" name="app_screenshot_2_light" time="0.04044"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_checkEditInCallbackButton" skipped="0" tests="5" time="3.1259">
+    <testcase classname="unittest_checkEditInCallbackButton" name="ErrorCase_1" time="0.013979"/>
+    <testcase classname="unittest_checkEditInCallbackButton" name="ErrorCase_2" time="0.0077998"/>
+    <testcase classname="unittest_checkEditInCallbackButton" name="ErrorCase_3" time="0.065813"/>
+    <testcase classname="unittest_checkEditInCallbackButton" name="Test_1_with_pause" time="3.0353"/>
+    <testcase classname="unittest_checkEditInCallbackButton" name="PassingTest_1_R2025a_or_newer" time="0.0029566"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_checkEditInCode" skipped="0" tests="7" time="0.12936">
+    <testcase classname="unittest_checkEditInCode" name="ErrorTest_1" time="0.022443"/>
+    <testcase classname="unittest_checkEditInCode" name="ErrorTest_2" time="0.0097551"/>
+    <testcase classname="unittest_checkEditInCode" name="ErrorTest_3" time="0.014391"/>
+    <testcase classname="unittest_checkEditInCode" name="Test_1" time="0.0090062"/>
+    <testcase classname="unittest_checkEditInCode" name="Test_2" time="0.031372"/>
+    <testcase classname="unittest_checkEditInCode" name="Test_3" time="0.011985"/>
+    <testcase classname="unittest_checkEditInCode" name="PassingTest_1" time="0.030409"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_checkRefSubInCallbackButton" skipped="0" tests="6" time="0.098321">
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="ErrorTest_1" time="0.015486"/>
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="ErrorTest_2" time="0.0092813"/>
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="Test_1" time="0.066578"/>
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="Test_2" time="0.0022877"/>
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="Test_3" time="0.0021962"/>
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="PassingTest_1" time="0.0024921"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_checkRefSubInSetParam" skipped="0" tests="9" time="0.92794">
+    <testcase classname="unittest_checkRefSubInSetParam" name="ErrorTest_1" time="0.013784"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="ErrorTest_2" time="0.0083766"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="ErrorTest_3" time="0.20019"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="Test_1" time="0.0075498"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="Test_2" time="0.079948"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="Test_3" time="0.072562"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="Test_4" time="0.073165"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="Test_5" time="0.071975"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="PassingTest_1" time="0.40039"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_findAllSimscapeBlocks" skipped="0" tests="3" time="0.36131">
+    <testcase classname="unittest_findAllSimscapeBlocks" name="Test_error_1" time="0.011453"/>
+    <testcase classname="unittest_findAllSimscapeBlocks" name="Test_1" time="0.076934"/>
+    <testcase classname="unittest_findAllSimscapeBlocks" name="Test_2" time="0.27293"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_findLookupTable1DBlocks" skipped="0" tests="8" time="1.3952">
+    <testcase classname="unittest_findLookupTable1DBlocks" name="ErrorTest_1" time="0.029641"/>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="PassingTest_1" time="0.2472"/>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="PassingTest_2" time="0.2317"/>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="PassingTest_3" time="0.15234"/>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="PassingTest_4" time="0.22331"/>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="TestDefault" time="0.22583"/>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="TestSubsystemPath" time="0.14469"/>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="TestSearchDepth" time="0.14052"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_findSimscapeBlocks" skipped="0" tests="5" time="0.55799">
+    <testcase classname="unittest_findSimscapeBlocks" name="Test_error_1" time="0.012363"/>
+    <testcase classname="unittest_findSimscapeBlocks" name="Test_error_2" time="0.0092422"/>
+    <testcase classname="unittest_findSimscapeBlocks" name="Test_error_3" time="0.07521"/>
+    <testcase classname="unittest_findSimscapeBlocks" name="Test_error_4" time="0.26053"/>
+    <testcase classname="unittest_findSimscapeBlocks" name="Test_1" time="0.20065"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_getModelFileFullPath" skipped="0" tests="8" time="0.091816">
+    <testcase classname="unittest_getModelFileFullPath" name="Test_error_1" time="0.014014"/>
+    <testcase classname="unittest_getModelFileFullPath" name="Test_error_2" time="0.0068701"/>
+    <testcase classname="unittest_getModelFileFullPath" name="Test_error_3" time="0.010388"/>
+    <testcase classname="unittest_getModelFileFullPath" name="Test_error_4" time="0.020892"/>
+    <testcase classname="unittest_getModelFileFullPath" name="PassingTest_1" time="0.016753"/>
+    <testcase classname="unittest_getModelFileFullPath" name="PassingTest_2" time="0.0027033"/>
+    <testcase classname="unittest_getModelFileFullPath" name="PassingTest_3" time="0.017132"/>
+    <testcase classname="unittest_getModelFileFullPath" name="PassingTest_4" time="0.0030627"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_getSimscapeValueFromBlockParameter" skipped="0" tests="3" time="0.23989">
+    <testcase classname="unittest_getSimscapeValueFromBlockParameter" name="ErrorTest_1" time="0.01243"/>
+    <testcase classname="unittest_getSimscapeValueFromBlockParameter" name="ErrorTest_2" time="0.0068847"/>
+    <testcase classname="unittest_getSimscapeValueFromBlockParameter" name="PassingTest_1" time="0.22058"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiTest_plotLookupTable1DBlocks" skipped="0" tests="1" time="1.6421">
+    <testcase classname="uiTest_plotLookupTable1DBlocks" name="app_launches_without_warnings_2" time="1.6421"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_plotLookupTable1DBlocks" skipped="0" tests="3" time="1.2585">
+    <testcase classname="unittest_plotLookupTable1DBlocks" name="ErrorTest_1" time="0.013903"/>
+    <testcase classname="unittest_plotLookupTable1DBlocks" name="PassingTest_1" time="0.076107"/>
+    <testcase classname="unittest_plotLookupTable1DBlocks" name="PassingTest_2" time="1.1685"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_saveModels" skipped="0" tests="4" time="0.076486">
+    <testcase classname="unittest_saveModels" name="PassingTest_1" time="0.052705"/>
+    <testcase classname="unittest_saveModels" name="Test_FolderTree_1" time="0.01626"/>
+    <testcase classname="unittest_saveModels" name="Test_WithProject_1" time="0.0046429"/>
+    <testcase classname="unittest_saveModels" name="Test_WithProject_2" time="0.002878"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_screenshotSimulink" skipped="0" tests="7" time="2.6353">
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_1" time="0.040297"/>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_2" time="0.60248"/>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_3" time="0.47603"/>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_4" time="0.45472"/>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_5" time="0.46816"/>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_6" time="0.17505"/>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_7" time="0.41852"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_setSystemMaskIcon" skipped="0" tests="2" time="0.77319">
+    <testcase classname="unittest_setSystemMaskIcon" name="PassingTest_1" time="0.35778"/>
+    <testcase classname="unittest_setSystemMaskIcon" name="PassingTest_2" time="0.41541"/>
+  </testsuite>
+</testsuites>

@@ -1,5 +1,5 @@
 classdef unittest_getSimscapeValueFromBlockParameter < matlab.unittest.TestCase
-  %% Class-based unit test
+  % Class-based unit test
 
   % Author Class-Based Unit Tests in MATLAB
   % https://www.mathworks.com/help/matlab/matlab_prog/author-class-based-unit-tests-in-matlab.html
@@ -10,7 +10,7 @@ classdef unittest_getSimscapeValueFromBlockParameter < matlab.unittest.TestCase
   % Test Browser
   % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
-  % Copyright 2023-2025 The MathWorks, Inc.
+  % Copyright 2023-2026 The MathWorks, Inc.
 
   methods (TestMethodSetup)
     % Functions in this section always run before each test defined in the Test section runs.
@@ -45,9 +45,12 @@ classdef unittest_getSimscapeValueFromBlockParameter < matlab.unittest.TestCase
     end  % function
 
     function PassingTest_1(~)
-      demo_getSimscapeValueFromBlockParameter
+      if TestUtil1.isR2024bOrOlder
+        demo_getSimscapeValueFromBlockParameter_24b
+      else
+        demo_getSimscapeValueFromBlockParameter
+      end  % if
     end  % function
 
   end  % methods
-
 end  % classdef

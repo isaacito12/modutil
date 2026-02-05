@@ -38,6 +38,20 @@
       "enabled" : true
     },
 
+    "check_mustBeBetween":
+    {
+      "rule":
+      {
+        "template": "functionCall",
+        "functionNames" : "mustBeBetween"
+      },
+      "severity" : "warning",
+      "messageText" : "mustBeBetween was introduced in R2025a. (FYI: mustBeInRange was introduced in R2020b.)",
+      // https://www.mathworks.com/help/matlab/ref/mustbebetween.html
+	  // https://www.mathworks.com/help/matlab/ref/mustbeinrange.html
+      "enabled" : true
+    },
+
     "check_strtrim":
     {
       "rule":
