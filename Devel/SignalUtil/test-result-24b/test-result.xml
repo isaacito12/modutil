@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" name="uiTest_SignalUtil" skipped="0" tests="2" time="19.5323">
+    <testcase classname="uiTest_SignalUtil" name="app_launches_without_warnings_1" time="11.7919"/>
+    <testcase classname="uiTest_SignalUtil" name="app_launches_without_warnings_2" time="7.7404"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_SignalUtil" skipped="0" tests="4" time="0.10477">
+    <testcase classname="uiUptodateTest_SignalUtil" name="app_screenshot_is_uptodate_1_1_dark" time="0.046755"/>
+    <testcase classname="uiUptodateTest_SignalUtil" name="app_screenshot_is_uptodate_1_2_light" time="0.02068"/>
+    <testcase classname="uiUptodateTest_SignalUtil" name="app_screenshot_is_uptodate_2_1_dark" time="0.023233"/>
+    <testcase classname="uiUptodateTest_SignalUtil" name="app_screenshot_is_uptodate_2_2_light" time="0.014106"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_SignalUtil" skipped="0" tests="3" time="1.5612">
+    <testcase classname="unittest_SignalUtil" name="PassingTest_1" time="0.1447"/>
+    <testcase classname="unittest_SignalUtil" name="PassingTest_2" time="1.0699"/>
+    <testcase classname="unittest_SignalUtil" name="PassingTest_3" time="0.3466"/>
+  </testsuite>
+  <testsuite errors="2" failures="0" name="unittest_SignalUtil_settings" skipped="0" tests="2" time="0.063">
+    <testcase classname="unittest_SignalUtil_settings" name="linked_app_in_live_script_1" time="0.040981">
+      <error>Error occurred in unittest_SignalUtil_settings/linked_app_in_live_script_1 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'mustBePlainTextLiveScript:NotPlainTextLiveScript'
+    --------------
+    Error Details:
+    --------------
+    Error using FileUtil1.getLinkedCommandFromPlainTextLiveScript (line 18)
+    Invalid argument at position 1. File is not plain-text Live Script: C:\local\modutil\modeling-utility\Devel\SignalUtil\SignalDesignApp_Description.mlx
+    
+    Error in unittest_SignalUtil_settings/linked_app_in_live_script_1 (line 39)
+          result = FileUtil1.getLinkedCommandFromPlainTextLiveScript(script_fullpath);</error>
+    </testcase>
+    <testcase classname="unittest_SignalUtil_settings" name="linked_app_in_live_script_2" time="0.022019">
+      <error>Error occurred in unittest_SignalUtil_settings/linked_app_in_live_script_2 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'mustBePlainTextLiveScript:NotPlainTextLiveScript'
+    --------------
+    Error Details:
+    --------------
+    Error using FileUtil1.getLinkedCommandFromPlainTextLiveScript (line 18)
+    Invalid argument at position 1. File is not plain-text Live Script: C:\local\modutil\modeling-utility\Devel\SignalUtil\TraceGeneratorApp_Description.mlx
+    
+    Error in unittest_SignalUtil_settings/linked_app_in_live_script_2 (line 62)
+          result = FileUtil1.getLinkedCommandFromPlainTextLiveScript(script_fullpath);</error>
+    </testcase>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uptodateTest_SignalUtil" skipped="0" tests="2" time="0.041397">
+    <testcase classname="uptodateTest_SignalUtil" name="html_with_code_is_uptodate_1" time="0.025989"/>
+    <testcase classname="uptodateTest_SignalUtil" name="html_with_code_is_uptodate_2" time="0.015408"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_SignalDesignAppMain" skipped="0" tests="3" time="28.6154">
+    <testcase classname="uitest_SignalDesignAppMain" name="app_launches_without_warnings_1" time="5.0828"/>
+    <testcase classname="uitest_SignalDesignAppMain" name="PassingTest_1" time="16.7422"/>
+    <testcase classname="uitest_SignalDesignAppMain" name="uitest_1" time="6.7904"/>
+  </testsuite>
+  <testsuite errors="1" failures="0" name="uitest_TraceGeneratorAppMain" skipped="0" tests="3" time="18.1038">
+    <testcase classname="uitest_TraceGeneratorAppMain" name="app_launches_without_warnings_1" time="6.5221"/>
+    <testcase classname="uitest_TraceGeneratorAppMain" name="Test_1" time="0.97796">
+      <error>Error occurred in uitest_TraceGeneratorAppMain/Test_1 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'samplemodel_TraceGeneratorAppMain' was created with a newer version (R2025b) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025b and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in ModelUtil1.findAllSimscapeBlocks (line 26)
+    load_system(ModelName)
+    
+    Error in AppUtil1.Component.BlockSelectorUI/callback_change_modelfile_dropdown (line 261)
+              result_table = ModelUtil1.findAllSimscapeBlocks(component.ModelName);
+    
+    Error in AppUtil1.Component.BlockSelectorUI&gt;@()callback_change_modelfile_dropdown(component) (line 659)
+          component.ModelFileDropDownUI.ValueChangedCallback = @() callback_change_modelfile_dropdown(component);
+    
+    Error in AppUtil1.Component.DropDown/dropdownValueChanged (line 157)
+            component.ValueChangedCallback()
+    
+    Error in AppUtil1.Component.DropDown/set.Value (line 147)
+          dropdownValueChanged(component)
+    
+    Error in AppUtil1.Component.BlockSelectorUI/set.ModelFileFullPath (line 178)
+          component.ModelFileDropDownUI.Value = display_path;
+    
+    Error in SignalUtil1.TraceGeneratorAppMain (line 106)
+            App.SelectorUI.ModelFileFullPath = App.ModelFileFullPath;
+    
+    Error in uitest_TraceGeneratorAppMain/Test_1 (line 72)
+          testcase.App = SignalUtil1.TraceGeneratorAppMain( ...</error>
+    </testcase>
+    <testcase classname="uitest_TraceGeneratorAppMain" name="uitest_1" time="10.6038"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_generateSignalDesignMatrixFromTraceProperties" skipped="0" tests="2" time="0.72529">
+    <testcase classname="unittest_generateSignalDesignMatrixFromTraceProperties" name="PassingTest_1" time="0.013399"/>
+    <testcase classname="unittest_generateSignalDesignMatrixFromTraceProperties" name="PassingTest_2" time="0.71189"/>
+  </testsuite>
+  <testsuite errors="1" failures="0" name="unittest_getTimetableFromLoggedSignal" skipped="0" tests="9" time="1.6939">
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_1" time="0.40292"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_2" time="0.62136"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_3" time="0.024652"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_4" time="0.11456"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_5" time="0.040022">
+      <error>Error occurred in unittest_getTimetableFromLoggedSignal/PassingTest_5 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'Simulink:Commands:LoadingNewerModel'
+    --------------
+    Error Details:
+    --------------
+    Error using load_system (line 23)
+    Model 'testmodel_getTimetableFromLoggedSignal' was created with a newer version (R2025a) of Simulink
+    To disable this error message, use Simulink preferences.
+    To create a model that is compatible with this version of Simulink, load the model in Simulink R2025a and select Save &gt; Export Model to &gt; Previous Version.
+    
+    Error in demo_getTimetableFromLoggedSignal (line 2)
+    load_system(model_name);
+    
+    Error in unittest_getTimetableFromLoggedSignal/PassingTest_5 (line 60)
+          demo_getTimetableFromLoggedSignal</error>
+    </testcase>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_1" time="0.072478"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_2" time="0.091502"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_3" time="0.22692"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_4" time="0.099488"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_getVectorsFromSignalDesignMatrix" skipped="0" tests="2" time="0.40522">
+    <testcase classname="unittest_getVectorsFromSignalDesignMatrix" name="PassingTest_1" time="0.017185"/>
+    <testcase classname="unittest_getVectorsFromSignalDesignMatrix" name="PassingTest_2" time="0.38803"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_plotDifference" skipped="0" tests="6" time="1.3011">
+    <testcase classname="unittest_plotDifference" name="PassingTest_1" time="0.14811"/>
+    <testcase classname="unittest_plotDifference" name="PassingTest_2" time="0.093063"/>
+    <testcase classname="unittest_plotDifference" name="PassingTest_3" time="0.319"/>
+    <testcase classname="unittest_plotDifference" name="PassingTest_4" time="0.13433"/>
+    <testcase classname="unittest_plotDifference" name="PassingTest_5" time="0.062736"/>
+    <testcase classname="unittest_plotDifference" name="PassingTest_6" time="0.54387"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uptodatetest_plotDifference" skipped="0" tests="2" time="0.14495">
+    <testcase classname="uptodatetest_plotDifference" name="markdowns_are_uptodate" time="0.13798"/>
+    <testcase classname="uptodatetest_plotDifference" name="markdown_files_exist" time="0.0069719"/>
+  </testsuite>
+</testsuites>

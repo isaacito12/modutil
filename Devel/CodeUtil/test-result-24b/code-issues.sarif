@@ -1,0 +1,305 @@
+{
+  "version": "2.1.0",
+  "properties": {
+    "Date": "27-Jan-2026 20:26:33",
+    "Release": "R2024b",
+    "CodeAnalyzerConfiguration": "active"
+  },
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Code Analyzer"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/+CodeUtil1/DoubleValue.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/+CodeUtil1/PhysicalValue.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/+CodeUtil1/cleanupCodeText.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/+CodeUtil1/getDoubleOrSimscapeValueFromText.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/+CodeUtil1/getNumberArrayFromText.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/+CodeUtil1/getNumericValueFromText.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/+CodeUtil1/i18n.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/+CodeUtil1/mustBeAllCommensurateUnit.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/+CodeUtil1/mustBeFunctionHandleOrEmpty.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/+CodeUtil1/mustBeNumericValueStringOrValidNameOrEmpty.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/+CodeUtil1/mustBeSimscapeValueNonnegative.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/+CodeUtil1/mustBeSimscapeValuePositive.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/+CodeUtil1/mustBeSimscapeValueStrictAscend.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/+CodeUtil1/mustBeStrictAscend.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/+CodeUtil1/mustBeStringOrPositiveInteger.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/+CodeUtil1/mustBeTextOrNonnegativeNumber.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/+CodeUtil1/mustBeTextOrPositiveInteger.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/+CodeUtil1/mustBeTextOrPositiveNumber.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/+CodeUtil1/squashCodeText.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/+CodeUtil1/stringify.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/DoubleValue/apptest_DoubleValue_1_workspace.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/DoubleValue/apptest_DoubleValue_2_watch.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/DoubleValue/uiTest_DoubleValue.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/DoubleValue/uiUptodateTest_DoubleValue.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/DoubleValue/unittest_DoubleValue.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/PhysicalValue/apptest_PhysicalValue_1_workspace.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/PhysicalValue/apptest_PhysicalValue_2_watch.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/PhysicalValue/uiTest_PhysicalValue.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/PhysicalValue/uiUptodateTest_PhysicalValue.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/PhysicalValue/unittest_PhysicalValue.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/cleanupCodeText/unittest_cleanupCodeText.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/get/unittest_getDoubleOrSimscapeValueFromText.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/get/unittest_getNumberArrayFromText.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/get/unittest_getNumericValueFromText.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/mustBe/unittest_mustBeNumericValueStringOrValidNameOrEmpty.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/mustBe/unittest_mustBeSimscapeValueNonnegative.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/mustBe/unittest_mustBeSimscapeValuePositive.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/mustBe/unittest_mustBeSimscapeValueStrictAscend.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/mustBe/unittest_mustBeStrictAscend.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/mustBe/unittest_mustBeStringOrPositiveInteger.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/mustBe/unittest_mustBeTextOrNonnegativeNumber.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/mustBe/unittest_mustBeTextOrPositiveInteger.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/mustBe/unittest_mustBeTextOrPositiveNumber.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/squashCodeText/unittest_squashCodeText.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/buildfile.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/buildfile_24b.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/demoapp_PhysicalValue_1.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/demoapp_PhysicalValue_2_derive.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/uiTest_CodeUtil.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/uiUptodateTest_CodeUtil.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/DoubleValue/demo_DoubleValue_1_basics.mlx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/DoubleValue/demo_DoubleValue_2_workspace.mlx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/DoubleValue/demo_DoubleValue_3_watch.mlx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/PhysicalValue/demo_PhysicalValue_1_basics.mlx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/PhysicalValue/demo_PhysicalValue_2_workspace.mlx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/PhysicalValue/demo_PhysicalValue_3_watch.mlx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/CodeUtil/Test/cleanupCodeText/demo_cleanupCodeText.mlx"
+          }
+        }
+      ],
+      "results": []
+    }
+  ]
+}

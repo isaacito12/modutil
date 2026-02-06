@@ -1,9 +1,9 @@
 # MathWorks OPC Text Package
 Model {
   Version  24.2
-  Description "Simulink model exported from R2026a to R2024b format"
+  Description "Simulink model saved in R2024b"
 }
-__MWOPC_PACKAGE_BEGIN__ R2026a
+__MWOPC_PACKAGE_BEGIN__ R2024b
 __MWOPC_PART_BEGIN__ /[Content_Types].xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
@@ -14,6 +14,7 @@ __MWOPC_PART_BEGIN__ /[Content_Types].xml
   <Override ContentType="application/vnd.openxmlformats-package.core-properties+xml" PartName="/metadata/coreProperties.xml"/>
   <Override ContentType="application/vnd.mathworks.package.coreProperties+xml" PartName="/metadata/mwcoreProperties.xml"/>
   <Override ContentType="application/vnd.mathworks.package.corePropertiesExtension+xml" PartName="/metadata/mwcorePropertiesExtension.xml"/>
+  <Override ContentType="application/vnd.mathworks.package.corePropertiesReleaseInfo+xml" PartName="/metadata/mwcorePropertiesReleaseInfo.xml"/>
   <Override ContentType="application/vnd.mathworks.simulink.configSet+xml" PartName="/simulink/configSet0.xml"/>
   <Override ContentType="application/vnd.mathworks.simulink.configSetInfo+xml" PartName="/simulink/configSetInfo.xml"/>
   <Override ContentType="application/vnd.mathworks.simulink.mf0+xml" PartName="/simulink/modelDictionary.xml"/>
@@ -31,19 +32,20 @@ __MWOPC_PART_BEGIN__ /_rels/.rels
   <Relationship Id="modelDictionary" Target="simulink/modelDictionary.xml" Type="http://schemas.mathworks.com/simulinkModel/2016/relationships/modelDictionary"/>
   <Relationship Id="rId1" Target="metadata/mwcoreProperties.xml" Type="http://schemas.mathworks.com/package/2012/relationships/coreProperties"/>
   <Relationship Id="rId2" Target="metadata/mwcorePropertiesExtension.xml" Type="http://schemas.mathworks.com/package/2014/relationships/corePropertiesExtension"/>
-  <Relationship Id="rId3" Target="metadata/coreProperties.xml" Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties"/>
+  <Relationship Id="rId3" Target="metadata/mwcorePropertiesReleaseInfo.xml" Type="http://schemas.mathworks.com/package/2019/relationships/corePropertiesReleaseInfo"/>
+  <Relationship Id="rId4" Target="metadata/coreProperties.xml" Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties"/>
 </Relationships>
 
 __MWOPC_PART_BEGIN__ /metadata/coreProperties.xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcmitype="http://purl.org/dc/dcmitype/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <cp:category>model</cp:category>
-  <cp:contentStatus>Exported from R2026a to R2024b</cp:contentStatus>
+  <cp:contentStatus></cp:contentStatus>
   <dcterms:created xsi:type="dcterms:W3CDTF">2025-07-22T08:16:34Z</dcterms:created>
   <dc:creator>isaacito</dc:creator>
   <cp:lastModifiedBy>isaacito</cp:lastModifiedBy>
-  <dcterms:modified xsi:type="dcterms:W3CDTF">2026-01-21T08:56:15Z</dcterms:modified>
-  <cp:revision>1.22</cp:revision>
+  <dcterms:modified xsi:type="dcterms:W3CDTF">2026-02-06T11:08:42Z</dcterms:modified>
+  <cp:revision>1.1</cp:revision>
   <cp:version>R2024b</cp:version>
 </cp:coreProperties>
 
@@ -60,6 +62,17 @@ __MWOPC_PART_BEGIN__ /metadata/mwcorePropertiesExtension.xml
 <mwcoreProperties xmlns="http://schemas.mathworks.com/package/2014/corePropertiesExtension">
   <uuid>82a55ab0-440d-46c0-83a8-df4e2b9584cf</uuid>
 </mwcoreProperties>
+
+__MWOPC_PART_BEGIN__ /metadata/mwcorePropertiesReleaseInfo.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Version information for MathWorks R2024b Release -->
+<MathWorks_version_info>
+  <version>24.2.0.3070828</version>
+  <release>R2024b</release>
+  <description>Update 7</description>
+  <date>Oct 30 2025</date>
+  <checksum>2188856867</checksum>
+</MathWorks_version_info>
 
 __MWOPC_PART_BEGIN__ /simulink/_rels/blockdiagram.xml.rels
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
@@ -96,89 +109,89 @@ __MWOPC_PART_BEGIN__ /simulink/bdmxdata/SimscapeInstrumentationVariables_4.mxarr
 AAFJTQAAAAAOAAAAoAAAAAYAAAAIAAAAEQAAAAAAAAABAAAAAAAAAAEABABNQ09TAQAAACYAAABz
 aW1zY2FwZS5pbnN0cnVtZW50YXRpb24uVmFyaWFibGVUYWJsZQAADgAAAEgAAAAGAAAACAAAAA0A
 AAAAAAAABQAAAAgAAAAGAAAAAQAAAAEAAAAAAAAABgAAABgAAAAAAADdAgAAAAEAAAABAAAAAQAA
-AAEAAAAOAAAAgAUAAAYAAAAIAAAACQAAAAAAAAAFAAAACAAAAAEAAABQBQAAAQAAAAAAAAACAAAA
-UAUAAAABSU0AAAAADgAAALAEAAAGAAAACAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAQAAAAEAAAAA
-AAAABQAEAAUAAAABAAAABQAAAE1DT1MAAAAADgAAAGgEAAAGAAAACAAAABEAAAAAAAAAAQAAAAAA
-AAABAAQATUNPUwEAAAANAAAARmlsZVdyYXBwZXJfXwAAAA4AAAAoBAAABgAAAAgAAAABAAAAAAAA
-AAUAAAAIAAAABgAAAAEAAAABAAAAAAAAAA4AAAAQAQAABgAAAAgAAAAJAAAAAAAAAAUAAAAIAAAA
-4AAAAAEAAAABAAAAAAAAAAIAAADgAAAABAAAAAMAAABYAAAAeAAAAJAAAADAAAAAyAAAAMgAAADI
+AAEAAAAOAAAAcAUAAAYAAAAIAAAACQAAAAAAAAAFAAAACAAAAAEAAABABQAAAQAAAAAAAAACAAAA
+QAUAAAABSU0AAAAADgAAAKAEAAAGAAAACAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAQAAAAEAAAAA
+AAAABQAEAAUAAAABAAAABQAAAE1DT1MAAAAADgAAAFgEAAAGAAAACAAAABEAAAAAAAAAAQAAAAAA
+AAABAAQATUNPUwEAAAANAAAARmlsZVdyYXBwZXJfXwAAAA4AAAAYBAAABgAAAAgAAAABAAAAAAAA
+AAUAAAAIAAAABgAAAAEAAAABAAAAAAAAAA4AAAAAAQAABgAAAAgAAAAJAAAAAAAAAAUAAAAIAAAA
+0AAAAAEAAAABAAAAAAAAAAIAAADQAAAABAAAAAMAAABYAAAAeAAAAJAAAADAAAAAyAAAAMgAAADI
 AAAA0AAAAGFueQBWYXJpYWJsZVRhYmxlAHNpbXNjYXBlLmluc3RydW1lbnRhdGlvbgAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAADAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAEAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAEAAADYAAAAAAAAAAAAAAAOAAAAAAAAAA4AAAA4AQAABgAAAAgAAAAEAAAAAAAAAAUAAAAI
-AAAAAQAAAAgBAAABAAAAAAAAABAAAAAIAQAAeyJ0YWJsZSI6W3sia2V5IjoiSSIsInZhbHVlIjoi
-e1wiYWxpYXNcIjpcIlwiLFwiZGVmYXVsdF91bml0XCI6XCJcIixcImRlc2NcIjpcInhcIixcImxv
-Z2dpbmdcIjpcIm9mZlwiLFwidW5pdFwiOlwiXCJ9In0seyJrZXkiOiJPIiwidmFsdWUiOiJ7XCJh
-bGlhc1wiOlwiU2ltc2NhcGUgTFVUIG91dHB1dFwiLFwiZGVmYXVsdF91bml0XCI6XCJcIixcImRl
-c2NcIjpcImZcIixcImxvZ2dpbmdcIjpcIm9uXCIsXCJ1bml0XCI6XCJOKm1cIn0ifV0sInZlciI6
-IjEuMCJ9DgAAAKgAAAAGAAAACAAAAAEAAAAAAAAABQAAAAgAAAACAAAAAQAAAAEAAAAAAAAADgAA
-ADgAAAAGAAAACAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAAAAAAEAAAAAAAAABQAEAAEAAAABAAAA
-AAAAAA4AAAA4AAAABgAAAAgAAAACAAAAAAAAAAUAAAAIAAAAAQAAAAAAAAABAAAAAAAAAAUABAAB
-AAAAAQAAAAAAAAAOAAAAOAAAAAYAAAAIAAAADAAAAAAAAAAFAAAACAAAAAIAAAABAAAAAQAAAAAA
-AAAFAAAACAAAAAAAAAAAAAAADgAAAKgAAAAGAAAACAAAAAEAAAAAAAAABQAAAAgAAAACAAAAAQAA
-AAEAAAAAAAAADgAAADgAAAAGAAAACAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAAAAAAEAAAAAAAAA
-BQAEAAEAAAABAAAAAAAAAA4AAAA4AAAABgAAAAgAAAACAAAAAAAAAAUAAAAIAAAAAQAAAAAAAAAB
-AAAAAAAAAAUABAABAAAAAQAAAAAAAAAOAAAAiAAAAAYAAAAIAAAACQAAAAAAAAAFAAAACAAAAAEA
-AABYAAAAAQAAAAAAAAACAAAAWAAAAAABSU0AAAAADgAAAEgAAAAGAAAACAAAAAIAAAAAAAAABQAA
-AAgAAAABAAAAAQAAAAEAAAAAAAAABQAEAAUAAAABAAAABQAAAE1DT1MAAAAADgAAAAAAAAA==
+AAAAAA4AAAAAAAAADgAAADgBAAAGAAAACAAAAAQAAAAAAAAABQAAAAgAAAABAAAACAEAAAEAAAAA
+AAAAEAAAAAgBAAB7InRhYmxlIjpbeyJrZXkiOiJJIiwidmFsdWUiOiJ7XCJhbGlhc1wiOlwiXCIs
+XCJkZWZhdWx0X3VuaXRcIjpcIlwiLFwiZGVzY1wiOlwieFwiLFwibG9nZ2luZ1wiOlwib2ZmXCIs
+XCJ1bml0XCI6XCJcIn0ifSx7ImtleSI6Ik8iLCJ2YWx1ZSI6IntcImFsaWFzXCI6XCJTaW1zY2Fw
+ZSBMVVQgb3V0cHV0XCIsXCJkZWZhdWx0X3VuaXRcIjpcIlwiLFwiZGVzY1wiOlwiZlwiLFwibG9n
+Z2luZ1wiOlwib25cIixcInVuaXRcIjpcIk4qbVwifSJ9XSwidmVyIjoiMS4wIn0OAAAAqAAAAAYA
+AAAIAAAAAQAAAAAAAAAFAAAACAAAAAIAAAABAAAAAQAAAAAAAAAOAAAAOAAAAAYAAAAIAAAAAgAA
+AAAAAAAFAAAACAAAAAEAAAAAAAAAAQAAAAAAAAAFAAQAAQAAAAEAAAAAAAAADgAAADgAAAAGAAAA
+CAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAAAAAAEAAAAAAAAABQAEAAEAAAABAAAAAAAAAA4AAAA4
+AAAABgAAAAgAAAAMAAAAAAAAAAUAAAAIAAAAAgAAAAEAAAABAAAAAAAAAAUAAAAIAAAAAAAAAAAA
+AAAOAAAAqAAAAAYAAAAIAAAAAQAAAAAAAAAFAAAACAAAAAIAAAABAAAAAQAAAAAAAAAOAAAAOAAA
+AAYAAAAIAAAAAgAAAAAAAAAFAAAACAAAAAEAAAAAAAAAAQAAAAAAAAAFAAQAAQAAAAEAAAAAAAAA
+DgAAADgAAAAGAAAACAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAAAAAAEAAAAAAAAABQAEAAEAAAAB
+AAAAAAAAAA4AAACIAAAABgAAAAgAAAAJAAAAAAAAAAUAAAAIAAAAAQAAAFgAAAABAAAAAAAAAAIA
+AABYAAAAAAFJTQAAAAAOAAAASAAAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAA
+AAAAAAAFAAQABQAAAAEAAAAFAAAATUNPUwAAAAAOAAAAAAAAAA==
 __MWOPC_PART_BEGIN__ /simulink/bdmxdata/SimscapeInstrumentationVariables_5.mxarray BASE64
 AAFJTQAAAAAOAAAAoAAAAAYAAAAIAAAAEQAAAAAAAAABAAAAAAAAAAEABABNQ09TAQAAACYAAABz
 aW1zY2FwZS5pbnN0cnVtZW50YXRpb24uVmFyaWFibGVUYWJsZQAADgAAAEgAAAAGAAAACAAAAA0A
 AAAAAAAABQAAAAgAAAAGAAAAAQAAAAEAAAAAAAAABgAAABgAAAAAAADdAgAAAAEAAAABAAAAAQAA
-AAEAAAAOAAAAYAYAAAYAAAAIAAAACQAAAAAAAAAFAAAACAAAAAEAAAAwBgAAAQAAAAAAAAACAAAA
-MAYAAAABSU0AAAAADgAAAJAFAAAGAAAACAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAQAAAAEAAAAA
-AAAABQAEAAUAAAABAAAABQAAAE1DT1MAAAAADgAAAEgFAAAGAAAACAAAABEAAAAAAAAAAQAAAAAA
-AAABAAQATUNPUwEAAAANAAAARmlsZVdyYXBwZXJfXwAAAA4AAAAIBQAABgAAAAgAAAABAAAAAAAA
-AAUAAAAIAAAABgAAAAEAAAABAAAAAAAAAA4AAAAQAQAABgAAAAgAAAAJAAAAAAAAAAUAAAAIAAAA
-4AAAAAEAAAABAAAAAAAAAAIAAADgAAAABAAAAAMAAABYAAAAeAAAAJAAAADAAAAAyAAAAMgAAADI
+AAEAAAAOAAAAUAYAAAYAAAAIAAAACQAAAAAAAAAFAAAACAAAAAEAAAAgBgAAAQAAAAAAAAACAAAA
+IAYAAAABSU0AAAAADgAAAIAFAAAGAAAACAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAQAAAAEAAAAA
+AAAABQAEAAUAAAABAAAABQAAAE1DT1MAAAAADgAAADgFAAAGAAAACAAAABEAAAAAAAAAAQAAAAAA
+AAABAAQATUNPUwEAAAANAAAARmlsZVdyYXBwZXJfXwAAAA4AAAD4BAAABgAAAAgAAAABAAAAAAAA
+AAUAAAAIAAAABgAAAAEAAAABAAAAAAAAAA4AAAAAAQAABgAAAAgAAAAJAAAAAAAAAAUAAAAIAAAA
+0AAAAAEAAAABAAAAAAAAAAIAAADQAAAABAAAAAMAAABYAAAAeAAAAJAAAADAAAAAyAAAAMgAAADI
 AAAA0AAAAGFueQBWYXJpYWJsZVRhYmxlAHNpbXNjYXBlLmluc3RydW1lbnRhdGlvbgAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAADAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAEAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAEAAADYAAAAAAAAAAAAAAAOAAAAAAAAAA4AAAAYAgAABgAAAAgAAAAEAAAAAAAAAAUAAAAI
-AAAAAQAAAOUBAAABAAAAAAAAABAAAADlAQAAeyJ0YWJsZSI6W3sia2V5IjoiUiIsInZhbHVlIjoi
-e1wiYWxpYXNcIjpcIlwiLFwiZGVmYXVsdF91bml0XCI6XCJcIixcImRlc2NcIjpcIlJcIixcImxv
-Z2dpbmdcIjpcIm9mZlwiLFwidW5pdFwiOlwiXCJ9In0seyJrZXkiOiJVIiwidmFsdWUiOiJ7XCJh
-bGlhc1wiOlwiXCIsXCJkZWZhdWx0X3VuaXRcIjpcIlwiLFwiZGVzY1wiOlwiVVwiLFwibG9nZ2lu
-Z1wiOlwib2ZmXCIsXCJ1bml0XCI6XCJcIn0ifSx7ImtleSI6IlkiLCJ2YWx1ZSI6IntcImFsaWFz
-XCI6XCJTaW1zY2FwZSBURiBvdXRwdXRcIixcImRlZmF1bHRfdW5pdFwiOlwiXCIsXCJkZXNjXCI6
-XCJZXCIsXCJsb2dnaW5nXCI6XCJvblwiLFwidW5pdFwiOlwiTiptXCJ9In0seyJrZXkiOiJZMCIs
-InZhbHVlIjoie1wiYWxpYXNcIjpcIlwiLFwiZGVmYXVsdF91bml0XCI6XCJcIixcImRlc2NcIjpc
-IlkwXCIsXCJsb2dnaW5nXCI6XCJvZmZcIixcInVuaXRcIjpcIlwifSJ9XSwidmVyIjoiMS4wIn0A
-AAAOAAAAqAAAAAYAAAAIAAAAAQAAAAAAAAAFAAAACAAAAAIAAAABAAAAAQAAAAAAAAAOAAAAOAAA
-AAYAAAAIAAAAAgAAAAAAAAAFAAAACAAAAAEAAAAAAAAAAQAAAAAAAAAFAAQAAQAAAAEAAAAAAAAA
-DgAAADgAAAAGAAAACAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAAAAAAEAAAAAAAAABQAEAAEAAAAB
-AAAAAAAAAA4AAAA4AAAABgAAAAgAAAAMAAAAAAAAAAUAAAAIAAAAAgAAAAEAAAABAAAAAAAAAAUA
-AAAIAAAAAAAAAAAAAAAOAAAAqAAAAAYAAAAIAAAAAQAAAAAAAAAFAAAACAAAAAIAAAABAAAAAQAA
-AAAAAAAOAAAAOAAAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAAAAEAAAAAAAAAAQAAAAAAAAAFAAQA
-AQAAAAEAAAAAAAAADgAAADgAAAAGAAAACAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAAAAAAEAAAAA
-AAAABQAEAAEAAAABAAAAAAAAAA4AAACIAAAABgAAAAgAAAAJAAAAAAAAAAUAAAAIAAAAAQAAAFgA
-AAABAAAAAAAAAAIAAABYAAAAAAFJTQAAAAAOAAAASAAAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAA
-AAEAAAABAAAAAQAAAAAAAAAFAAQABQAAAAEAAAAFAAAATUNPUwAAAAAOAAAAAAAAAA==
+AAAAAA4AAAAAAAAADgAAABgCAAAGAAAACAAAAAQAAAAAAAAABQAAAAgAAAABAAAA5QEAAAEAAAAA
+AAAAEAAAAOUBAAB7InRhYmxlIjpbeyJrZXkiOiJSIiwidmFsdWUiOiJ7XCJhbGlhc1wiOlwiXCIs
+XCJkZWZhdWx0X3VuaXRcIjpcIlwiLFwiZGVzY1wiOlwiUlwiLFwibG9nZ2luZ1wiOlwib2ZmXCIs
+XCJ1bml0XCI6XCJcIn0ifSx7ImtleSI6IlUiLCJ2YWx1ZSI6IntcImFsaWFzXCI6XCJcIixcImRl
+ZmF1bHRfdW5pdFwiOlwiXCIsXCJkZXNjXCI6XCJVXCIsXCJsb2dnaW5nXCI6XCJvZmZcIixcInVu
+aXRcIjpcIlwifSJ9LHsia2V5IjoiWSIsInZhbHVlIjoie1wiYWxpYXNcIjpcIlNpbXNjYXBlIFRG
+IG91dHB1dFwiLFwiZGVmYXVsdF91bml0XCI6XCJcIixcImRlc2NcIjpcIllcIixcImxvZ2dpbmdc
+IjpcIm9uXCIsXCJ1bml0XCI6XCJOKm1cIn0ifSx7ImtleSI6IlkwIiwidmFsdWUiOiJ7XCJhbGlh
+c1wiOlwiXCIsXCJkZWZhdWx0X3VuaXRcIjpcIlwiLFwiZGVzY1wiOlwiWTBcIixcImxvZ2dpbmdc
+IjpcIm9mZlwiLFwidW5pdFwiOlwiXCJ9In1dLCJ2ZXIiOiIxLjAifQAAAA4AAACoAAAABgAAAAgA
+AAABAAAAAAAAAAUAAAAIAAAAAgAAAAEAAAABAAAAAAAAAA4AAAA4AAAABgAAAAgAAAACAAAAAAAA
+AAUAAAAIAAAAAQAAAAAAAAABAAAAAAAAAAUABAABAAAAAQAAAAAAAAAOAAAAOAAAAAYAAAAIAAAA
+AgAAAAAAAAAFAAAACAAAAAEAAAAAAAAAAQAAAAAAAAAFAAQAAQAAAAEAAAAAAAAADgAAADgAAAAG
+AAAACAAAAAwAAAAAAAAABQAAAAgAAAACAAAAAQAAAAEAAAAAAAAABQAAAAgAAAAAAAAAAAAAAA4A
+AACoAAAABgAAAAgAAAABAAAAAAAAAAUAAAAIAAAAAgAAAAEAAAABAAAAAAAAAA4AAAA4AAAABgAA
+AAgAAAACAAAAAAAAAAUAAAAIAAAAAQAAAAAAAAABAAAAAAAAAAUABAABAAAAAQAAAAAAAAAOAAAA
+OAAAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAAAAEAAAAAAAAAAQAAAAAAAAAFAAQAAQAAAAEAAAAA
+AAAADgAAAIgAAAAGAAAACAAAAAkAAAAAAAAABQAAAAgAAAABAAAAWAAAAAEAAAAAAAAAAgAAAFgA
+AAAAAUlNAAAAAA4AAABIAAAABgAAAAgAAAACAAAAAAAAAAUAAAAIAAAAAQAAAAEAAAABAAAAAAAA
+AAUABAAFAAAAAQAAAAUAAABNQ09TAAAAAA4AAAAAAAAA==
 __MWOPC_PART_BEGIN__ /simulink/bdmxdata/SimscapeInstrumentationVariables_9.mxarray BASE64
 AAFJTQAAAAAOAAAAoAAAAAYAAAAIAAAAEQAAAAAAAAABAAAAAAAAAAEABABNQ09TAQAAACYAAABz
 aW1zY2FwZS5pbnN0cnVtZW50YXRpb24uVmFyaWFibGVUYWJsZQAADgAAAEgAAAAGAAAACAAAAA0A
 AAAAAAAABQAAAAgAAAAGAAAAAQAAAAEAAAAAAAAABgAAABgAAAAAAADdAgAAAAEAAAABAAAAAQAA
-AAEAAAAOAAAAkAQAAAYAAAAIAAAACQAAAAAAAAAFAAAACAAAAAEAAABgBAAAAQAAAAAAAAACAAAA
-YAQAAAABSU0AAAAADgAAAMADAAAGAAAACAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAQAAAAEAAAAA
-AAAABQAEAAUAAAABAAAABQAAAE1DT1MAAAAADgAAAHgDAAAGAAAACAAAABEAAAAAAAAAAQAAAAAA
-AAABAAQATUNPUwEAAAANAAAARmlsZVdyYXBwZXJfXwAAAA4AAAA4AwAABgAAAAgAAAABAAAAAAAA
-AAUAAAAIAAAABgAAAAEAAAABAAAAAAAAAA4AAAAQAQAABgAAAAgAAAAJAAAAAAAAAAUAAAAIAAAA
-4AAAAAEAAAABAAAAAAAAAAIAAADgAAAABAAAAAMAAABYAAAAeAAAAJAAAADAAAAAyAAAAMgAAADI
+AAEAAAAOAAAAgAQAAAYAAAAIAAAACQAAAAAAAAAFAAAACAAAAAEAAABQBAAAAQAAAAAAAAACAAAA
+UAQAAAABSU0AAAAADgAAALADAAAGAAAACAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAQAAAAEAAAAA
+AAAABQAEAAUAAAABAAAABQAAAE1DT1MAAAAADgAAAGgDAAAGAAAACAAAABEAAAAAAAAAAQAAAAAA
+AAABAAQATUNPUwEAAAANAAAARmlsZVdyYXBwZXJfXwAAAA4AAAAoAwAABgAAAAgAAAABAAAAAAAA
+AAUAAAAIAAAABgAAAAEAAAABAAAAAAAAAA4AAAAAAQAABgAAAAgAAAAJAAAAAAAAAAUAAAAIAAAA
+0AAAAAEAAAABAAAAAAAAAAIAAADQAAAABAAAAAMAAABYAAAAeAAAAJAAAADAAAAAyAAAAMgAAADI
 AAAA0AAAAGFueQBWYXJpYWJsZVRhYmxlAHNpbXNjYXBlLmluc3RydW1lbnRhdGlvbgAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAADAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAEAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAEAAADYAAAAAAAAAAAAAAAOAAAAAAAAAA4AAABIAAAABgAAAAgAAAAEAAAAAAAAAAUAAAAI
-AAAAAQAAABgAAAABAAAAAAAAABAAAAAYAAAAeyJ0YWJsZSI6W10sInZlciI6IjEuMCJ9DgAAAKgA
-AAAGAAAACAAAAAEAAAAAAAAABQAAAAgAAAACAAAAAQAAAAEAAAAAAAAADgAAADgAAAAGAAAACAAA
-AAIAAAAAAAAABQAAAAgAAAABAAAAAAAAAAEAAAAAAAAABQAEAAEAAAABAAAAAAAAAA4AAAA4AAAA
-BgAAAAgAAAACAAAAAAAAAAUAAAAIAAAAAQAAAAAAAAABAAAAAAAAAAUABAABAAAAAQAAAAAAAAAO
-AAAAOAAAAAYAAAAIAAAADAAAAAAAAAAFAAAACAAAAAIAAAABAAAAAQAAAAAAAAAFAAAACAAAAAAA
-AAAAAAAADgAAAKgAAAAGAAAACAAAAAEAAAAAAAAABQAAAAgAAAACAAAAAQAAAAEAAAAAAAAADgAA
-ADgAAAAGAAAACAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAAAAAAEAAAAAAAAABQAEAAEAAAABAAAA
-AAAAAA4AAAA4AAAABgAAAAgAAAACAAAAAAAAAAUAAAAIAAAAAQAAAAAAAAABAAAAAAAAAAUABAAB
-AAAAAQAAAAAAAAAOAAAAiAAAAAYAAAAIAAAACQAAAAAAAAAFAAAACAAAAAEAAABYAAAAAQAAAAAA
-AAACAAAAWAAAAAABSU0AAAAADgAAAEgAAAAGAAAACAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAQAA
-AAEAAAAAAAAABQAEAAUAAAABAAAABQAAAE1DT1MAAAAADgAAAAAAAAA==
+AAAAAA4AAAAAAAAADgAAAEgAAAAGAAAACAAAAAQAAAAAAAAABQAAAAgAAAABAAAAGAAAAAEAAAAA
+AAAAEAAAABgAAAB7InRhYmxlIjpbXSwidmVyIjoiMS4wIn0OAAAAqAAAAAYAAAAIAAAAAQAAAAAA
+AAAFAAAACAAAAAIAAAABAAAAAQAAAAAAAAAOAAAAOAAAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAA
+AAEAAAAAAAAAAQAAAAAAAAAFAAQAAQAAAAEAAAAAAAAADgAAADgAAAAGAAAACAAAAAIAAAAAAAAA
+BQAAAAgAAAABAAAAAAAAAAEAAAAAAAAABQAEAAEAAAABAAAAAAAAAA4AAAA4AAAABgAAAAgAAAAM
+AAAAAAAAAAUAAAAIAAAAAgAAAAEAAAABAAAAAAAAAAUAAAAIAAAAAAAAAAAAAAAOAAAAqAAAAAYA
+AAAIAAAAAQAAAAAAAAAFAAAACAAAAAIAAAABAAAAAQAAAAAAAAAOAAAAOAAAAAYAAAAIAAAAAgAA
+AAAAAAAFAAAACAAAAAEAAAAAAAAAAQAAAAAAAAAFAAQAAQAAAAEAAAAAAAAADgAAADgAAAAGAAAA
+CAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAAAAAAEAAAAAAAAABQAEAAEAAAABAAAAAAAAAA4AAACI
+AAAABgAAAAgAAAAJAAAAAAAAAAUAAAAIAAAAAQAAAFgAAAABAAAAAAAAAAIAAABYAAAAAAFJTQAA
+AAAOAAAASAAAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAFAAQABQAA
+AAEAAAAFAAAATUNPUwAAAAAOAAAAAAAAAA==
 __MWOPC_PART_BEGIN__ /simulink/blockdiagram.xml
 <?xml version="1.0" encoding="utf-8"?>
 <ModelInformation Version="1.0">
@@ -188,13 +201,13 @@ __MWOPC_PART_BEGIN__ /simulink/blockdiagram.xml
     <P Name="HideAutomaticNames">off</P>
     <UserParameters>
       <P Name="PhysicalModelingChecksum">914996596</P>
-      <P Name="PhysicalModelingParameterChecksum">2320623884</P>
+      <P Name="PhysicalModelingParameterChecksum">346584662</P>
       <P Name="PhysicalModelingProducts">Simscape</P>
     </UserParameters>
     <ConfigManagerSettings>
       <P Name="ModifiedByFormat">%&lt;Auto&gt;</P>
       <P Name="ModifiedDateFormat">%&lt;Auto&gt;</P>
-      <P Name="ModelVersionFormat">%&lt;AutoIncrement:1.0&gt;</P>
+      <P Name="ModelVersionFormat">%&lt;AutoIncrement:1.1&gt;</P>
     </ConfigManagerSettings>
     <SimulationSettings>
       <P Name="SimulationMode">normal</P>
@@ -331,14 +344,14 @@ __MWOPC_PART_BEGIN__ /simulink/blockdiagram.xml
 __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigSet>
-  <Object ObjectID="1" Version="24.1.0" ClassName="Simulink.ConfigSet">
-    <P Name="DisabledProps">[]</P>
+  <Object Version="24.1.0" ClassName="Simulink.ConfigSet">
+    <P Name="DisabledProps" Class="double">[]</P>
     <P Name="Description"/>
     <Array PropName="Components" Type="Handle" Dimension="1*10">
       <Object ObjectID="2" Version="24.1.0" ClassName="Simulink.SolverCC">
-        <P Name="DisabledProps">[]</P>
+        <P Name="DisabledProps" Class="double">[]</P>
         <P Name="Description"/>
-        <P Name="Components">[]</P>
+        <P Name="Components" Class="double">[]</P>
         <P Name="StartTime">0.0</P>
         <P Name="StopTime">6</P>
         <P Name="AbsTol">auto</P>
@@ -372,7 +385,7 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
         <P Name="AutoInsertRateTranBlk">off</P>
         <P Name="SampleTimeConstraint">Unconstrained</P>
         <P Name="InsertRTBMode">Whenever possible</P>
-        <P Name="SampleTimeProperty">[]</P>
+        <P Name="SampleTimeProperty" Class="double">[]</P>
         <P Name="DecoupledContinuousIntegration">off</P>
         <P Name="MinimalZcImpactIntegration">off</P>
         <P Name="ODENIntegrationMethod">ode3</P>
@@ -381,9 +394,9 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
         <P Name="MaxZcBracketingIterations">10</P>
       </Object>
       <Object ObjectID="3" Version="24.1.0" ClassName="Simulink.DataIOCC">
-        <P Name="DisabledProps">[]</P>
+        <P Name="DisabledProps" Class="double">[]</P>
         <P Name="Description"/>
-        <P Name="Components">[]</P>
+        <P Name="Components" Class="double">[]</P>
         <P Name="Decimation">1</P>
         <P Name="ExternalInput">[t, u]</P>
         <P Name="FinalStateName">xFinal</P>
@@ -435,7 +448,7 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
           <Cell Class="char">RemoveLocalVariableInitialization</Cell>
         </Array>
         <P Name="Description"/>
-        <P Name="Components">[]</P>
+        <P Name="Components" Class="double">[]</P>
         <P Name="BlockReduction">on</P>
         <P Name="BooleanDataType">on</P>
         <P Name="ConditionallyExecuteInputs">on</P>
@@ -501,7 +514,7 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
           <Cell Class="char">UseOnlyExistingSharedCode</Cell>
         </Array>
         <P Name="Description"/>
-        <P Name="Components">[]</P>
+        <P Name="Components" Class="double">[]</P>
         <P Name="RTPrefix">error</P>
         <P Name="ConsistencyChecking">none</P>
         <P Name="ArrayBoundsChecking">none</P>
@@ -522,6 +535,7 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
         <P Name="SignalResolutionControl">UseLocalSettings</P>
         <P Name="BlockPriorityViolationMsg">warning</P>
         <P Name="MinStepSizeMsg">warning</P>
+        <P Name="TimeAdjustmentMsg">none</P>
         <P Name="MaxConsecutiveZCsMsg">error</P>
         <P Name="MaskedZcDiagnostic">warning</P>
         <P Name="IgnoredZcDiagnostic">warning</P>
@@ -559,6 +573,7 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
         <P Name="UnconnectedLineMsg">none</P>
         <P Name="UseOnlyExistingSharedCode">error</P>
         <P Name="SFcnCompatibilityMsg">none</P>
+        <P Name="FrameProcessingCompatibilityMsg">error</P>
         <P Name="UniqueDataStoreMsg">none</P>
         <P Name="BusObjectLabelMismatch">warning</P>
         <P Name="RootOutportRequireBusObject">warning</P>
@@ -616,9 +631,9 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
         <P Name="ParamWriterValidationControl">UseLocalSettings</P>
       </Object>
       <Object ObjectID="6" Version="24.1.0" ClassName="Simulink.HardwareCC">
-        <P Name="DisabledProps">[]</P>
+        <P Name="DisabledProps" Class="double">[]</P>
         <P Name="Description"/>
-        <P Name="Components">[]</P>
+        <P Name="Components" Class="double">[]</P>
         <P Name="ProdBitPerChar">8</P>
         <P Name="ProdBitPerShort">16</P>
         <P Name="ProdBitPerInt">32</P>
@@ -664,9 +679,9 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
         <P Name="HardwareBoardFeatureSet">EmbeddedCoderHSP</P>
       </Object>
       <Object ObjectID="7" Version="24.1.0" ClassName="Simulink.ModelReferenceCC">
-        <P Name="DisabledProps">[]</P>
+        <P Name="DisabledProps" Class="double">[]</P>
         <P Name="Description"/>
-        <P Name="Components">[]</P>
+        <P Name="Components" Class="double">[]</P>
         <P Name="UpdateModelReferenceTargets">IfOutOfDateOrStructuralChange</P>
         <P Name="EnableRefExpFcnMdlSchedulingChecks">off</P>
         <P Name="CheckModelReferenceTargetMessage">error</P>
@@ -683,14 +698,14 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
         <P Name="UseModelRefSolver">off</P>
       </Object>
       <Object ObjectID="8" Version="24.1.0" ClassName="Simulink.SFSimCC">
-        <P Name="DisabledProps">[]</P>
+        <P Name="DisabledProps" Class="double">[]</P>
         <P Name="Description"/>
-        <P Name="Components">[]</P>
+        <P Name="Components" Class="double">[]</P>
         <P Name="SimCustomSourceCode"/>
         <P Name="SimCustomHeaderCode"/>
         <P Name="SimCustomInitializer"/>
         <P Name="SimCustomTerminator"/>
-        <P Name="SimReservedNameArray">[]</P>
+        <P Name="SimReservedNameArray" Class="double">[]</P>
         <P Name="SimUserSources"/>
         <P Name="SimUserIncludeDirs"/>
         <P Name="SimUserLibraries"/>
@@ -713,7 +728,7 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
         <P Name="MATLABDynamicMemAllocThreshold">65536</P>
         <P Name="UsePrecompiledLibraries">Prefer</P>
         <P Name="LegacyBehaviorForPersistentVarInContinuousTime">off</P>
-        <P Name="CustomCodeFunctionArrayLayout">[]</P>
+        <P Name="CustomCodeFunctionArrayLayout" Class="double">[]</P>
         <P Name="DefaultCustomCodeFunctionArrayLayout">NotSpecified</P>
         <P Name="CustomCodeUndefinedFunction">FilterOut</P>
         <P Name="CustomCodeGlobalsAsFunctionIO">off</P>
@@ -730,7 +745,7 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
         <P Name="SimDLTargetLibrary">mkl-dnn</P>
         <P Name="SimDLAutoTuning">on</P>
       </Object>
-      <Object ObjectID="9" Version="24.1.0" ClassName="Simulink.RTWCC">
+      <Object BackupClass="Simulink.RTWCC" ObjectID="9" Version="24.1.0" ClassName="Simulink.RTWCC">
         <Array PropName="DisabledProps" Type="Cell" Dimension="1*18">
           <Cell Class="char">DataTypeReplacement</Cell>
           <Cell Class="char">IncludeHyperlinkInReport</Cell>
@@ -768,7 +783,7 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
         <P Name="GenerateReport">off</P>
         <P Name="RTWVerbose">on</P>
         <P Name="RetainRTWFile">off</P>
-        <P Name="RTWBuildHooks">[]</P>
+        <P Name="RTWBuildHooks" Class="double">[]</P>
         <P Name="ProfileTLC">off</P>
         <P Name="TLCDebug">off</P>
         <P Name="TLCCoverage">off</P>
@@ -789,7 +804,7 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
         <P Name="CustomTerminator"/>
         <P Name="Toolchain">Automatically locate an installed toolchain</P>
         <P Name="BuildConfiguration">Faster Builds</P>
-        <P Name="CustomToolchainOptions">[]</P>
+        <P Name="CustomToolchainOptions" Class="double">[]</P>
         <P Name="IncludeHyperlinkInReport">off</P>
         <P Name="LaunchReport">off</P>
         <P Name="PortableWordSizes">off</P>
@@ -818,7 +833,7 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
         <P Name="GenerateCodeReplacementReport">off</P>
         <P Name="GenerateMissedCodeReplacementReport">off</P>
         <P Name="RTWCompilerOptimization">off</P>
-        <P Name="ObjectivePriorities">[]</P>
+        <P Name="ObjectivePriorities" Class="double">[]</P>
         <P Name="RTWCustomCompilerOptimizations"/>
         <P Name="CheckMdlBeforeBuild">Off</P>
         <P Name="SharedConstantsCachingThreshold">1024</P>
@@ -878,7 +893,7 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
               <Cell Class="char">AnnotationsInComments</Cell>
             </Array>
             <P Name="Description"/>
-            <P Name="Components">[]</P>
+            <P Name="Components" Class="double">[]</P>
             <P Name="Comment"/>
             <P Name="ForceParamTrailComments">off</P>
             <P Name="GenerateComments">on</P>
@@ -928,10 +943,10 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
             <P Name="InlinedPrmAccess">Literals</P>
             <P Name="ReqsInCode">off</P>
             <P Name="UseSimReservedNames">off</P>
-            <P Name="ReservedNameArray">[]</P>
+            <P Name="ReservedNameArray" Class="double">[]</P>
             <P Name="EnumMemberNameClash">error</P>
           </Object>
-          <Object ObjectID="11" Version="24.1.0" ClassName="Simulink.GRTTargetCC">
+          <Object BackupClass="Simulink.TargetCC" ObjectID="11" Version="24.1.0" ClassName="Simulink.GRTTargetCC">
             <Array PropName="DisabledProps" Type="Cell" Dimension="1*19">
               <Cell Class="char">IncludeMdlTerminateFcn</Cell>
               <Cell Class="char">SuppressErrorStatus</Cell>
@@ -954,7 +969,7 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
               <Cell Class="char">PreserveStateflowLocalDataDimensions</Cell>
             </Array>
             <P Name="Description"/>
-            <P Name="Components">[]</P>
+            <P Name="Components" Class="double">[]</P>
             <P Name="TargetFcnLib">ansi_tfl_table_tmw.mat</P>
             <P Name="TargetLibSuffix"/>
             <P Name="TargetPreCompLibLocation"/>
@@ -985,7 +1000,6 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
             <P Name="LogVarNameModifier">rt_</P>
             <P Name="MatFileLogging">on</P>
             <P Name="CodeInterfacePackaging">Nonreusable function</P>
-            <P Name="SubcomponentCodeInterfacePackaging">Reusable function</P>
             <P Name="PurelyIntegerCode">off</P>
             <P Name="SupportNonFinite">on</P>
             <P Name="SupportComplex">on</P>
@@ -1005,8 +1019,8 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
             <P Name="GenerateAllocFcn">off</P>
             <P Name="UseToolchainInfoCompliant">on</P>
             <P Name="GenerateSharedConstants">on</P>
-            <P Name="CoderGroups">[]</P>
-            <P Name="AccessMethods">[]</P>
+            <P Name="CoderGroups" Class="double">[]</P>
+            <P Name="AccessMethods" Class="double">[]</P>
             <P Name="LookupTableObjectStructAxisOrder">1,2,3,4,...</P>
             <P Name="LUTObjectStructOrderExplicitValues">Size,Breakpoints,Table</P>
             <P Name="LUTObjectStructOrderEvenSpacing">Size,Breakpoints,Table</P>
@@ -1037,14 +1051,16 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
             <P Name="RTWCAPIParams">off</P>
             <P Name="RTWCAPIStates">off</P>
             <P Name="RTWCAPIRootIO">off</P>
+            <P Name="GenerateASAP2">off</P>
             <P Name="MultiInstanceErrorCode">Error</P>
           </Object>
         </Array>
       </Object>
       <Object ObjectID="12" Version="24.1.0" ClassName="SlCovCC.ConfigComp">
-        <P Name="DisabledProps">[]</P>
+        <P Name="DisabledProps" Class="double">[]</P>
         <P Name="Description">Simulink Coverage Configuration Component</P>
-        <P Name="Components">[]</P>
+        <P Name="Components" Class="double">[]</P>
+        <P Name="Name">Simulink Coverage</P>
         <P Name="CovEnable">off</P>
         <P Name="CovScope">EntireSystem</P>
         <P Name="CovIncludeTopModel">on</P>
@@ -1070,7 +1086,7 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
         <P Name="CovModelRefExcluded"/>
         <P Name="CovExternalEMLEnable">on</P>
         <P Name="CovSFcnEnable">on</P>
-        <P Name="CovBoundaryAbsTol">1.0e-5</P>
+        <P Name="CovBoundaryAbsTol">1e-05</P>
         <P Name="CovBoundaryRelTol">0.01</P>
         <P Name="CovUseTimeInterval">off</P>
         <P Name="CovStartTime">0</P>
@@ -1079,17 +1095,18 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
         <P Name="CovExcludeInactiveVariants">off</P>
       </Object>
       <Object ObjectID="13" Version="24.1.0" ClassName="SSC.SimscapeCC">
-        <P Name="DisabledProps">[]</P>
+        <P Name="DisabledProps" Class="double">[]</P>
         <P Name="Description"/>
         <Array PropName="Components" Type="Handle" Dimension="1*1">
           <Object ObjectID="14" Version="24.1.0" ClassName="simmechanics.ConfigurationSet">
-            <P Name="DisabledProps">[]</P>
+            <P Name="DisabledProps" Class="double">[]</P>
             <P Name="Description"/>
             <Array PropName="Components" Type="Handle" Dimension="1*2">
-              <Object ObjectID="15" Version="26.0.0" ClassName="simmechanics.DiagnosticsConfigSet">
-                <P Name="DisabledProps">[]</P>
+              <Object ObjectID="15" Version="24.1.0" ClassName="simmechanics.DiagnosticsConfigSet">
+                <P Name="DisabledProps" Class="double">[]</P>
                 <P Name="Description"/>
-                <P Name="Components">[]</P>
+                <P Name="Components" Class="double">[]</P>
+                <P Name="Name">DiagnosticsConfigSet</P>
                 <P Name="SimMechanicsInvalidVisualProperty">warning</P>
                 <P Name="SimMechanicsCrossSectionNullEdge">warning</P>
                 <P Name="SimMechanicsUnconnectedFramePorts">warning</P>
@@ -1100,10 +1117,11 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
                 <P Name="SimMechanicsUnsatisfiedHighPriorityTargets">warning</P>
                 <P Name="SimMechanicsJointTargetOverSpecification">error</P>
               </Object>
-              <Object ObjectID="16" Version="26.0.0" ClassName="simmechanics.ExplorerConfigSet">
-                <P Name="DisabledProps">[]</P>
+              <Object ObjectID="16" Version="24.1.0" ClassName="simmechanics.ExplorerConfigSet">
+                <P Name="DisabledProps" Class="double">[]</P>
                 <P Name="Description"/>
-                <P Name="Components">[]</P>
+                <P Name="Components" Class="double">[]</P>
+                <P Name="Name">ExplorerConfigSet</P>
                 <P Name="SimMechanicsOpenEditorOnUpdate">on</P>
                 <P Name="InternalSimMechanicsExplorerSettings"/>
                 <P Name="InternalSimMechanicsSavePlaybackData">none</P>
@@ -1111,8 +1129,10 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
                 <P Name="InternalSimMechanicsPlaybackDataRate">30</P>
               </Object>
             </Array>
+            <P Name="Name">SimscapeMultibody</P>
           </Object>
         </Array>
+        <P Name="Name">Simscape</P>
         <P Name="EditingMode">Full</P>
         <P Name="ExplicitSolverDiagnosticOptions">warning</P>
         <P Name="GlobalZcOffDiagnosticOptions">warning</P>
@@ -1136,7 +1156,7 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
     </Array>
     <P Name="Name">Configuration</P>
     <P Name="CurrentDlgPage">Simscape</P>
-    <P Name="ConfigPrmDlgPosition" Class="double">[71, 71, 900, 854]</P>
+    <P Name="ConfigPrmDlgPosition">[ 71, 71, 900, 854 ]</P>
     <P Name="ExtraOptions"/>
   </Object>
 </ConfigSet>
@@ -1231,15 +1251,14 @@ __MWOPC_PART_BEGIN__ /simulink/graphicalInterface.json
     }
 }
 __MWOPC_PART_BEGIN__ /simulink/modelDictionary.xml
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <MF0 version="1.1" defaultPackage="slid" packageUris="http://schema.mathworks.com/mf0/slid/R2023a_20220628">
   <System type="System" uuid="aa591c9a-34b6-46b5-9ec1-bfc85379e97c">
     <Interface type="Interface" uuid="ed52b5ad-9d3f-467b-8948-d380135ac7ce"/>
   </System>
 </MF0>
-
 __MWOPC_PART_BEGIN__ /simulink/ScheduleCore.xml
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <sltp_graph version="1.1" packageUris="http://schema.mathworks.com/mf0/sltp_mm/R2024b_202402211119">
   <sltp.mm.core.Context type="sltp.mm.core.Context" uuid="8dc9b6ab-b396-45d0-9795-4b9b2f935c29">
     <priorityDirection>HighNumberLast</priorityDirection>
@@ -1288,9 +1307,8 @@ __MWOPC_PART_BEGIN__ /simulink/ScheduleCore.xml
     </rootTask>
   </sltp.mm.core.Context>
 </sltp_graph>
-
 __MWOPC_PART_BEGIN__ /simulink/ScheduleEditor.xml
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <sltp_editor version="1.1" packageUris="http://schema.mathworks.com/mf0/DiagramEditor/R2019a_20181107 http://schema.mathworks.com/mf0/SltpSyntax/R2024b_202402211148">
   <diagram.editor.model.Diagram type="diagram.editor.model.Diagram" uuid="877dccd4-2c75-4c46-b232-829966c08f35">
     <entities type="diagram.editor.model.Entity" uuid="0b855d17-5043-455e-8156-6699f16e5c44">
@@ -1338,11 +1356,11 @@ __MWOPC_PART_BEGIN__ /simulink/ScheduleEditor.xml
     </rootGraph>
   </sltp.mm.syntax.Context>
 </sltp_editor>
-
 __MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
 <?xml version="1.0" encoding="utf-8"?>
 <System>
   <P Name="Location">[23, 11, 1102, 644]</P>
+  <P Name="Open">on</P>
   <P Name="ReportName">simulink-default.rpt</P>
   <P Name="SIDHighWatermark">17</P>
   <Block BlockType="Reference" Name="Converter" SID="2">
@@ -1352,7 +1370,7 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
     <P Name="BackgroundColor">automatic</P>
     <P Name="ShowName">off</P>
     <P Name="AttributesFormatString">%&lt;Unit&gt;</P>
-    <P Name="LibraryVersion">11.0</P>
+    <P Name="LibraryVersion">7.0</P>
     <P Name="SourceBlock">nesl_utility/PS-Simulink
 Converter</P>
     <P Name="SourceType">PS-Simulink
@@ -1388,7 +1406,7 @@ Converter</P>
     <P Name="BackgroundColor">automatic</P>
     <P Name="ShowName">off</P>
     <P Name="AttributesFormatString">%&lt;Unit&gt;</P>
-    <P Name="LibraryVersion">11.0</P>
+    <P Name="LibraryVersion">7.0</P>
     <P Name="SourceBlock">nesl_utility/PS-Simulink
 Converter</P>
     <P Name="SourceType">PS-Simulink
@@ -1441,7 +1459,7 @@ Converter</P>
     <P Name="Position">[115, 77, 195, 153]</P>
     <P Name="ZOrder">15</P>
     <P Name="BackgroundColor">automatic</P>
-    <P Name="LibraryVersion">26000997.0</P>
+    <P Name="LibraryVersion">24002000.1</P>
     <P Name="SourceBlock">fl_lib/Physical Signals/Lookup Tables/PS Lookup Table (1D)</P>
     <P Name="SourceType">PS Lookup Table (1D)</P>
     <InstanceData>
@@ -1449,6 +1467,7 @@ Converter</P>
       <P Name="SimscapeInstrumentationLogging">off</P>
       <P Name="SimscapeInstrumentationVariables" Ref="bdmxdata:SimscapeInstrumentationVariables_4"/>
       <P Name="SourceFile">foundation.signal.lookup_tables.one_dimensional</P>
+      <P Name="InternalSimscapePortConfiguration">{&quot;Bottom&quot;:[],&quot;Left&quot;:[{&quot;id&quot;:&quot;I&quot;,&quot;label&quot;:&quot;x&quot;,&quot;type&quot;:&quot;input&quot;}],&quot;Right&quot;:[{&quot;id&quot;:&quot;O&quot;,&quot;label&quot;:&quot;f&quot;,&quot;type&quot;:&quot;output&quot;}],&quot;Top&quot;:[]}</P>
       <P Name="SscBlockScalableBuild">off</P>
       <P Name="ComponentPath">foundation.signal.lookup_tables.one_dimensional</P>
       <P Name="ComponentVariants">[&quot;foundation.signal.lookup_tables.one_dimensional&quot;]</P>
@@ -1468,17 +1487,13 @@ Converter</P>
       <P Name="extrap_method_unit">1</P>
       <P Name="extrap_method_conf">compiletime</P>
     </InstanceData>
-    <PortProperties>
-      <Port Type="lconn" Index="1"/>
-      <Port Type="rconn" Index="1"/>
-    </PortProperties>
   </Block>
   <Block BlockType="Reference" Name="PS Transfer Function" SID="5">
     <PortCounts lconn="1" rconn="1"/>
     <P Name="Position">[285, 81, 335, 149]</P>
     <P Name="ZOrder">17</P>
     <P Name="BackgroundColor">automatic</P>
-    <P Name="LibraryVersion">26000997.0</P>
+    <P Name="LibraryVersion">24002000.1</P>
     <P Name="SourceBlock">fl_lib/Physical Signals/Linear Operators/PS Transfer Function</P>
     <P Name="SourceType">PS Transfer Function</P>
     <InstanceData>
@@ -1486,6 +1501,7 @@ Converter</P>
       <P Name="SimscapeInstrumentationLogging">off</P>
       <P Name="SimscapeInstrumentationVariables" Ref="bdmxdata:SimscapeInstrumentationVariables_5"/>
       <P Name="SourceFile">foundation.signal.linear.transfer_function</P>
+      <P Name="InternalSimscapePortConfiguration">{&quot;Bottom&quot;:[],&quot;Left&quot;:[{&quot;id&quot;:&quot;U&quot;,&quot;label&quot;:&quot;&quot;,&quot;type&quot;:&quot;input&quot;}],&quot;Right&quot;:[{&quot;id&quot;:&quot;Y&quot;,&quot;label&quot;:&quot;&quot;,&quot;type&quot;:&quot;output&quot;}],&quot;Top&quot;:[]}</P>
       <P Name="SscBlockScalableBuild">off</P>
       <P Name="ComponentPath">foundation.signal.linear.transfer_function</P>
       <P Name="ComponentVariants">[&quot;foundation.signal.linear.transfer_function&quot;]</P>
@@ -1514,16 +1530,12 @@ Converter</P>
       <P Name="y0_unit">N*m</P>
       <P Name="y0_conf">compiletime</P>
     </InstanceData>
-    <PortProperties>
-      <Port Type="lconn" Index="1"/>
-      <Port Type="rconn" Index="1"/>
-    </PortProperties>
   </Block>
   <Block BlockType="Scope" Name="Scope" SID="6">
     <PortCounts in="2"/>
     <P Name="Position">[795, 84, 825, 211]</P>
     <P Name="ZOrder">20</P>
-    <P Name="ScopeSpecificationString">Simulink.scopes.TimeScopeBlockCfg(&apos;CurrentConfiguration&apos;, extmgr.ConfigurationSet(extmgr.Configuration(&apos;Core&apos;,&apos;General UI&apos;,true,&apos;DisplayFullSourceName&apos;,false,&apos;ShowMainToolbar&apos;,true,&apos;FigureColor&apos;,[0.129411764705882 0.129411764705882 0.129411764705882]),extmgr.Configuration(&apos;Sources&apos;,&apos;WiredSimulink&apos;,true,&apos;DataLogging&apos;,false,&apos;DataLoggingVariableName&apos;,&apos;ScopeData&apos;,&apos;DataLoggingLimitDataPoints&apos;,false,&apos;DataLoggingMaxPoints&apos;,&apos;5000&apos;,&apos;DataLoggingDecimateData&apos;,false,&apos;DataLoggingDecimation&apos;,&apos;2&apos;,&apos;DataLoggingSaveFormat&apos;,&apos;Dataset&apos;,&apos;SampleTime&apos;,&apos;-1&apos;),extmgr.Configuration(&apos;Visuals&apos;,&apos;Time Domain&apos;,true,&apos;SerializedDisplays&apos;,{struct(&apos;MinYLimReal&apos;,&apos;-0.1103&apos;,&apos;MaxYLimReal&apos;,&apos;0.99274&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0&apos;,&apos;MaxYLimMag&apos;,&apos;10&apos;,&apos;LegendVisibility&apos;,&apos;Off&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0.0705882352941176 0.0705882352941176 0.0705882352941176],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;AxesTickColor&apos;,[0.850980392156863 0.850980392156863 0.850980392156863],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;,&apos;LinePropertiesCache&apos;,{{struct(&apos;Color&apos;,[1 0.909803921568627 0.392156862745098],&apos;LineStyle&apos;,&apos;-&apos;,&apos;LineWidth&apos;,1.5,&apos;Marker&apos;,&apos;none&apos;,&apos;Visible&apos;,&apos;On&apos;)}},&apos;NumLines&apos;,1,&apos;ShowContent&apos;,true,&apos;Placement&apos;,1),struct(&apos;MinYLimReal&apos;,&apos;-1.1154e-11&apos;,&apos;MaxYLimReal&apos;,&apos;1.0035e-10&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0&apos;,&apos;MaxYLimMag&apos;,&apos;10&apos;,&apos;LegendVisibility&apos;,&apos;Off&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0.0705882352941176 0.0705882352941176 0.0705882352941176],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;AxesTickColor&apos;,[0.850980392156863 0.850980392156863 0.850980392156863],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;,&apos;LinePropertiesCache&apos;,{{struct(&apos;Color&apos;,[1 0.909803921568627 0.392156862745098],&apos;LineStyle&apos;,&apos;-&apos;,&apos;LineWidth&apos;,1.5,&apos;Marker&apos;,&apos;none&apos;,&apos;Visible&apos;,&apos;On&apos;)}},&apos;NumLines&apos;,1,&apos;ShowContent&apos;,true,&apos;Placement&apos;,2)},&apos;DisplayPropertyDefaults&apos;,struct(&apos;YLabelReal&apos;,&apos;&apos;,&apos;XGrid&apos;,true,&apos;YGird&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.6863 0.6863 0.6863],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843]),&apos;DisplayLayoutDimensions&apos;,[2 1],&apos;DisplayContentCache&apos;,[],&apos;PlotType&apos;,&apos;Auto&apos;,&apos;TimeUnits&apos;,&apos;None&apos;,&apos;TimeSpanOverrunMode&apos;,&apos;Wrap&apos;,&apos;TimeDisplayOffset&apos;,&apos;0&apos;,&apos;TimeAxisLabels&apos;,&apos;Bottom&apos;,&apos;MaximizeAxes&apos;,&apos;Off&apos;,&apos;ShowTimeAxisLabel&apos;,false,&apos;InputProcessing&apos;,&apos;SampleProcessing&apos;),extmgr.Configuration(&apos;Tools&apos;,&apos;Plot Navigation&apos;,true,&apos;OnceAtStop&apos;,false,&apos;YDataDisplay&apos;,&apos;80&apos;,&apos;XDataDisplay&apos;,&apos;100&apos;,&apos;AutoscaleMode&apos;,&apos;Manual&apos;,&apos;AutoscaleYAnchor&apos;,&apos;Center&apos;,&apos;AutoscaleXAnchor&apos;,&apos;Center&apos;,&apos;AutoscaleSecondaryAxes&apos;,false,&apos;UpdatesBeforeAutoscale&apos;,&apos;10&apos;)),&apos;Version&apos;,&apos;2026a&apos;,&apos;Position&apos;,[1117 726 619 639],&apos;VisibleAtModelOpen&apos;,&apos;on&apos;)</P>
+    <P Name="ScopeSpecificationString">Simulink.scopes.TimeScopeBlockCfg(&apos;CurrentConfiguration&apos;, extmgr.ConfigurationSet(extmgr.Configuration(&apos;Core&apos;,&apos;General UI&apos;,true,&apos;FigureColor&apos;,[0.129411764705882 0.129411764705882 0.129411764705882]),extmgr.Configuration(&apos;Core&apos;,&apos;Source UI&apos;,true),extmgr.Configuration(&apos;Sources&apos;,&apos;WiredSimulink&apos;,true),extmgr.Configuration(&apos;Visuals&apos;,&apos;Time Domain&apos;,true,&apos;SerializedDisplays&apos;,{struct(&apos;MinYLimReal&apos;,&apos;-0.1103&apos;,&apos;MaxYLimReal&apos;,&apos;0.99274&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0&apos;,&apos;MaxYLimMag&apos;,&apos;10&apos;,&apos;LegendVisibility&apos;,&apos;Off&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0.0705882352941176 0.0705882352941176 0.0705882352941176],&apos;AxesTickColor&apos;,[0.850980392156863 0.850980392156863 0.850980392156863],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;,&apos;LinePropertiesCache&apos;,{{struct(&apos;Color&apos;,[1 0.909803921568627 0.392156862745098],&apos;LineStyle&apos;,&apos;-&apos;,&apos;LineWidth&apos;,1.5,&apos;Marker&apos;,&apos;none&apos;,&apos;Visible&apos;,&apos;On&apos;)}},&apos;UserDefinedChannelNames&apos;,{{}},&apos;NumLines&apos;,0,&apos;LineNames&apos;,{{[]}},&apos;ShowContent&apos;,true,&apos;Placement&apos;,1),struct(&apos;MinYLimReal&apos;,&apos;-1.1154e-11&apos;,&apos;MaxYLimReal&apos;,&apos;1.0035e-10&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0&apos;,&apos;MaxYLimMag&apos;,&apos;10&apos;,&apos;LegendVisibility&apos;,&apos;Off&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0.0705882352941176 0.0705882352941176 0.0705882352941176],&apos;AxesTickColor&apos;,[0.850980392156863 0.850980392156863 0.850980392156863],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;,&apos;LinePropertiesCache&apos;,{{struct(&apos;Color&apos;,[1 0.909803921568627 0.392156862745098],&apos;LineStyle&apos;,&apos;-&apos;,&apos;LineWidth&apos;,1.5,&apos;Marker&apos;,&apos;none&apos;,&apos;Visible&apos;,&apos;On&apos;)}},&apos;UserDefinedChannelNames&apos;,{{}},&apos;NumLines&apos;,0,&apos;LineNames&apos;,{{[]}},&apos;ShowContent&apos;,true,&apos;Placement&apos;,2)},&apos;TimeUnits&apos;,&apos;None&apos;,&apos;DisplayPropertyDefaults&apos;,struct(&apos;YLabelReal&apos;,&apos;&apos;,&apos;XGrid&apos;,true,&apos;YGird&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.6863 0.6863 0.6863],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843]),&apos;DisplayLayoutDimensions&apos;,[2 1],&apos;DisplayContentCache&apos;,[]),extmgr.Configuration(&apos;Tools&apos;,&apos;Plot Navigation&apos;,true,&apos;OnceAtStop&apos;,false),extmgr.Configuration(&apos;Tools&apos;,&apos;Measurements&apos;,true,&apos;Version&apos;,&apos;2024b&apos;)),&apos;Version&apos;,&apos;2024b&apos;,&apos;Position&apos;,[1117 725.666666666667 619 639.333333333333],&apos;VisibleAtModelOpen&apos;,&apos;on&apos;)</P>
     <P Name="NumInputPorts">2</P>
     <P Name="Floating">off</P>
   </Block>
@@ -1533,7 +1545,7 @@ Converter</P>
     <P Name="ZOrder">13</P>
     <P Name="HideAutomaticName">off</P>
     <P Name="AttributesFormatString">Local solver: %&lt;UseLocalSolver&gt;</P>
-    <P Name="LibraryVersion">11.0</P>
+    <P Name="LibraryVersion">7.0</P>
     <P Name="SourceBlock">nesl_utility/Solver
 Configuration</P>
     <P Name="SourceType">Solver
@@ -1566,8 +1578,6 @@ Configuration</P>
       <P Name="PhasorMode">off</P>
       <P Name="PhasorModeNumHarmonics">1</P>
       <P Name="ConsistencySolver">NEWTON_XTOL_AFTER_FTOL</P>
-      <P Name="CanonicalOrdering">UNORDERED</P>
-      <P Name="OptimizeIntermediates">UNOPTIMIZED</P>
       <P Name="IndexReductionMethod">DerivativeReplacement</P>
       <P Name="DoDC">off</P>
       <P Name="ResidualTolerance">1e-09</P>
@@ -1614,7 +1624,7 @@ Configuration</P>
     <P Name="Position">[15, 100, 45, 130]</P>
     <P Name="ZOrder">14</P>
     <P Name="BackgroundColor">automatic</P>
-    <P Name="LibraryVersion">26000997.0</P>
+    <P Name="LibraryVersion">24002000.1</P>
     <P Name="SourceBlock">fl_lib/Physical Signals/Sources/PS Ramp</P>
     <P Name="SourceType">PS Ramp</P>
     <InstanceData>
@@ -1622,6 +1632,7 @@ Configuration</P>
       <P Name="SimscapeInstrumentationLogging">off</P>
       <P Name="SimscapeInstrumentationVariables" Ref="bdmxdata:SimscapeInstrumentationVariables_9"/>
       <P Name="SourceFile">foundation.signal.sources.ramp</P>
+      <P Name="InternalSimscapePortConfiguration">{&quot;Bottom&quot;:[],&quot;Left&quot;:[],&quot;Right&quot;:[{&quot;id&quot;:&quot;O&quot;,&quot;label&quot;:&quot;&quot;,&quot;type&quot;:&quot;output&quot;}],&quot;Top&quot;:[]}</P>
       <P Name="SscBlockScalableBuild">off</P>
       <P Name="ComponentPath">foundation.signal.sources.ramp</P>
       <P Name="ComponentVariants">[&quot;foundation.signal.sources.ramp&quot;]</P>
@@ -1637,13 +1648,7 @@ Configuration</P>
       <P Name="initial_output">0</P>
       <P Name="initial_output_unit">s</P>
       <P Name="initial_output_conf">compiletime</P>
-      <P Name="ZeroCross">true</P>
-      <P Name="ZeroCross_unit">1</P>
-      <P Name="ZeroCross_conf">compiletime</P>
     </InstanceData>
-    <PortProperties>
-      <Port Type="rconn" Index="1"/>
-    </PortProperties>
   </Block>
   <Line LineType="Connection">
     <P Name="ZOrder">15</P>
@@ -1728,7 +1733,7 @@ Configuration</P>
   </Line>
   <Annotation SID="14">
     <P Name="Name">Log signal without name</P>
-    <P Name="Position">[640, 232, 749, 246]</P>
+    <P Name="Position">[640, 232, 749, 247]</P>
     <P Name="InternalMargins">[0, 0, 0, 0]</P>
     <P Name="ZOrder">-1</P>
   </Annotation>
@@ -1748,8 +1753,8 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body align=&quot;left&quot; style=&quot; font-family:&apos;Helvetica&apos;; font-size:10px; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;left&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12px;&quot;&gt;Copyright 2025 The MathWorks, Inc.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</P>
-    <P Name="Position">[297, 319, 493, 335]</P>
+&lt;p align=&quot;left&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12px;&quot;&gt;Copyright 2025-2026 The MathWorks, Inc.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</P>
+    <P Name="Position">[297, 319, 524, 335]</P>
     <P Name="InternalMargins">[0, 0, 0, 0]</P>
     <P Name="Interpreter">rich</P>
     <P Name="ZOrder">-2</P>
@@ -1767,7 +1772,7 @@ p, li { white-space: pre-wrap; }
   </Annotation>
   <Annotation SID="17">
     <P Name="Name">Log signal without name</P>
-    <P Name="Position">[599, 320, 708, 334]</P>
+    <P Name="Position">[599, 320, 708, 335]</P>
     <P Name="InternalMargins">[0, 0, 0, 0]</P>
     <P Name="ZOrder">-2</P>
   </Annotation>
@@ -1810,10 +1815,10 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
         <P Name="IsTabbed" Class="logical">1</P>
         <P Name="ViewObjType" Class="char">SimulinkTopLevel</P>
         <P Name="LoadSaveID" Class="char">0</P>
-        <P Name="Extents" Class="double">[977.0, 399.0]</P>
+        <P Name="Extents" Class="double">[1483.0, 612.0]</P>
         <P Name="ZoomFactor" Class="double">1.0</P>
-        <P Name="Offset" Class="double">[-90.42578125, -34.0]</P>
-        <P Name="SceneRectInView" Class="double">[-90.42578125, -34.0, 977.0, 399.0]</P>
+        <P Name="Offset" Class="double">[-95.833333333333314, -38.5]</P>
+        <P Name="SceneRectInView" Class="double">[-95.833333333333314, -38.5, 988.66666666666663, 408.0]</P>
       </Object>
       <Array PropName="DockComponentsInfo" Type="Simulink.DockComponentInfo" Dimension="1*3">
         <Object ObjectID="6">
@@ -1824,8 +1829,8 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="UserData" Class="char"/>
           <P Name="Floating" Class="logical">1</P>
           <P Name="DockPosition" Class="char">Bottom</P>
-          <P Name="Width" Class="int32">640</P>
-          <P Name="Height" Class="int32">480</P>
+          <P Name="Width" Class="int32">426</P>
+          <P Name="Height" Class="int32">320</P>
           <P Name="Minimized" Class="char">Unset</P>
         </Object>
         <Object ObjectID="7">
@@ -1836,8 +1841,8 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="UserData" Class="char"/>
           <P Name="Floating" Class="logical">0</P>
           <P Name="DockPosition" Class="char">Right</P>
-          <P Name="Width" Class="int32">640</P>
-          <P Name="Height" Class="int32">480</P>
+          <P Name="Width" Class="int32">426</P>
+          <P Name="Height" Class="int32">320</P>
           <P Name="Minimized" Class="char">On</P>
         </Object>
         <Object ObjectID="8">
@@ -1849,12 +1854,12 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
 </P>
           <P Name="Floating" Class="logical">0</P>
           <P Name="DockPosition" Class="char">Left</P>
-          <P Name="Width" Class="int32">640</P>
-          <P Name="Height" Class="int32">480</P>
+          <P Name="Width" Class="int32">426</P>
+          <P Name="Height" Class="int32">320</P>
           <P Name="Minimized" Class="char">Unset</P>
         </Object>
       </Array>
-      <P Name="WindowState" Class="char">AAAA/wAAAAD9AAAAAwAAAAAAAAC9AAAB+PwCAAAABPsAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAAAAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABjAP////sAAABgAFMAaQBtAHUAbABpAG4AawA6AEUAZABpAHQAbwByADoAUgBlAGYAZQByAGUAbgBjAGUAZABGAGkAbABlAHMALwBSAGUAZgBlAHIAZQBuAGMAZQBkACAARgBpAGwAZQBzAAAAAAD/////AAAAjQD///8AAAABAAAAAAAAAAD8AgAAAAH7AAAAVABHAEwAVQBFADIAOgBQAHIAbwBwAGUAcgB0AHkASQBuAHMAcABlAGMAdABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAAawA////AAAAAwAABYMAAAEI/AEAAAAB/AAAACYAAAWDAAAAAAD////6/////wEAAAAC+wAAADYARwBMAFUARQAyADoAUwBwAHIAZQBhAGQAUwBoAGUAZQB0AC8ATQBvAGQAZQBsAEQAYQB0AGECAAAAXQAAA6cAAAWDAAABn/v/////AAAAAAD/////AAACeQD///8AAAPzAAABzAAAAAEAAAACAAAAAQAAAAL8AAAAAwAAAAAAAAABAAAANgBjAG8AbABsAGEAcABzAGkAYgBsAGUAUABhAG4AZQBsAFQAbwBvAGwAQgBhAHIATABlAGYAdAMAAAAA/////wAAAAAAAAAAAAAAAQAAAAEAAAA4AGMAbwBsAGwAYQBwAHMAaQBiAGwAZQBQAGEAbgBlAGwAVABvAG8AbABCAGEAcgBSAGkAZwBoAHQDAAAAAP////8AAAAAAAAAAAAAAAMAAAABAAAAOgBjAG8AbABsAGEAcABzAGkAYgBsAGUAUABhAG4AZQBsAFQAbwBvAGwAQgBhAHIAQgBvAHQAdABvAG0AAAAAAP////8AAAAAAAAAAA==</P>
+      <P Name="WindowState" Class="char">AAAA/wAAAAD9AAAAAwAAAAAAAAC9AAAB+PwCAAAABPsAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAAAAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAACTAP////sAAABgAFMAaQBtAHUAbABpAG4AawA6AEUAZABpAHQAbwByADoAUgBlAGYAZQByAGUAbgBjAGUAZABGAGkAbABlAHMALwBSAGUAZgBlAHIAZQBuAGMAZQBkACAARgBpAGwAZQBzAAAAAAD/////AAAAxwD///8AAAABAAAAAAAAAAD8AgAAAAH7AAAAVABHAEwAVQBFADIAOgBQAHIAbwBwAGUAcgB0AHkASQBuAHMAcABlAGMAdABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAAoAA////AAAAAwAABgMAAAE2/AEAAAAB/AAAACYAAAYDAAAAAAD////6/////wEAAAAC+wAAADYARwBMAFUARQAyADoAUwBwAHIAZQBhAGQAUwBoAGUAZQB0AC8ATQBvAGQAZQBsAEQAYQB0AGECAAAAXQAAA6cAAAWDAAABn/v/////AAAAAAD/////AAADswD///8AAAYDAAACsgAAAAEAAAACAAAAAQAAAAL8AAAAAwAAAAAAAAABAAAANgBjAG8AbABsAGEAcABzAGkAYgBsAGUAUABhAG4AZQBsAFQAbwBvAGwAQgBhAHIATABlAGYAdAMAAAAA/////wAAAAAAAAAAAAAAAQAAAAEAAAA4AGMAbwBsAGwAYQBwAHMAaQBiAGwAZQBQAGEAbgBlAGwAVABvAG8AbABCAGEAcgBSAGkAZwBoAHQDAAAAAP////8AAAAAAAAAAAAAAAMAAAABAAAAOgBjAG8AbABsAGEAcABzAGkAYgBsAGUAUABhAG4AZQBsAFQAbwBvAGwAQgBhAHIAQgBvAHQAdABvAG0AAAAAAP////8AAAAAAAAAAA==</P>
       <Array PropName="PersistedApps" Type="Cell" Dimension="0*1"/>
       <P Name="WindowUuid" Class="char">dfb79cc3-4aa4-41b6-9607-6dc5d9b020f6</P>
     </Object>

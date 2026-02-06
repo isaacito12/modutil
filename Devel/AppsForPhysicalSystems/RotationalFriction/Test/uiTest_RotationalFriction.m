@@ -90,7 +90,7 @@ classdef uiTest_RotationalFriction < matlab.uitest.TestCase
         testcase.App = struct;
         testcase.App.Window.MainFigure = uifigure(Visible="off");
         % The model exists, but the target block does not exist in the model.
-        model_name = "samplemodel_RotationalFriction_test1_empty";
+        model_name = "SampleModel_RotationalFriction_test1_empty";
         block_path = model_name + "/Rotational Friction1";
         RotationalFriction1.RotationalFrictionAppMain(BlockPath=block_path)  % !test-target
       end  % nested function
@@ -151,7 +151,7 @@ classdef uiTest_RotationalFriction < matlab.uitest.TestCase
       % Test a Callback Button which opens the app.
       % Rather than clicking the button programmatically, get the command text and evaluate it.
 
-      model_name = "samplemodel_RotationalFriction_refsub_24b";
+      model_name = "SampleModel_RotationalFriction_refsub_24b";
 
       load_system(model_name)
 
@@ -170,16 +170,16 @@ classdef uiTest_RotationalFriction < matlab.uitest.TestCase
 
     function Test_with_samplemodel_1(testcase)
       % Test the ModelName option.
-      model_name = "samplemodel_RotationalFriction_refsub_24b";
+      model_name = "SampleModel_RotationalFriction_refsub_24b";
       testcase.App = RotationalFriction1.RotationalFrictionAppMain(ModelName=model_name);
     end  % function
 
     function Test_with_samplemodel_2(testcase)
       % Test the BlockPath option together with the plot unit options.
       % Specify the block which uses workspace variables for the block parameters.
-      model_name = "samplemodel_RotationalFriction_refsub_24b";
+      model_name = "SampleModel_RotationalFriction_refsub_24b";
       block_path = model_name + "/Rotational Friction2";
-      evalin("base", "sampleparams_RotationalFriction")
+      evalin("base", "SampleParams_RotationalFriction")
       testcase.App = RotationalFriction1.RotationalFrictionAppMain(BlockPath=block_path, TorquePlotUnit="lbf*ft", VelocityPlotUnit="rev/s");
     end  % function
 
@@ -188,7 +188,7 @@ classdef uiTest_RotationalFriction < matlab.uitest.TestCase
     function Test_1(testcase)
       % If the app is launched with a model, the app must load parameters from an expected block.
 
-      model_name = "samplemodel_RotationalFriction_refsub_24b";
+      model_name = "SampleModel_RotationalFriction_refsub_24b";
       testcase.App = RotationalFriction1.RotationalFrictionAppMain(ModelName=model_name);
 
       % The app must load this block:
@@ -239,7 +239,7 @@ classdef uiTest_RotationalFriction < matlab.uitest.TestCase
 
     function Test_2(testcase)
       % If the app is launched with a block path, the app must load parameters from the specified block.
-      model_name = "samplemodel_RotationalFriction_refsub_24b";
+      model_name = "SampleModel_RotationalFriction_refsub_24b";
       block_path = model_name + "/Rotational Friction1";
       testcase.App = RotationalFriction1.RotationalFrictionAppMain(BlockPath=block_path);
 

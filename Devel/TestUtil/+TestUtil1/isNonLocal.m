@@ -4,7 +4,9 @@ function TrueOrFalse = isNonLocal(top_folder)
 % Copyright 2026 The MathWorks, Inc.
 
 arguments (Input)
-  top_folder (1,1) string {mustBeFolder}
+  % This is compared with the pwd by startsWith, which guarantees that
+  % the specified pattern must be a folder or folders.
+  top_folder (1,1) pattern
 end  % arguments
 
 arguments (Output)

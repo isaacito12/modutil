@@ -39,12 +39,17 @@ classdef TestResultAppMain < handle
 
     ResultTableUI AppUtil1.Component.Table
 
+    MessageUI AppUtil1.Component.Label
   end  % properties
 
   properties (Constant, Access=private)
     width_button = AppUtil1.Constant.Width{"unitwidth"} * 12
+    style_for_error = uistyle(BackgroundColor = "yellow")
+    default_message = CodeUtil1.i18n("Double-click a table row to open the file. (The file must exist.)")
+  end  % properties
 
-    style_for_error = uistyle(BackgroundColor = "yellow");
+  properties (Access=private)
+    deferred_message (1,1) timer = timer
   end  % properties
 
   methods
@@ -91,6 +96,9 @@ classdef TestResultAppMain < handle
 
       end  % if
 
+      App.deferred_message.StartDelay = 3;  % seconds
+      App.deferred_message.TimerFcn = @(~,~) show_default_message(App);
+
       App.GUIReady = true;
 
       % -----------------------------------------------------------------------
@@ -100,6 +108,11 @@ classdef TestResultAppMain < handle
       if nargout == 0
         clear App
       end  % if
+    end  % function
+
+    function show_default_message(App)
+      App.MessageUI.Text = App.default_message;
+      drawnow
     end  % function
 
     function build_app_gui(App)
@@ -201,11 +214,6 @@ classdef TestResultAppMain < handle
       column_grid = NewColumnGrid(main_column_layout);
       row_layout = AppUtil1.RowLayout(column_grid);
 
-      row_grid = NewRowGrid(row_layout);
-      label_ui = AppUtil1.Component.Label(row_grid);
-      label_ui.MainFigure = App.Window.MainFigure;
-      label_ui.Text = CodeUtil1.i18n("Double-click a table row to open the file.");
-
       row_grid = NewRowGrid(row_layout, Width="fit");
       App.RefreshButtonUI = AppUtil1.Component.Button(row_grid);
       App.RefreshButtonUI.MainFigure = App.Window.MainFigure;
@@ -218,12 +226,12 @@ classdef TestResultAppMain < handle
       % =======================================================================
 
       % Expand the uitable vertically to fit the available height of the app window.
-      column_grid = NewColumnGrid(main_column_layout, Height="1x");
+      column_grid = NewColumnGrid(main_column_layout, Height="1x");  % !vertical-expansion
 
       App.ResultTableUI = AppUtil1.Component.Table(column_grid);
 
       % Expand the uitable vertically to fit the available height of the app window.
-      App.ResultTableUI.ComponentHeight = "1x";
+      App.ResultTableUI.ComponentHeight = "1x";  % !vertical-expansion
 
       App.ResultTableUI.MainFigure = App.Window.MainFigure;
       App.ResultTableUI.MainTable.Data = table.empty;
@@ -233,6 +241,13 @@ classdef TestResultAppMain < handle
       % https://www.mathworks.com/help/matlab/ref/matlab.ui.control.table.html
       App.ResultTableUI.MainTable.DoubleClickedFcn = @(~, DoubleClickedData) ...
         react_TableRowDoubleClicked(App, DoubleClickedData.InteractionInformation.Row);
+
+      % =======================================================================
+      column_grid = NewColumnGrid(main_column_layout);
+
+      App.MessageUI = AppUtil1.Component.Label(column_grid);
+      App.MessageUI.MainFigure = App.Window.MainFigure;
+      App.MessageUI.Text = CodeUtil1.i18n("Double-click a table row to open the file.");
 
     end  % function
 
@@ -292,6 +307,7 @@ classdef TestResultAppMain < handle
     end  % function
 
     function react_OpenFileInEditorButtonPushed(App)
+      % Open the test result XML file.
       if isempty(App.TestResultFileDropDownUI.Items)
 
         return
@@ -301,13 +317,27 @@ classdef TestResultAppMain < handle
     end  % function
 
     function react_TableRowDoubleClicked(App, row_number)
+      % Open the test implementation file selected in the table.
       clicked_row = App.TestResultTable(row_number, :);
 
-      target_file = which(clicked_row.TestClass + ".m");
-      % !todo: check that the file exists.
+      targetfile_filename = clicked_row.TestClass + ".m";
 
+      % targetfile_fullpath = fullfile(top_folder, clicked_row.TestClass + ".m");
+
+      % The folder where the test result XML file is stored may not be the folder where
+      % the target test implementation file is stored.
+      % Find the file in MATLAB path.
+      targetfile_fullpath = FileUtil1.getFileFullPath(targetfile_filename, ReturnIfNotFound=true);
+
+      if targetfile_fullpath == ""
+        App.MessageUI.Text = CodeUtil1.i18n("File not found.");
+        start(App.deferred_message)
+
+        return
+
+      end  % if
       target_function = clicked_row.TestFunction;
-      matlab.desktop.editor.openAndGoToFunction(target_file, target_function);
+      matlab.desktop.editor.openAndGoToFunction(targetfile_fullpath, target_function);
     end  % function
 
     function update_ui(App)

@@ -11,7 +11,7 @@
 
 # Copyright 2025 The MathWorks, Inc.
 
-name: Testing Release on Linux
+name: Release-folder R2025b Linux
 
 on:
   push:
@@ -55,7 +55,7 @@ jobs:
           - name: R2025b
             cmd: "cd Release; addpath('ModelingUtilityForSimscape'); buildtool -buildFile buildfile.m -verbosity Verbose Test"
 
-    name: Test Release in ${{ matrix.config.name }} on Linux
+    name: Test Release-folder in MATLAB ${{ matrix.config.name }} on Linux
 
     permissions:
       # Required for saving files within a workflow.

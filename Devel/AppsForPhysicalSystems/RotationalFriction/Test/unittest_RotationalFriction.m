@@ -36,7 +36,7 @@ classdef unittest_RotationalFriction < matlab.unittest.TestCase
     % Check that models, scripts, functions, and classes run right out of the box.
 
     function PassingTest_1(~)
-      sampleparams_RotationalFriction  % !test-target
+      SampleParams_RotationalFriction  % !test-target
     end  % function
 
   end  % methods

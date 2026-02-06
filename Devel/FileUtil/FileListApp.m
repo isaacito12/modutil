@@ -5,7 +5,7 @@ function App = FileListApp(FileList, NameValuePair)
 % This app takes either a string array or a table.
 % A string array must contain a list of file paths.
 % A table must contain the "FilePath" column, and optionally the "LineNumber" column.
-% If the table has no LineNumber column, first line is used.
+% If the table has no LineNumber column, first line is used to open the file.
 %
 %   FileListApp(<file_list>)
 %
@@ -38,7 +38,7 @@ function App = FileListApp(FileList, NameValuePair)
 %
 %   FileListApp(session.Result, TopFolder=session.Searcher.States.TargetFolder)
 
-% Copyright 2025 The MathWorks, Inc.
+% Copyright 2025-2026 The MathWorks, Inc.
 
 arguments (Input)
   FileList {mustBeA(FileList, ["string", "table"])} = "sample.m"
@@ -95,30 +95,28 @@ main_figure = uifigure(Visible="off");
 app_window = AppUtil1.AppWindow(main_figure, SourceFile=mfilename);
 app_window.Width = 760;
 app_window.Height = 520;
-app_window.Name = CodeUtil1.i18n("File List");
+app_window.Name = CodeUtil1.i18n("File list");
 
 main_column_layout = app_window.MainLayout;
 
 % -----------------------------------------------------------------------
 column_grid = NewColumnGrid(main_column_layout);
 label_ui = AppUtil1.Component.Label(column_grid);
+label_ui.MainFigure = main_figure;
 label_ui.Text = CodeUtil1.i18n("Folder");
 
 % -----------------------------------------------------------------------
 column_grid = NewColumnGrid(main_column_layout);
 folder_ui = AppUtil1.Component.EditField(column_grid);
+folder_ui.MainFigure = main_figure;
 folder_ui.Value = replace(NameValuePair.TopFolder, ("/"|"\"), " > ");
 
 % -----------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
-label_ui = AppUtil1.Component.Label(column_grid);
-label_ui.Text = CodeUtil1.i18n("Double-click a table row to open the file.");
-
-% -----------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout, Height="1x");
+column_grid = NewColumnGrid(main_column_layout, Height="1x");  % !vertical-expansion
 
 table_ui = AppUtil1.Component.Table(column_grid);
-table_ui.ComponentHeight = 400;
+table_ui.MainFigure = main_figure;
+table_ui.ComponentHeight = "1x";  % !vertical-expansion
 
 table_ui.MainTable.Data = FileList;
 
@@ -165,11 +163,41 @@ table_ui.MainTable.SelectionType = "row";
 table_ui.MainTable.DoubleClickedFcn = @(~, DoubleClickedData) ...
   react_TableDoubleClicked(DoubleClickedData.InteractionInformation.Row);
 
+% -----------------------------------------------------------------------
+column_grid = NewColumnGrid(main_column_layout);
+
+default_message = CodeUtil1.i18n("Double-click a table row to open the file. (The file must exist.)");
+
+message_ui = AppUtil1.Component.Label(column_grid);
+message_ui.MainFigure = main_figure;
+message_ui.Text = default_message;
+
+% -----------------------------------------------------------------------
+% Callback functions
+
+deferred_message = timer;
+deferred_message.StartDelay = 3;  % seconds
+deferred_message.TimerFcn = @(~,~) show_default_message();
+
   function react_TableDoubleClicked(row_number)
     target_row = FileList(row_number, :);
-    matlab.desktop.editor.openAndGoToLine(fullfile(NameValuePair.TopFolder, target_row.FilePath), target_row.LineNumber);
-  end  % function
+    file_fullpath = fullfile(NameValuePair.TopFolder, target_row.FilePath);
+    if not(isfile(file_fullpath))
+      message_ui.Text = CodeUtil1.i18n("File not found.");
+      start(deferred_message)
 
+      return
+
+    end  % if
+    matlab.desktop.editor.openAndGoToLine(fullfile(NameValuePair.TopFolder, target_row.FilePath), target_row.LineNumber);
+  end  % nested function
+
+  function show_default_message
+    message_ui.Text = default_message;
+    drawnow
+  end  % nested function
+
+% -----------------------------------------------------------------------
 movegui(main_figure, "center")
 main_figure.Visible = "on";
 drawnow

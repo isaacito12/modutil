@@ -54,7 +54,8 @@ classdef unittest_generateMarkdownsFromLiveScripts < matlab.unittest.TestCase
 
       if matlabRelease.Release == "R2026a"
         FileUtil1.displayTimeAndFileLocation("R2026a");
-        verifyFail(testcase, "Not performing this test for now.")
+        disp("Not performing this test in 26a for now.")
+        verifyFail(testcase, "Not performing this test in 26a for now.")
 
         return
 
@@ -68,8 +69,7 @@ classdef unittest_generateMarkdownsFromLiveScripts < matlab.unittest.TestCase
       target_fullpath_1 = string(which(target_file_1));
       verifyTrue(testcase, not(isempty(target_fullpath_1)))
 
-      if isMATLABReleaseOlderThan("R2025a")
-        % R2024b or older
+      if TestUtil1.isR2024bOrOlder
         target_file_2 = "sampleScript_generateMarkdownsFromLiveScripts_3";
       else
         % R2025a or newer

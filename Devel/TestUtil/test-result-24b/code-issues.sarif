@@ -1,0 +1,105 @@
+{
+  "version": "2.1.0",
+  "properties": {
+    "Date": "27-Jan-2026 20:36:52",
+    "Release": "R2024b",
+    "CodeAnalyzerConfiguration": "active"
+  },
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Code Analyzer"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/+TestUtil1/getCodeCoverageTable.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/+TestUtil1/isNonLocal.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/+TestUtil1/isR2024bOrOlder.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/+TestUtil1/summarizeCodeCoverage.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/+TestUtil1/summarizeTestResult.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/CodeCoverageApp.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/TestResultApp.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/Test/summarizeCodeCoverage/unittest_summarizeCodeCoverage.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/Test/summarizeTestResult/unittest_summarizeTestResult.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/buildfile.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/buildfile_24b.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/ui_test_TestUtil.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/ui_uptodate_test_TestUtil.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/Test/getCodeCoverageTable/demo_getCodeCoverageTable_1.mlx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/Test/summarizeCodeCoverage/demo_summarizeCodeCoverage_1.mlx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/Test/summarizeCodeCoverage/demo_summarizeCodeCoverage_2.mlx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/TestUtil/Test/summarizeTestResult/demo_summarizeTestResult_1.mlx"
+          }
+        }
+      ],
+      "results": []
+    }
+  ]
+}

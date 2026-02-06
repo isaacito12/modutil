@@ -4,7 +4,7 @@ function App = CodeCoverageApp(CodeCoverageFile)
 % This app takes a code coverage XML file which the Build Tool generated.
 % This function internally builds a table containing LineCoverage, Name, and
 % FilePath columns using the getCodeCoverageTable function in the TestUtil
-% and shows the table. You can double-click a row in the table to open the code file.
+% and shows the table. Double-click a row in the table to open the code file.
 
 % Copyright 2026 The MathWorks, Inc.
 
@@ -101,21 +101,15 @@ lines_valid_ui.MainFigure = main_figure;
 lines_valid_ui.Text = "";
 
 % -----------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
-AppUtil1.Component.HorizontalLine(column_grid);
+% column_grid = NewColumnGrid(main_column_layout);
+% AppUtil1.Component.HorizontalLine(column_grid);
 
 % -----------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
-label_ui = AppUtil1.Component.Label(column_grid);
-label_ui.MainFigure = main_figure;
-label_ui.Text = CodeUtil1.i18n("Double-click a table row to open the file.");
-
-% -----------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout, Height="1x");  % Expand vertically
+column_grid = NewColumnGrid(main_column_layout, Height="1x");  % !vertical-expansion
 
 table_ui = AppUtil1.Component.Table(column_grid);
 table_ui.MainFigure = main_figure;
-table_ui.ComponentHeight = "1x";  % Expand vertically
+table_ui.ComponentHeight = "1x";  % !vertical-expansion
 table_ui.MainTable.Data = table.empty;
 % uitable's DoubleClickedFcn callback is given a DoubleClickedData object as the second argument,
 % and the object provides information such as the clicked row via InteractionInformation.Row, etc.
@@ -123,16 +117,6 @@ table_ui.MainTable.Data = table.empty;
 % https://www.mathworks.com/help/matlab/ref/matlab.ui.control.table.html
 table_ui.MainTable.DoubleClickedFcn = @(~, DoubleClickedData) ...
   react_TableDoubleClicked(DoubleClickedData.InteractionInformation.Row);
-
-  function react_TableDoubleClicked(row_number)
-    clicked_row = code_coverage_table(row_number, :);
-
-    target_filepath = which(clicked_row.FilePath);
-    % !todo: check that the file exists.
-
-    target_name = clicked_row.Name;
-    matlab.desktop.editor.openAndGoToFunction(target_filepath, target_name);
-  end  % function
 
   function react_SelectButtonPushed
     % Open a dialog window to interactively get a code coverage file name from the user.
@@ -176,6 +160,44 @@ table_ui.MainTable.DoubleClickedFcn = @(~, DoubleClickedData) ...
     table_ui.MainTable.SelectionType = "row";
   end  % nested function
 
+% -----------------------------------------------------------------------
+column_grid = NewColumnGrid(main_column_layout);
+
+default_message = CodeUtil1.i18n("Double-click a table row to open the file. (The file must exist.)");
+
+message_ui = AppUtil1.Component.Label(column_grid);
+message_ui.MainFigure = main_figure;
+message_ui.Text = default_message;
+
+% -----------------------------------------------------------------------
+% Callback functions
+
+deferred_message = timer;
+deferred_message.StartDelay = 3;  % seconds
+deferred_message.TimerFcn = @(~,~) show_default_message();
+
+  function react_TableDoubleClicked(row_number)
+    clicked_row = code_coverage_table(row_number, :);
+
+    target_filepath = which(clicked_row.FilePath);
+    if not(isfile(target_filepath))
+      message_ui.Text = CodeUtil1.i18n("File not found.");
+      start(deferred_message)
+
+      return
+
+    end  % if
+
+    target_name = clicked_row.Name;
+    matlab.desktop.editor.openAndGoToFunction(target_filepath, target_name);
+  end  % nested function
+
+  function show_default_message
+    message_ui.Text = default_message;
+    drawnow
+  end  % nested function
+
+% -----------------------------------------------------------------------
 if isfile(CodeCoverageFile)
   update_ui()
 end  % if

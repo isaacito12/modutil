@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" name="ui_test_TestUtil" skipped="0" tests="2" time="4.8819">
+    <testcase classname="ui_test_TestUtil" name="app_launches_without_warnings_1" time="2.3313"/>
+    <testcase classname="ui_test_TestUtil" name="PassingTest_1" time="2.5506"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="ui_uptodate_test_TestUtil" skipped="0" tests="2" time="0.068864">
+    <testcase classname="ui_uptodate_test_TestUtil" name="app_screenshot_is_uptodate_1_1_dark" time="0.051295"/>
+    <testcase classname="ui_uptodate_test_TestUtil" name="app_screenshot_is_uptodate_1_2_light" time="0.017569"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_summarizeCodeCoverage" skipped="0" tests="4" time="0.84081">
+    <testcase classname="unittest_summarizeCodeCoverage" name="Test_error_1" time="0.030546"/>
+    <testcase classname="unittest_summarizeCodeCoverage" name="PassingTest_1" time="0.42684"/>
+    <testcase classname="unittest_summarizeCodeCoverage" name="PassingTest_2" time="0.2745"/>
+    <testcase classname="unittest_summarizeCodeCoverage" name="Test_1" time="0.10892"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_summarizeTestResult" skipped="0" tests="3" time="0.7241">
+    <testcase classname="unittest_summarizeTestResult" name="Test_error_1" time="0.021998"/>
+    <testcase classname="unittest_summarizeTestResult" name="PassingTest_1" time="0.6253"/>
+    <testcase classname="unittest_summarizeTestResult" name="Test_1" time="0.076805"/>
+  </testsuite>
+</testsuites>

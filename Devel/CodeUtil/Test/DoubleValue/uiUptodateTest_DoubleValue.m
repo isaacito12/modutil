@@ -10,7 +10,7 @@ classdef uiUptodateTest_DoubleValue < matlab.uitest.TestCase
   % Copyright 2024-2026 The MathWorks, Inc.
 
   properties
-    LocalTopFolder (1,1) string = "C:\local"
+    LocalTopFolder (1,1) pattern = "C:\local"
   end  % properties
 
   methods (TestMethodSetup)

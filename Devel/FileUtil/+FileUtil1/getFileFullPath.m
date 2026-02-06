@@ -3,7 +3,7 @@ function FileFullPath = getFileFullPath(FileName, NameValuePair)
 %
 % This function searches the specified name in MATLAB path and returns the full path to it.
 % To search a file in a folder tree rather than in MATLAB path, 
-% use the searchFiles in the Search Utility.
+% use the searchFiles of the Search Utility.
 %
 % This function is a wrapper of the which command with the "-all" option.
 % The which returns a character vector or a cell array of character vectors.

@@ -10,7 +10,7 @@ classdef unittest_checkEditInCallbackButton < matlab.unittest.TestCase
   % Test Browser
   % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
-  % Copyright 2023-2025 The MathWorks, Inc.
+  % Copyright 2023-2026 The MathWorks, Inc.
 
   methods (TestMethodSetup)
     % Functions in this section always run before each test defined in the Test section runs.
@@ -60,7 +60,7 @@ classdef unittest_checkEditInCallbackButton < matlab.unittest.TestCase
       % the specified model. However, there seems to be a timing issue in R2024b where
       % the test proceeds before the model is fully loaded, resulting in a test failure.
       open_system("samplemodel_checkEditInCallbackButton_24b")
-      pause(2)
+      pause(1)
 
       result = ModelUtil1.checkEditInCallbackButton("samplemodel_checkEditInCallbackButton_24b");
       verifyEqual(testcase, result.Found(1), true)
@@ -70,14 +70,12 @@ classdef unittest_checkEditInCallbackButton < matlab.unittest.TestCase
     %% Minimum quality check
     % Make sure that scripts, functions, classes, and models run right out of the box.
 
-    function PassingTest_1_R2025a_or_newer(~)
-      if isMATLABReleaseOlderThan("R2025a")
-        % R2024b or older
-
-        return
-
+    function PassingTest_1(~)
+      if TestUtil1.isR2024bOrOlder
+        demo_checkEditInCallbackButton_24b
+      else
+        demo_checkEditInCallbackButton
       end  % if
-      demo_checkEditInCallbackButton
     end  % function
 
   end  % methods

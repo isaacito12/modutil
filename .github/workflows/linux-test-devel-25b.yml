@@ -11,7 +11,7 @@
 
 # Copyright 2025-2026 The MathWorks, Inc.
 
-name: Testing Devel on Linux
+name: Devel-folder R2025b Linux
 
 on:
   push:
@@ -52,10 +52,10 @@ jobs:
     strategy:
       matrix:
         config:
-          - name: R2024b
+          - name: R2025b
             cmd: "cd Devel; setup_paths; buildtool -buildFile buildfile_24b.m -verbosity Verbose Test"
 
-    name: Test Devel in ${{ matrix.config.name }} on Linux
+    name: Test Devel-folder in MATLAB ${{ matrix.config.name }} on Linux
 
     permissions:
       # Required for saving files within a workflow.

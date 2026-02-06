@@ -1,0 +1,220 @@
+{
+  "version": "2.1.0",
+  "properties": {
+    "Date": "29-Jan-2026 19:54:42",
+    "Release": "R2024b",
+    "CodeAnalyzerConfiguration": "active"
+  },
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Code Analyzer"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/+SignalUtil1/SignalDesignAppMain.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/+SignalUtil1/TraceGeneratorAppMain.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/+SignalUtil1/buildPropertyDictionaryFromSimscapeBlock.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/+SignalUtil1/checkSignalDesignMatrix.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/+SignalUtil1/find1DLookupTableBlocks.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/+SignalUtil1/generateSignalDesignMatrixFromTraceProperties.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/+SignalUtil1/getSignalDesignMatrixFromBlockDescription.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/+SignalUtil1/getTimetableFromLoggedSignal.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/+SignalUtil1/getVectorsFromSignalDesignMatrix.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/+SignalUtil1/plotDifference.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/+SignalUtil1/plotLookupTable1D.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/+SignalUtil1/plotSimscapePSLookupTable1DBlock.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/+SignalUtil1/plotSimulink1DLookupTableBlock.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/+SignalUtil1/plotTimedData.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/+SignalUtil1/setMinimumYRange.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/+SignalUtil1/validateSignalSetup_PSLookupTable1D.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/SignalDesignApp.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/Test/SignalDesignAppMain/apptest_SignalDesignAppMain.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/Test/SignalDesignAppMain/uitest_SignalDesignAppMain.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/Test/TraceGeneratorAppMain/uitest_TraceGeneratorAppMain.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/Test/generateSignalDesignMatrixFromTraceProperties/unittest_generateSignalDesignMatrixFromTraceProperties.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/Test/getTimetableFromLoggedSignal/unittest_getTimetableFromLoggedSignal.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/Test/getVectorsFromSignalDesignMatrix/demo_getVectorsFromSignalDesignMatrix.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/Test/getVectorsFromSignalDesignMatrix/unittest_getVectorsFromSignalDesignMatrix.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/Test/plotDifference/demo_plotDifference.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/Test/plotDifference/unittest_plotDifference.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/Test/plotDifference/uptodatetest_plotDifference.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/TraceGeneratorApp.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/buildfile.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/buildfile_24b.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/uiTest_SignalUtil.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/uiUptodateTest_SignalUtil.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/unittest_SignalUtil.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/unittest_SignalUtil_settings.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/uptodateTest_SignalUtil.m"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/SignalDesignApp_Description.mlx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/Test/generateSignalDesignMatrixFromTraceProperties/demo_generateSignalDesignMatrixFromTraceProperties.mlx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/Test/getTimetableFromLoggedSignal/demo_getTimetableFromLoggedSignal.mlx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/TraceGeneratorApp_Description.mlx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/local/modutil/modeling-utility/Devel/SignalUtil/demo_TimedTrace.mlx"
+          }
+        }
+      ],
+      "results": []
+    }
+  ]
+}

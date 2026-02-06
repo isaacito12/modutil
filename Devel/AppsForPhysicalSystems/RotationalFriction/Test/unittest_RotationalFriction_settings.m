@@ -37,16 +37,15 @@ classdef unittest_RotationalFriction_settings < matlab.unittest.TestCase
 
     function Test_1(testcase)
       % Check that the model was saved in the expected MATLAB Release.
-      info = Simulink.MDLInfo("samplemodel_RotationalFriction_test1_empty_24b");
+      info = Simulink.MDLInfo("SampleModel_RotationalFriction_test1_empty_24b");
       verifyEqual(testcase, info.ReleaseName, 'R2024b')
     end  % function
 
     function Test_2(testcase)
       % Check that the model was saved in the expected MATLAB Release.
-      info = Simulink.MDLInfo("samplemodel_RotationalFriction_refsub_24b");
+      info = Simulink.MDLInfo("SampleModel_RotationalFriction_refsub_24b");
       verifyEqual(testcase, info.ReleaseName, 'R2024b')
     end  % function
 
   end  % methods
-
 end  % classdef

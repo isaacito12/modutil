@@ -10,7 +10,7 @@ classdef uiUptodateTest_RotationalFriction < matlab.uitest.TestCase
   % Copyright 2024-2026 The MathWorks, Inc.
 
   properties
-    LocalTopFolder (1,1) string = "C:\local"
+    LocalTopFolder (1,1) pattern = "C:\local"
   end  % properties
 
   methods (TestMethodSetup)
@@ -51,7 +51,7 @@ classdef uiUptodateTest_RotationalFriction < matlab.uitest.TestCase
 
     function app_screenshot_1_dark(testcase)
       %%
-      if TestUtil1.isR2024bOrOlder
+      if TestUtil1.isR2024bOrOlder || TestUtil1.isNonLocal(testcase.LocalTopFolder)
         disp("!Skipping")
 
         return
@@ -62,6 +62,9 @@ classdef uiUptodateTest_RotationalFriction < matlab.uitest.TestCase
 
       destination_folder = fileparts(source_fullpath);
       destination_folder = extractBefore(destination_folder, ("/"|"\") + "+RotationalFriction1");
+      destination_folder = fullfile(destination_folder, "media");
+      [~, ~] = mkdir(destination_folder);  % Suppress warning
+
       destination_fullpath = fullfile(destination_folder, "screenshot-RotationalFrictionAppMain-dark-1.png");
 
       if isfile(destination_fullpath)
@@ -85,10 +88,20 @@ classdef uiUptodateTest_RotationalFriction < matlab.uitest.TestCase
 
     function app_screenshot_1_light(testcase)
       %%
+      if TestUtil1.isNonLocal(testcase.LocalTopFolder)
+        disp("!Skipping")
+
+        return
+
+      end  %if
+
       source_fullpath = FileUtil1.getFileFullPath("RotationalFriction1.RotationalFrictionAppMain");
 
       destination_folder = fileparts(source_fullpath);
       destination_folder = extractBefore(destination_folder, ("/"|"\") + "+RotationalFriction1");
+      destination_folder = fullfile(destination_folder, "media");
+      [~, ~] = mkdir(destination_folder);  % Suppress warning
+
       if TestUtil1.isR2024bOrOlder
         destination_fullpath = fullfile(destination_folder, "screenshot-RotationalFrictionAppMain-24b-1.png");
       else
@@ -119,7 +132,7 @@ classdef uiUptodateTest_RotationalFriction < matlab.uitest.TestCase
 
     function app_screenshot_2_dark(testcase)
       %%
-      if TestUtil1.isR2024bOrOlder
+      if TestUtil1.isR2024bOrOlder || TestUtil1.isNonLocal(testcase.LocalTopFolder)
         disp("!Skipping")
 
         return
@@ -129,6 +142,9 @@ classdef uiUptodateTest_RotationalFriction < matlab.uitest.TestCase
       source_fullpath = FileUtil1.getFileFullPath("RotationalFrictionApp");
 
       destination_folder = fileparts(source_fullpath);
+      destination_folder = fullfile(destination_folder, "media");
+      [~, ~] = mkdir(destination_folder);  % Suppress warning
+
       destination_fullpath = fullfile(destination_folder, "screenshot-RotationalFrictionApp-dark-1.png");
 
       if isfile(destination_fullpath)
@@ -152,9 +168,19 @@ classdef uiUptodateTest_RotationalFriction < matlab.uitest.TestCase
 
     function app_screenshot_2_light(testcase)
       %%
+      if TestUtil1.isNonLocal(testcase.LocalTopFolder)
+        disp("!Skipping")
+
+        return
+
+      end  %if
+
       source_fullpath = FileUtil1.getFileFullPath("RotationalFrictionApp");
 
       destination_folder = fileparts(source_fullpath);
+      destination_folder = fullfile(destination_folder, "media");
+      [~, ~] = mkdir(destination_folder);  % Suppress warning
+
       if TestUtil1.isR2024bOrOlder
         destination_fullpath = fullfile(destination_folder, "screenshot-RotationalFrictionApp-24b-1.png");
       else
