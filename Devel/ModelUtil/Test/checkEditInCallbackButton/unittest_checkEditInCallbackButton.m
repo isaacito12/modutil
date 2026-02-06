@@ -57,10 +57,10 @@ classdef unittest_checkEditInCallbackButton < matlab.unittest.TestCase
     function Test_1_with_pause(testcase)
 
       % !todo: Ideally these two lines should be unnecessary because checkEditInCallbackButton loads
-      % the specified model. However, there seems to be a timing issue in R2024b where
+      % the specified model. However, there seems to be a timing issue in R2024b and R2025b where
       % the test proceeds before the model is fully loaded, resulting in a test failure.
       open_system("samplemodel_checkEditInCallbackButton_24b")
-      pause(1)
+      pause(3)
 
       result = ModelUtil1.checkEditInCallbackButton("samplemodel_checkEditInCallbackButton_24b");
       verifyEqual(testcase, result.Found(1), true)

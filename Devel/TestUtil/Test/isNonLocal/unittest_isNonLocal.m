@@ -65,11 +65,7 @@ classdef unittest_isNonLocal < matlab.unittest.TestCase
       % Test a pattern.
       LocalTopFolder = ("dummy1:\dummy2" | "dummy3:\dummy4");
       actual = TestUtil1.isNonLocal(LocalTopFolder);
-      if startsWith(pwd, "C:\local")
-        verifyTrue(testcase, actual)
-      else
-        verifyFalse(testcase, actual)
-      end  % if
+      verifyTrue(testcase, actual)
     end  % function
 
   end  % methods
