@@ -1,3 +1,5 @@
+.gitlab-ci.yml merge=ours
+
 * text=auto
 
 *.fig binary
