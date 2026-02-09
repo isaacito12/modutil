@@ -7,6 +7,8 @@
 #   <archive_base_name> is defined as a workflow environment
 #   <version> is a tag representing a semantic version, e.g., v1.2.3
 #   <matlab_release> represents MATLAB Release, e.g., R2024b
+#
+# Copyright 2026 The MathWorks, Inc.
 
 name: Create GitHub Release
 
@@ -41,6 +43,7 @@ jobs:
           cd Release
           rm -rf .buildtool
           rm -rf test-result
+          rm -rf test-result-24b
           zip -r "../$ARCHIVE" .
           echo "ARCHIVE=$ARCHIVE" >> $GITHUB_ENV
 
