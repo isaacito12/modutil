@@ -1,948 +1,910 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" name="uiTest_AppUtil" skipped="0" tests="3" time="8.7853">
-    <testcase classname="uiTest_AppUtil" name="app_launches_without_warnings_1" time="7.6643"/>
-    <testcase classname="uiTest_AppUtil" name="app_launches_without_warnings_2" time="1.0716"/>
-    <testcase classname="uiTest_AppUtil" name="app_launches_without_warnings_3" time="0.049457"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiUptodateTest_AppUtil" skipped="0" tests="4" time="0.13652">
-    <testcase classname="uiUptodateTest_AppUtil" name="app_screenshot_dark_1" time="0.088477"/>
-    <testcase classname="uiUptodateTest_AppUtil" name="app_screenshot_light_1" time="0.022238"/>
-    <testcase classname="uiUptodateTest_AppUtil" name="app_screenshot_dark_2" time="0.019804"/>
-    <testcase classname="uiUptodateTest_AppUtil" name="app_screenshot_light_2" time="0.0060062"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_AlignComponents" skipped="0" tests="12" time="33.1838">
-    <testcase classname="uitest_AlignComponents" name="app_launches_without_warnings_1" time="1.0925"/>
-    <testcase classname="uitest_AlignComponents" name="app_launches_without_warnings_2" time="1.0817"/>
-    <testcase classname="uitest_AlignComponents" name="app_launches_without_warnings_3" time="2.1494"/>
-    <testcase classname="uitest_AlignComponents" name="app_launches_without_warnings_4" time="1.3671"/>
-    <testcase classname="uitest_AlignComponents" name="DarkTheme_1" time="2.3328"/>
-    <testcase classname="uitest_AlignComponents" name="LightTheme_1" time="1.8602"/>
-    <testcase classname="uitest_AlignComponents" name="DarkTheme_2" time="1.2029"/>
-    <testcase classname="uitest_AlignComponents" name="LightTheme_2" time="1.11"/>
-    <testcase classname="uitest_AlignComponents" name="DarkTheme_3" time="5.4577"/>
-    <testcase classname="uitest_AlignComponents" name="LightTheme_3" time="5.2029"/>
-    <testcase classname="uitest_AlignComponents" name="DarkTheme_4" time="5.098"/>
-    <testcase classname="uitest_AlignComponents" name="LightTheme_4" time="5.2287"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_AppWindow" skipped="0" tests="2" time="1.215">
-    <testcase classname="uitest_AppWindow" name="app_launches_without_warnings_1" time="0.6257"/>
-    <testcase classname="uitest_AppWindow" name="app_launches_without_warnings_2" time="0.58932"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_Axes" skipped="0" tests="8" time="7.1194">
-    <testcase classname="uitest_Axes" name="app_launches_without_warnings_1" time="0.79402"/>
-    <testcase classname="uitest_Axes" name="app_launches_without_warnings_2" time="0.71775"/>
-    <testcase classname="uitest_Axes" name="app_launches_without_warnings_3" time="0.74349"/>
-    <testcase classname="uitest_Axes" name="app_launches_without_warnings_4" time="1.1003"/>
-    <testcase classname="uitest_Axes" name="LightTheme_1" time="0.93327"/>
-    <testcase classname="uitest_Axes" name="LightTheme_2" time="0.96684"/>
-    <testcase classname="uitest_Axes" name="DarkTheme_1" time="0.88654"/>
-    <testcase classname="uitest_Axes" name="DarkTheme_2" time="0.97716"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_BlockSelectorUI" skipped="0" tests="15" time="73.3851">
-    <testcase classname="uitest_BlockSelectorUI" name="app_launches_without_warnings_1" time="0.9018"/>
-    <testcase classname="uitest_BlockSelectorUI" name="app_launches_without_warnings_2" time="14.8689"/>
-    <testcase classname="uitest_BlockSelectorUI" name="app_launches_without_warnings_3" time="1.3576"/>
-    <testcase classname="uitest_BlockSelectorUI" name="app_launches_without_warnings_4" time="1.7935"/>
-    <testcase classname="uitest_BlockSelectorUI" name="app_launches_without_warnings_5" time="1.9008"/>
-    <testcase classname="uitest_BlockSelectorUI" name="invalid_model" time="0.49392"/>
-    <testcase classname="uitest_BlockSelectorUI" name="duplicate_model_paths" time="0.93829"/>
-    <testcase classname="uitest_BlockSelectorUI" name="invalid_model_file" time="0.2269"/>
-    <testcase classname="uitest_BlockSelectorUI" name="Gesture_Highlight_Block" time="4.8163"/>
-    <testcase classname="uitest_BlockSelectorUI" name="Gesture_Model_Dropdown" time="7.1038"/>
-    <testcase classname="uitest_BlockSelectorUI" name="Gesture_Get_button" time="7.6823"/>
-    <testcase classname="uitest_BlockSelectorUI" name="Gesture_Set_button" time="6.9949"/>
-    <testcase classname="uitest_BlockSelectorUI" name="Gesture_Highlight_button" time="20.9629"/>
-    <testcase classname="uitest_BlockSelectorUI" name="LightTheme_1" time="1.5987"/>
-    <testcase classname="uitest_BlockSelectorUI" name="DarkTheme_1" time="1.7445"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_Button" skipped="0" tests="13" time="17.9408">
-    <testcase classname="uitest_Button" name="app_launches_without_warnings_1" time="0.5509"/>
-    <testcase classname="uitest_Button" name="app_launches_without_warnings_2" time="0.79616"/>
-    <testcase classname="uitest_Button" name="app_launches_without_warnings_3" time="0.72957"/>
-    <testcase classname="uitest_Button" name="app_launches_without_warnings_4" time="0.90103"/>
-    <testcase classname="uitest_Button" name="Gesture_1" time="2.0098"/>
-    <testcase classname="uitest_Button" name="LightTheme_1" time="1.012"/>
-    <testcase classname="uitest_Button" name="LightTheme_2" time="1.8426"/>
-    <testcase classname="uitest_Button" name="LightTheme_3" time="1.5866"/>
-    <testcase classname="uitest_Button" name="LightTheme_4" time="2.0135"/>
-    <testcase classname="uitest_Button" name="DarkTheme_1" time="1.1025"/>
-    <testcase classname="uitest_Button" name="DarkTheme_2" time="1.8061"/>
-    <testcase classname="uitest_Button" name="DarkTheme_3" time="1.5477"/>
-    <testcase classname="uitest_Button" name="DarkTheme_4" time="2.0422"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_CheckBox" skipped="0" tests="10" time="21.4899">
-    <testcase classname="uitest_CheckBox" name="app_launches_without_warnings_1" time="0.55472"/>
-    <testcase classname="uitest_CheckBox" name="app_launches_without_warnings_2" time="0.66428"/>
-    <testcase classname="uitest_CheckBox" name="app_launches_without_warnings_3" time="2.0803"/>
-    <testcase classname="uitest_CheckBox" name="Gesture_1" time="2.2221"/>
-    <testcase classname="uitest_CheckBox" name="LightTheme_1" time="0.81604"/>
-    <testcase classname="uitest_CheckBox" name="LightTheme_2" time="1.6393"/>
-    <testcase classname="uitest_CheckBox" name="LightTheme_3" time="5.5549"/>
-    <testcase classname="uitest_CheckBox" name="DarkTheme_1" time="0.92923"/>
-    <testcase classname="uitest_CheckBox" name="DarkTheme_2" time="1.7037"/>
-    <testcase classname="uitest_CheckBox" name="DarkTheme_3" time="5.3254"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_ColumnLayout" skipped="0" tests="6" time="6.8954">
-    <testcase classname="uitest_ColumnLayout" name="app_launches_without_warnings_1" time="0.44677"/>
-    <testcase classname="uitest_ColumnLayout" name="app_launches_without_warnings_2" time="0.78881"/>
-    <testcase classname="uitest_ColumnLayout" name="LightTheme_1" time="1.1439"/>
-    <testcase classname="uitest_ColumnLayout" name="LightTheme_2" time="1.7426"/>
-    <testcase classname="uitest_ColumnLayout" name="DarkTheme_1" time="1.1253"/>
-    <testcase classname="uitest_ColumnLayout" name="DarkTheme_2" time="1.648"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_DoubleValueUI" skipped="0" tests="5" time="6.5321">
-    <testcase classname="uitest_DoubleValueUI" name="app_launches_without_warnings_1" time="0.79897"/>
-    <testcase classname="uitest_DoubleValueUI" name="app_launches_without_warnings_2" time="1.0981"/>
-    <testcase classname="uitest_DoubleValueUI" name="Gesture_UnitAlias_1" time="1.9655"/>
-    <testcase classname="uitest_DoubleValueUI" name="LightTheme_1" time="1.2502"/>
-    <testcase classname="uitest_DoubleValueUI" name="DarkTheme_1" time="1.4193"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_DropDown" skipped="0" tests="7" time="7.5451">
-    <testcase classname="uitest_DropDown" name="app_launches_without_warnings_1" time="0.5828"/>
-    <testcase classname="uitest_DropDown" name="app_launches_without_warnings_2" time="0.53067"/>
-    <testcase classname="uitest_DropDown" name="Test_1" time="2.2929"/>
-    <testcase classname="uitest_DropDown" name="LightTheme_1" time="0.90405"/>
-    <testcase classname="uitest_DropDown" name="LightTheme_2" time="1.1278"/>
-    <testcase classname="uitest_DropDown" name="DarkTheme_1" time="0.95068"/>
-    <testcase classname="uitest_DropDown" name="DarkTheme_2" time="1.1562"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_EditField" skipped="0" tests="4" time="4.1584">
-    <testcase classname="uitest_EditField" name="app_launches_without_warnings_1" time="0.63061"/>
-    <testcase classname="uitest_EditField" name="Gesture_1" time="1.7723"/>
-    <testcase classname="uitest_EditField" name="LightTheme_1" time="0.87059"/>
-    <testcase classname="uitest_EditField" name="DarkTheme_1" time="0.88492"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_EditableDropDown" skipped="0" tests="8" time="10.7639">
-    <testcase classname="uitest_EditableDropDown" name="app_launches_without_warnings_1" time="0.44979"/>
-    <testcase classname="uitest_EditableDropDown" name="app_launches_without_warnings_2" time="0.45163"/>
-    <testcase classname="uitest_EditableDropDown" name="Test_1" time="3.2651"/>
-    <testcase classname="uitest_EditableDropDown" name="Test_2" time="2.3736"/>
-    <testcase classname="uitest_EditableDropDown" name="LightTheme_1" time="0.90374"/>
-    <testcase classname="uitest_EditableDropDown" name="LightTheme_2" time="1.1767"/>
-    <testcase classname="uitest_EditableDropDown" name="DarkTheme_1" time="0.99374"/>
-    <testcase classname="uitest_EditableDropDown" name="DarkTheme_2" time="1.1496"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_EnabledButton" skipped="0" tests="10" time="14.4039">
-    <testcase classname="uitest_EnabledButton" name="app_launches_without_warnings_1" time="0.66773"/>
-    <testcase classname="uitest_EnabledButton" name="app_launches_without_warnings_2" time="0.76559"/>
-    <testcase classname="uitest_EnabledButton" name="app_launches_without_warnings_3" time="0.95192"/>
-    <testcase classname="uitest_EnabledButton" name="Gesture_1" time="2.0901"/>
-    <testcase classname="uitest_EnabledButton" name="LightTheme_1" time="1.1652"/>
-    <testcase classname="uitest_EnabledButton" name="LightTheme_2" time="1.6524"/>
-    <testcase classname="uitest_EnabledButton" name="LightTheme_3" time="2.148"/>
-    <testcase classname="uitest_EnabledButton" name="DarkTheme_1" time="1.1464"/>
-    <testcase classname="uitest_EnabledButton" name="DarkTheme_2" time="1.6594"/>
-    <testcase classname="uitest_EnabledButton" name="DarkTheme_3" time="2.1572"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_HorizontalLine" skipped="0" tests="3" time="2.4553">
-    <testcase classname="uitest_HorizontalLine" name="app_launches_without_warnings_1" time="0.54895"/>
-    <testcase classname="uitest_HorizontalLine" name="LightTheme_1" time="0.89075"/>
-    <testcase classname="uitest_HorizontalLine" name="DarkTheme_1" time="1.0156"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_Hyperlink" skipped="0" tests="6" time="6.4345">
-    <testcase classname="uitest_Hyperlink" name="app_launches_without_warnings_1" time="0.66674"/>
-    <testcase classname="uitest_Hyperlink" name="app_launches_without_warnings_2" time="0.68851"/>
-    <testcase classname="uitest_Hyperlink" name="LightTheme_1" time="0.91199"/>
-    <testcase classname="uitest_Hyperlink" name="LightTheme_2" time="1.6749"/>
-    <testcase classname="uitest_Hyperlink" name="DarkTheme_1" time="0.9687"/>
-    <testcase classname="uitest_Hyperlink" name="DarkTheme_2" time="1.5236"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_Label" skipped="0" tests="7" time="8.1691">
-    <testcase classname="uitest_Label" name="app_launches_without_warnings_1" time="0.58914"/>
-    <testcase classname="uitest_Label" name="app_launches_without_warnings_2" time="0.67161"/>
-    <testcase classname="uitest_Label" name="app_launches_without_warnings_3" time="1.0184"/>
-    <testcase classname="uitest_Label" name="LightTheme_1" time="1.1658"/>
-    <testcase classname="uitest_Label" name="LightTheme_2" time="1.9043"/>
-    <testcase classname="uitest_Label" name="DarkTheme_1" time="1.033"/>
-    <testcase classname="uitest_Label" name="DarkTheme_2" time="1.7869"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_ListBox" skipped="0" tests="4" time="4.0843">
-    <testcase classname="uitest_ListBox" name="app_launches_without_warnings_1" time="0.66006"/>
-    <testcase classname="uitest_ListBox" name="Gesture_1" time="1.6252"/>
-    <testcase classname="uitest_ListBox" name="LightTheme_1" time="0.89891"/>
-    <testcase classname="uitest_ListBox" name="DarkTheme_1" time="0.90017"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_MixedLayout" skipped="0" tests="6" time="9.2231">
-    <testcase classname="uitest_MixedLayout" name="app_launches_without_warnings_1" time="0.83062"/>
-    <testcase classname="uitest_MixedLayout" name="app_launches_without_warnings_2" time="0.70915"/>
-    <testcase classname="uitest_MixedLayout" name="LightTheme_1" time="2.0704"/>
-    <testcase classname="uitest_MixedLayout" name="LightTheme_2" time="1.8602"/>
-    <testcase classname="uitest_MixedLayout" name="DarkTheme_1" time="1.9039"/>
-    <testcase classname="uitest_MixedLayout" name="DarkTheme_2" time="1.8487"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_Panel" skipped="0" tests="24" time="40.156">
-    <testcase classname="uitest_Panel" name="app_launches_without_warnings_1" time="0.59146"/>
-    <testcase classname="uitest_Panel" name="app_launches_without_warnings_2" time="1.2963"/>
-    <testcase classname="uitest_Panel" name="app_launches_without_warnings_3" time="2.1724"/>
-    <testcase classname="uitest_Panel" name="app_launches_without_warnings_4" time="1.4903"/>
-    <testcase classname="uitest_Panel" name="app_launches_without_warnings_5" time="3.3902"/>
-    <testcase classname="uitest_Panel" name="app_launches_without_warnings_6" time="1.9457"/>
-    <testcase classname="uitest_Panel" name="app_launches_without_warnings_7" time="2.5015"/>
-    <testcase classname="uitest_Panel" name="app_launches_without_warnings_8" time="2.9377"/>
-    <testcase classname="uitest_Panel" name="LightTheme_1" time="0.96948"/>
-    <testcase classname="uitest_Panel" name="DarkTheme_1" time="0.90501"/>
-    <testcase classname="uitest_Panel" name="LightTheme_2" time="1.1542"/>
-    <testcase classname="uitest_Panel" name="DarkTheme_2" time="1.3563"/>
-    <testcase classname="uitest_Panel" name="LightTheme_3" time="1.3684"/>
-    <testcase classname="uitest_Panel" name="DarkTheme_3" time="1.3831"/>
-    <testcase classname="uitest_Panel" name="LightTheme_4" time="1.3661"/>
-    <testcase classname="uitest_Panel" name="DarkTheme_4" time="1.2955"/>
-    <testcase classname="uitest_Panel" name="LightTheme_5" time="1.8022"/>
-    <testcase classname="uitest_Panel" name="DarkTheme_5" time="1.6265"/>
-    <testcase classname="uitest_Panel" name="LightTheme_6" time="1.5474"/>
-    <testcase classname="uitest_Panel" name="DarkTheme_6" time="1.4763"/>
-    <testcase classname="uitest_Panel" name="LightTheme_7" time="1.9442"/>
-    <testcase classname="uitest_Panel" name="DarkTheme_7" time="2.0119"/>
-    <testcase classname="uitest_Panel" name="LightTheme_8" time="1.7942"/>
-    <testcase classname="uitest_Panel" name="DarkTheme_8" time="1.8299"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_PhysicalValueUI" skipped="0" tests="15" time="23.6773">
-    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_1" time="0.80791"/>
-    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_2" time="0.90245"/>
-    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_3" time="1.1459"/>
-    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_4" time="1.8301"/>
-    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_5" time="1.1978"/>
-    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_6" time="0.88653"/>
-    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_7" time="0.74321"/>
-    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_8" time="1.3981"/>
-    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_9" time="1.018"/>
-    <testcase classname="uitest_PhysicalValueUI" name="Test_1" time="0.77772"/>
-    <testcase classname="uitest_PhysicalValueUI" name="Gesture_UnitAlias_1" time="1.9969"/>
-    <testcase classname="uitest_PhysicalValueUI" name="Gesture_UnitAlias_2" time="1.7489"/>
-    <testcase classname="uitest_PhysicalValueUI" name="Gesture_UnitItems_1" time="6.1663"/>
-    <testcase classname="uitest_PhysicalValueUI" name="LightTheme_1" time="1.5211"/>
-    <testcase classname="uitest_PhysicalValueUI" name="DarkTheme_1" time="1.5364"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_PolarAxes" skipped="0" tests="6" time="5.5185">
-    <testcase classname="uitest_PolarAxes" name="app_launches_without_warnings_1" time="0.86155"/>
-    <testcase classname="uitest_PolarAxes" name="app_launches_without_warnings_2" time="0.83266"/>
-    <testcase classname="uitest_PolarAxes" name="LightTheme_1" time="0.99416"/>
-    <testcase classname="uitest_PolarAxes" name="DarkTheme_1" time="0.96003"/>
-    <testcase classname="uitest_PolarAxes" name="LightTheme_2" time="0.91866"/>
-    <testcase classname="uitest_PolarAxes" name="DarkTheme_2" time="0.95145"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_RowLayout" skipped="0" tests="6" time="5.7301">
-    <testcase classname="uitest_RowLayout" name="app_launches_without_warnings_1" time="0.45195"/>
-    <testcase classname="uitest_RowLayout" name="app_launches_without_warnings_2" time="0.49214"/>
-    <testcase classname="uitest_RowLayout" name="LightTheme_1" time="1.0689"/>
-    <testcase classname="uitest_RowLayout" name="LightTheme_2" time="1.3989"/>
-    <testcase classname="uitest_RowLayout" name="DarkTheme_1" time="1.1127"/>
-    <testcase classname="uitest_RowLayout" name="DarkTheme_2" time="1.2055"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_StateButton" skipped="0" tests="4" time="4.7871">
-    <testcase classname="uitest_StateButton" name="app_launches_without_warnings_1" time="0.63992"/>
-    <testcase classname="uitest_StateButton" name="Gesture_1" time="1.9572"/>
-    <testcase classname="uitest_StateButton" name="LightTheme_1" time="1.0361"/>
-    <testcase classname="uitest_StateButton" name="DarkTheme_1" time="1.1539"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_Table" skipped="0" tests="4" time="7.8576">
-    <testcase classname="uitest_Table" name="app_launches_without_warnings_1" time="0.63272"/>
-    <testcase classname="uitest_Table" name="Gesture_1" time="4.2008"/>
-    <testcase classname="uitest_Table" name="LightTheme_1" time="1.4872"/>
-    <testcase classname="uitest_Table" name="DarkTheme_1" time="1.5368"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_TextArea" skipped="0" tests="4" time="4.4515">
-    <testcase classname="uitest_TextArea" name="app_launches_without_warnings_1" time="0.64137"/>
-    <testcase classname="uitest_TextArea" name="Gesture_1" time="2.0507"/>
-    <testcase classname="uitest_TextArea" name="LightTheme_1" time="0.86889"/>
-    <testcase classname="uitest_TextArea" name="DarkTheme_1" time="0.89056"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_WindowHeader" skipped="0" tests="6" time="8.2909">
-    <testcase classname="uitest_WindowHeader" name="app_launches_without_warnings_1" time="0.79194"/>
-    <testcase classname="uitest_WindowHeader" name="app_launches_without_warnings_2" time="0.55489"/>
-    <testcase classname="uitest_WindowHeader" name="app_launches_without_warnings_3" time="0.68593"/>
-    <testcase classname="uitest_WindowHeader" name="Gesture_1" time="2.7715"/>
-    <testcase classname="uitest_WindowHeader" name="LightTheme_1" time="2.127"/>
-    <testcase classname="uitest_WindowHeader" name="DarkTheme_1" time="1.3596"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiTest_AppsForPhysicalSystems" skipped="0" tests="1" time="0.055519">
-    <testcase classname="uiTest_AppsForPhysicalSystems" name="app_launches_without_warnings_1" time="0.055519"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiTest_RotationalFriction" skipped="0" tests="16" time="86.9147">
-    <testcase classname="uiTest_RotationalFriction" name="app_launches_without_warnings_1" time="4.7379"/>
-    <testcase classname="uiTest_RotationalFriction" name="app_launches_without_warnings_2" time="7.1316"/>
-    <testcase classname="uiTest_RotationalFriction" name="app_launches_without_warnings_3" time="6.3122"/>
-    <testcase classname="uiTest_RotationalFriction" name="Test_error_1" time="0.074696"/>
-    <testcase classname="uiTest_RotationalFriction" name="Test_error_2" time="0.28237"/>
-    <testcase classname="uiTest_RotationalFriction" name="VisualTest_1_1" time="6.4679"/>
-    <testcase classname="uiTest_RotationalFriction" name="VisualTest_1_2" time="5.9831"/>
-    <testcase classname="uiTest_RotationalFriction" name="VisualTest_2_1" time="8.2892"/>
-    <testcase classname="uiTest_RotationalFriction" name="VisualTest_2_2" time="8.0336"/>
-    <testcase classname="uiTest_RotationalFriction" name="VisualTest_3" time="9.8392"/>
-    <testcase classname="uiTest_RotationalFriction" name="Test_samplemodel_1" time="0.23473"/>
-    <testcase classname="uiTest_RotationalFriction" name="Test_with_samplemodel_1" time="6.4935"/>
-    <testcase classname="uiTest_RotationalFriction" name="Test_with_samplemodel_2" time="3.8762"/>
-    <testcase classname="uiTest_RotationalFriction" name="Test_1" time="6.8495"/>
-    <testcase classname="uiTest_RotationalFriction" name="Test_2" time="3.9223"/>
-    <testcase classname="uiTest_RotationalFriction" name="Gesture_1" time="8.3868"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiUptodateTest_RotationalFriction" skipped="0" tests="4" time="0.24624">
-    <testcase classname="uiUptodateTest_RotationalFriction" name="app_screenshot_1_dark" time="0.087784"/>
-    <testcase classname="uiUptodateTest_RotationalFriction" name="app_screenshot_1_light" time="0.054547"/>
-    <testcase classname="uiUptodateTest_RotationalFriction" name="app_screenshot_2_dark" time="0.0596"/>
-    <testcase classname="uiUptodateTest_RotationalFriction" name="app_screenshot_2_light" time="0.044305"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_RotationalFriction" skipped="0" tests="1" time="0.0039293">
-    <testcase classname="unittest_RotationalFriction" name="PassingTest_1" time="0.0039293"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_RotationalFriction_settings" skipped="0" tests="2" time="0.040771">
-    <testcase classname="unittest_RotationalFriction_settings" name="Test_1" time="0.030803"/>
-    <testcase classname="unittest_RotationalFriction_settings" name="Test_2" time="0.0099673"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uptodateTest_RotationalFriction" skipped="0" tests="3" time="0.18394">
-    <testcase classname="uptodateTest_RotationalFriction" name="PassingTest_1" time="0.17259"/>
-    <testcase classname="uptodateTest_RotationalFriction" name="description_html_is_uptodate" time="0.0061921"/>
-    <testcase classname="uptodateTest_RotationalFriction" name="description_markdown_is_uptodate" time="0.0051628"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiTest_CodeUtil" skipped="0" tests="2" time="1.8132">
-    <testcase classname="uiTest_CodeUtil" name="app_launches_without_warnings_1" time="0.8076"/>
-    <testcase classname="uiTest_CodeUtil" name="app_launches_without_warnings_2" time="1.0056"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiUptodateTest_CodeUtil" skipped="0" tests="4" time="0.070364">
-    <testcase classname="uiUptodateTest_CodeUtil" name="app_screenshot_dark_1" time="0.030285"/>
-    <testcase classname="uiUptodateTest_CodeUtil" name="app_screenshot_light_1" time="0.0055238"/>
-    <testcase classname="uiUptodateTest_CodeUtil" name="app_screenshot_dark_2" time="0.02658"/>
-    <testcase classname="uiUptodateTest_CodeUtil" name="app_screenshot_light_2" time="0.0079745"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiTest_DoubleValue" skipped="0" tests="3" time="3.6674">
-    <testcase classname="uiTest_DoubleValue" name="app_launches_without_warnings_1" time="0.77384"/>
-    <testcase classname="uiTest_DoubleValue" name="app_launches_without_warnings_2" time="0.75226"/>
-    <testcase classname="uiTest_DoubleValue" name="Gesture_1" time="2.1413"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiUptodateTest_DoubleValue" skipped="0" tests="4" time="0.047034">
-    <testcase classname="uiUptodateTest_DoubleValue" name="app_screenshot_dark_1" time="0.021811"/>
-    <testcase classname="uiUptodateTest_DoubleValue" name="app_screenshot_light_1" time="0.0049406"/>
-    <testcase classname="uiUptodateTest_DoubleValue" name="app_screenshot_dark_2" time="0.014389"/>
-    <testcase classname="uiUptodateTest_DoubleValue" name="app_screenshot_light_2" time="0.0058937"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_DoubleValue" skipped="0" tests="15" time="0.18129">
-    <testcase classname="unittest_DoubleValue" name="PassingTest_1" time="0.0038519"/>
-    <testcase classname="unittest_DoubleValue" name="PassingTest_2" time="0.01188"/>
-    <testcase classname="unittest_DoubleValue" name="PassingTest_3" time="0.012949"/>
-    <testcase classname="unittest_DoubleValue" name="PassingTest_4" time="0.015349"/>
-    <testcase classname="unittest_DoubleValue" name="Test_Default_1" time="0.0095564"/>
-    <testcase classname="unittest_DoubleValue" name="Test_ValueText_1_1" time="0.0041749"/>
-    <testcase classname="unittest_DoubleValue" name="Test_ValueText_1_2" time="0.054259"/>
-    <testcase classname="unittest_DoubleValue" name="Test_ValueText_1_3" time="0.016546"/>
-    <testcase classname="unittest_DoubleValue" name="Test_ValueText_1_4" time="0.019698"/>
-    <testcase classname="unittest_DoubleValue" name="Test_ValueText_1_5" time="0.0088229"/>
-    <testcase classname="unittest_DoubleValue" name="Test_ValueText_1_6" time="0.0054707"/>
-    <testcase classname="unittest_DoubleValue" name="Test_ValueText_2" time="0.0055276"/>
-    <testcase classname="unittest_DoubleValue" name="Test_ValueText_3_1" time="0.0028285"/>
-    <testcase classname="unittest_DoubleValue" name="Test_workspace_1" time="0.0025807"/>
-    <testcase classname="unittest_DoubleValue" name="Test_workspace_2" time="0.0077943"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiTest_PhysicalValue" skipped="0" tests="2" time="1.5586">
-    <testcase classname="uiTest_PhysicalValue" name="app_launches_without_warnings_1" time="0.76384"/>
-    <testcase classname="uiTest_PhysicalValue" name="app_launches_without_warnings_2" time="0.79474"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiUptodateTest_PhysicalValue" skipped="0" tests="4" time="0.078002">
-    <testcase classname="uiUptodateTest_PhysicalValue" name="app_screenshot_dark_1" time="0.034214"/>
-    <testcase classname="uiUptodateTest_PhysicalValue" name="app_screenshot_light_1" time="0.0080614"/>
-    <testcase classname="uiUptodateTest_PhysicalValue" name="app_screenshot_dark_2" time="0.023832"/>
-    <testcase classname="uiUptodateTest_PhysicalValue" name="app_screenshot_light_2" time="0.011894"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_PhysicalValue" skipped="0" tests="21" time="0.318">
-    <testcase classname="unittest_PhysicalValue" name="PassingTest_1" time="0.0051868"/>
-    <testcase classname="unittest_PhysicalValue" name="PassingTest_2" time="0.13526"/>
-    <testcase classname="unittest_PhysicalValue" name="PassingTest_3" time="0.010804"/>
-    <testcase classname="unittest_PhysicalValue" name="PassingTest_4" time="0.018184"/>
-    <testcase classname="unittest_PhysicalValue" name="Test_Default_1" time="0.026359"/>
-    <testcase classname="unittest_PhysicalValue" name="Test_UnitText_1" time="0.0045955"/>
-    <testcase classname="unittest_PhysicalValue" name="Test_UnitAlias_1" time="0.004017"/>
-    <testcase classname="unittest_PhysicalValue" name="Test_UnitAlias_2" time="0.0039048"/>
-    <testcase classname="unittest_PhysicalValue" name="Test_UnitAlias_3" time="0.013376"/>
-    <testcase classname="unittest_PhysicalValue" name="Test_UnitAlias_4" time="0.0031393"/>
-    <testcase classname="unittest_PhysicalValue" name="Test_ValueText_1_1" time="0.0060777"/>
-    <testcase classname="unittest_PhysicalValue" name="Test_ValueText_1_2" time="0.012715"/>
-    <testcase classname="unittest_PhysicalValue" name="Test_ValueText_1_3" time="0.0087791"/>
-    <testcase classname="unittest_PhysicalValue" name="Test_ValueText_1_4" time="0.0075144"/>
-    <testcase classname="unittest_PhysicalValue" name="Test_ValueText_1_5" time="0.0051508"/>
-    <testcase classname="unittest_PhysicalValue" name="Test_ValueText_1_6" time="0.0040749"/>
-    <testcase classname="unittest_PhysicalValue" name="Test_ValueText_2" time="0.010139"/>
-    <testcase classname="unittest_PhysicalValue" name="Test_ValueText_3_1" time="0.0062432"/>
-    <testcase classname="unittest_PhysicalValue" name="Test_workspace_1" time="0.0044956"/>
-    <testcase classname="unittest_PhysicalValue" name="Test_workspace_2" time="0.0061269"/>
-    <testcase classname="unittest_PhysicalValue" name="Test_workspace_3" time="0.021862"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_cleanupCodeText" skipped="0" tests="2" time="0.01997">
-    <testcase classname="unittest_cleanupCodeText" name="PassingTest_1" time="0.012768"/>
-    <testcase classname="unittest_cleanupCodeText" name="PassingTest_2" time="0.0072015"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_getDoubleOrSimscapeValueFromText" skipped="0" tests="16" time="0.082353">
-    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="PassingTest_1" time="0.0070002"/>
-    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_default_1" time="0.0059143"/>
-    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_empty_text_1" time="0.0036625"/>
-    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_empty_text_2" time="0.0020199"/>
-    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_MaxTextLength_1" time="0.0074146"/>
-    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_MaxTextLength_2" time="0.00964"/>
-    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_MaxTextLength_3" time="0.0023687"/>
-    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_MaxTextLength_4" time="0.0048988"/>
-    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_simscapeValue_1" time="0.0069448"/>
-    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_simscapeValue_2" time="0.0037705"/>
-    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_simscapeValue_3" time="0.0033629"/>
-    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_double_1" time="0.0032929"/>
-    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_evaluated_1" time="0.0031368"/>
-    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_evaluated_2" time="0.0018133"/>
-    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_evaluated_3" time="0.014364"/>
-    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_workspace_1" time="0.0027481"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_getNumberArrayFromText" skipped="0" tests="6" time="0.081609">
-    <testcase classname="unittest_getNumberArrayFromText" name="Test_1" time="0.006841"/>
-    <testcase classname="unittest_getNumberArrayFromText" name="Test_2" time="0.01363"/>
-    <testcase classname="unittest_getNumberArrayFromText" name="Test_3" time="0.0034907"/>
-    <testcase classname="unittest_getNumberArrayFromText" name="Test_4" time="0.0024233"/>
-    <testcase classname="unittest_getNumberArrayFromText" name="Test_5" time="0.001415"/>
-    <testcase classname="unittest_getNumberArrayFromText" name="Test_error_1" time="0.053808"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_getNumericValueFromText" skipped="0" tests="7" time="0.041588">
-    <testcase classname="unittest_getNumericValueFromText" name="Test_1" time="0.010124"/>
-    <testcase classname="unittest_getNumericValueFromText" name="Test_2" time="0.0022761"/>
-    <testcase classname="unittest_getNumericValueFromText" name="Test_3" time="0.000653"/>
-    <testcase classname="unittest_getNumericValueFromText" name="Test_workspace_1" time="0.0086866"/>
-    <testcase classname="unittest_getNumericValueFromText" name="Test_workspace_2" time="0.0043495"/>
-    <testcase classname="unittest_getNumericValueFromText" name="Test_workspace_3" time="0.0024562"/>
-    <testcase classname="unittest_getNumericValueFromText" name="Test_error_1" time="0.013043"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_mustBeNumericValueStringOrValidNameOrEmpty" skipped="0" tests="15" time="0.05609">
-    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_1" time="0.008513"/>
-    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_2" time="0.0011362"/>
-    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_3" time="0.0009606"/>
-    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_4" time="0.0008331"/>
-    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_value_1" time="0.0015219"/>
-    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_value_2" time="0.0027332"/>
-    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_value_3" time="0.0015488"/>
-    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_value_4" time="0.0023775"/>
-    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_value_5" time="0.0015087"/>
-    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_value_6" time="0.0013482"/>
-    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_error_1" time="0.0095162"/>
-    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_error_2" time="0.0037721"/>
-    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_error_3" time="0.0045761"/>
-    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_error_4" time="0.0075234"/>
-    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_error_5" time="0.0082209"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_mustBeSimscapeValueNonnegative" skipped="0" tests="2" time="0.015898">
-    <testcase classname="unittest_mustBeSimscapeValueNonnegative" name="PassingTest_1" time="0.0065821"/>
-    <testcase classname="unittest_mustBeSimscapeValueNonnegative" name="Test_1" time="0.0093154"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_mustBeSimscapeValuePositive" skipped="0" tests="2" time="0.012739">
-    <testcase classname="unittest_mustBeSimscapeValuePositive" name="PassingTest_1" time="0.0041247"/>
-    <testcase classname="unittest_mustBeSimscapeValuePositive" name="Test_1" time="0.0086144"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_mustBeSimscapeValueStrictAscend" skipped="0" tests="4" time="0.039022">
-    <testcase classname="unittest_mustBeSimscapeValueStrictAscend" name="PassingTest_1" time="0.0051838"/>
-    <testcase classname="unittest_mustBeSimscapeValueStrictAscend" name="PassingTest_2" time="0.0015826"/>
-    <testcase classname="unittest_mustBeSimscapeValueStrictAscend" name="PassingTest_3" time="0.02361"/>
-    <testcase classname="unittest_mustBeSimscapeValueStrictAscend" name="Test_1" time="0.0086456"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_mustBeStrictAscend" skipped="0" tests="4" time="0.013316">
-    <testcase classname="unittest_mustBeStrictAscend" name="Test_1" time="0.0046254"/>
-    <testcase classname="unittest_mustBeStrictAscend" name="Test_2" time="0.0009053"/>
-    <testcase classname="unittest_mustBeStrictAscend" name="Test_3" time="0.0007933"/>
-    <testcase classname="unittest_mustBeStrictAscend" name="Test_error_1" time="0.006992"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_mustBeStringOrPositiveInteger" skipped="0" tests="4" time="0.013098">
-    <testcase classname="unittest_mustBeStringOrPositiveInteger" name="Test_1" time="0.0003001"/>
-    <testcase classname="unittest_mustBeStringOrPositiveInteger" name="Test_2" time="0.0003655"/>
-    <testcase classname="unittest_mustBeStringOrPositiveInteger" name="Test_error_1" time="0.0080063"/>
-    <testcase classname="unittest_mustBeStringOrPositiveInteger" name="Test_error_2" time="0.0044265"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_mustBeTextOrNonnegativeNumber" skipped="0" tests="4" time="0.01034">
-    <testcase classname="unittest_mustBeTextOrNonnegativeNumber" name="PassingTest_1" time="0.001147"/>
-    <testcase classname="unittest_mustBeTextOrNonnegativeNumber" name="PassingTest_2" time="0.0002969"/>
-    <testcase classname="unittest_mustBeTextOrNonnegativeNumber" name="PassingTest_3" time="0.0002424"/>
-    <testcase classname="unittest_mustBeTextOrNonnegativeNumber" name="Test_error_1" time="0.0086537"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_mustBeTextOrPositiveInteger" skipped="0" tests="4" time="0.012187">
-    <testcase classname="unittest_mustBeTextOrPositiveInteger" name="Test_1" time="0.0004866"/>
-    <testcase classname="unittest_mustBeTextOrPositiveInteger" name="Test_2" time="0.0007566"/>
-    <testcase classname="unittest_mustBeTextOrPositiveInteger" name="Test_error_1" time="0.007091"/>
-    <testcase classname="unittest_mustBeTextOrPositiveInteger" name="Test_error_2" time="0.003853"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_mustBeTextOrPositiveNumber" skipped="0" tests="3" time="0.007498">
-    <testcase classname="unittest_mustBeTextOrPositiveNumber" name="Test_1" time="0.0003125"/>
-    <testcase classname="unittest_mustBeTextOrPositiveNumber" name="Test_2" time="0.0002195"/>
-    <testcase classname="unittest_mustBeTextOrPositiveNumber" name="Test_error_1" time="0.006966"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_squashCodeText" skipped="0" tests="12" time="0.031974">
-    <testcase classname="unittest_squashCodeText" name="Test_1" time="0.0087335"/>
-    <testcase classname="unittest_squashCodeText" name="Test_2" time="0.0022572"/>
-    <testcase classname="unittest_squashCodeText" name="Test_3" time="0.0025524"/>
-    <testcase classname="unittest_squashCodeText" name="Test_4" time="0.0020875"/>
-    <testcase classname="unittest_squashCodeText" name="TestRowVector_1" time="0.0030296"/>
-    <testcase classname="unittest_squashCodeText" name="TestRowVector_2" time="0.0016681"/>
-    <testcase classname="unittest_squashCodeText" name="TestRowVector_3" time="0.0018569"/>
-    <testcase classname="unittest_squashCodeText" name="TestColumnVector_1" time="0.0015329"/>
-    <testcase classname="unittest_squashCodeText" name="TestColumnVector_2" time="0.0015703"/>
-    <testcase classname="unittest_squashCodeText" name="TestMatrix_1" time="0.0016545"/>
-    <testcase classname="unittest_squashCodeText" name="TestMatrix_2" time="0.0026937"/>
-    <testcase classname="unittest_squashCodeText" name="TestMatrix_3" time="0.0023376"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiTest_FileUtil" skipped="0" tests="10" time="4.8517">
-    <testcase classname="uiTest_FileUtil" name="PassingTest_1" time="0.95233"/>
-    <testcase classname="uiTest_FileUtil" name="Test_error_1" time="0.021893"/>
-    <testcase classname="uiTest_FileUtil" name="Test_error_2" time="0.0098271"/>
-    <testcase classname="uiTest_FileUtil" name="Test_error_3" time="0.023429"/>
-    <testcase classname="uiTest_FileUtil" name="Test_error_4" time="0.046324"/>
-    <testcase classname="uiTest_FileUtil" name="PassingTest_1_1" time="0.6911"/>
-    <testcase classname="uiTest_FileUtil" name="PassingTest_1_2" time="0.84319"/>
-    <testcase classname="uiTest_FileUtil" name="PassingTest_2_1" time="0.67986"/>
-    <testcase classname="uiTest_FileUtil" name="PassingTest_2_2" time="0.89866"/>
-    <testcase classname="uiTest_FileUtil" name="PassingTest_3_1" time="0.68514"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiUptodateTest_FileUtil" skipped="0" tests="2" time="0.06059">
-    <testcase classname="uiUptodateTest_FileUtil" name="app_screenshot_dark_1" time="0.050513"/>
-    <testcase classname="uiUptodateTest_FileUtil" name="app_screenshot_light_1" time="0.010077"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_batchGenerateMarkdowns" skipped="0" tests="2" time="0.11834">
-    <testcase classname="unittest_batchGenerateMarkdowns" name="PassingTest_1" time="0.068609"/>
-    <testcase classname="unittest_batchGenerateMarkdowns" name="Test_1" time="0.049728"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_displayTimeAndFileLocation" skipped="0" tests="2" time="0.019325">
-    <testcase classname="unittest_displayTimeAndFileLocation" name="PassingTest_1" time="0.010647"/>
-    <testcase classname="unittest_displayTimeAndFileLocation" name="PassingTest_2" time="0.0086779"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_evalMFile" skipped="0" tests="4" time="0.067216">
-    <testcase classname="unittest_evalMFile" name="Test_error_1" time="0.033765"/>
-    <testcase classname="unittest_evalMFile" name="Test_error_2" time="0.013448"/>
-    <testcase classname="unittest_evalMFile" name="PassingTest_1" time="0.014234"/>
-    <testcase classname="unittest_evalMFile" name="PassingTest_2" time="0.0057687"/>
-  </testsuite>
-  <testsuite errors="0" failures="3" name="unittest_exportToMarkdown" skipped="0" tests="5" time="0.69021">
-    <testcase classname="unittest_exportToMarkdown" name="Test_error_1" time="0.019331"/>
-    <testcase classname="unittest_exportToMarkdown" name="Test_error_2" time="0.022918"/>
-    <testcase classname="unittest_exportToMarkdown" name="PassingTest_1" time="0.47655">
-      <failure type="VerificationFailure">Verification failed in unittest_exportToMarkdown/PassingTest_1.
-    ----------------
-    Test Diagnostic:
-    ----------------
-    Not performing this test for now.
-    ------------------
-    Stack Information:
-    ------------------
-    In C:\local\modutil\repo\modutil-ssc-prototype\Devel\FileUtil\Test\exportToMarkdown\unittest_exportToMarkdown.m (unittest_exportToMarkdown.PassingTest_1) at 55</failure>
-    </testcase>
-    <testcase classname="unittest_exportToMarkdown" name="PassingTest_2" time="0.10246">
-      <failure type="VerificationFailure">Verification failed in unittest_exportToMarkdown/PassingTest_2.
-    ----------------
-    Test Diagnostic:
-    ----------------
-    Not performing this test for now.
-    ------------------
-    Stack Information:
-    ------------------
-    In C:\local\modutil\repo\modutil-ssc-prototype\Devel\FileUtil\Test\exportToMarkdown\unittest_exportToMarkdown.m (unittest_exportToMarkdown.PassingTest_2) at 75</failure>
-    </testcase>
-    <testcase classname="unittest_exportToMarkdown" name="PassingTest_3" time="0.06895">
-      <failure type="VerificationFailure">Verification failed in unittest_exportToMarkdown/PassingTest_3.
-    ----------------
-    Test Diagnostic:
-    ----------------
-    Not performing this test for now.
-    ------------------
-    Stack Information:
-    ------------------
-    In C:\local\modutil\repo\modutil-ssc-prototype\Devel\FileUtil\Test\exportToMarkdown\unittest_exportToMarkdown.m (unittest_exportToMarkdown.PassingTest_3) at 103</failure>
-    </testcase>
-  </testsuite>
-  <testsuite errors="0" failures="1" name="unittest_generateMarkdownsFromLiveScripts" skipped="0" tests="3" time="0.075594">
-    <testcase classname="unittest_generateMarkdownsFromLiveScripts" name="Test_error_1" time="0.0205"/>
-    <testcase classname="unittest_generateMarkdownsFromLiveScripts" name="Test_error_2" time="0.013061"/>
-    <testcase classname="unittest_generateMarkdownsFromLiveScripts" name="PassingTest_1" time="0.042033">
-      <failure type="VerificationFailure">Verification failed in unittest_generateMarkdownsFromLiveScripts/PassingTest_1.
-    ----------------
-    Test Diagnostic:
-    ----------------
-    Not performing this test in 26a for now.
-    ------------------
-    Stack Information:
-    ------------------
-    In C:\local\modutil\repo\modutil-ssc-prototype\Devel\FileUtil\Test\generateMarkdownsFromLiveScripts\unittest_generateMarkdownsFromLiveScripts.m (unittest_generateMarkdownsFromLiveScripts.PassingTest_1) at 58</failure>
-    </testcase>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_getFileFullPath" skipped="0" tests="7" time="0.13486">
-    <testcase classname="unittest_getFileFullPath" name="Test_error_1" time="0.012635"/>
-    <testcase classname="unittest_getFileFullPath" name="Test_error_2" time="0.0098106"/>
-    <testcase classname="unittest_getFileFullPath" name="Test_error_3" time="0.016621"/>
-    <testcase classname="unittest_getFileFullPath" name="SingleMatch_PassingTest_1" time="0.011626"/>
-    <testcase classname="unittest_getFileFullPath" name="MultipleMatch_error_1" time="0.0090345"/>
-    <testcase classname="unittest_getFileFullPath" name="MultipleMatch_warning_1" time="0.070345"/>
-    <testcase classname="unittest_getFileFullPath" name="MultipleMatch_1" time="0.00479"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_getFolderFullPath" skipped="0" tests="5" time="0.039594">
-    <testcase classname="unittest_getFolderFullPath" name="Test_error_1" time="0.014892"/>
-    <testcase classname="unittest_getFolderFullPath" name="Test_error_2" time="0.0088549"/>
-    <testcase classname="unittest_getFolderFullPath" name="Test_error_3" time="0.0088405"/>
-    <testcase classname="unittest_getFolderFullPath" name="PassingTest_1" time="0.0037503"/>
-    <testcase classname="unittest_getFolderFullPath" name="PassingTest_namespace_1" time="0.0032561"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_getLinkedCommandFromPlainTextLiveScript" skipped="0" tests="3" time="0.28369">
-    <testcase classname="unittest_getLinkedCommandFromPlainTextLiveScript" name="PassingTest_1_R2025a_or_newer" time="0.2189"/>
-    <testcase classname="unittest_getLinkedCommandFromPlainTextLiveScript" name="Test_1" time="0.020936"/>
-    <testcase classname="unittest_getLinkedCommandFromPlainTextLiveScript" name="Test_2_R2025a_or_newer" time="0.043849"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_getLinkedCommandFromText" skipped="0" tests="9" time="0.11594">
-    <testcase classname="unittest_getLinkedCommandFromText" name="PassingTest_1" time="0.03479"/>
-    <testcase classname="unittest_getLinkedCommandFromText" name="Test_1" time="0.010552"/>
-    <testcase classname="unittest_getLinkedCommandFromText" name="Test_2" time="0.0083781"/>
-    <testcase classname="unittest_getLinkedCommandFromText" name="Test_3" time="0.014332"/>
-    <testcase classname="unittest_getLinkedCommandFromText" name="Test_4" time="0.0085883"/>
-    <testcase classname="unittest_getLinkedCommandFromText" name="Test_5" time="0.010222"/>
-    <testcase classname="unittest_getLinkedCommandFromText" name="Test_6" time="0.0084816"/>
-    <testcase classname="unittest_getLinkedCommandFromText" name="Test_7" time="0.011469"/>
-    <testcase classname="unittest_getLinkedCommandFromText" name="Test_8" time="0.0091238"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_getUnusedFilename" skipped="0" tests="5" time="0.10237">
-    <testcase classname="unittest_getUnusedFilename" name="PassingTest_1" time="0.012618"/>
-    <testcase classname="unittest_getUnusedFilename" name="Test_1" time="0.0067669"/>
-    <testcase classname="unittest_getUnusedFilename" name="Test_2" time="0.003778"/>
-    <testcase classname="unittest_getUnusedFilename" name="Test_3" time="0.046876"/>
-    <testcase classname="unittest_getUnusedFilename" name="Test_4" time="0.032332"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_isModelFile" skipped="0" tests="3" time="0.042341">
-    <testcase classname="unittest_isModelFile" name="Test_1" time="0.021176"/>
-    <testcase classname="unittest_isModelFile" name="Test_2" time="0.015149"/>
-    <testcase classname="unittest_isModelFile" name="Test_3" time="0.0060149"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_isPlainTextLiveScript" skipped="0" tests="6" time="0.077394">
-    <testcase classname="unittest_isPlainTextLiveScript" name="PassingTest_1" time="0.015765"/>
-    <testcase classname="unittest_isPlainTextLiveScript" name="PassingTest_2" time="0.0092711"/>
-    <testcase classname="unittest_isPlainTextLiveScript" name="Test_LiveScript_1_R2025a_or_newer" time="0.015175"/>
-    <testcase classname="unittest_isPlainTextLiveScript" name="Test_LiveScript_2_R2025a_or_newer" time="0.0078204"/>
-    <testcase classname="unittest_isPlainTextLiveScript" name="Test_LiveScript_3_R2025a_or_newer" time="0.010066"/>
-    <testcase classname="unittest_isPlainTextLiveScript" name="Test_LiveScript_4_R2025a_or_newer" time="0.019296"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_mustBeLiveScript" skipped="0" tests="8" time="0.067174">
-    <testcase classname="unittest_mustBeLiveScript" name="Test_error_1" time="0.011551"/>
-    <testcase classname="unittest_mustBeLiveScript" name="Test_error_2" time="0.0052161"/>
-    <testcase classname="unittest_mustBeLiveScript" name="Test_error_3" time="0.0050067"/>
-    <testcase classname="unittest_mustBeLiveScript" name="PassingTest_1" time="0.017093"/>
-    <testcase classname="unittest_mustBeLiveScript" name="PassingTest_2_R2024b" time="0.0065079"/>
-    <testcase classname="unittest_mustBeLiveScript" name="PassingTest_3_R2025a_or_newer" time="0.014073"/>
-    <testcase classname="unittest_mustBeLiveScript" name="PassingTest_4_R2024b" time="0.0025532"/>
-    <testcase classname="unittest_mustBeLiveScript" name="PassingTest_5_R2025a_or_newer" time="0.0051729"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_sourceFileIsNewer" skipped="0" tests="3" time="0.14698">
-    <testcase classname="unittest_sourceFileIsNewer" name="Test_error_1" time="0.012889"/>
-    <testcase classname="unittest_sourceFileIsNewer" name="Test_1" time="0.074858"/>
-    <testcase classname="unittest_sourceFileIsNewer" name="Test_2" time="0.05923"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiTest_ModelUtil" skipped="0" tests="4" time="5.374">
-    <testcase classname="uiTest_ModelUtil" name="app_launches_without_warnings_1" time="0.96247"/>
-    <testcase classname="uiTest_ModelUtil" name="PassingTest_App_1" time="2.2778"/>
-    <testcase classname="uiTest_ModelUtil" name="PassingTest_SampleModel_1" time="1.4665"/>
-    <testcase classname="uiTest_ModelUtil" name="PassingTest_SampleModel_2" time="0.66715"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiUptodateTest_ModelUtil" skipped="0" tests="2" time="0.032636">
-    <testcase classname="uiUptodateTest_ModelUtil" name="app_screenshot_1_dark" time="0.028156"/>
-    <testcase classname="uiUptodateTest_ModelUtil" name="app_screenshot_2_light" time="0.0044805"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_checkEditInCallbackButton" skipped="0" tests="5" time="2.7597">
-    <testcase classname="unittest_checkEditInCallbackButton" name="ErrorCase_1" time="0.028435"/>
-    <testcase classname="unittest_checkEditInCallbackButton" name="ErrorCase_2" time="0.0070316"/>
-    <testcase classname="unittest_checkEditInCallbackButton" name="ErrorCase_3" time="0.23356"/>
-    <testcase classname="unittest_checkEditInCallbackButton" name="Test_1_with_pause" time="2.3231"/>
-    <testcase classname="unittest_checkEditInCallbackButton" name="PassingTest_1" time="0.16762"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_checkEditInCode" skipped="0" tests="7" time="0.20291">
-    <testcase classname="unittest_checkEditInCode" name="ErrorTest_1" time="0.020408"/>
-    <testcase classname="unittest_checkEditInCode" name="ErrorTest_2" time="0.0086131"/>
-    <testcase classname="unittest_checkEditInCode" name="ErrorTest_3" time="0.038791"/>
-    <testcase classname="unittest_checkEditInCode" name="Test_1" time="0.010167"/>
-    <testcase classname="unittest_checkEditInCode" name="Test_2" time="0.029258"/>
-    <testcase classname="unittest_checkEditInCode" name="Test_3" time="0.011171"/>
-    <testcase classname="unittest_checkEditInCode" name="PassingTest_1" time="0.084505"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_checkRefSubInCallbackButton" skipped="0" tests="6" time="1.0982">
-    <testcase classname="unittest_checkRefSubInCallbackButton" name="ErrorTest_1" time="0.023252"/>
-    <testcase classname="unittest_checkRefSubInCallbackButton" name="ErrorTest_2" time="0.0068828"/>
-    <testcase classname="unittest_checkRefSubInCallbackButton" name="Test_1" time="0.083258"/>
-    <testcase classname="unittest_checkRefSubInCallbackButton" name="Test_2" time="0.39773"/>
-    <testcase classname="unittest_checkRefSubInCallbackButton" name="Test_3" time="0.30675"/>
-    <testcase classname="unittest_checkRefSubInCallbackButton" name="PassingTest_1" time="0.28037"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_checkRefSubInSetParam" skipped="0" tests="9" time="0.93809">
-    <testcase classname="unittest_checkRefSubInSetParam" name="ErrorTest_1" time="0.015499"/>
-    <testcase classname="unittest_checkRefSubInSetParam" name="ErrorTest_2" time="0.0073189"/>
-    <testcase classname="unittest_checkRefSubInSetParam" name="ErrorTest_3" time="0.19906"/>
-    <testcase classname="unittest_checkRefSubInSetParam" name="Test_1" time="0.0072978"/>
-    <testcase classname="unittest_checkRefSubInSetParam" name="Test_2" time="0.071934"/>
-    <testcase classname="unittest_checkRefSubInSetParam" name="Test_3" time="0.076492"/>
-    <testcase classname="unittest_checkRefSubInSetParam" name="Test_4" time="0.071681"/>
-    <testcase classname="unittest_checkRefSubInSetParam" name="Test_5" time="0.068338"/>
-    <testcase classname="unittest_checkRefSubInSetParam" name="PassingTest_1" time="0.42047"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_findAllSimscapeBlocks" skipped="0" tests="3" time="0.38369">
-    <testcase classname="unittest_findAllSimscapeBlocks" name="Test_error_1" time="0.013104"/>
-    <testcase classname="unittest_findAllSimscapeBlocks" name="Test_1" time="0.07108"/>
-    <testcase classname="unittest_findAllSimscapeBlocks" name="Test_2" time="0.2995"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_findLookupTable1DBlocks" skipped="0" tests="8" time="1.6491">
-    <testcase classname="unittest_findLookupTable1DBlocks" name="ErrorTest_1" time="0.053621"/>
-    <testcase classname="unittest_findLookupTable1DBlocks" name="PassingTest_1" time="0.29515"/>
-    <testcase classname="unittest_findLookupTable1DBlocks" name="PassingTest_2" time="0.26054"/>
-    <testcase classname="unittest_findLookupTable1DBlocks" name="PassingTest_3" time="0.17178"/>
-    <testcase classname="unittest_findLookupTable1DBlocks" name="PassingTest_4" time="0.26887"/>
-    <testcase classname="unittest_findLookupTable1DBlocks" name="TestDefault" time="0.26696"/>
-    <testcase classname="unittest_findLookupTable1DBlocks" name="TestSubsystemPath" time="0.16967"/>
-    <testcase classname="unittest_findLookupTable1DBlocks" name="TestSearchDepth" time="0.16248"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_findSimscapeBlocks" skipped="0" tests="5" time="0.58412">
-    <testcase classname="unittest_findSimscapeBlocks" name="Test_error_1" time="0.012705"/>
-    <testcase classname="unittest_findSimscapeBlocks" name="Test_error_2" time="0.0055044"/>
-    <testcase classname="unittest_findSimscapeBlocks" name="Test_error_3" time="0.075206"/>
-    <testcase classname="unittest_findSimscapeBlocks" name="Test_error_4" time="0.24877"/>
-    <testcase classname="unittest_findSimscapeBlocks" name="Test_1" time="0.24194"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_getModelFileFullPath" skipped="0" tests="8" time="0.070177">
-    <testcase classname="unittest_getModelFileFullPath" name="Test_error_1" time="0.012288"/>
-    <testcase classname="unittest_getModelFileFullPath" name="Test_error_2" time="0.0054219"/>
-    <testcase classname="unittest_getModelFileFullPath" name="Test_error_3" time="0.008711"/>
-    <testcase classname="unittest_getModelFileFullPath" name="Test_error_4" time="0.015964"/>
-    <testcase classname="unittest_getModelFileFullPath" name="PassingTest_1" time="0.012042"/>
-    <testcase classname="unittest_getModelFileFullPath" name="PassingTest_2" time="0.0016799"/>
-    <testcase classname="unittest_getModelFileFullPath" name="PassingTest_3" time="0.012107"/>
-    <testcase classname="unittest_getModelFileFullPath" name="PassingTest_4" time="0.0019629"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_getSimscapeValueFromBlockParameter" skipped="0" tests="3" time="0.26576">
-    <testcase classname="unittest_getSimscapeValueFromBlockParameter" name="ErrorTest_1" time="0.010225"/>
-    <testcase classname="unittest_getSimscapeValueFromBlockParameter" name="ErrorTest_2" time="0.0059271"/>
-    <testcase classname="unittest_getSimscapeValueFromBlockParameter" name="PassingTest_1" time="0.2496"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiTest_plotLookupTable1DBlocks" skipped="0" tests="1" time="1.4641">
-    <testcase classname="uiTest_plotLookupTable1DBlocks" name="app_launches_without_warnings_2" time="1.4641"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_plotLookupTable1DBlocks" skipped="0" tests="3" time="0.78872">
-    <testcase classname="unittest_plotLookupTable1DBlocks" name="ErrorTest_1" time="0.017126"/>
-    <testcase classname="unittest_plotLookupTable1DBlocks" name="PassingTest_1" time="0.078284"/>
-    <testcase classname="unittest_plotLookupTable1DBlocks" name="PassingTest_2" time="0.69331"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_saveModels" skipped="0" tests="4" time="0.13351">
-    <testcase classname="unittest_saveModels" name="PassingTest_1" time="0.089919"/>
-    <testcase classname="unittest_saveModels" name="Test_FolderTree_1" time="0.018998"/>
-    <testcase classname="unittest_saveModels" name="Test_WithProject_1" time="0.02233"/>
-    <testcase classname="unittest_saveModels" name="Test_WithProject_2" time="0.0022638"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_screenshotSimulink" skipped="0" tests="7" time="6.5237">
-    <testcase classname="unittest_screenshotSimulink" name="PassingTest_1" time="0.10683"/>
-    <testcase classname="unittest_screenshotSimulink" name="PassingTest_2" time="3.1582"/>
-    <testcase classname="unittest_screenshotSimulink" name="PassingTest_3" time="0.71059"/>
-    <testcase classname="unittest_screenshotSimulink" name="PassingTest_4" time="0.64737"/>
-    <testcase classname="unittest_screenshotSimulink" name="PassingTest_5" time="0.58047"/>
-    <testcase classname="unittest_screenshotSimulink" name="PassingTest_6" time="0.35482"/>
-    <testcase classname="unittest_screenshotSimulink" name="PassingTest_7" time="0.96539"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_setSystemMaskIcon" skipped="0" tests="2" time="1.4155">
-    <testcase classname="unittest_setSystemMaskIcon" name="PassingTest_1" time="0.91976"/>
-    <testcase classname="unittest_setSystemMaskIcon" name="PassingTest_2" time="0.49577"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiTest_SearchUtil" skipped="0" tests="6" time="19.1197">
-    <testcase classname="uiTest_SearchUtil" name="app_launches_without_warnings_1" time="1.0957"/>
-    <testcase classname="uiTest_SearchUtil" name="app_launches_without_warnings_2" time="1.4846"/>
-    <testcase classname="uiTest_SearchUtil" name="app_launches_without_warnings_3" time="2.0131"/>
-    <testcase classname="uiTest_SearchUtil" name="Gesture_1" time="3.5915"/>
-    <testcase classname="uiTest_SearchUtil" name="Gesture_2" time="5.8454"/>
-    <testcase classname="uiTest_SearchUtil" name="Gesture_3" time="5.0893"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiUptodateTest_SearchUtil" skipped="0" tests="6" time="0.10844">
-    <testcase classname="uiUptodateTest_SearchUtil" name="app_screenshot_dark_1" time="0.050774"/>
-    <testcase classname="uiUptodateTest_SearchUtil" name="app_screenshot_dark_2" time="0.019922"/>
-    <testcase classname="uiUptodateTest_SearchUtil" name="app_screenshot_dark_3" time="0.020515"/>
-    <testcase classname="uiUptodateTest_SearchUtil" name="app_screenshot_light_1" time="0.005326"/>
-    <testcase classname="uiUptodateTest_SearchUtil" name="app_screenshot_light_2" time="0.0065514"/>
-    <testcase classname="uiUptodateTest_SearchUtil" name="app_screenshot_light_3" time="0.0053549"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiTest_FileSearchAppMain" skipped="0" tests="3" time="5.0198">
-    <testcase classname="uiTest_FileSearchAppMain" name="app_launches_without_warnings_1" time="0.89422"/>
-    <testcase classname="uiTest_FileSearchAppMain" name="Gesture_1" time="2.0351"/>
-    <testcase classname="uiTest_FileSearchAppMain" name="Gesture_2" time="2.0905"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiUptodateTest_FileSearchAppMain" skipped="0" tests="2" time="0.021831">
-    <testcase classname="uiUptodateTest_FileSearchAppMain" name="app_screenshot_dark_1" time="0.017064"/>
-    <testcase classname="uiUptodateTest_FileSearchAppMain" name="app_screenshot_light_1" time="0.0047675"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiTest_FileSearchResultAppMain" skipped="0" tests="3" time="6.3846">
-    <testcase classname="uiTest_FileSearchResultAppMain" name="app_launches_without_warnings_1" time="0.89858"/>
-    <testcase classname="uiTest_FileSearchResultAppMain" name="Gesture_1" time="3.4407"/>
-    <testcase classname="uiTest_FileSearchResultAppMain" name="Gesture_2" time="2.0453"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiUptodateTest_FileSearchResultAppMain" skipped="0" tests="2" time="0.018162">
-    <testcase classname="uiUptodateTest_FileSearchResultAppMain" name="app_screenshot_dark_1" time="0.012741"/>
-    <testcase classname="uiUptodateTest_FileSearchResultAppMain" name="app_screenshot_light_1" time="0.0054205"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiTest_TextSearchAppMain" skipped="0" tests="3" time="8.7954">
-    <testcase classname="uiTest_TextSearchAppMain" name="app_launches_without_warnings_1" time="0.9808"/>
-    <testcase classname="uiTest_TextSearchAppMain" name="Gesture_1" time="4.7106"/>
-    <testcase classname="uiTest_TextSearchAppMain" name="Gesture_2" time="3.104"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiUptodateTest_TextSearchAppMain" skipped="0" tests="2" time="0.023423">
-    <testcase classname="uiUptodateTest_TextSearchAppMain" name="app_screenshot_dark_1" time="0.016817"/>
-    <testcase classname="uiUptodateTest_TextSearchAppMain" name="app_screenshot_light_1" time="0.0066054"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiTest_TextSearchResultAppMain" skipped="0" tests="3" time="10.2531">
-    <testcase classname="uiTest_TextSearchResultAppMain" name="app_launches_without_warnings_1" time="1.2057"/>
-    <testcase classname="uiTest_TextSearchResultAppMain" name="Gesture_1" time="6.3006"/>
-    <testcase classname="uiTest_TextSearchResultAppMain" name="Gesture_2" time="2.7469"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiUptodateTest_TextSearchResultAppMain" skipped="0" tests="2" time="0.019861">
-    <testcase classname="uiUptodateTest_TextSearchResultAppMain" name="app_screenshot_dark_1" time="0.015413"/>
-    <testcase classname="uiUptodateTest_TextSearchResultAppMain" name="app_screenshot_light_1" time="0.0044476"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_TextSearcher" skipped="0" tests="4" time="0.049744">
-    <testcase classname="unittest_TextSearcher" name="PassingTest_1" time="0.013313"/>
-    <testcase classname="unittest_TextSearcher" name="Error_1" time="0.018854"/>
-    <testcase classname="unittest_TextSearcher" name="Test_1" time="0.011854"/>
-    <testcase classname="unittest_TextSearcher" name="Test_2" time="0.0057235"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_buildReplaceCommandText" skipped="0" tests="9" time="0.29444">
-    <testcase classname="unittest_buildReplaceCommandText" name="PassingTest_1" time="0.098697"/>
-    <testcase classname="unittest_buildReplaceCommandText" name="PassingTest_2" time="0.11606"/>
-    <testcase classname="unittest_buildReplaceCommandText" name="Error_1" time="0.015381"/>
-    <testcase classname="unittest_buildReplaceCommandText" name="Error_2" time="0.013392"/>
-    <testcase classname="unittest_buildReplaceCommandText" name="Error_3" time="0.011357"/>
-    <testcase classname="unittest_buildReplaceCommandText" name="Error_4" time="0.0079704"/>
-    <testcase classname="unittest_buildReplaceCommandText" name="Error_5" time="0.0063184"/>
-    <testcase classname="unittest_buildReplaceCommandText" name="Error_6" time="0.006726"/>
-    <testcase classname="unittest_buildReplaceCommandText" name="Error_7" time="0.018534"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_replaceText" skipped="0" tests="7" time="0.23731">
-    <testcase classname="unittest_replaceText" name="PassingTest_1" time="0.041723"/>
-    <testcase classname="unittest_replaceText" name="PassingTest_2" time="0.070407"/>
-    <testcase classname="unittest_replaceText" name="Error_1" time="0.01452"/>
-    <testcase classname="unittest_replaceText" name="Error_2" time="0.042772"/>
-    <testcase classname="unittest_replaceText" name="Error_3" time="0.007499"/>
-    <testcase classname="unittest_replaceText" name="Test_1" time="0.029405"/>
-    <testcase classname="unittest_replaceText" name="Test_2" time="0.030988"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_searchFiles" skipped="0" tests="6" time="0.056945">
-    <testcase classname="unittest_searchFiles" name="Test_error_1" time="0.013088"/>
-    <testcase classname="unittest_searchFiles" name="Test_error_2" time="0.0095091"/>
-    <testcase classname="unittest_searchFiles" name="PassingTest_1" time="0.0096228"/>
-    <testcase classname="unittest_searchFiles" name="PassingTest_2" time="0.011621"/>
-    <testcase classname="unittest_searchFiles" name="PassingTest_3" time="0.005325"/>
-    <testcase classname="unittest_searchFiles" name="PassingTest_4" time="0.0077785"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_searchText" skipped="0" tests="10" time="0.17437">
-    <testcase classname="unittest_searchText" name="PassingTest_1" time="0.021826"/>
-    <testcase classname="unittest_searchText" name="Error_1" time="0.012546"/>
-    <testcase classname="unittest_searchText" name="Error_2" time="0.010879"/>
-    <testcase classname="unittest_searchText" name="Error_3" time="0.021723"/>
-    <testcase classname="unittest_searchText" name="Error_4" time="0.0088624"/>
-    <testcase classname="unittest_searchText" name="Test_1" time="0.01243"/>
-    <testcase classname="unittest_searchText" name="Test_2" time="0.010783"/>
-    <testcase classname="unittest_searchText" name="Test_3" time="0.027475"/>
-    <testcase classname="unittest_searchText" name="Test_4" time="0.010192"/>
-    <testcase classname="unittest_searchText" name="Test_5" time="0.037653"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiTest_SignalUtil" skipped="0" tests="2" time="8.7099">
-    <testcase classname="uiTest_SignalUtil" name="app_launches_without_warnings_1" time="4.6252"/>
-    <testcase classname="uiTest_SignalUtil" name="app_launches_without_warnings_2" time="4.0847"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiUptodateTest_SignalUtil" skipped="0" tests="4" time="0.082662">
-    <testcase classname="uiUptodateTest_SignalUtil" name="app_screenshot_is_uptodate_1_1_dark" time="0.042075"/>
-    <testcase classname="uiUptodateTest_SignalUtil" name="app_screenshot_is_uptodate_1_2_light" time="0.00979"/>
-    <testcase classname="uiUptodateTest_SignalUtil" name="app_screenshot_is_uptodate_2_1_dark" time="0.02127"/>
-    <testcase classname="uiUptodateTest_SignalUtil" name="app_screenshot_is_uptodate_2_2_light" time="0.0095268"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_SignalUtil" skipped="0" tests="3" time="0.25395">
-    <testcase classname="unittest_SignalUtil" name="PassingTest_1" time="0.079798"/>
-    <testcase classname="unittest_SignalUtil" name="PassingTest_2" time="0.11454"/>
-    <testcase classname="unittest_SignalUtil" name="PassingTest_3" time="0.059611"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_SignalUtil_settings" skipped="0" tests="2" time="0.032474">
-    <testcase classname="unittest_SignalUtil_settings" name="linked_app_in_live_script_1" time="0.017118"/>
-    <testcase classname="unittest_SignalUtil_settings" name="linked_app_in_live_script_2" time="0.015356"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uptodateTest_SignalUtil" skipped="0" tests="2" time="0.021614">
-    <testcase classname="uptodateTest_SignalUtil" name="html_with_code_is_uptodate_1" time="0.016627"/>
-    <testcase classname="uptodateTest_SignalUtil" name="html_with_code_is_uptodate_2" time="0.0049864"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_SignalDesignAppMain" skipped="0" tests="3" time="14.893">
-    <testcase classname="uitest_SignalDesignAppMain" name="app_launches_without_warnings_1" time="3.5373"/>
-    <testcase classname="uitest_SignalDesignAppMain" name="PassingTest_1" time="5.3576"/>
-    <testcase classname="uitest_SignalDesignAppMain" name="uitest_1" time="5.9981"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_TraceGeneratorAppMain" skipped="0" tests="3" time="20.1388">
-    <testcase classname="uitest_TraceGeneratorAppMain" name="app_launches_without_warnings_1" time="3.8226"/>
-    <testcase classname="uitest_TraceGeneratorAppMain" name="Test_1" time="8.1165"/>
-    <testcase classname="uitest_TraceGeneratorAppMain" name="uitest_1" time="8.1997"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_generateSignalDesignMatrixFromTraceProperties" skipped="0" tests="2" time="0.12181">
-    <testcase classname="unittest_generateSignalDesignMatrixFromTraceProperties" name="PassingTest_1" time="0.0071823"/>
-    <testcase classname="unittest_generateSignalDesignMatrixFromTraceProperties" name="PassingTest_2" time="0.11463"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_getTimetableFromLoggedSignal" skipped="0" tests="9" time="3.6009">
-    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_1" time="0.10052"/>
-    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_2" time="0.20891"/>
-    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_3" time="0.018876"/>
-    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_4" time="0.090391"/>
-    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_5" time="2.937"/>
-    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_1" time="0.096295"/>
-    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_2" time="0.061016"/>
-    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_3" time="0.050014"/>
-    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_4" time="0.037933"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_getVectorsFromSignalDesignMatrix" skipped="0" tests="2" time="0.12435">
-    <testcase classname="unittest_getVectorsFromSignalDesignMatrix" name="PassingTest_1" time="0.01077"/>
-    <testcase classname="unittest_getVectorsFromSignalDesignMatrix" name="PassingTest_2" time="0.11358"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_plotDifference" skipped="0" tests="6" time="0.37154">
-    <testcase classname="unittest_plotDifference" name="PassingTest_1" time="0.074942"/>
-    <testcase classname="unittest_plotDifference" name="PassingTest_2" time="0.046664"/>
-    <testcase classname="unittest_plotDifference" name="PassingTest_3" time="0.061522"/>
-    <testcase classname="unittest_plotDifference" name="PassingTest_4" time="0.059349"/>
-    <testcase classname="unittest_plotDifference" name="PassingTest_5" time="0.043849"/>
-    <testcase classname="unittest_plotDifference" name="PassingTest_6" time="0.085212"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uptodatetest_plotDifference" skipped="0" tests="2" time="0.0053113">
-    <testcase classname="uptodatetest_plotDifference" name="markdowns_are_uptodate" time="0.0038107"/>
-    <testcase classname="uptodatetest_plotDifference" name="markdown_files_exist" time="0.0015006"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiTest_TestUtil" skipped="0" tests="2" time="3.1797">
-    <testcase classname="uiTest_TestUtil" name="app_launches_without_warnings_1" time="1.2022"/>
-    <testcase classname="uiTest_TestUtil" name="PassingTest_1" time="1.9775"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiUptodateTest_TestUtil" skipped="0" tests="4" time="0.089769">
-    <testcase classname="uiUptodateTest_TestUtil" name="app_screenshot_1_dark" time="0.03408"/>
-    <testcase classname="uiUptodateTest_TestUtil" name="app_screenshot_1_light" time="0.014306"/>
-    <testcase classname="uiUptodateTest_TestUtil" name="app_screenshot_2_dark" time="0.029124"/>
-    <testcase classname="uiUptodateTest_TestUtil" name="app_screenshot_2_light" time="0.012259"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiTest_TestResultAppMain" skipped="0" tests="6" time="13.8624">
-    <testcase classname="uiTest_TestResultAppMain" name="app_launches_without_warnings_1" time="1.3103"/>
-    <testcase classname="uiTest_TestResultAppMain" name="app_launches_without_warnings_2" time="1.3488"/>
-    <testcase classname="uiTest_TestResultAppMain" name="ErrorCase_1" time="0.42996"/>
-    <testcase classname="uiTest_TestResultAppMain" name="PassingTest_1" time="1.4623"/>
-    <testcase classname="uiTest_TestResultAppMain" name="PassingTest_2" time="1.37"/>
-    <testcase classname="uiTest_TestResultAppMain" name="GestureTest_1" time="7.9411"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiUptodateTest_TestResultAppMain" skipped="0" tests="2" time="0.026259">
-    <testcase classname="uiUptodateTest_TestResultAppMain" name="app_screenshot_dark_1" time="0.020703"/>
-    <testcase classname="uiUptodateTest_TestResultAppMain" name="app_screenshot_light_1" time="0.0055557"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_getTestResultTable" skipped="0" tests="5" time="0.1244">
-    <testcase classname="unittest_getTestResultTable" name="Test_error_1" time="0.016544"/>
-    <testcase classname="unittest_getTestResultTable" name="Test_error_2" time="0.012142"/>
-    <testcase classname="unittest_getTestResultTable" name="Test_error_3" time="0.0076145"/>
-    <testcase classname="unittest_getTestResultTable" name="PassingTest_1" time="0.043696"/>
-    <testcase classname="unittest_getTestResultTable" name="Test_1" time="0.044407"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_isNonLocal" skipped="0" tests="4" time="0.033951">
-    <testcase classname="unittest_isNonLocal" name="Test_error_1" time="0.013091"/>
-    <testcase classname="unittest_isNonLocal" name="Test_1" time="0.0082479"/>
-    <testcase classname="unittest_isNonLocal" name="Test_2" time="0.0051266"/>
-    <testcase classname="unittest_isNonLocal" name="Test_3" time="0.0074863"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_summarizeCodeCoverage" skipped="0" tests="4" time="0.56594">
-    <testcase classname="unittest_summarizeCodeCoverage" name="Test_error_1" time="0.016098"/>
-    <testcase classname="unittest_summarizeCodeCoverage" name="PassingTest_1" time="0.26807"/>
-    <testcase classname="unittest_summarizeCodeCoverage" name="PassingTest_2" time="0.22305"/>
-    <testcase classname="unittest_summarizeCodeCoverage" name="Test_1" time="0.058718"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_summarizeTestResult" skipped="0" tests="3" time="0.42489">
-    <testcase classname="unittest_summarizeTestResult" name="Test_error_1" time="0.016977"/>
-    <testcase classname="unittest_summarizeTestResult" name="PassingTest_1" time="0.33841"/>
-    <testcase classname="unittest_summarizeTestResult" name="Test_1" time="0.069504"/>
+  <testsuite errors="0" failures="0" name="uiTest_AppUtil" skipped="0" tests="3" time="4.4339">
+    <testcase classname="uiTest_AppUtil" name="app_launches_without_warnings_1" time="3.5282"/>
+    <testcase classname="uiTest_AppUtil" name="app_launches_without_warnings_2" time="0.86159"/>
+    <testcase classname="uiTest_AppUtil" name="app_launches_without_warnings_3" time="0.04407"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_AppUtil" skipped="0" tests="4" time="0.12724">
+    <testcase classname="uiUptodateTest_AppUtil" name="app_screenshot_dark_1" time="0.070461"/>
+    <testcase classname="uiUptodateTest_AppUtil" name="app_screenshot_light_1" time="0.018203"/>
+    <testcase classname="uiUptodateTest_AppUtil" name="app_screenshot_dark_2" time="0.028293"/>
+    <testcase classname="uiUptodateTest_AppUtil" name="app_screenshot_light_2" time="0.010285"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_AlignComponents" skipped="0" tests="12" time="34.7917">
+    <testcase classname="uitest_AlignComponents" name="app_launches_without_warnings_1" time="0.80297"/>
+    <testcase classname="uitest_AlignComponents" name="app_launches_without_warnings_2" time="1.0344"/>
+    <testcase classname="uitest_AlignComponents" name="app_launches_without_warnings_3" time="2.0355"/>
+    <testcase classname="uitest_AlignComponents" name="app_launches_without_warnings_4" time="1.6059"/>
+    <testcase classname="uitest_AlignComponents" name="DarkTheme_1" time="2.0935"/>
+    <testcase classname="uitest_AlignComponents" name="LightTheme_1" time="2.2729"/>
+    <testcase classname="uitest_AlignComponents" name="DarkTheme_2" time="1.8568"/>
+    <testcase classname="uitest_AlignComponents" name="LightTheme_2" time="1.4517"/>
+    <testcase classname="uitest_AlignComponents" name="DarkTheme_3" time="5.9641"/>
+    <testcase classname="uitest_AlignComponents" name="LightTheme_3" time="5.7264"/>
+    <testcase classname="uitest_AlignComponents" name="DarkTheme_4" time="5.1184"/>
+    <testcase classname="uitest_AlignComponents" name="LightTheme_4" time="4.8292"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_AppWindow" skipped="0" tests="2" time="0.99454">
+    <testcase classname="uitest_AppWindow" name="app_launches_without_warnings_1" time="0.29585"/>
+    <testcase classname="uitest_AppWindow" name="app_launches_without_warnings_2" time="0.69868"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_Axes" skipped="0" tests="8" time="8.0971">
+    <testcase classname="uitest_Axes" name="app_launches_without_warnings_1" time="1.0527"/>
+    <testcase classname="uitest_Axes" name="app_launches_without_warnings_2" time="0.50191"/>
+    <testcase classname="uitest_Axes" name="app_launches_without_warnings_3" time="1.3934"/>
+    <testcase classname="uitest_Axes" name="app_launches_without_warnings_4" time="0.88132"/>
+    <testcase classname="uitest_Axes" name="LightTheme_1" time="1.1873"/>
+    <testcase classname="uitest_Axes" name="LightTheme_2" time="1.0751"/>
+    <testcase classname="uitest_Axes" name="DarkTheme_1" time="1.0268"/>
+    <testcase classname="uitest_Axes" name="DarkTheme_2" time="0.97855"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_BlockSelectorUI" skipped="0" tests="15" time="63.5338">
+    <testcase classname="uitest_BlockSelectorUI" name="app_launches_without_warnings_1" time="0.49864"/>
+    <testcase classname="uitest_BlockSelectorUI" name="app_launches_without_warnings_2" time="10.2775"/>
+    <testcase classname="uitest_BlockSelectorUI" name="app_launches_without_warnings_3" time="1.0922"/>
+    <testcase classname="uitest_BlockSelectorUI" name="app_launches_without_warnings_4" time="1.8886"/>
+    <testcase classname="uitest_BlockSelectorUI" name="app_launches_without_warnings_5" time="1.3667"/>
+    <testcase classname="uitest_BlockSelectorUI" name="invalid_model" time="0.54903"/>
+    <testcase classname="uitest_BlockSelectorUI" name="duplicate_model_paths" time="0.75704"/>
+    <testcase classname="uitest_BlockSelectorUI" name="invalid_model_file" time="0.17963"/>
+    <testcase classname="uitest_BlockSelectorUI" name="Gesture_Highlight_Block" time="4.48"/>
+    <testcase classname="uitest_BlockSelectorUI" name="Gesture_Model_Dropdown" time="6.6001"/>
+    <testcase classname="uitest_BlockSelectorUI" name="Gesture_Get_button" time="6.8806"/>
+    <testcase classname="uitest_BlockSelectorUI" name="Gesture_Set_button" time="6.4922"/>
+    <testcase classname="uitest_BlockSelectorUI" name="Gesture_Highlight_button" time="19.6464"/>
+    <testcase classname="uitest_BlockSelectorUI" name="LightTheme_1" time="1.3742"/>
+    <testcase classname="uitest_BlockSelectorUI" name="DarkTheme_1" time="1.4509"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_Button" skipped="0" tests="13" time="16.2489">
+    <testcase classname="uitest_Button" name="app_launches_without_warnings_1" time="0.30944"/>
+    <testcase classname="uitest_Button" name="app_launches_without_warnings_2" time="0.65508"/>
+    <testcase classname="uitest_Button" name="app_launches_without_warnings_3" time="0.96476"/>
+    <testcase classname="uitest_Button" name="app_launches_without_warnings_4" time="0.78195"/>
+    <testcase classname="uitest_Button" name="Gesture_1" time="1.9448"/>
+    <testcase classname="uitest_Button" name="LightTheme_1" time="0.53837"/>
+    <testcase classname="uitest_Button" name="LightTheme_2" time="1.8615"/>
+    <testcase classname="uitest_Button" name="LightTheme_3" time="1.452"/>
+    <testcase classname="uitest_Button" name="LightTheme_4" time="1.8352"/>
+    <testcase classname="uitest_Button" name="DarkTheme_1" time="0.96394"/>
+    <testcase classname="uitest_Button" name="DarkTheme_2" time="1.7627"/>
+    <testcase classname="uitest_Button" name="DarkTheme_3" time="1.376"/>
+    <testcase classname="uitest_Button" name="DarkTheme_4" time="1.8031"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_CheckBox" skipped="0" tests="10" time="18.3745">
+    <testcase classname="uitest_CheckBox" name="app_launches_without_warnings_1" time="0.34998"/>
+    <testcase classname="uitest_CheckBox" name="app_launches_without_warnings_2" time="0.70286"/>
+    <testcase classname="uitest_CheckBox" name="app_launches_without_warnings_3" time="1.5869"/>
+    <testcase classname="uitest_CheckBox" name="Gesture_1" time="2.6062"/>
+    <testcase classname="uitest_CheckBox" name="LightTheme_1" time="0.40991"/>
+    <testcase classname="uitest_CheckBox" name="LightTheme_2" time="1.6097"/>
+    <testcase classname="uitest_CheckBox" name="LightTheme_3" time="4.2595"/>
+    <testcase classname="uitest_CheckBox" name="DarkTheme_1" time="0.97563"/>
+    <testcase classname="uitest_CheckBox" name="DarkTheme_2" time="1.2916"/>
+    <testcase classname="uitest_CheckBox" name="DarkTheme_3" time="4.5823"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_ColumnLayout" skipped="0" tests="6" time="6.4614">
+    <testcase classname="uitest_ColumnLayout" name="app_launches_without_warnings_1" time="0.27409"/>
+    <testcase classname="uitest_ColumnLayout" name="app_launches_without_warnings_2" time="0.79465"/>
+    <testcase classname="uitest_ColumnLayout" name="LightTheme_1" time="1.2779"/>
+    <testcase classname="uitest_ColumnLayout" name="LightTheme_2" time="1.48"/>
+    <testcase classname="uitest_ColumnLayout" name="DarkTheme_1" time="0.91246"/>
+    <testcase classname="uitest_ColumnLayout" name="DarkTheme_2" time="1.7223"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_DoubleValueUI" skipped="0" tests="5" time="5.755">
+    <testcase classname="uitest_DoubleValueUI" name="app_launches_without_warnings_1" time="0.45224"/>
+    <testcase classname="uitest_DoubleValueUI" name="app_launches_without_warnings_2" time="1.157"/>
+    <testcase classname="uitest_DoubleValueUI" name="Gesture_UnitAlias_1" time="1.7597"/>
+    <testcase classname="uitest_DoubleValueUI" name="LightTheme_1" time="1.0036"/>
+    <testcase classname="uitest_DoubleValueUI" name="DarkTheme_1" time="1.3824"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_DropDown" skipped="0" tests="7" time="7.3659">
+    <testcase classname="uitest_DropDown" name="app_launches_without_warnings_1" time="0.352"/>
+    <testcase classname="uitest_DropDown" name="app_launches_without_warnings_2" time="0.60186"/>
+    <testcase classname="uitest_DropDown" name="Test_1" time="2.6161"/>
+    <testcase classname="uitest_DropDown" name="LightTheme_1" time="0.4272"/>
+    <testcase classname="uitest_DropDown" name="LightTheme_2" time="1.4377"/>
+    <testcase classname="uitest_DropDown" name="DarkTheme_1" time="0.60502"/>
+    <testcase classname="uitest_DropDown" name="DarkTheme_2" time="1.326"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_EditField" skipped="0" tests="4" time="3.7565">
+    <testcase classname="uitest_EditField" name="app_launches_without_warnings_1" time="0.39798"/>
+    <testcase classname="uitest_EditField" name="Gesture_1" time="2.0516"/>
+    <testcase classname="uitest_EditField" name="LightTheme_1" time="0.39583"/>
+    <testcase classname="uitest_EditField" name="DarkTheme_1" time="0.91105"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_EditableDropDown" skipped="0" tests="8" time="10.449">
+    <testcase classname="uitest_EditableDropDown" name="app_launches_without_warnings_1" time="0.34582"/>
+    <testcase classname="uitest_EditableDropDown" name="app_launches_without_warnings_2" time="0.60914"/>
+    <testcase classname="uitest_EditableDropDown" name="Test_1" time="3.4591"/>
+    <testcase classname="uitest_EditableDropDown" name="Test_2" time="2.0997"/>
+    <testcase classname="uitest_EditableDropDown" name="LightTheme_1" time="0.43062"/>
+    <testcase classname="uitest_EditableDropDown" name="LightTheme_2" time="1.4019"/>
+    <testcase classname="uitest_EditableDropDown" name="DarkTheme_1" time="0.79823"/>
+    <testcase classname="uitest_EditableDropDown" name="DarkTheme_2" time="1.3045"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_EnabledButton" skipped="0" tests="10" time="13.1625">
+    <testcase classname="uitest_EnabledButton" name="app_launches_without_warnings_1" time="0.37315"/>
+    <testcase classname="uitest_EnabledButton" name="app_launches_without_warnings_2" time="0.6082"/>
+    <testcase classname="uitest_EnabledButton" name="app_launches_without_warnings_3" time="1.0319"/>
+    <testcase classname="uitest_EnabledButton" name="Gesture_1" time="2.0269"/>
+    <testcase classname="uitest_EnabledButton" name="LightTheme_1" time="0.78055"/>
+    <testcase classname="uitest_EnabledButton" name="LightTheme_2" time="1.8117"/>
+    <testcase classname="uitest_EnabledButton" name="LightTheme_3" time="1.8605"/>
+    <testcase classname="uitest_EnabledButton" name="DarkTheme_1" time="1.2576"/>
+    <testcase classname="uitest_EnabledButton" name="DarkTheme_2" time="1.5506"/>
+    <testcase classname="uitest_EnabledButton" name="DarkTheme_3" time="1.8614"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_HorizontalLine" skipped="0" tests="3" time="2.3826">
+    <testcase classname="uitest_HorizontalLine" name="app_launches_without_warnings_1" time="0.41403"/>
+    <testcase classname="uitest_HorizontalLine" name="LightTheme_1" time="0.85431"/>
+    <testcase classname="uitest_HorizontalLine" name="DarkTheme_1" time="1.1142"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_Hyperlink" skipped="0" tests="6" time="6.0068">
+    <testcase classname="uitest_Hyperlink" name="app_launches_without_warnings_1" time="0.30002"/>
+    <testcase classname="uitest_Hyperlink" name="app_launches_without_warnings_2" time="0.60116"/>
+    <testcase classname="uitest_Hyperlink" name="LightTheme_1" time="1.1468"/>
+    <testcase classname="uitest_Hyperlink" name="LightTheme_2" time="1.5662"/>
+    <testcase classname="uitest_Hyperlink" name="DarkTheme_1" time="0.79319"/>
+    <testcase classname="uitest_Hyperlink" name="DarkTheme_2" time="1.5994"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_Label" skipped="0" tests="7" time="7.4526">
+    <testcase classname="uitest_Label" name="app_launches_without_warnings_1" time="0.22143"/>
+    <testcase classname="uitest_Label" name="app_launches_without_warnings_2" time="0.68857"/>
+    <testcase classname="uitest_Label" name="app_launches_without_warnings_3" time="1.0239"/>
+    <testcase classname="uitest_Label" name="LightTheme_1" time="1.1959"/>
+    <testcase classname="uitest_Label" name="LightTheme_2" time="1.6212"/>
+    <testcase classname="uitest_Label" name="DarkTheme_1" time="0.92922"/>
+    <testcase classname="uitest_Label" name="DarkTheme_2" time="1.7723"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_ListBox" skipped="0" tests="4" time="3.9836">
+    <testcase classname="uitest_ListBox" name="app_launches_without_warnings_1" time="0.37783"/>
+    <testcase classname="uitest_ListBox" name="Gesture_1" time="1.7408"/>
+    <testcase classname="uitest_ListBox" name="LightTheme_1" time="0.50881"/>
+    <testcase classname="uitest_ListBox" name="DarkTheme_1" time="1.3561"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_MixedLayout" skipped="0" tests="6" time="8.9866">
+    <testcase classname="uitest_MixedLayout" name="app_launches_without_warnings_1" time="0.43332"/>
+    <testcase classname="uitest_MixedLayout" name="app_launches_without_warnings_2" time="1.3655"/>
+    <testcase classname="uitest_MixedLayout" name="LightTheme_1" time="1.9105"/>
+    <testcase classname="uitest_MixedLayout" name="LightTheme_2" time="1.6947"/>
+    <testcase classname="uitest_MixedLayout" name="DarkTheme_1" time="1.8069"/>
+    <testcase classname="uitest_MixedLayout" name="DarkTheme_2" time="1.7758"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_Panel" skipped="0" tests="24" time="50.0172">
+    <testcase classname="uitest_Panel" name="app_launches_without_warnings_1" time="0.38303"/>
+    <testcase classname="uitest_Panel" name="app_launches_without_warnings_2" time="1.2778"/>
+    <testcase classname="uitest_Panel" name="app_launches_without_warnings_3" time="2.6534"/>
+    <testcase classname="uitest_Panel" name="app_launches_without_warnings_4" time="1.8917"/>
+    <testcase classname="uitest_Panel" name="app_launches_without_warnings_5" time="2.8294"/>
+    <testcase classname="uitest_Panel" name="app_launches_without_warnings_6" time="2.0377"/>
+    <testcase classname="uitest_Panel" name="app_launches_without_warnings_7" time="2.3468"/>
+    <testcase classname="uitest_Panel" name="app_launches_without_warnings_8" time="3.8981"/>
+    <testcase classname="uitest_Panel" name="LightTheme_1" time="0.50693"/>
+    <testcase classname="uitest_Panel" name="DarkTheme_1" time="1.2998"/>
+    <testcase classname="uitest_Panel" name="LightTheme_2" time="1.2899"/>
+    <testcase classname="uitest_Panel" name="DarkTheme_2" time="1.2937"/>
+    <testcase classname="uitest_Panel" name="LightTheme_3" time="1.5235"/>
+    <testcase classname="uitest_Panel" name="DarkTheme_3" time="1.3636"/>
+    <testcase classname="uitest_Panel" name="LightTheme_4" time="1.3544"/>
+    <testcase classname="uitest_Panel" name="DarkTheme_4" time="1.695"/>
+    <testcase classname="uitest_Panel" name="LightTheme_5" time="1.7312"/>
+    <testcase classname="uitest_Panel" name="DarkTheme_5" time="1.6151"/>
+    <testcase classname="uitest_Panel" name="LightTheme_6" time="1.3391"/>
+    <testcase classname="uitest_Panel" name="DarkTheme_6" time="1.5998"/>
+    <testcase classname="uitest_Panel" name="LightTheme_7" time="1.8727"/>
+    <testcase classname="uitest_Panel" name="DarkTheme_7" time="1.8278"/>
+    <testcase classname="uitest_Panel" name="LightTheme_8" time="6.4959"/>
+    <testcase classname="uitest_Panel" name="DarkTheme_8" time="5.8906"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_PhysicalValueUI" skipped="0" tests="15" time="21.5467">
+    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_1" time="0.51281"/>
+    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_2" time="1.0413"/>
+    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_3" time="0.89928"/>
+    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_4" time="1.5848"/>
+    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_5" time="1.5212"/>
+    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_6" time="0.84359"/>
+    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_7" time="0.51139"/>
+    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_8" time="1.2583"/>
+    <testcase classname="uitest_PhysicalValueUI" name="app_launches_without_warnings_9" time="1.056"/>
+    <testcase classname="uitest_PhysicalValueUI" name="Test_1" time="0.53483"/>
+    <testcase classname="uitest_PhysicalValueUI" name="Gesture_UnitAlias_1" time="1.9883"/>
+    <testcase classname="uitest_PhysicalValueUI" name="Gesture_UnitAlias_2" time="1.4826"/>
+    <testcase classname="uitest_PhysicalValueUI" name="Gesture_UnitItems_1" time="5.5274"/>
+    <testcase classname="uitest_PhysicalValueUI" name="LightTheme_1" time="1.3697"/>
+    <testcase classname="uitest_PhysicalValueUI" name="DarkTheme_1" time="1.4151"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_PolarAxes" skipped="0" tests="6" time="5.8495">
+    <testcase classname="uitest_PolarAxes" name="app_launches_without_warnings_1" time="0.57914"/>
+    <testcase classname="uitest_PolarAxes" name="app_launches_without_warnings_2" time="1.1873"/>
+    <testcase classname="uitest_PolarAxes" name="LightTheme_1" time="0.55491"/>
+    <testcase classname="uitest_PolarAxes" name="DarkTheme_1" time="1.4778"/>
+    <testcase classname="uitest_PolarAxes" name="LightTheme_2" time="1.044"/>
+    <testcase classname="uitest_PolarAxes" name="DarkTheme_2" time="1.0064"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_RowLayout" skipped="0" tests="6" time="6.1063">
+    <testcase classname="uitest_RowLayout" name="app_launches_without_warnings_1" time="0.3954"/>
+    <testcase classname="uitest_RowLayout" name="app_launches_without_warnings_2" time="0.62558"/>
+    <testcase classname="uitest_RowLayout" name="LightTheme_1" time="1.4745"/>
+    <testcase classname="uitest_RowLayout" name="LightTheme_2" time="1.2607"/>
+    <testcase classname="uitest_RowLayout" name="DarkTheme_1" time="0.98136"/>
+    <testcase classname="uitest_RowLayout" name="DarkTheme_2" time="1.3688"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_StateButton" skipped="0" tests="4" time="4.3722">
+    <testcase classname="uitest_StateButton" name="app_launches_without_warnings_1" time="0.44328"/>
+    <testcase classname="uitest_StateButton" name="Gesture_1" time="1.9647"/>
+    <testcase classname="uitest_StateButton" name="LightTheme_1" time="0.60358"/>
+    <testcase classname="uitest_StateButton" name="DarkTheme_1" time="1.3607"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_Table" skipped="0" tests="4" time="7.5503">
+    <testcase classname="uitest_Table" name="app_launches_without_warnings_1" time="0.43629"/>
+    <testcase classname="uitest_Table" name="Gesture_1" time="4.3158"/>
+    <testcase classname="uitest_Table" name="LightTheme_1" time="1.2604"/>
+    <testcase classname="uitest_Table" name="DarkTheme_1" time="1.5378"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_TextArea" skipped="0" tests="4" time="4.6999">
+    <testcase classname="uitest_TextArea" name="app_launches_without_warnings_1" time="0.44551"/>
+    <testcase classname="uitest_TextArea" name="Gesture_1" time="2.3582"/>
+    <testcase classname="uitest_TextArea" name="LightTheme_1" time="0.47311"/>
+    <testcase classname="uitest_TextArea" name="DarkTheme_1" time="1.423"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_WindowHeader" skipped="0" tests="6" time="7.3215">
+    <testcase classname="uitest_WindowHeader" name="app_launches_without_warnings_1" time="0.43573"/>
+    <testcase classname="uitest_WindowHeader" name="app_launches_without_warnings_2" time="0.65895"/>
+    <testcase classname="uitest_WindowHeader" name="app_launches_without_warnings_3" time="0.94647"/>
+    <testcase classname="uitest_WindowHeader" name="Gesture_1" time="2.6417"/>
+    <testcase classname="uitest_WindowHeader" name="LightTheme_1" time="1.1835"/>
+    <testcase classname="uitest_WindowHeader" name="DarkTheme_1" time="1.4551"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiTest_AppsForPhysicalSystems" skipped="0" tests="1" time="0.058756">
+    <testcase classname="uiTest_AppsForPhysicalSystems" name="app_launches_without_warnings_1" time="0.058756"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiTest_RotationalFriction" skipped="0" tests="16" time="76.553">
+    <testcase classname="uiTest_RotationalFriction" name="app_launches_without_warnings_1" time="5.6761"/>
+    <testcase classname="uiTest_RotationalFriction" name="app_launches_without_warnings_2" time="4.9441"/>
+    <testcase classname="uiTest_RotationalFriction" name="app_launches_without_warnings_3" time="5.3276"/>
+    <testcase classname="uiTest_RotationalFriction" name="Test_error_1" time="0.092552"/>
+    <testcase classname="uiTest_RotationalFriction" name="Test_error_2" time="0.26776"/>
+    <testcase classname="uiTest_RotationalFriction" name="VisualTest_1_1" time="5.5469"/>
+    <testcase classname="uiTest_RotationalFriction" name="VisualTest_1_2" time="5.313"/>
+    <testcase classname="uiTest_RotationalFriction" name="VisualTest_2_1" time="6.9179"/>
+    <testcase classname="uiTest_RotationalFriction" name="VisualTest_2_2" time="7.1387"/>
+    <testcase classname="uiTest_RotationalFriction" name="VisualTest_3" time="8.9918"/>
+    <testcase classname="uiTest_RotationalFriction" name="Test_samplemodel_1" time="0.15517"/>
+    <testcase classname="uiTest_RotationalFriction" name="Test_with_samplemodel_1" time="3.7947"/>
+    <testcase classname="uiTest_RotationalFriction" name="Test_with_samplemodel_2" time="5.6506"/>
+    <testcase classname="uiTest_RotationalFriction" name="Test_1" time="5.0779"/>
+    <testcase classname="uiTest_RotationalFriction" name="Test_2" time="5.1095"/>
+    <testcase classname="uiTest_RotationalFriction" name="Gesture_1" time="6.5488"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_RotationalFriction" skipped="0" tests="4" time="0.28735">
+    <testcase classname="uiUptodateTest_RotationalFriction" name="app_screenshot_1_dark" time="0.10346"/>
+    <testcase classname="uiUptodateTest_RotationalFriction" name="app_screenshot_1_light" time="0.063944"/>
+    <testcase classname="uiUptodateTest_RotationalFriction" name="app_screenshot_2_dark" time="0.067514"/>
+    <testcase classname="uiUptodateTest_RotationalFriction" name="app_screenshot_2_light" time="0.052438"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_RotationalFriction" skipped="0" tests="1" time="0.0044211">
+    <testcase classname="unittest_RotationalFriction" name="PassingTest_1" time="0.0044211"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_RotationalFriction_settings" skipped="0" tests="2" time="0.038703">
+    <testcase classname="unittest_RotationalFriction_settings" name="Test_1" time="0.029367"/>
+    <testcase classname="unittest_RotationalFriction_settings" name="Test_2" time="0.0093362"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uptodateTest_RotationalFriction" skipped="0" tests="3" time="0.22368">
+    <testcase classname="uptodateTest_RotationalFriction" name="PassingTest_1" time="0.17461"/>
+    <testcase classname="uptodateTest_RotationalFriction" name="description_html_is_uptodate" time="0.027725"/>
+    <testcase classname="uptodateTest_RotationalFriction" name="description_markdown_is_uptodate" time="0.021343"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiTest_CodeUtil" skipped="0" tests="2" time="1.784">
+    <testcase classname="uiTest_CodeUtil" name="app_launches_without_warnings_1" time="0.62442"/>
+    <testcase classname="uiTest_CodeUtil" name="app_launches_without_warnings_2" time="1.1596"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_CodeUtil" skipped="0" tests="4" time="0.063055">
+    <testcase classname="uiUptodateTest_CodeUtil" name="app_screenshot_dark_1" time="0.031903"/>
+    <testcase classname="uiUptodateTest_CodeUtil" name="app_screenshot_light_1" time="0.0058747"/>
+    <testcase classname="uiUptodateTest_CodeUtil" name="app_screenshot_dark_2" time="0.017372"/>
+    <testcase classname="uiUptodateTest_CodeUtil" name="app_screenshot_light_2" time="0.0079053"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiTest_DoubleValue" skipped="0" tests="3" time="3.3865">
+    <testcase classname="uiTest_DoubleValue" name="app_launches_without_warnings_1" time="0.47986"/>
+    <testcase classname="uiTest_DoubleValue" name="app_launches_without_warnings_2" time="1.0669"/>
+    <testcase classname="uiTest_DoubleValue" name="Gesture_1" time="1.8397"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_DoubleValue" skipped="0" tests="4" time="0.051008">
+    <testcase classname="uiUptodateTest_DoubleValue" name="app_screenshot_dark_1" time="0.025116"/>
+    <testcase classname="uiUptodateTest_DoubleValue" name="app_screenshot_light_1" time="0.0053009"/>
+    <testcase classname="uiUptodateTest_DoubleValue" name="app_screenshot_dark_2" time="0.014961"/>
+    <testcase classname="uiUptodateTest_DoubleValue" name="app_screenshot_light_2" time="0.0056297"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_DoubleValue" skipped="0" tests="15" time="0.18825">
+    <testcase classname="unittest_DoubleValue" name="PassingTest_1" time="0.0036904"/>
+    <testcase classname="unittest_DoubleValue" name="PassingTest_2" time="0.013783"/>
+    <testcase classname="unittest_DoubleValue" name="PassingTest_3" time="0.011455"/>
+    <testcase classname="unittest_DoubleValue" name="PassingTest_4" time="0.015958"/>
+    <testcase classname="unittest_DoubleValue" name="Test_Default_1" time="0.0098952"/>
+    <testcase classname="unittest_DoubleValue" name="Test_ValueText_1_1" time="0.0041736"/>
+    <testcase classname="unittest_DoubleValue" name="Test_ValueText_1_2" time="0.044384"/>
+    <testcase classname="unittest_DoubleValue" name="Test_ValueText_1_3" time="0.012821"/>
+    <testcase classname="unittest_DoubleValue" name="Test_ValueText_1_4" time="0.021319"/>
+    <testcase classname="unittest_DoubleValue" name="Test_ValueText_1_5" time="0.011195"/>
+    <testcase classname="unittest_DoubleValue" name="Test_ValueText_1_6" time="0.010009"/>
+    <testcase classname="unittest_DoubleValue" name="Test_ValueText_2" time="0.015356"/>
+    <testcase classname="unittest_DoubleValue" name="Test_ValueText_3_1" time="0.0033986"/>
+    <testcase classname="unittest_DoubleValue" name="Test_workspace_1" time="0.0031614"/>
+    <testcase classname="unittest_DoubleValue" name="Test_workspace_2" time="0.0076493"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiTest_PhysicalValue" skipped="0" tests="2" time="1.5323">
+    <testcase classname="uiTest_PhysicalValue" name="app_launches_without_warnings_1" time="0.42587"/>
+    <testcase classname="uiTest_PhysicalValue" name="app_launches_without_warnings_2" time="1.1064"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_PhysicalValue" skipped="0" tests="4" time="0.066492">
+    <testcase classname="uiUptodateTest_PhysicalValue" name="app_screenshot_dark_1" time="0.030647"/>
+    <testcase classname="uiUptodateTest_PhysicalValue" name="app_screenshot_light_1" time="0.0063226"/>
+    <testcase classname="uiUptodateTest_PhysicalValue" name="app_screenshot_dark_2" time="0.020188"/>
+    <testcase classname="uiUptodateTest_PhysicalValue" name="app_screenshot_light_2" time="0.0093343"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_PhysicalValue" skipped="0" tests="21" time="0.35258">
+    <testcase classname="unittest_PhysicalValue" name="PassingTest_1" time="0.010869"/>
+    <testcase classname="unittest_PhysicalValue" name="PassingTest_2" time="0.16165"/>
+    <testcase classname="unittest_PhysicalValue" name="PassingTest_3" time="0.012506"/>
+    <testcase classname="unittest_PhysicalValue" name="PassingTest_4" time="0.019019"/>
+    <testcase classname="unittest_PhysicalValue" name="Test_Default_1" time="0.023645"/>
+    <testcase classname="unittest_PhysicalValue" name="Test_UnitText_1" time="0.005417"/>
+    <testcase classname="unittest_PhysicalValue" name="Test_UnitAlias_1" time="0.0041819"/>
+    <testcase classname="unittest_PhysicalValue" name="Test_UnitAlias_2" time="0.003663"/>
+    <testcase classname="unittest_PhysicalValue" name="Test_UnitAlias_3" time="0.01368"/>
+    <testcase classname="unittest_PhysicalValue" name="Test_UnitAlias_4" time="0.0038055"/>
+    <testcase classname="unittest_PhysicalValue" name="Test_ValueText_1_1" time="0.0062221"/>
+    <testcase classname="unittest_PhysicalValue" name="Test_ValueText_1_2" time="0.013344"/>
+    <testcase classname="unittest_PhysicalValue" name="Test_ValueText_1_3" time="0.010687"/>
+    <testcase classname="unittest_PhysicalValue" name="Test_ValueText_1_4" time="0.0077227"/>
+    <testcase classname="unittest_PhysicalValue" name="Test_ValueText_1_5" time="0.0047298"/>
+    <testcase classname="unittest_PhysicalValue" name="Test_ValueText_1_6" time="0.0046899"/>
+    <testcase classname="unittest_PhysicalValue" name="Test_ValueText_2" time="0.010369"/>
+    <testcase classname="unittest_PhysicalValue" name="Test_ValueText_3_1" time="0.0067705"/>
+    <testcase classname="unittest_PhysicalValue" name="Test_workspace_1" time="0.0048395"/>
+    <testcase classname="unittest_PhysicalValue" name="Test_workspace_2" time="0.007196"/>
+    <testcase classname="unittest_PhysicalValue" name="Test_workspace_3" time="0.017567"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_cleanupCodeText" skipped="0" tests="2" time="0.022521">
+    <testcase classname="unittest_cleanupCodeText" name="PassingTest_1" time="0.013899"/>
+    <testcase classname="unittest_cleanupCodeText" name="PassingTest_2" time="0.0086221"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_getDoubleOrSimscapeValueFromText" skipped="0" tests="16" time="0.096582">
+    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="PassingTest_1" time="0.0072934"/>
+    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_default_1" time="0.0066363"/>
+    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_empty_text_1" time="0.004082"/>
+    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_empty_text_2" time="0.0028825"/>
+    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_MaxTextLength_1" time="0.008151"/>
+    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_MaxTextLength_2" time="0.0098493"/>
+    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_MaxTextLength_3" time="0.0028331"/>
+    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_MaxTextLength_4" time="0.0058798"/>
+    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_simscapeValue_1" time="0.0084071"/>
+    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_simscapeValue_2" time="0.0047248"/>
+    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_simscapeValue_3" time="0.0045624"/>
+    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_double_1" time="0.0039798"/>
+    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_evaluated_1" time="0.004348"/>
+    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_evaluated_2" time="0.0030605"/>
+    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_evaluated_3" time="0.015793"/>
+    <testcase classname="unittest_getDoubleOrSimscapeValueFromText" name="Test_workspace_1" time="0.0040991"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_getNumberArrayFromText" skipped="0" tests="6" time="0.095932">
+    <testcase classname="unittest_getNumberArrayFromText" name="Test_1" time="0.0093156"/>
+    <testcase classname="unittest_getNumberArrayFromText" name="Test_2" time="0.010044"/>
+    <testcase classname="unittest_getNumberArrayFromText" name="Test_3" time="0.0032652"/>
+    <testcase classname="unittest_getNumberArrayFromText" name="Test_4" time="0.0022427"/>
+    <testcase classname="unittest_getNumberArrayFromText" name="Test_5" time="0.0015327"/>
+    <testcase classname="unittest_getNumberArrayFromText" name="Test_error_1" time="0.069531"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_getNumericValueFromText" skipped="0" tests="7" time="0.049753">
+    <testcase classname="unittest_getNumericValueFromText" name="Test_1" time="0.012458"/>
+    <testcase classname="unittest_getNumericValueFromText" name="Test_2" time="0.0028415"/>
+    <testcase classname="unittest_getNumericValueFromText" name="Test_3" time="0.0009423"/>
+    <testcase classname="unittest_getNumericValueFromText" name="Test_workspace_1" time="0.0092232"/>
+    <testcase classname="unittest_getNumericValueFromText" name="Test_workspace_2" time="0.0050086"/>
+    <testcase classname="unittest_getNumericValueFromText" name="Test_workspace_3" time="0.002867"/>
+    <testcase classname="unittest_getNumericValueFromText" name="Test_error_1" time="0.016413"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_mustBeNumericValueStringOrValidNameOrEmpty" skipped="0" tests="15" time="0.060437">
+    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_1" time="0.0082052"/>
+    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_2" time="0.0013637"/>
+    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_3" time="0.0014282"/>
+    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_4" time="0.0014634"/>
+    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_value_1" time="0.00261"/>
+    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_value_2" time="0.0035384"/>
+    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_value_3" time="0.0026059"/>
+    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_value_4" time="0.0029198"/>
+    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_value_5" time="0.0020662"/>
+    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_value_6" time="0.0018927"/>
+    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_error_1" time="0.010232"/>
+    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_error_2" time="0.0052473"/>
+    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_error_3" time="0.0056586"/>
+    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_error_4" time="0.0059781"/>
+    <testcase classname="unittest_mustBeNumericValueStringOrValidNameOrEmpty" name="Test_error_5" time="0.0052279"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_mustBeSimscapeValueNonnegative" skipped="0" tests="2" time="0.015957">
+    <testcase classname="unittest_mustBeSimscapeValueNonnegative" name="PassingTest_1" time="0.0071187"/>
+    <testcase classname="unittest_mustBeSimscapeValueNonnegative" name="Test_1" time="0.0088386"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_mustBeSimscapeValuePositive" skipped="0" tests="2" time="0.012955">
+    <testcase classname="unittest_mustBeSimscapeValuePositive" name="PassingTest_1" time="0.0043178"/>
+    <testcase classname="unittest_mustBeSimscapeValuePositive" name="Test_1" time="0.008637"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_mustBeSimscapeValueStrictAscend" skipped="0" tests="4" time="0.041078">
+    <testcase classname="unittest_mustBeSimscapeValueStrictAscend" name="PassingTest_1" time="0.0059525"/>
+    <testcase classname="unittest_mustBeSimscapeValueStrictAscend" name="PassingTest_2" time="0.0019219"/>
+    <testcase classname="unittest_mustBeSimscapeValueStrictAscend" name="PassingTest_3" time="0.024703"/>
+    <testcase classname="unittest_mustBeSimscapeValueStrictAscend" name="Test_1" time="0.0085009"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_mustBeStrictAscend" skipped="0" tests="4" time="0.01578">
+    <testcase classname="unittest_mustBeStrictAscend" name="Test_1" time="0.005344"/>
+    <testcase classname="unittest_mustBeStrictAscend" name="Test_2" time="0.0010128"/>
+    <testcase classname="unittest_mustBeStrictAscend" name="Test_3" time="0.0010395"/>
+    <testcase classname="unittest_mustBeStrictAscend" name="Test_error_1" time="0.0083833"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_mustBeStringOrPositiveInteger" skipped="0" tests="4" time="0.011559">
+    <testcase classname="unittest_mustBeStringOrPositiveInteger" name="Test_1" time="0.0003395"/>
+    <testcase classname="unittest_mustBeStringOrPositiveInteger" name="Test_2" time="0.0003435"/>
+    <testcase classname="unittest_mustBeStringOrPositiveInteger" name="Test_error_1" time="0.0070656"/>
+    <testcase classname="unittest_mustBeStringOrPositiveInteger" name="Test_error_2" time="0.0038106"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_mustBeTextOrNonnegativeNumber" skipped="0" tests="4" time="0.011879">
+    <testcase classname="unittest_mustBeTextOrNonnegativeNumber" name="PassingTest_1" time="0.0011171"/>
+    <testcase classname="unittest_mustBeTextOrNonnegativeNumber" name="PassingTest_2" time="0.0003185"/>
+    <testcase classname="unittest_mustBeTextOrNonnegativeNumber" name="PassingTest_3" time="0.0003287"/>
+    <testcase classname="unittest_mustBeTextOrNonnegativeNumber" name="Test_error_1" time="0.010115"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_mustBeTextOrPositiveInteger" skipped="0" tests="4" time="0.013076">
+    <testcase classname="unittest_mustBeTextOrPositiveInteger" name="Test_1" time="0.0010813"/>
+    <testcase classname="unittest_mustBeTextOrPositiveInteger" name="Test_2" time="0.0008377"/>
+    <testcase classname="unittest_mustBeTextOrPositiveInteger" name="Test_error_1" time="0.0071875"/>
+    <testcase classname="unittest_mustBeTextOrPositiveInteger" name="Test_error_2" time="0.0039697"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_mustBeTextOrPositiveNumber" skipped="0" tests="3" time="0.0080012">
+    <testcase classname="unittest_mustBeTextOrPositiveNumber" name="Test_1" time="0.0003654"/>
+    <testcase classname="unittest_mustBeTextOrPositiveNumber" name="Test_2" time="0.0002936"/>
+    <testcase classname="unittest_mustBeTextOrPositiveNumber" name="Test_error_1" time="0.0073422"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_squashCodeText" skipped="0" tests="12" time="0.038191">
+    <testcase classname="unittest_squashCodeText" name="Test_1" time="0.0090228"/>
+    <testcase classname="unittest_squashCodeText" name="Test_2" time="0.0027434"/>
+    <testcase classname="unittest_squashCodeText" name="Test_3" time="0.0030399"/>
+    <testcase classname="unittest_squashCodeText" name="Test_4" time="0.0025917"/>
+    <testcase classname="unittest_squashCodeText" name="TestRowVector_1" time="0.0035544"/>
+    <testcase classname="unittest_squashCodeText" name="TestRowVector_2" time="0.0024144"/>
+    <testcase classname="unittest_squashCodeText" name="TestRowVector_3" time="0.0023894"/>
+    <testcase classname="unittest_squashCodeText" name="TestColumnVector_1" time="0.0023319"/>
+    <testcase classname="unittest_squashCodeText" name="TestColumnVector_2" time="0.0025352"/>
+    <testcase classname="unittest_squashCodeText" name="TestMatrix_1" time="0.0024917"/>
+    <testcase classname="unittest_squashCodeText" name="TestMatrix_2" time="0.0025068"/>
+    <testcase classname="unittest_squashCodeText" name="TestMatrix_3" time="0.0025694"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiTest_FileUtil" skipped="0" tests="10" time="4.7857">
+    <testcase classname="uiTest_FileUtil" name="PassingTest_1" time="0.65923"/>
+    <testcase classname="uiTest_FileUtil" name="Test_error_1" time="0.021894"/>
+    <testcase classname="uiTest_FileUtil" name="Test_error_2" time="0.01568"/>
+    <testcase classname="uiTest_FileUtil" name="Test_error_3" time="0.016898"/>
+    <testcase classname="uiTest_FileUtil" name="Test_error_4" time="0.075003"/>
+    <testcase classname="uiTest_FileUtil" name="PassingTest_1_1" time="0.77793"/>
+    <testcase classname="uiTest_FileUtil" name="PassingTest_1_2" time="0.77399"/>
+    <testcase classname="uiTest_FileUtil" name="PassingTest_2_1" time="0.50784"/>
+    <testcase classname="uiTest_FileUtil" name="PassingTest_2_2" time="1.0539"/>
+    <testcase classname="uiTest_FileUtil" name="PassingTest_3_1" time="0.88335"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_FileUtil" skipped="0" tests="2" time="4.4093">
+    <testcase classname="uiUptodateTest_FileUtil" name="app_screenshot_dark_1" time="2.1963"/>
+    <testcase classname="uiUptodateTest_FileUtil" name="app_screenshot_light_1" time="2.2131"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_batchGenerateMarkdowns" skipped="0" tests="2" time="0.17138">
+    <testcase classname="unittest_batchGenerateMarkdowns" name="PassingTest_1" time="0.11365"/>
+    <testcase classname="unittest_batchGenerateMarkdowns" name="Test_1" time="0.05773"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_displayTimeAndFileLocation" skipped="0" tests="2" time="0.019523">
+    <testcase classname="unittest_displayTimeAndFileLocation" name="PassingTest_1" time="0.01106"/>
+    <testcase classname="unittest_displayTimeAndFileLocation" name="PassingTest_2" time="0.0084629"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_evalMFile" skipped="0" tests="4" time="0.073816">
+    <testcase classname="unittest_evalMFile" name="Test_error_1" time="0.036501"/>
+    <testcase classname="unittest_evalMFile" name="Test_error_2" time="0.014242"/>
+    <testcase classname="unittest_evalMFile" name="PassingTest_1" time="0.016987"/>
+    <testcase classname="unittest_evalMFile" name="PassingTest_2" time="0.0060866"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_exportToMarkdown" skipped="0" tests="5" time="22.9728">
+    <testcase classname="unittest_exportToMarkdown" name="Test_error_1" time="0.021519"/>
+    <testcase classname="unittest_exportToMarkdown" name="Test_error_2" time="0.026674"/>
+    <testcase classname="unittest_exportToMarkdown" name="PassingTest_1" time="12.2822"/>
+    <testcase classname="unittest_exportToMarkdown" name="PassingTest_2" time="5.3513"/>
+    <testcase classname="unittest_exportToMarkdown" name="PassingTest_3" time="5.2911"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_generateMarkdownsFromLiveScripts" skipped="0" tests="3" time="11.4239">
+    <testcase classname="unittest_generateMarkdownsFromLiveScripts" name="Test_error_1" time="0.1285"/>
+    <testcase classname="unittest_generateMarkdownsFromLiveScripts" name="Test_error_2" time="0.072046"/>
+    <testcase classname="unittest_generateMarkdownsFromLiveScripts" name="PassingTest_1" time="11.2233"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_getFileFullPath" skipped="0" tests="7" time="0.29559">
+    <testcase classname="unittest_getFileFullPath" name="Test_error_1" time="0.11876"/>
+    <testcase classname="unittest_getFileFullPath" name="Test_error_2" time="0.028149"/>
+    <testcase classname="unittest_getFileFullPath" name="Test_error_3" time="0.029245"/>
+    <testcase classname="unittest_getFileFullPath" name="SingleMatch_PassingTest_1" time="0.010998"/>
+    <testcase classname="unittest_getFileFullPath" name="MultipleMatch_error_1" time="0.017475"/>
+    <testcase classname="unittest_getFileFullPath" name="MultipleMatch_warning_1" time="0.084647"/>
+    <testcase classname="unittest_getFileFullPath" name="MultipleMatch_1" time="0.0063183"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_getFolderFullPath" skipped="0" tests="5" time="0.064994">
+    <testcase classname="unittest_getFolderFullPath" name="Test_error_1" time="0.032481"/>
+    <testcase classname="unittest_getFolderFullPath" name="Test_error_2" time="0.012274"/>
+    <testcase classname="unittest_getFolderFullPath" name="Test_error_3" time="0.0097302"/>
+    <testcase classname="unittest_getFolderFullPath" name="PassingTest_1" time="0.0048341"/>
+    <testcase classname="unittest_getFolderFullPath" name="PassingTest_namespace_1" time="0.0056741"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_getLinkedCommandFromPlainTextLiveScript" skipped="0" tests="3" time="1.011">
+    <testcase classname="unittest_getLinkedCommandFromPlainTextLiveScript" name="PassingTest_1_R2025a_or_newer" time="0.76945"/>
+    <testcase classname="unittest_getLinkedCommandFromPlainTextLiveScript" name="Test_1" time="0.017791"/>
+    <testcase classname="unittest_getLinkedCommandFromPlainTextLiveScript" name="Test_2_R2025a_or_newer" time="0.22377"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_getLinkedCommandFromText" skipped="0" tests="9" time="0.18461">
+    <testcase classname="unittest_getLinkedCommandFromText" name="PassingTest_1" time="0.048872"/>
+    <testcase classname="unittest_getLinkedCommandFromText" name="Test_1" time="0.011589"/>
+    <testcase classname="unittest_getLinkedCommandFromText" name="Test_2" time="0.021383"/>
+    <testcase classname="unittest_getLinkedCommandFromText" name="Test_3" time="0.02954"/>
+    <testcase classname="unittest_getLinkedCommandFromText" name="Test_4" time="0.019458"/>
+    <testcase classname="unittest_getLinkedCommandFromText" name="Test_5" time="0.010864"/>
+    <testcase classname="unittest_getLinkedCommandFromText" name="Test_6" time="0.012031"/>
+    <testcase classname="unittest_getLinkedCommandFromText" name="Test_7" time="0.020488"/>
+    <testcase classname="unittest_getLinkedCommandFromText" name="Test_8" time="0.010383"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_getUnusedFilename" skipped="0" tests="5" time="0.11487">
+    <testcase classname="unittest_getUnusedFilename" name="PassingTest_1" time="0.012342"/>
+    <testcase classname="unittest_getUnusedFilename" name="Test_1" time="0.0078713"/>
+    <testcase classname="unittest_getUnusedFilename" name="Test_2" time="0.0053097"/>
+    <testcase classname="unittest_getUnusedFilename" name="Test_3" time="0.050244"/>
+    <testcase classname="unittest_getUnusedFilename" name="Test_4" time="0.039106"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_isModelFile" skipped="0" tests="3" time="0.063951">
+    <testcase classname="unittest_isModelFile" name="Test_1" time="0.024046"/>
+    <testcase classname="unittest_isModelFile" name="Test_2" time="0.029909"/>
+    <testcase classname="unittest_isModelFile" name="Test_3" time="0.0099959"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_isPlainTextLiveScript" skipped="0" tests="6" time="0.18028">
+    <testcase classname="unittest_isPlainTextLiveScript" name="PassingTest_1" time="0.013519"/>
+    <testcase classname="unittest_isPlainTextLiveScript" name="PassingTest_2" time="0.010168"/>
+    <testcase classname="unittest_isPlainTextLiveScript" name="Test_LiveScript_1_R2025a_or_newer" time="0.044576"/>
+    <testcase classname="unittest_isPlainTextLiveScript" name="Test_LiveScript_2_R2025a_or_newer" time="0.028041"/>
+    <testcase classname="unittest_isPlainTextLiveScript" name="Test_LiveScript_3_R2025a_or_newer" time="0.034153"/>
+    <testcase classname="unittest_isPlainTextLiveScript" name="Test_LiveScript_4_R2025a_or_newer" time="0.049822"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_mustBeLiveScript" skipped="0" tests="8" time="0.10377">
+    <testcase classname="unittest_mustBeLiveScript" name="Test_error_1" time="0.013137"/>
+    <testcase classname="unittest_mustBeLiveScript" name="Test_error_2" time="0.010811"/>
+    <testcase classname="unittest_mustBeLiveScript" name="Test_error_3" time="0.0072056"/>
+    <testcase classname="unittest_mustBeLiveScript" name="PassingTest_1" time="0.016321"/>
+    <testcase classname="unittest_mustBeLiveScript" name="PassingTest_2_R2024b" time="0.018822"/>
+    <testcase classname="unittest_mustBeLiveScript" name="PassingTest_3_R2025a_or_newer" time="0.017617"/>
+    <testcase classname="unittest_mustBeLiveScript" name="PassingTest_4_R2024b" time="0.0072646"/>
+    <testcase classname="unittest_mustBeLiveScript" name="PassingTest_5_R2025a_or_newer" time="0.012591"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_sourceFileIsNewer" skipped="0" tests="3" time="0.17629">
+    <testcase classname="unittest_sourceFileIsNewer" name="Test_error_1" time="0.013392"/>
+    <testcase classname="unittest_sourceFileIsNewer" name="Test_1" time="0.090284"/>
+    <testcase classname="unittest_sourceFileIsNewer" name="Test_2" time="0.072617"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiTest_ModelUtil" skipped="0" tests="4" time="7.7623">
+    <testcase classname="uiTest_ModelUtil" name="app_launches_without_warnings_1" time="2.4816"/>
+    <testcase classname="uiTest_ModelUtil" name="PassingTest_App_1" time="3.0599"/>
+    <testcase classname="uiTest_ModelUtil" name="PassingTest_SampleModel_1" time="1.3426"/>
+    <testcase classname="uiTest_ModelUtil" name="PassingTest_SampleModel_2" time="0.87829"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_ModelUtil" skipped="0" tests="2" time="0.044779">
+    <testcase classname="uiUptodateTest_ModelUtil" name="app_screenshot_1_dark" time="0.032831"/>
+    <testcase classname="uiUptodateTest_ModelUtil" name="app_screenshot_2_light" time="0.011948"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_checkEditInCallbackButton" skipped="0" tests="5" time="4.719">
+    <testcase classname="unittest_checkEditInCallbackButton" name="ErrorCase_1" time="0.032086"/>
+    <testcase classname="unittest_checkEditInCallbackButton" name="ErrorCase_2" time="0.0077965"/>
+    <testcase classname="unittest_checkEditInCallbackButton" name="ErrorCase_3" time="0.13462"/>
+    <testcase classname="unittest_checkEditInCallbackButton" name="Test_1_with_pause" time="4.3781"/>
+    <testcase classname="unittest_checkEditInCallbackButton" name="PassingTest_1" time="0.16644"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_checkEditInCode" skipped="0" tests="7" time="0.14521">
+    <testcase classname="unittest_checkEditInCode" name="ErrorTest_1" time="0.016957"/>
+    <testcase classname="unittest_checkEditInCode" name="ErrorTest_2" time="0.0080246"/>
+    <testcase classname="unittest_checkEditInCode" name="ErrorTest_3" time="0.027965"/>
+    <testcase classname="unittest_checkEditInCode" name="Test_1" time="0.006941"/>
+    <testcase classname="unittest_checkEditInCode" name="Test_2" time="0.021096"/>
+    <testcase classname="unittest_checkEditInCode" name="Test_3" time="0.007945"/>
+    <testcase classname="unittest_checkEditInCode" name="PassingTest_1" time="0.056284"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_checkRefSubInCallbackButton" skipped="0" tests="6" time="0.99322">
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="ErrorTest_1" time="0.021282"/>
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="ErrorTest_2" time="0.0063088"/>
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="Test_1" time="0.067109"/>
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="Test_2" time="0.37034"/>
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="Test_3" time="0.26621"/>
+    <testcase classname="unittest_checkRefSubInCallbackButton" name="PassingTest_1" time="0.26197"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_checkRefSubInSetParam" skipped="0" tests="9" time="0.84173">
+    <testcase classname="unittest_checkRefSubInSetParam" name="ErrorTest_1" time="0.016931"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="ErrorTest_2" time="0.0085684"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="ErrorTest_3" time="0.17718"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="Test_1" time="0.0078206"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="Test_2" time="0.064711"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="Test_3" time="0.07288"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="Test_4" time="0.063082"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="Test_5" time="0.057444"/>
+    <testcase classname="unittest_checkRefSubInSetParam" name="PassingTest_1" time="0.37311"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_findAllSimscapeBlocks" skipped="0" tests="3" time="0.7063">
+    <testcase classname="unittest_findAllSimscapeBlocks" name="Test_error_1" time="0.017789"/>
+    <testcase classname="unittest_findAllSimscapeBlocks" name="Test_1" time="0.068774"/>
+    <testcase classname="unittest_findAllSimscapeBlocks" name="Test_2" time="0.61974"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_findLookupTable1DBlocks" skipped="0" tests="8" time="1.5811">
+    <testcase classname="unittest_findLookupTable1DBlocks" name="ErrorTest_1" time="0.057287"/>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="PassingTest_1" time="0.31341"/>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="PassingTest_2" time="0.26745"/>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="PassingTest_3" time="0.15158"/>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="PassingTest_4" time="0.24628"/>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="TestDefault" time="0.2416"/>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="TestSubsystemPath" time="0.15912"/>
+    <testcase classname="unittest_findLookupTable1DBlocks" name="TestSearchDepth" time="0.14435"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_findSimscapeBlocks" skipped="0" tests="5" time="0.55197">
+    <testcase classname="unittest_findSimscapeBlocks" name="Test_error_1" time="0.018476"/>
+    <testcase classname="unittest_findSimscapeBlocks" name="Test_error_2" time="0.005689"/>
+    <testcase classname="unittest_findSimscapeBlocks" name="Test_error_3" time="0.073103"/>
+    <testcase classname="unittest_findSimscapeBlocks" name="Test_error_4" time="0.24117"/>
+    <testcase classname="unittest_findSimscapeBlocks" name="Test_1" time="0.21354"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_getModelFileFullPath" skipped="0" tests="8" time="0.076977">
+    <testcase classname="unittest_getModelFileFullPath" name="Test_error_1" time="0.014507"/>
+    <testcase classname="unittest_getModelFileFullPath" name="Test_error_2" time="0.0058544"/>
+    <testcase classname="unittest_getModelFileFullPath" name="Test_error_3" time="0.01172"/>
+    <testcase classname="unittest_getModelFileFullPath" name="Test_error_4" time="0.01581"/>
+    <testcase classname="unittest_getModelFileFullPath" name="PassingTest_1" time="0.012245"/>
+    <testcase classname="unittest_getModelFileFullPath" name="PassingTest_2" time="0.003372"/>
+    <testcase classname="unittest_getModelFileFullPath" name="PassingTest_3" time="0.010559"/>
+    <testcase classname="unittest_getModelFileFullPath" name="PassingTest_4" time="0.0029087"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_getSimscapeValueFromBlockParameter" skipped="0" tests="3" time="0.26238">
+    <testcase classname="unittest_getSimscapeValueFromBlockParameter" name="ErrorTest_1" time="0.012973"/>
+    <testcase classname="unittest_getSimscapeValueFromBlockParameter" name="ErrorTest_2" time="0.0064424"/>
+    <testcase classname="unittest_getSimscapeValueFromBlockParameter" name="PassingTest_1" time="0.24296"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiTest_plotLookupTable1DBlocks" skipped="0" tests="1" time="1.5204">
+    <testcase classname="uiTest_plotLookupTable1DBlocks" name="app_launches_without_warnings_2" time="1.5204"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_plotLookupTable1DBlocks" skipped="0" tests="3" time="0.90228">
+    <testcase classname="unittest_plotLookupTable1DBlocks" name="ErrorTest_1" time="0.015832"/>
+    <testcase classname="unittest_plotLookupTable1DBlocks" name="PassingTest_1" time="0.066884"/>
+    <testcase classname="unittest_plotLookupTable1DBlocks" name="PassingTest_2" time="0.81957"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_saveModels" skipped="0" tests="4" time="0.34194">
+    <testcase classname="unittest_saveModels" name="PassingTest_1" time="0.088651"/>
+    <testcase classname="unittest_saveModels" name="Test_FolderTree_1" time="0.022739"/>
+    <testcase classname="unittest_saveModels" name="Test_WithProject_1" time="0.22806"/>
+    <testcase classname="unittest_saveModels" name="Test_WithProject_2" time="0.0024922"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_screenshotSimulink" skipped="0" tests="7" time="7.0083">
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_1" time="0.083672"/>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_2" time="3.7141"/>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_3" time="0.71171"/>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_4" time="0.64909"/>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_5" time="0.58602"/>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_6" time="0.38432"/>
+    <testcase classname="unittest_screenshotSimulink" name="PassingTest_7" time="0.8794"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_setSystemMaskIcon" skipped="0" tests="2" time="1.6026">
+    <testcase classname="unittest_setSystemMaskIcon" name="PassingTest_1" time="1.046"/>
+    <testcase classname="unittest_setSystemMaskIcon" name="PassingTest_2" time="0.55659"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiTest_SearchUtil" skipped="0" tests="6" time="20.7273">
+    <testcase classname="uiTest_SearchUtil" name="app_launches_without_warnings_1" time="0.90051"/>
+    <testcase classname="uiTest_SearchUtil" name="app_launches_without_warnings_2" time="1.7796"/>
+    <testcase classname="uiTest_SearchUtil" name="app_launches_without_warnings_3" time="2.4471"/>
+    <testcase classname="uiTest_SearchUtil" name="Gesture_1" time="3.7805"/>
+    <testcase classname="uiTest_SearchUtil" name="Gesture_2" time="4.1769"/>
+    <testcase classname="uiTest_SearchUtil" name="Gesture_3" time="7.6426"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_SearchUtil" skipped="0" tests="6" time="0.11137">
+    <testcase classname="uiUptodateTest_SearchUtil" name="app_screenshot_dark_1" time="0.040969"/>
+    <testcase classname="uiUptodateTest_SearchUtil" name="app_screenshot_dark_2" time="0.021641"/>
+    <testcase classname="uiUptodateTest_SearchUtil" name="app_screenshot_dark_3" time="0.022781"/>
+    <testcase classname="uiUptodateTest_SearchUtil" name="app_screenshot_light_1" time="0.0083127"/>
+    <testcase classname="uiUptodateTest_SearchUtil" name="app_screenshot_light_2" time="0.0091231"/>
+    <testcase classname="uiUptodateTest_SearchUtil" name="app_screenshot_light_3" time="0.0085409"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiTest_FileSearchAppMain" skipped="0" tests="3" time="5.6721">
+    <testcase classname="uiTest_FileSearchAppMain" name="app_launches_without_warnings_1" time="0.71739"/>
+    <testcase classname="uiTest_FileSearchAppMain" name="Gesture_1" time="2.6919"/>
+    <testcase classname="uiTest_FileSearchAppMain" name="Gesture_2" time="2.2628"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_FileSearchAppMain" skipped="0" tests="2" time="0.038136">
+    <testcase classname="uiUptodateTest_FileSearchAppMain" name="app_screenshot_dark_1" time="0.029182"/>
+    <testcase classname="uiUptodateTest_FileSearchAppMain" name="app_screenshot_light_1" time="0.0089538"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiTest_FileSearchResultAppMain" skipped="0" tests="3" time="7.8788">
+    <testcase classname="uiTest_FileSearchResultAppMain" name="app_launches_without_warnings_1" time="1.5142"/>
+    <testcase classname="uiTest_FileSearchResultAppMain" name="Gesture_1" time="4.513"/>
+    <testcase classname="uiTest_FileSearchResultAppMain" name="Gesture_2" time="1.8516"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_FileSearchResultAppMain" skipped="0" tests="2" time="0.023709">
+    <testcase classname="uiUptodateTest_FileSearchResultAppMain" name="app_screenshot_dark_1" time="0.016693"/>
+    <testcase classname="uiUptodateTest_FileSearchResultAppMain" name="app_screenshot_light_1" time="0.0070161"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiTest_TextSearchAppMain" skipped="0" tests="3" time="10.7932">
+    <testcase classname="uiTest_TextSearchAppMain" name="app_launches_without_warnings_1" time="1.604"/>
+    <testcase classname="uiTest_TextSearchAppMain" name="Gesture_1" time="5.6368"/>
+    <testcase classname="uiTest_TextSearchAppMain" name="Gesture_2" time="3.5524"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_TextSearchAppMain" skipped="0" tests="2" time="0.030086">
+    <testcase classname="uiUptodateTest_TextSearchAppMain" name="app_screenshot_dark_1" time="0.021248"/>
+    <testcase classname="uiUptodateTest_TextSearchAppMain" name="app_screenshot_light_1" time="0.0088377"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiTest_TextSearchResultAppMain" skipped="0" tests="3" time="11.8273">
+    <testcase classname="uiTest_TextSearchResultAppMain" name="app_launches_without_warnings_1" time="1.8507"/>
+    <testcase classname="uiTest_TextSearchResultAppMain" name="Gesture_1" time="6.8324"/>
+    <testcase classname="uiTest_TextSearchResultAppMain" name="Gesture_2" time="3.1442"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_TextSearchResultAppMain" skipped="0" tests="2" time="0.030436">
+    <testcase classname="uiUptodateTest_TextSearchResultAppMain" name="app_screenshot_dark_1" time="0.022911"/>
+    <testcase classname="uiUptodateTest_TextSearchResultAppMain" name="app_screenshot_light_1" time="0.0075244"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_TextSearcher" skipped="0" tests="4" time="0.096244">
+    <testcase classname="unittest_TextSearcher" name="PassingTest_1" time="0.028396"/>
+    <testcase classname="unittest_TextSearcher" name="Error_1" time="0.034539"/>
+    <testcase classname="unittest_TextSearcher" name="Test_1" time="0.023139"/>
+    <testcase classname="unittest_TextSearcher" name="Test_2" time="0.01017"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_buildReplaceCommandText" skipped="0" tests="9" time="0.54425">
+    <testcase classname="unittest_buildReplaceCommandText" name="PassingTest_1" time="0.20602"/>
+    <testcase classname="unittest_buildReplaceCommandText" name="PassingTest_2" time="0.20133"/>
+    <testcase classname="unittest_buildReplaceCommandText" name="Error_1" time="0.022191"/>
+    <testcase classname="unittest_buildReplaceCommandText" name="Error_2" time="0.032384"/>
+    <testcase classname="unittest_buildReplaceCommandText" name="Error_3" time="0.0157"/>
+    <testcase classname="unittest_buildReplaceCommandText" name="Error_4" time="0.013392"/>
+    <testcase classname="unittest_buildReplaceCommandText" name="Error_5" time="0.012098"/>
+    <testcase classname="unittest_buildReplaceCommandText" name="Error_6" time="0.013695"/>
+    <testcase classname="unittest_buildReplaceCommandText" name="Error_7" time="0.027442"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_replaceText" skipped="0" tests="7" time="0.4759">
+    <testcase classname="unittest_replaceText" name="PassingTest_1" time="0.075379"/>
+    <testcase classname="unittest_replaceText" name="PassingTest_2" time="0.18533"/>
+    <testcase classname="unittest_replaceText" name="Error_1" time="0.028901"/>
+    <testcase classname="unittest_replaceText" name="Error_2" time="0.048411"/>
+    <testcase classname="unittest_replaceText" name="Error_3" time="0.01357"/>
+    <testcase classname="unittest_replaceText" name="Test_1" time="0.062218"/>
+    <testcase classname="unittest_replaceText" name="Test_2" time="0.062088"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_searchFiles" skipped="0" tests="6" time="0.097396">
+    <testcase classname="unittest_searchFiles" name="Test_error_1" time="0.022395"/>
+    <testcase classname="unittest_searchFiles" name="Test_error_2" time="0.017119"/>
+    <testcase classname="unittest_searchFiles" name="PassingTest_1" time="0.015806"/>
+    <testcase classname="unittest_searchFiles" name="PassingTest_2" time="0.017047"/>
+    <testcase classname="unittest_searchFiles" name="PassingTest_3" time="0.011697"/>
+    <testcase classname="unittest_searchFiles" name="PassingTest_4" time="0.013333"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_searchText" skipped="0" tests="10" time="0.36021">
+    <testcase classname="unittest_searchText" name="PassingTest_1" time="0.046679"/>
+    <testcase classname="unittest_searchText" name="Error_1" time="0.016203"/>
+    <testcase classname="unittest_searchText" name="Error_2" time="0.014105"/>
+    <testcase classname="unittest_searchText" name="Error_3" time="0.026049"/>
+    <testcase classname="unittest_searchText" name="Error_4" time="0.01543"/>
+    <testcase classname="unittest_searchText" name="Test_1" time="0.016402"/>
+    <testcase classname="unittest_searchText" name="Test_2" time="0.019964"/>
+    <testcase classname="unittest_searchText" name="Test_3" time="0.059484"/>
+    <testcase classname="unittest_searchText" name="Test_4" time="0.023835"/>
+    <testcase classname="unittest_searchText" name="Test_5" time="0.12206"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiTest_SignalUtil" skipped="0" tests="2" time="17.7635">
+    <testcase classname="uiTest_SignalUtil" name="app_launches_without_warnings_1" time="7.5442"/>
+    <testcase classname="uiTest_SignalUtil" name="app_launches_without_warnings_2" time="10.2193"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_SignalUtil" skipped="0" tests="4" time="0.12513">
+    <testcase classname="uiUptodateTest_SignalUtil" name="app_screenshot_is_uptodate_1_1_dark" time="0.056296"/>
+    <testcase classname="uiUptodateTest_SignalUtil" name="app_screenshot_is_uptodate_1_2_light" time="0.018621"/>
+    <testcase classname="uiUptodateTest_SignalUtil" name="app_screenshot_is_uptodate_2_1_dark" time="0.030339"/>
+    <testcase classname="uiUptodateTest_SignalUtil" name="app_screenshot_is_uptodate_2_2_light" time="0.019875"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_SignalUtil" skipped="0" tests="3" time="0.52557">
+    <testcase classname="unittest_SignalUtil" name="PassingTest_1" time="0.1467"/>
+    <testcase classname="unittest_SignalUtil" name="PassingTest_2" time="0.28391"/>
+    <testcase classname="unittest_SignalUtil" name="PassingTest_3" time="0.094961"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_SignalUtil_settings" skipped="0" tests="2" time="0.044478">
+    <testcase classname="unittest_SignalUtil_settings" name="linked_app_in_live_script_1" time="0.022657"/>
+    <testcase classname="unittest_SignalUtil_settings" name="linked_app_in_live_script_2" time="0.021821"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uptodateTest_SignalUtil" skipped="0" tests="2" time="0.043544">
+    <testcase classname="uptodateTest_SignalUtil" name="html_with_code_is_uptodate_1" time="0.026866"/>
+    <testcase classname="uptodateTest_SignalUtil" name="html_with_code_is_uptodate_2" time="0.016678"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_SignalDesignAppMain" skipped="0" tests="3" time="21.3069">
+    <testcase classname="uitest_SignalDesignAppMain" name="app_launches_without_warnings_1" time="6.4076"/>
+    <testcase classname="uitest_SignalDesignAppMain" name="PassingTest_1" time="7.07"/>
+    <testcase classname="uitest_SignalDesignAppMain" name="uitest_1" time="7.8293"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uitest_TraceGeneratorAppMain" skipped="0" tests="3" time="29.7726">
+    <testcase classname="uitest_TraceGeneratorAppMain" name="app_launches_without_warnings_1" time="9.0092"/>
+    <testcase classname="uitest_TraceGeneratorAppMain" name="Test_1" time="9.7846"/>
+    <testcase classname="uitest_TraceGeneratorAppMain" name="uitest_1" time="10.9788"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_generateSignalDesignMatrixFromTraceProperties" skipped="0" tests="2" time="0.19911">
+    <testcase classname="unittest_generateSignalDesignMatrixFromTraceProperties" name="PassingTest_1" time="0.009486"/>
+    <testcase classname="unittest_generateSignalDesignMatrixFromTraceProperties" name="PassingTest_2" time="0.18962"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_getTimetableFromLoggedSignal" skipped="0" tests="9" time="6.2704">
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_1" time="0.21843"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_2" time="0.43268"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_3" time="0.035209"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_4" time="0.18103"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_5" time="5.0111"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_1" time="0.16916"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_2" time="0.091381"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_3" time="0.075935"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_4" time="0.055534"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_getVectorsFromSignalDesignMatrix" skipped="0" tests="2" time="0.22069">
+    <testcase classname="unittest_getVectorsFromSignalDesignMatrix" name="PassingTest_1" time="0.019956"/>
+    <testcase classname="unittest_getVectorsFromSignalDesignMatrix" name="PassingTest_2" time="0.20074"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_plotDifference" skipped="0" tests="6" time="0.71304">
+    <testcase classname="unittest_plotDifference" name="PassingTest_1" time="0.13294"/>
+    <testcase classname="unittest_plotDifference" name="PassingTest_2" time="0.10193"/>
+    <testcase classname="unittest_plotDifference" name="PassingTest_3" time="0.10672"/>
+    <testcase classname="unittest_plotDifference" name="PassingTest_4" time="0.11523"/>
+    <testcase classname="unittest_plotDifference" name="PassingTest_5" time="0.088628"/>
+    <testcase classname="unittest_plotDifference" name="PassingTest_6" time="0.16759"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uptodatetest_plotDifference" skipped="0" tests="2" time="0.010812">
+    <testcase classname="uptodatetest_plotDifference" name="markdowns_are_uptodate" time="0.0065643"/>
+    <testcase classname="uptodatetest_plotDifference" name="markdown_files_exist" time="0.004248"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiTest_TestUtil" skipped="0" tests="2" time="4.2148">
+    <testcase classname="uiTest_TestUtil" name="app_launches_without_warnings_1" time="1.9762"/>
+    <testcase classname="uiTest_TestUtil" name="PassingTest_1" time="2.2386"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_TestUtil" skipped="0" tests="6" time="11.1953">
+    <testcase classname="uiUptodateTest_TestUtil" name="app_screenshot_1_dark" time="6.0048"/>
+    <testcase classname="uiUptodateTest_TestUtil" name="app_screenshot_1_light" time="5.0969"/>
+    <testcase classname="uiUptodateTest_TestUtil" name="app_screenshot_2_dark" time="0.03215"/>
+    <testcase classname="uiUptodateTest_TestUtil" name="app_screenshot_2_light" time="0.025057"/>
+    <testcase classname="uiUptodateTest_TestUtil" name="app_screenshot_3_dark" time="0.024825"/>
+    <testcase classname="uiUptodateTest_TestUtil" name="app_screenshot_3_light" time="0.011647"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiTest_TestResultAppMain" skipped="0" tests="6" time="14.828">
+    <testcase classname="uiTest_TestResultAppMain" name="app_launches_without_warnings_1" time="1.4771"/>
+    <testcase classname="uiTest_TestResultAppMain" name="app_launches_without_warnings_2" time="1.4461"/>
+    <testcase classname="uiTest_TestResultAppMain" name="ErrorCase_1" time="0.72449"/>
+    <testcase classname="uiTest_TestResultAppMain" name="PassingTest_1" time="1.8268"/>
+    <testcase classname="uiTest_TestResultAppMain" name="PassingTest_2" time="1.5813"/>
+    <testcase classname="uiTest_TestResultAppMain" name="GestureTest_1" time="7.7721"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_TestResultAppMain" skipped="0" tests="2" time="0.030012">
+    <testcase classname="uiUptodateTest_TestResultAppMain" name="app_screenshot_dark_1" time="0.021606"/>
+    <testcase classname="uiUptodateTest_TestResultAppMain" name="app_screenshot_light_1" time="0.0084062"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_getTestResultTable" skipped="0" tests="5" time="0.18221">
+    <testcase classname="unittest_getTestResultTable" name="Test_error_1" time="0.023026"/>
+    <testcase classname="unittest_getTestResultTable" name="Test_error_2" time="0.024495"/>
+    <testcase classname="unittest_getTestResultTable" name="Test_error_3" time="0.011904"/>
+    <testcase classname="unittest_getTestResultTable" name="PassingTest_1" time="0.064669"/>
+    <testcase classname="unittest_getTestResultTable" name="Test_1" time="0.05812"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_isNonLocal" skipped="0" tests="4" time="0.043619">
+    <testcase classname="unittest_isNonLocal" name="Test_error_1" time="0.015901"/>
+    <testcase classname="unittest_isNonLocal" name="Test_1" time="0.014215"/>
+    <testcase classname="unittest_isNonLocal" name="Test_2" time="0.0066503"/>
+    <testcase classname="unittest_isNonLocal" name="Test_3" time="0.0068527"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_summarizeCodeCoverage" skipped="0" tests="4" time="0.86507">
+    <testcase classname="unittest_summarizeCodeCoverage" name="Test_error_1" time="0.021125"/>
+    <testcase classname="unittest_summarizeCodeCoverage" name="PassingTest_1" time="0.39148"/>
+    <testcase classname="unittest_summarizeCodeCoverage" name="PassingTest_2" time="0.32886"/>
+    <testcase classname="unittest_summarizeCodeCoverage" name="Test_1" time="0.12361"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_summarizeTestResult" skipped="0" tests="3" time="0.80883">
+    <testcase classname="unittest_summarizeTestResult" name="Test_error_1" time="0.030774"/>
+    <testcase classname="unittest_summarizeTestResult" name="PassingTest_1" time="0.65585"/>
+    <testcase classname="unittest_summarizeTestResult" name="Test_1" time="0.12221"/>
   </testsuite>
 </testsuites>

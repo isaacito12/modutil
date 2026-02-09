@@ -15,7 +15,7 @@ name: Release-folder R2024b Linux
 
 on:
   push:
-    branches: [ R2025b, R2025b-devel ]
+    branches: [ R2024b, R2024b-devel ]
     # The following files in the pushed change should not trigger this workflow.
     paths-ignore:
       - 'docs/**'
@@ -26,7 +26,7 @@ on:
       - '**.xml'
 
   pull_request:
-    branches: [ R2025b, R2025b-devel ]
+    branches: [ R2024b, R2024b-devel ]
     # The following files in the pushed change should not trigger this workflow.
     paths-ignore:
       - 'docs/**'
@@ -53,7 +53,7 @@ jobs:
       matrix:
         config:
           - name: R2024b
-            cmd: "cd Release; addpath('ModelingUtilityForSimscape'); buildtool -buildFile buildfile_24b.m -verbosity Verbose Test"
+            cmd: "cd Release; addpath('ModelingUtilityForSimscape'); buildtool -verbosity Verbose Test"
 
     name: Test Release-folder in MATLAB ${{ matrix.config.name }} on Linux
 

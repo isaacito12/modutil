@@ -1,5 +1,5 @@
 function SearchSession = searchText(SearchTextPattern, NameValuePair)
-% Find text from text files.
+% Search text files for the specified text pattern in a folder.
 %
 % This function works with text files only.
 %

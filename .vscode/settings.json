@@ -1,4 +1,0 @@
-{
-    "markdown.validate.enabled": true,
-    "sarif-viewer.connectToGithubCodeScanning": "off"
-}

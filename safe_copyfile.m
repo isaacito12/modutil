@@ -1,7 +1,7 @@
 function safe_copyfile(SourceFilename, DestinationFolder, DryRun)
-%%
+% Copy the specified file to the specified folder, with dry run by default.
 
-% Copyright 2025 The MathWorks, Inc.
+% Copyright 2025-2026 The MathWorks, Inc.
 
 arguments (Input)
   SourceFilename (1,1) string
@@ -11,14 +11,16 @@ end  % arguments
 
 cmd = "copyfile(""" + SourceFilename + """, """ + DestinationFolder + """)";
 
+if not(isfile(SourceFilename))
+  warning("Source file was not found: " + SourceFilename)
+end  %if
+
 if DryRun
   disp("Dry run: " + cmd)
 
   return
 
 end  % if
-
-mustBeFile(SourceFilename)
 
 if not(isfolder(DestinationFolder))
   mkdir(DestinationFolder)

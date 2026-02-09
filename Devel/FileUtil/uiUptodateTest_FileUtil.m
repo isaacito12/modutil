@@ -55,7 +55,7 @@ classdef uiUptodateTest_FileUtil < matlab.uitest.TestCase
       end  % if
       % R2025a or newer
       source = FileUtil1.getFileFullPath("FileListApp.m");
-      destination = fullfile(pwd, "screenshot-FileListApp-1-dark.png");
+      destination = fullfile(pwd, "screenshot-FileListApp-dark-1.png");
 
       if not(isfile(destination)) || FileUtil1.sourceFileIsNewer(Source=source, Destination=destination)
         app = FileListApp;  % !screenshot-target
@@ -81,10 +81,10 @@ classdef uiUptodateTest_FileUtil < matlab.uitest.TestCase
       source = FileUtil1.getFileFullPath("FileListApp.m");
       if isMATLABReleaseOlderThan("R2025a")
         % R2024b
-        destination = fullfile(pwd, "screenshot-FileListApp-1-24b.png");
+        destination = fullfile(pwd, "screenshot-FileListApp-24b-1.png");
       else
         % R2025a or newer
-        destination = fullfile(pwd, "screenshot-FileListApp-1-light.png");
+        destination = fullfile(pwd, "screenshot-FileListApp-light-1.png");
       end  % if
 
       if not(isfile(destination)) || FileUtil1.sourceFileIsNewer(Source=source, Destination=destination)

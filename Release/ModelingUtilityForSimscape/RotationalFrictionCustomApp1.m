@@ -7,10 +7,10 @@ function App = RotationalFrictionCustomApp1(NameValuePair)
 % Parameters are defined as simscape.Value object.
 % The app directly uses simscape.Value objects in the edit fields for parameters.
 
-% Copyright 2025 The MathWorks, Inc.
+% Copyright 2025-2026 The MathWorks, Inc.
 
 arguments (Input)
-  NameValuePair.ParameterScriptFullpath (1,1) string {mustBeFile} = FileUtil1.getFileFullPath("sampleparams_RotationalFriction.m")
+  NameValuePair.ParameterScriptFullpath (1,1) string {mustBeFile} = FileUtil1.getFileFullPath("SampleParams_RotationalFriction.m")
 
   % Specify units used in the parameter file.
   % The selection list must match that used in AppMain.

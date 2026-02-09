@@ -63,7 +63,7 @@ classdef uiUptodateTest_RotationalFriction < matlab.uitest.TestCase
       destination_folder = fileparts(source_fullpath);
       destination_folder = extractBefore(destination_folder, ("/"|"\") + "+RotationalFriction1");
       destination_folder = fullfile(destination_folder, "media");
-      [~, ~] = mkdir(destination_folder);  % Suppress warning
+      [~, ~] = mkdir(destination_folder);  % Assign return value to suppress warning.
 
       destination_fullpath = fullfile(destination_folder, "screenshot-RotationalFrictionAppMain-dark-1.png");
 
@@ -100,7 +100,7 @@ classdef uiUptodateTest_RotationalFriction < matlab.uitest.TestCase
       destination_folder = fileparts(source_fullpath);
       destination_folder = extractBefore(destination_folder, ("/"|"\") + "+RotationalFriction1");
       destination_folder = fullfile(destination_folder, "media");
-      [~, ~] = mkdir(destination_folder);  % Suppress warning
+      [~, ~] = mkdir(destination_folder);  % Assign return value to suppress warning.
 
       if TestUtil1.isR2024bOrOlder
         destination_fullpath = fullfile(destination_folder, "screenshot-RotationalFrictionAppMain-24b-1.png");
@@ -143,7 +143,7 @@ classdef uiUptodateTest_RotationalFriction < matlab.uitest.TestCase
 
       destination_folder = fileparts(source_fullpath);
       destination_folder = fullfile(destination_folder, "media");
-      [~, ~] = mkdir(destination_folder);  % Suppress warning
+      [~, ~] = mkdir(destination_folder);  % Assign return value to suppress warning.
 
       destination_fullpath = fullfile(destination_folder, "screenshot-RotationalFrictionApp-dark-1.png");
 
@@ -179,7 +179,7 @@ classdef uiUptodateTest_RotationalFriction < matlab.uitest.TestCase
 
       destination_folder = fileparts(source_fullpath);
       destination_folder = fullfile(destination_folder, "media");
-      [~, ~] = mkdir(destination_folder);  % Suppress warning
+      [~, ~] = mkdir(destination_folder);  % Assign return value to suppress warning.
 
       if TestUtil1.isR2024bOrOlder
         destination_fullpath = fullfile(destination_folder, "screenshot-RotationalFrictionApp-24b-1.png");

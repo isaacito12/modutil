@@ -4,14 +4,14 @@ function Files = searchFiles(Filename, NameValuePair)
 % The Filename argument can be specific such as "test-result.xml" or
 % a pattern such as "*.ssc".
 %
-% By default, current folder is the top foldwer. Use the TopFolder option to
+% By default, current folder is the top folder. Use the TopFolder option to
 % specify the top folder.
 %
 % Example: Search for *.ssc files in the Simscape foundation library.
 % 
 %   SearchUtil1.searchFile("*.ssc", TopFolder=fullfile(matlabroot, "toolbox", "physmod", "simscape", "library", "m", "+foundation"))
 
-% Copyright 2025 The MathWorks, Inc.
+% Copyright 2025-2026 The MathWorks, Inc.
 
 arguments (Input)
   Filename (1,1) string

@@ -1,7 +1,7 @@
 function Links = getLinkedCommandFromPlainTextLiveScript(FileName)
 % Get hyperlinked MATLAB commands from a plain-text Live Script.
 %
-% Live scripts can have hyperlinks that are MATLAB commands.
+% Plain-text Live Scripts can have hyperlinks that are MATLAB commands.
 % An example is "command" in the text
 %   "[some text](matlab:command)"
 % or
@@ -12,7 +12,7 @@ function Links = getLinkedCommandFromPlainTextLiveScript(FileName)
 % This function uses the getLinkedCommandFromText function, which
 % has more descriptions.
 
-% Copyright 2025 The MathWorks, Inc.
+% Copyright 2025-2026 The MathWorks, Inc.
 
 arguments (Input)
   FileName (1,1) string {FileUtil1.mustBePlainTextLiveScript}

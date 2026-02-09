@@ -6,13 +6,13 @@
 # where
 #   <archive_base_name> is defined as a workflow environment
 #   <version> is a tag representing a semantic version, e.g., v1.2.3
-#   <matlab_release> represents MATLAB Release, e.g., R2025b
+#   <matlab_release> represents MATLAB Release, e.g., R2024b
 
 name: Create GitHub Release
 
 env:
   ArchiveBaseName: "modutil-simscape"
-  MatlabRelease: "R2025b"
+  MatlabRelease: "R2024b"
 
 on:
   push:

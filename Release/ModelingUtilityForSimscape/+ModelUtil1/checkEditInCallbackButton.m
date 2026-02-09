@@ -26,7 +26,9 @@ if ModelName == ""
   throw(MException(id, msg))
 
 end  % if
+
 load_system(ModelName)
+
 block_paths = string( getfullname( Simulink.findBlocksOfType(ModelName, "CustomCallbackButton")));
 num_blocks = numel(block_paths);
 if num_blocks == 0
