@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" name="PassingTestsForModelingUtility" skipped="0" tests="16" time="46.58">
-    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_CodeCoverageApp_1" time="3.2328"/>
-    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_FileListApp_1" time="1.6158"/>
-    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_LookupTable1DBlockPlotApp_1" time="1.45"/>
-    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_RotationalFriction_Description_html" time="0.023791"/>
-    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_RotationalFrictionApp_1" time="8.7154"/>
-    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_RotationalFrictionCustomApp1_1" time="7.1929"/>
-    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_samplemodel_LookupTable1DBlockPlotApp_24b_1" time="4.9319"/>
-    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_SampleModel_RotationalFriction_refsub_24b_1" time="0.14788"/>
-    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_SampleParams_RotationalFriction_1" time="0.009482"/>
-    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_SignalDesignApp_1" time="5.5382"/>
-    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_SignalDesignApp_Description_html" time="0.02983"/>
-    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_TestResultApp_1" time="1.8843"/>
-    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_TextSearchApp_1" time="2.4019"/>
-    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_TextSearchResultApp_1" time="3.2948"/>
-    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_TraceGeneratorApp_1" time="5.4333"/>
-    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_TraceGeneratorApp_Description_html" time="0.67769"/>
+  <testsuite errors="0" failures="0" name="PassingTestsForModelingUtility" skipped="0" tests="16" time="56.9605">
+    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_CodeCoverageApp_1" time="5.7939"/>
+    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_FileListApp_1" time="2.4459"/>
+    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_LookupTable1DBlockPlotApp_1" time="2.8255"/>
+    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_RotationalFriction_Description_html" time="0.028313"/>
+    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_RotationalFrictionApp_1" time="10.9309"/>
+    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_RotationalFrictionCustomApp1_1" time="7.5764"/>
+    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_samplemodel_LookupTable1DBlockPlotApp_24b_1" time="3.5517"/>
+    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_SampleModel_RotationalFriction_refsub_24b_1" time="0.15628"/>
+    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_SampleParams_RotationalFriction_1" time="0.019904"/>
+    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_SignalDesignApp_1" time="5.7503"/>
+    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_SignalDesignApp_Description_html" time="0.01586"/>
+    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_TestResultApp_1" time="3.0272"/>
+    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_TextSearchApp_1" time="3.0485"/>
+    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_TextSearchResultApp_1" time="4.1106"/>
+    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_TraceGeneratorApp_1" time="7.2716"/>
+    <testcase classname="PassingTestsForModelingUtility" name="PassingTest_TraceGeneratorApp_Description_html" time="0.40749"/>
   </testsuite>
 </testsuites>

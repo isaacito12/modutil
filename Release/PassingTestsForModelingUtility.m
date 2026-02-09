@@ -109,13 +109,6 @@ classdef PassingTestsForModelingUtility < matlab.uitest.TestCase
 
     function PassingTest_SampleParams_RotationalFriction_1(testcase)
       % Check that the expected parameter "friction" is loaded in the base workspace.
-      if TestUtil1.isNonLocal(testcase.LocalTopFolder)
-        % !todo: Eval'ing an M script in a CI pipeline fails for some reason.
-        disp("!Skipping")
-
-        return
-
-      end  % if
       evalin("base", "clear friction")  % Pre-clean up the base workspace.
       evalin("base", "SampleParams_RotationalFriction")  % !test-target
       vars = evalin("base", "whos");
