@@ -56,6 +56,4 @@ For the workflow definition, see the following file.
 
 - [`.github/workflows/release-in-github.yml`](.github/workflows/release-in-github.yml)
 
-[Stats](https://isaacito12.github.io/modutil-simscape/)
-
 _Copyright 2025-2026 The MathWorks, Inc._
