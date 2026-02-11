@@ -1,27 +1,54 @@
-function cleanup_Devel_folder
-% Delete auto-generated files and folders under the "Devel" folder.
-% Test results are deleted.
+function cleanup_Devel_folder(NameValuePair)
+% Delete auto-generated files and folders under the Devel folder.
+%
+% By default, this function reports the target folders to delete but does not delete them.
+% Use the DryRun=false option to actually delete.
+%
+% For this function to work, the folder tree must be version-managed with git.
 
-% Copyright 2025 The MathWorks, Inc.
+% Copyright 2025-2026 The MathWorks, Inc.
 
-devel_folder = "C:\local\modutil\modeling-utility\Devel";
+arguments (Input)
+  NameValuePair.DryRun (1,1) logical = true
+end  % arguments
+
+try
+  repo = gitrepo;
+catch exception
+
+  rethrow(exception)
+
+end  % try, catch
+repo_top_folder = repo.WorkingFolder;
+
+devel_folder = fullfile(repo_top_folder, "Devel");
 assert(isfolder(devel_folder))
 
-% Delete ".buidltool" folders.
+disp("Deleting .buildtool folders...")
 dot_buildtool_folder_to_delete = matlab.buildtool.io.FileCollection.fromPaths(fullfile(devel_folder, "**", ".buildtool")).paths';
-disp(dot_buildtool_folder_to_delete)
 if not(isempty(dot_buildtool_folder_to_delete))
   for ii = 1 : numel(dot_buildtool_folder_to_delete)
-    rmdir(dot_buildtool_folder_to_delete(ii), "s")
+    cmd = "rmdir(""" + dot_buildtool_folder_to_delete(ii) + """, ""s"")";
+    if NameValuePair.DryRun
+      disp("Dry run: " + cmd)
+    else
+      disp(dot_buildtool_folder_to_delete(ii))
+      eval(cmd)
+    end  % if
   end  % for
 end  % if
 
-% Delete "test-result" folders.
+disp("Deleting test-result folders...")
 test_result_folder_to_delete = matlab.buildtool.io.FileCollection.fromPaths(fullfile(devel_folder, "**", "test-result")).paths';
-disp(test_result_folder_to_delete)
 if not(isempty(test_result_folder_to_delete))
   for ii = 1 : numel(test_result_folder_to_delete)
-    rmdir(test_result_folder_to_delete(ii), "s")
+    cmd = "rmdir(""" + test_result_folder_to_delete(ii) + """, ""s"")";
+    if NameValuePair.DryRun
+      disp("Dry run: " + cmd)
+    else
+      disp(test_result_folder_to_delete(ii))
+      eval(cmd)
+    end  % if
   end  % for
 end  % if
 end  % function
