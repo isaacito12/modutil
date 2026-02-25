@@ -16,6 +16,9 @@ addpath(genpath("FileUtil/Test"))
 addpath("ModelUtil")
 addpath(genpath("ModelUtil/Test"))
 
+addpath("ProjectUtil")
+addpath(genpath("ProjectUtil/Test"))
+
 addpath("SearchUtil")
 addpath(genpath("SearchUtil/Test"))
 
