@@ -2,11 +2,11 @@ classdef SignalDesignAppMain < handle
   % This app works with Simscape PS Lookup Table (1D) block to design
   % a signal trace using signal design matrix.
   %
-  % This app treats the physical untis used in the Table grid vector, x, and
+  % This app treats the physical units used in the Table grid vector, x, and
   % the Table values, f(x), of the block as unit alias, rather than simscape.Unit.
   % This app does not modify the physical units in the block parameters.
 
-  % Copyright 2025 The MathWorks, Inc.
+  % Copyright 2025-2026 The MathWorks, Inc.
 
   properties (Access=private, Constant)
     errorID (1,1) string = "SignalDesignAppMain:"
@@ -556,7 +556,7 @@ classdef SignalDesignAppMain < handle
       if is_Simscape_LookupTable
         % Simscape PS Lookup Table (1D) block
 
-        x = App.TableGridVectorUI.Value;
+        x = App.TableGridVectorUI.ValueText;
         set_param(block_path, "x", x)
 
         x_unit = App.TableGridVectorUI.UnitAlias;
@@ -564,7 +564,7 @@ classdef SignalDesignAppMain < handle
           set_param(block_path, "x_unit", x_unit);
         end  % if
 
-        f = App.TableValuesUI.Value;
+        f = App.TableValuesUI.ValueText;
         set_param(block_path, "f", f)
 
         f_unit = App.TableValuesUI.UnitAlias;
