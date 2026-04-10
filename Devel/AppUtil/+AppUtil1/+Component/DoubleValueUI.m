@@ -1,16 +1,18 @@
 classdef DoubleValueUI < AppUtil1.Component.ComponentBase
   % UI component for a value of type double with name, value, info, and side note.
   %
-  % This component supports base workspace variables.
-  %
+  % This component supports using a variable in the base workspace.
+
   % Errors are reported inline in the UI component, rather than in a dialog window.
   % The inline error reporting allows the user to  interact with other UI components
   % before addressing the reported issue.
 
-  % Copyright 2025 The MathWorks, Inc.
+  % Copyright 2025-2026 The MathWorks, Inc.
 
   properties
-    % To improve the searchability, use "*Text", such as "NameText".
+
+    double_value (1,:) CodeUtil1.DoubleValue = CodeUtil1.DoubleValue
+
     NameText (1,1) string = "Double value"
     NameInInfo (1,1) string = ""
   end  % properties
@@ -33,12 +35,14 @@ classdef DoubleValueUI < AppUtil1.Component.ComponentBase
     ComponentHeight (1,:) {CodeUtil1.mustBeTextOrPositiveNumber} = AppUtil1.Constant.Height{"oneline++"}
 
     NameUIWidth (1,:) {CodeUtil1.mustBeTextOrPositiveNumber} = AppUtil1.Constant.Width{"unitwidth"} * 14
+    AlertUIWidth (1,:) {CodeUtil1.mustBeTextOrPositiveNumber} = 30
     ValueUIWidth (1,:) {CodeUtil1.mustBeTextOrPositiveNumber} = "1x"
     InfoUIWidth (1,:) {CodeUtil1.mustBeTextOrPositiveNumber} = AppUtil1.Constant.Width{"unitwidth"} * 10
-    SideNoteUIWidth (1,:) {CodeUtil1.mustBeTextOrNonnegativeNumber} = 0
+    SideNoteUIWidth (1,:) {CodeUtil1.mustBeTextOrPositiveNumber} = 1
 
     NameUI AppUtil1.Component.Label
-    ValueUI AppUtil1.Component.EditField
+    AlertUI AppUtil1.Graphics.Image
+    ValueTextUI AppUtil1.Component.EditField
     InfoUI AppUtil1.Component.EditField
     SideNoteUI AppUtil1.Component.Label
 
@@ -50,15 +54,15 @@ classdef DoubleValueUI < AppUtil1.Component.ComponentBase
     error_message (1,1) string = ""
     Reporting (1,1) matlab.lang.OnOffSwitchState = "off"
 
-    main_grid matlab.ui.container.GridLayout
-    name_column_grid matlab.ui.container.GridLayout
-    value_column_grid matlab.ui.container.GridLayout
-    info_column_grid matlab.ui.container.GridLayout
-    sidenote_column_grid matlab.ui.container.GridLayout
+    main_horizontal_container AppUtil1.HorizontalContainer
+
+    name_grid matlab.ui.container.GridLayout
+    alert_grid matlab.ui.container.GridLayout
+    value_grid matlab.ui.container.GridLayout
+    info_grid matlab.ui.container.GridLayout
+    sidenote_grid matlab.ui.container.GridLayout
 
     initialized (1,1) logical = false
-
-    double_value (1,:) CodeUtil1.DoubleValue = CodeUtil1.DoubleValue
   end  % properties
 
   events (HasCallbackProperty, NotifyAccess=protected)
@@ -75,73 +79,48 @@ classdef DoubleValueUI < AppUtil1.Component.ComponentBase
       % Visibility of UI sub-components is controlled by main grid's ColumnWidth.
       % Each sub-component's ComponentWidth does not affect the visibility.
 
-      component.main_grid = uigridlayout(component.base_grid, [1 1]);
-      component.main_grid.Layout.Row = 1;
-      component.main_grid.Layout.Column = 1;
-      component.main_grid.Padding = [0 0 0 0];  % left bottom right top
-      component.main_grid.ColumnSpacing = 1;  % Give 1px space between sub-components.
-      component.main_grid.RowSpacing = 0;
-
-      component.main_grid.RowHeight = component.ComponentHeight;
-
-      % Each column corresponds to Name, Value, Info, and SideNote.
-      component.main_grid.ColumnWidth = {component.NameUIWidth, '1x', 0, 0};
+      component.main_horizontal_container = AppUtil1.HorizontalContainer(component.base_grid);
 
       % ------------------------------------------------------------------------
       %  Name
 
-      component.name_column_grid = uigridlayout(component.main_grid, [1 1]);
-      component.name_column_grid.Layout.Row = 1;
-      component.name_column_grid.Layout.Column = 1;
-      component.name_column_grid.Padding = [0 0 0 0];  % left bottom right top
-      component.name_column_grid.RowHeight = {'1x', 'fit', '1x'};
-      component.name_column_grid.RowSpacing = 0;
-      component.name_column_grid.ColumnWidth = {'fit'};
-      component.name_column_grid.ColumnSpacing = 0;
+      component.name_grid = addHorizontalGridLayout(component.main_horizontal_container, Width="fit");
 
-      component.NameUI = AppUtil1.Component.Label(component.name_column_grid);
-      component.NameUI.Layout.Row = 2;  % middle cell
-      component.NameUI.Layout.Column = 1;
+      component.NameUI = AppUtil1.Component.Label(component.name_grid);
+      component.NameUI.MainFigure = component.MainFigure;
       component.NameUI.ComponentHeight = component.ComponentHeight;
       component.NameUI.ComponentWidth = component.NameUIWidth;
       component.NameUI.Text = CodeUtil1.i18n("Double value");
 
       % ------------------------------------------------------------------------
+      %  Alert
+
+      component.alert_grid = addHorizontalGridLayout(component.main_horizontal_container, Width="fit");
+
+      component.AlertUI = AppUtil1.Graphics.Image(component.alert_grid);
+      component.AlertUI.MainFigure = component.MainFigure;
+      component.AlertUI.ComponentHeight = component.ComponentHeight;
+      component.AlertUI.ComponentWidth = component.AlertUIWidth;
+
+      % ------------------------------------------------------------------------
       % Value
 
-      component.value_column_grid = uigridlayout(component.main_grid, [1 1]);
-      component.value_column_grid.Layout.Row = 1;
-      component.value_column_grid.Layout.Column = 2;
-      component.value_column_grid.Padding = [0 0 0 0];  % left bottom right top
-      component.value_column_grid.RowHeight = {'1x', 'fit', '1x'};
-      component.value_column_grid.RowSpacing = 0;
-      component.value_column_grid.ColumnWidth = {'1x'};  % Expand horizontally
-      component.value_column_grid.ColumnSpacing = 0;
+      component.value_grid = addHorizontalGridLayout(component.main_horizontal_container);
 
-      component.ValueUI = AppUtil1.Component.EditField(component.value_column_grid);
-      component.ValueUI.Layout.Row = 2;
-      component.ValueUI.Layout.Column = 1;
-      component.ValueUI.ValueChangedCallback = @() react_ValueTextUI_ValueChanged(component);
-      component.ValueUI.ComponentWidth = component.ValueUIWidth;
+      component.ValueTextUI = AppUtil1.Component.EditField(component.value_grid);
+      component.ValueTextUI.MainFigure = component.MainFigure;
+      component.ValueTextUI.ValueChangedCallback = @() react_ValueTextUI_ValueChanged(component);
       % To avoid triggering ValueUI's callback, use MainEditField's Value
       % rather than ValueUI's Value.
-      component.ValueUI.MainEditField.Value = "0";
+      component.ValueTextUI.MainEditField.Value = "0";
 
       % ------------------------------------------------------------------------
       % Info
 
-      component.info_column_grid = uigridlayout(component.main_grid, [1 1]);
-      component.info_column_grid.Layout.Row = 1;
-      component.info_column_grid.Layout.Column = 3;
-      component.info_column_grid.Padding = [0 0 0 0];  % left bottom right top
-      component.info_column_grid.RowHeight = {'1x', 'fit', '1x'};
-      component.info_column_grid.RowSpacing = 0;
-      component.info_column_grid.ColumnWidth = {'1x'};  % Expand horizontally
-      component.info_column_grid.ColumnSpacing = 0;
+      component.info_grid = addHorizontalGridLayout(component.main_horizontal_container, Width="fit");
 
-      component.InfoUI = AppUtil1.Component.EditField(component.info_column_grid);
-      component.InfoUI.Layout.Row = 2;
-      component.InfoUI.Layout.Column = 1;
+      component.InfoUI = AppUtil1.Component.EditField(component.info_grid);
+      component.InfoUI.MainFigure = component.MainFigure;
       component.InfoUI.ComponentWidth = component.InfoUIWidth;
       component.InfoUI.ReadOnly = "on";
       component.InfoUI.MainEditField.Value = "";
@@ -149,18 +128,10 @@ classdef DoubleValueUI < AppUtil1.Component.ComponentBase
       % ------------------------------------------------------------------------
       % SideNote
 
-      component.sidenote_column_grid = uigridlayout(component.main_grid, [1 1]);
-      component.sidenote_column_grid.Layout.Row = 1;
-      component.sidenote_column_grid.Layout.Column = 4;
-      component.sidenote_column_grid.Padding = [0 0 0 0];
-      component.sidenote_column_grid.RowHeight = {'1x', 'fit', '1x'};
-      component.sidenote_column_grid.RowSpacing = 0;
-      component.sidenote_column_grid.ColumnWidth = {'1x'};  % Expand horizontally
-      component.sidenote_column_grid.ColumnSpacing = 0;
+      component.sidenote_grid = addHorizontalGridLayout(component.main_horizontal_container, Width="fit");
 
-      component.SideNoteUI = AppUtil1.Component.Label(component.sidenote_column_grid);
-      component.SideNoteUI.Layout.Row = 2;
-      component.SideNoteUI.Layout.Column = 1;
+      component.SideNoteUI = AppUtil1.Component.Label(component.sidenote_grid);
+      component.SideNoteUI.MainFigure = component.MainFigure;
       component.SideNoteUI.ComponentWidth = 10;  % Width gets updated later.
       component.SideNoteUI.Text = "";
 
@@ -190,34 +161,33 @@ classdef DoubleValueUI < AppUtil1.Component.ComponentBase
         component.NameInInfo = component.NameText;
       end  % if
 
-      component.main_grid.ColumnWidth = {component.NameUIWidth, component.ValueUIWidth, component.InfoUIWidth, component.SideNoteUIWidth};
-
-      % Value UI
-      component.ValueUI.ComponentWidth = component.ValueUIWidth;
-
-      % Info UI
-      component.InfoUI.ComponentWidth = component.InfoUIWidth;
       if strlength(component.InfoText) > 0
+        % Show the Info UI.
+        component.info_grid.ColumnWidth{1} = component.InfoUIWidth;
+        component.InfoUI.ComponentWidth = component.InfoUIWidth;
         component.InfoUI.MainEditField.Tooltip = component.InfoText;
       else
-        % Hide
-        component.main_grid.ColumnWidth{3} = 0;
+        % Hide the Info UI.
+        component.info_grid.ColumnWidth{1} = 0;
         component.InfoUI.MainEditField.Tooltip = "";
       end  % if
 
       % Side-note UI
       if component.SideNoteUIWidth > 0
+        % Show the side-note UI.
+        component.sidenote_grid.ColumnWidth{1} = component.SideNoteUIWidth;
         component.SideNoteUI.ComponentWidth = component.SideNoteUIWidth;
       else
-        % Hide
-        component.main_grid.ColumnWidth{4} = 0;
+        % Hide the side-note UI.
+        component.sidenote_grid.ColumnWidth{1} = 0;
         % Set a positive value. (0 is not allowed.)
-        component.SideNoteUI.ComponentWidth = 10;
+        % component.SideNoteUI.ComponentWidth = 10;
       end  % if
 
       if component.HighlightBackground
         component.NameUI.HighlightBackground = "on";
-        component.ValueUI.HighlightBackground = "on";
+        component.AlertUI.HighlightBackground = "on";
+        component.ValueTextUI.HighlightBackground = "on";
         component.InfoUI.HighlightBackground = "on";
         component.SideNoteUI.HighlightBackground = "on";
         switch component.ThemeNameForBackGroundHighlight
@@ -241,20 +211,25 @@ classdef DoubleValueUI < AppUtil1.Component.ComponentBase
 
       end  % if
 
-      component.main_grid.RowHeight = component.ComponentHeight;
+      component.main_horizontal_container.BaseGridLayout.RowHeight = component.ComponentHeight;
 
       component.NameUI.ComponentHeight = component.ComponentHeight;
       component.NameUI.ComponentWidth = component.NameUIWidth;
       component.NameUI.MainLabel.Text = component.NameText;
 
-      component.ValueUI.ComponentHeight = component.ComponentHeight;
+      component.AlertUI.ComponentHeight = component.ComponentHeight;
+
+      component.ValueTextUI.ComponentHeight = component.ComponentHeight;
       if component.ReadOnlyValueText
-        component.ValueUI.ReadOnly = "on";
+        component.ValueTextUI.ReadOnly = "on";
       end  % if
+      component.ValueTextUI.MainEditField.Value = component.ValueText;  % !attn: probably unnecessary
 
       component.InfoUI.ComponentHeight = component.ComponentHeight;
+      component.InfoUI.ComponentWidth = component.InfoUIWidth;
 
-      react_ValueTextUI_ValueChanged(component)
+      component.SideNoteUI.ComponentHeight = component.ComponentHeight;
+      component.SideNoteUI.ComponentWidth = component.SideNoteUIWidth;
     end  % function
 
   end  % methods
@@ -264,20 +239,22 @@ classdef DoubleValueUI < AppUtil1.Component.ComponentBase
     function alertOnError(component)
       %%
       if not(component.has_error)
+        component.AlertUI.MainImage.Visible = "off";
+        component.AlertUI.MainImage.Tooltip = "";
+        component.AlertUI.ImageClickedCallback = @() true;
 
         return
 
       end  % if
-      if not(startsWith(component.error_message, "Error:"))
-        message = "Error: " + component.error_message;
-      else
+      if startsWith(component.error_message, "Error:")
         message = component.error_message;
+      else
+        message = "Error: " + component.error_message;
       end  % if
-      component.main_grid.ColumnWidth = {component.NameUIWidth, '1x', '2x', 0};
-      component.info_column_grid.ColumnWidth = {'1x'};
-      component.InfoUI.ComponentWidth = "1x";
-      component.InfoUI.Value = message;
-      component.InfoUI.MainEditField.Tooltip = message;
+
+      component.AlertUI.MainImage.Visible = "on";
+      component.AlertUI.MainImage.Tooltip = message + CodeUtil1.i18n(" (Click the icon to copy the message to clipboard.)");
+      component.AlertUI.ImageClickedCallback = @() clipboard("copy", message);
     end  % function
 
     % --------------------------------------------------------------------------
@@ -306,6 +283,8 @@ classdef DoubleValueUI < AppUtil1.Component.ComponentBase
       end  % try, catch
       component.has_error = false;
       component.error_message = "";
+
+      component.ValueText = x;
     end  % function
 
     % --------------------------------------------------------------------------
@@ -317,7 +296,7 @@ classdef DoubleValueUI < AppUtil1.Component.ComponentBase
       arguments (Output)
         str string
       end  % arguments
-      str = component.ValueUI.MainEditField.Value;
+      str = component.ValueTextUI.MainEditField.Value;
     end  % function
 
     function set.ValueText(component, str)
@@ -327,15 +306,23 @@ classdef DoubleValueUI < AppUtil1.Component.ComponentBase
       end  % arguments
       try
         component.double_value.ValueText = str;
-      catch exception
+ 
+        % Show the tooltip because the width of the ValueTextUI may be shorter than its content.
+        component.ValueTextUI.MainEditField.Tooltip = str;
+
+     catch exception
         component.has_error = true;
         component.error_message = exception.message;
 
         return
 
       end  % try, catch
+
       % This assignment triggers the react_ValueTextUI_ValueChanged callback.
-      component.ValueUI.Value = str;
+      component.ValueTextUI.Value = str;
+
+      updateInfoUI(component)
+
     end  % function
 
   end  % methods
@@ -343,7 +330,7 @@ classdef DoubleValueUI < AppUtil1.Component.ComponentBase
 
     function react_ValueTextUI_ValueChanged(component)
       %%
-      current_value_text = component.ValueUI.MainEditField.Value;
+      current_value_text = component.ValueTextUI.MainEditField.Value;
       try
         component.double_value.ValueText = current_value_text;
       catch exception
@@ -377,7 +364,7 @@ classdef DoubleValueUI < AppUtil1.Component.ComponentBase
       squashed_value_text = CodeUtil1.squashCodeText(CodeUtil1.stringify(dbl_val));
 
       % The data in ValueUI is of type double.
-      squashed_current_value_text = CodeUtil1.squashCodeText(component.ValueUI.MainEditField.Value);
+      squashed_current_value_text = CodeUtil1.squashCodeText(component.ValueTextUI.MainEditField.Value);
       if squashed_value_text ~= squashed_current_value_text
         component.InfoText = squashed_value_text;
       else
@@ -403,11 +390,10 @@ classdef DoubleValueUI < AppUtil1.Component.ComponentBase
       component.InfoUI.MainEditField.Value = str;
       if str == ""
         % Hide the Info UI.
-        component.main_grid.ColumnWidth{3} = 0;
+        component.info_grid.ColumnWidth{1} = 0;
       else
         % Show the Info UI.
-        component.main_grid.ColumnWidth{3} = component.InfoUIWidth;
-        component.InfoUI.ComponentWidth = component.InfoUIWidth;
+        component.info_grid.ColumnWidth{1} = component.InfoUIWidth;
       end  % if
     end  % function
 

@@ -85,17 +85,17 @@ classdef FileSearchAppMain < handle
 
     function build_app_gui(App)
       %%
-      main_column_layout = App.Window.MainLayout;
+      main_vertical_container = App.Window.MainVerticalContainer;
 
       % =======================================================================
       % FileName to search
-      column_grid = NewColumnGrid(main_column_layout);
+      column_grid = addVerticalGridLayout(main_vertical_container);
 
       label_ui = AppUtil1.Component.Label(column_grid);
       label_ui.Text = "\textbf{" + CodeUtil1.i18n("File name to search") + "}";
 
       % -----------------------------------------------------------------------
-      column_grid = NewColumnGrid(main_column_layout);
+      column_grid = addVerticalGridLayout(main_vertical_container);
 
       App.SearchFileNameUI = AppUtil1.Component.EditableDropDown(column_grid);
       App.SearchFileNameUI.Items = [];
@@ -103,14 +103,14 @@ classdef FileSearchAppMain < handle
 
       % =======================================================================
       % Top folder
-      column_grid = NewColumnGrid(main_column_layout);
-      row_layout = AppUtil1.RowLayout(column_grid);
+      column_grid = addVerticalGridLayout(main_vertical_container);
+      horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-      row_grid = NewRowGrid(row_layout, Width="fit");
+      row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       label_ui = AppUtil1.Component.Label(row_grid);
       label_ui.Text = "\textbf{" + CodeUtil1.i18n("Top folder") + "}";
 
-      row_grid = NewRowGrid(row_layout, Width="fit");
+      row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       App.SelectFolderUI = AppUtil1.Component.Button(row_grid);
       App.SelectFolderUI.ButtonWidth = App.width_button;
       App.SelectFolderUI.Text = CodeUtil1.i18n("Select...");
@@ -118,28 +118,28 @@ classdef FileSearchAppMain < handle
       App.SelectFolderUI.ButtonPushedCallback = @() react_SelectFolderButtonPushed(App);
 
       % -----------------------------------------------------------------------
-      column_grid = NewColumnGrid(main_column_layout);
+      column_grid = addVerticalGridLayout(main_vertical_container);
 
       App.TopFolderUI = AppUtil1.Component.DropDown(column_grid);
       App.TopFolderUI.MainDropDown.Items = "";
       App.TopFolderUI.ValueChangedCallback = @() update_SearcherStatesFromUIComponents(App);
 
       % =======================================================================
-      column_grid = NewColumnGrid(main_column_layout);
+      column_grid = addVerticalGridLayout(main_vertical_container);
       AppUtil1.Component.HorizontalLine(column_grid);
 
       % =======================================================================
-      column_grid = NewColumnGrid(main_column_layout);
-      row_layout = AppUtil1.RowLayout(column_grid);
+      column_grid = addVerticalGridLayout(main_vertical_container);
+      horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-      App.CopyCommandButtonUI = AppUtil1.Component.Button(NewRowGrid(row_layout));
+      App.CopyCommandButtonUI = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container));
       App.CopyCommandButtonUI.Text = CodeUtil1.i18n("Copy command");
       App.CopyCommandButtonUI.MainButton.Tooltip = CodeUtil1.i18n("Copy the search command to clipboard.");
       App.CopyCommandButtonUI.ButtonWidth = App.width_button;
       App.CopyCommandButtonUI.HorizontalAlignment = "center";
       App.CopyCommandButtonUI.ButtonPushedCallback = @() react_CopyCommandButtonPushed(App);
 
-      App.SearchButtonUI = AppUtil1.Component.Button(NewRowGrid(row_layout));
+      App.SearchButtonUI = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container));
       App.SearchButtonUI.Text = CodeUtil1.i18n("Search");
       App.SearchButtonUI.ButtonWidth = App.width_button;
       App.SearchButtonUI.HorizontalAlignment = "center";

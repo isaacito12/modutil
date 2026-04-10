@@ -1,17 +1,17 @@
 classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
   % UI component for simscape.Value with name, value, info, and unit UIs
   %
-  % This component supports using variables in the base workspace.
-  %
+  % This component supports using a variable in the base workspace.
+
   % Errors are reported inline in the UI component, rather than in a dialog window.
   % The inline error reporting allows the user to leave the error unaddressed and
   % do other operations in the app.
-
+  %
   % Always keep these properties up to date regardless of their visibility.
   %   component.UnitLabelUI.MainLabel.Text
   %   component.UnitDropDownUI.MainDropDown.Value
 
-  % Copyright 2023-2025 The MathWorks, Inc.
+  % Copyright 2023-2026 The MathWorks, Inc.
 
   properties
 
@@ -32,7 +32,7 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
 
     % UnitItems determines if the unit UI should be a label or a drop down.
     % If there is only one item, a label is used. Otherwise, a drop down is used.
-    % It is determined in the first update, and then you can't change it.
+    % It is determined in the first update, and then you can't change label or drop down.
     UnitItems (1,:) string
 
     UnitText (1,1) string
@@ -45,11 +45,13 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
     ComponentHeight (1,:) {CodeUtil1.mustBeTextOrPositiveNumber} = AppUtil1.Constant.Height{"oneline++"}
 
     NameUIWidth (1,:) {CodeUtil1.mustBeTextOrPositiveNumber} = AppUtil1.Constant.Width{"unitwidth"} * 14
+    AlertUIWidth (1,:) {CodeUtil1.mustBeTextOrPositiveNumber} = 30
     ValueUIWidth (1,:) {CodeUtil1.mustBeTextOrPositiveNumber} = "1x"
     InfoUIWidth (1,:) {CodeUtil1.mustBeTextOrPositiveNumber} = AppUtil1.Constant.Width{"unitwidth"} * 10
     UnitUIWidth (1,:) {CodeUtil1.mustBeTextOrPositiveNumber} = AppUtil1.Constant.Width{"unitwidth"} * 10
 
     NameUI AppUtil1.Component.Label
+    AlertUI AppUtil1.Graphics.Image
     ValueTextUI AppUtil1.Component.EditField
     InfoUI AppUtil1.Component.EditField
     UnitLabelUI AppUtil1.Component.Label
@@ -65,14 +67,15 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
     Reporting (1,1) matlab.lang.OnOffSwitchState = "off"
     unit_ui_style (1,1) string {mustBeMember(unit_ui_style, ["label", "dropdown", "alias"])} = "label"
 
-    main_row_layout AppUtil1.RowLayout
+    main_horizontal_container AppUtil1.HorizontalContainer
 
     name_grid matlab.ui.container.GridLayout
+    alert_grid matlab.ui.container.GridLayout
     value_grid matlab.ui.container.GridLayout
     info_grid matlab.ui.container.GridLayout
 
     unit_grid matlab.ui.container.GridLayout
-    unit_column_layout AppUtil1.ColumnLayout
+    unit_vertical_container AppUtil1.VerticalContainer
 
     initialized (1,1) logical = false
     unit_specified (1,1) logical = false
@@ -101,12 +104,12 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
       % Visibility of UI subcomponents is controlled by main grid's ColumnWidth.
       % Each subcomponent's ComponentWidth does not affect the visibility.
 
-      component.main_row_layout = AppUtil1.RowLayout(component.base_grid);
+      component.main_horizontal_container = AppUtil1.HorizontalContainer(component.base_grid);
 
       % ------------------------------------------------------------------------
       %  Name
 
-      component.name_grid = NewRowGrid(component.main_row_layout, Width="fit");
+      component.name_grid = addHorizontalGridLayout(component.main_horizontal_container, Width="fit");
 
       component.NameUI = AppUtil1.Component.Label(component.name_grid);
       component.NameUI.ComponentHeight = component.ComponentHeight;
@@ -114,9 +117,18 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
       component.NameUI.Text = CodeUtil1.i18n("Physical value");
 
       % ------------------------------------------------------------------------
+      %  Alert
+
+      component.alert_grid = addHorizontalGridLayout(component.main_horizontal_container, Width="fit");
+
+      component.AlertUI = AppUtil1.Graphics.Image(component.alert_grid);
+      component.AlertUI.ComponentHeight = component.ComponentHeight;
+      component.AlertUI.ComponentWidth = component.AlertUIWidth;
+
+      % ------------------------------------------------------------------------
       % Value
 
-      component.value_grid = NewRowGrid(component.main_row_layout);
+      component.value_grid = addHorizontalGridLayout(component.main_horizontal_container);
 
       component.ValueTextUI = AppUtil1.Component.EditField(component.value_grid);
       component.ValueTextUI.ValueChangedCallback = @() react_ValueTextUI_ValueChanged(component);
@@ -127,7 +139,7 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
       % ------------------------------------------------------------------------
       % Info
 
-      component.info_grid = NewRowGrid(component.main_row_layout, Width="fit");
+      component.info_grid = addHorizontalGridLayout(component.main_horizontal_container, Width="fit");
 
       component.InfoUI = AppUtil1.Component.EditField(component.info_grid);
       component.InfoUI.ComponentWidth = component.InfoUIWidth;
@@ -137,18 +149,18 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
       % ------------------------------------------------------------------------
       % Unit
 
-      component.unit_grid = NewRowGrid(component.main_row_layout, Width="fit");
-      component.unit_column_layout = AppUtil1.ColumnLayout(component.unit_grid);
-      component.unit_column_layout.BaseGrid.Scrollable = "off";
+      component.unit_grid = addHorizontalGridLayout(component.main_horizontal_container, Width="fit");
+      component.unit_vertical_container = AppUtil1.VerticalContainer(component.unit_grid);
+      component.unit_vertical_container.BaseGridLayout.Scrollable = "off";
 
       % Column grid's upper space
-      NewColumnGrid(component.unit_column_layout, Height="1x", Empty=true)
+      addVerticalGridLayout(component.unit_vertical_container, Height="1x", Empty=true)
 
-      component.UnitLabelUI = AppUtil1.Component.Label(NewColumnGrid(component.unit_column_layout));
+      component.UnitLabelUI = AppUtil1.Component.Label(addVerticalGridLayout(component.unit_vertical_container));
       component.UnitLabelUI.ComponentWidth = component.UnitUIWidth;
       component.UnitLabelUI.Text = "1";
 
-      component.UnitDropDownUI = AppUtil1.Component.EditableDropDown(NewColumnGrid(component.unit_column_layout));
+      component.UnitDropDownUI = AppUtil1.Component.EditableDropDown(addVerticalGridLayout(component.unit_vertical_container));
       component.UnitDropDownUI.ComponentWidth = component.UnitUIWidth;
       component.UnitDropDownUI.ValueChangedCallback = @() react_UnitUI_ValueChanged(component);
       % To avoid triggering UnitDropDownUI's callback, use MainDropDown's properties.
@@ -159,16 +171,13 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
       component.UnitDropDownUI.MainDropDown.Value = "1";
 
       % Column grid's lower space
-      NewColumnGrid(component.unit_column_layout, Height="1x", Empty=true)
+      addVerticalGridLayout(component.unit_vertical_container, Height="1x", Empty=true)
 
     end  % function
 
     function update(component)
       %%
       update@AppUtil1.Component.ComponentBase(component)
-
-      % !debugging !todo: This first_update should be unnecessary.
-      %first_update(component)
 
       if component.initialized
         regular_update(component)
@@ -205,25 +214,26 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
       component.unit_grid.RowHeight{1} = component.ComponentHeight;
       if isscalar(component.UnitDropDownUI.MainDropDown.Items)
         % label
-        component.unit_column_layout.BaseGrid.RowHeight = {'1x', 'fit', 0, '1x'};
+        component.unit_vertical_container.BaseGridLayout.RowHeight = {'1x', 'fit', 0, '1x'};
         component.UnitLabelUI.ComponentWidth = component.UnitUIWidth;
       else
         % dropdown
-        component.unit_column_layout.BaseGrid.RowHeight = {'1x', 0, 'fit', '1x'};
+        component.unit_vertical_container.BaseGridLayout.RowHeight = {'1x', 0, 'fit', '1x'};
         component.UnitDropDownUI.ComponentWidth = component.UnitUIWidth;
       end  % if
 
       if component.HighlightBackground
         component.NameUI.HighlightBackground = "on";
+        component.AlertUI.HighlightBackground = "on";
         component.ValueTextUI.HighlightBackground = "on";
         component.InfoUI.HighlightBackground = "on";
         component.UnitLabelUI.HighlightBackground = "on";
         component.UnitDropDownUI.HighlightBackground = "on";
         switch component.ThemeNameForBackGroundHighlight
           case "light"
-            component.main_row_layout.BaseGrid.BackgroundColor = component.LightThemeBackGroundColor;
+            component.main_horizontal_container.BaseGridLayout.BackgroundColor = component.LightThemeBackGroundColor;
           case "dark"
-            component.main_row_layout.BaseGrid.BackgroundColor = component.DarkThemeBackGroundColor;
+            component.main_horizontal_container.BaseGridLayout.BackgroundColor = component.DarkThemeBackGroundColor;
         end  % switch
       end  % if
     end  % function
@@ -240,11 +250,13 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
 
       end  % if
 
-      component.main_row_layout.BaseGrid.RowHeight = component.ComponentHeight;
+      component.main_horizontal_container.BaseGridLayout.RowHeight = component.ComponentHeight;
 
       component.NameUI.ComponentHeight = component.ComponentHeight;
       component.NameUI.ComponentWidth = component.NameUIWidth;
       component.NameUI.MainLabel.Text = component.NameText;
+
+      component.AlertUI.ComponentHeight = component.ComponentHeight;
 
       component.ValueTextUI.ComponentHeight = component.ComponentHeight;
       if component.ReadOnlyValueText
@@ -277,21 +289,22 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
     function alertOnError(component)
       %%
       if not(component.has_error)
+        component.AlertUI.MainImage.Visible = "off";
+        component.AlertUI.MainImage.Tooltip = "";
+        component.AlertUI.ImageClickedCallback = @() true;
 
         return
 
       end  % if
-      if not(startsWith(component.error_message, "Error:"))
-        message = "Error: " + component.error_message;
-      else
+      if startsWith(component.error_message, "Error:")
         message = component.error_message;
+      else
+        message = "Error: " + component.error_message;
       end  % if
-      component.value_grid.ColumnWidth = {'1x'};
-      component.info_grid.ColumnWidth = {'1x'};
-      component.InfoUI.ComponentWidth = "1x";
-      component.InfoUI.Value = message;
-      component.InfoUI.MainEditField.Tooltip = message;
-      component.unit_grid.ColumnWidth = 0;
+
+      component.AlertUI.MainImage.Visible = "on";
+      component.AlertUI.MainImage.Tooltip = message + CodeUtil1.i18n(" (Click the icon to copy the message to clipboard.)");
+      component.AlertUI.ImageClickedCallback = @() clipboard("copy", message);
     end  % function
 
     % --------------------------------------------------------------------------
@@ -345,9 +358,6 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
       try
         component.physical_value.ValueText = str;
 
-        % Show the tooltip because the width of the ValueTextUI may be shorter than its content.
-        component.ValueTextUI.MainEditField.Tooltip = str;
-
       catch exception
         component.has_error = true;
         component.error_message = exception.message;
@@ -355,8 +365,15 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
         return
 
       end  % try, catch
+
       % This assignment triggers the react_ValueTextUI_ValueChanged callback.
       component.ValueTextUI.Value = str;
+
+      % Show the tooltip because the width of the ValueTextUI may be shorter than its content.
+      component.ValueTextUI.MainEditField.Tooltip = str;
+
+      updateInfoAndUnitUIs(component)
+
     end  % function
 
   end  % methods
@@ -376,6 +393,8 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
       end  % try, catch
       component.has_error = false;
       component.error_message = "";
+
+      component.ValueTextUI.MainEditField.Tooltip = current_value_text;
 
       updateInfoAndUnitUIs(component)
 
@@ -700,7 +719,36 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
       % When this function starts, the items already has the new item.
       current_unit_items = component.UnitDropDownUI.MainDropDown.Items;
       new_unit_text = string(component.UnitDropDownUI.MainDropDown.Value);
-      % The new unit must be commensurate with the existing units.
+
+      % First validation: The new unit must be valid as simscape.Unit.
+      try
+        simscape.Unit(new_unit_text);
+      catch exception
+        msg = exception.message;
+        % Remove the new item.
+        logical_index = (current_unit_items ~= new_unit_text);
+        component.UnitDropDownUI.MainDropDown.Items = current_unit_items(logical_index);
+        component.UnitDropDownUI.MainDropDown.Value = component.current_unit_text;
+
+        if not(component.initialized)
+
+          % The app is not visible yet. Show the error message in the Command Window.
+          error(msg)  % severe-error !todo: app must exit
+
+          return
+
+        else
+          % Inline error message hides the unit drop down UI, and the message can't be removed.
+          % Thus, use a pop-up window.
+          window_title = CodeUtil1.i18n("Error");
+          uialert(component.MainFigure, msg, window_title)
+
+          return
+
+        end  % if
+      end  % for
+
+      % Second validation: The new unit must be commensurate with the existing units.
       if not(simscape.isCommensurateUnit(current_unit_items{:}))
         msg = CodeUtil1.i18n("New unit must be commensurate with existing units.");
         % Remove the new item.

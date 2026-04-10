@@ -10,9 +10,9 @@ main_figure = uifigure(Visible="off");
 main_figure.Position(3) = 600;  % width
 main_figure.Position(4) = 220;  % height
 
-column_layout = AppUtil1.ColumnLayout(main_figure);  % !test-target
+vertical_container = AppUtil1.VerticalContainer(main_figure);  % !test-target
 
-label_ui = AppUtil1.Component.Label(NewColumnGrid(column_layout));
+label_ui = AppUtil1.Component.Label(addVerticalGridLayout(vertical_container));
 label_ui.MainFigure = main_figure;
 label_ui.Text = "Test";
 label_ui.HighlightBackground = "on";

@@ -2,15 +2,15 @@ classdef ComponentBase < matlab.ui.componentcontainer.ComponentContainer
   % AppUtil base component (R2025b)
   %
   % This class implements common code used by most AppUtil components.
-  % Inherit this component to implement a AppUtil component.
+  % Inherit this component to implement an AppUtil component.
   %
-  % Documentation about matlab.ui.componentcontainer.ComponentContainer
+  % See also the documentation about matlab.ui.componentcontainer.ComponentContainer
   % https://www.mathworks.com/help/matlab/ref/matlab.ui.componentcontainer.componentcontainer-class.html
 
-  % Copyright 2023-2025 The MathWorks, Inc.
+  % Copyright 2023-2026 The MathWorks, Inc.
 
   properties
-    % MainFigure property is used to react to the change in the primary uifigure's property.
+    % The MainFigure property is used to react to the change in the primary uifigure's property.
     % If the component does not have to react, leave this property undefined.
     MainFigure (:,1) matlab.ui.Figure
 

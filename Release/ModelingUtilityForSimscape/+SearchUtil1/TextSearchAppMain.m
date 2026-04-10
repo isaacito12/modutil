@@ -195,31 +195,31 @@ classdef TextSearchAppMain < handle
 
     function build_app_gui(App)
       %%
-      main_column_layout = App.Window.MainLayout;
+      main_vertical_container = App.Window.MainVerticalContainer;
 
       % =======================================================================
       % Text to search
-      column_grid = NewColumnGrid(main_column_layout);
-      row_layout = AppUtil1.RowLayout(column_grid);
+      column_grid = addVerticalGridLayout(main_vertical_container);
+      horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-      row_grid = NewRowGrid(row_layout, Width="fit");
+      row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       label_ui = AppUtil1.Component.Label(row_grid);
       label_ui.MainFigure = App.Window.MainFigure;
       label_ui.ComponentWidth = App.width_name_ui;
       label_ui.Text = "\textbf{" + CodeUtil1.i18n("Text to search") + "}";
 
-      App.IgnoreCaseUI = AppUtil1.Component.CheckBox(NewRowGrid(row_layout, Width="fit"));
+      App.IgnoreCaseUI = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container, Width="fit"));
       App.IgnoreCaseUI.MainFigure = App.Window.MainFigure;
       App.IgnoreCaseUI.Text = CodeUtil1.i18n("Ignore case");
       App.IgnoreCaseUI.ValueChangedCallback = @() update_SearcherStatesFromUIComponents(App);
 
-      App.MatchWholeWordUI = AppUtil1.Component.CheckBox(NewRowGrid(row_layout, Width="fit"));
+      App.MatchWholeWordUI = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container, Width="fit"));
       App.MatchWholeWordUI.MainFigure = App.Window.MainFigure;
       App.MatchWholeWordUI.Text = CodeUtil1.i18n("Match whole word");
       App.MatchWholeWordUI.ValueChangedCallback = @() update_SearcherStatesFromUIComponents(App);
 
       % -----------------------------------------------------------------------
-      column_grid = NewColumnGrid(main_column_layout);
+      column_grid = addVerticalGridLayout(main_vertical_container);
 
       App.SearchTextUI = AppUtil1.Component.EditableDropDown(column_grid);
       App.SearchTextUI.Items = [];
@@ -227,20 +227,20 @@ classdef TextSearchAppMain < handle
 
       % =======================================================================
       % Target folder
-      column_grid = NewColumnGrid(main_column_layout);
-      row_layout = AppUtil1.RowLayout(column_grid);
+      column_grid = addVerticalGridLayout(main_vertical_container);
+      horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-      row_grid = NewRowGrid(row_layout, Width="fit");
+      row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       label_ui = AppUtil1.Component.Label(row_grid);
       label_ui.ComponentWidth = App.width_name_ui;
       label_ui.Text = "\textbf{" + CodeUtil1.i18n("Target folder") + "}";
 
-      row_grid = NewRowGrid(row_layout, Width="fit");
+      row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       App.IncludeSubfoldersUI = AppUtil1.Component.CheckBox(row_grid);
       App.IncludeSubfoldersUI.Text = CodeUtil1.i18n("Include subfolders");
       App.IncludeSubfoldersUI.ValueChangedCallback = @() update_SearcherStatesFromUIComponents(App);
 
-      row_grid = NewRowGrid(row_layout, Width="fit");
+      row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       App.SelectFolderUI = AppUtil1.Component.Button(row_grid);
       App.SelectFolderUI.ButtonWidth = App.width_button;
       App.SelectFolderUI.Text = CodeUtil1.i18n("Select...");
@@ -248,7 +248,7 @@ classdef TextSearchAppMain < handle
       App.SelectFolderUI.ButtonPushedCallback = @() react_SelectFolderButtonPushed(App);
 
       % -----------------------------------------------------------------------
-      column_grid = NewColumnGrid(main_column_layout);
+      column_grid = addVerticalGridLayout(main_vertical_container);
 
       App.TargetFolderUI = AppUtil1.Component.DropDown(column_grid);
       App.TargetFolderUI.MainDropDown.Items = "";
@@ -256,96 +256,96 @@ classdef TextSearchAppMain < handle
 
       % =======================================================================
       % File type
-      column_grid = NewColumnGrid(main_column_layout);
+      column_grid = addVerticalGridLayout(main_vertical_container);
 
       label_ui = AppUtil1.Component.Label(column_grid);
       label_ui.Text = "\textbf{" + CodeUtil1.i18n("File types") + "}";
 
       % -----------------------------------------------------------------------
-      column_grid = NewColumnGrid(main_column_layout);
-      row_layout = AppUtil1.RowLayout(column_grid);
+      column_grid = addVerticalGridLayout(main_vertical_container);
+      horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-      App.SelectAllUI = AppUtil1.Component.CheckBox(NewRowGrid(row_layout));
+      App.SelectAllUI = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container));
       App.SelectAllUI.Text = CodeUtil1.i18n("Select all");
       App.SelectAllUI.ValueChangedCallback = @() react_SearchAllFileTypesCheckBox(App);
 
-      App.Search_m_UI = AppUtil1.Component.CheckBox(NewRowGrid(row_layout));
+      App.Search_m_UI = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container));
       App.Search_m_UI.Text = CodeUtil1.i18n("*.m");
       App.Search_m_UI.MainCheckBox.Tooltip = CodeUtil1.i18n("MATLAB files");
       App.Search_m_UI.ValueChangedCallback = @() update_FileTypes(App);
 
-      App.Search_md_UI = AppUtil1.Component.CheckBox(NewRowGrid(row_layout));
+      App.Search_md_UI = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container));
       App.Search_md_UI.Text = CodeUtil1.i18n("*.md");
       App.Search_md_UI.MainCheckBox.Tooltip = CodeUtil1.i18n("Markdown files");
       App.Search_md_UI.ValueChangedCallback = @() update_FileTypes(App);
 
-      App.Search_mdl_UI = AppUtil1.Component.CheckBox(NewRowGrid(row_layout));
+      App.Search_mdl_UI = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container));
       App.Search_mdl_UI.Text = CodeUtil1.i18n("*.mdl");
       App.Search_mdl_UI.MainCheckBox.Tooltip = CodeUtil1.i18n("Simulink model files");
       App.Search_mdl_UI.ValueChangedCallback = @() update_FileTypes(App);
 
-      App.Search_ssc_UI = AppUtil1.Component.CheckBox(NewRowGrid(row_layout));
+      App.Search_ssc_UI = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container));
       App.Search_ssc_UI.Text = CodeUtil1.i18n("*.ssc");
       App.Search_ssc_UI.MainCheckBox.Tooltip = CodeUtil1.i18n("Simscape source files");
       App.Search_ssc_UI.ValueChangedCallback = @() update_FileTypes(App);
 
-      App.Search_svg_UI = AppUtil1.Component.CheckBox(NewRowGrid(row_layout));
+      App.Search_svg_UI = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container));
       App.Search_svg_UI.Text = CodeUtil1.i18n("*.svg");
       App.Search_svg_UI.MainCheckBox.Tooltip = CodeUtil1.i18n("Scalable vector graphics files");
       App.Search_svg_UI.ValueChangedCallback = @() update_FileTypes(App);
 
       % -----------------------------------------------------------------------
-      column_grid = NewColumnGrid(main_column_layout);
-      row_layout = AppUtil1.RowLayout(column_grid);
+      column_grid = addVerticalGridLayout(main_vertical_container);
+      horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-      label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout, Width="fit"));
+      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container, Width="fit"));
       label_ui.Text = CodeUtil1.i18n("Custom file types");
       label_ui.ComponentWidth = App.width_name_ui;
 
-      App.CustomFileTypesUI = AppUtil1.Component.EditField(NewRowGrid(row_layout));
+      App.CustomFileTypesUI = AppUtil1.Component.EditField(addHorizontalGridLayout(horizontal_container));
       App.CustomFileTypesUI.MainEditField.Tooltip = CodeUtil1.i18n("Specify a comma-separated list of file types. Example: demo*.m, *.txt");
       App.CustomFileTypesUI.ValueChangedCallback = @() update_FileTypes(App);
 
       % -----------------------------------------------------------------------
-      column_grid = NewColumnGrid(main_column_layout);
-      row_layout = AppUtil1.RowLayout(column_grid);
+      column_grid = addVerticalGridLayout(main_vertical_container);
+      horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-      label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout, Width="fit"));
+      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container, Width="fit"));
       label_ui.Text = CodeUtil1.i18n("Specified file types");
       label_ui.ComponentWidth = App.width_name_ui;
 
-      App.SpecifiedFileTypesUI = AppUtil1.Component.EditField(NewRowGrid(row_layout));
+      App.SpecifiedFileTypesUI = AppUtil1.Component.EditField(addHorizontalGridLayout(horizontal_container));
       App.SpecifiedFileTypesUI.ReadOnly = "on";
       App.SpecifiedFileTypesUI.ValueChangedCallback = @() update_SearcherStatesFromUIComponents(App);
 
       % -----------------------------------------------------------------------
-      column_grid = NewColumnGrid(main_column_layout);
-      row_layout = AppUtil1.RowLayout(column_grid);
+      column_grid = addVerticalGridLayout(main_vertical_container);
+      horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-      App.ExcludeLiveScriptUI = AppUtil1.Component.CheckBox(NewRowGrid(row_layout, Width="fit"));
+      App.ExcludeLiveScriptUI = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container, Width="fit"));
       App.ExcludeLiveScriptUI.Text = CodeUtil1.i18n("Exclude Live Script files from *.m");
       App.ExcludeLiveScriptUI.ValueChangedCallback = @() update_FileTypes(App);
 
-      App.ExcludeMATLABCodeFileUI = AppUtil1.Component.CheckBox(NewRowGrid(row_layout, Width="fit"));
+      App.ExcludeMATLABCodeFileUI = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container, Width="fit"));
       App.ExcludeMATLABCodeFileUI.Text = CodeUtil1.i18n("Exclude MATLAB code files from *.m");
       App.ExcludeMATLABCodeFileUI.ValueChangedCallback = @() update_FileTypes(App);
 
       % =======================================================================
-      column_grid = NewColumnGrid(main_column_layout);
+      column_grid = addVerticalGridLayout(main_vertical_container);
       AppUtil1.Component.HorizontalLine(column_grid);
 
       % =======================================================================
-      column_grid = NewColumnGrid(main_column_layout);
-      row_layout = AppUtil1.RowLayout(column_grid);
+      column_grid = addVerticalGridLayout(main_vertical_container);
+      horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-      App.CopyCommandButtonUI = AppUtil1.Component.Button(NewRowGrid(row_layout));
+      App.CopyCommandButtonUI = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container));
       App.CopyCommandButtonUI.Text = CodeUtil1.i18n("Copy command");
       App.CopyCommandButtonUI.MainButton.Tooltip = CodeUtil1.i18n("Copy the search command to clipboard.");
       App.CopyCommandButtonUI.ButtonWidth = App.width_button;
       App.CopyCommandButtonUI.HorizontalAlignment = "center";
       App.CopyCommandButtonUI.ButtonPushedCallback = @() react_CopyCommandButtonPushed(App);
 
-      App.SearchButtonUI = AppUtil1.Component.Button(NewRowGrid(row_layout));
+      App.SearchButtonUI = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container));
       App.SearchButtonUI.Text = CodeUtil1.i18n("Search");
       App.SearchButtonUI.ButtonWidth = App.width_button;
       App.SearchButtonUI.HorizontalAlignment = "center";

@@ -1,15 +1,20 @@
 function SscVal = getSimscapeValueFromBlockParameter(FullpathToBlock, ParameterName)
-% Get a simscape.Value object for a block parameter of specified Simscape block.
+% Get a simscape.Value object for a block parameter of the specified Simscape block.
 %
-% Parameters of Simscape blocks can have physical units.
+% The parameters of Simscape blocks can have physical units.
 % This function first collects the value and unit of such a parameter
 % and builds a simscape.Value object and then returns it. 
+%
+% If a block parameter is referring to a base workspace variable,
+% this function evaluates the variable and returns numeric data.
+% If the referred variable is not defined in the base workspace,
+% this function produces an error.
 %
 % If the specified parameter is not associated with units,
 % this function returns a simscape.Value object with unit of "1".
 % This is the case, for example, for percent values. 
 
-% Copyright 2023-2025 The MathWorks, Inc.
+% Copyright 2023-2026 The MathWorks, Inc.
 
 arguments (Input)
   FullpathToBlock {mustBeText} = ""

@@ -219,18 +219,18 @@ classdef RotationalFrictionAppMain < handle
 
     function build_app_gui(App)
       %%
-      main_column_layout = App.Window.MainLayout;
-      main_column_grid = NewColumnGrid(main_column_layout);
-      main_row_layout = AppUtil1.RowLayout(main_column_grid);
+      main_vertical_container = App.Window.MainVerticalContainer;
+      main_column_grid = addVerticalGridLayout(main_vertical_container);
+      main_horizontal_container = AppUtil1.HorizontalContainer(main_column_grid);
 
       % =======================================================================
       % Left area
       % =======================================================================
-      left_row_grid = NewRowGrid(main_row_layout);
-      left_column_layout = AppUtil1.ColumnLayout(left_row_grid);
+      left_row_grid = addHorizontalGridLayout(main_horizontal_container);
+      left_vertical_container = AppUtil1.VerticalContainer(left_row_grid);
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
 
       label_ui = AppUtil1.Component.Label(left_column_grid);
       label_ui.MainFigure = App.MainFigure;
@@ -243,7 +243,7 @@ classdef RotationalFrictionAppMain < handle
       label_ui.WordWrap = "on";
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
 
       label_ui = AppUtil1.Component.Label(left_column_grid);
       label_ui.MainFigure = App.MainFigure;
@@ -259,22 +259,22 @@ classdef RotationalFrictionAppMain < handle
       label_ui.WordWrap = "off";
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
-      row_layout = AppUtil1.RowLayout(left_column_grid);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
+      horizontal_container = AppUtil1.HorizontalContainer(left_column_grid);
 
-      row_grid = NewRowGrid(row_layout, Width="fit");
+      row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       label_ui = AppUtil1.Component.Label(row_grid);
       label_ui.MainFigure = App.MainFigure;
       label_ui.Text = CodeUtil1.i18n("Rotational Friction block:");
       label_ui.ComponentWidth = App.width_unit * 19;
 
-      row_grid = NewRowGrid(row_layout, Width="fit");
+      row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       App.DocLinkUI = AppUtil1.Component.Hyperlink(row_grid);
       App.DocLinkUI.MainFigure = App.MainFigure;
       App.DocLinkUI.Text = CodeUtil1.i18n("Documentation");
       App.DocLinkUI.HyperlinkClickedCallback = @() web("https://www.mathworks.com/help/simscape/ref/rotationalfriction.html");
 
-      row_grid = NewRowGrid(row_layout);
+      row_grid = addHorizontalGridLayout(horizontal_container);
       ssc_link_ui = AppUtil1.Component.Hyperlink(row_grid);
       ssc_link_ui.MainFigure = App.MainFigure;
       ssc_link_ui.Text = CodeUtil1.i18n("Simscape source");
@@ -286,11 +286,11 @@ classdef RotationalFrictionAppMain < handle
       %% ======================================================================
       % Parameters
 
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
       label_ui = AppUtil1.Component.Label(left_column_grid);
       label_ui.Text = "\bf{" + CodeUtil1.i18n("Parameters") + "}";
 
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
       App.BreakawayTorqueUI = AppUtil1.Component.PhysicalValueUI(left_column_grid);
       App.BreakawayTorqueUI.NameText = CodeUtil1.i18n("Breakaway friction torque, $T_{B}$");
       App.BreakawayTorqueUI.NameUIWidth = App.name_ui_width;
@@ -321,7 +321,7 @@ classdef RotationalFrictionAppMain < handle
         react_UIChanged(App)
       end  % nested function
 
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
       App.BreakawayVelocityUI = AppUtil1.Component.PhysicalValueUI(left_column_grid);
       App.BreakawayVelocityUI.NameText = CodeUtil1.i18n("Breakaway friction velocity, $\omega_{B}$");
       App.BreakawayVelocityUI.NameUIWidth = App.name_ui_width;
@@ -352,7 +352,7 @@ classdef RotationalFrictionAppMain < handle
         react_UIChanged(App)
       end  % nested function
 
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
       App.CoulombTorqueUI = AppUtil1.Component.PhysicalValueUI(left_column_grid);
       App.CoulombTorqueUI.NameText = CodeUtil1.i18n("Coulomb friction torque, $T_{C}$");
       App.CoulombTorqueUI.NameUIWidth = App.name_ui_width;
@@ -383,7 +383,7 @@ classdef RotationalFrictionAppMain < handle
         react_UIChanged(App)
       end  % nested function
 
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
       App.ViscousCoefficientUI = AppUtil1.Component.PhysicalValueUI(left_column_grid);
       App.ViscousCoefficientUI.NameText = CodeUtil1.i18n("Viscous friction coefficient, $f$");
       App.ViscousCoefficientUI.NameUIWidth = App.name_ui_width;
@@ -418,14 +418,14 @@ classdef RotationalFrictionAppMain < handle
       % Derived parameters
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
       label_ui = AppUtil1.Component.Label(left_column_grid);
       label_ui.ComponentWidth = App.name_ui_width;
       label_ui.Text = "\textbf{" + CodeUtil1.i18n("Derived parameters") + "}";
 
       component_height = AppUtil1.Constant.Height{"oneline++"} * 2;
 
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
       App.StribeckScaledTorqueUI = AppUtil1.Component.PhysicalValueUI(left_column_grid);
       App.StribeckScaledTorqueUI.ComponentHeight = component_height;
       App.StribeckScaledTorqueUI.NameText = CodeUtil1.i18n("Scale factor for Stribeck torque") + newline + "$T_{S} = \sqrt{2e} (T_{B} - T_{C})$";
@@ -435,7 +435,7 @@ classdef RotationalFrictionAppMain < handle
       App.StribeckScaledTorqueUI.ReadOnlyValueText = true;
       App.StribeckScaledTorqueUI.UnitChangedCallback = @() update_DerivedParameterUI(App, "StribeckScaledTorque");
 
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
       App.StribeckThresholdVelocityUI = AppUtil1.Component.PhysicalValueUI(left_column_grid);
       App.StribeckThresholdVelocityUI.ComponentHeight = component_height;
       App.StribeckThresholdVelocityUI.NameText = CodeUtil1.i18n("Velocity threshold for Stribeck torque") + newline + "$\omega_{S} = \omega_{B} \sqrt{2}$";
@@ -445,7 +445,7 @@ classdef RotationalFrictionAppMain < handle
       App.StribeckThresholdVelocityUI.ReadOnlyValueText = true;
       App.StribeckThresholdVelocityUI.UnitChangedCallback = @() update_DerivedParameterUI(App, "StribeckThresholdVelocity");
 
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
       App.CoulombThresholdVelocityUI = AppUtil1.Component.PhysicalValueUI(left_column_grid);
       App.CoulombThresholdVelocityUI.ComponentHeight = component_height;
       App.CoulombThresholdVelocityUI.NameText = CodeUtil1.i18n("Velocity threshold for Coulomb torque") + newline + "$\omega_{C} = \omega_{B} / 10$";
@@ -459,14 +459,14 @@ classdef RotationalFrictionAppMain < handle
       % Right area
       % =======================================================================
 
-      right_row_grid = NewRowGrid(main_row_layout);
-      right_column_layout = AppUtil1.ColumnLayout(right_row_grid);
+      right_row_grid = addHorizontalGridLayout(main_horizontal_container);
+      right_vertical_container = AppUtil1.VerticalContainer(right_row_grid);
 
       % -----------------------------------------------------------------------
-      right_column_grid = NewColumnGrid(right_column_layout);
-      row_layout = AppUtil1.RowLayout(right_column_grid);
+      right_column_grid = addVerticalGridLayout(right_vertical_container);
+      horizontal_container = AppUtil1.HorizontalContainer(right_column_grid);
 
-      row_grid = NewRowGrid(row_layout, Width="fit");
+      row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       App.PlotButtonUI = AppUtil1.Component.EnabledButton(row_grid);
       App.PlotButtonUI.HorizontalAlignment = "left";
       App.PlotButtonUI.ButtonUIWidth = App.button_width + App.width_unit;
@@ -480,28 +480,28 @@ classdef RotationalFrictionAppMain < handle
       % Set false to auto-update and keep it until the entire app is ready.
       App.PlotButtonUI.ButtonDisable = "on";
 
-      row_grid = NewRowGrid(row_layout);
+      row_grid = addHorizontalGridLayout(horizontal_container);
       App.OpenInFigureWindowUI = AppUtil1.Component.Hyperlink(row_grid);
       App.OpenInFigureWindowUI.Text = CodeUtil1.i18n("Open in figure window");
       App.OpenInFigureWindowUI.HorizontalAlignment = "right";
       App.OpenInFigureWindowUI.HyperlinkClickedCallback = @() update_plot(App, StandAloneFigure=true);
 
       % -----------------------------------------------------------------------
-      right_column_grid = NewColumnGrid(right_column_layout, Height="fit");
+      right_column_grid = addVerticalGridLayout(right_vertical_container, Height="fit");
 
       App.AxesUI = AppUtil1.Graphics.Axes(right_column_grid);
       App.AxesUI.ComponentHeight = 380;
 
       % -----------------------------------------------------------------------
-      right_column_grid = NewColumnGrid(right_column_layout);
-      row_layout = AppUtil1.RowLayout(right_column_grid);
+      right_column_grid = addVerticalGridLayout(right_vertical_container);
+      horizontal_container = AppUtil1.HorizontalContainer(right_column_grid);
 
-      row_grid = NewRowGrid(row_layout, Width="3x");
+      row_grid = addHorizontalGridLayout(horizontal_container, Width="3x");
       label_ui = AppUtil1.Component.Label(row_grid);
       label_ui.Text = "\textbf{" + CodeUtil1.i18n("Torque components") + "}";
       label_ui.HorizontalAlignment = "center";
 
-      row_grid = NewRowGrid(row_layout, Width="2x");
+      row_grid = addHorizontalGridLayout(horizontal_container, Width="2x");
       App.ShowStribeckTorqueUI = AppUtil1.Component.CheckBox(row_grid);
       App.ShowStribeckTorqueUI.Text = CodeUtil1.i18n("Stribeck");
       App.ShowStribeckTorqueUI.ValueChangedCallback = @() react_ShowStribeckTorqueChanged();
@@ -510,7 +510,7 @@ classdef RotationalFrictionAppMain < handle
         auto_update_plot(App, SkipDataUpdate=true);
       end  % nested function
 
-      row_grid = NewRowGrid(row_layout, Width="2x");
+      row_grid = addHorizontalGridLayout(horizontal_container, Width="2x");
       App.ShowCoulombTorqueUI = AppUtil1.Component.CheckBox(row_grid);
       App.ShowCoulombTorqueUI.Text = CodeUtil1.i18n("Coulomb");
       App.ShowCoulombTorqueUI.ValueChangedCallback = @() react_ShowCoulombTorqueChanged();
@@ -519,7 +519,7 @@ classdef RotationalFrictionAppMain < handle
         auto_update_plot(App, SkipDataUpdate=true);
       end  % nested function
 
-      row_grid = NewRowGrid(row_layout, Width="2x");
+      row_grid = addHorizontalGridLayout(horizontal_container, Width="2x");
       App.ShowViscousTorqueUI = AppUtil1.Component.CheckBox(row_grid);
       App.ShowViscousTorqueUI.Text = CodeUtil1.i18n("Viscous");
       App.ShowViscousTorqueUI.ValueChangedCallback = @() react_ShowViscousTorqueChanged();
@@ -529,11 +529,11 @@ classdef RotationalFrictionAppMain < handle
       end  % nested function
 
       % -----------------------------------------------------------------------
-      right_column_grid = NewColumnGrid(right_column_layout);
-      row_layout = AppUtil1.RowLayout(right_column_grid);
+      right_column_grid = addVerticalGridLayout(right_vertical_container);
+      horizontal_container = AppUtil1.HorizontalContainer(right_column_grid);
 
       % Plot unit .............................................................
-      row_grid = NewRowGrid(row_layout, Width="1x");
+      row_grid = addHorizontalGridLayout(horizontal_container, Width="1x");
 
       label_ui = AppUtil1.Component.Label(row_grid);
       label_ui.Text = "\textbf{" + CodeUtil1.i18n("Plot unit") + "}";
@@ -542,17 +542,17 @@ classdef RotationalFrictionAppMain < handle
       name_width = AppUtil1.Constant.Width{"unitwidth"} * 7;
 
       % Torque drop down ......................................................
-      row_grid = NewRowGrid(row_layout, Width="2x");
+      row_grid = addHorizontalGridLayout(horizontal_container, Width="2x");
 
-      subrow_layout = AppUtil1.RowLayout(row_grid);
-      subrow_grid = NewRowGrid(subrow_layout, Width="fit");
+      subhorizontal_container = AppUtil1.HorizontalContainer(row_grid);
+      subrow_grid = addHorizontalGridLayout(subhorizontal_container, Width="fit");
 
       label_ui = AppUtil1.Component.Label(subrow_grid);
       label_ui.Text = "Torque";
       label_ui.ComponentWidth = name_width;
       label_ui.HorizontalAlignment = "right";
 
-      subrow_grid = NewRowGrid(subrow_layout);
+      subrow_grid = addHorizontalGridLayout(subhorizontal_container);
       App.TorquePlotUnitUI = AppUtil1.Component.DropDown(subrow_grid);
       App.TorquePlotUnitUI.Items = App.torque_unit_items;
       App.TorquePlotUnitUI.ComponentWidth = App.unit_ui_width;
@@ -560,17 +560,17 @@ classdef RotationalFrictionAppMain < handle
       App.TorquePlotUnitUI.ValueChangedCallback = @() react_TorquePlotUnitChanged(App);
 
       % Velocity drop down ....................................................
-      row_grid = NewRowGrid(row_layout, Width="2x");
+      row_grid = addHorizontalGridLayout(horizontal_container, Width="2x");
 
-      subrow_layout = AppUtil1.RowLayout(row_grid);
-      subrow_grid = NewRowGrid(subrow_layout, Width="fit");
+      subhorizontal_container = AppUtil1.HorizontalContainer(row_grid);
+      subrow_grid = addHorizontalGridLayout(subhorizontal_container, Width="fit");
 
       label_ui = AppUtil1.Component.Label(subrow_grid);
       label_ui.Text = "Velocity";
       label_ui.ComponentWidth = name_width;
       label_ui.HorizontalAlignment = "right";
 
-      subrow_grid = NewRowGrid(subrow_layout);
+      subrow_grid = addHorizontalGridLayout(subhorizontal_container);
       App.VelocityPlotUnitUI = AppUtil1.Component.DropDown(subrow_grid);
       App.VelocityPlotUnitUI.Items = App.angular_speed_unit_items;
       App.VelocityPlotUnitUI.ComponentWidth = App.unit_ui_width;
@@ -578,12 +578,12 @@ classdef RotationalFrictionAppMain < handle
       App.VelocityPlotUnitUI.ValueChangedCallback = @() react_VelocityPlotUnitChanged(App);
 
       %% ======================================================================
-      main_column_grid = NewColumnGrid(main_column_layout);
+      main_column_grid = addVerticalGridLayout(main_vertical_container);
       AppUtil1.Component.HorizontalLine(main_column_grid);
 
       %% ======================================================================
       % Bottom area
-      main_column_grid = NewColumnGrid(main_column_layout);
+      main_column_grid = addVerticalGridLayout(main_vertical_container);
 
       App.AppBlockSelectorUI = AppUtil1.Component.BlockSelectorUI(main_column_grid);
       App.AppBlockSelectorUI.MainFigure = App.Window.MainFigure;

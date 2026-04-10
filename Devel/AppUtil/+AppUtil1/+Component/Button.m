@@ -62,7 +62,12 @@ classdef Button < AppUtil1.Component.ComponentBase
       component.MainButton.Layout.Column = 2;
       component.MainButton.ButtonPushedFcn = @(sourceObject, eventData) react_ButtonPushed(component);
       component.MainButton.FontSize = component.CommonFontSize;
-      component.MainButton.Interpreter = "latex";
+      if not(isMATLABReleaseOlderThan("R2024b"))
+        % The Interpreter property is availabe in R2024b and newer.
+        % See the Version History of the documentation.
+        % https://www.mathworks.com/help/matlab/ref/matlab.ui.control.button.html
+        component.MainButton.Interpreter = "latex";
+      end  % if
 
       % Default settings
       component.Text = "Button";

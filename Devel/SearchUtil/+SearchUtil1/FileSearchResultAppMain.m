@@ -93,17 +93,17 @@ classdef FileSearchResultAppMain < handle
 
     function build_app_gui(App)
       %%
-      main_column_layout = App.Window.MainLayout;
+      main_vertical_container = App.Window.MainVerticalContainer;
 
       % =======================================================================
-      column_grid = NewColumnGrid(main_column_layout);
-      row_layout = AppUtil1.RowLayout(column_grid);
+      column_grid = addVerticalGridLayout(main_vertical_container);
+      horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-      label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout, Width="fit"));
+      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container, Width="fit"));
       label_ui.ComponentWidth = App.width_name_ui;
       label_ui.Text = "\textbf{" + CodeUtil1.i18n("Search conditions") + "}";
 
-      App.NewSearchButtonUI = AppUtil1.Component.Button(NewRowGrid(row_layout));
+      App.NewSearchButtonUI = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container));
       App.NewSearchButtonUI.ButtonWidth = App.width_button;
       App.NewSearchButtonUI.HorizontalAlignment = "right";
       App.NewSearchButtonUI.Text = CodeUtil1.i18n("New search...");
@@ -111,28 +111,28 @@ classdef FileSearchResultAppMain < handle
       App.NewSearchButtonUI.ButtonPushedCallback = @() react_NewSearch(App);
 
       % -----------------------------------------------------------------------
-      column_grid = NewColumnGrid(main_column_layout);
-      row_layout = AppUtil1.RowLayout(column_grid);
+      column_grid = addVerticalGridLayout(main_vertical_container);
+      horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-      label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout, Width="fit"));
+      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container, Width="fit"));
       label_ui.ComponentWidth = App.width_name_ui;
       label_ui.Text = CodeUtil1.i18n("Searched file name");
 
-      editfield_ui = AppUtil1.Component.EditField(NewRowGrid(row_layout));
+      editfield_ui = AppUtil1.Component.EditField(addHorizontalGridLayout(horizontal_container));
       editfield_ui.ReadOnly = "on";
       editfield_ui.Value = App.SearchFileName;
 
       % -----------------------------------------------------------------------
-      column_grid = NewColumnGrid(main_column_layout);
-      row_layout = AppUtil1.RowLayout(column_grid);
+      column_grid = addVerticalGridLayout(main_vertical_container);
+      horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-      label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout, Width="fit"));
+      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container, Width="fit"));
       label_ui.ComponentWidth = App.width_name_ui;
       label_ui.Text = CodeUtil1.i18n("Top folder");
 
       target_folder = App.TopFolder;
 
-      editfield_ui = AppUtil1.Component.EditField(NewRowGrid(row_layout));
+      editfield_ui = AppUtil1.Component.EditField(addHorizontalGridLayout(horizontal_container));
       editfield_ui.ReadOnly = "on";
       if target_folder ~= ""
         editfield_ui.Value = replace(target_folder, ("/"|"\"), " > ");
@@ -141,18 +141,18 @@ classdef FileSearchResultAppMain < handle
       end  % if
 
       % =======================================================================
-      column_grid = NewColumnGrid(main_column_layout);
+      column_grid = addVerticalGridLayout(main_vertical_container);
       AppUtil1.Component.HorizontalLine(column_grid);
 
       % -----------------------------------------------------------------------
-      column_grid = NewColumnGrid(main_column_layout);
-      row_layout = AppUtil1.RowLayout(column_grid);
+      column_grid = addVerticalGridLayout(main_vertical_container);
+      horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-      label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout, Width="fit"));
+      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container, Width="fit"));
       label_ui.ComponentWidth = App.width_name_ui;
       label_ui.Text = CodeUtil1.i18n("Number of matches");
 
-      App.NumMatchesUI = AppUtil1.Component.EditField(NewRowGrid(row_layout, Width="1x"));
+      App.NumMatchesUI = AppUtil1.Component.EditField(addHorizontalGridLayout(horizontal_container, Width="1x"));
       App.NumMatchesUI.ReadOnly = "on";
       if App.SearchResult ~= ""
         App.NumMatchesUI.Value = string(numel(App.SearchResult));
@@ -160,7 +160,7 @@ classdef FileSearchResultAppMain < handle
         App.NumMatchesUI.Value = "";
       end  % if
 
-      App.RefreshButtonUI = AppUtil1.Component.Button(NewRowGrid(row_layout, Width="fit"));
+      App.RefreshButtonUI = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container, Width="fit"));
       App.RefreshButtonUI.ButtonWidth = App.width_button;
       App.RefreshButtonUI.Text = CodeUtil1.i18n("Refresh");
       App.RefreshButtonUI.MainButton.Tooltip = CodeUtil1.i18n("Rerun search and update the result table.");
@@ -168,12 +168,12 @@ classdef FileSearchResultAppMain < handle
       App.RefreshButtonUI.ButtonPushedCallback = @() react_RefreshButtonPushed(App);
 
       % -----------------------------------------------------------------------
-      column_grid = NewColumnGrid(main_column_layout);
+      column_grid = addVerticalGridLayout(main_vertical_container);
       label_ui = AppUtil1.Component.Label(column_grid);
       label_ui.Text = CodeUtil1.i18n("Double-click a table row to open the file.");
 
       % -----------------------------------------------------------------------
-      column_grid = NewColumnGrid(main_column_layout, Height="1x");
+      column_grid = addVerticalGridLayout(main_vertical_container, Height="1x");
       App.TableUI = AppUtil1.Component.Table(column_grid);
       App.TableUI.ComponentHeight = App.TableUIHeight;
       if App.SearchResult ~= ""

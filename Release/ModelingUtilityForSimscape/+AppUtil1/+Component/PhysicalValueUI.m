@@ -65,14 +65,14 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
     Reporting (1,1) matlab.lang.OnOffSwitchState = "off"
     unit_ui_style (1,1) string {mustBeMember(unit_ui_style, ["label", "dropdown", "alias"])} = "label"
 
-    main_row_layout AppUtil1.RowLayout
+    main_horizontal_container AppUtil1.HorizontalContainer
 
     name_grid matlab.ui.container.GridLayout
     value_grid matlab.ui.container.GridLayout
     info_grid matlab.ui.container.GridLayout
 
     unit_grid matlab.ui.container.GridLayout
-    unit_column_layout AppUtil1.ColumnLayout
+    unit_vertical_container AppUtil1.VerticalContainer
 
     initialized (1,1) logical = false
     unit_specified (1,1) logical = false
@@ -101,12 +101,12 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
       % Visibility of UI subcomponents is controlled by main grid's ColumnWidth.
       % Each subcomponent's ComponentWidth does not affect the visibility.
 
-      component.main_row_layout = AppUtil1.RowLayout(component.base_grid);
+      component.main_horizontal_container = AppUtil1.HorizontalContainer(component.base_grid);
 
       % ------------------------------------------------------------------------
       %  Name
 
-      component.name_grid = NewRowGrid(component.main_row_layout, Width="fit");
+      component.name_grid = addHorizontalGridLayout(component.main_horizontal_container, Width="fit");
 
       component.NameUI = AppUtil1.Component.Label(component.name_grid);
       component.NameUI.ComponentHeight = component.ComponentHeight;
@@ -116,7 +116,7 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
       % ------------------------------------------------------------------------
       % Value
 
-      component.value_grid = NewRowGrid(component.main_row_layout);
+      component.value_grid = addHorizontalGridLayout(component.main_horizontal_container);
 
       component.ValueTextUI = AppUtil1.Component.EditField(component.value_grid);
       component.ValueTextUI.ValueChangedCallback = @() react_ValueTextUI_ValueChanged(component);
@@ -127,7 +127,7 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
       % ------------------------------------------------------------------------
       % Info
 
-      component.info_grid = NewRowGrid(component.main_row_layout, Width="fit");
+      component.info_grid = addHorizontalGridLayout(component.main_horizontal_container, Width="fit");
 
       component.InfoUI = AppUtil1.Component.EditField(component.info_grid);
       component.InfoUI.ComponentWidth = component.InfoUIWidth;
@@ -137,18 +137,18 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
       % ------------------------------------------------------------------------
       % Unit
 
-      component.unit_grid = NewRowGrid(component.main_row_layout, Width="fit");
-      component.unit_column_layout = AppUtil1.ColumnLayout(component.unit_grid);
-      component.unit_column_layout.BaseGrid.Scrollable = "off";
+      component.unit_grid = addHorizontalGridLayout(component.main_horizontal_container, Width="fit");
+      component.unit_vertical_container = AppUtil1.VerticalContainer(component.unit_grid);
+      component.unit_vertical_container.BaseGridLayout.Scrollable = "off";
 
       % Column grid's upper space
-      NewColumnGrid(component.unit_column_layout, Height="1x", Empty=true)
+      addVerticalGridLayout(component.unit_vertical_container, Height="1x", Empty=true)
 
-      component.UnitLabelUI = AppUtil1.Component.Label(NewColumnGrid(component.unit_column_layout));
+      component.UnitLabelUI = AppUtil1.Component.Label(addVerticalGridLayout(component.unit_vertical_container));
       component.UnitLabelUI.ComponentWidth = component.UnitUIWidth;
       component.UnitLabelUI.Text = "1";
 
-      component.UnitDropDownUI = AppUtil1.Component.EditableDropDown(NewColumnGrid(component.unit_column_layout));
+      component.UnitDropDownUI = AppUtil1.Component.EditableDropDown(addVerticalGridLayout(component.unit_vertical_container));
       component.UnitDropDownUI.ComponentWidth = component.UnitUIWidth;
       component.UnitDropDownUI.ValueChangedCallback = @() react_UnitUI_ValueChanged(component);
       % To avoid triggering UnitDropDownUI's callback, use MainDropDown's properties.
@@ -159,7 +159,7 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
       component.UnitDropDownUI.MainDropDown.Value = "1";
 
       % Column grid's lower space
-      NewColumnGrid(component.unit_column_layout, Height="1x", Empty=true)
+      addVerticalGridLayout(component.unit_vertical_container, Height="1x", Empty=true)
 
     end  % function
 
@@ -205,11 +205,11 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
       component.unit_grid.RowHeight{1} = component.ComponentHeight;
       if isscalar(component.UnitDropDownUI.MainDropDown.Items)
         % label
-        component.unit_column_layout.BaseGrid.RowHeight = {'1x', 'fit', 0, '1x'};
+        component.unit_vertical_container.BaseGridLayout.RowHeight = {'1x', 'fit', 0, '1x'};
         component.UnitLabelUI.ComponentWidth = component.UnitUIWidth;
       else
         % dropdown
-        component.unit_column_layout.BaseGrid.RowHeight = {'1x', 0, 'fit', '1x'};
+        component.unit_vertical_container.BaseGridLayout.RowHeight = {'1x', 0, 'fit', '1x'};
         component.UnitDropDownUI.ComponentWidth = component.UnitUIWidth;
       end  % if
 
@@ -221,9 +221,9 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
         component.UnitDropDownUI.HighlightBackground = "on";
         switch component.ThemeNameForBackGroundHighlight
           case "light"
-            component.main_row_layout.BaseGrid.BackgroundColor = component.LightThemeBackGroundColor;
+            component.main_horizontal_container.BaseGridLayout.BackgroundColor = component.LightThemeBackGroundColor;
           case "dark"
-            component.main_row_layout.BaseGrid.BackgroundColor = component.DarkThemeBackGroundColor;
+            component.main_horizontal_container.BaseGridLayout.BackgroundColor = component.DarkThemeBackGroundColor;
         end  % switch
       end  % if
     end  % function
@@ -240,7 +240,7 @@ classdef PhysicalValueUI < AppUtil1.Component.ComponentBase
 
       end  % if
 
-      component.main_row_layout.BaseGrid.RowHeight = component.ComponentHeight;
+      component.main_horizontal_container.BaseGridLayout.RowHeight = component.ComponentHeight;
 
       component.NameUI.ComponentHeight = component.ComponentHeight;
       component.NameUI.ComponentWidth = component.NameUIWidth;

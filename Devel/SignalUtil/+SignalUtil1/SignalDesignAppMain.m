@@ -121,18 +121,18 @@ classdef SignalDesignAppMain < handle
 
     function build_app_gui(App)
       %%
-      main_column_layout = App.Window.MainLayout;
-      main_column_grid = NewColumnGrid(main_column_layout);
-      main_row_layout = AppUtil1.RowLayout(main_column_grid);
+      main_vertical_container = App.Window.MainVerticalContainer;
+      main_column_grid = addVerticalGridLayout(main_vertical_container);
+      main_horizontal_container = AppUtil1.HorizontalContainer(main_column_grid);
 
       % =======================================================================
       % Left area
       % =======================================================================
-      left_row_grid = NewRowGrid(main_row_layout);
-      left_column_layout = AppUtil1.ColumnLayout(left_row_grid);
+      left_row_grid = addHorizontalGridLayout(main_horizontal_container);
+      left_vertical_container = AppUtil1.VerticalContainer(left_row_grid);
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
 
       % Use getFileFullPath to check that the file exists.
       % If it doesn't, an error is issued and the app doesn't start.
@@ -144,13 +144,13 @@ classdef SignalDesignAppMain < handle
       link_ui.HyperlinkClickedCallback =  @() web(html_file);
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
 
       label_ui = AppUtil1.Component.Label(left_column_grid);
       label_ui.Text = "Signal design matrix";
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
 
       App.MatrixTextUI = AppUtil1.Component.TextArea(left_column_grid);
       App.MatrixTextUI.UseMonospacedFont = "on";
@@ -158,42 +158,42 @@ classdef SignalDesignAppMain < handle
       App.MatrixTextUI.ValueChangedCallback = @() change_design_matrix(App);
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
-      row_layout = AppUtil1.RowLayout(left_column_grid);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
+      horizontal_container = AppUtil1.HorizontalContainer(left_column_grid);
 
-      row_grid = NewRowGrid(row_layout, Width="fit");
+      row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       label_ui = AppUtil1.Component.Label(row_grid);
       label_ui.Text = "Interpolation method";
       label_ui.ComponentWidth = App.name_ui_width;
 
-      row_grid = NewRowGrid(row_layout);
+      row_grid = addHorizontalGridLayout(horizontal_container);
       App.InterpUI= AppUtil1.Component.DropDown(row_grid);
       App.InterpUI.Items = ["Smooth", "Linear"];
       App.InterpUI.Value = "Smooth";
       App.InterpUI.ValueChangedCallback = @() auto_update_plot(App);
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
-      row_layout = AppUtil1.RowLayout(left_column_grid);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
+      horizontal_container = AppUtil1.HorizontalContainer(left_column_grid);
 
-      row_grid = NewRowGrid(row_layout, Width="fit");
+      row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       label_ui = AppUtil1.Component.Label(row_grid);
       label_ui.Text = "Extrapolation method";
       label_ui.ComponentWidth = App.name_ui_width;
 
-      row_grid = NewRowGrid(row_layout);
+      row_grid = addHorizontalGridLayout(horizontal_container);
       App.ExtrapUI= AppUtil1.Component.DropDown(row_grid);
       App.ExtrapUI.Items = ["Nearest", "Linear"];
       App.ExtrapUI.Value = "Nearest";
       App.ExtrapUI.ValueChangedCallback = @() auto_update_plot(App);
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
       label_ui = AppUtil1.Component.Label(left_column_grid);
       label_ui.Text = "\textbf{Derived parameters}";
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
       App.TableGridVectorUI = AppUtil1.Component.PhysicalValueUI(left_column_grid);
       App.TableGridVectorUI.NameText = "Table grid vector, $x$";
       App.TableGridVectorUI.UnitItems = "1";
@@ -202,7 +202,7 @@ classdef SignalDesignAppMain < handle
       App.TableGridVectorUI.ValueTextUI.ReadOnly = "on";
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
       App.TableValuesUI = AppUtil1.Component.PhysicalValueUI(left_column_grid);
       App.TableValuesUI.NameText = "Table values, $f(x)$";
       App.TableValuesUI.UnitItems = "1";
@@ -213,14 +213,14 @@ classdef SignalDesignAppMain < handle
       % =======================================================================
       % Right area
       % =======================================================================
-      right_row_grid = NewRowGrid(main_row_layout);
-      right_column_layout = AppUtil1.ColumnLayout(right_row_grid);
+      right_row_grid = addHorizontalGridLayout(main_horizontal_container);
+      right_vertical_container = AppUtil1.VerticalContainer(right_row_grid);
 
       % -----------------------------------------------------------------------
-      right_column_grid = NewColumnGrid(right_column_layout);
-      row_layout = AppUtil1.RowLayout(right_column_grid);
+      right_column_grid = addVerticalGridLayout(right_vertical_container);
+      horizontal_container = AppUtil1.HorizontalContainer(right_column_grid);
 
-      row_grid = NewRowGrid(row_layout, Width="fit");
+      row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       App.PlotButtonUI = AppUtil1.Component.EnabledButton(row_grid);
       App.PlotButtonUI.HorizontalAlignment = "left";
       App.PlotButtonUI.ButtonUIWidth = App.button_width + App.width_unit;
@@ -234,20 +234,20 @@ classdef SignalDesignAppMain < handle
       % Set false to auto-update and keep it until the entire app is ready.
       App.PlotButtonUI.ButtonEnable = "on";
 
-      row_grid = NewRowGrid(row_layout);
+      row_grid = addHorizontalGridLayout(horizontal_container);
       App.OpenInFigureWindowUI = AppUtil1.Component.Hyperlink(row_grid);
       App.OpenInFigureWindowUI.Text = "Open in figure window";
       App.OpenInFigureWindowUI.HorizontalAlignment = "right";
       App.OpenInFigureWindowUI.HyperlinkClickedCallback = @() update_plot(App, StandAloneFigure=true);
 
       % -----------------------------------------------------------------------
-      right_column_grid = NewColumnGrid(right_column_layout);
+      right_column_grid = addVerticalGridLayout(right_vertical_container);
 
       App.AxesUI = AppUtil1.Graphics.Axes(right_column_grid);
       App.AxesUI.ComponentHeight = 300;
 
       % -----------------------------------------------------------------------
-      right_column_grid = NewColumnGrid(right_column_layout);
+      right_column_grid = addVerticalGridLayout(right_vertical_container);
       App.IntervalUI = AppUtil1.Component.PhysicalValueUI(right_column_grid);
       App.IntervalUI.NameText = "Interpolation interval, $dx$";
       App.IntervalUI.UnitItems = "1";
@@ -257,7 +257,7 @@ classdef SignalDesignAppMain < handle
       App.IntervalUI.ValueChangedCallback = @() auto_update_plot(App);
 
       % -----------------------------------------------------------------------
-      right_column_grid = NewColumnGrid(right_column_layout);
+      right_column_grid = addVerticalGridLayout(right_vertical_container);
       App.AutoRangeUI = AppUtil1.Component.CheckBox(right_column_grid);
       App.AutoRangeUI.Text = "x auto range";
       App.AutoRangeUI.Value = true;
@@ -265,7 +265,7 @@ classdef SignalDesignAppMain < handle
       App.AutoRangeUI.ValueChangedCallback = @() auto_update_plot(App);
 
       % -----------------------------------------------------------------------
-      right_column_grid = NewColumnGrid(right_column_layout);
+      right_column_grid = addVerticalGridLayout(right_vertical_container);
       App.LowerUI = AppUtil1.Component.PhysicalValueUI(right_column_grid);
       App.LowerUI.NameText = "Plot x lower bound";
       App.LowerUI.UnitItems = "1";
@@ -275,7 +275,7 @@ classdef SignalDesignAppMain < handle
       App.LowerUI.ValueChangedCallback = @() auto_update_plot(App);
 
       % -----------------------------------------------------------------------
-      right_column_grid = NewColumnGrid(right_column_layout);
+      right_column_grid = addVerticalGridLayout(right_vertical_container);
       App.UpperUI = AppUtil1.Component.PhysicalValueUI(right_column_grid);
       App.UpperUI.NameText = "Plot x upper bound";
       App.UpperUI.UnitItems = "1";
@@ -287,13 +287,13 @@ classdef SignalDesignAppMain < handle
       % =======================================================================
       % Bottom area
       % =======================================================================
-      main_column_grid = NewColumnGrid(main_column_layout);
+      main_column_grid = addVerticalGridLayout(main_vertical_container);
       AppUtil1.Component.HorizontalLine(main_column_grid);
 
       % -----------------------------------------------------------------------
       % Configure the block selector UI to find Simscape PS Lookup Table (1D) block and
       % Simulink 1-D Lookup Table block.
-      main_column_grid = NewColumnGrid(main_column_layout);
+      main_column_grid = addVerticalGridLayout(main_vertical_container);
       App.SelectorUI = AppUtil1.Component.BlockSelectorUI(main_column_grid);
       App.SelectorUI.MainFigure = App.Window.MainFigure;
       App.SelectorUI.TargetSimscapeBlockNames = "PS Lookup Table (1D)";

@@ -97,22 +97,22 @@ app_window.Width = 760;
 app_window.Height = 520;
 app_window.Name = CodeUtil1.i18n("File list");
 
-main_column_layout = app_window.MainLayout;
+main_vertical_container = app_window.MainVerticalContainer;
 
 % -----------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
+column_grid = addVerticalGridLayout(main_vertical_container);
 label_ui = AppUtil1.Component.Label(column_grid);
 label_ui.MainFigure = main_figure;
 label_ui.Text = CodeUtil1.i18n("Folder");
 
 % -----------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
+column_grid = addVerticalGridLayout(main_vertical_container);
 folder_ui = AppUtil1.Component.EditField(column_grid);
 folder_ui.MainFigure = main_figure;
 folder_ui.Value = replace(NameValuePair.TopFolder, ("/"|"\"), " > ");
 
 % -----------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout, Height="1x");  % !vertical-expansion
+column_grid = addVerticalGridLayout(main_vertical_container, Height="1x");  % !vertical-expansion
 
 table_ui = AppUtil1.Component.Table(column_grid);
 table_ui.MainFigure = main_figure;
@@ -164,7 +164,7 @@ table_ui.MainTable.DoubleClickedFcn = @(~, DoubleClickedData) ...
   react_TableDoubleClicked(DoubleClickedData.InteractionInformation.Row);
 
 % -----------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
+column_grid = addVerticalGridLayout(main_vertical_container);
 
 default_message = CodeUtil1.i18n("Double-click a table row to open the file. (The file must exist.)");
 

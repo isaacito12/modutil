@@ -10,27 +10,34 @@ function App = RotationalFrictionCustomApp1(NameValuePair)
 % Copyright 2025-2026 The MathWorks, Inc.
 
 arguments (Input)
-  NameValuePair.ParameterScriptFullpath (1,1) string {mustBeFile} = FileUtil1.getFileFullPath("SampleParams_RotationalFriction.m")
+  NameValuePair.ParameterScriptFullPath (1,1) string {mustBeFile} = FileUtil1.getFileFullPath("SampleParams_RotationalFriction.m")
 
   % Specify units used in the parameter file.
   % The selection list must match that used in AppMain.
-  NameValuePair.TorquePlotUnit (1,1) string {mustBeMember(NameValuePair.TorquePlotUnit, ["N*m", "m*mN", "lbf*ft", "lbf*in"])} = "lbf*in"
-  NameValuePair.VelocityPlotUnit (1,1) string {mustBeMember(NameValuePair.VelocityPlotUnit, ["rpm", "rad/s", "deg/s", "rev/s"])} = "rev/s"
+  NameValuePair.PlotTorqueUnit (1,1) string {mustBeMember(NameValuePair.PlotTorqueUnit, ["N*m", "lbf*ft"])} = "lbf*ft"
+  NameValuePair.PlotVelocityUnit (1,1) string {mustBeMember(NameValuePair.PlotVelocityUnit, ["rpm", "rad/s", "rev/s"])} = "rev/s"
 end  % arguments
 
-% Run the setup script to load parameters in the base workspace.
-[~, script_name, ~] = fileparts(NameValuePair.ParameterScriptFullpath);
+% Run the set-up script to load parameters in the base workspace.
+[~, script_name, ~] = fileparts(NameValuePair.ParameterScriptFullPath);
 evalin("base", script_name)
 
+% Launch the app.
 app_main = RotationalFriction1.RotationalFrictionAppMain( ...
-  TorquePlotUnit = NameValuePair.TorquePlotUnit, ...
-  VelocityPlotUnit = NameValuePair.VelocityPlotUnit );
+  PlotTorqueUnit = NameValuePair.PlotTorqueUnit, ...
+  PlotVelocityUnit = NameValuePair.PlotVelocityUnit );
 
-% Override the "Source" hyperlink in the app to the app source code so that the link opens this file.
+% Set the Source hyperlink in the app to this file.
+% By default, it opens the app main source file.
 app_main.Window.HeaderUI.AppSourceName = mfilename;
+
+% Enable the Update button, which disables auto-update.
+% By default, the button is disabled and auto-update is enabled.
+app_main.PlotButtonUI.ButtonEnable = true;
 
 % -----------------------------------------------------------------------------
 % Set up the model parameters in the app using the base workspace variables.
+% The base workspace variables must be loaded by the script.
 
 app_main.BreakawayTorqueUI.ValueText = "friction.BreakawayTorque";
 updateInfoAndUnitUIs(app_main.BreakawayTorqueUI)

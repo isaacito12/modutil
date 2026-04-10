@@ -17,10 +17,10 @@ app_window.Width = 400;
 app_window.Height = 180;
 app_window.Name = "Test";
 
-main_column_layout = app_window.MainLayout;
+main_vertical_container = app_window.MainVerticalContainer;
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
+column_grid = addVerticalGridLayout(main_vertical_container);
 label_ui = AppUtil1.Component.Label(column_grid);
 label_ui.MainFigure = app_window.MainFigure;
 label_ui.Text = "Enter a value of type double." ...
@@ -29,31 +29,31 @@ label_ui.WordWrap = "on";
 label_ui.ComponentHeight = AppUtil1.Constant.Height{"oneline"}*2;
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
+column_grid = addVerticalGridLayout(main_vertical_container);
 editfield_ui = AppUtil1.Component.EditField(column_grid);
 editfield_ui.ValueChangedCallback = @() react_EditField_ValueChanged();
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
+column_grid = addVerticalGridLayout(main_vertical_container);
 AppUtil1.Component.HorizontalLine(column_grid);
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
-row_layout = AppUtil1.RowLayout(column_grid);
+column_grid = addVerticalGridLayout(main_vertical_container);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-row_grid = NewRowGrid(row_layout, Width="fit");
+row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
 label_ui = AppUtil1.Component.Label(row_grid);
 label_ui.MainFigure = app_window.MainFigure;
 label_ui.Text = "Value";
 label_ui.ComponentWidth = width_left_label;
 
-row_grid = NewRowGrid(row_layout);
+row_grid = addHorizontalGridLayout(horizontal_container);
 value_ui = AppUtil1.Component.EditField(row_grid);
 value_ui.MainFigure = app_window.MainFigure;
 value_ui.ReadOnly = "on";
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
+column_grid = addVerticalGridLayout(main_vertical_container);
 button_ui = AppUtil1.Component.Button(column_grid);
 button_ui.MainFigure = app_window.MainFigure;
 button_ui.ButtonWidth = 100;

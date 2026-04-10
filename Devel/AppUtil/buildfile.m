@@ -1,6 +1,8 @@
 function plan = buildfile
-% Define tasks for the buildtool to check code and run tests.
-% In the Editor, use the "Run Build" button to start a task.
+% Set up the buildtool to run tests in MATLAB R2023b.
+%
+% In the Command Window, type "buidltool", and tests start.
+% This buidlfile is intended for use in MATLAB R2023b.
 
 % Overview of MATLAB Build Tool
 % https://www.mathworks.com/help/matlab/matlab_prog/overview-of-matlab-build-tool.html
@@ -8,21 +10,13 @@ function plan = buildfile
 % Run Build from Toolstrip
 % https://www.mathworks.com/help/matlab/matlab_prog/run-build-from-toolstrip.html
 
-% Copyright 2023-2025 The MathWorks, Inc.
+% Copyright 2023-2026 The MathWorks, Inc.
 
 plan = buildplan();
-plan.DefaultTasks = "CodeIssues";
 
-plan("CodeIssues") = matlab.buildtool.tasks.CodeIssuesTask( ...
-  WarningThreshold = Inf, ...
-  SourceFiles = ["**/*.m", "**/*.mlx"], ...
-  Results = [ ...
-  "test-result/code-issues.mat"
-  "test-result/code-issues.sarif"
-  ]);
+plan.DefaultTasks = "Test";
 
 plan("Test") = matlab.buildtool.tasks.TestTask( ...
-  Dependencies = "CodeIssues", ...
   SourceFiles = ["**/*.m", "**/*.mlx"], ...
   TestResults = [ ...
   "test-result/test-result.pdf"

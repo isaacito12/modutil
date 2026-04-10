@@ -1,11 +1,12 @@
 classdef AppWindow < handle
   % App Window class
 
-  % Copyright 2023-2025 The MathWorks, Inc.
+  % Copyright 2023-2026 The MathWorks, Inc.
 
   properties
     MainFigure matlab.ui.Figure {mustBeScalarOrEmpty}
-    MainLayout AppUtil1.ColumnLayout
+
+    MainVerticalContainer AppUtil1.VerticalContainer
 
     HeaderUI AppUtil1.Component.WindowHeader
 
@@ -24,6 +25,10 @@ classdef AppWindow < handle
 
     % PNG file
     Icon (1,1) string
+
+    % MainVerticalContainer is kept for compatibility and will be removed in future.
+    % Do not use MainVerticalContainer. Instead, use HorizontalContainer.
+    % MainVerticalContainer AppUtil1.VerticalContainer
   end  % properties
 
   properties (Access=private)
@@ -58,11 +63,16 @@ classdef AppWindow < handle
 
       AppWindow.MainFigure = MainFigure;
 
-      AppWindow.MainLayout = AppUtil1.ColumnLayout(MainFigure);
+      AppWindow.MainVerticalContainer = AppUtil1.VerticalContainer(MainFigure);
+
+      % MainVerticalContainer is kept for compatibility. Use MainVerticalContainer instead.
+      % AppWindow.MainVerticalContainer = AppUtil1.VerticalContainer(MainFigure);  % !avoid
 
       AppWindow.Icon = "AppUtil-icon-150x150.png";
 
-      AppWindow.HeaderUI = AppUtil1.Component.WindowHeader(NewColumnGrid(AppWindow.MainLayout));
+      % AppWindow.HeaderUI = AppUtil1.Component.WindowHeader(addVerticalGridLayout(AppWindow.MainVerticalContainer));
+      v_gridlayout = addVerticalGridLayout(AppWindow.MainVerticalContainer);
+      AppWindow.HeaderUI = AppUtil1.Component.WindowHeader(v_gridlayout);
       AppWindow.HeaderUI.MainFigure = AppWindow.MainFigure;
       AppWindow.HeaderUI.AppSourceName = NameValuePair.SourceFile;
       AppWindow.HeaderUI.Reporting = NameValuePair.Reporting;
@@ -187,6 +197,27 @@ classdef AppWindow < handle
       AppWindow.MainFigure.Icon = icon_fullpath;
 
     end  % function
+
+%{
+    % -------------------------------------------------------------------------
+    % MainVerticalContainer - for compatibility. to be removed in future.
+    % MainVerticalContainer has been replaced with MainVerticalContainer of type AppUtil1.VerticalContainer.
+
+    function Layout = get.MainVerticalContainer(AppWindow)
+      arguments (Output)
+        Layout AppUtil1.HorizontalContainer
+      end  % arguments
+      Layout = AppWindow.MainVerticalContainer;
+    end  % function
+
+    function set.MainVerticalContainer(AppWindow, Layout)
+      arguments (Input)
+        AppWindow
+        Layout AppUtil1.HorizontalContainer
+      end  % arguments
+      AppWindow.MainVerticalContainer = Layout;
+    end  % function
+%}
 
   end  % methods
 end  % classdef

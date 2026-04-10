@@ -11,9 +11,9 @@ main_figure = uifigure(Visible="off");
 main_figure.Position(3) = 600;  % width
 main_figure.Position(4) = 400;  % height
 
-main_column_layout = AppUtil1.ColumnLayout(main_figure);
+main_vertical_container = AppUtil1.VerticalContainer(main_figure);
 
-build_gui(main_column_layout);
+build_gui(main_vertical_container);
 
 %%
 if not(isMATLABReleaseOlderThan("R2025a"))
@@ -29,35 +29,35 @@ if nargout > 0
 end  % if
 end  % function
 
-function build_gui(column_layout)
+function build_gui(vertical_container)
 %%
 arguments (Input)
-  column_layout (1,1) AppUtil1.ColumnLayout
+  vertical_container (1,1) AppUtil1.VerticalContainer
 end  % arguments
 
 common_height = 190;
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(column_layout);
-row_layout = AppUtil1.RowLayout(column_grid);
+column_grid = addVerticalGridLayout(vertical_container);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-graphics_panel_ui_1 = AppUtil1.Graphics.Panel(NewRowGrid(row_layout));  % !test-target
+graphics_panel_ui_1 = AppUtil1.Graphics.Panel(addHorizontalGridLayout(horizontal_container));  % !test-target
 graphics_panel_ui_1.ComponentHeight = common_height;
 p = piechart(graphics_panel_ui_1.MainPanel, [1 2 3 4]);  % !test-target
 title(p, "Pie in panel 1")
 
-graphics_panel_ui_2 = AppUtil1.Graphics.Panel(NewRowGrid(row_layout));  % !test-target
+graphics_panel_ui_2 = AppUtil1.Graphics.Panel(addHorizontalGridLayout(horizontal_container));  % !test-target
 graphics_panel_ui_2.ComponentHeight = common_height;
 p = donutchart(graphics_panel_ui_2.MainPanel, [10 3 1 5 6 4]);  % !test-target
 title(p, "Donut in panel 2")
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(column_layout);
-row_layout = AppUtil1.RowLayout(column_grid);
+column_grid = addVerticalGridLayout(vertical_container);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
 % charts in tiledlayout
 
-graphics_panel_ui_3 = AppUtil1.Graphics.Panel(NewRowGrid(row_layout));  % !test-target
+graphics_panel_ui_3 = AppUtil1.Graphics.Panel(addHorizontalGridLayout(horizontal_container));  % !test-target
 graphics_panel_ui_3.ComponentHeight = common_height;
 
 tile = tiledlayout(graphics_panel_ui_3.MainPanel, 1, 2);

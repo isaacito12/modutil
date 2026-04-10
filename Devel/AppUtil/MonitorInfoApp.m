@@ -56,20 +56,20 @@ MonitorWidth = info(:, 3);
 MonitorHeight = info(:, 4);
 monitor_positions = table(MonitorLeft, MonitorBottom, MonitorWidth, MonitorHeight);
 
-app_column_layout = app_window.MainLayout;
+app_vertical_container = app_window.MainVerticalContainer;
 
-column_grid = NewColumnGrid(app_column_layout);
+column_grid = addVerticalGridLayout(app_vertical_container);
 monitor_info_ui = AppUtil1.Component.Table(column_grid);
 monitor_info_ui.MainTable.Data = monitor_positions;
 
-column_grid = NewColumnGrid(app_column_layout);
+column_grid = addVerticalGridLayout(app_vertical_container);
 button_ui = AppUtil1.Component.Button(column_grid);
 button_ui.Text = CodeUtil1.i18n("Record app position");
 button_ui.ButtonWidth = 200;
 button_ui.HorizontalAlignment = "center";
 button_ui.ButtonPushedCallback = @() react_ButtonPushed();
 
-column_grid = NewColumnGrid(app_column_layout);
+column_grid = addVerticalGridLayout(app_vertical_container);
 app_position_ui = AppUtil1.Component.Table(column_grid);
 app_position_ui.MainTable.Data = getAppPositionTable;
 

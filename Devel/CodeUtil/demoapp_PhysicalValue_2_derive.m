@@ -71,10 +71,10 @@ app_window.Width = 540;
 app_window.Height = 260;
 app_window.Name = "Derived parameter demo";
 
-main_column_layout = app_window.MainLayout;
+main_vertical_container = app_window.MainVerticalContainer;
 
 % =============================================================================
-column_grid = NewColumnGrid(main_column_layout);
+column_grid = addVerticalGridLayout(main_vertical_container);
 
 label_ui = AppUtil1.Component.Label(column_grid);
 label_ui.Text = join([
@@ -87,58 +87,58 @@ label_ui.ComponentHeight = AppUtil1.Constant.Height{"oneline"}*3;
 label_ui.WordWrap = "on";
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
-row_layout = AppUtil1.RowLayout(column_grid);
+column_grid = addVerticalGridLayout(main_vertical_container);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-row_grid = NewRowGrid(row_layout, Width="fit");
+row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
 label_ui = AppUtil1.Component.Label(row_grid);
 label_ui.Text = "Length, $L$";
 label_ui.ComponentWidth = width_left_label;
 
-row_grid = NewRowGrid(row_layout, Width="3x");
+row_grid = addHorizontalGridLayout(horizontal_container, Width="3x");
 length_ui = AppUtil1.Component.EditField(row_grid);
 length_ui.ValueChangedCallback = @() react_LengthUI_ValueChanged();
 
-row_grid = NewRowGrid(row_layout, Width="2x");
+row_grid = addHorizontalGridLayout(horizontal_container, Width="2x");
 length_info_ui = AppUtil1.Component.EditField(row_grid);
 length_info_ui.ReadOnly = "on";
 length_info_ui.Value = "";
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
+column_grid = addVerticalGridLayout(main_vertical_container);
 
 label_ui = AppUtil1.Component.Label(column_grid);
 label_ui.Text = "Errors are reported in the Command Window.";
 
 % =============================================================================
-column_grid = NewColumnGrid(main_column_layout);
+column_grid = addVerticalGridLayout(main_vertical_container);
 AppUtil1.Component.HorizontalLine(column_grid);
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
+column_grid = addVerticalGridLayout(main_vertical_container);
 label_ui = AppUtil1.Component.Label(column_grid);
 label_ui.Text = "\textbf{Derived}";
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
+column_grid = addVerticalGridLayout(main_vertical_container);
 label_ui = AppUtil1.Component.Label(column_grid);
 label_ui.Text = "When the length is modified, the area is automatically updated.";
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
-row_layout = AppUtil1.RowLayout(column_grid);
+column_grid = addVerticalGridLayout(main_vertical_container);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-row_grid = NewRowGrid(row_layout, Width="fit");
+row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
 label_ui = AppUtil1.Component.Label(row_grid);
 label_ui.Text = "Area, $S=L^{2}$";
 label_ui.ComponentWidth = width_left_label;
 
-row_grid = NewRowGrid(row_layout);
+row_grid = addHorizontalGridLayout(horizontal_container);
 area_ui = AppUtil1.Component.EditField(row_grid);
 area_ui.ReadOnly = "on";
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
+column_grid = addVerticalGridLayout(main_vertical_container);
 
 button_ui = AppUtil1.Component.Button(column_grid);
 button_ui.ButtonWidth = 100;

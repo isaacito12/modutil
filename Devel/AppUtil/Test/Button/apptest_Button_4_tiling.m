@@ -11,80 +11,80 @@ main_figure = uifigure(Visible="off");
 main_figure.Position(3) = 480;  % width
 main_figure.Position(4) = 110;  % height
 
-app_column_layout = AppUtil1.ColumnLayout(main_figure);
+app_vertical_container = AppUtil1.VerticalContainer(main_figure);
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(app_column_layout);
-row_layout = AppUtil1.RowLayout(column_grid);
+column_grid = addVerticalGridLayout(app_vertical_container);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 % left
-button_ui = AppUtil1.Component.Button(NewRowGrid(row_layout, Width=160));  % !test-target
+button_ui = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container, Width=160));  % !test-target
 button_ui.MainFigure = main_figure;
 button_ui.Text = "1";
 button_ui.HighlightBackground = "on";
 % center
-button_ui = AppUtil1.Component.Button(NewRowGrid(row_layout, Width=160));  % !test-target
+button_ui = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container, Width=160));  % !test-target
 button_ui.MainFigure = main_figure;
 button_ui.Text = "2";
 button_ui.HighlightBackground = "off";
 % right
-button_ui = AppUtil1.Component.Button(NewRowGrid(row_layout, Width=160));  % !test-target
+button_ui = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container, Width=160));  % !test-target
 button_ui.MainFigure = main_figure;
 button_ui.Text = "3";
 button_ui.HighlightBackground = "on";
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(app_column_layout);
-row_layout = AppUtil1.RowLayout(column_grid);
+column_grid = addVerticalGridLayout(app_vertical_container);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 % left
-button_ui = AppUtil1.Component.Button(NewRowGrid(row_layout, Width=160));  % !test-target
+button_ui = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container, Width=160));  % !test-target
 button_ui.MainFigure = main_figure;
 button_ui.Text = "4";
 button_ui.HighlightBackground = "on";
 % center
-button_ui = AppUtil1.Component.Button(NewRowGrid(row_layout, Width=160));  % !test-target
+button_ui = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container, Width=160));  % !test-target
 button_ui.MainFigure = main_figure;
 button_ui.Text = "5";
 button_ui.HighlightBackground = "off";
 % right
-button_ui = AppUtil1.Component.Button(NewRowGrid(row_layout, Width=160));  % !test-target
+button_ui = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container, Width=160));  % !test-target
 button_ui.MainFigure = main_figure;
 button_ui.Text = "6";
 button_ui.HighlightBackground = "on";
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(app_column_layout);
-row_layout = AppUtil1.RowLayout(column_grid);
+column_grid = addVerticalGridLayout(app_vertical_container);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 % left
-button_ui = AppUtil1.Component.Button(NewRowGrid(row_layout, Width=160));  % !test-target
+button_ui = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container, Width=160));  % !test-target
 button_ui.MainFigure = main_figure;
 button_ui.Text = "7";
 button_ui.HighlightBackground = "off";
 % center
-button_ui = AppUtil1.Component.Button(NewRowGrid(row_layout, Width=160));  % !test-target
+button_ui = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container, Width=160));  % !test-target
 button_ui.MainFigure = main_figure;
 button_ui.Text = "8";
 button_ui.HighlightBackground = "on";
 % right
-button_ui = AppUtil1.Component.Button(NewRowGrid(row_layout, Width=160));  % !test-target
+button_ui = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container, Width=160));  % !test-target
 button_ui.MainFigure = main_figure;
 button_ui.Text = "9";
 button_ui.HighlightBackground = "off";
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(app_column_layout);
-row_layout = AppUtil1.RowLayout(column_grid);
+column_grid = addVerticalGridLayout(app_vertical_container);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 % left
-button_ui = AppUtil1.Component.Button(NewRowGrid(row_layout, Width=160));  % !test-target
+button_ui = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container, Width=160));  % !test-target
 button_ui.MainFigure = main_figure;
 button_ui.Text = "10";
 button_ui.HighlightBackground = "off";
 % center
-button_ui = AppUtil1.Component.Button(NewRowGrid(row_layout, Width=160));  % !test-target
+button_ui = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container, Width=160));  % !test-target
 button_ui.MainFigure = main_figure;
 button_ui.Text = "11";
 button_ui.HighlightBackground = "on";
 % right
-button_ui = AppUtil1.Component.Button(NewRowGrid(row_layout, Width=160));  % !test-target
+button_ui = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container, Width=160));  % !test-target
 button_ui.MainFigure = main_figure;
 button_ui.Text = "12";
 button_ui.HighlightBackground = "off";

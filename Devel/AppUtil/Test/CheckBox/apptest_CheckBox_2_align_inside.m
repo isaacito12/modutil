@@ -14,15 +14,15 @@ main_figure = uifigure(Visible="off");
 main_figure.Position(3) = 760;  % width
 main_figure.Position(4) = 300;  % height
 
-app_column_layout = AppUtil1.ColumnLayout(main_figure);
+app_vertical_container = AppUtil1.VerticalContainer(main_figure);
 
-column_grid = NewColumnGrid(app_column_layout);
+column_grid = addVerticalGridLayout(app_vertical_container);
 build_ui(main_figure, column_grid, "top",    [1 0 1])
 
-column_grid = NewColumnGrid(app_column_layout);
+column_grid = addVerticalGridLayout(app_vertical_container);
 build_ui(main_figure, column_grid, "center", [0 1 0])
 
-column_grid = NewColumnGrid(app_column_layout);
+column_grid = addVerticalGridLayout(app_vertical_container);
 build_ui(main_figure, column_grid, "bottom", [1 0 1])
 
 %%
@@ -41,9 +41,9 @@ end  % function
 
 function build_ui(main_figure, grid_layout, vert, hilit)
 %%
-row_layout = AppUtil1.RowLayout(grid_layout);
+horizontal_container = AppUtil1.HorizontalContainer(grid_layout);
 
-cb = AppUtil1.Component.CheckBox(NewRowGrid(row_layout));  % !test-target
+cb = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container));  % !test-target
 cb.MainFigure = main_figure;
 cb.ComponentHeight = AppUtil1.Constant.Height{"oneline"}*4;
 cb.VerticalAlignment = vert;
@@ -54,7 +54,7 @@ cb.Text = ...
   "HorizontalAlignment: " + cb.HorizontalAlignment;
 cb.HighlightBackground = hilit(1);
 
-cb = AppUtil1.Component.CheckBox(NewRowGrid(row_layout));  % !test-target
+cb = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container));  % !test-target
 cb.MainFigure = main_figure;
 cb.ComponentHeight = AppUtil1.Constant.Height{"oneline"}*4;
 cb.VerticalAlignment = vert;
@@ -65,7 +65,7 @@ cb.Text = ...
   "HorizontalAlignment: " + cb.HorizontalAlignment;
 cb.HighlightBackground = hilit(2);
 
-cb = AppUtil1.Component.CheckBox(NewRowGrid(row_layout));  % !test-target
+cb = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container));  % !test-target
 cb.MainFigure = main_figure;
 cb.ComponentHeight = AppUtil1.Constant.Height{"oneline"}*4;
 cb.VerticalAlignment = vert;

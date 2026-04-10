@@ -28,229 +28,229 @@ main_figure.Name = CodeUtil1.i18n("Test");
 main_figure.Position(3) = 1000;  % width
 main_figure.Position(4) = 200;  % height
 
-main_column_layout = AppUtil1.ColumnLayout(main_figure);
+main_vertical_container = AppUtil1.VerticalContainer(main_figure);
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
+column_grid = addVerticalGridLayout(main_vertical_container);
 AppUtil1.Component.HorizontalLine(column_grid);
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
-row_layout = AppUtil1.RowLayout(column_grid);
+column_grid = addVerticalGridLayout(main_vertical_container);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-label_1_ui = AppUtil1.Component.Label(NewRowGrid(row_layout));
+label_1_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));
 label_1_ui.MainFigure = main_figure;
 label_1_ui.Text = "Left label";
 label_1_ui.HighlightBackground = "on";
 
-link_ui = AppUtil1.Component.Hyperlink(NewRowGrid(row_layout));
+link_ui = AppUtil1.Component.Hyperlink(addHorizontalGridLayout(horizontal_container));
 link_ui.MainFigure = main_figure;
 link_ui.Text = "Hyperlink text";
 
-editfield_ui = AppUtil1.Component.EditField(NewRowGrid(row_layout));
+editfield_ui = AppUtil1.Component.EditField(addHorizontalGridLayout(horizontal_container));
 editfield_ui.MainFigure = main_figure;
 editfield_ui.MainEditField.Placeholder = "(edit field)";
 
-label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout));
+label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));
 label_ui.MainFigure = main_figure;
 label_ui.Text = "Label text";
 
-dropdown_ui = AppUtil1.Component.DropDown(NewRowGrid(row_layout));
+dropdown_ui = AppUtil1.Component.DropDown(addHorizontalGridLayout(horizontal_container));
 dropdown_ui.MainFigure = main_figure;
 dropdown_ui.Items = ["1", "2"];
 dropdown_ui.Value = "1";
 
-checkbox_ui = AppUtil1.Component.CheckBox(NewRowGrid(row_layout));
+checkbox_ui = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container));
 checkbox_ui.MainFigure = main_figure;
 checkbox_ui.Text = "Check box";
 
-button_ui = AppUtil1.Component.Button(NewRowGrid(row_layout));
+button_ui = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container));
 button_ui.MainFigure = main_figure;
 button_ui.Text = "Button";
 
-state_button_ui = AppUtil1.Component.StateButton(NewRowGrid(row_layout));
+state_button_ui = AppUtil1.Component.StateButton(addHorizontalGridLayout(horizontal_container));
 state_button_ui.MainFigure = main_figure;
 state_button_ui.Text = "State button";
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
+column_grid = addVerticalGridLayout(main_vertical_container);
 AppUtil1.Component.HorizontalLine(column_grid);
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
-row_layout = AppUtil1.RowLayout(column_grid);
+column_grid = addVerticalGridLayout(main_vertical_container);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout));
+label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));
 label_ui.MainFigure = main_figure;
 label_ui.Text = "Left label";
 
-link_1_ui = AppUtil1.Component.Hyperlink(NewRowGrid(row_layout));
+link_1_ui = AppUtil1.Component.Hyperlink(addHorizontalGridLayout(horizontal_container));
 link_1_ui.MainFigure = main_figure;
 link_1_ui.Text = "Hyperlink text";
 link_1_ui.HighlightBackground = "on";
 
-editfield_ui = AppUtil1.Component.EditField(NewRowGrid(row_layout));
+editfield_ui = AppUtil1.Component.EditField(addHorizontalGridLayout(horizontal_container));
 editfield_ui.MainFigure = main_figure;
 editfield_ui.MainEditField.Placeholder = "(edit field)";
 
-label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout));
+label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));
 label_ui.MainFigure = main_figure;
 label_ui.Text = "Label text";
 
-dropdown_ui = AppUtil1.Component.DropDown(NewRowGrid(row_layout));
+dropdown_ui = AppUtil1.Component.DropDown(addHorizontalGridLayout(horizontal_container));
 dropdown_ui.MainFigure = main_figure;
 dropdown_ui.Items = ["1", "2"];
 dropdown_ui.Value = "1";
 
-checkbox_ui = AppUtil1.Component.CheckBox(NewRowGrid(row_layout));
+checkbox_ui = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container));
 checkbox_ui.MainFigure = main_figure;
 checkbox_ui.Text = "Check box";
 
-button_ui = AppUtil1.Component.Button(NewRowGrid(row_layout));
+button_ui = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container));
 button_ui.MainFigure = main_figure;
 button_ui.Text = "Button";
 
-state_button_ui = AppUtil1.Component.StateButton(NewRowGrid(row_layout));
+state_button_ui = AppUtil1.Component.StateButton(addHorizontalGridLayout(horizontal_container));
 state_button_ui.MainFigure = main_figure;
 state_button_ui.Text = "State button";
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
+column_grid = addVerticalGridLayout(main_vertical_container);
 AppUtil1.Component.HorizontalLine(column_grid);
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
-row_layout = AppUtil1.RowLayout(column_grid);
+column_grid = addVerticalGridLayout(main_vertical_container);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout));
+label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));
 label_ui.MainFigure = main_figure;
 label_ui.Text = "Left label";
 
-link_ui = AppUtil1.Component.Hyperlink(NewRowGrid(row_layout));
+link_ui = AppUtil1.Component.Hyperlink(addHorizontalGridLayout(horizontal_container));
 link_ui.MainFigure = main_figure;
 link_ui.Text = "Hyperlink text";
 
-editfield_ui = AppUtil1.Component.EditField(NewRowGrid(row_layout));
+editfield_ui = AppUtil1.Component.EditField(addHorizontalGridLayout(horizontal_container));
 editfield_ui.MainFigure = main_figure;
 editfield_ui.MainEditField.Placeholder = "(edit field)";
 
-label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout));
+label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));
 label_ui.MainFigure = main_figure;
 label_ui.Text = "Label text";
 
-dropdown_ui = AppUtil1.Component.DropDown(NewRowGrid(row_layout));
+dropdown_ui = AppUtil1.Component.DropDown(addHorizontalGridLayout(horizontal_container));
 dropdown_ui.MainFigure = main_figure;
 dropdown_ui.Items = ["1", "2"];
 dropdown_ui.Value = "1";
 
-checkbox_ui = AppUtil1.Component.CheckBox(NewRowGrid(row_layout));
+checkbox_ui = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container));
 checkbox_ui.MainFigure = main_figure;
 checkbox_ui.Text = "Check box";
 
-button_ui = AppUtil1.Component.Button(NewRowGrid(row_layout));
+button_ui = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container));
 button_ui.MainFigure = main_figure;
 button_ui.Text = "Button";
 
-state_button_ui = AppUtil1.Component.StateButton(NewRowGrid(row_layout));
+state_button_ui = AppUtil1.Component.StateButton(addHorizontalGridLayout(horizontal_container));
 state_button_ui.MainFigure = main_figure;
 state_button_ui.Text = "State button";
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
+column_grid = addVerticalGridLayout(main_vertical_container);
 AppUtil1.Component.HorizontalLine(column_grid);
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
-row_layout = AppUtil1.RowLayout(column_grid);
+column_grid = addVerticalGridLayout(main_vertical_container);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout));
+label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));
 label_ui.MainFigure = main_figure;
 label_ui.Text = "Left label";
-link_ui = AppUtil1.Component.Hyperlink(NewRowGrid(row_layout));
+link_ui = AppUtil1.Component.Hyperlink(addHorizontalGridLayout(horizontal_container));
 link_ui.MainFigure = main_figure;
 link_ui.Text = "Hyperlink text";
-editfield_ui = AppUtil1.Component.EditField(NewRowGrid(row_layout));
+editfield_ui = AppUtil1.Component.EditField(addHorizontalGridLayout(horizontal_container));
 editfield_ui.MainFigure = main_figure;
 editfield_ui.MainEditField.Placeholder = "(edit field)";
-label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout));
+label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));
 label_ui.MainFigure = main_figure;
 label_ui.Text = "Label text";
-dropdown_ui = AppUtil1.Component.DropDown(NewRowGrid(row_layout));
+dropdown_ui = AppUtil1.Component.DropDown(addHorizontalGridLayout(horizontal_container));
 dropdown_ui.MainFigure = main_figure;
 dropdown_ui.Items = ["1", "2"];
 dropdown_ui.Value = "1";
-checkbox_ui = AppUtil1.Component.CheckBox(NewRowGrid(row_layout));
+checkbox_ui = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container));
 checkbox_ui.MainFigure = main_figure;
 checkbox_ui.Text = "Check box";
-button_ui = AppUtil1.Component.Button(NewRowGrid(row_layout));
+button_ui = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container));
 button_ui.MainFigure = main_figure;
 button_ui.Text = "Button";
-state_button_ui = AppUtil1.Component.StateButton(NewRowGrid(row_layout));
+state_button_ui = AppUtil1.Component.StateButton(addHorizontalGridLayout(horizontal_container));
 state_button_ui.MainFigure = main_figure;
 state_button_ui.Text = "State button";
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
-row_layout = AppUtil1.RowLayout(column_grid);
+column_grid = addVerticalGridLayout(main_vertical_container);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout));
+label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));
 label_ui.MainFigure = main_figure;
 label_ui.Text = "Left label";
-link_ui = AppUtil1.Component.Hyperlink(NewRowGrid(row_layout));
+link_ui = AppUtil1.Component.Hyperlink(addHorizontalGridLayout(horizontal_container));
 link_ui.MainFigure = main_figure;
 link_ui.Text = "Hyperlink text";
-editfield_ui = AppUtil1.Component.EditField(NewRowGrid(row_layout));
+editfield_ui = AppUtil1.Component.EditField(addHorizontalGridLayout(horizontal_container));
 editfield_ui.MainFigure = main_figure;
 editfield_ui.MainEditField.Placeholder = "(edit field)";
-label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout));
+label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));
 label_ui.MainFigure = main_figure;
 label_ui.Text = "Label text";
-dropdown_ui = AppUtil1.Component.DropDown(NewRowGrid(row_layout));
+dropdown_ui = AppUtil1.Component.DropDown(addHorizontalGridLayout(horizontal_container));
 dropdown_ui.MainFigure = main_figure;
 dropdown_ui.Items = ["1", "2"];
 dropdown_ui.Value = "1";
-checkbox_ui = AppUtil1.Component.CheckBox(NewRowGrid(row_layout));
+checkbox_ui = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container));
 checkbox_ui.MainFigure = main_figure;
 checkbox_ui.Text = "Check box";
-button_ui = AppUtil1.Component.Button(NewRowGrid(row_layout));
+button_ui = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container));
 button_ui.MainFigure = main_figure;
 button_ui.Text = "Button";
-state_button_ui = AppUtil1.Component.StateButton(NewRowGrid(row_layout));
+state_button_ui = AppUtil1.Component.StateButton(addHorizontalGridLayout(horizontal_container));
 state_button_ui.MainFigure = main_figure;
 state_button_ui.Text = "State button";
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
-row_layout = AppUtil1.RowLayout(column_grid);
+column_grid = addVerticalGridLayout(main_vertical_container);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout));
+label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));
 label_ui.MainFigure = main_figure;
 label_ui.Text = "Left label";
-link_ui = AppUtil1.Component.Hyperlink(NewRowGrid(row_layout));
+link_ui = AppUtil1.Component.Hyperlink(addHorizontalGridLayout(horizontal_container));
 link_ui.MainFigure = main_figure;
 link_ui.Text = "Hyperlink text";
-editfield_ui = AppUtil1.Component.EditField(NewRowGrid(row_layout));
+editfield_ui = AppUtil1.Component.EditField(addHorizontalGridLayout(horizontal_container));
 editfield_ui.MainFigure = main_figure;
 editfield_ui.MainEditField.Placeholder = "(edit field)";
-label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout));
+label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));
 label_ui.MainFigure = main_figure;
 label_ui.Text = "Label text";
-dropdown_ui = AppUtil1.Component.DropDown(NewRowGrid(row_layout));
+dropdown_ui = AppUtil1.Component.DropDown(addHorizontalGridLayout(horizontal_container));
 dropdown_ui.MainFigure = main_figure;
 dropdown_ui.Items = ["1", "2"];
 dropdown_ui.Value = "1";
-checkbox_ui = AppUtil1.Component.CheckBox(NewRowGrid(row_layout));
+checkbox_ui = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container));
 checkbox_ui.MainFigure = main_figure;
 checkbox_ui.Text = "Check box";
-button_ui = AppUtil1.Component.Button(NewRowGrid(row_layout));
+button_ui = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container));
 button_ui.MainFigure = main_figure;
 button_ui.Text = "Button";
-state_button_ui = AppUtil1.Component.StateButton(NewRowGrid(row_layout));
+state_button_ui = AppUtil1.Component.StateButton(addHorizontalGridLayout(horizontal_container));
 state_button_ui.MainFigure = main_figure;
 state_button_ui.Text = "State button";
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
+column_grid = addVerticalGridLayout(main_vertical_container);
 AppUtil1.Component.HorizontalLine(column_grid);
 
 %%

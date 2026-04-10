@@ -30,10 +30,10 @@ app_window.Width = 500;
 app_window.Height = 200;
 app_window.Name = "Test";
 
-main_column_layout = app_window.MainLayout;
+main_vertical_container = app_window.MainVerticalContainer;
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
+column_grid = addVerticalGridLayout(main_vertical_container);
 
 label_ui = AppUtil1.Component.Label(column_grid);
 label_ui.Text = "Enter a value of type double or simscape.Value."...
@@ -41,43 +41,43 @@ label_ui.Text = "Enter a value of type double or simscape.Value."...
 label_ui.ComponentHeight = AppUtil1.Constant.Height{"oneline"}*2;
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
-row_layout = AppUtil1.RowLayout(column_grid);
+column_grid = addVerticalGridLayout(main_vertical_container);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-row_grid = NewRowGrid(row_layout, Width="fit");
+row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
 label_ui = AppUtil1.Component.Label(row_grid);
 label_ui.Text = "Length, $L$";
 label_ui.ComponentWidth = width_left_label;
 
-row_grid = NewRowGrid(row_layout);
+row_grid = addHorizontalGridLayout(horizontal_container);
 length_ui = AppUtil1.Component.EditField(row_grid);
 length_ui.ValueChangedCallback = @() react_LengthUI_ValueChanged();
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
+column_grid = addVerticalGridLayout(main_vertical_container);
 AppUtil1.Component.HorizontalLine(column_grid);
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
+column_grid = addVerticalGridLayout(main_vertical_container);
 
 label_ui = AppUtil1.Component.Label(column_grid);
 label_ui.Text = "\textbf{Derived}";
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
-row_layout = AppUtil1.RowLayout(column_grid);
+column_grid = addVerticalGridLayout(main_vertical_container);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-row_grid = NewRowGrid(row_layout, Width="fit");
+row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
 label_ui = AppUtil1.Component.Label(row_grid);
 label_ui.Text = "Area, $S=L^{2}$";
 label_ui.ComponentWidth = width_left_label;
 
-row_grid = NewRowGrid(row_layout);
+row_grid = addHorizontalGridLayout(horizontal_container);
 area_ui = AppUtil1.Component.EditField(row_grid);
 area_ui.ReadOnly = "on";
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
+column_grid = addVerticalGridLayout(main_vertical_container);
 
 button_ui = AppUtil1.Component.Button(column_grid);
 button_ui.ButtonWidth = 100;

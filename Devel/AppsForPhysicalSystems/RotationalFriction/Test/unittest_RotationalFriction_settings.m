@@ -32,16 +32,7 @@ classdef unittest_RotationalFriction_settings < matlab.unittest.TestCase
     % Functions in this "Test" section are the tests.
     % Before each function in this section runs, functions defined in the TestMethodSetup section run.
 
-    %% Minimum quality check
-    % Check that models, scripts, functions, and classes run right out of the box.
-
-    function Test_1(testcase)
-      % Check that the model was saved in the expected MATLAB Release.
-      info = Simulink.MDLInfo("SampleModel_RotationalFriction_test1_empty_24b");
-      verifyEqual(testcase, info.ReleaseName, 'R2024b')
-    end  % function
-
-    function Test_2(testcase)
+    function saved_release_2(testcase)
       % Check that the model was saved in the expected MATLAB Release.
       info = Simulink.MDLInfo("SampleModel_RotationalFriction_refsub_24b");
       verifyEqual(testcase, info.ReleaseName, 'R2024b')

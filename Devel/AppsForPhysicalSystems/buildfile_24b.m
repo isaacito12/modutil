@@ -1,4 +1,4 @@
-function plan = buildfile_R2024b
+function plan = buildfile_24b
 % Define tasks for the buildtool to check code and run tests.
 %
 % R2025a or newer: In the Editor, use the "Run Build" button to start a task.

@@ -1,11 +1,20 @@
 classdef AppWindow < handle
   % App Window class
 
-  % Copyright 2023-2025 The MathWorks, Inc.
+  % App icon
+  %
+  % Vertical container
+  % Window header UI
+  % App name
+  % Hyperlink to the app source file
+  % "Always on top" check box
+
+  % Copyright 2023-2026 The MathWorks, Inc.
 
   properties
     MainFigure matlab.ui.Figure {mustBeScalarOrEmpty}
-    MainLayout AppUtil1.ColumnLayout
+
+    MainVerticalContainer AppUtil1.VerticalContainer
 
     HeaderUI AppUtil1.Component.WindowHeader
 
@@ -58,11 +67,12 @@ classdef AppWindow < handle
 
       AppWindow.MainFigure = MainFigure;
 
-      AppWindow.MainLayout = AppUtil1.ColumnLayout(MainFigure);
+      AppWindow.MainVerticalContainer = AppUtil1.VerticalContainer(MainFigure);
 
       AppWindow.Icon = "AppUtil-icon-150x150.png";
 
-      AppWindow.HeaderUI = AppUtil1.Component.WindowHeader(NewColumnGrid(AppWindow.MainLayout));
+      v_gridlayout = addVerticalGridLayout(AppWindow.MainVerticalContainer);
+      AppWindow.HeaderUI = AppUtil1.Component.WindowHeader(v_gridlayout);
       AppWindow.HeaderUI.MainFigure = AppWindow.MainFigure;
       AppWindow.HeaderUI.AppSourceName = NameValuePair.SourceFile;
       AppWindow.HeaderUI.Reporting = NameValuePair.Reporting;

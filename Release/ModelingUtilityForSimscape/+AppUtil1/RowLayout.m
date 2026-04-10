@@ -28,7 +28,7 @@ classdef RowLayout < handle
       layout.BaseGrid.Scrollable = "off";
     end  % function
 
-    function NewGrid = NewRowGrid(layout, NameValuePair)
+    function NewGrid = addHorizontalGridLayout(layout, NameValuePair)
       %%
       arguments (Input)
         layout

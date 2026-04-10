@@ -1,0 +1,20 @@
+<svg width="100" height="100" viewBox="0 0 100 100"
+     xmlns="http://www.w3.org/2000/svg" aria-label="Rotation arrow icon" role="img">
+<!-- Copyright 2026 The MathWorks, Inc. -->
+<!--
+Origin is at top left.
+X grows to the right.
+Y grows downwards.
+An object is drawn in front of the previous one.
+-->
+ 
+<!-- Arc: start at 1 o'clock, clockwise, end at 11 o'clock -->
+<!-- Center (50,50), radius 35 -->
+<!-- Start point (67.5, 19.69)  End point (32.5, 19.69) -->
+<path d="M 67.5 19.69 A 35 35 0 1 1 32.5 19.69"
+      fill="transparent"
+      stroke="currentColor"
+      stroke-width="18"
+      stroke-linecap="round"/>
+
+</svg>

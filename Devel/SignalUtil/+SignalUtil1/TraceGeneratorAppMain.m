@@ -138,18 +138,18 @@ classdef TraceGeneratorAppMain < handle
 
     function build_app_gui(App)
       %%
-      main_column_layout = App.Window.MainLayout;
-      main_column_grid = NewColumnGrid(main_column_layout);
-      main_row_layout = AppUtil1.RowLayout(main_column_grid);
+      main_vertical_container = App.Window.MainVerticalContainer;
+      main_column_grid = addVerticalGridLayout(main_vertical_container);
+      main_horizontal_container = AppUtil1.HorizontalContainer(main_column_grid);
 
       % =======================================================================
       % Left area
       % =======================================================================
-      left_row_grid = NewRowGrid(main_row_layout);
-      left_column_layout = AppUtil1.ColumnLayout(left_row_grid);
+      left_row_grid = addHorizontalGridLayout(main_horizontal_container);
+      left_vertical_container = AppUtil1.VerticalContainer(left_row_grid);
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
 
       % Use getFileFullPath to check that the file exists.
       % If it doesn't, an error is issued and the app doesn't start.
@@ -161,13 +161,13 @@ classdef TraceGeneratorAppMain < handle
       link_ui.HyperlinkClickedCallback =  @() web(html_file);
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
 
       label_ui = AppUtil1.Component.Label(left_column_grid);
       label_ui.Text = CodeUtil1.i18n("\textbf{Parameters}");
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
 
       App.RandomSeedUI = AppUtil1.Component.DoubleValueUI(left_column_grid);
       App.RandomSeedUI.NameText = CodeUtil1.i18n("Random seed");
@@ -175,7 +175,7 @@ classdef TraceGeneratorAppMain < handle
       App.RandomSeedUI.ValueChangedCallback = @() auto_update_plot(App);
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
 
       App.InitialValueUI = AppUtil1.Component.DoubleValueUI(left_column_grid);
       App.InitialValueUI.NameText = CodeUtil1.i18n("Initial value, $f_0$");
@@ -183,7 +183,7 @@ classdef TraceGeneratorAppMain < handle
       App.InitialValueUI.ValueChangedCallback = @() auto_update_plot(App);
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
 
       App.InitialValueDurationUI = AppUtil1.Component.DoubleValueUI(left_column_grid);
       App.InitialValueDurationUI.NameText = CodeUtil1.i18n("Initial value duration, $d_0$");
@@ -191,7 +191,7 @@ classdef TraceGeneratorAppMain < handle
       App.InitialValueDurationUI.ValueChangedCallback = @() auto_update_plot(App);
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
 
       App.FirstTransitionDurationUI = AppUtil1.Component.DoubleValueUI(left_column_grid);
       App.FirstTransitionDurationUI.NameText = CodeUtil1.i18n("Initial transition duration, $h_0$");
@@ -199,7 +199,7 @@ classdef TraceGeneratorAppMain < handle
       App.FirstTransitionDurationUI.ValueChangedCallback = @() auto_update_plot(App);
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
 
       App.ValueRangeUI = AppUtil1.Component.DoubleValueUI(left_column_grid);
       App.ValueRangeUI.NameText = CodeUtil1.i18n("Value range, $V$");
@@ -207,7 +207,7 @@ classdef TraceGeneratorAppMain < handle
       App.ValueRangeUI.ValueChangedCallback = @() auto_update_plot(App);
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
 
       App.NumberOfTransitionsUI = AppUtil1.Component.DoubleValueUI(left_column_grid);
       App.NumberOfTransitionsUI.NameText = CodeUtil1.i18n("Number of transitions, $n$");
@@ -215,7 +215,7 @@ classdef TraceGeneratorAppMain < handle
       App.NumberOfTransitionsUI.ValueChangedCallback = @() auto_update_plot(App);
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
 
       App.TransitionDurationRangeUI = AppUtil1.Component.DoubleValueUI(left_column_grid);
       App.TransitionDurationRangeUI.NameText = CodeUtil1.i18n("Transition duration range, $T$");
@@ -223,7 +223,7 @@ classdef TraceGeneratorAppMain < handle
       App.TransitionDurationRangeUI.ValueChangedCallback = @() auto_update_plot(App);
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
 
       App.ConstantDurationRangeUI = AppUtil1.Component.DoubleValueUI(left_column_grid);
       App.ConstantDurationRangeUI.NameText = CodeUtil1.i18n("Constant duration range, $C$");
@@ -231,7 +231,7 @@ classdef TraceGeneratorAppMain < handle
       App.ConstantDurationRangeUI.ValueChangedCallback = @() auto_update_plot(App);
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
 
       App.FinalTransitionDurationUI = AppUtil1.Component.DoubleValueUI(left_column_grid);
       App.FinalTransitionDurationUI.NameText = CodeUtil1.i18n("Final transition duration, $h_f$");
@@ -239,7 +239,7 @@ classdef TraceGeneratorAppMain < handle
       App.FinalTransitionDurationUI.ValueChangedCallback = @() auto_update_plot(App);
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
 
       App.FinalValueUI = AppUtil1.Component.DoubleValueUI(left_column_grid);
       App.FinalValueUI.NameText = CodeUtil1.i18n("Final value, $f_f$");
@@ -247,7 +247,7 @@ classdef TraceGeneratorAppMain < handle
       App.FinalValueUI.ValueChangedCallback = @() auto_update_plot(App);
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
 
       App.FinalValueDurationUI = AppUtil1.Component.DoubleValueUI(left_column_grid);
       App.FinalValueDurationUI.NameText = CodeUtil1.i18n("Final value duration, $d_f$");
@@ -255,13 +255,13 @@ classdef TraceGeneratorAppMain < handle
       App.FinalValueDurationUI.ValueChangedCallback = @() auto_update_plot(App);
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
 
       label_ui = AppUtil1.Component.Label(left_column_grid);
       label_ui.Text = CodeUtil1.i18n("\textbf{Derived parameters}");
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
 
       App.TableGridVectorUI = AppUtil1.Component.DoubleValueUI(left_column_grid);
       App.TableGridVectorUI.NameText = CodeUtil1.i18n("Table grid vector, $x$");
@@ -269,7 +269,7 @@ classdef TraceGeneratorAppMain < handle
       App.TableGridVectorUI.ValueUI.ReadOnly = "on";
 
       % -----------------------------------------------------------------------
-      left_column_grid = NewColumnGrid(left_column_layout);
+      left_column_grid = addVerticalGridLayout(left_vertical_container);
 
       App.TableValuesUI = AppUtil1.Component.DoubleValueUI(left_column_grid);
       App.TableValuesUI.NameText = CodeUtil1.i18n("Table values, $f(x)$");
@@ -279,14 +279,14 @@ classdef TraceGeneratorAppMain < handle
       % =======================================================================
       % Right area
       % =======================================================================
-      right_row_grid = NewRowGrid(main_row_layout);
-      right_column_layout = AppUtil1.ColumnLayout(right_row_grid);
+      right_row_grid = addHorizontalGridLayout(main_horizontal_container);
+      right_vertical_container = AppUtil1.VerticalContainer(right_row_grid);
 
       % -----------------------------------------------------------------------
-      right_column_grid = NewColumnGrid(right_column_layout);
-      row_layout = AppUtil1.RowLayout(right_column_grid);
+      right_column_grid = addVerticalGridLayout(right_vertical_container);
+      horizontal_container = AppUtil1.HorizontalContainer(right_column_grid);
 
-      row_grid = NewRowGrid(row_layout, Width="fit");
+      row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       App.PlotButtonUI = AppUtil1.Component.EnabledButton(row_grid);
       App.PlotButtonUI.HorizontalAlignment = "left";
       App.PlotButtonUI.ButtonUIWidth = App.button_width + App.width_unit;
@@ -300,26 +300,26 @@ classdef TraceGeneratorAppMain < handle
       % Set false to auto-update and keep it until the entire app is ready.
       App.PlotButtonUI.ButtonEnable = "on";
 
-      row_grid = NewRowGrid(row_layout);
+      row_grid = addHorizontalGridLayout(horizontal_container);
       App.OpenInFigureWindowUI = AppUtil1.Component.Hyperlink(row_grid);
       App.OpenInFigureWindowUI.Text = CodeUtil1.i18n("Open in figure window");
       App.OpenInFigureWindowUI.HorizontalAlignment = "right";
       App.OpenInFigureWindowUI.HyperlinkClickedCallback = @() update_plot(App, StandAloneFigure=true);
 
       % -----------------------------------------------------------------------
-      right_column_grid = NewColumnGrid(right_column_layout);
+      right_column_grid = addVerticalGridLayout(right_vertical_container);
 
       App.AxesUI = AppUtil1.Graphics.Axes(right_column_grid);
       App.AxesUI.ComponentHeight = 326;
 
       % -----------------------------------------------------------------------
-      right_column_grid = NewColumnGrid(right_column_layout);
+      right_column_grid = addVerticalGridLayout(right_vertical_container);
 
       label_ui = AppUtil1.Component.Label(right_column_grid);
       label_ui.Text = CodeUtil1.i18n("\textbf{Visualization parameter}");
 
       % -----------------------------------------------------------------------
-      right_column_grid = NewColumnGrid(right_column_layout);
+      right_column_grid = addVerticalGridLayout(right_vertical_container);
 
       App.IntervalUI = AppUtil1.Component.DoubleValueUI(right_column_grid);
       App.IntervalUI.NameText = CodeUtil1.i18n("Interpolation interval");
@@ -330,13 +330,13 @@ classdef TraceGeneratorAppMain < handle
       % =======================================================================
       % Bottom area
       % =======================================================================
-      main_column_grid = NewColumnGrid(main_column_layout);
+      main_column_grid = addVerticalGridLayout(main_vertical_container);
       AppUtil1.Component.HorizontalLine(main_column_grid);
 
       % -----------------------------------------------------------------------
       % Configure the block selector UI to find Simscape PS Lookup Table (1D) block and
       % Simulink 1-D Lookup Table block.
-      main_column_grid = NewColumnGrid(main_column_layout);
+      main_column_grid = addVerticalGridLayout(main_vertical_container);
 
       App.SelectorUI = AppUtil1.Component.BlockSelectorUI(main_column_grid);
       App.SelectorUI.MainFigure = App.Window.MainFigure;

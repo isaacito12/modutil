@@ -12,11 +12,11 @@ main_figure = uifigure(Visible="off");
 main_figure.Position(3) = 500;  % width
 main_figure.Position(4) = 100;  % height
 
-app_column_layout = AppUtil1.ColumnLayout(main_figure);
+app_vertical_container = AppUtil1.VerticalContainer(main_figure);
 
 %% "fit" test
 
-enabled_button_ui_1 = AppUtil1.Component.EnabledButton(NewColumnGrid(app_column_layout));  % !test-target
+enabled_button_ui_1 = AppUtil1.Component.EnabledButton(addVerticalGridLayout(app_vertical_container));  % !test-target
 enabled_button_ui_1.MainFigure = main_figure;
 enabled_button_ui_1.HorizontalAlignment = "left";
 enabled_button_ui_1.HighlightBackground = "on";
@@ -32,7 +32,7 @@ enabled_button_ui_1.CheckBoxWidth = "fit";
 enabled_button_ui_1.ButtonDisable = "on";
 
 
-enabled_button_ui_2 = AppUtil1.Component.EnabledButton(NewColumnGrid(app_column_layout));  % !test-target
+enabled_button_ui_2 = AppUtil1.Component.EnabledButton(addVerticalGridLayout(app_vertical_container));  % !test-target
 enabled_button_ui_2.MainFigure = main_figure;
 enabled_button_ui_2.HorizontalAlignment = "left";
 enabled_button_ui_2.HighlightBackground = "on";
@@ -46,7 +46,7 @@ enabled_button_ui_2.CheckBoxUIWidth = "fit";
 enabled_button_ui_2.CheckBoxWidth = "fit";
 
 
-enabled_button_ui_3 = AppUtil1.Component.EnabledButton(NewColumnGrid(app_column_layout));  % !test-target
+enabled_button_ui_3 = AppUtil1.Component.EnabledButton(addVerticalGridLayout(app_vertical_container));  % !test-target
 enabled_button_ui_3.MainFigure = main_figure;
 enabled_button_ui_3.HorizontalAlignment = "left";
 enabled_button_ui_3.HighlightBackground = "on";

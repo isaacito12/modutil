@@ -13,13 +13,13 @@ main_figure = uifigure(Visible="off");
 main_figure.Position(3) = 700;  % width
 main_figure.Position(4) = 300;  % height
 
-main_column_layout = AppUtil1.ColumnLayout(main_figure);
+main_vertical_container = AppUtil1.VerticalContainer(main_figure);
 
 %%
-column_grid = NewColumnGrid(main_column_layout);
-row_layout = AppUtil1.RowLayout(column_grid);
+column_grid = addVerticalGridLayout(main_vertical_container);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout));  % !test-target
+label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));  % !test-target
 label_ui.Text = "Testing" + newline + "label component";
 label_ui.ComponentHeight = common_height;
 label_ui.VerticalAlignment = "top";
@@ -27,7 +27,7 @@ label_ui.HorizontalAlignment = "left";
 label_ui.MainFigure = main_figure;
 label_ui.HighlightBackground = "on";
 
-label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout));  % !test-target
+label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));  % !test-target
 label_ui.Text = "Testing" + newline + "label component";
 label_ui.ComponentHeight = common_height;
 label_ui.VerticalAlignment = "top";
@@ -35,7 +35,7 @@ label_ui.HorizontalAlignment = "center";
 label_ui.MainFigure = main_figure;
 label_ui.HighlightBackground = "off";
 
-label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout));  % !test-target
+label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));  % !test-target
 label_ui.Text = "Testing" + newline + "label component";
 label_ui.ComponentHeight = common_height;
 label_ui.VerticalAlignment = "top";
@@ -44,10 +44,10 @@ label_ui.MainFigure = main_figure;
 label_ui.HighlightBackground = "on";
 
 %%
-column_grid = NewColumnGrid(main_column_layout);
-row_layout = AppUtil1.RowLayout(column_grid);
+column_grid = addVerticalGridLayout(main_vertical_container);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout));  % !test-target
+label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));  % !test-target
 label_ui.Text = "Testing" + newline + "label component";
 label_ui.ComponentHeight = common_height;
 label_ui.VerticalAlignment = "center";
@@ -55,7 +55,7 @@ label_ui.HorizontalAlignment = "left";
 label_ui.MainFigure = main_figure;
 label_ui.HighlightBackground = "off";
 
-label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout));  % !test-target
+label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));  % !test-target
 label_ui.Text = "Testing" + newline + "label component";
 label_ui.ComponentHeight = common_height;
 label_ui.VerticalAlignment = "center";
@@ -63,7 +63,7 @@ label_ui.HorizontalAlignment = "center";
 label_ui.MainFigure = main_figure;
 label_ui.HighlightBackground = "on";
 
-label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout));  % !test-target
+label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));  % !test-target
 label_ui.Text = "Testing" + newline + "label component";
 label_ui.ComponentHeight = common_height;
 label_ui.VerticalAlignment = "center";
@@ -72,10 +72,10 @@ label_ui.MainFigure = main_figure;
 label_ui.HighlightBackground = "off";
 
 %%
-column_grid = NewColumnGrid(main_column_layout);
-row_layout = AppUtil1.RowLayout(column_grid);
+column_grid = addVerticalGridLayout(main_vertical_container);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout));  % !test-target
+label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));  % !test-target
 label_ui.Text = "Testing" + newline + "label component";
 label_ui.ComponentHeight = common_height;
 label_ui.VerticalAlignment = "bottom";
@@ -83,7 +83,7 @@ label_ui.HorizontalAlignment = "left";
 label_ui.MainFigure = main_figure;
 label_ui.HighlightBackground = "on";
 
-label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout));  % !test-target
+label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));  % !test-target
 label_ui.Text = "Testing" + newline + "label component";
 label_ui.ComponentHeight = common_height;
 label_ui.VerticalAlignment = "bottom";
@@ -91,7 +91,7 @@ label_ui.HorizontalAlignment = "center";
 label_ui.MainFigure = main_figure;
 label_ui.HighlightBackground = "off";
 
-label_ui = AppUtil1.Component.Label(NewRowGrid(row_layout));  % !test-target
+label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));  % !test-target
 label_ui.Text = "Testing" + newline + "label component";
 label_ui.ComponentHeight = common_height;
 label_ui.VerticalAlignment = "bottom";

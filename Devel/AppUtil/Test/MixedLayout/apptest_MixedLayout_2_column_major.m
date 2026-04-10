@@ -15,61 +15,61 @@ main_figure = uifigure(Visible="off");
 main_figure.Position(3) = 600;  % width
 main_figure.Position(4) = 320;  % height
 
-main_row_layout = AppUtil1.RowLayout(main_figure);  % !test-target
+main_horizontal_container = AppUtil1.HorizontalContainer(main_figure);  % !test-target
 
 % -----------------------------------------------------------------------------
-column_layout = AppUtil1.ColumnLayout(NewRowGrid(main_row_layout, Width=left_text_width));  % !test-target
+vertical_container = AppUtil1.VerticalContainer(addHorizontalGridLayout(main_horizontal_container, Width=left_text_width));  % !test-target
 
-label_ui = AppUtil1.Component.Label(NewColumnGrid(column_layout));
+label_ui = AppUtil1.Component.Label(addVerticalGridLayout(vertical_container));
 label_ui.MainFigure = main_figure;
 label_ui.Text = "Test 1";
 label_ui.HighlightBackground = "on";
 
-label_ui = AppUtil1.Component.Label(NewColumnGrid(column_layout));
+label_ui = AppUtil1.Component.Label(addVerticalGridLayout(vertical_container));
 label_ui.MainFigure = main_figure;
 label_ui.Text = "Test 2";
 label_ui.HighlightBackground = "off";
 
-label_ui = AppUtil1.Component.Label(NewColumnGrid(column_layout));
+label_ui = AppUtil1.Component.Label(addVerticalGridLayout(vertical_container));
 label_ui.MainFigure = main_figure;
 label_ui.Text = "Test 3";
 label_ui.HighlightBackground = "on";
 
 % -----------------------------------------------------------------------------
-column_layout = AppUtil1.ColumnLayout(NewRowGrid(main_row_layout));  % !test-target
+vertical_container = AppUtil1.VerticalContainer(addHorizontalGridLayout(main_horizontal_container));  % !test-target
 
-label_ui = AppUtil1.Component.Label(NewColumnGrid(column_layout));
+label_ui = AppUtil1.Component.Label(addVerticalGridLayout(vertical_container));
 label_ui.MainFigure = main_figure;
 label_ui.HorizontalAlignment = "center";
 label_ui.Text = "Test 4";
 label_ui.HighlightBackground = "off";
 
-label_ui = AppUtil1.Component.Label(NewColumnGrid(column_layout));
+label_ui = AppUtil1.Component.Label(addVerticalGridLayout(vertical_container));
 label_ui.MainFigure = main_figure;
 label_ui.HorizontalAlignment = "left";
 label_ui.Text = "Test 5";
 label_ui.HighlightBackground = "on";
 
-label_ui = AppUtil1.Component.Label(NewColumnGrid(column_layout));
+label_ui = AppUtil1.Component.Label(addVerticalGridLayout(vertical_container));
 label_ui.MainFigure = main_figure;
 label_ui.HorizontalAlignment = "right";
 label_ui.Text = "Test 6";
 label_ui.HighlightBackground = "off";
 
 % -----------------------------------------------------------------------------
-column_layout = AppUtil1.ColumnLayout(NewRowGrid(main_row_layout, Width=right_text_width));  % !test-target
+vertical_container = AppUtil1.VerticalContainer(addHorizontalGridLayout(main_horizontal_container, Width=right_text_width));  % !test-target
 
-label_ui = AppUtil1.Component.Label(NewColumnGrid(column_layout));
+label_ui = AppUtil1.Component.Label(addVerticalGridLayout(vertical_container));
 label_ui.MainFigure = main_figure;
 label_ui.Text = "Test 7";
 label_ui.HighlightBackground = "on";
 
-label_ui = AppUtil1.Component.Label(NewColumnGrid(column_layout));
+label_ui = AppUtil1.Component.Label(addVerticalGridLayout(vertical_container));
 label_ui.MainFigure = main_figure;
 label_ui.Text = "Test 8";
 label_ui.HighlightBackground = "off";
 
-label_ui = AppUtil1.Component.Label(NewColumnGrid(column_layout));
+label_ui = AppUtil1.Component.Label(addVerticalGridLayout(vertical_container));
 label_ui.MainFigure = main_figure;
 label_ui.Text = "Test 9";
 label_ui.HighlightBackground = "on";

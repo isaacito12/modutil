@@ -1,6 +1,6 @@
 function App = apptest_AppWindow_2_vertical_scrollbar
 
-% Copyright 2024-2025 The MathWorks, Inc.
+% Copyright 2024-2026 The MathWorks, Inc.
 
 arguments (Output)
   App (:,1) struct
@@ -13,11 +13,11 @@ app_window.Name = CodeUtil1.i18n("Test");
 app_window.Width = 400;
 app_window.Height = 140;
 
-main_column_layout = app_window.MainLayout;
+main_vertical_container = app_window.MainVerticalContainer;
 
-column_grid = NewColumnGrid(main_column_layout);
+v_gridlayout = addVerticalGridLayout(main_vertical_container);
 
-label_ui = AppUtil1.Component.Label(column_grid);
+label_ui = AppUtil1.Component.Label(v_gridlayout);
 label_ui.MainFigure = main_figure;
 label_ui.ComponentHeight = 200;
 label_ui.VerticalAlignment = "top";

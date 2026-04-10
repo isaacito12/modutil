@@ -22,14 +22,14 @@ app_window.Width = 900;
 app_window.Height = 500;
 app_window.Name = CodeUtil1.i18n("Colormap");
 
-main_column_layout = app_window.MainLayout;
-main_column_grid = NewColumnGrid(main_column_layout);
-main_row_layout = AppUtil1.RowLayout(main_column_grid);
+main_vertical_container = app_window.MainVerticalContainer;
+main_column_grid = addVerticalGridLayout(main_vertical_container);
+main_horizontal_container = AppUtil1.HorizontalContainer(main_column_grid);
 
 % =============================================================================
 % Left pane
 
-listbox_ui = AppUtil1.Component.ListBox(NewRowGrid(main_row_layout, Width=140));
+listbox_ui = AppUtil1.Component.ListBox(addHorizontalGridLayout(main_horizontal_container, Width=140));
 listbox_ui.MainFigure = app_window.MainFigure;
 listbox_ui.ComponentHeight = "1x";
 listbox_ui.MainListBox.Items = colormaplist;
@@ -37,11 +37,11 @@ listbox_ui.ValueChangedCallback = @() react_ColormapChanged();
 
 % =============================================================================
 % Center pane
-center_grid = NewRowGrid(main_row_layout);
-column_layout = AppUtil1.ColumnLayout(center_grid);
+center_grid = addHorizontalGridLayout(main_horizontal_container);
+vertical_container = AppUtil1.VerticalContainer(center_grid);
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(column_layout);
+column_grid = addVerticalGridLayout(vertical_container);
 
 axes_ui = AppUtil1.Graphics.Axes(column_grid);
 axes_ui.MainFigure = app_window.MainFigure;
@@ -53,34 +53,34 @@ contourf(axes_ui.MainAxes, peaks)
 colorbar(axes_ui.MainAxes)
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(column_layout);
+column_grid = addVerticalGridLayout(vertical_container);
 
 label_ui_1 = AppUtil1.Component.Label(column_grid);
 label_ui_1.MainFigure = app_window.MainFigure;
 label_ui_1.Text = CodeUtil1.i18n("Row");
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(column_layout);
+column_grid = addVerticalGridLayout(vertical_container);
 
-row_layout = AppUtil1.RowLayout(column_grid);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-label_ui_2 = AppUtil1.Component.Label(NewRowGrid(row_layout));
+label_ui_2 = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));
 label_ui_2.MainFigure = app_window.MainFigure;
 label_ui_2.Text = CodeUtil1.i18n("Light");
 label_ui_2.MainLabel.FontColor = "black";
 
-label_ui_3 = AppUtil1.Component.Label(NewRowGrid(row_layout));
+label_ui_3 = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));
 label_ui_3.MainFigure = app_window.MainFigure;
 label_ui_3.Text = CodeUtil1.i18n("Dark");
 label_ui_3.MainLabel.FontColor = "white";
 
 % =============================================================================
 % Right pane
-right_grid = NewRowGrid(main_row_layout, Width=320);
-column_layout = AppUtil1.ColumnLayout(right_grid);
+right_grid = addHorizontalGridLayout(main_horizontal_container, Width=320);
+vertical_container = AppUtil1.VerticalContainer(right_grid);
 
 % -----------------------------------------------------------------------------
-column_grid = NewColumnGrid(column_layout);
+column_grid = addVerticalGridLayout(vertical_container);
 
 table_ui = AppUtil1.Component.Table(column_grid);
 table_ui.ComponentHeight = app_window.Height - 40;

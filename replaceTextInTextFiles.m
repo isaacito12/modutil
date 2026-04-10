@@ -1,10 +1,25 @@
 function NumUpdatedFiles = replaceTextInTextFiles(NameValuePair)
+% Find and replace text in text files in the current folder tree.
 %
-% x = replaceTextInTextFiles(CurrentText="TestUtil1", NewText="MyUtilTest");
+% This function depends on MATLAB only. No extra libraries or toolboxes are required.
+% This function works on text files only.
+% By default, this function is in the dry run mode where no actual replacement takes place.
+% Running the command below returns the number of files to be modified but not actually modified.
+% 
+%   num_replaced = replaceTextInTextFiles(CurrentText="ThisText", NewText="ThatText");
+%
+% To see the list of files identified for modification, set a break point for target_files
+% within this function.
+%
+% To actually perform replacement, use DryRun=false.
+%
+%   num_replaced = replaceTextInTextFiles(CurrentText="ThisText", NewText="ThatText", DryRun=false);
+%
 
 % Copyright 2026 The MathWorks, Inc.
 
 arguments (Input)
+  % !todo: CurrentText could be of type pattern instead of string.
   NameValuePair.CurrentText (1,1) string = ""
   NameValuePair.NewText (1,1) string = ""
   NameValuePair.DryRun (1,1) logical = true

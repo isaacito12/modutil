@@ -14,13 +14,13 @@ main_figure = uifigure(Visible="off");
 main_figure.Position(3) = 280 * 3;  % width
 main_figure.Position(4) = 340;  % height
 
-main_row_layout = AppUtil1.RowLayout(main_figure);
+main_horizontal_container = AppUtil1.HorizontalContainer(main_figure);
 
 % -----------------------------------------------------------------------------
-row_grid = NewRowGrid(main_row_layout);
-left_column_layout = AppUtil1.ColumnLayout(row_grid);
+row_grid = addHorizontalGridLayout(main_horizontal_container);
+left_vertical_container = AppUtil1.VerticalContainer(row_grid);
 
-label_ui = AppUtil1.Component.Label(NewColumnGrid(left_column_layout));  % !test-target
+label_ui = AppUtil1.Component.Label(addVerticalGridLayout(left_vertical_container));  % !test-target
 label_ui.MainFigure = main_figure;
 label_ui.ComponentHeight = height_label;
 label_ui.WordWrap = "on";
@@ -29,7 +29,7 @@ label_ui.HorizontalAlignment = "left";
 label_ui.Text = "Vertical alignment is ""top"". Horizontal alignment is ""left"".";
 label_ui.HighlightBackground = "on";
 
-label_ui = AppUtil1.Component.Label(NewColumnGrid(left_column_layout));  % !test-target
+label_ui = AppUtil1.Component.Label(addVerticalGridLayout(left_vertical_container));  % !test-target
 label_ui.MainFigure = main_figure;
 label_ui.ComponentHeight = height_label;
 label_ui.WordWrap = "on";
@@ -38,7 +38,7 @@ label_ui.HorizontalAlignment = "left";
 label_ui.Text = "Vertical alignment is ""center"". Horizontal alignment is ""left"".";
 label_ui.HighlightBackground = "off";
 
-label_ui = AppUtil1.Component.Label(NewColumnGrid(left_column_layout));  % !test-target
+label_ui = AppUtil1.Component.Label(addVerticalGridLayout(left_vertical_container));  % !test-target
 label_ui.MainFigure = main_figure;
 label_ui.ComponentHeight = height_label;
 label_ui.WordWrap = "on";
@@ -48,10 +48,10 @@ label_ui.Text = "Vertical alignment is ""bottom"". Horizontal alignment is ""lef
 label_ui.HighlightBackground = "on";
 
 % -----------------------------------------------------------------------------
-row_grid = NewRowGrid(main_row_layout);
-center_column_layout = AppUtil1.ColumnLayout(row_grid);
+row_grid = addHorizontalGridLayout(main_horizontal_container);
+center_vertical_container = AppUtil1.VerticalContainer(row_grid);
 
-label_ui = AppUtil1.Component.Label(NewColumnGrid(center_column_layout));  % !test-target
+label_ui = AppUtil1.Component.Label(addVerticalGridLayout(center_vertical_container));  % !test-target
 label_ui.MainFigure = main_figure;
 label_ui.ComponentHeight = height_label;
 label_ui.WordWrap = "on";
@@ -60,7 +60,7 @@ label_ui.HorizontalAlignment = "center";
 label_ui.Text = "Vertical alignment is ""top"". Horizontal alignment is ""center"".";
 label_ui.HighlightBackground = "off";
 
-label_ui = AppUtil1.Component.Label(NewColumnGrid(center_column_layout));  % !test-target
+label_ui = AppUtil1.Component.Label(addVerticalGridLayout(center_vertical_container));  % !test-target
 label_ui.MainFigure = main_figure;
 label_ui.ComponentHeight = height_label;
 label_ui.WordWrap = "on";
@@ -69,7 +69,7 @@ label_ui.HorizontalAlignment = "center";
 label_ui.Text = "Vertical alignment is ""center"". Horizontal alignment is ""center"".";
 label_ui.HighlightBackground = "on";
 
-label_ui = AppUtil1.Component.Label(NewColumnGrid(center_column_layout));  % !test-target
+label_ui = AppUtil1.Component.Label(addVerticalGridLayout(center_vertical_container));  % !test-target
 label_ui.MainFigure = main_figure;
 label_ui.ComponentHeight = height_label;
 label_ui.WordWrap = "on";
@@ -79,10 +79,10 @@ label_ui.Text = "Vertical alignment is ""bottom"". Horizontal alignment is ""cen
 label_ui.HighlightBackground = "off";
 
 % -----------------------------------------------------------------------------
-row_grid = NewRowGrid(main_row_layout);
-right_column_layout = AppUtil1.ColumnLayout(row_grid);
+row_grid = addHorizontalGridLayout(main_horizontal_container);
+right_vertical_container = AppUtil1.VerticalContainer(row_grid);
 
-label_ui = AppUtil1.Component.Label(NewColumnGrid(right_column_layout));  % !test-target
+label_ui = AppUtil1.Component.Label(addVerticalGridLayout(right_vertical_container));  % !test-target
 label_ui.MainFigure = main_figure;
 label_ui.ComponentHeight = height_label;
 label_ui.WordWrap = "on";
@@ -91,7 +91,7 @@ label_ui.HorizontalAlignment = "right";
 label_ui.Text = "Vertical alignment is ""top"". Horizontal alignment is ""right"".";
 label_ui.HighlightBackground = "on";
 
-label_ui = AppUtil1.Component.Label(NewColumnGrid(right_column_layout));  % !test-target
+label_ui = AppUtil1.Component.Label(addVerticalGridLayout(right_vertical_container));  % !test-target
 label_ui.MainFigure = main_figure;
 label_ui.ComponentHeight = height_label;
 label_ui.WordWrap = "on";
@@ -100,7 +100,7 @@ label_ui.HorizontalAlignment = "right";
 label_ui.Text = "Vertical alignment is ""center"". Horizontal alignment is ""right"".";
 label_ui.HighlightBackground = "off";
 
-label_ui = AppUtil1.Component.Label(NewColumnGrid(right_column_layout));  % !test-target
+label_ui = AppUtil1.Component.Label(addVerticalGridLayout(right_vertical_container));  % !test-target
 label_ui.MainFigure = main_figure;
 label_ui.ComponentHeight = height_label;
 label_ui.WordWrap = "on";

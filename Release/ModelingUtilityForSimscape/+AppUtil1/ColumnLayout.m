@@ -2,7 +2,7 @@ classdef ColumnLayout < handle
   % Column Layout
   %
   % This class provides a column-based grid layout to stack UI components vertically.
-  % Successive calls of the NewColumnGrid function adds a UI component from top to bottom.
+  % Successive calls of the addVerticalGridLayout function adds a UI component from top to bottom.
   %
   % By default, the width of a component is configured to be "1x".
   % The height of a component is configured to be "fit".
@@ -34,7 +34,7 @@ classdef ColumnLayout < handle
       layout.BaseGrid.Scrollable = "on";
     end  % function
 
-    function NewGrid = NewColumnGrid(layout, NameValuePair)
+    function NewGrid = addVerticalGridLayout(layout, NameValuePair)
       %%
       arguments (Input)
         layout

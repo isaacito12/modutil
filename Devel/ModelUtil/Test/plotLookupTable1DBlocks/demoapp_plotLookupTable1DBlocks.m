@@ -15,14 +15,14 @@ main_figure.Name = CodeUtil1.i18n("Demo App");
 main_figure.Position(3) = 600;  % width
 main_figure.Position(4) = 450;  % height
 
-column_layout = AppUtil1.ColumnLayout(main_figure);
+vertical_container = AppUtil1.VerticalContainer(main_figure);
 
-label_ui = AppUtil1.Component.Label(NewColumnGrid(column_layout));
+label_ui = AppUtil1.Component.Label(addVerticalGridLayout(vertical_container));
 label_ui.MainFigure = main_figure;
 label_ui.Text = CodeUtil1.i18n("Model name: ") + model_name;
 label_ui.HorizontalAlignment = "center";
 
-panel_ui = AppUtil1.Graphics.Panel(NewColumnGrid(column_layout));
+panel_ui = AppUtil1.Graphics.Panel(addVerticalGridLayout(vertical_container));
 panel_ui.ComponentHeight = 390;
 % panel_ui.HighlightBackground = "on";
 
@@ -32,7 +32,7 @@ ModelUtil1.plotLookupTable1DBlocks( ...
   ParentType = "Panel", ...
   ParentPanel = panel_ui.MainPanel )
 
-button_ui = AppUtil1.Component.Button(NewColumnGrid(column_layout));
+button_ui = AppUtil1.Component.Button(addVerticalGridLayout(vertical_container));
 button_ui.MainFigure = main_figure;
 button_ui.Text = CodeUtil1.i18n("Open model");
 button_ui.ButtonWidth = 120;

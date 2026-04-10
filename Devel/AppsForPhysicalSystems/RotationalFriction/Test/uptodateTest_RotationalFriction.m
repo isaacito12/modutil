@@ -47,7 +47,6 @@ classdef uptodateTest_RotationalFriction < matlab.unittest.TestCase
         return
 
       end  % if
-      % R2025a or newer
 
       source_fullpath = FileUtil1.getFileFullPath("RotationalFriction_Description.mlx");
       [folder, file_base_name, ~] = fileparts(source_fullpath);
@@ -73,6 +72,12 @@ classdef uptodateTest_RotationalFriction < matlab.unittest.TestCase
       % Make sure the description Markdown file is up to date.
       if matlabRelease.Release == "R2026a"
         disp("Skipping this test in R2026a for now.")  % !todo: don't skip
+
+        return
+
+      end  % if
+      if isMATLABReleaseOlderThan("R2025b")
+        disp("Skipping this test in R2025a or older.")
 
         return
 

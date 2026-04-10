@@ -12,17 +12,17 @@ main_figure = uifigure(Visible="off");
 main_figure.Position(3) = 300;  % width
 main_figure.Position(4) = 300;  % height
 
-app_column_layout = AppUtil1.ColumnLayout(main_figure);
+app_vertical_container = AppUtil1.VerticalContainer(main_figure);
 
 %%
 
-button_ui = AppUtil1.Component.Button(NewColumnGrid(app_column_layout));
+button_ui = AppUtil1.Component.Button(addVerticalGridLayout(app_vertical_container));
 button_ui.MainFigure = main_figure;
 button_ui.Text = "Add an item";
 button_ui.ButtonWidth = 140;
 button_ui.ButtonPushedCallback = @() react_ButtonPushed();
 
-drop_down_ui = AppUtil1.Component.DropDown(NewColumnGrid(app_column_layout));  % !test-target
+drop_down_ui = AppUtil1.Component.DropDown(addVerticalGridLayout(app_vertical_container));  % !test-target
 drop_down_ui.MainFigure = main_figure;
 drop_down_ui.Items = ["aa", "bb", "cc"];
 

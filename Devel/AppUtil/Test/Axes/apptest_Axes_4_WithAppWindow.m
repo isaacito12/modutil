@@ -12,9 +12,9 @@ app_window = AppUtil1.AppWindow(main_figure);
 app_window.Width = 300;
 app_window.Height = 400;
 
-main_column_layout = app_window.MainLayout;
+main_vertical_container = app_window.MainVerticalContainer;
 
-axes_ui = AppUtil1.Graphics.Axes(NewColumnGrid(main_column_layout));  % !test-target
+axes_ui = AppUtil1.Graphics.Axes(addVerticalGridLayout(main_vertical_container));  % !test-target
 
 axes_ui.MainFigure = app_window.MainFigure;
 

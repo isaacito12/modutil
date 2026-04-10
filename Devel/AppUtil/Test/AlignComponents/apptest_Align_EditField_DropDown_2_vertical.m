@@ -15,27 +15,27 @@ main_figure.Name = "Test";
 main_figure.Position(3) = 300;  % width
 main_figure.Position(4) = 200;  % height
 
-column_layout = AppUtil1.ColumnLayout(main_figure);
+vertical_container = AppUtil1.VerticalContainer(main_figure);
 
-editfield_ui = AppUtil1.Component.EditField(NewColumnGrid(column_layout));
+editfield_ui = AppUtil1.Component.EditField(addVerticalGridLayout(vertical_container));
 editfield_ui.MainFigure = main_figure;
 editfield_ui.MainEditField.Placeholder = "(edit field)";
 
-dropdown_ui = AppUtil1.Component.DropDown(NewColumnGrid(column_layout));
+dropdown_ui = AppUtil1.Component.DropDown(addVerticalGridLayout(vertical_container));
 dropdown_ui.MainFigure = main_figure;
 dropdown_ui.Items = ["1", "2"];
 dropdown_ui.Value = "1";
 
-editfield_ui = AppUtil1.Component.EditField(NewColumnGrid(column_layout));
+editfield_ui = AppUtil1.Component.EditField(addVerticalGridLayout(vertical_container));
 editfield_ui.MainFigure = main_figure;
 editfield_ui.MainEditField.Placeholder = "(edit field)";
 
-dropdown_ui = AppUtil1.Component.EditableDropDown(NewColumnGrid(column_layout));
+dropdown_ui = AppUtil1.Component.EditableDropDown(addVerticalGridLayout(vertical_container));
 dropdown_ui.MainFigure = main_figure;
 dropdown_ui.Items = ["1", "2"];
 dropdown_ui.Value = "1";
 
-editfield_ui = AppUtil1.Component.EditField(NewColumnGrid(column_layout));
+editfield_ui = AppUtil1.Component.EditField(addVerticalGridLayout(vertical_container));
 editfield_ui.MainFigure = main_figure;
 editfield_ui.MainEditField.Placeholder = "(edit field)";
 

@@ -14,14 +14,14 @@ main_figure = uifigure(Visible="off");
 main_figure.Position(3) = 900;  % width
 main_figure.Position(4) = 300;  % height
 
-app_row_layout = AppUtil1.RowLayout(main_figure);
+app_horizontal_container = AppUtil1.HorizontalContainer(main_figure);
 
-left_grid = NewRowGrid(app_row_layout);
+left_grid = addHorizontalGridLayout(app_horizontal_container);
 build_ui(main_figure, left_grid, [1 0 1])
 build_ui(main_figure, left_grid, [0 1 0])
 build_ui(main_figure, left_grid, [1 0 1])
 
-right_grid = NewRowGrid(app_row_layout);
+right_grid = addHorizontalGridLayout(app_horizontal_container);
 build_ui(main_figure, right_grid, [0 1 0])
 build_ui(main_figure, right_grid, [1 0 1])
 build_ui(main_figure, right_grid, [0 1 0])
@@ -41,23 +41,23 @@ end  % function
 
 function build_ui(main_figure, grid_layout, hilit)
 %%
-column_layout = AppUtil1.ColumnLayout(grid_layout);
+vertical_container = AppUtil1.VerticalContainer(grid_layout);
 for column_count = 1 : 3
-  column_grid = NewColumnGrid(column_layout);  
-  row_layout = AppUtil1.RowLayout(column_grid);
+  column_grid = addVerticalGridLayout(vertical_container);  
+  horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
   % left
-  ui_1 = AppUtil1.Component.CheckBox(NewRowGrid(row_layout, width=160));  % #test-target
+  ui_1 = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container, width=160));  % #test-target
   ui_1.MainFigure = main_figure;
   ui_1.HighlightBackground = hilit(1);
 
   % center
-  ui_2 = AppUtil1.Component.CheckBox(NewRowGrid(row_layout, Width="1x"));  % #test-target
+  ui_2 = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container, Width="1x"));  % #test-target
   ui_2.MainFigure = main_figure;
   ui_2.HighlightBackground = hilit(2);
 
   % right
-  ui_3 = AppUtil1.Component.CheckBox(NewRowGrid(row_layout, Width="2x"));  % #test-target
+  ui_3 = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container, Width="2x"));  % #test-target
   ui_3.MainFigure = main_figure;
   ui_3.HighlightBackground = hilit(3);
 end  % for

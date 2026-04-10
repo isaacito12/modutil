@@ -25,18 +25,18 @@ app_window.Width = 900;
 app_window.Height = 450;
 app_window.Name = CodeUtil1.i18n("Code coverage");
 
-main_column_layout = app_window.MainLayout;
+main_vertical_container = app_window.MainVerticalContainer;
 
 % -----------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
-row_layout = AppUtil1.RowLayout(column_grid);
+column_grid = addVerticalGridLayout(main_vertical_container);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-row_grid = NewRowGrid(row_layout, Width="fit");
+row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
 label_ui = AppUtil1.Component.Label(row_grid);
 label_ui.MainFigure = main_figure;
 label_ui.Text = CodeUtil1.i18n("Code coverage file");
 
-row_grid = NewRowGrid(row_layout);
+row_grid = addHorizontalGridLayout(horizontal_container);
 button_ui = AppUtil1.Component.Button(row_grid);
 button_ui.MainFigure = main_figure;
 button_ui.ComponentWidth = 120;
@@ -44,68 +44,68 @@ button_ui.Text = CodeUtil1.i18n("Select...");
 button_ui.ButtonPushedCallback = @() react_SelectButtonPushed();
 
 % -----------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
-row_layout = AppUtil1.RowLayout(column_grid);
+column_grid = addVerticalGridLayout(main_vertical_container);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
-row_grid = NewRowGrid(row_layout);
+row_grid = addHorizontalGridLayout(horizontal_container);
 link_ui = AppUtil1.Component.Hyperlink(row_grid);
 link_ui.MainFigure = main_figure;
 link_ui.Text = "";
 
 % -----------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
-row_layout = AppUtil1.RowLayout(column_grid);
+column_grid = addVerticalGridLayout(main_vertical_container);
+horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
 % ---
-row_grid = NewRowGrid(row_layout, Width="fit");
+row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
 label_ui = AppUtil1.Component.Label(row_grid);
 label_ui.MainFigure = main_figure;
 label_ui.Text = CodeUtil1.i18n("Omit coverage above:");
 
-row_grid = NewRowGrid(row_layout);
+row_grid = addHorizontalGridLayout(horizontal_container);
 cov_threshold_ui = AppUtil1.Component.Label(row_grid);
 cov_threshold_ui.MainFigure = main_figure;
 cov_threshold_ui.Text = "";
 
 % ---
-row_grid = NewRowGrid(row_layout, Width="fit");
+row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
 label_ui = AppUtil1.Component.Label(row_grid);
 label_ui.MainFigure = main_figure;
 label_ui.Text = CodeUtil1.i18n("Overall line coverage:");
 
-row_grid = NewRowGrid(row_layout);
+row_grid = addHorizontalGridLayout(horizontal_container);
 line_coverage_ui = AppUtil1.Component.Label(row_grid);
 line_coverage_ui.MainFigure = main_figure;
 line_coverage_ui.Text = "";
 
 % ---
-row_grid = NewRowGrid(row_layout, Width="fit");
+row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
 label_ui = AppUtil1.Component.Label(row_grid);
 label_ui.MainFigure = main_figure;
 label_ui.Text = CodeUtil1.i18n("Lines covered:");
 
-row_grid = NewRowGrid(row_layout);
+row_grid = addHorizontalGridLayout(horizontal_container);
 lines_covered_ui = AppUtil1.Component.Label(row_grid);
 lines_covered_ui.MainFigure = main_figure;
 lines_covered_ui.Text = "";
 
 % ---
-row_grid = NewRowGrid(row_layout, Width="fit");
+row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
 label_ui = AppUtil1.Component.Label(row_grid);
 label_ui.MainFigure = main_figure;
 label_ui.Text = CodeUtil1.i18n("Lines valid:");
 
-row_grid = NewRowGrid(row_layout);
+row_grid = addHorizontalGridLayout(horizontal_container);
 lines_valid_ui = AppUtil1.Component.Label(row_grid);
 lines_valid_ui.MainFigure = main_figure;
 lines_valid_ui.Text = "";
 
 % -----------------------------------------------------------------------
-% column_grid = NewColumnGrid(main_column_layout);
+% column_grid = addVerticalGridLayout(main_vertical_container);
 % AppUtil1.Component.HorizontalLine(column_grid);
 
 % -----------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout, Height="1x");  % !vertical-expansion
+column_grid = addVerticalGridLayout(main_vertical_container, Height="1x");  % !vertical-expansion
 
 table_ui = AppUtil1.Component.Table(column_grid);
 table_ui.MainFigure = main_figure;
@@ -161,7 +161,7 @@ table_ui.MainTable.DoubleClickedFcn = @(~, DoubleClickedData) ...
   end  % nested function
 
 % -----------------------------------------------------------------------
-column_grid = NewColumnGrid(main_column_layout);
+column_grid = addVerticalGridLayout(main_vertical_container);
 
 default_message = CodeUtil1.i18n("Double-click a table row to open the file. (The file must exist.)");
 

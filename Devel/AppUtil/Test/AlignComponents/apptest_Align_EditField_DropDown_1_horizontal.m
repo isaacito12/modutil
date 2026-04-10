@@ -19,69 +19,69 @@ main_figure.Name = "Test";
 main_figure.Position(3) = 800;  % width
 main_figure.Position(4) = 200;  % height
 
-column_layout = AppUtil1.ColumnLayout(main_figure);
+vertical_container = AppUtil1.VerticalContainer(main_figure);
 
 % -----------------------------------------------------------------------------
-row_layout = AppUtil1.RowLayout(NewColumnGrid(column_layout));
+horizontal_container = AppUtil1.HorizontalContainer(addVerticalGridLayout(vertical_container));
 
-editfield_ui = AppUtil1.Component.EditField(NewRowGrid(row_layout));
+editfield_ui = AppUtil1.Component.EditField(addHorizontalGridLayout(horizontal_container));
 editfield_ui.MainFigure = main_figure;
 editfield_ui.MainEditField.Placeholder = "(edit field)";
 
-dropdown_ui = AppUtil1.Component.DropDown(NewRowGrid(row_layout));
+dropdown_ui = AppUtil1.Component.DropDown(addHorizontalGridLayout(horizontal_container));
 dropdown_ui.MainFigure = main_figure;
 dropdown_ui.Items = ["1", "2"];
 dropdown_ui.Value = "1";
 
-editfield_ui = AppUtil1.Component.EditField(NewRowGrid(row_layout));
+editfield_ui = AppUtil1.Component.EditField(addHorizontalGridLayout(horizontal_container));
 editfield_ui.MainFigure = main_figure;
 editfield_ui.MainEditField.Placeholder = "(edit field)";
 editfield_ui.HighlightBackground = "on";
 
-dropdown_ui = AppUtil1.Component.DropDown(NewRowGrid(row_layout));
+dropdown_ui = AppUtil1.Component.DropDown(addHorizontalGridLayout(horizontal_container));
 dropdown_ui.MainFigure = main_figure;
 dropdown_ui.Items = ["1", "2"];
 dropdown_ui.Value = "1";
 dropdown_ui.HighlightBackground = "on";
 
-editfield_ui = AppUtil1.Component.EditField(NewRowGrid(row_layout));
+editfield_ui = AppUtil1.Component.EditField(addHorizontalGridLayout(horizontal_container));
 editfield_ui.MainFigure = main_figure;
 editfield_ui.MainEditField.Placeholder = "(edit field)";
 
-dropdown_ui = AppUtil1.Component.EditableDropDown(NewRowGrid(row_layout));
+dropdown_ui = AppUtil1.Component.EditableDropDown(addHorizontalGridLayout(horizontal_container));
 dropdown_ui.MainFigure = main_figure;
 dropdown_ui.Items = ["1", "2"];
 dropdown_ui.Value = "1";
 
 % -----------------------------------------------------------------------------
-row_layout = AppUtil1.RowLayout(NewColumnGrid(column_layout));
+horizontal_container = AppUtil1.HorizontalContainer(addVerticalGridLayout(vertical_container));
 
-editfield_ui = AppUtil1.Component.EditField(NewRowGrid(row_layout));
+editfield_ui = AppUtil1.Component.EditField(addHorizontalGridLayout(horizontal_container));
 editfield_ui.MainFigure = main_figure;
 editfield_ui.MainEditField.Placeholder = "(edit field)";
 editfield_ui.HighlightBackground = "on";
 
-dropdown_ui = AppUtil1.Component.EditableDropDown(NewRowGrid(row_layout));
+dropdown_ui = AppUtil1.Component.EditableDropDown(addHorizontalGridLayout(horizontal_container));
 dropdown_ui.MainFigure = main_figure;
 dropdown_ui.Items = ["1", "2"];
 dropdown_ui.Value = "1";
 dropdown_ui.HighlightBackground = "on";
 
-editfield_ui = AppUtil1.Component.EditField(NewRowGrid(row_layout));
+editfield_ui = AppUtil1.Component.EditField(addHorizontalGridLayout(horizontal_container));
 editfield_ui.MainFigure = main_figure;
 editfield_ui.MainEditField.Placeholder = "(edit field)";
 
-dropdown_ui = AppUtil1.Component.EditableDropDown(NewRowGrid(row_layout));
+dropdown_ui = AppUtil1.Component.EditableDropDown(addHorizontalGridLayout(horizontal_container));
 dropdown_ui.MainFigure = main_figure;
 dropdown_ui.Items = ["1", "2"];
 dropdown_ui.Value = "1";
 
-editfield_ui = AppUtil1.Component.EditField(NewRowGrid(row_layout));
+editfield_ui = AppUtil1.Component.EditField(addHorizontalGridLayout(horizontal_container));
 editfield_ui.MainFigure = main_figure;
 editfield_ui.MainEditField.Placeholder = "(edit field)";
 editfield_ui.HighlightBackground = "on";
 
-dropdown_ui = AppUtil1.Component.DropDown(NewRowGrid(row_layout));
+dropdown_ui = AppUtil1.Component.DropDown(addHorizontalGridLayout(horizontal_container));
 dropdown_ui.MainFigure = main_figure;
 dropdown_ui.Items = ["1", "2"];
 dropdown_ui.Value = "1";

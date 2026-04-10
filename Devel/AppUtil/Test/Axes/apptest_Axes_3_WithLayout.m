@@ -20,9 +20,9 @@ main_grid.RowSpacing = 0;
 
 main_grid.Scrollable = "on";
 
-column_layout = AppUtil1.ColumnLayout(main_grid);
+vertical_container = AppUtil1.VerticalContainer(main_grid);
 
-axes_ui = AppUtil1.Graphics.Axes(NewColumnGrid(column_layout));  % !test-target
+axes_ui = AppUtil1.Graphics.Axes(addVerticalGridLayout(vertical_container));  % !test-target
 
 axes_ui.MainFigure = main_figure;
 

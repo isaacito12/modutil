@@ -1,0 +1,35 @@
+<svg width="100" height="100" viewBox="0 0 100 100"
+     xmlns="http://www.w3.org/2000/svg" aria-label="Rotation arrow icon" role="img">
+<!-- Copyright 2026 The MathWorks, Inc. -->
+<!--
+Origin is at top left.
+X grows to the right.
+Y grows downwards.
+An object is drawn in front of the previous one.
+-->
+
+<!-- Arc: start at 5 o'clock, clockwise, end at 15 o'clock -->
+<!-- Center (50,50), radius 40 -->
+<path
+  d="M 65 75.98 A 30 30 0 1 1 80 50"
+  fill="none"
+  stroke="gray"
+  stroke-width="14"
+  stroke-linecap="round"/>
+<path
+  d="M 65 75.98 A 30 30 0 1 1 80 50"
+  fill="none"
+  stroke="black"
+  stroke-width="10"
+  stroke-linecap="round"/>
+
+<!-- Down-pointing triangle, centered, then translated right by 30px -->
+
+<polygon
+  points="30,50 70,50 50,70"
+  transform="translate(30,0)"
+  stroke="gray"
+  stroke-width="2"
+  fill="black" />
+
+</svg>

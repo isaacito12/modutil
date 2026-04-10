@@ -13,7 +13,7 @@ classdef uiTest_SignalDesignAppMain < matlab.uitest.TestCase
     % Functions in the TestMethodSetup section always run before
     % each test defined in the Test section runs.
 
-    function test_method_setup(testcase)
+    function test_method_setup_1(testcase)
       %%
       % Close all before test
       close all
