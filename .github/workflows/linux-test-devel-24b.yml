@@ -99,7 +99,7 @@ jobs:
         # Run this step regardless of the previous step's success/failure state.
         if: always()
         with:
-          sarif_file: Devel/test-result-24b/code-issues.sarif
+          sarif_file: Devel/test-result/code-issues.sarif
           category: matlab-analysis
 
       - name: Publish test report
@@ -107,7 +107,7 @@ jobs:
         # Run this step regardless of the previous step's success/failure state.
         if: always()
         with:
-          report_paths: 'Devel/test-result-24b/test-result.xml'
+          report_paths: 'Devel/test-result/test-result.xml'
 
       - name: Upload test result PDF
         uses: actions/upload-artifact@v4
@@ -115,7 +115,7 @@ jobs:
         if: always()
         with:
           name: Test Result PDF
-          path: Devel/test-result-24b/test-result.pdf
+          path: Devel/test-result/test-result.pdf
 
       - name: Upload test result folder
         uses: actions/upload-artifact@v4
@@ -130,5 +130,5 @@ jobs:
         # The failure of this step should not affect the entire job's pass/fail state.
         continue-on-error: true
         with:
-          path: Devel/test-result-24b/code-coverage.xml
+          path: Devel/test-result/code-coverage.xml
           minimum_coverage: 75

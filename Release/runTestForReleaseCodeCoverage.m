@@ -28,12 +28,16 @@ disp(cov_result_1.Result)
 
 all_results = cov_result_1.Result;
 
-% Assigning the return value prevents the HTML report window from showing up.
-% https://www.mathworks.com/help/matlab-test/ref/matlab.coverage.result.generatestandalonereport.html
-% Since R2024a
-p = generateStandaloneReport(all_results, ...
-  fullfile(pwd, "code-coverage-report.html"), ...
-  MetricLevel = "statement");  %#ok<NASGU> % decision, condition do not work.
+if startsWith(pwd, "C:\local")
+
+  % Assigning the return value prevents the HTML report window from showing up.
+  % https://www.mathworks.com/help/matlab-test/ref/matlab.coverage.result.generatestandalonereport.html
+  % Since R2024a
+  p = generateStandaloneReport(all_results, ...
+    fullfile(pwd, "code-coverage-report.html"), ...
+    MetricLevel = "statement");  %#ok<NASGU> % decision, condition do not work.
+
+end  % if
 
 % Unlike the HTML generators, this does not return the path to the generated report.
 % https://www.mathworks.com/help/matlab/ref/matlab.coverage.result.generatecoberturareport.html
