@@ -137,7 +137,7 @@ classdef uiTest_Vehicle1D < matlab.uitest.TestCase
       mdl = new_system(model_name);
       open_system(mdl)
       add_block("sdl_lib/Tires & Vehicles/Longitudinal Vehicle", block_path)
-      savedfile_fullpath = string(save_system(model_name));
+      savedfile_fullpath = string(save_system(model_name, model_name+".mdl"));
 
       verifyEqual(testcase, savedfile_fullpath, fullfile(pwd, model_filename))
 
@@ -154,7 +154,7 @@ classdef uiTest_Vehicle1D < matlab.uitest.TestCase
       % -----------------------------------------------------------------------
       % Check that the values were transferred from the app to the block.
 
-      savedfile_fullpath = string(save_system(model_name));
+      savedfile_fullpath = string(save_system(model_name, model_name+".mdl"));
       disp("Saved the model file: " + savedfile_fullpath)
 
       x = string(get_param(block_path, "M_vehicle"));
