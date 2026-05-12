@@ -53,7 +53,7 @@ jobs:
       matrix:
         config:
           - name: R2024b
-            cmd: "cd Release; addpath('ModelingUtilityForSimscape'); buildtool -verbosity Verbose Test"
+            cmd: "cd Release; addpath('ModelingUtilityForSimscape'); runTestForReleaseCodeCoverage"
 
     name: Test Release-folder in MATLAB ${{ matrix.config.name }} on Linux
 
