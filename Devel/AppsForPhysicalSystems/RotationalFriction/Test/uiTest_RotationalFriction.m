@@ -98,8 +98,8 @@ classdef uiTest_RotationalFriction < matlab.uitest.TestCase
       app = RotationalFrictionApp;
 
       % Items must be defined for the drop down.
-      choose(testcase, app.PlotVelocityUnitUI.MainDropDown, "rev/s")
-      choose(testcase, app.PlotVelocityUnitUI.MainDropDown, "rpm")
+      choose(testcase, app.PlotVelocityUnitUI.DropDownUI.MainDropDown, "rev/s")
+      choose(testcase, app.PlotVelocityUnitUI.DropDownUI.MainDropDown, "rpm")
     end  % function
 
     function VisualTest_2_2(testcase)
@@ -107,8 +107,8 @@ classdef uiTest_RotationalFriction < matlab.uitest.TestCase
       app = RotationalFrictionApp;
 
       % Items must be defined for the drop down.
-      choose(testcase, app.PlotTorqueUnitUI.MainDropDown, "lbf*ft")
-      choose(testcase, app.PlotTorqueUnitUI.MainDropDown, "N*m")
+      choose(testcase, app.PlotTorqueUnitUI.DropDownUI.MainDropDown, "lbf*ft")
+      choose(testcase, app.PlotTorqueUnitUI.DropDownUI.MainDropDown, "N*m")
     end  % function
 
     function VisualTest_3(testcase)
@@ -154,7 +154,7 @@ classdef uiTest_RotationalFriction < matlab.uitest.TestCase
         command_text = get_param(model_name + "/Rotational Friction App", "ClickFcn");
       end  % if
 
-      verifyTrue(testcase, not(isempty(command_text)))
+      verifyTrue(testcase, not(isempty(command_text)))  % !flaky-test: 24b
 
       if contains(command_text, "bdroot")
         % "bdroot" in the command text is not expanded by eval to the model name.
@@ -176,9 +176,15 @@ classdef uiTest_RotationalFriction < matlab.uitest.TestCase
     function Test_with_samplemodel_2(~)
       % Test the BlockPath option together with the plot unit options.
       % Specify the block which uses workspace variables for the block parameters.
+
+      % The target block in the specified model uses "lbf*in" as the unit for torque, which
+      % the app does not define by default.
+      % The app must accept "lbf*in" as a valid unit for torque and add to the unit drop down.
       model_name = "SampleModel_RotationalFriction_refsub_24b";
       block_path = model_name + "/Rotational Friction2";
       evalin("base", "SampleParams_RotationalFriction")
+
+      % For the PlotTorqueUnit option, specify "lbf*ft" which is different from the one used above.
       RotationalFriction1.RotationalFrictionAppMain(BlockPath=block_path, PlotTorqueUnit="lbf*ft", PlotVelocityUnit="rev/s")
     end  % function
 
@@ -278,7 +284,7 @@ classdef uiTest_RotationalFriction < matlab.uitest.TestCase
 
     function Gesture_1(testcase)
       app = RotationalFriction1.RotationalFrictionAppMain;
-      choose(testcase, app.ViscousCoefficientUI.UnitDropDownUI.MainDropDown, "N*m/rpm")
+      choose(testcase, app.ViscousCoefficientUI.UnitDropDownUI.DropDownUI.MainDropDown, "N*m/rpm")
       type(testcase, app.ViscousCoefficientUI.ValueTextUI.MainEditField, "1")
     end  % function
 

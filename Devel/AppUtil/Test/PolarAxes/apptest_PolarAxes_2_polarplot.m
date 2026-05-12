@@ -1,7 +1,6 @@
 function App = apptest_PolarAxes_2_polarplot
-% polarplot in PolarAxes
 
-% Copyright 2025 The MathWorks, Inc.
+% Copyright 2025-2026 The MathWorks, Inc.
 
 arguments (Output)
   App (:,1) struct
@@ -11,15 +10,17 @@ main_figure = uifigure(Visible="off");
 main_figure.Position(3) = 400;  % width
 main_figure.Position(4) = 400;  % height
 
-main_vertical_container = AppUtil1.VerticalContainer(main_figure);
-
-build_gui(main_vertical_container)
-
-%%
 if not(isMATLABReleaseOlderThan("R2025a"))
-  main_figure.Theme = "light";
+  main_figure.Theme = "dark";
 end  % if
 
+main_v_container = AppUtil1.VerticalContainer(main_figure);
+
+% -----------------------------------------------------------------------------
+
+build_gui(main_v_container)
+
+% -----------------------------------------------------------------------------
 movegui(main_figure, "center")
 main_figure.Visible = "on";
 drawnow
@@ -29,16 +30,18 @@ if nargout > 0
 end  % if
 end  % function
 
-function build_gui(vertical_container)
+function build_gui(v_container)
 %%
 arguments (Input)
-  vertical_container (1,1) AppUtil1.VerticalContainer
+  v_container (1,1) AppUtil1.VerticalContainer
 end  % arguments
 
-pax_ui = AppUtil1.Graphics.PolarAxes(addVerticalGridLayout(vertical_container));  % !test-target
+v_layout = addVerticalGridLayout(v_container);
+pax_ui = AppUtil1.Graphics.PolarAxes(v_layout);  % !test-target
 pax_ui.ComponentHeight = 390;  % !test-target
+pax_ui.HighlightBackground = "on";
 
-main_polar_axes = pax_ui.MainPloarAxes;
+main_polar_axes = pax_ui.MainPolarAxes;
 
 theta = linspace(0, 360, 50);
 rho = 0.005 * theta / 10;

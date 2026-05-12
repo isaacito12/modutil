@@ -44,12 +44,10 @@ horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
 row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
 label_ui = AppUtil1.Component.Label(row_grid);
-label_ui.MainFigure = main_figure;
 label_ui.Text = CodeUtil1.i18n("Test result file");
 
 row_grid = addHorizontalGridLayout(horizontal_container);
 button_ui = AppUtil1.Component.Button(row_grid);
-button_ui.MainFigure = main_figure;
 button_ui.ComponentWidth = 120;
 button_ui.Text = CodeUtil1.i18n("Select file");
 button_ui.ButtonPushedCallback = @() react_SelectButtonPushed();
@@ -60,7 +58,6 @@ horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
 row_grid = addHorizontalGridLayout(horizontal_container);
 link_ui = AppUtil1.Component.Hyperlink(row_grid);
-link_ui.MainFigure = main_figure;
 link_ui.Text = "";
 
 % -----------------------------------------------------------------------
@@ -69,12 +66,10 @@ horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
 row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
 label_ui = AppUtil1.Component.Label(row_grid);
-label_ui.MainFigure = main_figure;
 label_ui.Text = CodeUtil1.i18n("Number of tests");
 
 row_grid = addHorizontalGridLayout(horizontal_container);
 num_tests_ui = AppUtil1.Component.Label(row_grid);
-num_tests_ui.MainFigure = main_figure;
 num_tests_ui.Text = "";
 
 % -----------------------------------------------------------------------
@@ -83,12 +78,10 @@ horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
 row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
 label_ui = AppUtil1.Component.Label(row_grid);
-label_ui.MainFigure = main_figure;
 label_ui.Text = CodeUtil1.i18n("Total test time (s) ");
 
 row_grid = addHorizontalGridLayout(horizontal_container);
 total_time_label_ui = AppUtil1.Component.Label(row_grid);
-total_time_label_ui.MainFigure = main_figure;
 total_time_label_ui.Text = "";
 
 % -----------------------------------------------------------------------
@@ -97,12 +90,10 @@ horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
 row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
 label_ui = AppUtil1.Component.Label(row_grid);
-label_ui.MainFigure = main_figure;
 label_ui.Text = CodeUtil1.i18n("Average test time (s) ");
 
 row_grid = addHorizontalGridLayout(horizontal_container);
 mean_time_label_ui = AppUtil1.Component.Label(row_grid);
-mean_time_label_ui.MainFigure = main_figure;
 mean_time_label_ui.Text = "";
 
 % -----------------------------------------------------------------------
@@ -111,12 +102,10 @@ horizontal_container = AppUtil1.HorizontalContainer(column_grid);
 
 row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
 label_ui = AppUtil1.Component.Label(row_grid);
-label_ui.MainFigure = main_figure;
 label_ui.Text = CodeUtil1.i18n("Median test time (s) ");
 
 row_grid = addHorizontalGridLayout(horizontal_container);
 median_time_label_ui = AppUtil1.Component.Label(row_grid);
-median_time_label_ui.MainFigure = main_figure;
 median_time_label_ui.Text = "";
 
 % -----------------------------------------------------------------------
@@ -126,14 +115,12 @@ AppUtil1.Component.HorizontalLine(column_grid);
 % -----------------------------------------------------------------------
 column_grid = addVerticalGridLayout(main_vertical_container);
 label_ui = AppUtil1.Component.Label(column_grid);
-label_ui.MainFigure = main_figure;
 label_ui.Text = CodeUtil1.i18n("Double-click a table row to open the file.");
 
 % -----------------------------------------------------------------------
 column_grid = addVerticalGridLayout(main_vertical_container, Height="1x");
 
 table_ui = AppUtil1.Component.Table(column_grid);
-table_ui.MainFigure = main_figure;
 table_ui.ComponentHeight = 260;
 table_ui.MainTable.Data = table.empty;
 % uitable's DoubleClickedFcn callback is given a DoubleClickedData object as the second argument,

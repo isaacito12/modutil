@@ -1,9 +1,18 @@
-%[text] # Plot Lookup Table 1D blocks
-%[text] This function finds Simscape PS Lookup Table (1D) blocks and Simulink 1D Lookup Table blocks in the specified subsystem layer of a model and makes plots of them stacking vertically.
-%[text] If `SubsystemPath` is not specified or is "", this function uses `gcs`.
-%[text] Use the `Blocks` option to specify the blocks to make plots. If this option is not specified, all lookup table 1D blocks in the specified subsystems layers are visualized.
-%[text] Use the `SearchDepth` option to specify how many subsystem layers to seach for lookup table blocks. By default, the search depth is 1.
 function ReturnFigure = plotLookupTable1DBlocks(SubsystemPath, NameValuePair)
+% Plot Lookup Table 1D blocks.
+%
+% This function finds Simscape PS Lookup Table (1D) blocks and Simulink 1D Lookup Table blocks in
+% the specified subsystem layer of a model and makes plots of them stacking vertically.
+%
+% If SubsystemPath is not specified or is "", this function uses gcs.
+%
+% Use the Blocks option to specify the blocks to make plots. If this option is not specified,
+% all lookup table 1D blocks in the specified subsystems layers are visualized.
+%
+% Use the SearchDepth option to specify how many subsystem layers to seach for lookup table blocks.
+% By default, the search depth is 1.
+
+% Copyright 2025-2026 The MathWorks, Inc.
 
 arguments (Input)
 
@@ -80,14 +89,17 @@ if NameValuePair.ParentType == "Axes"
   if isfield(NameValuePair, "ParentAxes")
     ax = NameValuePair.ParentAxes;
     parent = ax.Parent;
+    do_move_gui = false;
   else
     parent = figure;
     parent.Position(3) = 600;
     parent.Position(4) = 600;
+    do_move_gui = true;
   end  % if
 else
   % ParentType == "Panel"
   parent = NameValuePair.ParentPanel;
+  do_move_gui = false;
 end  % if
 
 vertical_tile = tiledlayout(parent, "vertical");
@@ -154,11 +166,11 @@ for idx = 1 : num_blocks
   end  % if
 end  % for
 
+if do_move_gui
+  movegui(parent, "center")
+end  % if
+
 if nargout > 0
   ReturnFigure = parent;
 end  % if
 end  % function
-%[text] *Copyright 2025 The MathWorks, Inc.*
-
-%[appendix]{"version":"1.0"}
-%---

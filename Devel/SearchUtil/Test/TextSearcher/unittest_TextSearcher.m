@@ -1,5 +1,5 @@
 classdef unittest_TextSearcher < matlab.unittest.TestCase
-  %% Class-based unit test
+  % Class-based unit test
 
   % Author Class-Based Unit Tests in MATLAB
   % https://www.mathworks.com/help/matlab/matlab_prog/author-class-based-unit-tests-in-matlab.html
@@ -10,7 +10,7 @@ classdef unittest_TextSearcher < matlab.unittest.TestCase
   % Test Browser
   % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
-  % Copyright 2025 The MathWorks, Inc.
+  % Copyright 2025-2026 The MathWorks, Inc.
 
   methods (TestMethodSetup)
     % Functions in this section always run before each test defined in the Test section runs.
@@ -72,55 +72,207 @@ classdef unittest_TextSearcher < matlab.unittest.TestCase
       states.TargetFolder = pwd;
 
       searcher = SearchUtil1.TextSearcher;
-      setStates(searcher, states)
+      setStates(searcher, states)  % !test-target
 
       result = runSearch(searcher);
       verifyTrue(testcase, isempty(result))
     end  % function
 
-    % function Test_2(testcase)
-    %   % Check that the searchText does finds the specifed text pattern assuming
-    %   % that 1) there are files ending with ".m", and
-    %   % 2) text "Copyright" exists in the files.
-    %   result = SearchUtil1.searchText("Copyright", FileType = "*.m");
-    %   verifyTrue(testcase, not(isempty(result)))
-    % end  % function
+    function Test_MatchWholeWord_1(testcase)
+      % There should be only one match.
 
-    % function Test_3(testcase)
-    %   % Test the MatchWholeWord option.
-    %   % This test must hit only one line in this test unless there really are typo in other files.
-    %   result = SearchUtil1.searchText(...
-    %     "Copyri", ... This line must be in the search result for testing searchText.
-    %     FileType = "*.m", ...
-    %     MatchWholeWord = true );  % !test-target
-    %   verifyEqual(testcase, height(result), 1)
-    %   verifyTrue(testcase, contains(result.LineText(1), "search result for testing searchText"))
-    % end  % function
+      text_searcher = SearchUtil1.TextSearcher;
+      text_searcher.DisplayInfo = true;
 
-    % function Test_4(testcase)
-    %   result = SearchUtil1.searchText(...
-    %     "cOPYRIGHT", ...
-    %     FileType = "*.m", ...
-    %     IgnoreCase = true );  % !test-target
-    %   verifyTrue(testcase, height(result) > 1)
-    % end  % function
+      text_searcher.States.SearchTextPattern = "Copyri";  % !test-target
+      text_searcher.States.IgnoreCase = false;
+      text_searcher.States.MatchWholeWord = true;  % !test-target
 
-    % function Test_5(testcase)
-    %   % The search must go into subfolders.
-    %   % This test assumes that *.m, *.md, and *.mdl files exist, and they gave
-    %   % the text "Copyright".
-    %   result = SearchUtil1.searchText(...
-    %     "Copyright", ...
-    %     IgnoreCase = true, ...
-    %     TargetFolder = pwd, ...
-    %     FileTypes = ["*.m", "*.md", "*.mdl"], ...
-    %     IncludeSubfolders = true );
-    %   verifyTrue(testcase, any(endsWith(result.FilePath, ".m")))
-    %   verifyTrue(testcase, any(endsWith(result.FilePath, ".md")))
-    %   verifyTrue(testcase, any(endsWith(result.FilePath, ".mdl")))
-    %   verifyTrue(testcase, all(contains(result.LineText, "Copyright", IgnoreCase=true)))
-    % end  % function
+      % Limit the search to the current folder only.
+      text_searcher.States.TargetFolder = pwd;
+      text_searcher.States.IncludeSubfolders = false;
+
+      text_searcher.States.FileTypes = "*.m";
+
+      text_searcher.States.SearchAll = false;
+      text_searcher.States.SearchMATLAB = true;
+      text_searcher.States.SearchMarkdown = false;
+      text_searcher.States.SearchSimulink = false;
+      text_searcher.States.SearchSimscape = false;
+      text_searcher.States.SearchSVG = false;
+
+      text_searcher.States.CustomFileTypes = "";
+
+      text_searcher.States.ExcludeLiveScript = false;
+      text_searcher.States.ExcludeMATLABCodeFile = false;
+
+      text_searcher.States.Filter = [];
+
+      buildFileTypes(text_searcher)
+      result = runSearch(text_searcher);
+
+      verifyTrue(testcase, height(result) == 1)
+      verifyTrue(testcase, contains(result.LineText(1), "text_searcher.States.SearchTextPattern = "))
+    end  % function
+
+    function Test_MatchWholeWord_2_1(testcase)
+      text_searcher = SearchUtil1.TextSearcher;
+      text_searcher.DisplayInfo = true;
+
+      text_searcher.States.SearchTextPattern = "myNamespace1";  % !test-target
+      text_searcher.States.IgnoreCase = false;
+      text_searcher.States.MatchWholeWord = true;  % !test-target
+
+      % Search the whole current folder tree.
+      text_searcher.States.TargetFolder = pwd;
+      text_searcher.States.IncludeSubfolders = true;
+
+      text_searcher.States.FileTypes = "*.m";
+
+      text_searcher.States.SearchAll = false;
+      text_searcher.States.SearchMATLAB = true;
+      text_searcher.States.SearchMarkdown = false;
+      text_searcher.States.SearchSimulink = false;
+      text_searcher.States.SearchSimscape = false;
+      text_searcher.States.SearchSVG = false;
+
+      text_searcher.States.CustomFileTypes = "";
+
+      text_searcher.States.ExcludeLiveScript = false;
+      text_searcher.States.ExcludeMATLABCodeFile = false;
+
+      text_searcher.States.Filter = [];
+
+      buildFileTypes(text_searcher)
+      result = runSearch(text_searcher);
+
+      % There must be 2 files in the search result. One is this test file.
+      % The other is samplefunction_111.m in the sample folder tree.
+      verifyTrue(testcase, height(result) == 2)
+      verifyTrue(testcase, any(contains(result.FilePath, "samplefunction_111.m")))
+      verifyTrue(testcase, any(contains(result.FilePath, "unittest_TextSearcher.m")))
+    end  % function
+
+    function Test_DoNotIgnoreCase_1(testcase)
+      text_searcher = SearchUtil1.TextSearcher;
+      text_searcher.DisplayInfo = true;
+
+      % Do not ignore case.
+      text_searcher.States.SearchTextPattern = "cOPYRIGHT";  % !test-target
+      text_searcher.States.IgnoreCase = false;  % !test-target
+      text_searcher.States.MatchWholeWord = false;
+
+      % Limit the search to the current folder only.
+      text_searcher.States.TargetFolder = pwd;
+      text_searcher.States.IncludeSubfolders = false;
+
+      text_searcher.States.FileTypes = "*.m";
+
+      text_searcher.States.SearchAll = false;
+      text_searcher.States.SearchMATLAB = true;
+      text_searcher.States.SearchMarkdown = false;
+      text_searcher.States.SearchSimulink = false;
+      text_searcher.States.SearchSimscape = false;
+      text_searcher.States.SearchSVG = false;
+
+      text_searcher.States.CustomFileTypes = "";
+
+      text_searcher.States.ExcludeLiveScript = false;
+      text_searcher.States.ExcludeMATLABCodeFile = false;
+
+      text_searcher.States.Filter = [];
+
+      buildFileTypes(text_searcher)
+      result = runSearch(text_searcher);
+
+      % This test file must be the only file in the search result.
+      verifyTrue(testcase, height(result) == 1)
+      verifyTrue(testcase, any(contains(result.FilePath, "unittest_TextSearcher.m")))
+    end  % function
+
+    function Test_SearchAll_1(testcase)
+      text_searcher = SearchUtil1.TextSearcher;
+      text_searcher.DisplayInfo = true;
+
+      text_searcher.States.SearchTextPattern = "Copyright";
+      text_searcher.States.IgnoreCase = true;
+      text_searcher.States.MatchWholeWord = true;
+
+      % Search the whole current folder tree.
+      text_searcher.States.TargetFolder = pwd;
+      text_searcher.States.IncludeSubfolders = true;
+
+      text_searcher.States.FileTypes = ["*.m", "*.mdl"];
+
+      text_searcher.States.SearchAll = true;
+      text_searcher.States.SearchMATLAB = false;
+      text_searcher.States.SearchMarkdown = false;
+      text_searcher.States.SearchSimulink = false;
+      text_searcher.States.SearchSimscape = false;
+      text_searcher.States.SearchSVG = false;
+
+      text_searcher.States.CustomFileTypes = "";
+
+      text_searcher.States.ExcludeLiveScript = false;
+      text_searcher.States.ExcludeMATLABCodeFile = false;
+
+      text_searcher.States.Filter = [];
+
+      buildFileTypes(text_searcher)
+      result = runSearch(text_searcher);
+
+      % There must be both "*.m" and "*.mdl" files in the search result.
+      verifyTrue(testcase, height(result) > 1)
+      verifyTrue(testcase, any(endsWith(result.FilePath, ".m")))
+      verifyTrue(testcase, any(endsWith(result.FilePath, "_live.m")))
+      verifyTrue(testcase, any(endsWith(result.FilePath, ".mdl")))
+    end  % function
+
+    function Test_SearchAll_ExcludeLiveScript_1(testcase)
+      if isMATLABReleaseOlderThan("R2025a")
+        % Skip this test if MATLAB is R2024b or older.
+        % The "Live-M" file (plain-text Live Script) is supported in R2025a or newer.
+
+        return
+
+      end  % if
+
+      text_searcher = SearchUtil1.TextSearcher;
+      text_searcher.DisplayInfo = true;
+
+      text_searcher.States.SearchTextPattern = "Copyright";
+      text_searcher.States.IgnoreCase = true;
+      text_searcher.States.MatchWholeWord = true;
+
+      % Search the whole current folder tree.
+      text_searcher.States.TargetFolder = pwd;
+      text_searcher.States.IncludeSubfolders = true;
+
+      text_searcher.States.FileTypes = ["*.m", "*.mdl"];
+
+      text_searcher.States.SearchAll = true;
+      text_searcher.States.SearchMATLAB = false;
+      text_searcher.States.SearchMarkdown = false;
+      text_searcher.States.SearchSimulink = false;
+      text_searcher.States.SearchSimscape = false;
+      text_searcher.States.SearchSVG = false;
+
+      text_searcher.States.CustomFileTypes = "";
+
+      text_searcher.States.ExcludeLiveScript = true;
+      text_searcher.States.ExcludeMATLABCodeFile = false;
+
+      text_searcher.States.Filter = [];
+
+      buildFileTypes(text_searcher)
+      result = runSearch(text_searcher);
+
+      % There must be both "*.m" and "*.mdl" files in the search result.
+      verifyTrue(testcase, height(result) > 1)
+      verifyTrue(testcase, any(endsWith(result.FilePath, ".m")))
+      verifyTrue(testcase, not(any(endsWith(result.FilePath, "_live.m"))))
+      verifyTrue(testcase, any(endsWith(result.FilePath, ".mdl")))
+    end  % function
 
   end  % methods
-
 end  % classdef

@@ -1,7 +1,7 @@
 classdef EditField < AppUtil1.Component.ComponentBase
   %% Edit field component
 
-  % Copyright 2023-2024 The MathWorks, Inc.
+  % Copyright 2023-2026 The MathWorks, Inc.
 
   properties
 
@@ -23,10 +23,6 @@ classdef EditField < AppUtil1.Component.ComponentBase
 
     Value (1,1) string
 
-  end  % properties
-
-  properties (Access=private, Transient, NonCopyable)
-    main_grid matlab.ui.container.GridLayout
   end  % properties
 
   methods (Access=protected)
@@ -77,15 +73,6 @@ classdef EditField < AppUtil1.Component.ComponentBase
         case "bottom"
           component.main_grid.RowHeight = {'1x', component.EditFieldHeight,   0 };
       end  % switch
-
-      if component.HighlightBackground
-        switch component.ThemeNameForBackGroundHighlight
-          case "light"
-            component.main_grid.BackgroundColor = component.LightThemeBackGroundColor;
-          case "dark"
-            component.main_grid.BackgroundColor = component.DarkThemeBackGroundColor;
-        end  % switch
-      end  % if
     end  % function
 
   end  % methods

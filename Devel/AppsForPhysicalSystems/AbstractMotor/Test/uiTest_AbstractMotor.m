@@ -48,21 +48,15 @@ classdef uiTest_AbstractMotor < matlab.uitest.TestCase
     % Warnings can be displayed even when the app opens and starts working seemingly normally.
     % Make sure there is no warning when opening an app.
 
-    function app_launches_without_warnings_1(testcase)
-      verifyWarningFree(testcase, @() test_target)
-      function test_target
-        AbstractMotor1.AbstractMotorEfficiencyAppMain  % !test-target
-      end  % nested function
+    function clean_launch_1(testcase)
+      verifyWarningFree(testcase, @AbstractMotor1.AbstractMotorEfficiencyAppMain)
+    end  % function
+
+    function clean_launch_2(testcase)
+      verifyWarningFree(testcase, @AbstractMotorEfficiencyApp)
     end  % function
 
 %{
-    function app_launches_without_warnings_2(testcase)
-      verifyWarningFree(testcase, @() test_target)
-      function test_target
-        AbstractMotorEfficiencyApp  % !test-target
-      end  % nested function
-    end  % function
-
     function app_launches_without_warnings_3(testcase)
       verifyWarningFree(testcase, @() test_target)
       function test_target

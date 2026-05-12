@@ -42,7 +42,6 @@ app_vertical_container = app_window.MainVerticalContainer;
 
 column_grid = addVerticalGridLayout(app_vertical_container);
 block_selector_ui = AppUtil1.Component.BlockSelectorUI(column_grid);
-block_selector_ui.MainFigure = app_window.MainFigure;
 block_selector_ui.GetOnly = true;
 block_selector_ui.AutoGet = true;
 block_selector_ui.FindBlockCallback = @ModelUtil1.findLookupTable1DBlocks;
@@ -51,14 +50,12 @@ block_selector_ui.ModelFileFullPath = model_file_path;
 
 column_grid = addVerticalGridLayout(app_vertical_container);
 open_fig_win_ui = AppUtil1.Component.Hyperlink(column_grid);
-open_fig_win_ui.MainFigure = app_window.MainFigure;
 open_fig_win_ui.Text = CodeUtil1.i18n("Open in figure window");
 open_fig_win_ui.HorizontalAlignment = "right";
 open_fig_win_ui.HyperlinkClickedCallback = @() react_figwin();
 
 column_grid = addVerticalGridLayout(app_vertical_container);
 panel_ui = AppUtil1.Graphics.Panel(column_grid);
-panel_ui.MainFigure = app_window.MainFigure;
 panel_ui.ComponentHeight = 380;
 
   function react_figwin()

@@ -52,15 +52,6 @@ classdef unittest_generateMarkdownsFromLiveScripts < matlab.unittest.TestCase
     function PassingTest_1(testcase)
       % Create 2 new markdown files from live scripts.
 
-      if matlabRelease.Release == "R2026a"
-        FileUtil1.displayTimeAndFileLocation("R2026a");
-        disp("Not performing this test in 26a for now.")
-        verifyFail(testcase, "Not performing this test in 26a for now.")
-
-        return
-
-      end  % if
-
       if isfolder("markdown")
         rmdir("markdown", "s")
       end  % if

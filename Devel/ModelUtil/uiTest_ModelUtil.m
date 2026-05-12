@@ -6,6 +6,9 @@ classdef uiTest_ModelUtil < matlab.uitest.TestCase
   %
   % Table of Verifications, Assertions, and Other Qualifications
   % https://www.mathworks.com/help/matlab/matlab_prog/types-of-qualifications.html
+  %
+  % Test Browser
+  % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
   % Copyright 2024-2026 The MathWorks, Inc.
 
@@ -13,7 +16,7 @@ classdef uiTest_ModelUtil < matlab.uitest.TestCase
     % Functions in the TestMethodSetup section always run before
     % each test defined in the Test section runs.
 
-    function test_method_setup(testcase)
+    function test_method_setup_1(testcase)
       %%
       % Close all before test
       close all
@@ -45,11 +48,8 @@ classdef uiTest_ModelUtil < matlab.uitest.TestCase
     % Warnings can be displayed even when the app opens and starts working seemingly normally.
     % Make sure there is no warning when opening an app.
 
-    function app_launches_without_warnings_1(testcase)
-      verifyWarningFree(testcase, @() test_target())
-      function test_target()
-        LookupTable1DBlockPlotApp  % !test-target
-      end  % nested function
+    function clean_launch_1(testcase)
+      verifyWarningFree(testcase, @LookupTable1DBlockPlotApp)
     end  % function
 
     %% Passing tests
@@ -57,9 +57,9 @@ classdef uiTest_ModelUtil < matlab.uitest.TestCase
     function PassingTest_App_1(~)
       % Check the ModelFilePath option.
       if TestUtil1.isR2024bOrOlder
-        target = SearchUtil1.searchFiles("samplemodel_LookupTable1DBlockPlotApp_24b.mdl");
+        target = SearchUtil1.searchFiles("SampleModel_LookupTable1DBlockPlotApp_24b.mdl");
       else
-        target = SearchUtil1.searchFiles("samplemodel_LookupTable1DBlockPlotApp.mdl");
+        target = SearchUtil1.searchFiles("SampleModel_LookupTable1DBlockPlotApp.mdl");
       end  % if
       LookupTable1DBlockPlotApp(ModelFilePath=target)
     end  % function
@@ -67,9 +67,9 @@ classdef uiTest_ModelUtil < matlab.uitest.TestCase
     function PassingTest_SampleModel_1(~)
       % Check that the Callback Button works.
       if TestUtil1.isR2024bOrOlder
-        model_name = "samplemodel_LookupTable1DBlockPlotApp_24b";
+        model_name = "SampleModel_LookupTable1DBlockPlotApp_24b";
       else
-        model_name = "samplemodel_LookupTable1DBlockPlotApp";
+        model_name = "SampleModel_LookupTable1DBlockPlotApp";
       end  % if
       block_path = model_name + "/LookupTable1DBlockPlotApp";  % !test-target
       load_system(model_name)
@@ -81,9 +81,9 @@ classdef uiTest_ModelUtil < matlab.uitest.TestCase
     function PassingTest_SampleModel_2(~)
       % Check that the Callback Button works.
       if TestUtil1.isR2024bOrOlder
-        model_name = "samplemodel_LookupTable1DBlockPlotApp_24b";
+        model_name = "SampleModel_LookupTable1DBlockPlotApp_24b";
       else
-        model_name = "samplemodel_LookupTable1DBlockPlotApp";
+        model_name = "SampleModel_LookupTable1DBlockPlotApp";
       end  % if
       block_path = model_name + "/plotLookupTable1DBlocks";  % !test-target
       load_system(model_name)

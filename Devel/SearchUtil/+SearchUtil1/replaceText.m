@@ -1,11 +1,14 @@
 function Result = replaceText(FilePaths, NameValuePair)
-% Replace text in the specified file.
+% Replace text in the specified files.
 %
 % This function takes paths to the target files, a text pattern to search, and
 % a new text to replace. The function returns a table containing file paths
 % and the number of lines containing the searched text.
+%
+% This function is self-contained, i.e., this function requires MATLAB only,
+% i.e., other components are not necessary.
 
-% Copyright 2025 The MathWorks, Inc.
+% Copyright 2025-2026 The MathWorks, Inc.
 
 arguments (Input)
   FilePaths (:,1) string {mustBeFile}
@@ -65,8 +68,10 @@ else
 end  % if
 
 if NameValuePair.MatchWholeWord
-  b = (lineBoundary|textBoundary|whitespaceBoundary);
-  search_text = b + pat + b;
+  % FYI: The defintion of "letter characters" follows the Unicode Standard
+  % as mentioned in the documentation about lettersPattern.
+  % https://www.mathworks.com/help/matlab/ref/letterspattern.html
+  search_text = letterBoundary("start") + pat + letterBoundary("end");
 else
   search_text = pat;
 end  % if
@@ -77,13 +82,28 @@ for ii = 1 : num_files
   lines = readlines(target_file);
   logical_index = contains(lines, search_text);
   NumLines(ii) = nnz(logical_index);
-  if NameValuePair.DryRun
+end  % for
+
+Result = table(FilePaths, NumLines);
+
+if NameValuePair.DryRun
+
+  return
+
+end  % if
+% Dry run end point
+% =============================================================================
+
+for ii = 1 : height(Result)
+  if Result.NumLines(ii) == 0
+    % Avoid reading and writing a file if there is no line to work on.
 
     continue
 
   end  % if
+  target_file = FilePaths(ii);
+  lines = readlines(target_file);
   edited_lines = replace(lines, search_text, NameValuePair.NewText);
   writelines(edited_lines, target_file)
 end  % for
-Result = table(FilePaths, NumLines);
 end  % function

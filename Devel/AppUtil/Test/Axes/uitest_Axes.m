@@ -14,6 +14,10 @@ classdef uitest_Axes < matlab.uitest.TestCase
     % For class-based test apps, the class name is the app name, making
     % it difficult to use a common teardown if the class name is specified here.
     App (1,1)
+  end
+  
+  properties (TestParameter)
+    testParameter1 = struct("scalar",1,"vector",[1 1]);
   end  % properties
 
   methods (TestMethodSetup)

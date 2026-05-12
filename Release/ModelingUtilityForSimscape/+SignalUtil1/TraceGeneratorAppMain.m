@@ -266,7 +266,7 @@ classdef TraceGeneratorAppMain < handle
       App.TableGridVectorUI = AppUtil1.Component.DoubleValueUI(left_column_grid);
       App.TableGridVectorUI.NameText = CodeUtil1.i18n("Table grid vector, $x$");
       App.TableGridVectorUI.NameUIWidth = App.name_ui_width;
-      App.TableGridVectorUI.ValueUI.ReadOnly = "on";
+      App.TableGridVectorUI.ReadOnlyValueText = true;
 
       % -----------------------------------------------------------------------
       left_column_grid = addVerticalGridLayout(left_vertical_container);
@@ -274,7 +274,7 @@ classdef TraceGeneratorAppMain < handle
       App.TableValuesUI = AppUtil1.Component.DoubleValueUI(left_column_grid);
       App.TableValuesUI.NameText = CodeUtil1.i18n("Table values, $f(x)$");
       App.TableValuesUI.NameUIWidth = App.name_ui_width;
-      App.TableValuesUI.ValueUI.ReadOnly = "on";
+      App.TableValuesUI.ReadOnlyValueText = true;
 
       % =======================================================================
       % Right area
@@ -421,10 +421,10 @@ classdef TraceGeneratorAppMain < handle
       f_data = data_table.F;
 
       App.TableGridVectorUI.ValueText = CodeUtil1.stringify(x_data');
-      App.TableGridVectorUI.ValueUI.MainEditField.Tooltip = App.TableGridVectorUI.ValueText;
+      App.TableGridVectorUI.ValueTextUI.MainEditField.Tooltip = App.TableGridVectorUI.ValueText;
 
       App.TableValuesUI.ValueText = CodeUtil1.stringify(f_data');
-      App.TableValuesUI.ValueUI.MainEditField.Tooltip = App.TableValuesUI.ValueText;
+      App.TableValuesUI.ValueTextUI.MainEditField.Tooltip = App.TableValuesUI.ValueText;
 
       dx = CodeUtil1.getNumericValueFromText(App.IntervalUI.ValueText);
 

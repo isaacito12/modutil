@@ -22,7 +22,7 @@ classdef TextSearchAppMain < handle
 
     Window AppUtil1.AppWindow
 
-    SearchTextUI AppUtil1.Component.EditableDropDown
+    SearchTextUI AppUtil1.Component.DropDown
     IgnoreCaseUI AppUtil1.Component.CheckBox
     MatchWholeWordUI AppUtil1.Component.CheckBox
 
@@ -118,6 +118,7 @@ classdef TextSearchAppMain < handle
 
         case "options"
 
+          App.SearchTextUI.Items = NameValuePair.SearchText;
           App.SearchTextUI.Value = NameValuePair.SearchText;
           App.IgnoreCaseUI.Value = NameValuePair.IgnoreCase;
           App.MatchWholeWordUI.Value = NameValuePair.MatchWholeWord;
@@ -155,6 +156,7 @@ classdef TextSearchAppMain < handle
 
           x = char(string(states.SearchTextPattern));
           x = x(2:end-1);  % Remove double quotes.
+          App.SearchTextUI.Items = x;
           App.SearchTextUI.Value = x;
 
           App.IgnoreCaseUI.Value = states.IgnoreCase;
@@ -204,24 +206,22 @@ classdef TextSearchAppMain < handle
 
       row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       label_ui = AppUtil1.Component.Label(row_grid);
-      label_ui.MainFigure = App.Window.MainFigure;
       label_ui.ComponentWidth = App.width_name_ui;
       label_ui.Text = "\textbf{" + CodeUtil1.i18n("Text to search") + "}";
 
       App.IgnoreCaseUI = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container, Width="fit"));
-      App.IgnoreCaseUI.MainFigure = App.Window.MainFigure;
       App.IgnoreCaseUI.Text = CodeUtil1.i18n("Ignore case");
       App.IgnoreCaseUI.ValueChangedCallback = @() update_SearcherStatesFromUIComponents(App);
 
       App.MatchWholeWordUI = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container, Width="fit"));
-      App.MatchWholeWordUI.MainFigure = App.Window.MainFigure;
       App.MatchWholeWordUI.Text = CodeUtil1.i18n("Match whole word");
       App.MatchWholeWordUI.ValueChangedCallback = @() update_SearcherStatesFromUIComponents(App);
 
       % -----------------------------------------------------------------------
       column_grid = addVerticalGridLayout(main_vertical_container);
 
-      App.SearchTextUI = AppUtil1.Component.EditableDropDown(column_grid);
+      App.SearchTextUI = AppUtil1.Component.DropDown(column_grid);
+      App.SearchTextUI.Editable = "on";
       App.SearchTextUI.Items = [];
       App.SearchTextUI.ValueChangedCallback = @() react_SearchTextChanged(App);
 

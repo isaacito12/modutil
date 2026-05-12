@@ -125,12 +125,11 @@ classdef TestResultAppMain < handle
 
       row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       label_ui = AppUtil1.Component.Label(row_grid);
-      label_ui.MainFigure = App.Window.MainFigure;
+      label_ui.ComponentWidth = AppUtil1.Constant.Width{"unitwidth"} * 14;
       label_ui.Text = "\textbf{" + CodeUtil1.i18n("Test result file") + "}";
 
       row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       App.SelectFileButtonUI = AppUtil1.Component.Button(row_grid);
-      App.SelectFileButtonUI.MainFigure = App.Window.MainFigure;
       App.SelectFileButtonUI.ButtonWidth = App.width_button;
       App.SelectFileButtonUI.Text = CodeUtil1.i18n("Select...");
       App.SelectFileButtonUI.MainButton.Tooltip = CodeUtil1.i18n("Select a test result file.");
@@ -138,7 +137,6 @@ classdef TestResultAppMain < handle
 
       row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       App.OpenInEditorButtonUI = AppUtil1.Component.Button(row_grid);
-      App.OpenInEditorButtonUI.MainFigure = App.Window.MainFigure;
       App.OpenInEditorButtonUI.ButtonWidth = App.width_button;
       App.OpenInEditorButtonUI.Text = CodeUtil1.i18n("Open in editor");
       App.OpenInEditorButtonUI.MainButton.Tooltip = CodeUtil1.i18n("Open the test result file in the editor.");
@@ -149,7 +147,6 @@ classdef TestResultAppMain < handle
       column_grid = addVerticalGridLayout(main_vertical_container);
 
       App.TestResultFileDropDownUI = AppUtil1.Component.DropDown(column_grid);
-      App.TestResultFileDropDownUI.MainFigure = App.Window.MainFigure;
       App.TestResultFileDropDownUI.Items = [];
       App.TestResultFileDropDownUI.ValueChangedCallback = @() react_ResultFileNameDropDownChanged(App);
 
@@ -159,38 +156,30 @@ classdef TestResultAppMain < handle
 
       row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       label_ui = AppUtil1.Component.Label(row_grid);
-      label_ui.MainFigure = App.Window.MainFigure;
       label_ui.Text = CodeUtil1.i18n("Number of tests");
       row_grid = addHorizontalGridLayout(horizontal_container);
       App.NumTestsUI = AppUtil1.Component.Label(row_grid);
-      App.NumTestsUI.MainFigure = App.Window.MainFigure;
       App.NumTestsUI.Text = "";
 
       row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       label_ui = AppUtil1.Component.Label(row_grid);
-      label_ui.MainFigure = App.Window.MainFigure;
       label_ui.Text = CodeUtil1.i18n("Total test time (s)");
       row_grid = addHorizontalGridLayout(horizontal_container);
       App.TotalTimeUI = AppUtil1.Component.Label(row_grid);
-      App.TotalTimeUI.MainFigure = App.Window.MainFigure;
       App.TotalTimeUI.Text = "";
 
       row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       label_ui = AppUtil1.Component.Label(row_grid);
-      label_ui.MainFigure = App.Window.MainFigure;
       label_ui.Text = CodeUtil1.i18n("Mean test time (s)");
       row_grid = addHorizontalGridLayout(horizontal_container);
       App.MeanTimeUI = AppUtil1.Component.Label(row_grid);
-      App.MeanTimeUI.MainFigure = App.Window.MainFigure;
       App.MeanTimeUI.Text = "";
 
       row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       label_ui = AppUtil1.Component.Label(row_grid);
-      label_ui.MainFigure = App.Window.MainFigure;
       label_ui.Text = CodeUtil1.i18n("Median test time (s)");
       row_grid = addHorizontalGridLayout(horizontal_container);
       App.MedianTimeUI = AppUtil1.Component.Label(row_grid);
-      App.MedianTimeUI.MainFigure = App.Window.MainFigure;
       App.MedianTimeUI.Text = "";
 
       % =======================================================================
@@ -199,11 +188,9 @@ classdef TestResultAppMain < handle
 
       row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       label_ui = AppUtil1.Component.Label(row_grid);
-      label_ui.MainFigure = App.Window.MainFigure;
       label_ui.Text = CodeUtil1.i18n("Number of failures");
       row_grid = addHorizontalGridLayout(horizontal_container);
       App.NumErrorsUI = AppUtil1.Component.Label(row_grid);
-      App.NumErrorsUI.MainFigure = App.Window.MainFigure;
       App.NumErrorsUI.Text = "";
 
       % =======================================================================
@@ -216,7 +203,6 @@ classdef TestResultAppMain < handle
 
       row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       App.RefreshButtonUI = AppUtil1.Component.Button(row_grid);
-      App.RefreshButtonUI.MainFigure = App.Window.MainFigure;
       App.RefreshButtonUI.Text = CodeUtil1.i18n("Refresh");
       App.RefreshButtonUI.ButtonWidth = App.width_button;
       App.RefreshButtonUI.HorizontalAlignment = "right";
@@ -233,7 +219,6 @@ classdef TestResultAppMain < handle
       % Expand the uitable vertically to fit the available height of the app window.
       App.ResultTableUI.ComponentHeight = "1x";  % !vertical-expansion
 
-      App.ResultTableUI.MainFigure = App.Window.MainFigure;
       App.ResultTableUI.MainTable.Data = table.empty;
       % uitable's DoubleClickedFcn callback is given a DoubleClickedData object as the second argument,
       % and the object provides information such as the clicked row via InteractionInformation.Row, etc.
@@ -246,7 +231,6 @@ classdef TestResultAppMain < handle
       column_grid = addVerticalGridLayout(main_vertical_container);
 
       App.MessageUI = AppUtil1.Component.Label(column_grid);
-      App.MessageUI.MainFigure = App.Window.MainFigure;
       App.MessageUI.Text = CodeUtil1.i18n("Double-click a table row to open the file.");
 
     end  % function
@@ -271,7 +255,7 @@ classdef TestResultAppMain < handle
         return
 
       end  % if
-    end  % func6tion
+    end  % function
 
     function react_ResultFileNameDropDownChanged(App)
       new_styled_path = App.TestResultFileDropDownUI.Value;

@@ -1,7 +1,7 @@
 classdef ListBox < AppUtil1.Component.ComponentBase
   % List box component
 
-  % Copyright 2023-2025 The MathWorks, Inc.
+  % Copyright 2023-2026 The MathWorks, Inc.
 
   properties
     MainListBox matlab.ui.control.ListBox
@@ -10,10 +10,6 @@ classdef ListBox < AppUtil1.Component.ComponentBase
 
     ComponentWidth (1,1) {CodeUtil1.mustBeStringOrPositiveInteger} = "1x"
     ComponentHeight (1,1) {CodeUtil1.mustBeStringOrPositiveInteger} = "fit"
-  end  % properties
-
-  properties (Access=private)
-    main_grid matlab.ui.container.GridLayout
   end  % properties
 
   events (HasCallbackProperty, NotifyAccess=protected)
@@ -53,15 +49,6 @@ classdef ListBox < AppUtil1.Component.ComponentBase
 
       component.main_grid.RowHeight{1} = component.ComponentHeight;
       component.main_grid.ColumnWidth{1} = component.ComponentWidth;
-
-      if component.HighlightBackground
-        switch component.ThemeNameForBackGroundHighlight
-          case "light"
-            component.main_grid.BackgroundColor = component.LightThemeBackGroundColor;
-          case "dark"
-            component.main_grid.BackgroundColor = component.DarkThemeBackGroundColor;
-        end  % switch
-      end  % if
     end  % function
 
   end  % methods

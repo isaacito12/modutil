@@ -1,0 +1,28 @@
+component DemoComponent_findAllSimscapeBlocks_1
+% Demo component
+%
+% This Simscape component is used for testing findAllSimscapeBlocks.
+%
+% BlockType of this component is "SimscapeComponentBlock".
+% findAllSimscapeBlocks finds the block path to this block with
+%   handles = Simulink.findBlocksOfType(model_name, "SimscapeComponentBlock")
+%   block_paths = getfullname(handles)
+%
+% Then findAllSimscapeBlocks finds the block name ("Demo component") with
+%   block_name = get_param(block_path, "MaskType")
+%
+% If a model contains multiple blocks of this component,
+% block paths uniquely differentiate them.
+
+% Copyright 2025-2026 The MathWorks, Inc.
+
+inputs
+  x = {0 "1"}
+end
+outputs
+  f = {0 "1"}
+end
+equations
+  f == x
+end
+end  % component

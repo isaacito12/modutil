@@ -36,129 +36,350 @@ classdef unittest_PhysicalValue < matlab.unittest.TestCase
     % Check that models, scripts, functions, and classes run right out of the box.
 
     function PassingTest_1(~)
+      % Just create an object.
       CodeUtil1.PhysicalValue;
     end  % function
 
-    function PassingTest_2(~)
-      demo_PhysicalValue_1_basics
-    end  % function
-
-    function PassingTest_3(~)
-      evalin("base", "demo_PhysicalValue_2_workspace")
-    end  % function
-
-    function PassingTest_4(~)
-      demo_PhysicalValue_3_watch
-    end  % function
-
-    %% Tests
-
     function Test_Default_1(testcase)
-      % Just create an object.
-      x = CodeUtil1.PhysicalValue;
-      verifyEqual(testcase, x.ValueText, "")
-      verifyEqual(testcase, x.UnitText, "1")
-      verifyEqual(testcase, x.SimscapeValue, simscape.Value(nan, "1"))
+      % Creating a default PhysicalValue object does not initialize the internal states.
+      physval = CodeUtil1.PhysicalValue;
+      verifyFalse(testcase, physval.initialized)
     end  % function
 
     % -------------------------------------------------------------------------
+    % Test set.SimscapeValue.
 
-    function Test_UnitText_1(testcase)
-      % Test UnitText.
-      x = CodeUtil1.PhysicalValue(UnitText="s");
-      verifyEqual(testcase, x.UnitText, "s")
-      verifyEqual(testcase, x.SimscapeValue, simscape.Value(nan, "s"))
+    function set_SimscapeValue_Initialization_1(testcase)
+      % Assigning a simscape.Value object to SimscapeValue must initialize the physval's states.
+      physval = CodeUtil1.PhysicalValue;
+      verifyFalse(testcase, physval.initialized)
+      physval.SimscapeValue = simscape.Value(2);  % !test-target
+      verifyTrue(testcase, physval.initialized)
+    end  % function
+
+    function set_SimscapeValue_PassingTest_1(~)
+      physval = CodeUtil1.PhysicalValue;
+      physval.SimscapeValue = simscape.Value([2 4 6]);
+      physval.SimscapeValue = simscape.Value(ones(3,3));
+    end  % function
+
+    function set_SimscapeValue_PassingTest_2(~)
+      physval = CodeUtil1.PhysicalValue;
+      physval.SimscapeValue = simscape.Value(2, "m/s");
+      physval.SimscapeValue = simscape.Value(-34, "mph");
+    end  % function
+
+    function set_SimscapeValue_Error_1(testcase)
+      physval = CodeUtil1.PhysicalValue;
+      physval.SimscapeValue = simscape.Value(2, "g");
+      verifyError(testcase, @test_target, "PhysicalValue:set_SimscapeValue:UnitIsNotCommensurate")
+      function test_target
+        % Use unit which is not commensurate with the current unit.
+        physval.SimscapeValue = simscape.Value(0.1, "m");
+      end  % nested function
+    end  % function
+
+    function set_SimscapeValue_Error_2(testcase)
+      physval = CodeUtil1.PhysicalValue(UnitAlias="\%");
+      verifyError(testcase, @test_target, "PhysicalValue:set_SimscapeValue:UnitIsNotCompatibleWithAlias")
+      function test_target
+        % Use unit which is not "1".
+        physval.SimscapeValue = simscape.Value(0.1, "m");
+      end  % nested function
     end  % function
 
     % -------------------------------------------------------------------------
+    % Test get.SimscapeValue.
 
-    function Test_UnitAlias_1(testcase)
-      % Test UnitAlias.
-      x = CodeUtil1.PhysicalValue(UnitAlias="%");
-      verifyEqual(testcase, x.UnitAlias, "%")
+    function get_SimscapeValue_Test_1(testcase)
+      physval = CodeUtil1.PhysicalValue;
+      physval.SimscapeValue = simscape.Value([2 4 6]);
+      actual = physval.SimscapeValue;
+      verifyEqual(testcase, actual, simscape.Value([2 4 6]))
     end  % function
 
-    function Test_UnitAlias_2(testcase)
-      % Test UnitAlias.
-      x = CodeUtil1.PhysicalValue;
-      x.UnitAlias = "alias";
-      verifyEqual(testcase, x.UnitAlias, "alias")
+    function get_SimscapeValue_Test_2(testcase)
+      physval = CodeUtil1.PhysicalValue;
+      % Get SimscapeValue when physval is not initialized.
+      actual = physval.SimscapeValue;
+      verifyEqual(testcase, actual, simscape.Value(nan))
+    end  % function
+
+    % -------------------------------------------------------------------------
+    % Test set.ValueText.
+    % set.ValueText calls processValueText, which does heavy lifting to handle
+    % all possible texts.
+
+    function set_ValueText_initialization_1(testcase)
+      % Specifying ValueText must initialize the object.
+      physval = CodeUtil1.PhysicalValue;
+      verifyFalse(testcase, physval.initialized)
+      physval.ValueText = "3.1";
+      verifyTrue(testcase, physval.initialized)
+    end  % function
+
+    function set_ValueText_test_1(testcase)
+      physval = CodeUtil1.PhysicalValue;
+
+      physval.ValueText = "-sqrt(4)";
+      % Directly get current_simscape_value to avoid any side effects.
+      sscval = physval.current_simscape_value;
+      verifyEqual(testcase, value(sscval), -2)
+      verifyEqual(testcase, string(unit(sscval)), "1")
+
+      physval.ValueText = "[2 3 4]";
+      sscval = physval.current_simscape_value;
+      verifyEqual(testcase, value(sscval), [2, 3, 4])
+      verifyEqual(testcase, string(unit(sscval)), "1")
+
+      % Reset using "". The value becomes nan. Unit remains unchanged.
+      physval.ValueText = "";
+      sscval = physval.current_simscape_value;
+      verifyEqual(testcase, value(sscval), nan)
+      verifyEqual(testcase, string(unit(sscval)), "1")
+    end  % function
+
+    function set_ValueText_test_2(testcase)
+      physval = CodeUtil1.PhysicalValue;
+
+      physval.ValueText = "simscape.Value(-0.1)";
+      % Directly get current_simscape_value to avoid any side effects.
+      sscval = physval.current_simscape_value;
+      verifyEqual(testcase, value(sscval), -0.1)
+      verifyEqual(testcase, string(unit(sscval)), "1")
+
+      % Reset using "". The value becomes nan. Unit remains unchanged.
+      physval.ValueText = "";
+      sscval = physval.current_simscape_value;
+      verifyEqual(testcase, value(sscval), nan)
+      verifyEqual(testcase, string(unit(sscval)), "1")
+    end  % function
+
+    function set_ValueText_test_3(testcase)
+      physval = CodeUtil1.PhysicalValue;
+
+      physval.ValueText = "simscape.Value(4, ""N*m"")";
+      % Directly get current_simscape_value to avoid any side effects.
+      sscval = physval.current_simscape_value;
+      verifyEqual(testcase, value(sscval), 4)
+      verifyEqual(testcase, string(unit(sscval)), "N*m")
+
+      % Reset using "". The value becomes nan. Unit remains unchanged.
+      physval.ValueText = "";
+      sscval = physval.current_simscape_value;
+      verifyEqual(testcase, value(sscval), nan)
+      verifyEqual(testcase, string(unit(sscval)), "N*m")
+    end  % function
+
+    function set_ValueText_constructor_1(testcase)
+      % Use constructor options.
+      physval = CodeUtil1.PhysicalValue(ValueText="simscape.Value(4, ""N*m"")");
+      % Directly get current_simscape_value to avoid any side effects.
+      sscval = physval.current_simscape_value;
+      verifyEqual(testcase, value(sscval), 4)
+      verifyEqual(testcase, string(unit(sscval)), "N*m")
+    end  % function
+
+    function set_ValueText_error_1(testcase)
+      physval = CodeUtil1.PhysicalValue;
+      physval.ValueText = "simscape.Value(2, ""g"")";
+      verifyError(testcase, @test_target, "PhysicalValue:processValueText:UnitIsNotCommensurate")
+      function test_target
+        % Use unit which is not commensurate with the current unit.
+        physval.ValueText = "simscape.Value(5, ""s"")";
+      end  % nested function
+    end  % function
+
+    % -------------------------------------------------------------------------
+    % Test set.UnitText.
+
+    function set_UnitText_Initialization_1(testcase)
+      % Specifying UnitText initializes the object.
+      physval = CodeUtil1.PhysicalValue;
+      verifyFalse(testcase, physval.initialized)
+      physval.UnitText = "N";
+      verifyTrue(testcase, physval.initialized)
+    end  % function
+
+    function set_UnitText_PassingTest_1(~)
+      physval = CodeUtil1.PhysicalValue;
+      physval.UnitText = "m";
+      physval.UnitText = "in";
+    end  % function
+
+    function set_UnitText_ErrorTest_1(testcase)
+      physval = CodeUtil1.PhysicalValue;
+      verifyError(testcase, @test_target, "PhysicalValue:set_UnitText:InvalidUnit")
+      function test_target
+        % Specify a text which is invalid for simscape.Unit.
+        physval.UnitText = "dummy";
+      end  % nested function
+    end  % function
+
+    function set_UnitText_ErrorTest_2(testcase)
+      physval = CodeUtil1.PhysicalValue;
+      physval.UnitText = "g";
+      verifyError(testcase, @test_target, "PhysicalValue:set_UnitText:UnitIsNotCommensurate")
+      function test_target
+        % Specify unit which is not commensurate with the current unit.
+        physval.UnitText = "s";
+      end  % nested function
+    end  % function
+
+    % -------------------------------------------------------------------------
+    % Test constructor options.
+    %
+    % Function name contains the ID corresponding to the reporting in the code.
+    % For example, the constructor_2_1_error test corresponds to the "2.1:error" report from the code.
+    % The Reporting property in the PhysicalValue class must be set to "on" to see the reporting.
+
+    function constructor_1_ok(testcase)
+      physval = CodeUtil1.PhysicalValue(UnitText="", UnitAlias="", ValueText="");
+      verifyFalse(testcase, physval.initialized)
+    end  % function
+
+    function constructor_2_1_error(testcase)
+      verifyError(testcase, @test_target, "PhysicalValue:PhysicalValue:InvalidUnitTextForUnitAlias")
+      function test_target
+        CodeUtil1.PhysicalValue(UnitText="s", UnitAlias="\%", ValueText="3");
+      end  % function
+    end  % function
+
+    function constructor_2_2_ok(testcase)
+      physval = CodeUtil1.PhysicalValue(UnitText="1", UnitAlias="\%", ValueText="");
+      verifyTrue(testcase, physval.initialized)
+    end  % function
+
+    function constructor_2_3_error(testcase)
+      verifyError(testcase, @test_target, "PhysicalValue:processValueText:InvalidValueText")
+      function test_target
+        CodeUtil1.PhysicalValue(UnitText="1", UnitAlias="\%", ValueText="dummy");
+      end  % function
+    end  % function
+
+    function constructor_2_4_ok(testcase)
+      physval = CodeUtil1.PhysicalValue(UnitText="1", UnitAlias="\%", ValueText="5");
+      verifyTrue(testcase, physval.initialized)
+    end  % function
+
+    function constructor_3_ok(testcase)
+      physval = CodeUtil1.PhysicalValue(UnitText="s", UnitAlias="", ValueText="");
+      verifyTrue(testcase, physval.initialized)
+    end  % function
+
+    function constructor_4_ok(testcase)
+      physval = CodeUtil1.PhysicalValue(UnitText="", UnitAlias="\%", ValueText="");
+      verifyTrue(testcase, physval.initialized)
+    end  % function
+
+    function constructor_5_ok(testcase)
+      physval = CodeUtil1.PhysicalValue(UnitText="", UnitAlias="", ValueText="simscape.Value(-2.1, ""N"")");
+      verifyTrue(testcase, physval.initialized)
+    end  % function
+
+    function constructor_6_1_error(testcase)
+      verifyError(testcase, @test_target, "PhysicalValue:processValueText:InvalidValueText")
+      function test_target
+        CodeUtil1.PhysicalValue(UnitText="1", UnitAlias="", ValueText="dummy");
+      end  % function
+    end  % function
+
+    function constructor_6_2_ok(testcase)
+      physval = CodeUtil1.PhysicalValue(UnitText="1", UnitAlias="", ValueText="simscape.Value(-2.1, ""1"")");
+      verifyTrue(testcase, physval.initialized)
+    end  % function
+
+    function constructor_7_1_error(testcase)
+      verifyError(testcase, @test_target, "PhysicalValue:processValueText:InvalidValueText")
+      function test_target
+        CodeUtil1.PhysicalValue(UnitText="", UnitAlias="\%", ValueText="dummy");
+      end  % function
+    end  % function
+
+    function constructor_7_2_ok(testcase)
+      physval = CodeUtil1.PhysicalValue(UnitText="", UnitAlias="\%", ValueText="simscape.Value(-2.1, ""1"")");
+      verifyTrue(testcase, physval.initialized)
+    end  % function
+
+    % -------------------------------------------------------------------------
+    % Test get.ValueText
+    % ValueText keeps the user-specified text.
+    % The internal simscape.Value object may have a different representation of the value.
+    % For example, ValueText="1 : 2 : 5" is evaluated to [1, 3, 5] internally.
+
+    function get_ValueText_Test_1(testcase)
+      physval = CodeUtil1.PhysicalValue;
+      physval.ValueText = "[2, 3]";
+      actual = physval.ValueText;
+      verifyEqual(testcase, actual, "[2, 3]")
+    end  % function
+
+    function get_ValueText_Test_2(testcase)
+      physval = CodeUtil1.PhysicalValue(ValueText="1 : 2 : 5");
+      actual = physval.ValueText;
+      verifyEqual(testcase, actual, "1 : 2 : 5")
+    end  % function
+
+    % -------------------------------------------------------------------------
+    % Test get.UnitText
+
+    function get_UnitText_Test_1(testcase)
+      physval = CodeUtil1.PhysicalValue;
+      physval.ValueText = "[3, 4, 5]";
+      actual = physval.UnitText;
+      verifyEqual(testcase, actual, "1")
+    end  % function
+
+    function get_UnitText_Test_2(testcase)
+      physval = CodeUtil1.PhysicalValue(UnitText="N*m");
+      physval.ValueText = "[3, 4, 5]";
+      actual = physval.UnitText;
+      verifyEqual(testcase, actual, "N*m")
+    end  % function
+
+    % -------------------------------------------------------------------------
+    % Test set.UnitAlias
+
+    function set_UnitAlias_Test_1(testcase)
+      physval = CodeUtil1.PhysicalValue;
+      physval.UnitAlias = "alias";
+      % Access current_unit_alias to avoid triggering get.UnitAlias.
+      actual = physval.current_unit_alias;
+      verifyEqual(testcase, actual, "alias")
+    end  % function
+
+    function set_UnitAlias_Test_2(testcase)
+      physval = CodeUtil1.PhysicalValue(UnitAlias="\%");
+      % Access current_unit_alias to avoid triggering get.UnitAlias.
+      actual = physval.current_unit_alias;
+      verifyEqual(testcase, actual, "\%")
     end  % function
 
     function Test_UnitAlias_3(testcase)
-      % Test UnitAlias.
       x = CodeUtil1.PhysicalValue(UnitText="m");
-      verifyError(testcase, @test_target, "PhysicalValue:setUnitAlias:UnitAliasIsNotAllowed")
+      verifyError(testcase, @test_target, "PhysicalValue:set_UnitAlias:UnitAliasIsNotAllowed")
       function test_target()
+        % If unit is defined and is not "1", alias is not allowed.
         x.UnitAlias = "alias";
       end  % nested function
     end  % function
 
-    function Test_UnitAlias_4(testcase)
-      % Test UnitAlias.
-      x = CodeUtil1.PhysicalValue(UnitText="1");
-      x.UnitAlias = "alias";
-      verifyEqual(testcase, x.UnitAlias, "alias")
+    % -------------------------------------------------------------------------
+    % Test get.UnitAlias
+
+    function get_UnitAlias_Test_1(testcase)
+      physval = CodeUtil1.PhysicalValue(UnitAlias="\%");
+      % This triggers get.UnitAlias.
+      actual = physval.UnitAlias;  % !test-target
+      verifyEqual(testcase, actual, "\%")
     end  % function
 
     % -------------------------------------------------------------------------
+    % Test event listener.
 
-    function Test_ValueText_1_1(testcase)
-      % Test ValueText.
-      val = 2;
-      x = CodeUtil1.PhysicalValue(ValueText=val);
-      verifyEqual(testcase, x.SimscapeValue, simscape.Value(val))
-    end  % function
-
-    function Test_ValueText_1_2(testcase)
-      % Test wrong ValueText.
-      verifyError(testcase, @test_target, "PhysicalValue:processValueText:InvalidValueText")
-      function test_target()
-        x = CodeUtil1.PhysicalValue;
-        % Illegal use of reserved keyword "try".
-        x.ValueText = "try";  % !test-target
-      end  % nested function
-    end  % function
-
-    function Test_ValueText_1_3(testcase)
-      % Test wrong ValueText.
-      verifyError(testcase, @test_target, "PhysicalValue:processValueText:InvalidValueText")
-      function test_target()
-        x = CodeUtil1.PhysicalValue;
-        % Unrecognized function or variable 'dummy_variable_for_testing'.
-        x.ValueText = "dummy_variable_for_testing";  % !test-target
-      end  % nested function
-    end  % function
-
-    function Test_ValueText_1_4(testcase)
-      % Test wrong ValueText.
-      verifyError(testcase, @test_target, "PhysicalValue:processValueText:InvalidValueText")
-      function test_target()
-        x = CodeUtil1.PhysicalValue;
-        % Error: This statement is incomplete.
-        x.ValueText = "1-";  % !test-target
-      end  % nested function
-    end  % function
-
-    function Test_ValueText_1_5(testcase)
-      % Test ValueText.
-      x = CodeUtil1.PhysicalValue;
-      x.ValueText = "123";
-      verifyEqual(testcase, x.ValueText, "123")
-      verifyEqual(testcase, x.SimscapeValue, simscape.Value(123))
-    end  % function
-
-    function Test_ValueText_1_6(testcase)
-      % Test ValueText.
-      x = CodeUtil1.PhysicalValue;
-      x.ValueText = "-12";  % !test-target
-      verifyEqual(testcase, x.ValueText, "-12")
-      verifyEqual(testcase, x.SimscapeValue, simscape.Value(-12))
-    end  % function
-
-    function Test_ValueText_2(testcase)
+    function EventListner_1(testcase)
       % Test ValueText with an event listener.
-      x = CodeUtil1.PhysicalValue;
+      x = CodeUtil1.PhysicalValue(UnitText="1");
 
       k = 1;
 
@@ -180,18 +401,10 @@ classdef unittest_PhysicalValue < matlab.unittest.TestCase
       verifyEqual(testcase, x.SimscapeValue, simscape.Value(-12))
     end  % function
 
-    function Test_ValueText_3_1(testcase)
-      % Test ValueText with simscape.Value.
-      x = CodeUtil1.PhysicalValue(UnitText="m");
-      x.ValueText = "simscape.Value(2, ""m"")";  % !test-target
-      verifyEqual(testcase, x.ValueText, "simscape.Value(2, ""m"")")
-      verifyEqual(testcase, x.SimscapeValue, simscape.Value(2, "m"))
-    end  % function
-
     % -------------------------------------------------------------------------
-    % Interaction with the base workspace.
+    % Test interaction with the base workspace.
 
-    function Test_workspace_1(testcase)
+    function BaseWorkspace_1(testcase)
       % The ValueText refers to a base workspace variable.
       % The variable is a simscape.Value object.
       % The unit is commensurate with the specified UnitText property.
@@ -202,7 +415,7 @@ classdef unittest_PhysicalValue < matlab.unittest.TestCase
       verifyEqual(testcase, y, simscape.Value(5, "mph"))
     end  % function
 
-    function Test_workspace_2(testcase)
+    function BaseWorkspace_2(testcase)
       % Specify a wrong unit.
       x = CodeUtil1.PhysicalValue(UnitText="m/s");
       assignin("base", "v", simscape.Value(5, "kg"))
@@ -212,7 +425,7 @@ classdef unittest_PhysicalValue < matlab.unittest.TestCase
       end  % nested function
     end  % function
 
-    function Test_workspace_3(testcase)
+    function BaseWorkspace_3(testcase)
       % Test the "workspace variables and derived parameters" scenario.
       % c is derived from a and b.
       % a and b refer to variables in the base workspace.
@@ -253,6 +466,21 @@ classdef unittest_PhysicalValue < matlab.unittest.TestCase
 
       verifyEqual(testcase, pv_c.SimscapeValue, simscape.Value(8, "in^2"))
 
+    end  % function
+
+    % -------------------------------------------------------------------------
+    % Test demo scripts.
+
+    function DemoScript_PassingTest_1(~)
+      DemoScript_PhysicalValue_1_basics
+    end  % function
+
+    function DemoScript_PassingTest_2(~)
+      evalin("base", "DemoScript_PhysicalValue_2_workspace")
+    end  % function
+
+    function DemoScript_PassingTest_3(~)
+      evalin("base", "DemoScript_PhysicalValue_3_listener")
     end  % function
 
   end  % methods

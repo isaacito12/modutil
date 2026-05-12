@@ -48,147 +48,144 @@ classdef uiTest_PhysicalUnitDropDown < matlab.uitest.TestCase
     % Warnings can be displayed even when the app opens and starts working seemingly normally.
     % Make sure there is no warning when opening an app.
 
-    function app_launches_without_warnings_1(testcase)
-      verifyWarningFree(testcase, @() test_target)
+    function clean_launch_1(testcase)
+      verifyWarningFree(testcase, @DemoApp_PhysicalUnitDropDown_1_simplest)
+    end  % function
+
+    function clean_launch_2(testcase)
+      verifyWarningFree(testcase, @DemoApp_PhysicalUnitDropDown_2)
+    end  % function
+
+    % -------------------------------------------------------------------------
+    % Test UnitText.
+
+    function set_UnitText_1_startup(testcase)
+      main_figure = uifigure(Visible="off");
+      main_figure.Name = "Test";
+      main_figure.Position(3:4) = [500, 300];  % width, height
+      main_v_container = AppUtil1.VerticalContainer(main_figure);
+      v_layout = addVerticalGridLayout(main_v_container);
+
+      dropdown_1 = AppUtil1.Component.PhysicalUnitDropDown(v_layout);
+
+      verifyEqual(testcase, dropdown_1.UnitSpecified, false)
+
+      % Allow to define UnitText before defining UnitItems.
+      % This sets UnitSpecified to be true.
+      dropdown_1.UnitText = "s";
+
+      verifyEqual(testcase, dropdown_1.UnitSpecified, true)
+
+      % After UnitSpecified is set to true, UnitItems can't be directly modified.
+      verifyError(testcase, @test_target, "PhysicalUnitDropDown:UnitItemsAlreadyDefined")
       function test_target
-        DemoApp_PhysicalUnitDropDown_1  % !test-target
+        dropdown_1.UnitItems = ["s", "min"];
+      end  % nested function
+
+      % It is still possible to specify a commensurate unit for UnitText.
+      % This grows the UnitItems.
+      dropdown_1.UnitText = "min";
+
+      verifyEqual(testcase, dropdown_1.UnitItems, ["s", "min"])
+
+    end  % function
+
+    function set_UnitText_error_1_startup(testcase)
+      main_figure = uifigure(Visible="off");
+      main_figure.Name = "Test";
+      main_figure.Position(3:4) = [500, 300];  % width, height
+      main_v_container = AppUtil1.VerticalContainer(main_figure);
+      v_layout = addVerticalGridLayout(main_v_container);
+
+      dropdown_1 = AppUtil1.Component.PhysicalUnitDropDown(v_layout);
+      dropdown_1.UnitItems = ["m/s", "mph"];
+
+      verifyError(testcase, @test_target, "PhysicalUnitDropDown:physmod:common:units:core:parse:UnitSyntaxError")
+      function test_target
+        % Assign a wrong text.
+        dropdown_1.UnitText = "-";
       end  % nested function
     end  % function
 
-    function app_launches_without_warnings_2(testcase)
-      verifyWarningFree(testcase, @() test_target)
+    function set_UnitText_error_2(~)
+      app = DemoApp_PhysicalUnitDropDown_1_simplest;
+      % At this point, the defined unit is "1".
+
+      % Enter a wrong text.
+      app.PhysicalUnitDropDown_1.UnitText = "m";
+      % The error pop-up window must open. (Visually inspect.)
+    end  % function
+
+    function set_UnitText_get_UnitText_1(testcase)
+      app = DemoApp_PhysicalUnitDropDown_2;
+      % At this point, the defined unit is "m/s".
+
+      app.PhysicalUnitDropDown_1.UnitText = "mph";
+      verifyEqual(testcase, app.PhysicalUnitDropDown_1.UnitText, "mph")
+
+      app.PhysicalUnitDropDown_1.UnitText = "m/s";
+      verifyEqual(testcase, app.PhysicalUnitDropDown_1.UnitText, "m/s")
+    end  % function
+
+    % -------------------------------------------------------------------------
+    % Test UnitItems
+
+    function set_UnitItems_error_1_startup(testcase)
+      main_figure = uifigure(Visible="off");
+      main_figure.Name = "Test";
+      main_figure.Position(3:4) = [500, 300];  % width, height
+      main_v_container = AppUtil1.VerticalContainer(main_figure);
+      v_layout = addVerticalGridLayout(main_v_container);
+      dropdown_1 = AppUtil1.Component.PhysicalUnitDropDown(v_layout);
+
+      verifyError(testcase, @test_target, "PhysicalUnitDropDown:InvalidUnitItems")
       function test_target
-        DemoApp_PhysicalUnitDropDown_2  % !test-target
+        % Specify a wrong text.
+        dropdown_1.UnitItems = "-";
       end  % nested function
     end  % function
 
-    %% Error case tests
+    function set_UnitItems_error_2_startup(testcase)
+      main_figure = uifigure(Visible="off");
+      main_figure.Name = "Test";
+      main_figure.Position(3:4) = [500, 300];  % width, height
+      main_v_container = AppUtil1.VerticalContainer(main_figure);
+      v_layout = addVerticalGridLayout(main_v_container);
+      dropdown_1 = AppUtil1.Component.PhysicalUnitDropDown(v_layout);
 
-    function Test_error_1(testcase)
-      verifyError(testcase, @() test_target, "PhysicalUnitDropDown:UnitItemsAlreadyDefined")
+      verifyError(testcase, @test_target, "PhysicalUnitDropDown:InvalidUnitItems")
       function test_target
-        app = DemoApp_PhysicalUnitDropDown_2;
-
-        % UnitItems is already defined with the app code.
-        % Overriding the UnitItems must results in an error.
-        app.PhysicalUnitDropDownUI.UnitItems = ["s", "min"];  % !test-target
-
+        % Specify a wrong text in a string array.
+        dropdown_1.UnitItems = ["m", "s", "-"];
       end  % nested function
+    end  % function
+
+    function set_UnitItems_error_3(testcase)
+      main_figure = uifigure(Visible="off");
+      main_figure.Name = "Test";
+      main_figure.Position(3:4) = [500, 300];  % width, height
+      main_v_container = AppUtil1.VerticalContainer(main_figure);
+      v_layout = addVerticalGridLayout(main_v_container);
+      dropdown_1 = AppUtil1.Component.PhysicalUnitDropDown(v_layout);
+      dropdown_1.UnitItems = ["s", "min"];
+
+      verifyError(testcase, @test_target, "PhysicalUnitDropDown:UnitItemsAlreadyDefined")
+      function test_target
+        % Specify UnitItems again, which is not allowed.
+        dropdown_1.UnitItems = ["rad/s", "rpm"];
+      end  % nested function
+
+      % UnitItems must keep the previous setting.
+      verifyEqual(testcase, dropdown_1.UnitItems, ["s", "min"])
     end  % function
 
     %% Basic gesture tests
 
     function GestureTest_1(testcase)
       app = DemoApp_PhysicalUnitDropDown_2;
-      choose(testcase, app.PhysicalUnitDropDownUI.EditableDropDownUI.MainDropDown, "in")  % !test-target
-      choose(testcase, app.PhysicalUnitDropDownUI.EditableDropDownUI.MainDropDown, "m")  % !test-target
-      choose(testcase, app.PhysicalUnitDropDownUI.EditableDropDownUI.MainDropDown, "in")  % !test-target
-    end  % function
-
-    %% Attempt to specify invalid unit text
-    % Set a unit which is not commensurate with the defined units.
-    % The attempt must result in an error pop-up dialog showing up, and
-    % the app must keep the current drop down list and the unit text.
-
-    function Test_1_1(testcase)
-      app = DemoApp_PhysicalUnitDropDown_2;
-
-      % Programmatic
-      app.PhysicalUnitDropDownUI.UnitText = "N";  % !test-target
-
-      % The app must reject the newly specified UnitText and keep UnitItems and UnitText intact.
-      unit_items = app.PhysicalUnitDropDownUI.UnitItems;
-      verifyEqual(testcase, unit_items, ["m", "in"])
-
-      unit_text = app.PhysicalUnitDropDownUI.UnitText;
-      verifyEqual(testcase, unit_text, "m")
-
-    end  % function
-
-    function Test_1_2(testcase)
-      app = DemoApp_PhysicalUnitDropDown_2;
-
-      % Interactive
-      type(testcase, app.PhysicalUnitDropDownUI.EditableDropDownUI.MainDropDown, "N")  % !test-target
-
-      % The app must reject the newly specified UnitText and keep UnitItems and UnitText intact.
-      unit_items = app.PhysicalUnitDropDownUI.UnitItems;
-      verifyEqual(testcase, unit_items, ["m", "in"])
-
-      unit_text = app.PhysicalUnitDropDownUI.UnitText;
-      verifyEqual(testcase, unit_text, "m")
-
-    end  % function
-
-    function Test_1_3(testcase)
-      app = DemoApp_PhysicalUnitDropDown_2;
-
-      % Programmatic
-      app.PhysicalUnitDropDownUI.UnitText = "aaa";  % !test-target
-
-      % The app must reject the newly specified UnitText and keep UnitItems and UnitText intact.
-      unit_items = app.PhysicalUnitDropDownUI.UnitItems;
-      verifyEqual(testcase, unit_items, ["m", "in"])
-
-      unit_text = app.PhysicalUnitDropDownUI.UnitText;
-      verifyEqual(testcase, unit_text, "m")
-
-    end  % function
-
-    function Test_1_4(testcase)
-      app = DemoApp_PhysicalUnitDropDown_2;
-
-      % Interactive
-      type(testcase, app.PhysicalUnitDropDownUI.EditableDropDownUI.MainDropDown, "aaa")  % !test-target
-
-      % The app must reject the newly specified UnitText and keep UnitItems and UnitText intact.
-      unit_items = app.PhysicalUnitDropDownUI.UnitItems;
-      verifyEqual(testcase, unit_items, ["m", "in"])
-
-      unit_text = app.PhysicalUnitDropDownUI.UnitText;
-      verifyEqual(testcase, unit_text, "m")
-
-    end  % function
-
-
-    %% Add commensurate units
-
-    function Test_2_1(testcase)
-      app = DemoApp_PhysicalUnitDropDown_2;
-
-      % Programmatic
-      app.PhysicalUnitDropDownUI.UnitText = "km";  % !test-target
-
-      % The app must add the newly specified UnitText at the end of the unti items list.
-      unit_items = app.PhysicalUnitDropDownUI.UnitItems;
-      verifyEqual(testcase, unit_items, ["m", "in", "km"])
-
-      unit_text = app.PhysicalUnitDropDownUI.UnitText;
-      verifyEqual(testcase, unit_text, "km")
-
-      choose(testcase, app.PhysicalUnitDropDownUI.EditableDropDownUI.MainDropDown, "in")  % !test-target
-      choose(testcase, app.PhysicalUnitDropDownUI.EditableDropDownUI.MainDropDown, "m")  % !test-target
-      choose(testcase, app.PhysicalUnitDropDownUI.EditableDropDownUI.MainDropDown, "km")  % !test-target
-
-    end  % function
-
-    function Test_2_2(testcase)
-      app = DemoApp_PhysicalUnitDropDown_2;
-
-      % Interactive
-      type(testcase, app.PhysicalUnitDropDownUI.EditableDropDownUI.MainDropDown, "km")  % !test-target
-
-      % The app must add the newly specified UnitText at the end of the unti items list.
-      unit_items = app.PhysicalUnitDropDownUI.UnitItems;
-      verifyEqual(testcase, unit_items, ["m", "in", "km"])
-
-      unit_text = app.PhysicalUnitDropDownUI.UnitText;
-      verifyEqual(testcase, unit_text, "km")
-
-      choose(testcase, app.PhysicalUnitDropDownUI.EditableDropDownUI.MainDropDown, "in")  % !test-target
-      choose(testcase, app.PhysicalUnitDropDownUI.EditableDropDownUI.MainDropDown, "m")  % !test-target
-      choose(testcase, app.PhysicalUnitDropDownUI.EditableDropDownUI.MainDropDown, "km")  % !test-target
-
+      choose(testcase, app.PhysicalUnitDropDown_1.DropDownUI.MainDropDown, "mph")
+      choose(testcase, app.PhysicalUnitDropDown_1.DropDownUI.MainDropDown, "m/s")
+      choose(testcase, app.PhysicalUnitDropDown_1.DropDownUI.MainDropDown, "mph")
     end  % function
 
   end  % methods

@@ -28,8 +28,8 @@ plan("CodeIssues") = matlab.buildtool.tasks.CodeIssuesTask( ...
   ...
   SourceFiles = ["**/*.m", "**/*.mlx"], ...
   Results = [
-  "test-result-24b/code-issues.mat"
-  "test-result-24b/code-issues.sarif"
+  "test-result/code-issues.mat"
+  "test-result/code-issues.sarif"
   ]);
 
 plan("Test") = matlab.buildtool.tasks.TestTask( ...
@@ -37,12 +37,12 @@ plan("Test") = matlab.buildtool.tasks.TestTask( ...
   ...
   SourceFiles = ["**/*.m", "**/*.mlx"], ...
   TestResults = [
-  "test-result-24b/test-result.pdf"
-  "test-result-24b/test-result.xml"
+  "test-result/test-result.pdf"
+  "test-result/test-result.xml"
   ], ...
   CodeCoverageResults = [
-  "test-result-24b/code-coverage.html"
-  "test-result-24b/code-coverage.xml"
+  "test-result/code-coverage.html"
+  "test-result/code-coverage.xml"
   ] );
 
 end  % function

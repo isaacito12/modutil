@@ -58,8 +58,8 @@ classdef uitest_TraceGeneratorAppMain < matlab.uitest.TestCase
     % Make sure there is no warning when opening an app.
 
     function app_launches_without_warnings_1(testcase)
-      verifyWarningFree(testcase, @() target())
-      function target()
+      verifyWarningFree(testcase, @() test_target)
+      function test_target
         testcase.App = SignalUtil1.TraceGeneratorAppMain;  % !test-target
       end  % nested function
     end  % function
@@ -87,9 +87,9 @@ classdef uitest_TraceGeneratorAppMain < matlab.uitest.TestCase
 
     function uitest_1(testcase)
       testcase.App = SignalUtil1.TraceGeneratorAppMain;
-      type(testcase, testcase.App.RandomSeedUI.ValueUI.MainEditField, "1")
-      type(testcase, testcase.App.RandomSeedUI.ValueUI.MainEditField, "22")
-      type(testcase, testcase.App.RandomSeedUI.ValueUI.MainEditField, "333")
+      type(testcase, testcase.App.RandomSeedUI.ValueTextUI.MainEditField, "1")
+      type(testcase, testcase.App.RandomSeedUI.ValueTextUI.MainEditField, "22")
+      type(testcase, testcase.App.RandomSeedUI.ValueTextUI.MainEditField, "333")
     end  % function
 
   end  % methods

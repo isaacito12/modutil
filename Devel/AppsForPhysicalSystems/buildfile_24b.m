@@ -2,7 +2,7 @@ function plan = buildfile_24b
 % Define tasks for the buildtool to check code and run tests.
 %
 % R2025a or newer: In the Editor, use the "Run Build" button to start a task.
-% R2024b: buildtool -buildFile buildfile_R2024b.m -verbosity Verbose Test
+% R2024b: buildtool -buildFile buildfile_24b.m -verbosity Verbose Test
 
 % Overview of MATLAB Build Tool
 % https://www.mathworks.com/help/matlab/matlab_prog/overview-of-matlab-build-tool.html

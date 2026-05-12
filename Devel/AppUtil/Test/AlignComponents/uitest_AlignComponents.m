@@ -6,43 +6,34 @@ classdef uitest_AlignComponents < matlab.uitest.TestCase
   %
   % Table of Verifications, Assertions, and Other Qualifications
   % https://www.mathworks.com/help/matlab/matlab_prog/types-of-qualifications.html
+  %
+  % Test Browser
+  % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
-  % Copyright 2024-2025 The MathWorks, Inc.
-
-  properties
-    % Do not specify the class name for a property to hold a handle to an app.
-    % For class-based test apps, the class name is the app name, making
-    % it difficult to use a common teardown if the class name is specified here.
-    App (1,1)
-  end  % properties
+  % Copyright 2024-2026 The MathWorks, Inc.
 
   methods (TestMethodSetup)
     % Functions in the TestMethodSetup section always run before
     % each test defined in the Test section runs.
 
-    function test_method_setup(testcase)
+    function test_method_setup_1(testcase)
       %%
-      function closeAll
-        % Delete the app's figure object from memory.
-        if class(testcase.App) ~= "double"
-          if isstruct(testcase.App) && not(isfield(testcase.App, "Window"))
-            % Function-based app with no window to delete.
-
-            return
-
-          end  % if
-          delete(testcase.App.Window.MainFigure)
-        end  % if
-        close all
-        bdclose all
-      end  % nested function
+      % Close all before test
+      close all
+      bdclose all
 
       % addTeardown adds a function which always runs after each test.
       % Even if the execution of a test ends with an error, the teardown function runs.
-      addTeardown(testcase, @closeAll)
-
-      close all
-      bdclose all
+      addTeardown(testcase, @closeAllAfterTest)
+      function closeAllAfterTest
+        % Close all figure windows. This closes not only the test targets but also other figure windows.
+        figs = findall(0, Type="Figure");
+        if not(any(isempty(figs)))
+          disp("Deleting figures (" + numel(figs) + ")")
+          delete(figs)
+        end  % if
+        bdclose all
+      end  % nested function
     end  % function
 
   end  % methods
@@ -57,123 +48,111 @@ classdef uitest_AlignComponents < matlab.uitest.TestCase
     % Warnings can be displayed even when the app opens and starts working seemingly normally.
     % Make sure there is no warning when opening an app.
 
-    function app_launches_without_warnings_1(testcase)
-      verifyWarningFree(testcase, @() target())
-      function target()
-        testcase.App = apptest_Align_EditField_DropDown_1_horizontal;  % !test-target
-      end  % nested function
+    function clean_launch_1(testcase)
+      verifyWarningFree(testcase, @apptest_Align_EditField_DropDown_1_horizontal)
     end  % function
 
-    function app_launches_without_warnings_2(testcase)
-      verifyWarningFree(testcase, @() target())
-      function target()
-        testcase.App = apptest_Align_EditField_DropDown_2_vertical;  % !test-target
-      end  % nested function
+    function clean_launch_2(testcase)
+      verifyWarningFree(testcase, @apptest_Align_EditField_DropDown_2_vertical)
     end  % function
 
-    function app_launches_without_warnings_3(testcase)
-      verifyWarningFree(testcase, @() target())
-      function target()
-        testcase.App = apptest_AlignComponents_1_horizontal;  % !test-target
-      end  % nested function
+    function clean_launch_3(testcase)
+      verifyWarningFree(testcase, @apptest_AlignComponents_1_horizontal)
     end  % function
 
-    function app_launches_without_warnings_4(testcase)
-      verifyWarningFree(testcase, @() target())
-      function target()
-        testcase.App = apptest_AlignComponents_2_vertical;  % !test-target
-      end  % nested function
+    function clean_launch_4(testcase)
+      verifyWarningFree(testcase, @apptest_AlignComponents_2_vertical)
     end  % function
 
     %% Color theme
     % Take screenshots of the app. Visually inspect the saved images.
 
-    function DarkTheme_1(testcase)
+    function DarkTheme_1(~)
       if isMATLABReleaseOlderThan("R2025a")
 
         return
 
       end  % if
-      testcase.App = apptest_Align_EditField_DropDown_1_horizontal;
+      app = apptest_Align_EditField_DropDown_1_horizontal;
       drawnow
-      testcase.App.Window.MainFigure.Theme = "dark";
+      app.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-1-editfield.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(app.MainFigure, save_path)
     end  % function
 
-    function LightTheme_1(testcase)
-      testcase.App = apptest_Align_EditField_DropDown_1_horizontal;
+    function LightTheme_1(~)
+      app = apptest_Align_EditField_DropDown_1_horizontal;
       drawnow
       if not(isMATLABReleaseOlderThan("R2025a"))
-        testcase.App.Window.MainFigure.Theme = "light";
+        app.MainFigure.Theme = "light";
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-1-editfield.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(app.MainFigure, save_path)
     end  % function
 
-    function DarkTheme_2(testcase)
+    function DarkTheme_2(~)
       if isMATLABReleaseOlderThan("R2025a")
 
         return
 
       end  % if
-      testcase.App = apptest_Align_EditField_DropDown_2_vertical;
+      app = apptest_Align_EditField_DropDown_2_vertical;
       drawnow
-      testcase.App.Window.MainFigure.Theme = "dark";
+      app.Window.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-2-editfield.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(app.Window.MainFigure, save_path)
     end  % function
 
-    function LightTheme_2(testcase)
-      testcase.App = apptest_Align_EditField_DropDown_2_vertical;
+    function LightTheme_2(~)
+      app = apptest_Align_EditField_DropDown_2_vertical;
       drawnow
       if not(isMATLABReleaseOlderThan("R2025a"))
-        testcase.App.Window.MainFigure.Theme = "light";
+        app.Window.MainFigure.Theme = "light";
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-2-editfield.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(app.Window.MainFigure, save_path)
     end  % function
 
-    function DarkTheme_3(testcase)
+    function DarkTheme_3(~)
       if isMATLABReleaseOlderThan("R2025a")
 
         return
 
       end  % if
-      testcase.App = apptest_AlignComponents_1_horizontal;
+      app = apptest_AlignComponents_1_horizontal;
       drawnow
-      testcase.App.Window.MainFigure.Theme = "dark";
+      app.Window.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-3-horizontal.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(app.Window.MainFigure, save_path)
     end  % function
 
-    function LightTheme_3(testcase)
-      testcase.App = apptest_AlignComponents_1_horizontal;
+    function LightTheme_3(~)
+      app = apptest_AlignComponents_1_horizontal;
       drawnow
-      testcase.App.Window.MainFigure.Theme = "light";
+      app.Window.MainFigure.Theme = "light";
       save_path = fullfile(pwd, "screenshot-testing-light-3-horizontal.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(app.Window.MainFigure, save_path)
     end  % function
 
-    function DarkTheme_4(testcase)
+    function DarkTheme_4(~)
       if isMATLABReleaseOlderThan("R2025a")
 
         return
 
       end  % if
-      testcase.App = apptest_AlignComponents_1_horizontal;
+      app = apptest_AlignComponents_1_horizontal;
       drawnow
-      testcase.App.Window.MainFigure.Theme = "dark";
+      app.Window.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-4-horizontal.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(app.Window.MainFigure, save_path)
     end  % function
 
-    function LightTheme_4(testcase)
-      testcase.App = apptest_AlignComponents_1_horizontal;
+    function LightTheme_4(~)
+      app = apptest_AlignComponents_1_horizontal;
       drawnow
-      testcase.App.Window.MainFigure.Theme = "light";
+      app.Window.MainFigure.Theme = "light";
       save_path = fullfile(pwd, "screenshot-testing-light-4-horizontal.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(app.Window.MainFigure, save_path)
     end  % function
 
   end  % methods

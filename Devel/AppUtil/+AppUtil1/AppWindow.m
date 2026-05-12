@@ -73,7 +73,6 @@ classdef AppWindow < handle
 
       v_gridlayout = addVerticalGridLayout(AppWindow.MainVerticalContainer);
       AppWindow.HeaderUI = AppUtil1.Component.WindowHeader(v_gridlayout);
-      AppWindow.HeaderUI.MainFigure = AppWindow.MainFigure;
       AppWindow.HeaderUI.AppSourceName = NameValuePair.SourceFile;
       AppWindow.HeaderUI.Reporting = NameValuePair.Reporting;
     end  % function

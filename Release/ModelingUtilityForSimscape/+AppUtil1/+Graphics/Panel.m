@@ -33,7 +33,7 @@ classdef Panel < AppUtil1.Component.ComponentBase
       component.base_grid.Scrollable = "on";
 
       % The main element of this component.
-      component.MainPanel = uipanel(component.base_grid);
+      component.MainPanel = uipanel(component.main_grid);
       component.MainPanel.Layout.Row = 1;
       component.MainPanel.Layout.Column = 1;
       component.MainPanel.Title= "";
@@ -52,12 +52,14 @@ classdef Panel < AppUtil1.Component.ComponentBase
 
       component.MainPanel.BorderType = component.BorderType;
 
+      % uipanel has the BackgroundColor property.
+      % The BackgroundColor of main grid and base grid do not work because of uipanel's.
       if component.HighlightBackground
         switch component.ThemeNameForBackGroundHighlight
           case "light"
-            component.base_grid.BackgroundColor = component.LightThemeBackGroundColor;
+            component.MainPanel.BackgroundColor = component.LightThemeBackGroundColor;
           case "dark"
-            component.base_grid.BackgroundColor = component.DarkThemeBackGroundColor;
+            component.MainPanel.BackgroundColor = component.DarkThemeBackGroundColor;
         end  % switch
       end  % if
     end  % function

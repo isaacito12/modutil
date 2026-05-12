@@ -1,17 +1,24 @@
 function plan = buildfile_24b
 % Define tasks for the buildtool to check code and run tests.
 %
-% If the Devel folder is the current folder,
+% If the SearchUtil folder is the current folder, start tests as follows.
+%{
+buildtool -buildFile buildfile_24b.m -verbosity Verbose Test
+%}
+%
+% If the Devel folder is the current folder which contains the SearchUtil folder,
 % start tests as follows.
-%   buildtool -buildFile SearchUtil\buildfile_24b.m -verbosity Verbose Test
+%{
+buildtool -buildFile SearchUtil\buildfile_24b.m -verbosity Verbose Test
+%}
 
 % Overview of MATLAB Build Tool
 % https://www.mathworks.com/help/matlab/matlab_prog/overview-of-matlab-build-tool.html
 %
-% Run Build from Toolstrip
+% Run Build from Toolstrip (R2025a or newer)
 % https://www.mathworks.com/help/matlab/matlab_prog/run-build-from-toolstrip.html
 
-% Copyright 2024-2025 The MathWorks, Inc.
+% Copyright 2024-2026 The MathWorks, Inc.
 
 plan = buildplan();
 plan.DefaultTasks = "CodeIssues";

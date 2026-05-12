@@ -1,49 +1,84 @@
 classdef DropDown < AppUtil1.Component.ComponentBase
   % Drop down component
   %
-  % Drop down items must be programatically defined for this class.
-  % The uidropdown supports editable list which users can interactively edit
-  % while the app is running, but this class does not support it.
+  % Specify Items for the drop down list.
+  % Specify Value to select one of the items.
+  %
+  % By default, the drop down list is not editable interactively, but
+  % it can be modified programmatically.
+  %
+  % To make the drop down editable interactively, set Editable to "on" before making the app visible.
+  % After the app is made visible, Editable cannot be modified.
+  % If a new item is interactively added and if it does not exist in the existing items,
+  % it is added to the end of the items.
+  % (uidropdown does not automatically add a new item to the items.)
 
-  % Copyright 2023-2025 The MathWorks, Inc.
+  % Copyright 2023-2026 The MathWorks, Inc.
 
   properties
+    errorID = "DropDown:"
+  end  % properties
+  properties
+
     MainDropDown matlab.ui.control.DropDown
+
+    % Editable can be specified only once before the app becomes visible.
+    % Editable controls interactive editability only.
+    % Drop down items can be added or removed programmatically regardless of Editable.
+    Editable (1,1) matlab.lang.OnOffSwitchState
 
     ValueChangedCallback {CodeUtil1.mustBeFunctionHandleOrEmpty} = []
 
     ComponentWidth (1,:) {CodeUtil1.mustBeTextOrPositiveNumber} = "1x"
+
+    % The width of the main drop down component.
+    % Make sure that this is the same as or smaller than ComponentWidth (no error check is done by design.)
     DropDownWidth (1,:) {CodeUtil1.mustBeTextOrPositiveNumber} = "1x"
+
     HorizontalAlignment (1,1) {mustBeMember( HorizontalAlignment, ["left", "center", "right"])} = "center"
 
     ComponentHeight (1,:) {CodeUtil1.mustBeTextOrPositiveNumber} = AppUtil1.Constant.Height{"oneline++"}
     DropDownHeight (1,:) {CodeUtil1.mustBeTextOrPositiveNumber} = AppUtil1.Constant.Height{"oneline+"}
+
     % uidropdown has VerticalAlignment property, but it is for the alignment of icon and text within a drop down button.
     % The VerticalAlignment property of this class is for the alignment of the main element within its parent component.
     VerticalAlignment (1,1) {mustBeMember( VerticalAlignment, ["top", "center", "bottom"])} = "center"
-  end  % properties
 
+  end  % properties
   properties (Dependent)
+
     % Items and Value of this class are aliases of uidropdown's Items and Value.
     % Difference is that they are a string array and a string respectively in this class
     % while they are a cell array of char array and a char array in uidropdown, respectively.
     Items (1,:) string
     Value (1,1) string
-  end  % properties
 
-  properties (Access=private)
-    main_grid matlab.ui.container.GridLayout
+  end  % properties
+  properties
+
+    initialized (1,1) logical = false
+
+    % To see outputs from class constructors, you must set Reporting to "on" here.
+    % Setting Reporting to "on" in other ways do not enable reporting from constructors.
+    Reporting (1,1) matlab.lang.OnOffSwitchState = "off"
+
   end  % properties
 
   events (HasCallbackProperty, NotifyAccess=protected)
+
     % ValueChanged event adds ValueChangedFcn property to this class.
     ValueChanged
+
   end  % events
 
   methods (Access=protected)
 
     function setup(component)
       %%
+      if component.Reporting
+        FileUtil1.displayTimeAndFileLocation
+      end  % if
+
       setup@AppUtil1.Component.ComponentBase(component)
 
       component.main_grid = uigridlayout(component.base_grid, [1 1]);
@@ -55,13 +90,12 @@ classdef DropDown < AppUtil1.Component.ComponentBase
       component.main_grid.ColumnSpacing = 1;
       component.main_grid.RowSpacing = 0;
 
-      % The main element of this component
+      % The main element of this component.
       component.MainDropDown = uidropdown(component.main_grid);
       component.MainDropDown.Layout.Row = 2;
       component.MainDropDown.Layout.Column = 2;
       component.MainDropDown.FontSize = component.CommonFontSize;
       component.MainDropDown.ValueChangedFcn = @(sourceObject, eventData) dropdownValueChanged(component);
-      component.MainDropDown.Editable = "off";
 
       % Default settings
       component.Items = ["Item 1" "Item 2"];
@@ -70,7 +104,41 @@ classdef DropDown < AppUtil1.Component.ComponentBase
 
     function update(component)
       %%
+      if component.Reporting
+        FileUtil1.displayTimeAndFileLocation
+      end  % if
       update@AppUtil1.Component.ComponentBase(component)
+      if component.initialized
+        regular_update(component)
+
+        return
+
+      end  % if
+      first_update(component)
+      regular_update(component)
+      component.initialized = true;
+    end  % function
+
+    function first_update(component)
+      %%
+      % This function is called only once after the setup finished and
+      % public properties have been updated with the user-specified values.
+      % Use this method to freeze property values based on the user-specified ones.
+      if component.Reporting
+        FileUtil1.displayTimeAndFileLocation
+      end  % if
+
+      % Allow setting component.Editable only once.
+      % Obviously, it is still possible to change component.MainDropDown.Editable.
+      component.MainDropDown.Editable = component.Editable;
+
+    end  % function
+
+    function regular_update(component)
+      %%
+      if component.Reporting
+        FileUtil1.displayTimeAndFileLocation("1")
+      end  % if
 
       component.base_grid.RowHeight{1} = component.ComponentHeight;
       component.base_grid.ColumnWidth{1} = component.ComponentWidth;
@@ -96,15 +164,6 @@ classdef DropDown < AppUtil1.Component.ComponentBase
             component.main_grid.ColumnWidth = {'1x', component.DropDownWidth, '1x'};
           case "right"
             component.main_grid.ColumnWidth = {'1x', component.DropDownWidth,   0 };
-        end  % switch
-      end  % if
-
-      if component.HighlightBackground
-        switch component.ThemeNameForBackGroundHighlight
-          case "light"
-            component.main_grid.BackgroundColor = component.LightThemeBackGroundColor;
-          case "dark"
-            component.main_grid.BackgroundColor = component.DarkThemeBackGroundColor;
         end  % switch
       end  % if
     end  % function
@@ -140,7 +199,7 @@ classdef DropDown < AppUtil1.Component.ComponentBase
         component
         x (1,1) string
       end
-      % This triggers dropdownObj's ValueChangedFcn.
+      % This triggers component's ValueChangedFcn.
       component.MainDropDown.Value = char(x);
 
       % Also call this class' value-changed function.
@@ -152,8 +211,15 @@ classdef DropDown < AppUtil1.Component.ComponentBase
   methods (Access=private)
 
     function dropdownValueChanged(component)
-      if not(isempty(component.ValueChangedCallback)) ...
-          && isa(component.ValueChangedCallback, 'function_handle')
+      if component.MainDropDown.Editable
+        selected_value = strip(string(component.MainDropDown.Value));
+        if not(ismember(selected_value, component.MainDropDown.Items))
+          component.MainDropDown.Items = [component.MainDropDown.Items(:); selected_value];
+        end  % if
+      end  % if
+
+      if not(isempty(component.ValueChangedCallback))
+        % If not empty, the property validation guarantees that it is a function handle.
         component.ValueChangedCallback()
       end  % if
 

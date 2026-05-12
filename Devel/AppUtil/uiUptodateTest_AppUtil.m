@@ -54,11 +54,11 @@ classdef uiUptodateTest_AppUtil < matlab.uitest.TestCase
 
       end  % if
       % R2025a or newer
-      source = FileUtil1.getFileFullPath("ColormapApp");
-      destination = fullfile(pwd, "screenshot-ColormapApp-1-dark.png");
+      source = FileUtil1.getFileFullPath("MonitorInfoApp");
+      destination = fullfile(pwd, "screenshot-MonitorInfoApp-dark.png");
 
       if not(isfile(destination)) || FileUtil1.sourceFileIsNewer(Source=source, Destination=destination)
-        app = ColormapApp;  % !screenshot-target
+        app = MonitorInfoApp;  % !screenshot-target
         app.Window.MainFigure.Theme = "dark";
         drawnow
         exportapp(app.Window.MainFigure, destination)
@@ -78,73 +78,13 @@ classdef uiUptodateTest_AppUtil < matlab.uitest.TestCase
         return
 
       end  % if
-      source = FileUtil1.getFileFullPath("ColormapApp");
-      if isMATLABReleaseOlderThan("R2025a")
-        % R2024b
-        disp("ColormapApp is supported in R2025a or newer.")
-
-        return
-
-      else
-        % R2025a or newer
-        destination = fullfile(pwd, "screenshot-ColormapApp-1-light.png");
-      end  % if
-
-      if not(isfile(destination)) || FileUtil1.sourceFileIsNewer(Source=source, Destination=destination)
-        app = ColormapApp;  % !screenshot-target
-        app.Window.MainFigure.Theme = "light";
-        drawnow
-        exportapp(app.Window.MainFigure, destination)
-      else
-        disp("Screenshot is up to date.")
-      end  % if
-
-      destination_is_newer = not(FileUtil1.sourceFileIsNewer(Source=source, Destination=destination));
-      verifyTrue(testcase, destination_is_newer)
-    end  % function
-
-    % -------------------------------------------------------------------------
-
-    function app_screenshot_dark_2(testcase)
-      %%
-      if TestUtil1.isR2024bOrOlder || TestUtil1.isNonLocal(testcase.LocalTopFolder)
-        disp("!Skipping")
-
-        return
-
-      end  % if
-      % R2025a or newer
-      source = FileUtil1.getFileFullPath("MonitorInfoApp");
-      destination = fullfile(pwd, "screenshot-MonitorInfoApp-2-dark.png");
-
-      if not(isfile(destination)) || FileUtil1.sourceFileIsNewer(Source=source, Destination=destination)
-        app = MonitorInfoApp;  % !screenshot-target
-        app.Window.MainFigure.Theme = "dark";
-        drawnow
-        exportapp(app.Window.MainFigure, destination)
-      else
-        disp("Screenshot is up to date.")
-      end  % if
-
-      destination_is_newer = not(FileUtil1.sourceFileIsNewer(Source=source, Destination=destination));
-      verifyTrue(testcase, destination_is_newer)
-    end  % function
-
-    function app_screenshot_light_2(testcase)
-      %%
-      if TestUtil1.isNonLocal(testcase.LocalTopFolder)
-        disp("!Skipping")
-
-        return
-
-      end  % if
       source = FileUtil1.getFileFullPath("MonitorInfoApp");
       if isMATLABReleaseOlderThan("R2025a")
         % R2024b
-        destination = fullfile(pwd, "screenshot-MonitorInfoApp-2-24b.png");
+        destination = fullfile(pwd, "screenshot-MonitorInfoApp-24b.png");
       else
         % R2025a or newer
-        destination = fullfile(pwd, "screenshot-MonitorInfoApp-2-light.png");
+        destination = fullfile(pwd, "screenshot-MonitorInfoApp-light.png");
       end  % if
 
       if not(isfile(destination)) || FileUtil1.sourceFileIsNewer(Source=source, Destination=destination)

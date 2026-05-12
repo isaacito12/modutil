@@ -1,6 +1,10 @@
 function mustBeTextOrPositiveNumber(x)
+% Validate that the argument is either a text or a positive integer.
 
-% Copyright 2023-2025 The MathWorks, Inc.
+% Copyright 2023-2026 The MathWorks, Inc.
+
+% One intended use case of this validator is for the ColumnWidth property of uigridlayout,
+% for example, {'fit', 200, '2x', '1x'}.
 
 is_pos_num = @(v) isnumeric(v) && isscalar(v) && v > 0;
 

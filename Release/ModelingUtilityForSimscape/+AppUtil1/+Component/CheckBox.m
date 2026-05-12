@@ -9,7 +9,7 @@ classdef CheckBox < AppUtil1.Component.ComponentBase
   %
   % Use HorizontalAlignment and VerticalAlignment to position the check box within the component.
 
-  % Copyright 2023-2025 The MathWorks, Inc.
+  % Copyright 2023-2026 The MathWorks, Inc.
 
   properties
     MainCheckBox matlab.ui.control.CheckBox
@@ -24,9 +24,6 @@ classdef CheckBox < AppUtil1.Component.ComponentBase
     % Check box height is not configurable, i.e., it is constant.
     VerticalAlignment (1,1) {mustBeMember( VerticalAlignment, ["top", "center", "bottom"])} = "center"
 
-    % The main grid is used to configure the width of the main component
-    % while the base grid is used to configure the width of the whole component.
-    main_grid (1,1) matlab.ui.container.GridLayout
   end  % properties
 
   properties (Dependent)
@@ -88,15 +85,6 @@ classdef CheckBox < AppUtil1.Component.ComponentBase
         case "right"
           component.main_grid.ColumnWidth = {'1x', component.CheckBoxWidth, 0};
       end  % switch
-
-      if component.HighlightBackground
-        switch component.ThemeNameForBackGroundHighlight
-          case "light"
-            component.main_grid.BackgroundColor = component.LightThemeBackGroundColor;
-          case "dark"
-            component.main_grid.BackgroundColor = component.DarkThemeBackGroundColor;
-        end  % switch
-      end  % if
     end  % function
 
   end  % methods

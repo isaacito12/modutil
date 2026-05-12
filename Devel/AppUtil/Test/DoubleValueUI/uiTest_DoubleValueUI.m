@@ -45,27 +45,47 @@ classdef uiTest_DoubleValueUI < matlab.uitest.TestCase
     % Warnings can be displayed even when the app opens and starts working seemingly normally.
     % Make sure there is no warning when opening an app.
 
-    function app_launches_without_warnings_1(testcase)
-      verifyWarningFree(testcase, @() test_target)
-      function test_target
-        DemoApp_DoubleValueUI_1_simplest  % !test-target
-      end  % nested function
+    function clean_launch_1(testcase)
+      verifyWarningFree(testcase, @DemoApp_DoubleValueUI_1_simplest)
     end  % function
 
-    function app_launches_without_warnings_2(testcase)
-      verifyWarningFree(testcase, @() test_target)
-      function test_target
-        DemoApp_DoubleValueUI_2  % !test-target
-      end  % nested function
+    function clean_launch_2(testcase)
+      verifyWarningFree(testcase, @DemoApp_DoubleValueUI_2)
     end  % function
 
     %% Gesture test
 
     function Gesture_1(testcase)
       app = DemoApp_DoubleValueUI_1_simplest;
-      type(testcase, app.DoubleValueUI.ValueTextUI.MainEditField, "pi")
-      type(testcase, app.DoubleValueUI.ValueTextUI.MainEditField, "[0 2]")
-      type(testcase, app.DoubleValueUI.ValueTextUI.MainEditField, "ones(2)")
+      type(testcase, app.DoubleValueUI_1.ValueTextUI.MainEditField, "pi")
+      type(testcase, app.DoubleValueUI_1.ValueTextUI.MainEditField, "[0 2]")
+      type(testcase, app.DoubleValueUI_1.ValueTextUI.MainEditField, "ones(2)")
+    end  % function
+
+    %% Base workspace
+
+    function BaseWorkspace_1(testcase)
+
+      evalin("base", "x = [-5, 3];")
+
+      app = DemoApp_DoubleValueUI_1_simplest;
+      type(testcase, app.DoubleValueUI_1.ValueTextUI.MainEditField, "2.*x")
+
+      verifyEqual(testcase, app.DoubleValueUI_1.ValueText, "2.*x")
+      verifyEqual(testcase, app.DoubleValueUI_1.MainDoubleValue, [-10, 6])
+
+    end  % function
+
+    function BaseWorkspace_2(testcase)
+
+      evalin("base", "a = struct; a.b.c = [1 2; 3 4];")
+
+      app = DemoApp_DoubleValueUI_2;
+      type(testcase, app.DoubleValueUI_1.ValueTextUI.MainEditField, "2.*a.b.c")
+
+      verifyEqual(testcase, app.DoubleValueUI_1.ValueText, "2.*a.b.c")
+      verifyEqual(testcase, app.DoubleValueUI_1.MainDoubleValue, [2 4; 6 8])
+
     end  % function
 
   end  % methods

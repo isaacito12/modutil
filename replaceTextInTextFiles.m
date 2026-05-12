@@ -32,8 +32,8 @@ end  % arguments
 errorId = "replaceTextInTextFiles:";
 
 if NameValuePair.CurrentText == ""
-  id = errorId + "InvalidNamespaceName";
-  msg = "Empty NamespaceName is not allowed.";
+  id = errorId + "InvalidCurrentText";
+  msg = "CurrentText must be non-empty.";
 
   throw(MException(id, msg))
 

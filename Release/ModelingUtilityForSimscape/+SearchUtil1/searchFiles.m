@@ -4,8 +4,8 @@ function Files = searchFiles(Filename, NameValuePair)
 % The Filename argument can be specific such as "test-result.xml" or
 % a pattern such as "*.ssc".
 %
-% By default, current folder is the top folder. Use the TopFolder option to
-% specify the top folder.
+% By default, current folder is the top folder of search.
+% Use the TopFolder option to specify a custom top folder.
 %
 % Example: Search for *.ssc files in the Simscape foundation library.
 % 
@@ -35,5 +35,9 @@ end  % if
 glob = matlab.buildtool.io.FileCollection.fromPaths(fullfile(NameValuePair.TopFolder, "**", Filename));
 
 Files = string(glob.paths');
+
+logical_index = isfile(Files);
+
+Files = Files(logical_index);
 
 end  % function

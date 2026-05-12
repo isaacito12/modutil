@@ -1,7 +1,7 @@
 classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
   % UI component for opening model and selecting block
 
-  % Copyright 2025 The MathWorks, Inc.
+  % Copyright 2025-2026 The MathWorks, Inc.
 
   properties (Constant, Access=private)
     errorID (1,1) string = "BlockSelectorUI:"
@@ -99,7 +99,7 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
     % the existing item is selected.
     %
     % The target block is also selected. If the model has more than two blocks
-    % that matche TargetSimscapeBlockNames, the first match is selected.
+    % that match TargetSimscapeBlockNames, the first match is selected.
     ModelFileFullPath (1,1) string
 
     % Assign a block path to this property, and it selects the Block path drop down.
@@ -775,7 +775,7 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
       % This runs only once after the first call to the drawnow,
       % which takes place after the setup method and property assignments finished.
       % Use this function to fix UI settings based on user specified property values,
-      % including the deletion of unecessary UI components.
+      % including the deletion of unnecessarily UI components.
       if component.Reporting
         FileUtil1.displayTimeAndFileLocation("first update")
       end  % if
@@ -787,15 +787,6 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
         throw(MException(id, msg))
 
       end  % if
-
-      component.ModelFileTextUI.MainFigure = component.MainFigure;
-      component.ModelFileDropDownUI.MainFigure = component.MainFigure;
-      component.OpenModelUI.MainFigure = component.MainFigure;
-      component.BlockPathTextUI.MainFigure = component.MainFigure;
-      component.BlockPathDropDownUI.MainFigure = component.MainFigure;
-      component.HilitBlockUI.MainFigure = component.MainFigure;
-      component.GetParametersFromBlockUI.MainFigure = component.MainFigure;
-      component.SetParametersToBlockUI.MainFigure = component.MainFigure;
 
       if component.GetOnly
         % Hide the "Set" button.

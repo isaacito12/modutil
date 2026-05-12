@@ -1,17 +1,33 @@
 classdef PhysicalValue < handle
-  % A class for a simscape.Value object linked with a MATLAB expression and the base workspace.
+  % A class for handling numeric values with physical units, expressions, and the base workspace.
   %
-  % This class provides two major features.
+  % Use texts to represent a numeric value with physical unit, which corresponds to a simscape.Value object.
+  % For example,
+  %{
+        physval = CodeUtil1.PhysicalValue;
+        physval.UnitText = "kg";
+        physval.ValueText = "[2, 4, 6] + 10"  % Specify value after unit.
+  %}
+  % The ValueText can contain a MATLAB expression which must evaluate to either
+  % a numeric value (as in the above example,) or a simscape.Value (as follows.)
+  %{
+        physval = CodeUtil1.PhysicalValue;
+        physval.ValueText = "simscape.Value([3 4; 5 6], ""N*m"")"
+  %}
+  % Once the unit is determined, subsequent changes in ValueText or UnitText must satisfy
+  % the simscape.Unit's unit consistency.
   %
-  % 1. Link between a PhysicalValue object and a base workspace variable
-  % 2. Automatic interaction among multiple PhysicalValue objects
-  %
-  % See the demo_PhysicalValue*.m files for working code examples.
-  %
-  % This class is designed for use with uieditfield.
-  % See the demoapp_PhysicalValue*.m for working app examples.
+  % The ValueText can access variables in the base workspace.
+  % For example, the following code works.
+  % (To see it working, select the code and evaluate.)
+  %{
+        params = struct;
+        params.motor.MaxTorque = simscape.Value(150, "N*m");
+        physval = CodeUtil1.PhysicalValue;
+        physval.ValueText = "params.motor.MaxTorque"
+  %}
 
-  % Copyright 2025 The MathWorks, Inc.
+  % Copyright 2025-2026 The MathWorks, Inc.
 
   properties (Constant, Access=private)
     classID (1,1) string = "PhysicalValue:"
@@ -21,21 +37,6 @@ classdef PhysicalValue < handle
   % See the documentation for the details.
   % Set Property Attributes to Enable Property Events
   % https://www.mathworks.com/help/matlab/matlab_oop/listening-for-changes-to-property-values.html#brkimdj-1
-  properties (Dependent, SetObservable)
-
-    % A textual representation of numeric data such as a scalar, a vector, a matrix,
-    % or any MATLAB expression. The data type must be either double or simscape.Value.
-    % If the data type is simscape.Value, the unit must be commensurate with the current unit.
-    ValueText (1,1) string
-  end  % properties
-
-  properties
-
-    % The type of ValueText is either double or simscape.Value.
-    % ValueTextIsSimscapeValue is false if ValueText is of type double.
-    ValueTextIsSimscapeValue (1,1) logical
-
-  end  % properties
 
   properties (Dependent, SetObservable)
 
@@ -53,6 +54,15 @@ classdef PhysicalValue < handle
 
   end  % properties
 
+  properties (Dependent, SetObservable)
+
+    % A textual representation of numeric data such as a scalar, a vector, a matrix,
+    % or any MATLAB expression. The data type must be either double or simscape.Value.
+    % If the data type is simscape.Value, the unit must be commensurate with the current unit.
+    ValueText (1,1) string
+
+  end  % properties
+
   % Make properties "get"-observable with event listeners.
   properties (Dependent, GetObservable)
 
@@ -60,135 +70,261 @@ classdef PhysicalValue < handle
 
   end  % properties
 
-  % States
-  properties (Access=private)
-    current_value_text (1,1) string = ""
+  properties
+
+    % The type of ValueText is either double or simscape.Value.
+    % ValueTextIsSimscapeValue is false if ValueText is of type double.
+    ValueTextIsSimscapeValue (1,1) logical
+
     current_unit_text (1,1) string = "1"
     current_unit_alias (1,1) string = ""
+
+    % Value can be a scalar, a vector, or a matrix.
+    current_value_text string = ""
     current_simscape_value simscape.Value = simscape.Value(nan, "1")
+
+    % If initialized is true, unit and alias are determined and not allowed to change.
+    initialized (1,1) logical = false
+
+  end
+
+  properties
+    % The Reporting property is for testing purpose only.
+    %
+    % To see outputs from class constructors, set Reporting to "on" here.
+    % Setting Reporting to "on" in other ways does not enable reporting from the constructor.
+    Reporting (1,1) matlab.lang.OnOffSwitchState = "off"
   end  % properties
 
   methods
 
-    function pvalue = PhysicalValue(NameValuePair)
+    function physval = PhysicalValue(NameValuePair)
       %%
       arguments (Input)
-        NameValuePair.UnitText string {mustBeScalarOrEmpty}
-        NameValuePair.UnitAlias string {mustBeScalarOrEmpty}
-
+        NameValuePair.UnitText (1,1) string = ""
+        NameValuePair.UnitAlias (1,1) string = ""
         NameValuePair.ValueText (1,1) string = ""
       end  % arguments
 
       functionID = "PhysicalValue:";
 
-      if not(isfield(NameValuePair, "UnitText"))
-        % UnitText was not specified.
-        pvalue.current_unit_text = "1";
-      else
-        % UnitText was specified.
-        try
-          % Check the validity of the unit.
-          simscape.Unit(NameValuePair.UnitText);
-        catch exception
-          id = pvalue.classID + functionID + "InvalidUnitText";
-          msg = CodeUtil1.i18n("Invalid UnitText: ") + exception.message;
+      if (NameValuePair.UnitText == "") && (NameValuePair.UnitAlias == "") && (NameValuePair.ValueText == "")
+        if physval.Reporting
+          FileUtil1.displayTimeAndFileLocation("1:ok")
+        end  % if
+        return
+
+      elseif (NameValuePair.UnitText ~= "") && (NameValuePair.UnitAlias ~= "")
+        % Specify alias first. Then check that unit is "1". Then specify value text.
+        physval.UnitAlias = NameValuePair.UnitAlias;
+        if NameValuePair.UnitText ~= "1"
+          if physval.Reporting
+            FileUtil1.displayTimeAndFileLocation("2.1:error")
+          end  % if
+          id = physval.classID + functionID + "InvalidUnitTextForUnitAlias";
+          msg = CodeUtil1.i18n("UnitText must be ""1"" when UnitAlias is specified.");
 
           throw(MException(id, msg))
 
+        end  % if
+        if NameValuePair.ValueText == ""
+          if physval.Reporting
+            FileUtil1.displayTimeAndFileLocation("2.2:ok")
+          end  % if
+          return
+
+        else
+          % NameValuePair.ValueText ~= ""
+          try
+            physval.ValueText = NameValuePair.ValueText;
+          catch exception
+            if physval.Reporting
+              FileUtil1.displayTimeAndFileLocation("2.3:error")
+            end  % if
+
+            rethrow(exception)
+
+          end  % try, catch
+          if physval.Reporting
+            FileUtil1.displayTimeAndFileLocation("2.4:ok")
+          end  % if
+        end  % if
+        return
+
+      elseif (NameValuePair.UnitText ~= "") && (NameValuePair.UnitAlias == "") && (NameValuePair.ValueText == "")
+        if physval.Reporting
+          FileUtil1.displayTimeAndFileLocation("3:ok")
+        end  % if
+        physval.UnitText = NameValuePair.UnitText;
+        return
+
+      elseif (NameValuePair.UnitText == "") && (NameValuePair.UnitAlias ~= "") && (NameValuePair.ValueText == "")
+        if physval.Reporting
+          FileUtil1.displayTimeAndFileLocation("4:ok")
+        end  % if
+        physval.UnitAlias = NameValuePair.UnitAlias;
+        return
+
+      elseif (NameValuePair.UnitText == "") && (NameValuePair.UnitAlias == "") && (NameValuePair.ValueText ~= "")
+        if physval.Reporting
+          FileUtil1.displayTimeAndFileLocation("5:ok")
+        end  % if
+        physval.ValueText = NameValuePair.ValueText;
+        return
+
+      elseif (NameValuePair.UnitText ~= "") && (NameValuePair.UnitAlias == "") && (NameValuePair.ValueText ~= "")
+        physval.UnitText = NameValuePair.UnitText;
+        try
+          physval.ValueText = NameValuePair.ValueText;
+        catch exception
+          if physval.Reporting
+            FileUtil1.displayTimeAndFileLocation("6.1:error")
+          end  % if
+
+          rethrow(exception)
+
         end  % try, catch
-        pvalue.current_unit_text = NameValuePair.UnitText;
-      end  % if
+        if physval.Reporting
+          FileUtil1.displayTimeAndFileLocation("6.2:ok")
+        end  % if
+        return
 
-      if isfield(NameValuePair, "UnitAlias")
-        % This assignment triggers set.UnitAlias.
-        pvalue.UnitAlias = NameValuePair.UnitAlias;
-      end  % if
+      elseif (NameValuePair.UnitText == "") && (NameValuePair.UnitAlias ~= "") && (NameValuePair.ValueText ~= "")
+        physval.UnitAlias = NameValuePair.UnitAlias;
+        try
+          physval.ValueText = NameValuePair.ValueText;
+        catch exception
+          if physval.Reporting
+            FileUtil1.displayTimeAndFileLocation("7.1:error")
+          end  % if
 
-      pvalue.ValueText = NameValuePair.ValueText;
+          rethrow(exception)
+
+        end  % try, catch
+        if physval.Reporting
+          FileUtil1.displayTimeAndFileLocation("7.2:ok")
+        end  % if
+        return
+
+      end  % if
     end  % function
 
-    function processValueText(pvalue, value_text)
+    function processValueText(physval, value_text)
       %%
-      functionID = pvalue.classID + "processValueText:";
-      if value_text == ""
-        pvalue.current_simscape_value = simscape.Value(nan, pvalue.current_unit_text);
+      % This is used in the following locations:
+      %   set.ValueText
+      %   get.UnitText
+      %   get.SimscapeValue
+
+      if physval.Reporting
+        FileUtil1.displayTimeAndFileLocation("1")
+      end  % if
+
+      functionID = physval.classID + "processValueText:";
+
+      if physval.initialized && isscalar(value_text) && (value_text == "")
+        if physval.Reporting
+          FileUtil1.displayTimeAndFileLocation("2:nan:" + physval.current_unit_text)
+        end  % if
+        % Reset the simscape.Value object with nan as its value.
+        physval.ValueTextIsSimscapeValue = false;
+        physval.current_simscape_value = simscape.Value(nan, physval.current_unit_text);
 
         return
 
       end  % if
+
       x = double(value_text);
+
       if not(isnan(x))
+        if physval.Reporting
+          FileUtil1.displayTimeAndFileLocation("3:numeric:" + physval.current_unit_text)
+        end  % if
         % Value text was properly converted to a numeric value.
-        pvalue.ValueTextIsSimscapeValue = false;
-        pvalue.current_simscape_value = simscape.Value(x, pvalue.current_unit_text);
+        physval.ValueTextIsSimscapeValue = false;
+        physval.current_simscape_value = simscape.Value(x, physval.current_unit_text);
+
+        return
+
+      end  % if
+
+      % Value text is not a numeric value.
+      try
+        % getDoubleOrSimscapeValueFromText returns either a double or a simscape.Value.
+        % Other types are not returned.
+        result = CodeUtil1.getDoubleOrSimscapeValueFromText(value_text);
+      catch exception
+        id = functionID + "InvalidValueText";
+        msg = CodeUtil1.i18n("Invalid ValueText. ") + exception.message;
+
+        throw(MException(id, msg))
+
+      end  % try, catch
+      if isa(result, "double")
+        if physval.Reporting
+          FileUtil1.displayTimeAndFileLocation("4:numeric:" + physval.current_unit_text)
+        end  % if
+        physval.ValueTextIsSimscapeValue = false;
+        % Do not modify physval.current_unit_text.
+        physval.current_simscape_value = simscape.Value(result, physval.current_unit_text);
       else
-        % Value text is not a numeric value.
-        try
-          result = CodeUtil1.getDoubleOrSimscapeValueFromText(value_text);
-        catch exception
-          id = functionID + "InvalidValueText";
-          msg = CodeUtil1.i18n("Invalid ValueText: ") + exception.message;
+        % The result is a simscape.Value object.
+        physval.ValueTextIsSimscapeValue = true;
+        new_unit = unit(result);
+        if physval.Reporting
+          FileUtil1.displayTimeAndFileLocation("5:simscape.Value:" + new_unit)
+        end  % if
+        if physval.initialized && not(simscape.isCommensurateUnit(new_unit, physval.current_unit_text))
+          id = functionID + "UnitIsNotCommensurate";
+          msg = CodeUtil1.i18n("Unit must be commensurate with the currently defined unit.");
 
           throw(MException(id, msg))
 
-        end  % try, catch
-        if isa(result, "double")
-          pvalue.ValueTextIsSimscapeValue = false;
-          % Do not modify pvalue.current_unit_text.
-          pvalue.current_simscape_value = simscape.Value(result, pvalue.current_unit_text);
-        else
-          % The result is a simscape.Value object.
-          % getDoubleOrSimscapeValueFromText returns either a double or a simscape.Value.
-          % Other types are not returned.
-          pvalue.ValueTextIsSimscapeValue = true;
-          new_unit = unit(result);
-          if not(simscape.isCommensurateUnit(new_unit, pvalue.current_unit_text))
-            id = functionID + "UnitIsNotCommensurate";
-            msg = CodeUtil1.i18n("Unit must be commensurate with the currently defined unit.");
-
-            throw(MException(id, msg))
-
-          end  % if
-          pvalue.current_unit_text = new_unit;
-          pvalue.current_simscape_value = result;
         end  % if
+        physval.current_unit_text = new_unit;
+        physval.current_simscape_value = result;
       end  % if
     end  % function
 
-    function x = get.ValueText(pvalue)
+    function x = get.ValueText(physval)
       %%
       arguments (Output)
         x (1,1) string
       end  % arguments
-      x = pvalue.current_value_text;
+      x = physval.current_value_text;
     end  % function
 
-    function set.ValueText(pvalue, value_text)
+    function set.ValueText(physval, value_text)
       %%
       arguments (Input)
-        pvalue
+        physval
         value_text (1,1) string
       end  % arguments
-      processValueText(pvalue, value_text)
-      pvalue.current_value_text = value_text;
+      if not(physval.initialized)
+        physval.current_unit_text = "1";
+        physval.current_unit_alias = "";
+      end  % if
+      processValueText(physval, value_text)
+      physval.current_value_text = value_text;
+      physval.initialized = true;
     end  % function
 
-    function x = get.UnitText(pvalue)
+    function x = get.UnitText(physval)
       %%
       arguments (Output)
         x (1,1) string
       end  % arguments
-      processValueText(pvalue, pvalue.current_value_text)
-      x = pvalue.current_unit_text;
+      processValueText(physval, physval.current_value_text)
+      x = physval.current_unit_text;
     end  % function
 
-    function set.UnitText(pvalue, NewUnitText)
+    function set.UnitText(physval, NewUnitText)
       %%
       arguments (Input)
-        pvalue
+        physval
         NewUnitText (1,1) string
       end  % arguments
-      functionID = pvalue.classID + "setUnitText:";
+      functionID = physval.classID + "set_UnitText:";
       try
         % Check that the new unit text is valid as simscape.Unit.
         simscape.Unit(NewUnitText);
@@ -199,64 +335,116 @@ classdef PhysicalValue < handle
         throw(MException(id, msg))
 
       end  % try, catch
-      if not(simscape.isCommensurateUnit(NewUnitText, pvalue.current_unit_text))
+      if physval.initialized && not(simscape.isCommensurateUnit(NewUnitText, physval.current_unit_text))
         id = functionID + "UnitIsNotCommensurate";
         msg = CodeUtil1.i18n("New unit must be commensurate with the currently defined unit.");
 
         throw(MException(id, msg))
 
       end  % if
-      pvalue.current_unit_text = NewUnitText;
-      if pvalue.current_unit_text ~= "1"
-        pvalue.current_unit_alias = "";
+      physval.current_unit_text = NewUnitText;
+      if physval.current_unit_text ~= "1"
+        physval.current_unit_alias = "";
       end  % if
-      pvalue.current_simscape_value = convert(pvalue.current_simscape_value, NewUnitText);
+      if physval.initialized
+        physval.current_simscape_value = convert(physval.current_simscape_value, NewUnitText);
+      else
+        physval.current_simscape_value = simscape.Value(nan, NewUnitText);
+      end  % if
+      physval.initialized = true;
     end  % function
 
-    function x = get.UnitAlias(pvalue)
+    function x = get.UnitAlias(physval)
       %%
       arguments (Output)
         x (1,1) string
       end  % arguments
-      x = pvalue.current_unit_alias;
+      x = physval.current_unit_alias;
     end  % function
 
-    function set.UnitAlias(pvalue, NewUnitAlias)
+    function set.UnitAlias(physval, NewUnitAlias)
       %%
       arguments (Input)
-        pvalue
+        physval
         NewUnitAlias (1,1) string
       end  % arguments
 
-      functionID = pvalue.classID + "setUnitAlias:";
+      functionID = physval.classID + "set_UnitAlias:";
 
-      if pvalue.current_unit_text ~= "1"
+      if physval.initialized && (physval.current_unit_text ~= "1")
         id = functionID + "UnitAliasIsNotAllowed";
         msg = CodeUtil1.i18n("Unit alias is allowed only if UnitText is ""1"".");
 
         throw(MException(id, msg))
 
       end  % if
-      pvalue.current_unit_alias = NewUnitAlias;
+
+      physval.current_unit_alias = NewUnitAlias;
+      physval.UnitText = "1";
+
     end  % function
 
-    function x = get.SimscapeValue(pvalue)
+    function x = get.SimscapeValue(physval)
       %%
       arguments (Output)
         x simscape.Value
       end  % arguments
-      processValueText(pvalue, pvalue.current_value_text)
-      x = pvalue.current_simscape_value;
+      if not(physval.initialized)
+        x = simscape.Value(nan);
+
+        return
+
+      end  % if
+      processValueText(physval, physval.current_value_text)
+      x = physval.current_simscape_value;
     end  % function
 
-    function set.SimscapeValue(pvalue, x)
+    function set.SimscapeValue(physval, x)
       %%
       arguments (Input)
-        pvalue
+        physval
         x simscape.Value
       end  % arguments
-      pvalue.ValueText = CodeUtil1.stringify(value(x));
-      pvalue.UnitText = unit(x);
+
+      functionID = physval.classID + "set_SimscapeValue:";
+
+      if not(physval.initialized)
+        physval.current_unit_text = string(unit(x));
+        physval.current_unit_alias = "";
+        physval.current_value_text = value(x);
+        physval.current_simscape_value = x;
+        physval.initialized = true;
+
+        return
+
+      end  % if
+
+      new_unit_text = unit(x);
+
+      % If unit alias is already defined, the new unit must be "1".
+      if physval.current_unit_alias ~= "" && new_unit_text ~= "1"
+        id = functionID + "UnitIsNotCompatibleWithAlias";
+        msg = CodeUtil1.i18n("The unit must be ""1"" because unit alias is defined.");
+
+        throw(MException(id, msg))
+
+      end  % if
+
+      % Unit must be commensurate.
+      if not(simscape.isCommensurateUnit(new_unit_text, physval.current_unit_text))
+        id = functionID + "UnitIsNotCommensurate";
+        msg = CodeUtil1.i18n("The unit of the specified SimscapeValue is not commensurate with the current unit.");
+
+        throw(MException(id, msg))
+
+      end  % if
+
+      % At this point, unit is commensurate. Alias is not defined.
+      physval.current_unit_text = new_unit_text;
+      physval.current_value_text = value(x);
+      physval.current_simscape_value = x;
+      physval.initialized = true;
+
     end  % function
 
   end  % methods

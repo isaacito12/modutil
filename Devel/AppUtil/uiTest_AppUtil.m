@@ -13,7 +13,7 @@ classdef uiTest_AppUtil < matlab.uitest.TestCase
     % Functions in this "TestMethodSetup" section always run before
     % each test defined in the "Test" section runs.
 
-    function test_method_setup(testcase)
+    function test_method_setup_1(testcase)
       %%
       % Close all before test
       close all
@@ -45,31 +45,12 @@ classdef uiTest_AppUtil < matlab.uitest.TestCase
     % Warnings can be displayed even when the app opens and starts working seemingly normally.
     % Make sure there is no warning when opening an app.
 
-    function app_launches_without_warnings_1(testcase)
-      % ColormapApp requires MATLAB R2025a or newer.
-      if isMATLABReleaseOlderThan("R2025a")
-
-        return
-
-      end  % if
-      verifyWarningFree(testcase, @() test_target())
-      function test_target()
-        ColormapApp  % !test-target
-      end  % nested function
+    function clean_launch_1(testcase)
+      verifyWarningFree(testcase, @MonitorInfoApp)
     end  % function
 
-    function app_launches_without_warnings_2(testcase)
-      verifyWarningFree(testcase, @() test_target())
-      function test_target()
-        MonitorInfoApp  % !test-target
-      end  % nested function
-    end  % function
-
-    function app_launches_without_warnings_3(testcase)
-      verifyWarningFree(testcase, @() test_target())
-      function test_target()
-        CodeCoverageApp_AppUtil  % !test-target
-      end  % nested function
+    function clean_launch_2(testcase)
+      verifyWarningFree(testcase, @CodeCoverageApp_AppUtil)
     end  % function
 
   end  % methods

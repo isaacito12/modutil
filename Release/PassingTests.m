@@ -1,0 +1,183 @@
+classdef PassingTests < matlab.uitest.TestCase
+  % Class-based unit test for app
+
+  % Overview of App Testing Framework
+  % https://www.mathworks.com/help/matlab/matlab_prog/overview-of-app-testing-framework.html
+  %
+  % Table of Verifications, Assertions, and Other Qualifications
+  % https://www.mathworks.com/help/matlab/matlab_prog/types-of-qualifications.html
+  %
+  % Test constraints for qualifications
+  % https://www.mathworks.com/help/matlab/ref/matlab.unittest.constraints-package.html
+
+  % Copyright 2024-2026 The MathWorks, Inc.
+
+  properties
+    % Run the tests only when the working folder is under this folder path.
+    LocalTopFolder (1,1) pattern = "C:\local"
+  end  % properties
+
+  methods (TestClassSetup)
+    function test_class_setup(testcase)
+      % Add a specific folder to the MATLAB path at the start of tests in this class.
+      % The added folder is removed when the test in this class ends.
+      % https://www.mathworks.com/help/matlab/ref/matlab.unittest.fixtures.pathfixture-class.html
+      applyFixture(testcase, matlab.unittest.fixtures.PathFixture("ModelingUtilityForSimscape"))
+    end  % function
+  end  % methods
+
+  methods (TestMethodSetup)
+    % Functions in this "TestMethodSetup" section always run before
+    % each test defined in the "Test" section runs.
+
+    function test_method_setup_1(testcase)
+      %%
+      % Close all before test
+      close all
+      bdclose all
+
+      % addTeardown adds a function which always runs after each test.
+      % Even if the execution of a test ends with an error, the teardown function runs.
+      addTeardown(testcase, @closeAllAfterTest)
+      function closeAllAfterTest
+        % Close all figure windows. This closes not only the test targets but also other figure windows.
+        figs = findall(0, Type="Figure");
+        if not(any(isempty(figs)))
+          disp("Deleting figures (" + numel(figs) + ")")
+          delete(figs)
+        end  % if
+        bdclose all
+      end  % nested function
+    end  % function
+
+  end  % methods
+
+  methods (Test)
+    % Functions in the Test section are the tests.
+    % Before a function in this section runs, the functions defined in the TestMethodSetup section run.
+
+    %% Minimum quality check
+    % Check that models, scripts, functions, and classes run right out of the box.
+
+    function PassingTest_AbstractMotorEfficiencyApp_1(testcase)
+      verifyWarningFree(testcase, @AbstractMotorEfficiencyApp)
+    end  % function
+
+    function PassingTest_AbstractMotorEfficiencyApp_WithVariables_1(testcase)
+      verifyWarningFree(testcase, @AbstractMotorEfficiencyApp_WithVariables)
+    end  % function
+
+    function PassingTest_AbstractMotor_Description_html(testcase)
+      % Check that there is only one target file.
+      target_file = SearchUtil1.searchFiles("AbstractMotor_Description.html");  % !test-target
+      verifyTrue(testcase, isscalar(target_file))
+    end  % function
+
+    function PassingTest_SampleModel_AbstractMotor_refsub_24b_1(~)
+      load_system("SampleModel_AbstractMotor_refsub_24b")  % !test-target
+    end  % function
+
+    function PassingTest_SampleParams_AbstractMotor_1(testcase)
+      % Check that the expected parameter "MotorDrive" is loaded in the base workspace.
+      evalin("base", "clear MotorDrive")  % Pre-clean up the base workspace.
+      evalin("base", "SampleParams_AbstractMotor")  % !test-target
+      vars = evalin("base", "whos");
+      varnames = string({vars.name});
+      verifyTrue(testcase, ismember("MotorDrive", varnames))
+      evalin("base", "clear MotorDrive")  % Post-clean up the base workspace.
+    end  % function
+
+    function PassingTest_CodeCoverageApp_1(testcase)
+      verifyWarningFree(testcase, @CodeCoverageApp)
+    end  % function
+
+    function PassingTest_ContourQuiverApp_1(testcase)
+      verifyWarningFree(testcase, @ContourQuiverApp)
+    end  % function
+
+    function PassingTest_FileListApp_1(testcase)
+      verifyWarningFree(testcase, @FileListApp)
+    end  % function
+
+    function PassingTest_FileSearchApp_1(testcase)
+      verifyWarningFree(testcase, @FileSearchApp)
+    end  % function
+
+    function PassingTest_FolderSearchApp_1(testcase)
+      verifyWarningFree(testcase, @FolderSearchApp)
+    end  % function
+
+    function PassingTest_LookupTable1DBlockPlotApp_1(testcase)
+      verifyWarningFree(testcase, @LookupTable1DBlockPlotApp)
+    end  % function
+
+    function PassingTest_samplemodel_LookupTable1DBlockPlotApp_24b_1(~)
+      load_system("samplemodel_LookupTable1DBlockPlotApp_24b")  % !test-target
+    end  % function
+
+    function PassingTest_RotationalFrictionApp_1(testcase)
+      verifyWarningFree(testcase, @RotationalFrictionApp)
+    end  % function
+
+    function PassingTest_RotationalFrictionCustomApp1_1(testcase)
+      verifyWarningFree(testcase, @RotationalFrictionCustomApp1)
+    end  % function
+
+    function PassingTest_RotationalFriction_Description_html(testcase)
+      % Check that there is only one target file.
+      target_file = SearchUtil1.searchFiles("RotationalFriction_Description.html");  % !test-target
+      verifyTrue(testcase, isscalar(target_file))
+    end  % function
+
+    function PassingTest_SampleModel_RotationalFriction_refsub_24b_1(~)
+      load_system("SampleModel_RotationalFriction_refsub_24b")  % !test-target
+    end  % function
+
+    function PassingTest_SampleParams_RotationalFriction_1(testcase)
+      % Check that the expected parameter "friction" is loaded in the base workspace.
+      evalin("base", "clear friction")  % Pre-clean up the base workspace.
+      evalin("base", "SampleParams_RotationalFriction")  % !test-target
+      vars = evalin("base", "whos");
+      varnames = string({vars.name});
+      verifyTrue(testcase, ismember("friction", varnames))
+      evalin("base", "clear friction")  % Post-clean up the base workspace.
+    end  % function
+
+    function PassingTest_SignalDesignApp_1(testcase)
+      verifyWarningFree(testcase, @SignalDesignApp)
+    end  % function
+
+    function PassingTest_SignalDesignApp_Description_html(testcase)
+      % Check that there is only one target file.
+      target_file = SearchUtil1.searchFiles("SignalDesignApp_Description.html");  % !test-target
+      verifyTrue(testcase, isscalar(target_file))
+    end  % function
+
+    function PassingTest_TestResultApp_1(testcase)
+      verifyWarningFree(testcase, @TestResultApp)
+    end  % function
+
+    function PassingTest_TextSearchApp_1(testcase)
+      verifyWarningFree(testcase, @TextSearchApp)
+    end  % function
+
+    function PassingTest_TextSearchResultApp_1(testcase)
+      verifyWarningFree(testcase, @TextSearchResultApp)
+    end  % function
+
+    function PassingTest_TraceGeneratorApp_1(testcase)
+      verifyWarningFree(testcase, @TraceGeneratorApp)
+    end  % function
+
+    function PassingTest_TraceGeneratorApp_Description_html(testcase)
+      % Check that there is only one target file.
+      target_file = SearchUtil1.searchFiles("TraceGeneratorApp_Description.html");  % !test-target
+      verifyTrue(testcase, isscalar(target_file))
+    end  % function
+
+    function PassingTest_Vehicle1DApp_1(testcase)
+      verifyWarningFree(testcase, @Vehicle1DApp)
+    end  % function
+
+  end  % methods
+end  % classdef

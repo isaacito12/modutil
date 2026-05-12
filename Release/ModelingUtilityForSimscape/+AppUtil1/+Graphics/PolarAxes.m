@@ -1,6 +1,6 @@
 classdef PolarAxes < AppUtil1.Component.ComponentBase
   %% Axes component
-  % Use this component to show a ploarplot.
+  % Use this component to show a polarplot.
   % The height of this component is fixed.
   % You can specify the height with ComponentHeight property.
   %
@@ -8,17 +8,17 @@ classdef PolarAxes < AppUtil1.Component.ComponentBase
   % - Both width and height must be adjustable.
   % - Scrollbars must appear as needed.
 
-  % Copyright 2025 The MathWorks, Inc.
+  % Copyright 2025-2026 The MathWorks, Inc.
 
   properties
 
-    MainPloarAxes (1,1) matlab.graphics.axis.PolarAxes
+    MainPolarAxes (1,1) matlab.graphics.axis.PolarAxes
 
     ComponentWidth (1,1) {CodeUtil1.mustBeStringOrPositiveInteger} = "1x"
 
     ComponentHeight (1,1) {CodeUtil1.mustBeStringOrPositiveInteger} = 200
 
-    panelUI (1,1) matlab.ui.container.Panel
+    panel_ui (1,1) matlab.ui.container.Panel
 
   end  % properties
 
@@ -28,24 +28,23 @@ classdef PolarAxes < AppUtil1.Component.ComponentBase
       %%
       setup@AppUtil1.Component.ComponentBase(component)
 
+      % Modify the base grid's settings.
+      % Set RowHeight "fit" and Scrollable "on" to show a vertical scrollbar if
+      % the contained graphics is taller than the parent.
       component.base_grid.RowHeight = {'fit'};
-      component.base_grid.ColumnWidth = {'1x'};
-      component.base_grid.Padding = [0 0 0 0];  % left bottom right top
-      component.base_grid.ColumnSpacing = 0;
-      component.base_grid.RowSpacing = 0;
       component.base_grid.Scrollable = "on";
 
-      component.panelUI = uipanel(component.base_grid);
-      component.panelUI.Layout.Row = 1;
-      component.panelUI.Layout.Column = 1;
-      component.panelUI.BorderType = "none";
-      component.panelUI.Title= "";
+      component.panel_ui = uipanel(component.main_grid);
+      component.panel_ui.Layout.Row = 1;
+      component.panel_ui.Layout.Column = 1;
+      component.panel_ui.Title= "";
+      component.panel_ui.FontSize = component.CommonFontSize;
 
-      % Panle's AutoResizeChildren must be off when the panel contains polar axes.
-      component.panelUI.AutoResizeChildren = "off";
+      % Panel's AutoResizeChildren must be off when the panel contains graphics.
+      component.panel_ui.AutoResizeChildren = "off";
 
       % The main element of this component.
-      component.MainPloarAxes = polaraxes(component.panelUI);
+      component.MainPolarAxes = polaraxes(component.panel_ui);
 
     end  % function
 
@@ -56,8 +55,15 @@ classdef PolarAxes < AppUtil1.Component.ComponentBase
       component.base_grid.RowHeight{1} = component.ComponentHeight;
       component.base_grid.ColumnWidth{1} = component.ComponentWidth;
 
+      % uipanel has the BackgroundColor property.
+      % The BackgroundColor of main grid and base grid do not work because of uipanel's.
       if component.HighlightBackground
-        component.panelUI.BackgroundColor = component.HighlightBackgroundColor;
+        switch component.ThemeNameForBackGroundHighlight
+          case "light"
+            component.panel_ui.BackgroundColor = component.LightThemeBackGroundColor;
+          case "dark"
+            component.panel_ui.BackgroundColor = component.DarkThemeBackGroundColor;
+        end  % switch
       end  % if
     end  % function
 

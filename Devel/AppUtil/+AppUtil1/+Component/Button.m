@@ -11,7 +11,7 @@ classdef Button < AppUtil1.Component.ComponentBase
   %
   % Use HorizontalAlignment and VerticalAlignment to position the button within the component.
 
-  % Copyright 2023-2025 The MathWorks, Inc.
+  % Copyright 2023-2026 The MathWorks, Inc.
 
   properties
     MainButton (1,1) matlab.ui.control.Button
@@ -33,12 +33,6 @@ classdef Button < AppUtil1.Component.ComponentBase
     % Icon image to show in button. This property supports uibutton's predefined icons only.
     % For more information, see the documentation about Icon property of uibutton.
     Icon (1,1) string {mustBeMember(Icon, ["none", "question", "info", "success", "warning", "error"])}
-  end  % properties
-
-  properties (Access=private)
-    % The main grid is used to configure the width of the main component
-    % while the base grid is used to configure the width of the whole component.
-    main_grid (1,1) matlab.ui.container.GridLayout
   end  % properties
 
   methods (Access=protected)
@@ -98,15 +92,6 @@ classdef Button < AppUtil1.Component.ComponentBase
         case "right"
           component.main_grid.ColumnWidth = {'1x', component.ButtonWidth,   0 };
       end  % switch
-
-      if component.HighlightBackground
-        switch component.ThemeNameForBackGroundHighlight
-          case "light"
-            component.main_grid.BackgroundColor = component.LightThemeBackGroundColor;
-          case "dark"
-            component.main_grid.BackgroundColor = component.DarkThemeBackGroundColor;
-        end  % switch
-      end  % if
     end  % function
 
   end  % methods

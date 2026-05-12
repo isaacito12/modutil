@@ -9,10 +9,10 @@ classdef RotationalFrictionAppMain < handle
   % the app does not load a model and link to Rotational Friction blocks.
   %
   % To open the app with a Rotational Friction block in a model, use the BlockPath option.
-  % To open the app with a model, use the Modelname option.
+  % To open the app with a model, use the ModelName option.
   % BlockPath is used if both BlockPath and ModelName options are specified.
 
-  % Copyright 2024-2025 The MathWorks, Inc.
+  % Copyright 2024-2026 The MathWorks, Inc.
 
   properties (Access=private, Constant)
     errorID (1,1) string = "RotationalFrictionAppMain:"
@@ -20,7 +20,8 @@ classdef RotationalFrictionAppMain < handle
 
   properties
 
-    RotationalFrictionData (1,1) RotationalFriction1.RotationalFrictionData = RotationalFriction1.RotationalFrictionData
+    DataSet (1,1) RotationalFriction1.RotationalFrictionDataSet ...
+      = RotationalFriction1.RotationalFrictionDataSet(Initialization = true)
 
     BlockPath (1,1) string = ""
     ModelName (1,1) string = ""
@@ -34,14 +35,14 @@ classdef RotationalFrictionAppMain < handle
 
     DocLinkUI AppUtil1.Component.Hyperlink
 
-    BreakawayTorqueUI AppUtil1.Component.PhysicalValueUI
-    BreakawayVelocityUI AppUtil1.Component.PhysicalValueUI
-    CoulombTorqueUI AppUtil1.Component.PhysicalValueUI
-    ViscousCoefficientUI AppUtil1.Component.PhysicalValueUI
+    BreakawayTorqueUI AppUtil1.Component.PhysicalValueWithUnitDropDown
+    BreakawayVelocityUI AppUtil1.Component.PhysicalValueWithUnitDropDown
+    CoulombTorqueUI AppUtil1.Component.PhysicalValueWithUnitDropDown
+    ViscousCoefficientUI AppUtil1.Component.PhysicalValueWithUnitDropDown
 
-    StribeckScaledTorqueUI AppUtil1.Component.PhysicalValueUI
-    StribeckThresholdVelocityUI AppUtil1.Component.PhysicalValueUI
-    CoulombThresholdVelocityUI AppUtil1.Component.PhysicalValueUI
+    StribeckScaledTorqueUI AppUtil1.Component.PhysicalValueWithUnitDropDown
+    StribeckThresholdVelocityUI AppUtil1.Component.PhysicalValueWithUnitDropDown
+    CoulombThresholdVelocityUI AppUtil1.Component.PhysicalValueWithUnitDropDown
 
     PlotButtonUI AppUtil1.Component.EnabledButton
     OpenInFigureWindowUI AppUtil1.Component.Hyperlink
@@ -51,19 +52,22 @@ classdef RotationalFrictionAppMain < handle
     ShowCoulombTorqueUI AppUtil1.Component.CheckBox
     ShowViscousTorqueUI AppUtil1.Component.CheckBox
 
-    TorquePlotUnitUI AppUtil1.Component.DropDown
-    VelocityPlotUnitUI AppUtil1.Component.DropDown
+    PlotTorqueUnitUI AppUtil1.Component.PhysicalUnitDropDown
+    PlotVelocityUnitUI AppUtil1.Component.PhysicalUnitDropDown
 
     AppBlockSelectorUI AppUtil1.Component.BlockSelectorUI
   end  % properties
 
   properties (Constant, Access=private)
 
-    TargetSimscapeBlockName = "Rotational Friction"
+    TargetSimscapeBlockNames = "Rotational Friction"
 
-    angular_speed_unit_items = ["rpm", "rad/s", "deg/s", "rev/s"]
-    torque_unit_items = ["N*m", "m*mN", "lbf*ft", "lbf*in"]
-    fric_coeff_unit_items = ["N*m/(rad/s)", "ft*lbf*s/rad", "N*m/rpm", "lbf*m/rpm", "lbf*in/rpm"]
+    angular_speed_unit_items = ["rpm", "rad/s", "rev/s"]
+    torque_unit_items = ["N*m", "lbf*ft"]
+    fric_coeff_unit_items = ["N*m/rpm", "N*m/(rad/s)", "N*m/(rev/s)", "lbf*ft/rpm"]
+
+    app_window_width = 1100
+    right_pane_width = 550
 
     width_unit = AppUtil1.Constant.Width{"unitwidth"}
     name_ui_width = AppUtil1.Constant.Width{"unitwidth"} * 28
@@ -80,8 +84,8 @@ classdef RotationalFrictionAppMain < handle
         NameValuePair.ModelName (1,1) string = ""
 
         % The list of mustBeMember cannot be a class property even if it is constant.
-        NameValuePair.TorquePlotUnit (1,1) string {mustBeMember(NameValuePair.TorquePlotUnit, ["N*m", "m*mN", "lbf*ft", "lbf*in"])} = "N*m"
-        NameValuePair.VelocityPlotUnit (1,1) string {mustBeMember(NameValuePair.VelocityPlotUnit, ["rpm", "rad/s", "deg/s", "rev/s"])} = "rad/s"
+        NameValuePair.PlotTorqueUnit (1,1) string = ""
+        NameValuePair.PlotVelocityUnit (1,1) string = ""
       end  % arguments
 
       % -----------------------------------------------------------------------
@@ -127,9 +131,9 @@ classdef RotationalFrictionAppMain < handle
 
         end  % try, catch
 
-        % The Rotational Friction block must exist in the specified model.
+        % The target block must exist in the specified model.
         try
-          result = ModelUtil1.findSimscapeBlock(App.ModelName, App.TargetSimscapeBlockName);
+          result = ModelUtil1.findSimscapeBlocks(App.ModelName, App.TargetSimscapeBlockNames);
         catch exception
           id = App.errorID + "SimscapeBlockWasNotFound";
           msg = exception.message;
@@ -140,9 +144,9 @@ classdef RotationalFrictionAppMain < handle
 
         if App.BlockPath == ""
           % Use the first match.
-          App.BlockPath = result.BlockPath(1);
+          App.BlockPath = result(1);
         else
-          if not(ismember(App.BlockPath, result.BlockPath))
+          if not(ismember(App.BlockPath, result))
             id = App.errorID + "InvalidBlockPath";
             msg = CodeUtil1.i18n("The specified block was not found in the specified model.");
 
@@ -158,7 +162,7 @@ classdef RotationalFrictionAppMain < handle
       meta_data = metaclass(App);
       App.Window = AppUtil1.AppWindow(App.MainFigure, SourceFile=which(meta_data.Name));
       App.Window.Name = CodeUtil1.i18n("Rotational Friction");
-      App.Window.Width = 1100;
+      App.Window.Width = App.app_window_width;
       App.Window.Height = 560;
 
       % -----------------------------------------------------------------------
@@ -184,25 +188,45 @@ classdef RotationalFrictionAppMain < handle
 
       else
         % Default settings
-        App.RotationalFrictionData = RotationalFriction1.RotationalFrictionData(Initialize=true);
-        App.BreakawayTorqueUI.SimscapeValue = App.RotationalFrictionData.ModelParams.BreakawayTorque;
-        App.BreakawayVelocityUI.SimscapeValue = App.RotationalFrictionData.ModelParams.BreakawayVelocity;
-        App.CoulombTorqueUI.SimscapeValue = App.RotationalFrictionData.ModelParams.CoulombTorque;
-        App.ViscousCoefficientUI.SimscapeValue = App.RotationalFrictionData.ModelParams.ViscousCoefficient;
+        App.DataSet = RotationalFriction1.RotationalFrictionDataSet(Initialization=true);
+
+        App.BreakawayTorqueUI.SimscapeValue = App.DataSet.ModelParams.BreakawayTorque;
+        App.BreakawayVelocityUI.SimscapeValue = App.DataSet.ModelParams.BreakawayVelocity;
+        App.CoulombTorqueUI.SimscapeValue = App.DataSet.ModelParams.CoulombTorque;
+        App.ViscousCoefficientUI.SimscapeValue = App.DataSet.ModelParams.ViscousCoefficient;
+      end  % if
+
+      if NameValuePair.PlotVelocityUnit == ""
+        plot_veclocity_unit = App.angular_speed_unit_items(1);
+      else
+        plot_veclocity_unit = NameValuePair.PlotVelocityUnit;
+      end  % if
+
+      if NameValuePair.PlotTorqueUnit == ""
+        plot_torque_unit = App.torque_unit_items(1);
+      else
+        plot_torque_unit = NameValuePair.PlotTorqueUnit;
       end  % if
 
       % For the derived parameters, use the same unit as the plot unit.
-      App.StribeckScaledTorqueUI.UnitText = NameValuePair.TorquePlotUnit;
-      App.StribeckThresholdVelocityUI.UnitText = NameValuePair.VelocityPlotUnit;
-      App.CoulombThresholdVelocityUI.UnitText = NameValuePair.VelocityPlotUnit;
+      App.StribeckScaledTorqueUI.UnitText = plot_torque_unit;
+      App.StribeckThresholdVelocityUI.UnitText = plot_veclocity_unit;
+      App.CoulombThresholdVelocityUI.UnitText = plot_veclocity_unit;
 
       % Show torque components in the plot by default.
       App.ShowStribeckTorqueUI.Value = true;
       App.ShowCoulombTorqueUI.Value = true;
       App.ShowViscousTorqueUI.Value = true;
 
-      App.TorquePlotUnitUI.Value = NameValuePair.TorquePlotUnit;
-      App.VelocityPlotUnitUI.Value = NameValuePair.VelocityPlotUnit;
+      App.PlotTorqueUnitUI.UnitText = plot_torque_unit;
+      % Looks like setting UnitText above overrides UnitItems.
+      % !todo: (Re)assign torque_unit_items. This must be unnecessary.
+      % App.PlotTorqueUnitUI.UnitItems = App.torque_unit_items;
+
+      App.PlotVelocityUnitUI.UnitText = plot_veclocity_unit;
+      % Looks like setting UnitText above overrides UnitItems.
+      % !todo: (Re)assign torque_unit_items. This must be unnecessary.
+      % App.PlotVelocityUnitUI.UnitItems = App.angular_speed_unit_items;
 
       % Enable plot auto-update.
       App.PlotButtonUI.ButtonDisable = "on";
@@ -219,21 +243,21 @@ classdef RotationalFrictionAppMain < handle
 
     function build_app_gui(App)
       %%
-      main_vertical_container = App.Window.MainVerticalContainer;
-      main_column_grid = addVerticalGridLayout(main_vertical_container);
-      main_horizontal_container = AppUtil1.HorizontalContainer(main_column_grid);
+      appmain_v_container = App.Window.MainVerticalContainer;
+      appmain_v_layout = addVerticalGridLayout(appmain_v_container);
+
+      appmain_h_container = AppUtil1.HorizontalContainer(appmain_v_layout);
 
       % =======================================================================
-      % Left area
+      % Left side of the app window
       % =======================================================================
-      left_row_grid = addHorizontalGridLayout(main_horizontal_container);
-      left_vertical_container = AppUtil1.VerticalContainer(left_row_grid);
+      appleft_h_layout = addHorizontalGridLayout(appmain_h_container);
+      appleft_v_container = AppUtil1.VerticalContainer(appleft_h_layout);
 
       % -----------------------------------------------------------------------
-      left_column_grid = addVerticalGridLayout(left_vertical_container);
+      appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      label_ui = AppUtil1.Component.Label(left_column_grid);
-      label_ui.MainFigure = App.MainFigure;
+      label_ui = AppUtil1.Component.Label(appleft_v_layout);
       label_ui.ComponentHeight = AppUtil1.Constant.Height{"oneline"} * 4;
       label_ui.Text = join([
         "The Rotational Friction block in Simscape represents friction in contact between rotating bodies."
@@ -243,10 +267,9 @@ classdef RotationalFrictionAppMain < handle
       label_ui.WordWrap = "on";
 
       % -----------------------------------------------------------------------
-      left_column_grid = addVerticalGridLayout(left_vertical_container);
+      appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      label_ui = AppUtil1.Component.Label(left_column_grid);
-      label_ui.MainFigure = App.MainFigure;
+      label_ui = AppUtil1.Component.Label(appleft_v_layout);
       label_ui.ComponentHeight = AppUtil1.Constant.Height{"oneline"} * 2 + 10;
       label_ui.Text = join( [
         "$"
@@ -259,24 +282,21 @@ classdef RotationalFrictionAppMain < handle
       label_ui.WordWrap = "off";
 
       % -----------------------------------------------------------------------
-      left_column_grid = addVerticalGridLayout(left_vertical_container);
-      horizontal_container = AppUtil1.HorizontalContainer(left_column_grid);
+      appleft_v_layout = addVerticalGridLayout(appleft_v_container);
+      h_container = AppUtil1.HorizontalContainer(appleft_v_layout);
 
-      row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
-      label_ui = AppUtil1.Component.Label(row_grid);
-      label_ui.MainFigure = App.MainFigure;
+      h_layout = addHorizontalGridLayout(h_container, Width="fit");
+      label_ui = AppUtil1.Component.Label(h_layout);
       label_ui.Text = CodeUtil1.i18n("Rotational Friction block:");
       label_ui.ComponentWidth = App.width_unit * 19;
 
-      row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
-      App.DocLinkUI = AppUtil1.Component.Hyperlink(row_grid);
-      App.DocLinkUI.MainFigure = App.MainFigure;
+      h_layout = addHorizontalGridLayout(h_container, Width="fit");
+      App.DocLinkUI = AppUtil1.Component.Hyperlink(h_layout);
       App.DocLinkUI.Text = CodeUtil1.i18n("Documentation");
       App.DocLinkUI.HyperlinkClickedCallback = @() web("https://www.mathworks.com/help/simscape/ref/rotationalfriction.html");
 
-      row_grid = addHorizontalGridLayout(horizontal_container);
-      ssc_link_ui = AppUtil1.Component.Hyperlink(row_grid);
-      ssc_link_ui.MainFigure = App.MainFigure;
+      h_layout = addHorizontalGridLayout(h_container);
+      ssc_link_ui = AppUtil1.Component.Hyperlink(h_layout);
       ssc_link_ui.Text = CodeUtil1.i18n("Simscape source");
       ssc_link_ui.HyperlinkClickedCallback = @() ...
         open(string(matlabroot) + filesep + ...
@@ -286,12 +306,13 @@ classdef RotationalFrictionAppMain < handle
       %% ======================================================================
       % Parameters
 
-      left_column_grid = addVerticalGridLayout(left_vertical_container);
-      label_ui = AppUtil1.Component.Label(left_column_grid);
+      appleft_v_layout = addVerticalGridLayout(appleft_v_container);
+      label_ui = AppUtil1.Component.Label(appleft_v_layout);
       label_ui.Text = "\bf{" + CodeUtil1.i18n("Parameters") + "}";
 
-      left_column_grid = addVerticalGridLayout(left_vertical_container);
-      App.BreakawayTorqueUI = AppUtil1.Component.PhysicalValueUI(left_column_grid);
+      appleft_v_layout = addVerticalGridLayout(appleft_v_container);
+      App.BreakawayTorqueUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
+      App.BreakawayTorqueUI.Editable = "on";
       App.BreakawayTorqueUI.NameText = CodeUtil1.i18n("Breakaway friction torque, $T_{B}$");
       App.BreakawayTorqueUI.NameUIWidth = App.name_ui_width;
       App.BreakawayTorqueUI.UnitUIWidth = App.unit_ui_width;
@@ -299,30 +320,13 @@ classdef RotationalFrictionAppMain < handle
       App.BreakawayTorqueUI.ValueChangedCallback = @() update_BreakawayTorque();
       App.BreakawayTorqueUI.UnitChangedCallback = @() update_BreakawayTorque();
       function update_BreakawayTorque
-        try
-          % Parameters in the ModelParams can produce a run-time error as defined in *ModelParameters.m
-          % The error message is shown in the uialert pop-up window, instead of inlining in the UI component.
-          % This is because the inline error reporting in PhysicalValueUI hides the unit UI, which
-          % could block the user to correct the issue. (!todo: The inline error reporting needs improvement.)
-          App.RotationalFrictionData.ModelParams.BreakawayTorque = App.BreakawayTorqueUI.SimscapeValue;
-        catch exception
-          if App.Window.MainFigure.Visible
-            window_title = CodeUtil1.i18n("Error");
-            msg = exception.message;
-
-            uialert(App.Window.MainFigure, msg, window_title)
-
-          else
-
-            rethrow(exception)
-
-          end  % if
-        end  % try, catch
+        App.DataSet.ModelParams.BreakawayTorque = App.BreakawayTorqueUI.SimscapeValue;
         react_UIChanged(App)
       end  % nested function
 
-      left_column_grid = addVerticalGridLayout(left_vertical_container);
-      App.BreakawayVelocityUI = AppUtil1.Component.PhysicalValueUI(left_column_grid);
+      appleft_v_layout = addVerticalGridLayout(appleft_v_container);
+      App.BreakawayVelocityUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
+      App.BreakawayVelocityUI.Editable = "on";
       App.BreakawayVelocityUI.NameText = CodeUtil1.i18n("Breakaway friction velocity, $\omega_{B}$");
       App.BreakawayVelocityUI.NameUIWidth = App.name_ui_width;
       App.BreakawayVelocityUI.UnitUIWidth = App.unit_ui_width;
@@ -330,30 +334,13 @@ classdef RotationalFrictionAppMain < handle
       App.BreakawayVelocityUI.ValueChangedCallback = @() update_BreakawayVelocity();
       App.BreakawayVelocityUI.UnitChangedCallback = @() update_BreakawayVelocity();
       function update_BreakawayVelocity
-        try
-          % Parameters in the ModelParams can produce a run-time error as defined in *ModelParameters.m
-          % The error message is shown in the uialert pop-up window, instead of inlining in the UI component.
-          % This is because the inline error reporting in PhysicalValueUI hides the unit UI, which
-          % could block the user to correct the issue. (!todo: The inline error reporting needs improvement.)
-          App.RotationalFrictionData.ModelParams.BreakawayVelocity = App.BreakawayVelocityUI.SimscapeValue;
-        catch exception
-          if App.Window.MainFigure.Visible
-            window_title = CodeUtil1.i18n("Error");
-            msg = exception.message;
-
-            uialert(App.Window.MainFigure, msg, window_title)
-
-          else
-
-            rethrow(exception)
-
-          end  % if
-        end  % try, catch
+        App.DataSet.ModelParams.BreakawayVelocity = App.BreakawayVelocityUI.SimscapeValue;
         react_UIChanged(App)
       end  % nested function
 
-      left_column_grid = addVerticalGridLayout(left_vertical_container);
-      App.CoulombTorqueUI = AppUtil1.Component.PhysicalValueUI(left_column_grid);
+      appleft_v_layout = addVerticalGridLayout(appleft_v_container);
+      App.CoulombTorqueUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
+      App.CoulombTorqueUI.Editable = "on";
       App.CoulombTorqueUI.NameText = CodeUtil1.i18n("Coulomb friction torque, $T_{C}$");
       App.CoulombTorqueUI.NameUIWidth = App.name_ui_width;
       App.CoulombTorqueUI.UnitUIWidth = App.unit_ui_width;
@@ -361,30 +348,13 @@ classdef RotationalFrictionAppMain < handle
       App.CoulombTorqueUI.ValueChangedCallback = @() update_CoulombTorque();
       App.CoulombTorqueUI.UnitChangedCallback = @() update_CoulombTorque();
       function update_CoulombTorque
-        try
-          % Parameters in the ModelParams can produce a run-time error as defined in *ModelParameters.m
-          % The error message is shown in the uialert pop-up window, instead of inlining in the UI component.
-          % This is because the inline error reporting in PhysicalValueUI hides the unit UI, which
-          % could block the user to correct the issue. (!todo: The inline error reporting needs improvement.)
-          App.RotationalFrictionData.ModelParams.CoulombTorque = App.CoulombTorqueUI.SimscapeValue;
-        catch exception
-          if App.Window.MainFigure.Visible
-            window_title = CodeUtil1.i18n("Error");
-            msg = exception.message;
-
-            uialert(App.Window.MainFigure, msg, window_title)
-
-          else
-
-            rethrow(exception)
-
-          end  % if
-        end  % try, catch
+        App.DataSet.ModelParams.CoulombTorque = App.CoulombTorqueUI.SimscapeValue;
         react_UIChanged(App)
       end  % nested function
 
-      left_column_grid = addVerticalGridLayout(left_vertical_container);
-      App.ViscousCoefficientUI = AppUtil1.Component.PhysicalValueUI(left_column_grid);
+      appleft_v_layout = addVerticalGridLayout(appleft_v_container);
+      App.ViscousCoefficientUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
+      App.ViscousCoefficientUI.Editable = "on";
       App.ViscousCoefficientUI.NameText = CodeUtil1.i18n("Viscous friction coefficient, $f$");
       App.ViscousCoefficientUI.NameUIWidth = App.name_ui_width;
       App.ViscousCoefficientUI.UnitUIWidth = App.unit_ui_width;
@@ -392,25 +362,7 @@ classdef RotationalFrictionAppMain < handle
       App.ViscousCoefficientUI.ValueChangedCallback = @() update_ViscousCoefficient();
       App.ViscousCoefficientUI.UnitChangedCallback = @() update_ViscousCoefficient();
       function update_ViscousCoefficient
-        try
-          % Parameters in the ModelParams can produce a run-time error as defined in *ModelParameters.m
-          % The error message is shown in the uialert pop-up window, instead of inlining in the UI component.
-          % This is because the inline error reporting in PhysicalValueUI hides the unit UI, which
-          % could block the user to correct the issue. (!todo: The inline error reporting needs improvement.)
-          App.RotationalFrictionData.ModelParams.ViscousCoefficient = App.ViscousCoefficientUI.SimscapeValue;
-        catch exception
-          if App.Window.MainFigure.Visible
-            window_title = CodeUtil1.i18n("Error");
-            msg = exception.message;
-
-            uialert(App.Window.MainFigure, msg, window_title)
-
-          else
-
-            rethrow(exception)
-
-          end  % if
-        end  % try, catch
+        App.DataSet.ModelParams.ViscousCoefficient = App.ViscousCoefficientUI.SimscapeValue;
         react_UIChanged(App)
       end  % nested function
 
@@ -418,15 +370,16 @@ classdef RotationalFrictionAppMain < handle
       % Derived parameters
 
       % -----------------------------------------------------------------------
-      left_column_grid = addVerticalGridLayout(left_vertical_container);
-      label_ui = AppUtil1.Component.Label(left_column_grid);
+      appleft_v_layout = addVerticalGridLayout(appleft_v_container);
+      label_ui = AppUtil1.Component.Label(appleft_v_layout);
       label_ui.ComponentWidth = App.name_ui_width;
       label_ui.Text = "\textbf{" + CodeUtil1.i18n("Derived parameters") + "}";
 
       component_height = AppUtil1.Constant.Height{"oneline++"} * 2;
 
-      left_column_grid = addVerticalGridLayout(left_vertical_container);
-      App.StribeckScaledTorqueUI = AppUtil1.Component.PhysicalValueUI(left_column_grid);
+      appleft_v_layout = addVerticalGridLayout(appleft_v_container);
+      App.StribeckScaledTorqueUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
+      App.StribeckScaledTorqueUI.Editable = "on";
       App.StribeckScaledTorqueUI.ComponentHeight = component_height;
       App.StribeckScaledTorqueUI.NameText = CodeUtil1.i18n("Scale factor for Stribeck torque") + newline + "$T_{S} = \sqrt{2e} (T_{B} - T_{C})$";
       App.StribeckScaledTorqueUI.NameUIWidth = App.name_ui_width;
@@ -435,8 +388,9 @@ classdef RotationalFrictionAppMain < handle
       App.StribeckScaledTorqueUI.ReadOnlyValueText = true;
       App.StribeckScaledTorqueUI.UnitChangedCallback = @() update_DerivedParameterUI(App, "StribeckScaledTorque");
 
-      left_column_grid = addVerticalGridLayout(left_vertical_container);
-      App.StribeckThresholdVelocityUI = AppUtil1.Component.PhysicalValueUI(left_column_grid);
+      appleft_v_layout = addVerticalGridLayout(appleft_v_container);
+      App.StribeckThresholdVelocityUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
+      App.StribeckThresholdVelocityUI.Editable = "on";
       App.StribeckThresholdVelocityUI.ComponentHeight = component_height;
       App.StribeckThresholdVelocityUI.NameText = CodeUtil1.i18n("Velocity threshold for Stribeck torque") + newline + "$\omega_{S} = \omega_{B} \sqrt{2}$";
       App.StribeckThresholdVelocityUI.NameUIWidth = App.name_ui_width;
@@ -445,8 +399,9 @@ classdef RotationalFrictionAppMain < handle
       App.StribeckThresholdVelocityUI.ReadOnlyValueText = true;
       App.StribeckThresholdVelocityUI.UnitChangedCallback = @() update_DerivedParameterUI(App, "StribeckThresholdVelocity");
 
-      left_column_grid = addVerticalGridLayout(left_vertical_container);
-      App.CoulombThresholdVelocityUI = AppUtil1.Component.PhysicalValueUI(left_column_grid);
+      appleft_v_layout = addVerticalGridLayout(appleft_v_container);
+      App.CoulombThresholdVelocityUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
+      App.CoulombThresholdVelocityUI.Editable = "on";
       App.CoulombThresholdVelocityUI.ComponentHeight = component_height;
       App.CoulombThresholdVelocityUI.NameText = CodeUtil1.i18n("Velocity threshold for Coulomb torque") + newline + "$\omega_{C} = \omega_{B} / 10$";
       App.CoulombThresholdVelocityUI.NameUIWidth = App.name_ui_width;
@@ -456,151 +411,145 @@ classdef RotationalFrictionAppMain < handle
       App.CoulombThresholdVelocityUI.UnitChangedCallback = @() update_DerivedParameterUI(App, "CoulombThresholdVelocity");
 
       % =======================================================================
-      % Right area
+      % Right side of the app window
       % =======================================================================
-
-      right_row_grid = addHorizontalGridLayout(main_horizontal_container);
-      right_vertical_container = AppUtil1.VerticalContainer(right_row_grid);
+      appright_h_layout = addHorizontalGridLayout(appmain_h_container, Width=App.right_pane_width);
+      appright_v_container = AppUtil1.VerticalContainer(appright_h_layout);
 
       % -----------------------------------------------------------------------
-      right_column_grid = addVerticalGridLayout(right_vertical_container);
-      horizontal_container = AppUtil1.HorizontalContainer(right_column_grid);
+      appright_v_layout = addVerticalGridLayout(appright_v_container);
+      h_container = AppUtil1.HorizontalContainer(appright_v_layout);
 
-      row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
-      App.PlotButtonUI = AppUtil1.Component.EnabledButton(row_grid);
+      h_layout = addHorizontalGridLayout(h_container, Width="fit");
+      App.PlotButtonUI = AppUtil1.Component.EnabledButton(h_layout);
       App.PlotButtonUI.HorizontalAlignment = "left";
       App.PlotButtonUI.ButtonUIWidth = App.button_width + App.width_unit;
       App.PlotButtonUI.ButtonWidth = App.button_width;
       App.PlotButtonUI.CheckBoxUIWidth = "fit";
       App.PlotButtonUI.CheckBoxWidth = "fit";
       App.PlotButtonUI.ButtonText = CodeUtil1.i18n("Update");
-      App.PlotButtonUI.ButtonUI.MainButton.Icon = fullfile(matlabroot, "toolbox", "matlab", "icons", "tool_rotate_3d.png");
+      App.PlotButtonUI.ButtonUI.MainButton.Icon = which("mus-icon-rotation-arrow.svg");
       App.PlotButtonUI.CheckBoxText = CodeUtil1.i18n("Auto-update");
       App.PlotButtonUI.ButtonPushedCallback = @() update_plot(App);
-      % Set false to auto-update and keep it until the entire app is ready.
+      % Set auto-update to false and keep it until the entire app is ready.
       App.PlotButtonUI.ButtonDisable = "on";
 
-      row_grid = addHorizontalGridLayout(horizontal_container);
-      App.OpenInFigureWindowUI = AppUtil1.Component.Hyperlink(row_grid);
+      h_layout = addHorizontalGridLayout(h_container);
+      App.OpenInFigureWindowUI = AppUtil1.Component.Hyperlink(h_layout);
       App.OpenInFigureWindowUI.Text = CodeUtil1.i18n("Open in figure window");
       App.OpenInFigureWindowUI.HorizontalAlignment = "right";
       App.OpenInFigureWindowUI.HyperlinkClickedCallback = @() update_plot(App, StandAloneFigure=true);
 
       % -----------------------------------------------------------------------
-      right_column_grid = addVerticalGridLayout(right_vertical_container, Height="fit");
+      appright_v_layout = addVerticalGridLayout(appright_v_container, Height="fit");
 
-      App.AxesUI = AppUtil1.Graphics.Axes(right_column_grid);
+      App.AxesUI = AppUtil1.Graphics.Axes(appright_v_layout);
       App.AxesUI.ComponentHeight = 380;
 
       % -----------------------------------------------------------------------
-      right_column_grid = addVerticalGridLayout(right_vertical_container);
-      horizontal_container = AppUtil1.HorizontalContainer(right_column_grid);
+      appright_v_layout = addVerticalGridLayout(appright_v_container);
+      h_container = AppUtil1.HorizontalContainer(appright_v_layout);
 
-      row_grid = addHorizontalGridLayout(horizontal_container, Width="3x");
-      label_ui = AppUtil1.Component.Label(row_grid);
+      h_layout = addHorizontalGridLayout(h_container, Width="3x");
+      label_ui = AppUtil1.Component.Label(h_layout);
       label_ui.Text = "\textbf{" + CodeUtil1.i18n("Torque components") + "}";
       label_ui.HorizontalAlignment = "center";
 
-      row_grid = addHorizontalGridLayout(horizontal_container, Width="2x");
-      App.ShowStribeckTorqueUI = AppUtil1.Component.CheckBox(row_grid);
+      h_layout = addHorizontalGridLayout(h_container, Width="2x");
+      App.ShowStribeckTorqueUI = AppUtil1.Component.CheckBox(h_layout);
       App.ShowStribeckTorqueUI.Text = CodeUtil1.i18n("Stribeck");
       App.ShowStribeckTorqueUI.ValueChangedCallback = @() react_ShowStribeckTorqueChanged();
       function react_ShowStribeckTorqueChanged
-        App.RotationalFrictionData.ShowStribeckTorque = App.ShowStribeckTorqueUI.Value;
+        App.DataSet.ShowStribeckTorque = App.ShowStribeckTorqueUI.Value;
         auto_update_plot(App, SkipDataUpdate=true);
       end  % nested function
 
-      row_grid = addHorizontalGridLayout(horizontal_container, Width="2x");
-      App.ShowCoulombTorqueUI = AppUtil1.Component.CheckBox(row_grid);
+      h_layout = addHorizontalGridLayout(h_container, Width="2x");
+      App.ShowCoulombTorqueUI = AppUtil1.Component.CheckBox(h_layout);
       App.ShowCoulombTorqueUI.Text = CodeUtil1.i18n("Coulomb");
       App.ShowCoulombTorqueUI.ValueChangedCallback = @() react_ShowCoulombTorqueChanged();
       function react_ShowCoulombTorqueChanged
-        App.RotationalFrictionData.ShowCoulombTorque = App.ShowCoulombTorqueUI.Value;
+        App.DataSet.ShowCoulombTorque = App.ShowCoulombTorqueUI.Value;
         auto_update_plot(App, SkipDataUpdate=true);
       end  % nested function
 
-      row_grid = addHorizontalGridLayout(horizontal_container, Width="2x");
-      App.ShowViscousTorqueUI = AppUtil1.Component.CheckBox(row_grid);
+      h_layout = addHorizontalGridLayout(h_container, Width="2x");
+      App.ShowViscousTorqueUI = AppUtil1.Component.CheckBox(h_layout);
       App.ShowViscousTorqueUI.Text = CodeUtil1.i18n("Viscous");
       App.ShowViscousTorqueUI.ValueChangedCallback = @() react_ShowViscousTorqueChanged();
       function react_ShowViscousTorqueChanged
-        App.RotationalFrictionData.ShowViscousTorque = App.ShowViscousTorqueUI.Value;
+        App.DataSet.ShowViscousTorque = App.ShowViscousTorqueUI.Value;
         auto_update_plot(App, SkipDataUpdate=true);
       end  % nested function
 
       % -----------------------------------------------------------------------
-      right_column_grid = addVerticalGridLayout(right_vertical_container);
-      horizontal_container = AppUtil1.HorizontalContainer(right_column_grid);
+      appright_v_layout = addVerticalGridLayout(appright_v_container);
+      h_container = AppUtil1.HorizontalContainer(appright_v_layout);
 
       % Plot unit .............................................................
-      row_grid = addHorizontalGridLayout(horizontal_container, Width="1x");
+      h_layout = addHorizontalGridLayout(h_container, Width="1x");
 
-      label_ui = AppUtil1.Component.Label(row_grid);
+      label_ui = AppUtil1.Component.Label(h_layout);
       label_ui.Text = "\textbf{" + CodeUtil1.i18n("Plot unit") + "}";
       label_ui.HorizontalAlignment = "center";
 
       name_width = AppUtil1.Constant.Width{"unitwidth"} * 7;
 
       % Torque drop down ......................................................
-      row_grid = addHorizontalGridLayout(horizontal_container, Width="2x");
+      h_layout = addHorizontalGridLayout(h_container, Width="2x");
+      sub_h_container = AppUtil1.HorizontalContainer(h_layout);
 
-      subhorizontal_container = AppUtil1.HorizontalContainer(row_grid);
-      subrow_grid = addHorizontalGridLayout(subhorizontal_container, Width="fit");
-
-      label_ui = AppUtil1.Component.Label(subrow_grid);
+      sub_h_layout = addHorizontalGridLayout(sub_h_container, Width="fit");
+      label_ui = AppUtil1.Component.Label(sub_h_layout);
       label_ui.Text = "Torque";
       label_ui.ComponentWidth = name_width;
       label_ui.HorizontalAlignment = "right";
 
-      subrow_grid = addHorizontalGridLayout(subhorizontal_container);
-      App.TorquePlotUnitUI = AppUtil1.Component.DropDown(subrow_grid);
-      App.TorquePlotUnitUI.Items = App.torque_unit_items;
-      App.TorquePlotUnitUI.ComponentWidth = App.unit_ui_width;
-      App.TorquePlotUnitUI.HorizontalAlignment = "left";
-      App.TorquePlotUnitUI.ValueChangedCallback = @() react_TorquePlotUnitChanged(App);
+      sub_h_layout = addHorizontalGridLayout(sub_h_container);
+      App.PlotTorqueUnitUI = AppUtil1.Component.PhysicalUnitDropDown(sub_h_layout);
+      App.PlotTorqueUnitUI.Editable = "on";
+      App.PlotTorqueUnitUI.UnitItems = App.torque_unit_items;
+      App.PlotTorqueUnitUI.ComponentWidth = App.unit_ui_width;
+      App.PlotTorqueUnitUI.UnitChangedCallback = @() react_PlotTorqueUnitChanged(App);
+      function react_PlotTorqueUnitChanged(App)
+        App.DataSet.PlotTorqueUnit = App.PlotTorqueUnitUI.UnitText;
+        auto_update_plot(App, SkipDataUpdate=true);
+      end  % nested function
 
       % Velocity drop down ....................................................
-      row_grid = addHorizontalGridLayout(horizontal_container, Width="2x");
+      h_layout = addHorizontalGridLayout(h_container, Width="2x");
+      sub_h_container = AppUtil1.HorizontalContainer(h_layout);
 
-      subhorizontal_container = AppUtil1.HorizontalContainer(row_grid);
-      subrow_grid = addHorizontalGridLayout(subhorizontal_container, Width="fit");
-
-      label_ui = AppUtil1.Component.Label(subrow_grid);
+      sub_h_layout = addHorizontalGridLayout(sub_h_container, Width="fit");
+      label_ui = AppUtil1.Component.Label(sub_h_layout);
       label_ui.Text = "Velocity";
       label_ui.ComponentWidth = name_width;
       label_ui.HorizontalAlignment = "right";
 
-      subrow_grid = addHorizontalGridLayout(subhorizontal_container);
-      App.VelocityPlotUnitUI = AppUtil1.Component.DropDown(subrow_grid);
-      App.VelocityPlotUnitUI.Items = App.angular_speed_unit_items;
-      App.VelocityPlotUnitUI.ComponentWidth = App.unit_ui_width;
-      App.VelocityPlotUnitUI.HorizontalAlignment = "left";
-      App.VelocityPlotUnitUI.ValueChangedCallback = @() react_VelocityPlotUnitChanged(App);
+      sub_h_layout = addHorizontalGridLayout(sub_h_container);
+      App.PlotVelocityUnitUI = AppUtil1.Component.PhysicalUnitDropDown(sub_h_layout);
+      App.PlotVelocityUnitUI.Editable = "on";
+      App.PlotVelocityUnitUI.UnitItems = App.angular_speed_unit_items;
+      App.PlotVelocityUnitUI.ComponentWidth = App.unit_ui_width;
+      App.PlotVelocityUnitUI.UnitChangedCallback = @() react_VelocityPlotUnitChanged(App);
+      function react_VelocityPlotUnitChanged(App)
+        App.DataSet.PlotVelocityUnit = App.PlotVelocityUnitUI.UnitText;
+        auto_update_plot(App, SkipDataUpdate=true);
+      end  % nested function
 
       %% ======================================================================
-      main_column_grid = addVerticalGridLayout(main_vertical_container);
-      AppUtil1.Component.HorizontalLine(main_column_grid);
+      appmain_v_layout = addVerticalGridLayout(appmain_v_container);
+      AppUtil1.Component.HorizontalLine(appmain_v_layout);
 
       %% ======================================================================
       % Bottom area
-      main_column_grid = addVerticalGridLayout(main_vertical_container);
+      appmain_v_layout = addVerticalGridLayout(appmain_v_container);
 
-      App.AppBlockSelectorUI = AppUtil1.Component.BlockSelectorUI(main_column_grid);
-      App.AppBlockSelectorUI.MainFigure = App.Window.MainFigure;
-      App.AppBlockSelectorUI.TargetSimscapeBlockNames = App.TargetSimscapeBlockName;
+      App.AppBlockSelectorUI = AppUtil1.Component.BlockSelectorUI(appmain_v_layout);
+      App.AppBlockSelectorUI.TargetSimscapeBlockNames = App.TargetSimscapeBlockNames;
       App.AppBlockSelectorUI.GetParametersFromBlockCallback = @() callback_get_parameters(App);
       App.AppBlockSelectorUI.SetParametersToBlockCallback = @() callback_set_parameters(App);
 
-    end  % function
-
-    function react_TorquePlotUnitChanged(App)
-      App.RotationalFrictionData.TorquePlotUnit = App.TorquePlotUnitUI.Value;
-      auto_update_plot(App, SkipDataUpdate=true);
-    end  % function
-
-    function react_VelocityPlotUnitChanged(App)
-      App.RotationalFrictionData.VelocityPlotUnit = App.VelocityPlotUnitUI.Value;
-      auto_update_plot(App, SkipDataUpdate=true);
     end  % function
 
     function callback_set_parameters(App)
@@ -641,7 +590,7 @@ classdef RotationalFrictionAppMain < handle
       % the workspace variables must be loaded upfront.
       % This updates the derived parameters too.
       try
-        App.RotationalFrictionData = RotationalFriction1.RotationalFrictionData(Initialize=true, BlockPath=App.BlockPath);
+        App.DataSet = RotationalFriction1.RotationalFrictionDataSet(BlockPath=App.BlockPath);
       catch exception
         if App.MainFigure.Visible
           msg = exception.message;
@@ -668,25 +617,25 @@ classdef RotationalFrictionAppMain < handle
       unit_text = get_param(block_path, "brkwy_trq_unit");
       App.BreakawayTorqueUI.ValueText = value_text;
       App.BreakawayTorqueUI.UnitText = unit_text;
-      App.RotationalFrictionData.ModelParams.BreakawayTorque = App.BreakawayTorqueUI.SimscapeValue;
+      App.DataSet.ModelParams.BreakawayTorque = App.BreakawayTorqueUI.SimscapeValue;
 
       value_text = get_param(block_path, "brkwy_vel");
       unit_text = get_param(block_path, "brkwy_vel_unit");
       App.BreakawayVelocityUI.ValueText = value_text;
       App.BreakawayVelocityUI.UnitText = unit_text;
-      App.RotationalFrictionData.ModelParams.BreakawayVelocity = App.BreakawayVelocityUI.SimscapeValue;
+      App.DataSet.ModelParams.BreakawayVelocity = App.BreakawayVelocityUI.SimscapeValue;
 
       value_text = get_param(block_path, "Col_trq");
       unit_text = get_param(block_path, "Col_trq_unit");
       App.CoulombTorqueUI.ValueText = value_text;
       App.CoulombTorqueUI.UnitText = unit_text;
-      App.RotationalFrictionData.ModelParams.CoulombTorque = App.CoulombTorqueUI.SimscapeValue;
+      App.DataSet.ModelParams.CoulombTorque = App.CoulombTorqueUI.SimscapeValue;
 
       value_text = get_param(block_path, "visc_coef");
       unit_text = get_param(block_path, "visc_coef_unit");
       App.ViscousCoefficientUI.ValueText = value_text;
       App.ViscousCoefficientUI.UnitText = unit_text;
-      App.RotationalFrictionData.ModelParams.ViscousCoefficient = App.ViscousCoefficientUI.SimscapeValue;
+      App.DataSet.ModelParams.ViscousCoefficient = App.ViscousCoefficientUI.SimscapeValue;
 
       % Recover the plot auto update setting.
       App.PlotButtonUI.CheckBoxUI.Value = prev_value;
@@ -701,12 +650,11 @@ classdef RotationalFrictionAppMain < handle
         App (1,1)
       end  % if
 
-      App.RotationalFrictionData.ShowStribeckTorque = App.ShowStribeckTorqueUI.Value;
-      App.RotationalFrictionData.ShowCoulombTorque = App.ShowCoulombTorqueUI.Value;
-      App.RotationalFrictionData.ShowViscousTorque = App.ShowViscousTorqueUI.Value;
+      App.DataSet.ShowStribeckTorque = App.ShowStribeckTorqueUI.Value;
+      App.DataSet.ShowCoulombTorque = App.ShowCoulombTorqueUI.Value;
+      App.DataSet.ShowViscousTorque = App.ShowViscousTorqueUI.Value;
 
-      updateDerivedParameters(App.RotationalFrictionData.ModelParams)
-      updateFrictionTorqueValues(App.RotationalFrictionData)
+      updateDataSet(App.DataSet)
 
       update_DerivedParameterUI(App, "StribeckScaledTorque")
       update_DerivedParameterUI(App, "StribeckThresholdVelocity")
@@ -725,8 +673,8 @@ classdef RotationalFrictionAppMain < handle
         App (1,1)
         ParamName (1,1) string
       end  % if
-      current_unit = App.(ParamName + "UI").UnitDropDownUI.Value;
-      current_simscape_value = App.RotationalFrictionData.ModelParams.(ParamName);
+      current_unit = App.(ParamName + "UI").UnitDropDownUI.UnitText;
+      current_simscape_value = App.DataSet.ModelParams.(ParamName);
       App.(ParamName + "UI").ValueTextUI.MainEditField.Value = string(value(current_simscape_value, current_unit));
     end  % function
 
@@ -755,13 +703,25 @@ classdef RotationalFrictionAppMain < handle
         ax = axes(figure);
       else
         ax = App.AxesUI.MainAxes;
+        cla(ax)
       end  % if
 
       if not(NameValuePair.SkipDataUpdate)
-        updateFrictionTorqueValues(App.RotationalFrictionData)
+        App.DataSet.ModelParams.BreakawayTorque = App.BreakawayTorqueUI.SimscapeValue;
+        App.DataSet.ModelParams.BreakawayVelocity = App.BreakawayVelocityUI.SimscapeValue;
+        App.DataSet.ModelParams.CoulombTorque = App.CoulombTorqueUI.SimscapeValue;
+        App.DataSet.ModelParams.ViscousCoefficient = App.ViscousCoefficientUI.SimscapeValue;
+
+        updateInfoAndUnitUIs(App.BreakawayTorqueUI)
+        updateInfoAndUnitUIs(App.BreakawayVelocityUI)
+        updateInfoAndUnitUIs(App.CoulombTorqueUI)
+        updateInfoAndUnitUIs(App.ViscousCoefficientUI)
+
+        updateDataSet(App.DataSet)
+
       end  % if
 
-      RotationalFriction1.plotFrictionTorque(RotationalFrictionData=App.RotationalFrictionData, ParentAxes=ax)
+      RotationalFriction1.plotRotationalFrictionTorque(DataSource="dataset", DataSet=App.DataSet, ParentAxes=ax)
 
     end  % function
 

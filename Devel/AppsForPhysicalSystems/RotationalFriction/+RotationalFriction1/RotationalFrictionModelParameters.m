@@ -12,10 +12,10 @@ classdef RotationalFrictionModelParameters < handle
   properties
 
     % Public parameters of the friction torque model
-    BreakawayTorque simscape.Value { simscape.mustBeCommensurateUnit(BreakawayTorque, "N*m"), CodeUtil1.mustBeSimscapeValuePositive } = simscape.Value(nan, "N*m")
-    BreakawayVelocity simscape.Value { simscape.mustBeCommensurateUnit(BreakawayVelocity, "rad/s"), CodeUtil1.mustBeSimscapeValuePositive } = simscape.Value(nan, "rad/s")
-    CoulombTorque simscape.Value { simscape.mustBeCommensurateUnit(CoulombTorque, "N*m"), CodeUtil1.mustBeSimscapeValuePositive } = simscape.Value(nan, "N*m")
-    ViscousCoefficient simscape.Value { simscape.mustBeCommensurateUnit(ViscousCoefficient, "N*m*s/rad"), CodeUtil1.mustBeSimscapeValuePositive } = simscape.Value(nan, "N*m*s/rad")
+    BreakawayTorque simscape.Value { simscape.mustBeCommensurateUnit(BreakawayTorque, "N*m"), CodeUtil1.mustBeSimscapeValuePositiveOrNan } = simscape.Value(nan, "N*m")
+    BreakawayVelocity simscape.Value { simscape.mustBeCommensurateUnit(BreakawayVelocity, "rad/s"), CodeUtil1.mustBeSimscapeValuePositiveOrNan } = simscape.Value(nan, "rad/s")
+    CoulombTorque simscape.Value { simscape.mustBeCommensurateUnit(CoulombTorque, "N*m"), CodeUtil1.mustBeSimscapeValuePositiveOrNan } = simscape.Value(nan, "N*m")
+    ViscousCoefficient simscape.Value { simscape.mustBeCommensurateUnit(ViscousCoefficient, "N*m*s/rad"), CodeUtil1.mustBeSimscapeValuePositiveOrNan } = simscape.Value(nan, "N*m*s/rad")
 
     % Derived parameters
     StribeckScaledTorque simscape.Value { simscape.mustBeCommensurateUnit(StribeckScaledTorque, "N*m") } = simscape.Value(nan, "N*m")

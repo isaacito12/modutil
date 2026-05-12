@@ -14,7 +14,6 @@ classdef FileSearchResultAppMain < handle
     TopFolder string
 
     SearchResult (:,1) string
-    TableUIHeight (1,1) {mustBePositive} = 100
 
     % -------------------------------------------------------------------------
     % GUI parts
@@ -58,8 +57,6 @@ classdef FileSearchResultAppMain < handle
       else
         App.TopFolder = "";
       end  % if
-
-      App.TableUIHeight = min(500, 40 + 30*numel(App.SearchResult));
 
       meta_data = metaclass(App);
 
@@ -175,7 +172,7 @@ classdef FileSearchResultAppMain < handle
       % -----------------------------------------------------------------------
       column_grid = addVerticalGridLayout(main_vertical_container, Height="1x");
       App.TableUI = AppUtil1.Component.Table(column_grid);
-      App.TableUI.ComponentHeight = App.TableUIHeight;
+      App.TableUI.ComponentHeight = "fit";
       if App.SearchResult ~= ""
         App.TableUI.MainTable.Data = table(App.SearchResult);
         App.TableUI.MainTable.ColumnName = CodeUtil1.i18n("File path");
@@ -212,7 +209,7 @@ classdef FileSearchResultAppMain < handle
 
     function react_TableDoubleClicked(App, row_number)
       file_fullpath = App.SearchResult(row_number);
-      edit(file_fullpath)
+      open(file_fullpath)
     end  % function
 
   end  % methods

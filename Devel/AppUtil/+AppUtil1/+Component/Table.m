@@ -27,7 +27,7 @@ classdef Table < AppUtil1.Component.ComponentBase
       component.base_grid.Scrollable = "on";
 
       % The main element of this component.
-      component.MainTable = uitable(component.base_grid);
+      component.MainTable = uitable(component.main_grid);
       component.MainTable.Layout.Row = 1;
       component.MainTable.Layout.Column = 1;
       component.MainTable.FontSize = component.CommonFontSize;

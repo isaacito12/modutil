@@ -1,2 +1,0 @@
-Motor & Drive (Simscape Driveline)
-https://uk.mathworks.com/help/sdl/ref/motordrive.html

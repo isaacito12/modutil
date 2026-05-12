@@ -41,9 +41,12 @@ jobs:
           ARCHIVE="${{ env.ArchiveBaseName }}-${TAG}-${{ env.MatlabRelease }}.zip"
           # Zip the contents of the "Release" folder.
           cd Release
-          rm -rf .buildtool
+          rm -rf .claude
+          rm -f buildfile.m
+          rm -f code*
           rm -rf test-result
-          rm -rf test-result-24b
+          rm -f PassingTest*
+          rm -f runTest*
           zip -r "../$ARCHIVE" .
           echo "ARCHIVE=$ARCHIVE" >> $GITHUB_ENV
 

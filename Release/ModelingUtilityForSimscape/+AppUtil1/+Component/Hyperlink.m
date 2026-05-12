@@ -4,7 +4,7 @@ classdef Hyperlink < AppUtil1.Component.ComponentBase
   % This components is based on uihyperlink.
   % https://www.mathworks.com/help/matlab/ref/uihyperlink.html
 
-  % Copyright 2023-2025 The MathWorks, Inc.
+  % Copyright 2023-2026 The MathWorks, Inc.
 
   properties
 
@@ -19,10 +19,6 @@ classdef Hyperlink < AppUtil1.Component.ComponentBase
     ComponentHeight (1,:) {CodeUtil1.mustBeTextOrPositiveNumber} = AppUtil1.Constant.Height{"oneline++"};
     % HyperlinkHeight is fixed at 'fit'.
     VerticalAlignment (1,1) {mustBeMember( VerticalAlignment, ["top", "center", "bottom"])} = "center"
-
-    % The main grid is used to configure the width of the main component
-    % while the base grid is used to configure the width of the whole component.
-    main_grid (1,1) matlab.ui.container.GridLayout
 
   end  % properties
 
@@ -94,15 +90,6 @@ classdef Hyperlink < AppUtil1.Component.ComponentBase
         case "right"
           component.main_grid.ColumnWidth = {'1x', component.HyperlinkWidth, 0};
       end  % switch
-
-      if component.HighlightBackground
-        switch component.ThemeNameForBackGroundHighlight
-        case "light"
-          component.main_grid.BackgroundColor = component.LightThemeBackGroundColor;
-        case "dark"
-          component.main_grid.BackgroundColor = component.DarkThemeBackGroundColor;
-        end  % switch
-      end  % if
     end  % function
 
   end  % methods
