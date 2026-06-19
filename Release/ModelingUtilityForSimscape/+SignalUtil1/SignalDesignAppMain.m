@@ -30,16 +30,16 @@ classdef SignalDesignAppMain < handle
     InterpUI AppUtil1.Component.DropDown
     ExtrapUI AppUtil1.Component.DropDown
 
-    TableGridVectorUI AppUtil1.Component.PhysicalValueUI
-    TableValuesUI AppUtil1.Component.PhysicalValueUI
+    TableGridVectorUI AppUtil1.Component.PhysicalValueWithUnitLabel
+    TableValuesUI AppUtil1.Component.PhysicalValueWithUnitLabel
 
-    PlotButtonUI AppUtil1.Component.EnabledButton
+    UpdateButtonUI AppUtil1.Component.EnabledButton
     OpenInFigureWindowUI AppUtil1.Component.Hyperlink
     AxesUI AppUtil1.Graphics.Axes
-    IntervalUI AppUtil1.Component.PhysicalValueUI
+    IntervalUI AppUtil1.Component.PhysicalValueWithUnitLabel
     AutoRangeUI AppUtil1.Component.CheckBox
-    LowerUI AppUtil1.Component.PhysicalValueUI
-    UpperUI AppUtil1.Component.PhysicalValueUI
+    LowerUI AppUtil1.Component.PhysicalValueWithUnitLabel
+    UpperUI AppUtil1.Component.PhysicalValueWithUnitLabel
 
     SelectorUI AppUtil1.Component.BlockSelectorUI
 
@@ -108,7 +108,7 @@ classdef SignalDesignAppMain < handle
       end  % if
 
       % -----------------------------------------------------------------------
-      App.PlotButtonUI.ButtonDisable = "on";
+      App.UpdateButtonUI.ButtonDisable = "on";
       auto_update_plot(App)
 
       movegui(main_figure, "center")
@@ -194,18 +194,18 @@ classdef SignalDesignAppMain < handle
 
       % -----------------------------------------------------------------------
       left_column_grid = addVerticalGridLayout(left_vertical_container);
-      App.TableGridVectorUI = AppUtil1.Component.PhysicalValueUI(left_column_grid);
+      App.TableGridVectorUI = AppUtil1.Component.PhysicalValueWithUnitLabel(left_column_grid);
       App.TableGridVectorUI.NameText = "Table grid vector, $x$";
-      App.TableGridVectorUI.UnitItems = "1";
+      App.TableGridVectorUI.UnitText = "1";
       App.TableGridVectorUI.NameUIWidth = App.name_ui_width;
       App.TableGridVectorUI.UnitUIWidth = App.unit_ui_width;
       App.TableGridVectorUI.ValueTextUI.ReadOnly = "on";
 
       % -----------------------------------------------------------------------
       left_column_grid = addVerticalGridLayout(left_vertical_container);
-      App.TableValuesUI = AppUtil1.Component.PhysicalValueUI(left_column_grid);
+      App.TableValuesUI = AppUtil1.Component.PhysicalValueWithUnitLabel(left_column_grid);
       App.TableValuesUI.NameText = "Table values, $f(x)$";
-      App.TableValuesUI.UnitItems = "1";
+      App.TableValuesUI.UnitText = "1";
       App.TableValuesUI.NameUIWidth = App.name_ui_width;
       App.TableValuesUI.UnitUIWidth = App.unit_ui_width;
       App.TableValuesUI.ValueTextUI.ReadOnly = "on";
@@ -221,18 +221,18 @@ classdef SignalDesignAppMain < handle
       horizontal_container = AppUtil1.HorizontalContainer(right_column_grid);
 
       row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
-      App.PlotButtonUI = AppUtil1.Component.EnabledButton(row_grid);
-      App.PlotButtonUI.HorizontalAlignment = "left";
-      App.PlotButtonUI.ButtonUIWidth = App.button_width + App.width_unit;
-      App.PlotButtonUI.ButtonWidth = App.button_width;
-      App.PlotButtonUI.CheckBoxUIWidth = "fit";
-      App.PlotButtonUI.CheckBoxWidth = "fit";
-      App.PlotButtonUI.ButtonText = "Update";
-      App.PlotButtonUI.ButtonUI.MainButton.Icon = fullfile(matlabroot, "toolbox", "matlab", "icons", "tool_rotate_3d.png");
-      App.PlotButtonUI.CheckBoxText = "Auto-update";
-      App.PlotButtonUI.ButtonPushedCallback = @() update_plot(App);
+      App.UpdateButtonUI = AppUtil1.Component.EnabledButton(row_grid);
+      App.UpdateButtonUI.HorizontalAlignment = "left";
+      App.UpdateButtonUI.ButtonUIWidth = App.button_width + App.width_unit;
+      App.UpdateButtonUI.ButtonWidth = App.button_width;
+      App.UpdateButtonUI.CheckBoxUIWidth = "fit";
+      App.UpdateButtonUI.CheckBoxWidth = "fit";
+      App.UpdateButtonUI.ButtonText = "Update";
+      App.UpdateButtonUI.ButtonUI.MainButton.Icon = fullfile(matlabroot, "toolbox", "matlab", "icons", "tool_rotate_3d.png");
+      App.UpdateButtonUI.CheckBoxText = CodeUtil1.i18n("Auto update");
+      App.UpdateButtonUI.ButtonPushedCallback = @() update_plot(App);
       % Set false to auto-update and keep it until the entire app is ready.
-      App.PlotButtonUI.ButtonEnable = "on";
+      App.UpdateButtonUI.ButtonEnable = "on";
 
       row_grid = addHorizontalGridLayout(horizontal_container);
       App.OpenInFigureWindowUI = AppUtil1.Component.Hyperlink(row_grid);
@@ -248,9 +248,9 @@ classdef SignalDesignAppMain < handle
 
       % -----------------------------------------------------------------------
       right_column_grid = addVerticalGridLayout(right_vertical_container);
-      App.IntervalUI = AppUtil1.Component.PhysicalValueUI(right_column_grid);
+      App.IntervalUI = AppUtil1.Component.PhysicalValueWithUnitLabel(right_column_grid);
       App.IntervalUI.NameText = "Interpolation interval, $dx$";
-      App.IntervalUI.UnitItems = "1";
+      App.IntervalUI.UnitText = "1";
       App.IntervalUI.NameUIWidth = App.name_ui_width;
       App.IntervalUI.UnitUIWidth = App.unit_ui_width;
       App.IntervalUI.ValueText = "0.1";
@@ -266,9 +266,9 @@ classdef SignalDesignAppMain < handle
 
       % -----------------------------------------------------------------------
       right_column_grid = addVerticalGridLayout(right_vertical_container);
-      App.LowerUI = AppUtil1.Component.PhysicalValueUI(right_column_grid);
+      App.LowerUI = AppUtil1.Component.PhysicalValueWithUnitLabel(right_column_grid);
       App.LowerUI.NameText = "Plot x lower bound";
-      App.LowerUI.UnitItems = "1";
+      App.LowerUI.UnitText = "1";
       App.LowerUI.NameUIWidth = App.name_ui_width;
       App.LowerUI.UnitUIWidth = App.unit_ui_width;
       App.LowerUI.ValueText = "0";
@@ -276,9 +276,9 @@ classdef SignalDesignAppMain < handle
 
       % -----------------------------------------------------------------------
       right_column_grid = addVerticalGridLayout(right_vertical_container);
-      App.UpperUI = AppUtil1.Component.PhysicalValueUI(right_column_grid);
+      App.UpperUI = AppUtil1.Component.PhysicalValueWithUnitLabel(right_column_grid);
       App.UpperUI.NameText = "Plot x upper bound";
-      App.UpperUI.UnitItems = "1";
+      App.UpperUI.UnitText = "1";
       App.UpperUI.NameUIWidth = App.name_ui_width;
       App.UpperUI.UnitUIWidth = App.unit_ui_width;
       App.UpperUI.ValueText = "10";
@@ -295,7 +295,6 @@ classdef SignalDesignAppMain < handle
       % Simulink 1-D Lookup Table block.
       main_column_grid = addVerticalGridLayout(main_vertical_container);
       App.SelectorUI = AppUtil1.Component.BlockSelectorUI(main_column_grid);
-      App.SelectorUI.MainFigure = App.Window.MainFigure;
       App.SelectorUI.TargetSimscapeBlockNames = "PS Lookup Table (1D)";
       App.SelectorUI.FindBlockCallback = @ModelUtil1.findLookupTable1DBlocks;
       App.SelectorUI.GetParametersFromBlockCallback = @() getParam(App);
@@ -341,9 +340,9 @@ classdef SignalDesignAppMain < handle
       catch exception
         App.IsValidMatrix = false;
         msg = exception.message;
-        if App.Window.MainFigure.Visible
+        if App.MainFigure.Visible
           window_title = "Error";
-          uialert(App.Window.MainFigure, msg, window_title)
+          uialert(App.MainFigure, msg, window_title)
         else
           disp(msg)
         end  % if
@@ -357,9 +356,9 @@ classdef SignalDesignAppMain < handle
       if not(result.IsValid)
         App.IsValidMatrix = false;
         msg = result.Message;
-        if App.Window.MainFigure.Visible
+        if App.MainFigure.Visible
           window_title = "Error";
-          uialert(App.Window.MainFigure, msg, window_title)
+          uialert(App.MainFigure, msg, window_title)
         else
           disp(msg)
         end  % if
@@ -373,9 +372,11 @@ classdef SignalDesignAppMain < handle
 
     function getParam(App)
       %%
-      % Disable plot auto-update. Restore at the end of this function.
-      previous_auto_plot_state = App.PlotButtonUI.CheckBoxUI.Value;
-      App.PlotButtonUI.CheckBoxUI.Value = false;
+      % Disable plot auto-update. Restore it at the end of this function.
+      % !attention: This logic is vulnerable if there is an error before
+      % reaching the end of this function.
+      previous_auto_plot_state = App.UpdateButtonUI.CheckBoxUI.Value;
+      App.UpdateButtonUI.CheckBoxUI.Value = false;
 
       % -----------------------------------------------------------------------
       block_path = App.SelectorUI.BlockPath;
@@ -386,11 +387,11 @@ classdef SignalDesignAppMain < handle
       description_text = get_param(block_path, "Description");
       if isempty(description_text)
         % Restore the previous plot auto-update setting.
-        App.PlotButtonUI.CheckBoxUI.Value = previous_auto_plot_state;
+        App.UpdateButtonUI.CheckBoxUI.Value = previous_auto_plot_state;
         msg = block_path + newline + "Target block has no text in the Description property.";
-        if App.Window.MainFigure.Visible
+        if App.MainFigure.Visible
           window_title = "Error";
-          uialert(App.Window.MainFigure, msg, window_title)
+          uialert(App.MainFigure, msg, window_title)
         else
           disp(msg)
         end  % if
@@ -402,11 +403,11 @@ classdef SignalDesignAppMain < handle
       extracted_text = extractBetween(description_text, "% SignalDesignMatrixStart" + newline, newline + "% SignalDesignMatrixEnd");
       if isempty(extracted_text) || extracted_text == ""
         % Restore the previous plot auto-update setting.
-        App.PlotButtonUI.CheckBoxUI.Value = previous_auto_plot_state;
+        App.UpdateButtonUI.CheckBoxUI.Value = previous_auto_plot_state;
         msg = block_path + newline + "Description in the Target block has no signal design matrix.";
-        if App.Window.MainFigure.Visible
+        if App.MainFigure.Visible
           window_title = "Error";
-          uialert(App.Window.MainFigure, msg, window_title)
+          uialert(App.MainFigure, msg, window_title)
         else
           disp(msg)
         end  % if
@@ -421,10 +422,10 @@ classdef SignalDesignAppMain < handle
         SignalUtil1.getSignalDesignMatrixFromBlockDescription(block_path);
       catch exception
         % Restore the previous plot auto-update setting.
-        App.PlotButtonUI.CheckBoxUI.Value = previous_auto_plot_state;
-        if App.Window.MainFigure.Visible
+        App.UpdateButtonUI.CheckBoxUI.Value = previous_auto_plot_state;
+        if App.MainFigure.Visible
           window_title = "Error";
-          uialert(App.Window.MainFigure, exception.message, window_title)
+          uialert(App.MainFigure, exception.message, window_title)
         else
 
           rethrow(exception)
@@ -460,6 +461,9 @@ classdef SignalDesignAppMain < handle
         % Get the unit of x.
         x_unit = get_param(block_path, "x_unit");
         % Use unit alias.
+        if x_unit == "1"
+          x_unit = "";
+        end  % if
         App.TableGridVectorUI.UnitAlias = x_unit;
         App.IntervalUI.UnitAlias = x_unit;
         App.LowerUI.UnitAlias = x_unit;
@@ -469,6 +473,9 @@ classdef SignalDesignAppMain < handle
         % Get the unit of f(x).
         f_unit = get_param(block_path, "f_unit");
         % Use unit alias.
+        if f_unit == "1"
+          f_unit = "";
+        end  % if
         App.TableValuesUI.UnitAlias = f_unit;
 
       else
@@ -489,11 +496,11 @@ classdef SignalDesignAppMain < handle
 
         else
           % Restore the previous plot auto-update setting.
-          App.PlotButtonUI.CheckBoxUI.Value = previous_auto_plot_state;
+          App.UpdateButtonUI.CheckBoxUI.Value = previous_auto_plot_state;
           msg = "This app supports only ""Akima spline"", ""Linear point-slope"", and ""Flat"" for interpolation method.";
-          if App.Window.MainFigure.Visible
+          if App.MainFigure.Visible
             window_title = "Error";
-            uialert(App.Window.MainFigure, msg, window_title)
+            uialert(App.MainFigure, msg, window_title)
           else
            disp(msg)
           end  % if
@@ -503,7 +510,7 @@ classdef SignalDesignAppMain < handle
         end  % if
 
         % Simulink 1-D Lookup Table supports the followings.
-        % Interpolaiton method: Extrapolation method
+        % Interpolation method: Extrapolation method
         %   Akima spline: "Akima spline"
         %   Linear point-slope: "Clip", "Linear", "Cubic spline"
         %   Flat: "Clip"
@@ -526,7 +533,7 @@ classdef SignalDesignAppMain < handle
 
       % -----------------------------------------------------------------------
       % Restore the previous plot auto-update setting.
-      App.PlotButtonUI.CheckBoxUI.Value = previous_auto_plot_state;
+      App.UpdateButtonUI.CheckBoxUI.Value = previous_auto_plot_state;
       auto_update_plot(App)
     end  % function
 
@@ -539,7 +546,7 @@ classdef SignalDesignAppMain < handle
 
       design_matrix_text = join(App.MatrixTextUI.ValueString, newline);
       description_text = join([
-        "% This text was automatically inserted by Signal Tool."
+        "% This text was automatically inserted by Signal Util."
         "% SignalDesignMatrixStart"
         design_matrix_text
         "% SignalDesignMatrixEnd"
@@ -607,7 +614,7 @@ classdef SignalDesignAppMain < handle
 
     function auto_update_plot(App)
       %%
-      if App.PlotButtonUI.CheckBoxUI.Value
+      if App.UpdateButtonUI.CheckBoxUI.Value
 
         update_plot(App)
 
@@ -652,24 +659,18 @@ classdef SignalDesignAppMain < handle
         lb = vec(1);
         ub = vec(end);
 
-        App.LowerUI.NameUI.Visible = "off";
-        App.UpperUI.NameUI.Visible = "off";
-
-        App.LowerUI.ValueTextUI.Visible = "off";
-        App.UpperUI.ValueTextUI.Visible = "off";
-
-        App.LowerUI.UnitLabelUI.Visible = "off";
-        App.UpperUI.UnitLabelUI.Visible = "off";
+        App.LowerUI.ValueTextUI.MainEditField.Enable = "off";
+        App.UpperUI.ValueTextUI.MainEditField.Enable = "off";
+        % 
+        % App.LowerUI.UnitLabelUI.Visible = "off";
+        % App.UpperUI.UnitLabelUI.Visible = "off";
 
       else
-        App.LowerUI.NameUI.Visible = "on";
-        App.UpperUI.NameUI.Visible = "on";
-
-        App.LowerUI.ValueTextUI.Visible = "on";
-        App.UpperUI.ValueTextUI.Visible = "on";
-
-        App.LowerUI.UnitLabelUI.Visible = "on";
-        App.UpperUI.UnitLabelUI.Visible = "on";
+        App.LowerUI.ValueTextUI.MainEditField.Enable = "on";
+        App.UpperUI.ValueTextUI.MainEditField.Enable = "on";
+        % 
+        % App.LowerUI.UnitLabelUI.Visible = "on";
+        % App.UpperUI.UnitLabelUI.Visible = "on";
 
         lb_ssc = App.LowerUI.SimscapeValue;
         lb = value(lb_ssc);

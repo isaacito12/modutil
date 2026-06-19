@@ -18,7 +18,6 @@ main_figure.Position(4) = 450;  % height
 vertical_container = AppUtil1.VerticalContainer(main_figure);
 
 label_ui = AppUtil1.Component.Label(addVerticalGridLayout(vertical_container));
-label_ui.MainFigure = main_figure;
 label_ui.Text = CodeUtil1.i18n("Model name: ") + model_name;
 label_ui.HorizontalAlignment = "center";
 
@@ -33,7 +32,6 @@ ModelUtil1.plotLookupTable1DBlocks( ...
   ParentPanel = panel_ui.MainPanel )
 
 button_ui = AppUtil1.Component.Button(addVerticalGridLayout(vertical_container));
-button_ui.MainFigure = main_figure;
 button_ui.Text = CodeUtil1.i18n("Open model");
 button_ui.ButtonWidth = 120;
 button_ui.HorizontalAlignment = "center";
@@ -43,6 +41,6 @@ movegui(main_figure, "center")
 main_figure.Visible = "on";
 drawnow
 if nargout > 0
-  App.Window.MainFigure = main_figure;
+  App.MainFigure = main_figure;
 end  % if
 end  % function

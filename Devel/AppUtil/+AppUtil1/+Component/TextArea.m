@@ -1,5 +1,6 @@
 classdef TextArea < AppUtil1.Component.ComponentBase
-  %% Text area component
+  % Text area component
+
   % This is a large component.
   % - Both width and height must be adjustable.
   % - Scrollbars must appear as needed.
@@ -7,12 +8,10 @@ classdef TextArea < AppUtil1.Component.ComponentBase
   % This component uses string for text content (Value).
   % uitextarea uses the cell array of char array.
 
-  % [todo] Add context menu for copying and pasting text.
-  % uicontextmenu needs to take an object of uifigure, but
-  % Classes inheriting from ComponentContainer cannot access uifigure object.
-  % -> Maybe possible with ancestor() or findobj()
+  % !todo: Add context menu for copying and pasting text.
+  % uicontextmenu needs to take an object of uifigure.
 
-  % Copyright 2023-2025 The MathWorks, Inc.
+  % Copyright 2023-2026 The MathWorks, Inc.
 
   properties
 
@@ -57,7 +56,7 @@ classdef TextArea < AppUtil1.Component.ComponentBase
       component.base_grid.Scrollable = "on";
 
       % The main element of this component.
-      component.MainTextArea = uitextarea(component.base_grid);
+      component.MainTextArea = uitextarea(component.main_grid);
       component.MainTextArea.Layout.Row = 1;
       component.MainTextArea.Layout.Column = 1;
       component.MainTextArea.FontSize = component.CommonFontSize;
@@ -88,7 +87,12 @@ classdef TextArea < AppUtil1.Component.ComponentBase
       end  % if
 
       if component.HighlightBackground
-        component.base_grid.BackgroundColor = component.HighlightBackgroundColor;
+        switch component.ThemeNameForBackGroundHighlight
+          case "light"
+            component.MainTextArea.BackgroundColor = component.LightThemeBackGroundColor;
+          case "dark"
+            component.MainTextArea.BackgroundColor = component.DarkThemeBackGroundColor;
+        end  % switch
       end  % if
     end  % function
 

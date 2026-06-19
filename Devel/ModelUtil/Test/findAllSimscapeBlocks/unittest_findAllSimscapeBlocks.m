@@ -35,36 +35,33 @@ classdef unittest_findAllSimscapeBlocks < matlab.unittest.TestCase
     %% Minimum quality check
     % Check that models, scripts, functions, and classes run right out of the box.
 
+    function PassingTest_1(~)
+      DemoScript_findAllSimscapeBlocks_1  % !test-target
+    end  % function
+
+    % -------------------------------------------------------------------------
     % Error cases
 
-    function Test_error_1(testcase)
+    function Error_1(testcase)
       verifyError(testcase, @test_target, "findAllSimscapeBlocks:ModelNotSpecified")
-      function test_target()
-        ModelUtil1.findAllSimscapeBlocks
+      function test_target
+        ModelUtil1.findAllSimscapeBlocks  % !test-target
       end  % nested function
     end  % function
 
-    %% Other tests
+    % -------------------------------------------------------------------------
+    % Other tests
 
     function Test_1(testcase)
-      if TestUtil1.isR2024bOrOlder
-        model_name = "samplemodel_findAllSimscapeBlocks_test1_epmty_24b";
-      else
-        model_name = "samplemodel_findAllSimscapeBlocks_test1_epmty";
-      end  % if
-      result = ModelUtil1.findAllSimscapeBlocks(model_name);
+      result = ModelUtil1.findAllSimscapeBlocks("EmptyModel_findAllSimscapeBlocks_24b");  % !test-target
       verifyTrue(testcase, isempty(result))
     end  % function
 
     function Test_2(testcase)
-      if TestUtil1.isR2024bOrOlder
-        model_name = "samplemodel_findAllSimscapeBlocks_test2_24b";
-      else
-        model_name = "samplemodel_findAllSimscapeBlocks_test2";
-      end  % if
-      result = ModelUtil1.findAllSimscapeBlocks(model_name);
+      model_name = "DemoModel_findAllSimscapeBlocks_1_24b";
+      result = ModelUtil1.findAllSimscapeBlocks(model_name);  % !test-target
 
-      paths = [
+      block_paths = [
         "/Mass"
         "/Mass1"
         "/PS Ramp"
@@ -75,14 +72,16 @@ classdef unittest_findAllSimscapeBlocks < matlab.unittest.TestCase
         "/Subsystem/PS Ramp2"
         "/Subsystem/Rotational Damper2"
         "/Simscape" + newline + "Component"
+        "/Subsystem/Simscape" + newline + "Component"
+        "/Subsystem/Simscape" + newline + "Component1"
         ];
-      block_paths = model_name + paths;
+      block_paths = model_name + block_paths;
       verifyEqual(testcase, result.BlockPath, block_paths)
 
-      verifyTrue(testcase, all(result.BlockType(1:end-1) == "SimscapeBlock"))
-      verifyTrue(testcase, result.BlockType(end) == "SimscapeComponentBlock")
+      verifyTrue(testcase, all(result.BlockType(1:end-3) == "SimscapeBlock"))
+      verifyTrue(testcase, all(result.BlockType(end-2:end) == "SimscapeComponentBlock"))
 
-      types = [
+      mask_types = [
         "Mass"
         "Mass"
         "PS Ramp"
@@ -92,9 +91,11 @@ classdef unittest_findAllSimscapeBlocks < matlab.unittest.TestCase
         "Mass"
         "PS Ramp"
         "Rotational Damper"
-        "samplecomponent_findAllSimscapeBlocks"
+        "Demo component"
+        "Demo component"
+        "Demo component"
         ];
-      verifyEqual(testcase, result.MaskType, types)
+      verifyEqual(testcase, result.MaskType, mask_types)
     end  % function
 
   end  % methods

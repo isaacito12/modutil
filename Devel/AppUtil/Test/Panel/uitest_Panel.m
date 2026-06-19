@@ -31,7 +31,7 @@ classdef uitest_Panel < matlab.uitest.TestCase
             return
 
           end  % if
-          delete(testcase.App.Window.MainFigure)
+          delete(testcase.App.MainFigure)
         end  % if
         close all
         bdclose all
@@ -120,10 +120,10 @@ classdef uitest_Panel < matlab.uitest.TestCase
       testcase.App = apptest_Panel_1_simplest;
       drawnow
       if not(isMATLABReleaseOlderThan("R2025a"))
-        testcase.App.Window.MainFigure.Theme = "light";
+        testcase.App.MainFigure.Theme = "light";
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-1.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function DarkTheme_1(testcase)
@@ -134,19 +134,19 @@ classdef uitest_Panel < matlab.uitest.TestCase
       end  % if
       testcase.App = apptest_Panel_1_simplest;
       drawnow
-      testcase.App.Window.MainFigure.Theme = "dark";
+      testcase.App.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-1.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function LightTheme_2(testcase)
       testcase.App = apptest_Panel_2_tiledlayout;
       drawnow
       if not(isMATLABReleaseOlderThan("R2025a"))
-        testcase.App.Window.MainFigure.Theme = "light";
+        testcase.App.MainFigure.Theme = "light";
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-2.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function DarkTheme_2(testcase)
@@ -157,19 +157,19 @@ classdef uitest_Panel < matlab.uitest.TestCase
       end  % if
       testcase.App = apptest_Panel_2_tiledlayout;
       drawnow
-      testcase.App.Window.MainFigure.Theme = "dark";
+      testcase.App.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-2.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function LightTheme_3(testcase)
       testcase.App = apptest_Panel_3_heatmap;
       drawnow
       if not(isMATLABReleaseOlderThan("R2025a"))
-        testcase.App.Window.MainFigure.Theme = "light";
+        testcase.App.MainFigure.Theme = "light";
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-3.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function DarkTheme_3(testcase)
@@ -180,19 +180,19 @@ classdef uitest_Panel < matlab.uitest.TestCase
       end  % if
       testcase.App = apptest_Panel_3_heatmap;
       drawnow
-      testcase.App.Window.MainFigure.Theme = "dark";
+      testcase.App.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-3.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function LightTheme_4(testcase)
       testcase.App = apptest_Panel_4_heatmap_in_tiledlayout;
       drawnow
       if not(isMATLABReleaseOlderThan("R2025a"))
-        testcase.App.Window.MainFigure.Theme = "light";
+        testcase.App.MainFigure.Theme = "light";
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-4.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function DarkTheme_4(testcase)
@@ -203,19 +203,19 @@ classdef uitest_Panel < matlab.uitest.TestCase
       end  % if
       testcase.App = apptest_Panel_4_heatmap_in_tiledlayout;
       drawnow
-      testcase.App.Window.MainFigure.Theme = "dark";
+      testcase.App.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-4.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function LightTheme_5(testcase)
       testcase.App = apptest_Panel_5_stackedplot;
       drawnow
       if not(isMATLABReleaseOlderThan("R2025a"))
-        testcase.App.Window.MainFigure.Theme = "light";
+        testcase.App.MainFigure.Theme = "light";
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-5.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function DarkTheme_5(testcase)
@@ -226,19 +226,19 @@ classdef uitest_Panel < matlab.uitest.TestCase
       end  % if
       testcase.App = apptest_Panel_5_stackedplot;
       drawnow
-      testcase.App.Window.MainFigure.Theme = "dark";
+      testcase.App.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-5.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function LightTheme_6(testcase)
       testcase.App = apptest_Panel_6_parallelplot;
       drawnow
       if not(isMATLABReleaseOlderThan("R2025a"))
-        testcase.App.Window.MainFigure.Theme = "light";
+        testcase.App.MainFigure.Theme = "light";
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-6.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function DarkTheme_6(testcase)
@@ -249,19 +249,19 @@ classdef uitest_Panel < matlab.uitest.TestCase
       end  % if
       testcase.App = apptest_Panel_6_parallelplot;
       drawnow
-      testcase.App.Window.MainFigure.Theme = "dark";
+      testcase.App.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-6.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function LightTheme_7(testcase)
       testcase.App = apptest_Panel_7_piechart_donutchart;
       drawnow
       if not(isMATLABReleaseOlderThan("R2025a"))
-        testcase.App.Window.MainFigure.Theme = "light";
+        testcase.App.MainFigure.Theme = "light";
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-7.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function DarkTheme_7(testcase)
@@ -272,19 +272,19 @@ classdef uitest_Panel < matlab.uitest.TestCase
       end  % if
       testcase.App = apptest_Panel_7_piechart_donutchart;
       drawnow
-      testcase.App.Window.MainFigure.Theme = "dark";
+      testcase.App.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-7.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function LightTheme_8(testcase)
       testcase.App = apptest_Panel_8_scatterhistogram;
       drawnow
       if not(isMATLABReleaseOlderThan("R2025a"))
-        testcase.App.Window.MainFigure.Theme = "light";
+        testcase.App.MainFigure.Theme = "light";
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-8.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function DarkTheme_8(testcase)
@@ -295,9 +295,9 @@ classdef uitest_Panel < matlab.uitest.TestCase
       end  % if
       testcase.App = apptest_Panel_8_scatterhistogram;
       drawnow
-      testcase.App.Window.MainFigure.Theme = "dark";
+      testcase.App.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-8.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
   end  % methods

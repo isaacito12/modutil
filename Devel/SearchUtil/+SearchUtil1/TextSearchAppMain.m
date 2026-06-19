@@ -20,9 +20,10 @@ classdef TextSearchAppMain < handle
 
     GUIReady (1,1) logical = false
 
+    MainFigure matlab.ui.Figure
     Window AppUtil1.AppWindow
 
-    SearchTextUI AppUtil1.Component.EditableDropDown
+    SearchTextUI AppUtil1.Component.DropDown
     IgnoreCaseUI AppUtil1.Component.CheckBox
     MatchWholeWordUI AppUtil1.Component.CheckBox
 
@@ -99,12 +100,12 @@ classdef TextSearchAppMain < handle
 
       meta_data = metaclass(App);
 
-      main_figure = uifigure(Visible="off");
+      App.MainFigure = uifigure(Visible="off");
 
       % -----------------------------------------------------------------------
       % Build app GUI
 
-      App.Window = AppUtil1.AppWindow(main_figure, SourceFile=which(meta_data.Name));
+      App.Window = AppUtil1.AppWindow(App.MainFigure, SourceFile=which(meta_data.Name));
       App.Window.Name = CodeUtil1.i18n("Text search");
       App.Window.Height = 290;
       App.Window.Width = 600;
@@ -118,6 +119,7 @@ classdef TextSearchAppMain < handle
 
         case "options"
 
+          App.SearchTextUI.Items = NameValuePair.SearchText;
           App.SearchTextUI.Value = NameValuePair.SearchText;
           App.IgnoreCaseUI.Value = NameValuePair.IgnoreCase;
           App.MatchWholeWordUI.Value = NameValuePair.MatchWholeWord;
@@ -155,6 +157,7 @@ classdef TextSearchAppMain < handle
 
           x = char(string(states.SearchTextPattern));
           x = x(2:end-1);  % Remove double quotes.
+          App.SearchTextUI.Items = x;
           App.SearchTextUI.Value = x;
 
           App.IgnoreCaseUI.Value = states.IgnoreCase;
@@ -185,8 +188,8 @@ classdef TextSearchAppMain < handle
       update_SearcherStatesFromUIComponents(App)
 
       % -----------------------------------------------------------------------
-      movegui(main_figure, "center")
-      main_figure.Visible = "on";
+      movegui(App.MainFigure, "center")
+      App.MainFigure.Visible = "on";
       drawnow
       if nargout == 0
         clear App
@@ -204,24 +207,22 @@ classdef TextSearchAppMain < handle
 
       row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
       label_ui = AppUtil1.Component.Label(row_grid);
-      label_ui.MainFigure = App.Window.MainFigure;
       label_ui.ComponentWidth = App.width_name_ui;
       label_ui.Text = "\textbf{" + CodeUtil1.i18n("Text to search") + "}";
 
       App.IgnoreCaseUI = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container, Width="fit"));
-      App.IgnoreCaseUI.MainFigure = App.Window.MainFigure;
       App.IgnoreCaseUI.Text = CodeUtil1.i18n("Ignore case");
       App.IgnoreCaseUI.ValueChangedCallback = @() update_SearcherStatesFromUIComponents(App);
 
       App.MatchWholeWordUI = AppUtil1.Component.CheckBox(addHorizontalGridLayout(horizontal_container, Width="fit"));
-      App.MatchWholeWordUI.MainFigure = App.Window.MainFigure;
       App.MatchWholeWordUI.Text = CodeUtil1.i18n("Match whole word");
       App.MatchWholeWordUI.ValueChangedCallback = @() update_SearcherStatesFromUIComponents(App);
 
       % -----------------------------------------------------------------------
       column_grid = addVerticalGridLayout(main_vertical_container);
 
-      App.SearchTextUI = AppUtil1.Component.EditableDropDown(column_grid);
+      App.SearchTextUI = AppUtil1.Component.DropDown(column_grid);
+      App.SearchTextUI.Editable = "on";
       App.SearchTextUI.Items = [];
       App.SearchTextUI.ValueChangedCallback = @() react_SearchTextChanged(App);
 
@@ -495,7 +496,7 @@ classdef TextSearchAppMain < handle
       App.SearchResult = runSearch(App.TextSearcher);
 
       if isempty(App.SearchResult)
-        uialert(App.Window.MainFigure, CodeUtil1.i18n("Nothing matched."), CodeUtil1.i18n("No match"))
+        uialert(App.MainFigure, CodeUtil1.i18n("Nothing matched."), CodeUtil1.i18n("No match"))
 
         return
 

@@ -312,8 +312,18 @@ classdef TextSearcher < handle
       % Second pass: Determine the number of rows necessary for a table.
 
       if searcher.States.MatchWholeWord
-        b = (lineBoundary|textBoundary|whitespaceBoundary|alphanumericBoundary);
-        search_text = b + searcher.States.SearchTextPattern + b;
+        % Use alphanumericBoundary, not letterBoundary.
+        % There is a letter boundary between "c" and "2" in "abc12".
+        %
+        % Examples:
+        %
+        %   replace("abc12", letterBoundary, "|")
+        %   "|abc|12"
+        %
+        %   replace("abc12", alphanumericBoundary, "|")
+        %   "|abc12|"
+        %
+        search_text = alphanumericBoundary + searcher.States.SearchTextPattern + alphanumericBoundary;
       else
         search_text = searcher.States.SearchTextPattern;
       end  % if

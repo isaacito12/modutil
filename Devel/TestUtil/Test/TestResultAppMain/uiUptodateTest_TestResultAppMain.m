@@ -6,10 +6,14 @@ classdef uiUptodateTest_TestResultAppMain < matlab.uitest.TestCase
   %
   % Table of Verifications, Assertions, and Other Qualifications
   % https://www.mathworks.com/help/matlab/matlab_prog/types-of-qualifications.html
+  %
+  % Test Browser
+  % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
   % Copyright 2026 The MathWorks, Inc.
 
   properties
+    % Some of the tests in this class run only if test is running locally under the LocalTopFolder.
     LocalTopFolder (1,1) pattern = "C:\local"
   end  % properties
 

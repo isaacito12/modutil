@@ -1,9 +1,9 @@
 # Modeling Utility for Simscape™
 
-This is a collection of MATLAB® APIs and apps to streamline
+This is a collection of MATLAB® apps and APIs to streamline
 modeling workflows with Simscape.
 
-The latest release is available at the following site:
+The latest release of this utility is available at the following site:
 
 - https://github.com/isaacito12/modutil-simscape/releases
 
@@ -12,13 +12,25 @@ The latest release is available at the following site:
 To use this utility, put the `ModelingUtilityForSimscape` folder
 in a desired location in your computer and add the folder to the MATLAB path.
 
-## **AppUtil** - Build apps programmatically
+## Apps for physical systems
 
-- Use the `AppUtil` API to easily build simple apps programmatically.
-- The API uses the `uifigure` and `uigridlayout` functions.
-- The API is fully compatible with all UI components that work
-  with `uifigure` and `uigridlayout`.
-- All of the apps included in this utility are built with the `AppUtil` API.
+### Vehicle 1d force app
+
+<img src="ModelingUtilityForSimscape/media/screenshot-Vehicle1DForceApp-light.png"
+ alt="Vehicle 1d force app" width="800"/>
+
+### Abstract motor efficiency app
+
+<img src="ModelingUtilityForSimscape/media/screenshot-AbstractMotorEfficiencyApp-light.png"
+ alt="Abstract motor efficiency app" width="800"/>
+
+### Rotational friction torque app
+
+Use the `RotationalFrictionTorqueApp` to understand the friction model
+and its parameters used in the Rotational Friction block in Simscape.
+
+<img src="ModelingUtilityForSimscape/media/screenshot-RotationalFrictionTorqueApp-light.png"
+ alt="Rotational friction torque app" width="800"/>
 
 ## **SignalUtil** - Design signals for simulation
 
@@ -31,7 +43,7 @@ in Simscape or in Simulink.
 The app can also get signal parameters from existing Lookup Table blocks.
 
 <img src="ModelingUtilityForSimscape/media/screenshot-SignalDesignApp-light.png"
- alt="Signal Design App" width="600"/>
+ alt="Signal design app" width="700"/><!-- w=860px -->
 
 ### `TraceGeneratorApp`
 
@@ -39,47 +51,77 @@ Use the `TraceGeneratorApp` to generate signal traces from high-level signal pro
 and a random number generator.
 
 <img src="ModelingUtilityForSimscape/media/screenshot-TraceGeneratorApp-light.png"
- alt="Trace Generator App" width="600"/>
-
+ alt="Trace generator app" width="720"/><!-- w=900px -->
+ 
 ## **ModelUtil** - Lookup table visualization
 
 Use the `LookupTable1DBlockPlotApp` to find and visualize
 Simscape PS Lookup Table (1D) blocks and Simulink 1-D Lookup Table blocks
 in models.
 
-<img src="ModelingUtilityForSimscape/media/screenshot-LookupTable1DBlockPlotApp-light-1.png"
- alt="Lookup Table 1D Block Plot App" width="600"/>
+<img src="ModelingUtilityForSimscape/media/screenshot-LookupTable1DBlockPlotApp-light.png"
+ alt="Lookup table 1d block plot app" width="700"/><!-- w=800px -->
 
 ## **SearchUtil** - Text search and replace
+
+Use the `SearchUtil` API for complex search and replace operations.
 
 Use the `TextSearchApp` and the `TextSearchResultViewerApp` to search
 and replace text in files and models.
 
-Use the `SearchUtil` API for complex search and replace operations.
 
-<img src="ModelingUtilityForSimscape/media/screenshot-TextSearchApp-light-1.png"
- alt="Lookup Table 1D Block Plot App" width="500"/>
 
-<img src="ModelingUtilityForSimscape/media/screenshot-TextSearchResultApp-light-1.png"
- alt="Lookup Table 1D Block Plot App" width="600"/>
+<img src="ModelingUtilityForSimscape/media/screenshot-TextSearchApp-light.png"
+ alt="Text search app" width="500"/><!-- w=600px -->
+
+<img src="ModelingUtilityForSimscape/media/screenshot-TextSearchResultApp-light.png"
+ alt="Text search result app" width="600"/><!-- w=800px -->
+
+
+
+<img src="ModelingUtilityForSimscape/media/screenshot-FileSearchApp-light.png"
+ alt="File search app" width="500"/><!-- w=600px -->
+
+<img src="ModelingUtilityForSimscape/media/screenshot-FileSearchResultApp-light.png"
+ alt="File search result app" width="660"/><!-- w=800px -->
+
+
+
+<img src="ModelingUtilityForSimscape/media/screenshot-FolderSearchApp-light.png"
+ alt="Folder search app" width="500"/><!-- w=600px -->
+
+<img src="ModelingUtilityForSimscape/media/screenshot-FolderSearchResultApp-light.png"
+ alt="Folder search result app" width="660"/><!-- w=800px -->
+
+
+
+<hr/>
+
+## **AppUtil** - Build apps for physical systems
+
+Use the `AppUtil` API to build apps for physical systems.
+The API supports using base workspace variables.
+
+- Components such as `PhysicalValueWithUnitDropDown`
+  can use variables in the base workspace.
+- Variables in the base workspace can be numeric, struct, or `simscape.Value`.
+
+The API uses the `uifigure` and `uigridlayout` functions
+and is fully compatible with all UI components that work
+with `uifigure` and `uigridlayout`.
+The default settings of the API's components are configured
+to nicely fit and align to each other.
+The API makes it easy to align components vertically or horizontally.
+
+All of the apps included in this utility are built with the API.
 
 ## **TestUtil** - Helper utility for testing
 
 Use the `TestResultApp` to view test result generated by the Build Tool
 and jump to a unit test code from the app.
 
-<img src="ModelingUtilityForSimscape/media/screenshot-TestResultApp-24b-1.png"
- alt="Test Result App " width="600"/>
-
-## Apps for physical systems
-
-### Rotational friction app
-
-Use the `RotationalFrictionApp` to understand the friction model
-and its parameters used in the Rotational Friction block in Simscape.
-
-<img src="ModelingUtilityForSimscape/media/screenshot-RotationalFrictionApp-light-1.png"
- alt="Lookup Table 1D Block Plot App" width="800"/>
+<img src="ModelingUtilityForSimscape/media/screenshot-TestResultApp-light.png"
+ alt="Test result app " width="800"/><!-- w=900px -->
 
 ## Development of the utility
 

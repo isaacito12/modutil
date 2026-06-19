@@ -34,7 +34,7 @@ main_figure.Visible = "on";
 drawnow
 if nargout > 0
   App = struct;
-  App.Window.MainFigure = main_figure;
+  App.MainFigure = main_figure;
   App.WindowHeaderUI = window_header_ui;
 end  % if
 end  % function

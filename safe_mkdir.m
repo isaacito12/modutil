@@ -1,7 +1,7 @@
 function safe_mkdir(FolderName, DryRun)
-%%
+% Create a folder, with dry run by default.
 
-% Copyright 2025 The MathWorks, Inc.
+% Copyright 2025-2026 The MathWorks, Inc.
 
 arguments (Input)
   FolderName (1,1) string
@@ -18,6 +18,7 @@ if DryRun
 end  % if
 
 if isfolder(FolderName)
+  % Return without calling mkdir to avoid warning.
 
   return
 

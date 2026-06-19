@@ -4,7 +4,7 @@ classdef StateButton < AppUtil1.Component.ComponentBase
   % Properties of state button
   % https://www.mathworks.com/help/matlab/ref/matlab.ui.control.statebutton.html
 
-  % Copyright 2025 The MathWorks, Inc.
+  % Copyright 2025-2026 The MathWorks, Inc.
 
   properties
     MainButton (1,1) matlab.ui.control.StateButton
@@ -31,10 +31,6 @@ classdef StateButton < AppUtil1.Component.ComponentBase
     Icon (1,1) string {mustBeMember(Icon, ["none", "question", "info", "success", "warning", "error"])}
   end  % properties
 
-  properties (Access=private)
-    main_grid matlab.ui.container.GridLayout
-  end  % properties
-
   methods (Access=protected)
 
     function setup(component)
@@ -57,7 +53,7 @@ classdef StateButton < AppUtil1.Component.ComponentBase
       component.MainButton.ValueChangedFcn = @(sourceObject, eventData) react_ValueChanged(component);
       component.MainButton.FontSize = component.CommonFontSize;
       if not(isMATLABReleaseOlderThan("R2024b"))
-        % The Interpreter property is availabe in R2024b and newer.
+        % The Interpreter property is available in R2024b and newer.
         % See the Version History of the documentation.
         % https://www.mathworks.com/help/matlab/ref/matlab.ui.control.button.html
         component.MainButton.Interpreter = "latex";
@@ -93,15 +89,6 @@ classdef StateButton < AppUtil1.Component.ComponentBase
         case "right"
           component.main_grid.ColumnWidth = {'1x', component.ButtonWidth,   0 };
       end  % switch
-
-      if component.HighlightBackground
-        switch component.ThemeNameForBackGroundHighlight
-        case "light"
-          component.main_grid.BackgroundColor = component.LightThemeBackGroundColor;
-        case "dark"
-          component.main_grid.BackgroundColor = component.DarkThemeBackGroundColor;
-        end  % switch
-      end  % if
     end  % function
 
   end  % methods

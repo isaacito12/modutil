@@ -12,7 +12,7 @@ end  % arguments
 cmd = "copyfile(""" + SourceFilename + """, """ + DestinationFolder + """)";
 
 if not(isfile(SourceFilename))
-  warning("Source file was not found: " + SourceFilename)
+  error("Source file was not found: " + SourceFilename)
 end  %if
 
 if DryRun

@@ -11,7 +11,7 @@
 
 # Copyright 2025-2026 The MathWorks, Inc.
 
-name: Devel-folder R2024b Linux
+name: R2024b in Linux for Devel-folder workflow
 
 on:
   push:
@@ -55,7 +55,7 @@ jobs:
           - name: R2024b
             cmd: "cd Devel; setup_paths; buildtool -verbosity Verbose Test"
 
-    name: Test Devel-folder in MATLAB ${{ matrix.config.name }} on Linux
+    name: Test job for Devel-folder in MATLAB ${{ matrix.config.name }} on Linux
 
     permissions:
       # Required for saving files within a workflow.
@@ -69,7 +69,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Set up MATLAB ${{ matrix.config.name }}
-        uses: matlab-actions/setup-matlab@v2
+        uses: matlab-actions/setup-matlab@v3
         with:
           release: ${{ matrix.config.name }}
           cache: true
@@ -88,7 +88,7 @@ jobs:
           echo "DISPLAY=:99" >> $GITHUB_ENV
 
       - name: Run tests in MATLAB ${{ matrix.config.name }}
-        uses: matlab-actions/run-command@v2
+        uses: matlab-actions/run-command@v3
         with:
           # Commands below run within MATLAB.
           # The initial working folder is the top folder of the repo.
@@ -99,7 +99,7 @@ jobs:
         # Run this step regardless of the previous step's success/failure state.
         if: always()
         with:
-          sarif_file: Devel/test-result-24b/code-issues.sarif
+          sarif_file: Devel/test-result/code-issues.sarif
           category: matlab-analysis
 
       - name: Publish test report
@@ -107,7 +107,7 @@ jobs:
         # Run this step regardless of the previous step's success/failure state.
         if: always()
         with:
-          report_paths: 'Devel/test-result-24b/test-result.xml'
+          report_paths: 'Devel/test-result/test-result.xml'
 
       - name: Upload test result PDF
         uses: actions/upload-artifact@v4
@@ -115,7 +115,7 @@ jobs:
         if: always()
         with:
           name: Test Result PDF
-          path: Devel/test-result-24b/test-result.pdf
+          path: Devel/test-result/test-result.pdf
 
       - name: Upload test result folder
         uses: actions/upload-artifact@v4
@@ -126,9 +126,9 @@ jobs:
           path: Devel/test-result
 
       - name: Publish code coverage
-        uses: 5monkeys/cobertura-action@master
+        uses: 5monkeys/cobertura-action@v14
         # The failure of this step should not affect the entire job's pass/fail state.
         continue-on-error: true
         with:
-          path: Devel/test-result-24b/code-coverage.xml
+          path: Devel/test-result/code-coverage.xml
           minimum_coverage: 75

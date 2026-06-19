@@ -2,13 +2,20 @@
 
 % Copyright 2025-2026 The MathWorks, Inc.
 
-dry_run_tf = false;
+% dry_run_tf = false;
+dry_run_tf = true;
 
 copyAPIFromDevToRelease(DryRun=dry_run_tf)
 
-copyComponent_FileUtil_additional_files(DryRun=dry_run_tf)
-copyComponent_ModelUtil_additional_files(DryRun=dry_run_tf)
-copyComponent_RotationalFrictionApp(DryRun=dry_run_tf)
-copyComponent_SearchUtil_additional_files(DryRun=dry_run_tf)
-copyComponent_SignalUtil_additional_files(DryRun=dry_run_tf)
-copyComponent_TestUtil_additional_files(DryRun=dry_run_tf)
+copyComponent_additional_files(DryRun=dry_run_tf)
+
+copyComponent_additional_files_AppUtil(DryRun=dry_run_tf)
+copyComponent_additional_files_ModelUtil(DryRun=dry_run_tf)
+copyComponent_additional_files_mus_icons(DryRun=dry_run_tf)
+copyComponent_additional_files_SearchUtil(DryRun=dry_run_tf)
+copyComponent_additional_files_SignalUtil(DryRun=dry_run_tf)
+copyComponent_additional_files_TestUtil(DryRun=dry_run_tf)
+
+copyComponent_AppsForPhysicalSystems_AbstractMotorEfficiency(DryRun=dry_run_tf)
+copyComponent_AppsForPhysicalSystems_RotationalFrictionTorque(DryRun=dry_run_tf)
+copyComponent_AppsForPhysicalSystems_Vehicle1DForce(DryRun=dry_run_tf)

@@ -36,7 +36,7 @@ classdef TraceGeneratorAppMain < handle
     TableGridVectorUI AppUtil1.Component.DoubleValueUI
     TableValuesUI AppUtil1.Component.DoubleValueUI
 
-    PlotButtonUI AppUtil1.Component.EnabledButton
+    UpdateButtonUI AppUtil1.Component.EnabledButton
     OpenInFigureWindowUI AppUtil1.Component.Hyperlink
     AxesUI AppUtil1.Graphics.Axes
     IntervalUI AppUtil1.Component.DoubleValueUI
@@ -125,7 +125,7 @@ classdef TraceGeneratorAppMain < handle
       App.FinalValueDurationUI.ValueText = NameValuePair.FinalValueDuration;
 
       % -----------------------------------------------------------------------
-      App.PlotButtonUI.ButtonDisable = "on";
+      App.UpdateButtonUI.ButtonDisable = "on";
       auto_update_plot(App)
 
       movegui(main_figure, "center")
@@ -266,7 +266,7 @@ classdef TraceGeneratorAppMain < handle
       App.TableGridVectorUI = AppUtil1.Component.DoubleValueUI(left_column_grid);
       App.TableGridVectorUI.NameText = CodeUtil1.i18n("Table grid vector, $x$");
       App.TableGridVectorUI.NameUIWidth = App.name_ui_width;
-      App.TableGridVectorUI.ValueUI.ReadOnly = "on";
+      App.TableGridVectorUI.ReadOnlyValueText = true;
 
       % -----------------------------------------------------------------------
       left_column_grid = addVerticalGridLayout(left_vertical_container);
@@ -274,7 +274,7 @@ classdef TraceGeneratorAppMain < handle
       App.TableValuesUI = AppUtil1.Component.DoubleValueUI(left_column_grid);
       App.TableValuesUI.NameText = CodeUtil1.i18n("Table values, $f(x)$");
       App.TableValuesUI.NameUIWidth = App.name_ui_width;
-      App.TableValuesUI.ValueUI.ReadOnly = "on";
+      App.TableValuesUI.ReadOnlyValueText = true;
 
       % =======================================================================
       % Right area
@@ -287,18 +287,18 @@ classdef TraceGeneratorAppMain < handle
       horizontal_container = AppUtil1.HorizontalContainer(right_column_grid);
 
       row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
-      App.PlotButtonUI = AppUtil1.Component.EnabledButton(row_grid);
-      App.PlotButtonUI.HorizontalAlignment = "left";
-      App.PlotButtonUI.ButtonUIWidth = App.button_width + App.width_unit;
-      App.PlotButtonUI.ButtonWidth = App.button_width;
-      App.PlotButtonUI.CheckBoxUIWidth = "fit";
-      App.PlotButtonUI.CheckBoxWidth = "fit";
-      App.PlotButtonUI.ButtonText = "Update";
-      App.PlotButtonUI.ButtonUI.MainButton.Icon = fullfile(matlabroot, "toolbox", "matlab", "icons", "tool_rotate_3d.png");
-      App.PlotButtonUI.CheckBoxText = "Auto-update";
-      App.PlotButtonUI.ButtonPushedCallback = @() update_plot(App);
+      App.UpdateButtonUI = AppUtil1.Component.EnabledButton(row_grid);
+      App.UpdateButtonUI.HorizontalAlignment = "left";
+      App.UpdateButtonUI.ButtonUIWidth = App.button_width + App.width_unit;
+      App.UpdateButtonUI.ButtonWidth = App.button_width;
+      App.UpdateButtonUI.CheckBoxUIWidth = "fit";
+      App.UpdateButtonUI.CheckBoxWidth = "fit";
+      App.UpdateButtonUI.ButtonText = "Update";
+      App.UpdateButtonUI.ButtonUI.MainButton.Icon = fullfile(matlabroot, "toolbox", "matlab", "icons", "tool_rotate_3d.png");
+      App.UpdateButtonUI.CheckBoxText = CodeUtil1.i18n("Auto update");
+      App.UpdateButtonUI.ButtonPushedCallback = @() update_plot(App);
       % Set false to auto-update and keep it until the entire app is ready.
-      App.PlotButtonUI.ButtonEnable = "on";
+      App.UpdateButtonUI.ButtonEnable = "on";
 
       row_grid = addHorizontalGridLayout(horizontal_container);
       App.OpenInFigureWindowUI = AppUtil1.Component.Hyperlink(row_grid);
@@ -339,7 +339,6 @@ classdef TraceGeneratorAppMain < handle
       main_column_grid = addVerticalGridLayout(main_vertical_container);
 
       App.SelectorUI = AppUtil1.Component.BlockSelectorUI(main_column_grid);
-      App.SelectorUI.MainFigure = App.Window.MainFigure;
       App.SelectorUI.TargetSimscapeBlockNames = "PS Lookup Table (1D)";
       App.SelectorUI.FindBlockCallback = @ModelUtil1.findLookupTable1DBlocks;
       App.SelectorUI.SetOnly = true;
@@ -390,7 +389,7 @@ classdef TraceGeneratorAppMain < handle
 
     function auto_update_plot(App)
       %%
-      if App.PlotButtonUI.CheckBoxUI.Value
+      if App.UpdateButtonUI.CheckBoxUI.Value
 
         update_plot(App)
 
@@ -421,10 +420,10 @@ classdef TraceGeneratorAppMain < handle
       f_data = data_table.F;
 
       App.TableGridVectorUI.ValueText = CodeUtil1.stringify(x_data');
-      App.TableGridVectorUI.ValueUI.MainEditField.Tooltip = App.TableGridVectorUI.ValueText;
+      App.TableGridVectorUI.ValueTextUI.MainEditField.Tooltip = App.TableGridVectorUI.ValueText;
 
       App.TableValuesUI.ValueText = CodeUtil1.stringify(f_data');
-      App.TableValuesUI.ValueUI.MainEditField.Tooltip = App.TableValuesUI.ValueText;
+      App.TableValuesUI.ValueTextUI.MainEditField.Tooltip = App.TableValuesUI.ValueText;
 
       dx = CodeUtil1.getNumericValueFromText(App.IntervalUI.ValueText);
 

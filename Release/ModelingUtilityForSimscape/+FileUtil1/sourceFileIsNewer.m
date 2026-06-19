@@ -1,6 +1,6 @@
 function is_newer = sourceFileIsNewer(NameValuePair)
 
-% Copyright 2025 The MathWorks, Inc.
+% Copyright 2025-2026 The MathWorks, Inc.
 
 arguments (Input)
   % Source file must exist.
@@ -13,7 +13,7 @@ arguments (Input)
 end  % arguments
 
 arguments (Output)
-  % This is true if either of these condisions is met:
+  % This is true if either of these conditions is met:
   % - The source file is newer than the destination file.
   % - The destination file does not exist.
   is_newer (1,1) logical

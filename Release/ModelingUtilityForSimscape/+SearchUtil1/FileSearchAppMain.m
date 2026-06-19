@@ -24,7 +24,7 @@ classdef FileSearchAppMain < handle
     TopFolderUI AppUtil1.Component.DropDown
     SelectFolderUI AppUtil1.Component.Button
 
-    SearchFileNameUI AppUtil1.Component.EditableDropDown
+    SearchFileNameUI AppUtil1.Component.DropDown
 
     CopyCommandButtonUI AppUtil1.Component.Button
     SearchButtonUI AppUtil1.Component.Button
@@ -68,6 +68,7 @@ classdef FileSearchAppMain < handle
       App.TopFolderUI.Items = target_folder;
       App.TopFolderUI.Value = target_folder;
 
+      App.SearchFileNameUI.Items = NameValuePair.SearchFileName;
       App.SearchFileNameUI.Value = NameValuePair.SearchFileName;
 
       App.GUIReady = true;
@@ -97,7 +98,8 @@ classdef FileSearchAppMain < handle
       % -----------------------------------------------------------------------
       column_grid = addVerticalGridLayout(main_vertical_container);
 
-      App.SearchFileNameUI = AppUtil1.Component.EditableDropDown(column_grid);
+      App.SearchFileNameUI = AppUtil1.Component.DropDown(column_grid);
+      App.SearchFileNameUI.Editable = "on";
       App.SearchFileNameUI.Items = [];
       App.SearchFileNameUI.ValueChangedCallback = @() react_SearchFileNameChanged(App);
 

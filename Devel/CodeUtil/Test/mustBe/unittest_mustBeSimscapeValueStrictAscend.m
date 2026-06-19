@@ -10,7 +10,7 @@ classdef unittest_mustBeSimscapeValueStrictAscend < matlab.unittest.TestCase
   % Test Browser
   % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
-  % Copyright 2025 The MathWorks, Inc.
+  % Copyright 2025-2026 The MathWorks, Inc.
 
   methods (TestMethodSetup)
     % Functions in this section always run before each test defined in the Test section runs.
@@ -43,10 +43,6 @@ classdef unittest_mustBeSimscapeValueStrictAscend < matlab.unittest.TestCase
       CodeUtil1.mustBeSimscapeValueStrictAscend(simscape.Value(1))
     end  % function
 
-    function PassingTest_3(~)
-      demo_PhysicalValue_1_basics
-    end  % function
-
     %% Tests
 
     function Test_1(testcase)
@@ -57,5 +53,4 @@ classdef unittest_mustBeSimscapeValueStrictAscend < matlab.unittest.TestCase
     end  % function
 
   end  % methods
-
 end  % classdef

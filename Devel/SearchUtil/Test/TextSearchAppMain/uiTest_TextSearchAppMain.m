@@ -6,6 +6,9 @@ classdef uiTest_TextSearchAppMain < matlab.uitest.TestCase
   %
   % Table of Verifications, Assertions, and Other Qualifications
   % https://www.mathworks.com/help/matlab/matlab_prog/types-of-qualifications.html
+  %
+  % Test Browser
+  % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
   % Copyright 2024-2026 The MathWorks, Inc.
 
@@ -13,7 +16,7 @@ classdef uiTest_TextSearchAppMain < matlab.uitest.TestCase
     % Functions in this "TestMethodSetup" section always run before
     % each test defined in the "Test" section runs.
 
-    function test_method_setup(testcase)
+    function test_method_setup_1(testcase)
       %%
       % Close all before test
       close all
@@ -46,8 +49,8 @@ classdef uiTest_TextSearchAppMain < matlab.uitest.TestCase
     % Make sure there is no warning when opening an app.
 
     function app_launches_without_warnings_1(testcase)
-      verifyWarningFree(testcase, @() test_target())
-      function test_target()
+      verifyWarningFree(testcase, @() test_target)
+      function test_target
         SearchUtil1.TextSearchAppMain  % !test-target
       end  % nested function
     end  % function
@@ -58,19 +61,27 @@ classdef uiTest_TextSearchAppMain < matlab.uitest.TestCase
       app = SearchUtil1.TextSearchAppMain;
 
       % Press the Search button. A new window for the search result must open.
-      press(testcase, app.SearchButtonUI.MainButton)
+      press(testcase, app.SearchButtonUI.MainButton)  % !test-target
     end  % function
 
     function Gesture_2(testcase)
       app = SearchUtil1.TextSearchAppMain;
 
       % Press the "Copy command" button.
-      press(testcase, app.CopyCommandButtonUI.MainButton)
+      press(testcase, app.CopyCommandButtonUI.MainButton)  % !test-target
 
       % Get the data from the system clipboard.
       contents = clipboard("paste");
 
       verifyTrue(testcase, startsWith(contents, "SearchUtil1.searchText("))
+    end  % function
+
+    function Gesture_3(testcase)
+      app = SearchUtil1.TextSearchAppMain;
+
+      press(testcase, app.IgnoreCaseUI.MainCheckBox)  % !test-target
+
+      press(testcase, app.SearchButtonUI.MainButton)
     end  % function
 
   end  % methods

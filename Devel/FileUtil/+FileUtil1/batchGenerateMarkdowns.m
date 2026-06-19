@@ -21,6 +21,7 @@ function NumConversions = batchGenerateMarkdowns(NameValuePair)
 arguments (Input)
   NameValuePair.DryRun (1,1) logical = true
   NameValuePair.LiveScriptFolderNames (:,1) string {mustBeFolder} = pwd
+  NameValuePair.IncludeSubfolders (1,1) logical = true
   NameValuePair.MarkdownFolderPath (1,1) string = "markdown"
   NameValuePair.DisplayInfo (1,1) logical = true
   NameValuePair.ForceExport (1,1) logical = false
@@ -53,9 +54,14 @@ for k = 1 : num_folders
 
   % Find all Live Script files in the specified folder.
 
-  mlx_filenames = matlab.buildtool.io.FileCollection.fromPaths(fullfile(target_folder_path, "**", "*.mlx")).paths';
+  if NameValuePair.IncludeSubfolders
+    mlx_filenames = matlab.buildtool.io.FileCollection.fromPaths(fullfile(target_folder_path, "**", "*.mlx")).paths';
+    m_file_collection = matlab.buildtool.io.FileCollection.fromPaths(fullfile(target_folder_path, "**", "*.m"));
+  else
+    mlx_filenames = matlab.buildtool.io.FileCollection.fromPaths(fullfile(target_folder_path, "*.mlx")).paths';
+    m_file_collection = matlab.buildtool.io.FileCollection.fromPaths(fullfile(target_folder_path, "*.m"));
+  end  % if
 
-  m_file_collection = matlab.buildtool.io.FileCollection.fromPaths(fullfile(target_folder_path, "**", "*.m"));
   % Use the select to filter files.
   % https://www.mathworks.com/help/matlab/ref/matlab.buildtool.io.filecollection.select.html
   m_filenames = select(m_file_collection, @(p) FileUtil1.isPlainTextLiveScript(p)).paths';

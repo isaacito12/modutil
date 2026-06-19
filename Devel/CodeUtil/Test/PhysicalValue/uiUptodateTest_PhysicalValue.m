@@ -6,10 +6,14 @@ classdef uiUptodateTest_PhysicalValue < matlab.uitest.TestCase
   %
   % Table of Verifications, Assertions, and Other Qualifications
   % https://www.mathworks.com/help/matlab/matlab_prog/types-of-qualifications.html
+  %
+  % Test Browser
+  % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
   % Copyright 2024-2026 The MathWorks, Inc.
 
   properties
+    % Some of the tests in this class run only if test is running locally under the LocalTopFolder.
     LocalTopFolder (1,1) pattern = "C:\local"
   end  % properties
 
@@ -17,7 +21,7 @@ classdef uiUptodateTest_PhysicalValue < matlab.uitest.TestCase
     % Functions in this "TestMethodSetup" section always run before
     % each test defined in the "Test" section runs.
 
-    function test_method_setup(testcase)
+    function test_method_setup_1(testcase)
       %%
       % Close all before test
       close all
@@ -54,11 +58,11 @@ classdef uiUptodateTest_PhysicalValue < matlab.uitest.TestCase
 
       end  % if
       % R2025a or newer
-      source = FileUtil1.getFileFullPath("apptest_PhysicalValue_1_workspace");
-      destination = fullfile(pwd, "screenshot-AppTest-PhysicalValue-1-dark.png");
+      source = FileUtil1.getFileFullPath("DemoApp_PhysicalValue_1_workspace");
+      destination = fullfile(pwd, "screenshot-DemoApp_PhysicalValue_1_workspace-dark.png");
 
       if not(isfile(destination)) || FileUtil1.sourceFileIsNewer(Source=source, Destination=destination)
-        app = apptest_PhysicalValue_1_workspace;  % !screenshot-target
+        app = DemoApp_PhysicalValue_1_workspace;  % !screenshot-target
         app.Window.MainFigure.Theme = "dark";
         drawnow
         exportapp(app.Window.MainFigure, destination)
@@ -78,17 +82,17 @@ classdef uiUptodateTest_PhysicalValue < matlab.uitest.TestCase
         return
 
       end  % if
-      source = FileUtil1.getFileFullPath("apptest_PhysicalValue_1_workspace");
+      source = FileUtil1.getFileFullPath("DemoApp_PhysicalValue_1_workspace");
       if isMATLABReleaseOlderThan("R2025a")
         % R2024b
-        destination = fullfile(pwd, "screenshot-AppTest-PhysicalValue-1-24b.png");
+        destination = fullfile(pwd, "screenshot-DemoApp_PhysicalValue_1_workspace-24b.png");
       else
         % R2025a or newer
-        destination = fullfile(pwd, "screenshot-AppTest-PhysicalValue-1-light.png");
+        destination = fullfile(pwd, "screenshot-DemoApp_PhysicalValue_1_workspace-light.png");
       end  % if
 
       if not(isfile(destination)) || FileUtil1.sourceFileIsNewer(Source=source, Destination=destination)
-        app = apptest_PhysicalValue_1_workspace;  % !screenshot-target
+        app = DemoApp_PhysicalValue_1_workspace;  % !screenshot-target
         app.Window.MainFigure.Theme = "light";
         drawnow
         exportapp(app.Window.MainFigure, destination)
@@ -111,11 +115,11 @@ classdef uiUptodateTest_PhysicalValue < matlab.uitest.TestCase
 
       end  % if
       % R2025a or newer
-      source = FileUtil1.getFileFullPath("apptest_PhysicalValue_2_watch");
-      destination = fullfile(pwd, "screenshot-AppTest-PhysicalValue-2-dark.png");
+      source = FileUtil1.getFileFullPath("DemoApp_PhysicalValue_2_listener");
+      destination = fullfile(pwd, "screenshot-DemoApp_PhysicalValue_2_listener-dark.png");
 
       if not(isfile(destination)) || FileUtil1.sourceFileIsNewer(Source=source, Destination=destination)
-        app = apptest_PhysicalValue_2_watch;  % !screenshot-target
+        app = DemoApp_PhysicalValue_2_listener;  % !screenshot-target
         app.Window.MainFigure.Theme = "dark";
         drawnow
         exportapp(app.Window.MainFigure, destination)
@@ -135,17 +139,17 @@ classdef uiUptodateTest_PhysicalValue < matlab.uitest.TestCase
         return
 
       end  % if
-      source = FileUtil1.getFileFullPath("apptest_PhysicalValue_2_watch");
+      source = FileUtil1.getFileFullPath("DemoApp_PhysicalValue_2_listener");
       if isMATLABReleaseOlderThan("R2025a")
         % R2024b
-        destination = fullfile(pwd, "screenshot-AppTest-PhysicalValue-2-24b.png");
+        destination = fullfile(pwd, "screenshot-DemoApp_PhysicalValue_2_listener-24b.png");
       else
         % R2025a or newer
-        destination = fullfile(pwd, "screenshot-AppTest-PhysicalValue-2-light.png");
+        destination = fullfile(pwd, "screenshot-DemoApp_PhysicalValue_2_listener-light.png");
       end  % if
 
       if not(isfile(destination)) || FileUtil1.sourceFileIsNewer(Source=source, Destination=destination)
-        app = apptest_PhysicalValue_1_workspace;  % !screenshot-target
+        app = DemoApp_PhysicalValue_2_listener;  % !screenshot-target
         app.Window.MainFigure.Theme = "light";
         drawnow
         exportapp(app.Window.MainFigure, destination)

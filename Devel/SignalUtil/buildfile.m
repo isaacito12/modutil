@@ -1,6 +1,9 @@
 function plan = buildfile
 % Define tasks for the buildtool to check code and run tests.
-% In the Editor, use the "Run Build" button to start a task.
+%
+% If the Devel folder is the current folder,
+% start tests as follows.
+%   buildtool -buildFile SignalUtil\buildfile.m -verbosity Verbose Test
 
 % Overview of MATLAB Build Tool
 % https://www.mathworks.com/help/matlab/matlab_prog/overview-of-matlab-build-tool.html
@@ -8,7 +11,7 @@ function plan = buildfile
 % Run Build from Toolstrip
 % https://www.mathworks.com/help/matlab/matlab_prog/run-build-from-toolstrip.html
 
-% Copyright 2023-2025 The MathWorks, Inc.
+% Copyright 2024-2026 The MathWorks, Inc.
 
 plan = buildplan();
 plan.DefaultTasks = "CodeIssues";
@@ -31,7 +34,6 @@ plan("Test") = matlab.buildtool.tasks.TestTask( ...
   CodeCoverageResults = [ ...
   "test-result/code-coverage.html"
   "test-result/code-coverage.xml"
-  ], ...
-  SupportingFiles = "**/sample folder/*.m" );
+  ] );
 
 end  % function

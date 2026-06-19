@@ -29,7 +29,7 @@ classdef Axes < AppUtil1.Component.ComponentBase
       %%
       setup@AppUtil1.Component.ComponentBase(component)
 
-      component.panel_ui = uipanel(component.base_grid);
+      component.panel_ui = uipanel(component.main_grid);
       component.panel_ui.Layout.Row = 1;
       component.panel_ui.Layout.Column = 1;
       component.panel_ui.BorderType = "none";
@@ -49,6 +49,8 @@ classdef Axes < AppUtil1.Component.ComponentBase
       component.base_grid.RowHeight{1} = component.ComponentHeight;
       component.base_grid.ColumnWidth{1} = component.ComponentWidth;
 
+      % uipanel has its own BackgroundColor property.
+      % Use it instead of the main grid's for highlighting the background.
       if component.HighlightBackground
         switch component.ThemeNameForBackGroundHighlight
         case "light"

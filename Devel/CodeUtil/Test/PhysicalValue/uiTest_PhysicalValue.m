@@ -13,7 +13,7 @@ classdef uiTest_PhysicalValue < matlab.uitest.TestCase
     % Functions in this "TestMethodSetup" section always run before
     % each test defined in the "Test" section runs.
 
-    function test_method_setup(testcase)
+    function test_method_setup_1(testcase)
       %%
       % Close all before test
       close all
@@ -45,18 +45,65 @@ classdef uiTest_PhysicalValue < matlab.uitest.TestCase
     % Warnings can be displayed even when the app opens and starts working seemingly normally.
     % Make sure there is no warning when opening an app.
 
-    function app_launches_without_warnings_1(testcase)
+    function clean_launch_1(testcase)
       verifyWarningFree(testcase, @test_target)
       function test_target
-        apptest_PhysicalValue_1_workspace  % !test-target
+        DemoApp_PhysicalValue_1_workspace  % !test-target
       end  % nested function
     end  % function
 
-    function app_launches_without_warnings_2(testcase)
+    function clean_launch_2(testcase)
       verifyWarningFree(testcase, @tets_target)
       function tets_target
-        apptest_PhysicalValue_2_watch  % !test-target
+        DemoApp_PhysicalValue_2_listener  % !test-target
       end  % nested function
+    end  % function
+
+    %% Gesture test
+
+    function Geasture_1_1(testcase)
+      app = DemoApp_PhysicalValue_1_workspace;
+      type(testcase, app.EditFieldUI.MainEditField, "[1,2,3]")
+
+      type(testcase, app.EditFieldUI.MainEditField, "simscape.Value([4 5; 6 7], ""m"")")
+
+      actual_value_text = string(app.ValueUI.MainEditField.Value);
+      verifyEqual(testcase, actual_value_text, "[4, 5; 6, 7]")
+
+      actual_unit_text = string(app.UnitUI.MainEditField.Value);
+      verifyEqual(testcase, actual_unit_text, "m")
+    end  % function
+
+    function Geasture_1_2(testcase)
+      evalin("base", "x = 1.2;")
+      app = DemoApp_PhysicalValue_1_workspace;
+      type(testcase, app.EditFieldUI.MainEditField, "x")
+
+      evalin("base", "x = simscape.Value([-1, 0, 1], ""m/s"");")
+      press(testcase, app.RefreshButtonUI.MainButton)
+    end  % function
+
+    function Geasture_2_1(testcase)
+      app = DemoApp_PhysicalValue_2_listener;
+
+      type(testcase, app.LengthUI.MainEditField, "simscape.Value([4 5], ""in"")")
+
+      actual_value_text = app.AreaUI.Value;
+      verifyEqual(testcase, actual_value_text, "[16, 25] (in^2)")
+    end  % function
+
+    function Geasture_2_2(testcase)
+      app = DemoApp_PhysicalValue_2_listener;
+
+      evalin("base", "param1 = struct; param1.L = simscape.Value(2, ""cm"");")
+      type(testcase, app.LengthUI.MainEditField, "param1.L")
+      actual_value_text = app.AreaUI.Value;
+      verifyEqual(testcase, actual_value_text, "4 (cm^2)")
+
+      evalin("base", "param1.L = simscape.Value(3, ""in"");")
+      press(testcase, app.RefreshButtonUI.MainButton)
+      actual_value_text = app.AreaUI.Value;
+      verifyEqual(testcase, actual_value_text, "9 (in^2)")
     end  % function
 
   end  % methods

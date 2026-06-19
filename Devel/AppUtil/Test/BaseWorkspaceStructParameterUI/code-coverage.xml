@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<coverage branch-rate="NaN" branches-covered="NaN" branches-valid="NaN" complexity="NaN" line-rate="0.82075" lines-covered="87" lines-valid="106" timestamp="1779204109.789" version="">
+  <sources>
+    <source>C:\local\modutil\repo\worktrees\R2024b-devel\Devel\AppUtil\Test\BaseWorkspaceStructParameterUI\</source>
+  </sources>
+  <packages>
+    <package branch-rate="NaN" complexity="NaN" line-rate="0.82075" name="">
+      <classes>
+        <class branch-rate="NaN" complexity="NaN" filename="BaseWorkspaceStructParameterUI_SampleParams1.m" line-rate="1" name="BaseWorkspaceStructParameterUI_SampleParams1">
+          <methods/>
+          <lines>
+            <line hits="2" number="5"/>
+            <line hits="2" number="6"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="BaseWorkspaceStructParameterUI_SampleParams2.m" line-rate="1" name="BaseWorkspaceStructParameterUI_SampleParams2">
+          <methods/>
+          <lines>
+            <line hits="2" number="5"/>
+            <line hits="2" number="6"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="DemoApp_BaseWorkspaceStructParameterUI_1_simplest.m" line-rate="1" name="DemoApp_BaseWorkspaceStructParameterUI_1_simplest">
+          <methods/>
+          <lines>
+            <line hits="4" number="6"/>
+            <line hits="5" number="9"/>
+            <line hits="5" number="10"/>
+            <line hits="5" number="11"/>
+            <line hits="5" number="12"/>
+            <line hits="5" number="14"/>
+            <line hits="5" number="15"/>
+            <line hits="5" number="18"/>
+            <line hits="5" number="19"/>
+            <line hits="5" number="20"/>
+            <line hits="5" number="21"/>
+            <line hits="5" number="22"/>
+            <line hits="5" number="23"/>
+            <line hits="5" number="28"/>
+            <line hits="5" number="33"/>
+            <line hits="5" number="34"/>
+            <line hits="5" number="35"/>
+            <line hits="5" number="36"/>
+            <line hits="4" number="37"/>
+            <line hits="4" number="38"/>
+            <line hits="4" number="39"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="DemoApp_BaseWorkspaceStructParameterUI_2.m" line-rate="1" name="DemoApp_BaseWorkspaceStructParameterUI_2">
+          <methods/>
+          <lines>
+            <line hits="1" number="6"/>
+            <line hits="2" number="9"/>
+            <line hits="2" number="10"/>
+            <line hits="2" number="11"/>
+            <line hits="2" number="12"/>
+            <line hits="2" number="14"/>
+            <line hits="2" number="15"/>
+            <line hits="2" number="18"/>
+            <line hits="2" number="19"/>
+            <line hits="2" number="20"/>
+            <line hits="2" number="21"/>
+            <line hits="2" number="22"/>
+            <line hits="2" number="23"/>
+            <line hits="2" number="28"/>
+            <line hits="2" number="29"/>
+            <line hits="2" number="32"/>
+            <line hits="2" number="33"/>
+            <line hits="2" number="35"/>
+            <line hits="2" number="37"/>
+            <line hits="2" number="44"/>
+            <line hits="2" number="45"/>
+            <line hits="2" number="46"/>
+            <line hits="2" number="47"/>
+            <line hits="1" number="48"/>
+            <line hits="1" number="49"/>
+            <line hits="1" number="50"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="runTestForCoverage_BaseWorkspaceStructParameterUI.m" line-rate="0" name="runTestForCoverage_BaseWorkspaceStructParameterUI">
+          <methods/>
+          <lines>
+            <line hits="0" number="8"/>
+            <line hits="0" number="9"/>
+            <line hits="0" number="11"/>
+            <line hits="0" number="15"/>
+            <line hits="0" number="16"/>
+            <line hits="0" number="18"/>
+            <line hits="0" number="19"/>
+            <line hits="0" number="20"/>
+            <line hits="0" number="21"/>
+            <line hits="0" number="22"/>
+            <line hits="0" number="24"/>
+            <line hits="0" number="25"/>
+            <line hits="0" number="27"/>
+            <line hits="0" number="29"/>
+            <line hits="0" number="34"/>
+            <line hits="0" number="35"/>
+            <line hits="0" number="36"/>
+            <line hits="0" number="41"/>
+            <line hits="0" number="42"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="uiTest_BaseWorkspaceStructParameterUI.m" line-rate="1" name="uiTest_BaseWorkspaceStructParameterUI">
+          <methods>
+            <method branch-rate="NaN" line-rate="1" name="test_method_setup_1" signature="test_method_setup_1(testcase)">
+              <lines>
+                <line hits="7" number="22"/>
+                <line hits="7" number="23"/>
+                <line hits="7" number="27"/>
+                <line hits="7" number="30"/>
+                <line hits="7" number="31"/>
+                <line hits="7" number="32"/>
+                <line hits="7" number="33"/>
+                <line hits="7" number="35"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="clean_launch_1" signature="clean_launch_1(testcase)">
+              <lines>
+                <line hits="1" number="49"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="clean_launch_2" signature="clean_launch_2(testcase)">
+              <lines>
+                <line hits="1" number="53"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="Gesture_1_1_1" signature="Gesture_1_1_1(testcase)">
+              <lines>
+                <line hits="1" number="59"/>
+                <line hits="1" number="60"/>
+                <line hits="1" number="61"/>
+                <line hits="1" number="63"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="Gesture_1_1_2" signature="Gesture_1_1_2(testcase)">
+              <lines>
+                <line hits="1" number="68"/>
+                <line hits="1" number="69"/>
+                <line hits="1" number="70"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="Gesture_1_1_3" signature="Gesture_1_1_3(testcase)">
+              <lines>
+                <line hits="1" number="74"/>
+                <line hits="1" number="75"/>
+                <line hits="1" number="76"/>
+                <line hits="1" number="78"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="Gesture_1_2" signature="Gesture_1_2(~)">
+              <lines>
+                <line hits="1" number="85"/>
+                <line hits="1" number="88"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="Gesture_1_3" signature="Gesture_1_3(testcase)">
+              <lines>
+                <line hits="1" number="93"/>
+                <line hits="1" number="96"/>
+                <line hits="1" number="97"/>
+                <line hits="1" number="99"/>
+                <line hits="1" number="101"/>
+                <line hits="1" number="102"/>
+                <line hits="1" number="103"/>
+                <line hits="1" number="104"/>
+                <line hits="1" number="106"/>
+                <line hits="1" number="108"/>
+                <line hits="1" number="109"/>
+                <line hits="1" number="110"/>
+                <line hits="1" number="111"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line hits="7" number="22"/>
+            <line hits="7" number="23"/>
+            <line hits="7" number="27"/>
+            <line hits="7" number="30"/>
+            <line hits="7" number="31"/>
+            <line hits="7" number="32"/>
+            <line hits="7" number="33"/>
+            <line hits="7" number="35"/>
+            <line hits="1" number="49"/>
+            <line hits="1" number="53"/>
+            <line hits="1" number="59"/>
+            <line hits="1" number="60"/>
+            <line hits="1" number="61"/>
+            <line hits="1" number="63"/>
+            <line hits="1" number="68"/>
+            <line hits="1" number="69"/>
+            <line hits="1" number="70"/>
+            <line hits="1" number="74"/>
+            <line hits="1" number="75"/>
+            <line hits="1" number="76"/>
+            <line hits="1" number="78"/>
+            <line hits="1" number="85"/>
+            <line hits="1" number="88"/>
+            <line hits="1" number="93"/>
+            <line hits="1" number="96"/>
+            <line hits="1" number="97"/>
+            <line hits="1" number="99"/>
+            <line hits="1" number="101"/>
+            <line hits="1" number="102"/>
+            <line hits="1" number="103"/>
+            <line hits="1" number="104"/>
+            <line hits="1" number="106"/>
+            <line hits="1" number="108"/>
+            <line hits="1" number="109"/>
+            <line hits="1" number="110"/>
+            <line hits="1" number="111"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+  </packages>
+</coverage>

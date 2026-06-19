@@ -4,9 +4,9 @@
 # The file name of a zip for a release is
 #   <archive_base_name>-<version>-<matlab_release>.zip
 # where
-#   <archive_base_name> is defined as a workflow environment
-#   <version> is a tag representing a semantic version, e.g., v1.2.3
-#   <matlab_release> represents MATLAB Release, e.g., R2024b
+#   <archive_base_name> is defined as a workflow environment `${{ env.ArchiveBaseName }}`
+#   <version> is a tag `${TAG}` representing a semantic version, e.g., v1.2.3
+#   <matlab_release> represents MATLAB Release `${{ env.MatlabRelease }}`, e.g., R2024b
 #
 # Copyright 2026 The MathWorks, Inc.
 

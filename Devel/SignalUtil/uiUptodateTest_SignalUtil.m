@@ -31,7 +31,7 @@ classdef uiUptodateTest_SignalUtil < matlab.uitest.TestCase
             return
 
           end  % if
-          delete(testcase.App.Window.MainFigure)
+          delete(testcase.App.MainFigure)
         end  % if
         close all
         bdclose all
@@ -74,11 +74,11 @@ classdef uiUptodateTest_SignalUtil < matlab.uitest.TestCase
 
         testcase.App = SignalDesignApp();  % !screenshot-target
 
-        testcase.App.Window.MainFigure.Theme = theme_name;
+        testcase.App.MainFigure.Theme = theme_name;
 
         % Take screenshot
         disp("Update screenshot")
-        exportapp(testcase.App.Window.MainFigure, destination_fullpath)
+        exportapp(testcase.App.MainFigure, destination_fullpath)
 
       else
         % The closeAll function checks class(testcase.App) ~= "double"
@@ -111,11 +111,11 @@ classdef uiUptodateTest_SignalUtil < matlab.uitest.TestCase
 
         testcase.App = SignalDesignApp();  % !screenshot-target
 
-        testcase.App.Window.MainFigure.Theme = theme_name;
+        testcase.App.MainFigure.Theme = theme_name;
 
         % Take screenshot
         disp("Update screenshot")
-        exportapp(testcase.App.Window.MainFigure, destination_fullpath)
+        exportapp(testcase.App.MainFigure, destination_fullpath)
 
       else
         % The closeAll function checks class(testcase.App) ~= "double"
@@ -148,11 +148,11 @@ classdef uiUptodateTest_SignalUtil < matlab.uitest.TestCase
 
         testcase.App = TraceGeneratorApp();  % !screenshot-target
 
-        testcase.App.Window.MainFigure.Theme = theme_name;
+        testcase.App.MainFigure.Theme = theme_name;
 
         % Take screenshot
         disp("Update screenshot")
-        exportapp(testcase.App.Window.MainFigure, destination_fullpath)
+        exportapp(testcase.App.MainFigure, destination_fullpath)
 
       else
         % The closeAll function checks class(testcase.App) ~= "double"
@@ -185,11 +185,11 @@ classdef uiUptodateTest_SignalUtil < matlab.uitest.TestCase
 
         testcase.App = TraceGeneratorApp();  % !screenshot-target
 
-        testcase.App.Window.MainFigure.Theme = theme_name;
+        testcase.App.MainFigure.Theme = theme_name;
 
         % Take screenshot
         disp("Update screenshot")
-        exportapp(testcase.App.Window.MainFigure, destination_fullpath)
+        exportapp(testcase.App.MainFigure, destination_fullpath)
 
       else
         % The closeAll function checks class(testcase.App) ~= "double"

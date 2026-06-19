@@ -30,7 +30,8 @@ editfield_ui = AppUtil1.Component.EditField(addVerticalGridLayout(vertical_conta
 editfield_ui.MainFigure = main_figure;
 editfield_ui.MainEditField.Placeholder = "(edit field)";
 
-dropdown_ui = AppUtil1.Component.EditableDropDown(addVerticalGridLayout(vertical_container));
+dropdown_ui = AppUtil1.Component.DropDown(addVerticalGridLayout(vertical_container));
+dropdown_ui.Editable = "on";
 dropdown_ui.MainFigure = main_figure;
 dropdown_ui.Items = ["1", "2"];
 dropdown_ui.Value = "1";
@@ -49,6 +50,6 @@ main_figure.Visible = "on";
 drawnow
 if nargout > 0
   App = struct;
-  App.Window.MainFigure = main_figure;
+  App.MainFigure = main_figure;
 end  % if
 end  % function

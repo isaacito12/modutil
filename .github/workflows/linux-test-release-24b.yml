@@ -9,9 +9,9 @@
 # For details about the syntax of this file, see
 # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
 
-# Copyright 2025 The MathWorks, Inc.
+# Copyright 2025-2026 The MathWorks, Inc.
 
-name: Release-folder R2024b Linux
+name: R2024b in Linux for Release-folder workflow
 
 on:
   push:
@@ -55,7 +55,7 @@ jobs:
           - name: R2024b
             cmd: "cd Release; addpath('ModelingUtilityForSimscape'); buildtool -verbosity Verbose Test"
 
-    name: Test Release-folder in MATLAB ${{ matrix.config.name }} on Linux
+    name: Test job for Release-folder in MATLAB ${{ matrix.config.name }} on Linux
 
     permissions:
       # Required for saving files within a workflow.
@@ -69,7 +69,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Set up MATLAB ${{ matrix.config.name }}
-        uses: matlab-actions/setup-matlab@v2
+        uses: matlab-actions/setup-matlab@v3
         with:
           release: ${{ matrix.config.name }}
           cache: true
@@ -88,7 +88,7 @@ jobs:
           echo "DISPLAY=:99" >> $GITHUB_ENV
 
       - name: Run tests in MATLAB
-        uses: matlab-actions/run-command@v2
+        uses: matlab-actions/run-command@v3
         with:
           # Commands below run within MATLAB.
           # The initial working folder is the top folder of the repo.

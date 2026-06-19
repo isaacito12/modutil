@@ -1,17 +1,26 @@
 classdef DoubleValue < handle
-  % A class for a variable of type double linked with an expression and the base workspace.
+  % A class for handling numeric values with expressions and the base workspace.
   %
-  % This class provides two major features.
+  % Use texts to represent a numeric value of type double.
+  % For example,
+  %{
+        dval = CodeUtil1.DoubleValue;
+        dval.ValueText = "[2, 4, 6] + 10"
+  %}
+  % The ValueText can contain a MATLAB expression which must evaluate to
+  % a numeric value as in the above example.
   %
-  % 1. Link a DoubleValue object with a base workspace variable
-  % 2. Automatic interaction among multiple DoubleValue objects
-  %
-  % See the demo_DoubleValue*.m files for working code examples.
-  %
-  % This class is designed for use with uieditfield.
-  % See the demoapp_DoubleValue*.m for working app examples.
+  % The ValueText can access variables in the base workspace.
+  % For example, the following code works.
+  % (To see it working, select the code and evaluate.)
+  %{
+        params = struct;
+        params.motor.EfficiencyPercent = 96;
+        dval = CodeUtil1.DoubleValue;
+        dval.ValueText = "params.motor.EfficiencyPercent"
+  %}
 
-  % Copyright 2025 The MathWorks, Inc.
+  % Copyright 2025-2026 The MathWorks, Inc.
 
   properties (Constant, Access=private)
     classID (1,1) string = "DoubleValue:"
@@ -39,7 +48,7 @@ classdef DoubleValue < handle
   % States
   properties (Access=private)
     current_value_text (1,1) string = ""
-    current_data_value {mustBeA(current_data_value, "double")} = nan
+    current_double_value {mustBeA(current_double_value, "double")} = nan
   end  % properties
 
   methods
@@ -56,7 +65,7 @@ classdef DoubleValue < handle
       %%
       functionID = doubleValueObject.classID + "processValueText:";
       if value_text == ""
-        doubleValueObject.current_data_value = nan;
+        doubleValueObject.current_double_value = nan;
 
         return
 
@@ -64,7 +73,7 @@ classdef DoubleValue < handle
       x = double(value_text);
       if not(isnan(x))
         % Value text was properly converted to a numeric value.
-        doubleValueObject.current_data_value = x;
+        doubleValueObject.current_double_value = x;
       else
         % Value text is not a scalar double value.
         try
@@ -84,7 +93,7 @@ classdef DoubleValue < handle
           throw(MException(id, msg))
 
         end  % if
-        doubleValueObject.current_data_value = result;
+        doubleValueObject.current_double_value = result;
       end  % if
     end  % function
 
@@ -112,7 +121,7 @@ classdef DoubleValue < handle
         x double
       end  % arguments
       processValueText(doubleValueObject, doubleValueObject.current_value_text)
-      x = doubleValueObject.current_data_value;
+      x = doubleValueObject.current_double_value;
     end  % function
 
     function set.MainDoubleValue(doubleValueObject, x)
@@ -121,7 +130,7 @@ classdef DoubleValue < handle
         doubleValueObject
         x double
       end  % arguments
-      doubleValueObject.current_data_value = x;
+      doubleValueObject.current_double_value = x;
       doubleValueObject.current_value_text = CodeUtil1.stringify(x);
     end  % function
 

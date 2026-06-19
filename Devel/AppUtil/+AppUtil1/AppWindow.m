@@ -12,6 +12,7 @@ classdef AppWindow < handle
   % Copyright 2023-2026 The MathWorks, Inc.
 
   properties
+
     MainFigure matlab.ui.Figure {mustBeScalarOrEmpty}
 
     MainVerticalContainer AppUtil1.VerticalContainer
@@ -21,23 +22,26 @@ classdef AppWindow < handle
     % To see outputs from class constructors, you must set Reporting to "on" here.
     % Setting Reporting to "on" in other ways do not enable reporting from constructors.
     Reporting (1,1) matlab.lang.OnOffSwitchState = "off"
-  end  % properties
 
+  end  % properties
   properties (Dependent)
+
     Name (1,1) string
 
     Width (1,1) {mustBeInteger, mustBePositive}
     Height (1,1) {mustBeInteger, mustBePositive}
 
-    AlwaysOnTop matlab.lang.OnOffSwitchState
+    AlwaysOnTop (1,1) matlab.lang.OnOffSwitchState
 
     % PNG file
     Icon (1,1) string
-  end  % properties
 
-  properties (Access=private)
+  end  % properties
+  properties (Constant, Access=private)
+
     % The default icon file must exist in the "+AppUtil1" namespace folder.
     DefaultIcon (1,1) string = "AppUtil-icon-150x150.png"
+
   end  % properties
 
   methods
@@ -55,10 +59,6 @@ classdef AppWindow < handle
         NameValuePair.Reporting (1,1) matlab.lang.OnOffSwitchState = "off"
       end  % arguments
 
-      arguments (Output)
-        AppWindow (1,1)
-      end  % arguments
-
       AppWindow.Reporting = NameValuePair.Reporting;
 
       if AppWindow.Reporting
@@ -69,11 +69,10 @@ classdef AppWindow < handle
 
       AppWindow.MainVerticalContainer = AppUtil1.VerticalContainer(MainFigure);
 
-      AppWindow.Icon = "AppUtil-icon-150x150.png";
+      AppWindow.Icon = AppWindow.DefaultIcon;
 
-      v_gridlayout = addVerticalGridLayout(AppWindow.MainVerticalContainer);
-      AppWindow.HeaderUI = AppUtil1.Component.WindowHeader(v_gridlayout);
-      AppWindow.HeaderUI.MainFigure = AppWindow.MainFigure;
+      v_layout = addVerticalGridLayout(AppWindow.MainVerticalContainer);
+      AppWindow.HeaderUI = AppUtil1.Component.WindowHeader(v_layout);
       AppWindow.HeaderUI.AppSourceName = NameValuePair.SourceFile;
       AppWindow.HeaderUI.Reporting = NameValuePair.Reporting;
     end  % function
@@ -173,7 +172,7 @@ classdef AppWindow < handle
 
           end  % if
         end  % try, catch
-        % The default icon file must exist in the "+AppUtil1" namespace folder.
+        % The default icon file must exist in the App Util's namespace folder.
         icon_fullpath = fullfile(AppUtil_folder_fullpath, PNGFilename);
 
       else

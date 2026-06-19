@@ -31,7 +31,7 @@ classdef uitest_CheckBox < matlab.uitest.TestCase
             return
 
           end  % if
-          delete(testcase.App.Window.MainFigure)
+          delete(testcase.App.MainFigure)
         end  % if
         close all
         bdclose all
@@ -96,28 +96,28 @@ classdef uitest_CheckBox < matlab.uitest.TestCase
     function LightTheme_1(testcase)
       testcase.App = apptest_CheckBox_1_simplest;
       if not(isMATLABReleaseOlderThan("R2025a"))
-        testcase.App.Window.MainFigure.Theme = "light";
+        testcase.App.MainFigure.Theme = "light";
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-1.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function LightTheme_2(testcase)
       testcase.App = apptest_CheckBox_2_align_inside;
       if not(isMATLABReleaseOlderThan("R2025a"))
-        testcase.App.Window.MainFigure.Theme = "light";
+        testcase.App.MainFigure.Theme = "light";
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-2.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function LightTheme_3(testcase)
       testcase.App = apptest_CheckBox_3_tiling;
       if not(isMATLABReleaseOlderThan("R2025a"))
-        testcase.App.Window.MainFigure.Theme = "light";
+        testcase.App.MainFigure.Theme = "light";
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-3.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function DarkTheme_1(testcase)
@@ -127,9 +127,9 @@ classdef uitest_CheckBox < matlab.uitest.TestCase
 
       end  % if
       testcase.App = apptest_CheckBox_1_simplest;
-      testcase.App.Window.MainFigure.Theme = "dark";
+      testcase.App.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-1.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function DarkTheme_2(testcase)
@@ -139,9 +139,9 @@ classdef uitest_CheckBox < matlab.uitest.TestCase
 
       end  % if
       testcase.App = apptest_CheckBox_2_align_inside;
-      testcase.App.Window.MainFigure.Theme = "dark";
+      testcase.App.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-2.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function DarkTheme_3(testcase)
@@ -151,9 +151,9 @@ classdef uitest_CheckBox < matlab.uitest.TestCase
 
       end  % if
       testcase.App = apptest_CheckBox_3_tiling;
-      testcase.App.Window.MainFigure.Theme = "dark";
+      testcase.App.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-3.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
   end  % methods

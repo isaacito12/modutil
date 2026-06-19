@@ -1,5 +1,5 @@
 function Result = screenshotSimulink(NameValuePair)
-%% Save the screenshot of a Simulink model to a PNG file.
+% Save the screenshot of a Simulink model to a PNG file.
 %
 % The simplest way to use this function is to pass the Simulink model name.
 % This saves a screenshot image in PNG format in the current folder.
@@ -11,7 +11,7 @@ function Result = screenshotSimulink(NameValuePair)
 % subsystem to take a screenshot, and so on.
 % For details, see the arguments block below.
 
-% Copyright 2021-2025 The MathWorks, Inc.
+% Copyright 2021-2026 The MathWorks, Inc.
 
 arguments (Input)
 
@@ -36,7 +36,7 @@ arguments (Input)
   NameValuePair.SaveFolder {mustBeTextScalar} = ""
 
   % ---------------------------------------------------------------------------
-  % Additional optiopns - safe to ignore
+  % Additional options - safe to ignore
 
   % Width and height of the image file to produce.
   NameValuePair.OutputImageWidth_px (1,1) {mustBeInteger, mustBeNonnegative} = 0
@@ -50,7 +50,7 @@ arguments (Input)
   NameValuePair.PaddingVertical_px (1,1) {mustBeInteger, mustBeNonnegative} = 0
 
   % [0 0 0] is black. [1 1 1] is white.
-  NameValuePair.PaddingColorRGB (1,3) {mustBeInRange(NameValuePair.PaddingColorRGB, 0, 1)} = [1,1,1]
+  NameValuePair.PaddingColorRGB (1,3) {mustBeInRange(NameValuePair.PaddingColorRGB, 0, 1)} = [1,1,1] %#ok<MUSTINRANGE>
 
   % Options below are for test purposes.
 

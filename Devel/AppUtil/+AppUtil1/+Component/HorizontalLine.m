@@ -4,7 +4,7 @@ classdef HorizontalLine < matlab.ui.componentcontainer.ComponentContainer
   % Unlike other components, this component directly inherits from
   % the component container to keep the implementation simple.
 
-  % Copyright 2023-2025 The MathWorks, Inc.
+  % Copyright 2023-2026 The MathWorks, Inc.
 
   methods (Access=protected)
 
@@ -30,7 +30,7 @@ classdef HorizontalLine < matlab.ui.componentcontainer.ComponentContainer
 
     end  % function
 
-    % The udpate method in ComponentContainer class is an abstract method.
+    % The update method in ComponentContainer class is an abstract method.
     % It must be implemented in the child class, even if its code is empty.
     function update(~)
     end  % function

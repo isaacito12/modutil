@@ -7,8 +7,13 @@ arguments (Output)
 end  % arguments
 
 main_figure = uifigure(Visible="off");
+main_figure.Name = "Test";
 main_figure.Position(3) = 400;  % width
 main_figure.Position(4) = 300;  % height
+
+if not(isMATLABReleaseOlderThan("R2025a"))
+  main_figure.Theme = "dark";
+end  % if
 
 main_grid = uigridlayout(main_figure, [1 1]);
 main_grid.RowHeight = {'fit'};
@@ -23,8 +28,6 @@ main_grid.Scrollable = "on";
 
 axes_ui = AppUtil1.Graphics.Axes(main_grid);  % !test-target
 
-axes_ui.MainFigure = main_figure;
-
 % Make axes UI taller than the app window.
 % Vertical scrollbar must appear when the app window appears.
 axes_ui.ComponentHeight = main_figure.Position(4) + 100;
@@ -33,15 +36,11 @@ axes_ui.ComponentHeight = main_figure.Position(4) + 100;
 axes_ui.HighlightBackground = "on";
 
 %%
-if not(isMATLABReleaseOlderThan("R2025a"))
-  main_figure.Theme = "light";
-end  % if
-
 movegui(main_figure, "center")
 main_figure.Visible = "on";
 drawnow
 if nargout > 0
   App = struct;
-  App.Window.MainFigure = main_figure;
+  App.MainFigure = main_figure;
 end  % if
 end  % function

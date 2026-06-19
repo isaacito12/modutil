@@ -23,7 +23,7 @@ main_layout.RowSpacing = 0;
 main_layout.RowHeight = {'fit'};
 main_layout.Scrollable = "on";
 
-%%
+% -----------------------------------------------------------------------------
 
 panel_ui = AppUtil1.Graphics.Panel(main_layout);  % !test-target
 
@@ -31,16 +31,12 @@ panel_ui = AppUtil1.Graphics.Panel(main_layout);  % !test-target
 % A vertical scrollbar must appear in the window.
 panel_ui.ComponentHeight = 390;
 
-%%
-if not(isMATLABReleaseOlderThan("R2025a"))
-  main_figure.Theme = "light";
-end  % if
-
+% -----------------------------------------------------------------------------
 movegui(main_figure, "center")
 main_figure.Visible = "on";
 drawnow
 if nargout > 0
   App = struct;
-  App.Window.MainFigure = main_figure;
+  App.MainFigure = main_figure;
 end  % if
 end  % function

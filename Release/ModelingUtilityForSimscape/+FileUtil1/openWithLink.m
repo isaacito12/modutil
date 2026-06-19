@@ -23,7 +23,7 @@ end  % arguments
 
 % Proper error handling is done by the open command.
 try
-  open(TargetName)
+  open(TargetName);
 catch exception
 
   rethrow(exception)

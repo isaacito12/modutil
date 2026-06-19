@@ -6,43 +6,41 @@ classdef uitest_TraceGeneratorAppMain < matlab.uitest.TestCase
   %
   % Table of Verifications, Assertions, and Other Qualifications
   % https://www.mathworks.com/help/matlab/matlab_prog/types-of-qualifications.html
+  %
+  % Test Browser
+  % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
-  % Copyright 2024-2025 The MathWorks, Inc.
-
-  properties
-    % Do not specify the class name for a property to hold a handle to an app.
-    % For class-based test apps, the class name is the app name, making
-    % it difficult to use a common teardown if the class name is specified here.
-    App (1,1)
-  end  % properties
+  % Copyright 2024-2026 The MathWorks, Inc.
 
   methods (TestMethodSetup)
-    % Functions in the TestMethodSetup section always run before
-    % each test defined in the Test section runs.
+    % Functions in this "TestMethodSetup" section always run before
+    % each test defined in the "Test" section runs.
 
-    function test_method_setup(testcase)
+    function test_method_setup_1(testcase)
       %%
-      function closeAll
-        % Delete the app's figure object from memory.
-        if class(testcase.App) ~= "double"
-          if isstruct(testcase.App) && not(isfield(testcase.App, "Window"))
-            % Function-based app with no window to delete.
-
-            return
-
-          end  % if
-          delete(testcase.App.Window.MainFigure)
-        end  % if
-        close all
-        bdclose all
-      end  % nested function
+      % Close all before test
+      close all
+      bdclose all
+      evalin("base", "clearvars")
 
       % addTeardown adds a function which always runs after each test.
       % Even if the execution of a test ends with an error, the teardown function runs.
-      addTeardown(testcase, @closeAll)
+      addTeardown(testcase, @closeAllAfterTest)
+      function closeAllAfterTest
+        % Close/delete all figure windows. This closes/deletes not only the test targets but also
+        % all the other figure windows too to provide clean state for the next test.
+        figs = findall(0, Type="Figure");
+        if not(any(isempty(figs)))
+          disp("Deleting figures (" + numel(figs) + ")")
+          delete(figs)
+        end  % if
 
-      close all
-      bdclose all
+        bdclose all
+
+        % Do not clear variables in the base workspace at the end of a test
+        % to make it easy to debug after test if necessary.
+
+      end  % nested function
     end  % function
 
   end  % methods
@@ -58,10 +56,7 @@ classdef uitest_TraceGeneratorAppMain < matlab.uitest.TestCase
     % Make sure there is no warning when opening an app.
 
     function app_launches_without_warnings_1(testcase)
-      verifyWarningFree(testcase, @() target())
-      function target()
-        testcase.App = SignalUtil1.TraceGeneratorAppMain;  % !test-target
-      end  % nested function
+      verifyWarningFree(testcase, @SignalUtil1.TraceGeneratorAppMain)
     end  % function
 
     %% Tests
@@ -78,18 +73,18 @@ classdef uitest_TraceGeneratorAppMain < matlab.uitest.TestCase
         model_name = "samplemodel_TraceGeneratorAppMain";
       end  % if
 
-      testcase.App = SignalUtil1.TraceGeneratorAppMain( ...
+      app = SignalUtil1.TraceGeneratorAppMain( ...
         BlockPath = model_name + "/PS Lookup Table (1D)" );
-      press(testcase, testcase.App.SelectorUI.SetParametersToBlockUI.MainButton)
+      press(testcase, app.SelectorUI.SetParametersToBlockUI.MainButton)
     end  % function
 
     %% UI test
 
     function uitest_1(testcase)
-      testcase.App = SignalUtil1.TraceGeneratorAppMain;
-      type(testcase, testcase.App.RandomSeedUI.ValueUI.MainEditField, "1")
-      type(testcase, testcase.App.RandomSeedUI.ValueUI.MainEditField, "22")
-      type(testcase, testcase.App.RandomSeedUI.ValueUI.MainEditField, "333")
+      app = SignalUtil1.TraceGeneratorAppMain;
+      type(testcase, app.RandomSeedUI.ValueTextUI.MainEditField, "1")
+      type(testcase, app.RandomSeedUI.ValueTextUI.MainEditField, "22")
+      type(testcase, app.RandomSeedUI.ValueTextUI.MainEditField, "333")
     end  % function
 
   end  % methods

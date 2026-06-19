@@ -1,9 +1,18 @@
 classdef AppWindow < handle
   % App Window class
 
+  % App icon
+  %
+  % Vertical container
+  % Window header UI
+  % App name
+  % Hyperlink to the app source file
+  % "Always on top" check box
+
   % Copyright 2023-2026 The MathWorks, Inc.
 
   properties
+
     MainFigure matlab.ui.Figure {mustBeScalarOrEmpty}
 
     MainVerticalContainer AppUtil1.VerticalContainer
@@ -13,27 +22,26 @@ classdef AppWindow < handle
     % To see outputs from class constructors, you must set Reporting to "on" here.
     % Setting Reporting to "on" in other ways do not enable reporting from constructors.
     Reporting (1,1) matlab.lang.OnOffSwitchState = "off"
-  end  % properties
 
+  end  % properties
   properties (Dependent)
+
     Name (1,1) string
 
     Width (1,1) {mustBeInteger, mustBePositive}
     Height (1,1) {mustBeInteger, mustBePositive}
 
-    AlwaysOnTop matlab.lang.OnOffSwitchState
+    AlwaysOnTop (1,1) matlab.lang.OnOffSwitchState
 
     % PNG file
     Icon (1,1) string
 
-    % MainVerticalContainer is kept for compatibility and will be removed in future.
-    % Do not use MainVerticalContainer. Instead, use HorizontalContainer.
-    % MainVerticalContainer AppUtil1.VerticalContainer
   end  % properties
+  properties (Constant, Access=private)
 
-  properties (Access=private)
     % The default icon file must exist in the "+AppUtil1" namespace folder.
     DefaultIcon (1,1) string = "AppUtil-icon-150x150.png"
+
   end  % properties
 
   methods
@@ -51,10 +59,6 @@ classdef AppWindow < handle
         NameValuePair.Reporting (1,1) matlab.lang.OnOffSwitchState = "off"
       end  % arguments
 
-      arguments (Output)
-        AppWindow (1,1)
-      end  % arguments
-
       AppWindow.Reporting = NameValuePair.Reporting;
 
       if AppWindow.Reporting
@@ -65,15 +69,10 @@ classdef AppWindow < handle
 
       AppWindow.MainVerticalContainer = AppUtil1.VerticalContainer(MainFigure);
 
-      % MainVerticalContainer is kept for compatibility. Use MainVerticalContainer instead.
-      % AppWindow.MainVerticalContainer = AppUtil1.VerticalContainer(MainFigure);  % !avoid
+      AppWindow.Icon = AppWindow.DefaultIcon;
 
-      AppWindow.Icon = "AppUtil-icon-150x150.png";
-
-      % AppWindow.HeaderUI = AppUtil1.Component.WindowHeader(addVerticalGridLayout(AppWindow.MainVerticalContainer));
-      v_gridlayout = addVerticalGridLayout(AppWindow.MainVerticalContainer);
-      AppWindow.HeaderUI = AppUtil1.Component.WindowHeader(v_gridlayout);
-      AppWindow.HeaderUI.MainFigure = AppWindow.MainFigure;
+      v_layout = addVerticalGridLayout(AppWindow.MainVerticalContainer);
+      AppWindow.HeaderUI = AppUtil1.Component.WindowHeader(v_layout);
       AppWindow.HeaderUI.AppSourceName = NameValuePair.SourceFile;
       AppWindow.HeaderUI.Reporting = NameValuePair.Reporting;
     end  % function
@@ -173,7 +172,7 @@ classdef AppWindow < handle
 
           end  % if
         end  % try, catch
-        % The default icon file must exist in the "+AppUtil1" namespace folder.
+        % The default icon file must exist in the App Util's namespace folder.
         icon_fullpath = fullfile(AppUtil_folder_fullpath, PNGFilename);
 
       else
@@ -197,27 +196,6 @@ classdef AppWindow < handle
       AppWindow.MainFigure.Icon = icon_fullpath;
 
     end  % function
-
-%{
-    % -------------------------------------------------------------------------
-    % MainVerticalContainer - for compatibility. to be removed in future.
-    % MainVerticalContainer has been replaced with MainVerticalContainer of type AppUtil1.VerticalContainer.
-
-    function Layout = get.MainVerticalContainer(AppWindow)
-      arguments (Output)
-        Layout AppUtil1.HorizontalContainer
-      end  % arguments
-      Layout = AppWindow.MainVerticalContainer;
-    end  % function
-
-    function set.MainVerticalContainer(AppWindow, Layout)
-      arguments (Input)
-        AppWindow
-        Layout AppUtil1.HorizontalContainer
-      end  % arguments
-      AppWindow.MainVerticalContainer = Layout;
-    end  % function
-%}
 
   end  % methods
 end  % classdef

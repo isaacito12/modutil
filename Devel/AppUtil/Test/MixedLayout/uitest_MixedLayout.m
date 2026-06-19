@@ -31,7 +31,7 @@ classdef uitest_MixedLayout < matlab.uitest.TestCase
             return
 
           end  % if
-          delete(testcase.App.Window.MainFigure)
+          delete(testcase.App.MainFigure)
         end  % if
         close all
         bdclose all
@@ -78,20 +78,20 @@ classdef uitest_MixedLayout < matlab.uitest.TestCase
       testcase.App = apptest_MixedLayout_1_row_major;
       drawnow
       if not(isMATLABReleaseOlderThan("R2025a"))
-        testcase.App.Window.MainFigure.Theme = "light";
+        testcase.App.MainFigure.Theme = "light";
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-1.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function LightTheme_2(testcase)
       testcase.App = apptest_MixedLayout_2_column_major;
       drawnow
       if not(isMATLABReleaseOlderThan("R2025a"))
-        testcase.App.Window.MainFigure.Theme = "light";
+        testcase.App.MainFigure.Theme = "light";
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-2.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function DarkTheme_1(testcase)
@@ -102,9 +102,9 @@ classdef uitest_MixedLayout < matlab.uitest.TestCase
       end  % if
       testcase.App = apptest_MixedLayout_1_row_major;
       drawnow
-      testcase.App.Window.MainFigure.Theme = "dark";
+      testcase.App.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-1.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function DarkTheme_2(testcase)
@@ -115,9 +115,9 @@ classdef uitest_MixedLayout < matlab.uitest.TestCase
       end  % if
       testcase.App = apptest_MixedLayout_2_column_major;
       drawnow
-      testcase.App.Window.MainFigure.Theme = "dark";
+      testcase.App.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-2.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
   end  % methods

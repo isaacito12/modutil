@@ -1,0 +1,4 @@
+This file is part of the Search Tool.
+The contents of this file is modified programmatically for testing.
+
+Example use of namespace text: x (1,1) simscape.Value {Namespace1.FunctionA} = simscape.Value(nan, "rpm")

@@ -31,7 +31,7 @@ classdef uitest_Image < matlab.uitest.TestCase
             return
 
           end  % if
-          delete(testcase.App.Window.MainFigure)
+          delete(testcase.App.MainFigure)
         end  % if
         close all
         bdclose all

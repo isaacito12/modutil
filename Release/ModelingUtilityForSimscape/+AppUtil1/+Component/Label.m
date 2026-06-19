@@ -4,7 +4,7 @@ classdef Label < AppUtil1.Component.ComponentBase
   % See the documentation for the supported LaTeX commands.
   % https://www.mathworks.com/help/matlab/matlab_prog/insert-equations.html#bvak56c-1
 
-  % Copyright 2023-2025 The MathWorks, Inc.
+  % Copyright 2023-2026 The MathWorks, Inc.
 
   properties
     MainLabel (1,1) matlab.ui.control.Label
@@ -28,12 +28,6 @@ classdef Label < AppUtil1.Component.ComponentBase
     HorizontalAlignment (1,1) {mustBeMember( HorizontalAlignment, ["left", "center", "right"])}
   end  % properties
 
-  properties (Access=public)
-    % The main grid is used to configure the width of the main component
-    % while the base grid is used to configure the width of the whole component.
-    main_grid (1,1) matlab.ui.container.GridLayout
-  end  % properties
-
   methods (Access=protected)
 
     function setup(component)
@@ -53,7 +47,7 @@ classdef Label < AppUtil1.Component.ComponentBase
       component.MainLabel.Layout.Column = 1;
       component.MainLabel.FontSize = component.CommonFontSize;
 
-      % Default settings
+      % Default settings.
       component.ComponentWidth = "1x";
       component.ComponentHeight = AppUtil1.Constant.Height{"oneline++"};
       component.VerticalAlignment = "center";
@@ -71,15 +65,6 @@ classdef Label < AppUtil1.Component.ComponentBase
 
       component.base_grid.RowHeight{1} = component.ComponentHeight;
       component.base_grid.ColumnWidth{1} = component.ComponentWidth;
-
-      if component.HighlightBackground
-        switch component.ThemeNameForBackGroundHighlight
-        case "light"
-          component.main_grid.BackgroundColor = component.LightThemeBackGroundColor;
-        case "dark"
-          component.main_grid.BackgroundColor = component.DarkThemeBackGroundColor;
-        end  % switch
-      end  % if
     end  % function
 
   end  % methods

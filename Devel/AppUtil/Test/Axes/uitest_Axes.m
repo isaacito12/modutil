@@ -6,43 +6,41 @@ classdef uitest_Axes < matlab.uitest.TestCase
   %
   % Table of Verifications, Assertions, and Other Qualifications
   % https://www.mathworks.com/help/matlab/matlab_prog/types-of-qualifications.html
+  %
+  % Test Browser
+  % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
-  % Copyright 2025 The MathWorks, Inc.
-
-  properties
-    % Do not specify the class name for a property to hold a handle to an app.
-    % For class-based test apps, the class name is the app name, making
-    % it difficult to use a common teardown if the class name is specified here.
-    App (1,1)
-  end  % properties
+  % Copyright 2025-2026 The MathWorks, Inc.
 
   methods (TestMethodSetup)
-    % Functions in the TestMethodSetup section always run before
-    % each test defined in the Test section runs.
+    % Functions in this "TestMethodSetup" section always run before
+    % each test defined in the "Test" section runs.
 
-    function test_method_setup(testcase)
+    function test_method_setup_1(testcase)
       %%
-      function closeAll
-        % Delete the app's figure object from memory.
-        if class(testcase.App) ~= "double"
-          if isstruct(testcase.App) && not(isfield(testcase.App, "Window"))
-            % Function-based app with no window to delete.
-
-            return
-
-          end  % if
-          delete(testcase.App.Window.MainFigure)
-        end  % if
-        close all
-        bdclose all
-      end  % nested function
+      % Close all before test
+      close all
+      bdclose all
+      evalin("base", "clearvars")
 
       % addTeardown adds a function which always runs after each test.
       % Even if the execution of a test ends with an error, the teardown function runs.
-      addTeardown(testcase, @closeAll)
+      addTeardown(testcase, @closeAllAfterTest)
+      function closeAllAfterTest
+        % Close/delete all figure windows. This closes/deletes not only the test targets but also
+        % all the other figure windows too to provide clean state for the next test.
+        figs = findall(0, Type="Figure");
+        if not(any(isempty(figs)))
+          disp("Deleting figures (" + numel(figs) + ")")
+          delete(figs)
+        end  % if
 
-      close all
-      bdclose all
+        bdclose all
+
+        % Do not clear variables in the base workspace at the end of a test
+        % to make it easy to debug after test if necessary.
+
+      end  % nested function
     end  % function
 
   end  % methods
@@ -58,80 +56,68 @@ classdef uitest_Axes < matlab.uitest.TestCase
     % Make sure there is no warning when opening an app.
 
     function app_launches_without_warnings_1(testcase)
-      verifyWarningFree(testcase, @() target())
-      function target()
-        testcase.App = apptest_Axes_1_simplest;  % !test-target
-      end  % nested function
+      verifyWarningFree(testcase, @apptest_Axes_1_simplest)
     end  % function
 
     function app_launches_without_warnings_2(testcase)
-      verifyWarningFree(testcase, @() target())
-      function target()
-        testcase.App = apptest_Axes_2_vertical_scrollbar;  % !test-target
-      end  % nested function
+      verifyWarningFree(testcase, @apptest_Axes_2_vertical_scrollbar)
     end  % function
 
     function app_launches_without_warnings_3(testcase)
-      verifyWarningFree(testcase, @() target())
-      function target()
-        testcase.App = apptest_Axes_3_WithLayout;  % !test-target
-      end  % nested function
+      verifyWarningFree(testcase, @apptest_Axes_3_WithLayout)
     end  % function
 
     function app_launches_without_warnings_4(testcase)
-      verifyWarningFree(testcase, @() target())
-      function target()
-        testcase.App = apptest_Axes_4_WithAppWindow;  % !test-target
-      end  % nested function
+      verifyWarningFree(testcase, @apptest_Axes_4_WithAppWindow)
     end  % function
 
     %% Color theme
     % Take screenshots of the app. Visually inspect the saved images.
 
-    function LightTheme_1(testcase)
-      testcase.App = apptest_Axes_1_simplest;
+    function LightTheme_1(~)
+      app = apptest_Axes_1_simplest;
       drawnow
       if not(isMATLABReleaseOlderThan("R2025a"))
-        testcase.App.Window.MainFigure.Theme = "light";
+        app.MainFigure.Theme = "light";
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-1.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(app.MainFigure, save_path)
     end  % function
 
-    function LightTheme_2(testcase)
-      testcase.App = apptest_Axes_2_vertical_scrollbar;
+    function LightTheme_2(~)
+      app = apptest_Axes_2_vertical_scrollbar;
       drawnow
       if not(isMATLABReleaseOlderThan("R2025a"))
-        testcase.App.Window.MainFigure.Theme = "light";
+        app.MainFigure.Theme = "light";
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-2.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(app.MainFigure, save_path)
     end  % function
 
-    function DarkTheme_1(testcase)
+    function DarkTheme_1(~)
       if isMATLABReleaseOlderThan("R2025a")
 
         return
 
       end  % if
-      testcase.App = apptest_Axes_1_simplest;
+      app = apptest_Axes_1_simplest;
       drawnow
-      testcase.App.Window.MainFigure.Theme = "dark";
+      app.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-1.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(app.MainFigure, save_path)
     end  % function
 
-    function DarkTheme_2(testcase)
+    function DarkTheme_2(~)
       if isMATLABReleaseOlderThan("R2025a")
 
         return
 
       end  % if
-      testcase.App = apptest_Axes_2_vertical_scrollbar;
+      app = apptest_Axes_2_vertical_scrollbar;
       drawnow
-      testcase.App.Window.MainFigure.Theme = "dark";
+      app.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-2.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(app.MainFigure, save_path)
     end  % function
 
   end  % methods

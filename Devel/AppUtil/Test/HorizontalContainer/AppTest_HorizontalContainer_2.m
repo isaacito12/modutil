@@ -33,6 +33,6 @@ main_figure.Visible = "on";
 drawnow
 if nargout > 0
   App = struct;
-  App.Window.MainFigure = main_figure;
+  App.MainFigure = main_figure;
 end  % if
 end  % function

@@ -1,5 +1,5 @@
 classdef unittest_replaceText < matlab.unittest.TestCase
-  %% Class-based unit test
+  % Class-based unit test
 
   % Author Class-Based Unit Tests in MATLAB
   % https://www.mathworks.com/help/matlab/matlab_prog/author-class-based-unit-tests-in-matlab.html
@@ -10,7 +10,7 @@ classdef unittest_replaceText < matlab.unittest.TestCase
   % Test Browser
   % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
-  % Copyright 2025 The MathWorks, Inc.
+  % Copyright 2025-2026 The MathWorks, Inc.
 
   methods (TestMethodSetup)
     % Functions in this section always run before each test defined in the Test section runs.
@@ -36,11 +36,11 @@ classdef unittest_replaceText < matlab.unittest.TestCase
     % Check that models, scripts, functions, and classes run right out of the box.
 
     function PassingTest_1(~)
-      demo_replaceText_1
+      DemoScript_replaceText_1
     end  % function
 
     function PassingTest_2(~)
-      demo_replaceText_2
+      DemoScript_replaceText_2
     end  % function
 
     function Error_1(testcase)
@@ -51,17 +51,17 @@ classdef unittest_replaceText < matlab.unittest.TestCase
     end  % function
 
     function Error_2(testcase)
-      target_file = which("samplefile_replaceText.txt");
+      target_file = which("SampleFile_replaceText_1.txt");
       verifyError(testcase, @test_target, "replaceText:InvalidTextPattern")
-      function test_target()
+      function test_target
         SearchUtil1.replaceText(target_file)  % !test-target
       end  % function
     end  % function
 
     function Error_3(testcase)
-      target_file = which("samplefile_replaceText.txt");
+      target_file = which("SampleFile_replaceText_1.txt");
       verifyError(testcase, @test_target, "replaceText:InvalidNewText")
-      function test_target()
+      function test_target
         SearchUtil1.replaceText(target_file, TextPattern="programmatically")  % !test-target
       end  % function
     end  % function
@@ -69,7 +69,7 @@ classdef unittest_replaceText < matlab.unittest.TestCase
     %% Tests
 
     function Test_1(testcase)
-      target_file = which("samplefile_replaceText.txt");
+      target_file = which("SampleFile_replaceText_1.txt");
       original_lines = readlines(target_file);
       verifyTrue(testcase, contains(original_lines(2), "modified"))
 
@@ -88,19 +88,20 @@ classdef unittest_replaceText < matlab.unittest.TestCase
       % Use files some of which do not contain the search text.
       % Thus, the result of replaceText must contain 0 in the NumLines column.
 
+      % This file path search is case-insensitive.
       file_paths = matlab.buildtool.io.FileCollection.fromPaths(fullfile(pwd, "**", "sample*.txt")).paths';
       file_paths = extractAfter(file_paths, pwd + ("/"|"\"));
 
       result = SearchUtil1.replaceText( ...
         file_paths, ...
         DryRun = true, ...
-        TextPattern = alphanumericBoundary + ("cat"|"night") + alphanumericBoundary, ...
+        TextPattern = letterBoundary("start") + ("cat"|"night") + letterBoundary("end"), ...
         IgnoreCase = true, ...
         MatchWholeWord = false, ...
         NewText = "NewText");
 
       actual = result.NumLines;
-      expected = [1 0 0 0 0 1 0]';
+      expected = [0 1 0 0 0 0 1]';
       verifyEqual(testcase, actual, expected)
     end  % function
 

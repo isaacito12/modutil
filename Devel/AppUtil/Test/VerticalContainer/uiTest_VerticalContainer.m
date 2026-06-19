@@ -6,6 +6,9 @@ classdef uiTest_VerticalContainer < matlab.uitest.TestCase
   %
   % Table of Verifications, Assertions, and Other Qualifications
   % https://www.mathworks.com/help/matlab/matlab_prog/types-of-qualifications.html
+  %
+  % Test Browser
+  % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
   % Copyright 2026 The MathWorks, Inc.
 
@@ -18,18 +21,25 @@ classdef uiTest_VerticalContainer < matlab.uitest.TestCase
       % Close all before test
       close all
       bdclose all
+      evalin("base", "clearvars")
 
       % addTeardown adds a function which always runs after each test.
       % Even if the execution of a test ends with an error, the teardown function runs.
       addTeardown(testcase, @closeAllAfterTest)
       function closeAllAfterTest
-        % Close all figure windows. This closes not only the test targets but also other figure windows.
+        % Close/delete all figure windows. This closes/deletes not only the test targets but also
+        % all the other figure windows too to provide clean state for the next test.
         figs = findall(0, Type="Figure");
         if not(any(isempty(figs)))
           disp("Deleting figures (" + numel(figs) + ")")
           delete(figs)
         end  % if
+
         bdclose all
+
+        % Do not clear variables in the base workspace at the end of a test
+        % to make it easy to debug after test if necessary.
+
       end  % nested function
     end  % function
 
@@ -46,17 +56,11 @@ classdef uiTest_VerticalContainer < matlab.uitest.TestCase
     % Make sure there is no warning when opening an app.
 
     function app_launches_without_warnings_1(testcase)
-      verifyWarningFree(testcase, @() test_target)
-      function test_target
-        AppTest_VerticalContainer_1  % !test-target
-      end  % nested function
+      verifyWarningFree(testcase, @AppTest_VerticalContainer_1)
     end  % function
 
     function app_launches_without_warnings_2(testcase)
-      verifyWarningFree(testcase, @() test_target)
-      function test_target
-        AppTest_VerticalContainer_2  % !test-target
-      end  % nested function
+      verifyWarningFree(testcase, @AppTest_VerticalContainer_2)
     end  % function
 
     %% Color theme
@@ -70,9 +74,9 @@ classdef uiTest_VerticalContainer < matlab.uitest.TestCase
 
       end  % if
       app = AppTest_VerticalContainer_1;
-      app.Window.MainFigure.Theme = "dark";
+      app.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-AppTest_VerticalContainer_1-dark-1.png");
-      exportapp(app.Window.MainFigure, save_path)
+      exportapp(app.MainFigure, save_path)
     end  % function
 
     function LightTheme_1(~)
@@ -80,10 +84,10 @@ classdef uiTest_VerticalContainer < matlab.uitest.TestCase
       if isMATLABReleaseOlderThan("R2025a")
         save_path = fullfile(pwd, "screenshot-AppTest_VerticalContainer_1-24b-1.png");
       else
-        app.Window.MainFigure.Theme = "light";
+        app.MainFigure.Theme = "light";
         save_path = fullfile(pwd, "screenshot-AppTest_VerticalContainer_1-light-1.png");
       end  % if
-      exportapp(app.Window.MainFigure, save_path)
+      exportapp(app.MainFigure, save_path)
     end  % function
 
     % ---
@@ -96,9 +100,9 @@ classdef uiTest_VerticalContainer < matlab.uitest.TestCase
 
       end  % if
       app = AppTest_VerticalContainer_2;
-      app.Window.MainFigure.Theme = "dark";
+      app.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-AppTest_VerticalContainer_2-dark-1.png");
-      exportapp(app.Window.MainFigure, save_path)
+      exportapp(app.MainFigure, save_path)
     end  % function
 
     function LightTheme_2(~)
@@ -106,10 +110,10 @@ classdef uiTest_VerticalContainer < matlab.uitest.TestCase
       if isMATLABReleaseOlderThan("R2025a")
         save_path = fullfile(pwd, "screenshot-AppTest_VerticalContainer_2-24b-1.png");
       else
-        app.Window.MainFigure.Theme = "light";
+        app.MainFigure.Theme = "light";
         save_path = fullfile(pwd, "screenshot-AppTest_VerticalContainer_2-light-1.png");
       end  % if
-      exportapp(app.Window.MainFigure, save_path)
+      exportapp(app.MainFigure, save_path)
     end  % function
 
   end  % methods

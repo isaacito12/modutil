@@ -3,7 +3,7 @@ classdef TextSearchResultAppMain < handle
   %
   % This is the main implementation of the app.
 
-  % Copyright 2025 The MathWorks, Inc.
+  % Copyright 2025-2026 The MathWorks, Inc.
 
   properties (Access=private, Constant)
     errorID (1,1) string = "TextSearchResultAppMain:"
@@ -12,7 +12,6 @@ classdef TextSearchResultAppMain < handle
   properties
     TextSearcher (1,1) SearchUtil1.TextSearcher
     SearchResult table
-    TableUIHeight (1,1) {mustBePositive} = 100
     SearchTextPattern (1,1) string = ""
 
     % -------------------------------------------------------------------------
@@ -20,7 +19,7 @@ classdef TextSearchResultAppMain < handle
     Window AppUtil1.AppWindow
     NewSearchButtonUI AppUtil1.Component.Button
     CopyReplaceCommandTextUI AppUtil1.Component.Button
-    NewTextUI AppUtil1.Component.EditableDropDown
+    NewTextUI AppUtil1.Component.DropDown
     NumMatchesUI AppUtil1.Component.EditField
     TableUI AppUtil1.Component.Table
   end  % properties
@@ -52,7 +51,7 @@ classdef TextSearchResultAppMain < handle
       end  % arguments
 
       % -----------------------------------------------------------------------
-      % Before buidling app GUI
+      % Before building app GUI
 
       if not(ready(Searcher))
         id = App.errorID + "TextSearcherIsNotReady";
@@ -68,8 +67,6 @@ classdef TextSearchResultAppMain < handle
       else
         App.SearchResult = runSearch(App.TextSearcher);
       end  % if
-
-      App.TableUIHeight = min(500, 40 + 30*height(App.SearchResult));
 
       meta_data = metaclass(App);
 
@@ -99,17 +96,17 @@ classdef TextSearchResultAppMain < handle
 
     function build_app_gui(App)
       %%
-      main_vertical_container = App.Window.MainVerticalContainer;
+      main_v_container = App.Window.MainVerticalContainer;
 
       % =======================================================================
-      column_grid = addVerticalGridLayout(main_vertical_container);
-      horizontal_container = AppUtil1.HorizontalContainer(column_grid);
+      v_layout = addVerticalGridLayout(main_v_container);
+      h_container = AppUtil1.HorizontalContainer(v_layout);
 
-      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container, Width="fit"));
+      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(h_container, Width="fit"));
       label_ui.ComponentWidth = App.width_name_ui;
       label_ui.Text = "\textbf{" + CodeUtil1.i18n("Search conditions") + "}";
 
-      App.NewSearchButtonUI = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container));
+      App.NewSearchButtonUI = AppUtil1.Component.Button(addHorizontalGridLayout(h_container));
       App.NewSearchButtonUI.ButtonWidth = App.width_button;
       App.NewSearchButtonUI.HorizontalAlignment = "right";
       App.NewSearchButtonUI.Text = CodeUtil1.i18n("New search");
@@ -117,14 +114,14 @@ classdef TextSearchResultAppMain < handle
       App.NewSearchButtonUI.ButtonPushedCallback = @() react_NewSearch(App);
 
       % -----------------------------------------------------------------------
-      column_grid = addVerticalGridLayout(main_vertical_container);
-      horizontal_container = AppUtil1.HorizontalContainer(column_grid);
+      v_layout = addVerticalGridLayout(main_v_container);
+      h_container = AppUtil1.HorizontalContainer(v_layout);
 
-      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container, Width="fit"));
+      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(h_container, Width="fit"));
       label_ui.ComponentWidth = App.width_name_ui;
       label_ui.Text = CodeUtil1.i18n("Searched text");
 
-      editfield_ui = AppUtil1.Component.EditField(addHorizontalGridLayout(horizontal_container));
+      editfield_ui = AppUtil1.Component.EditField(addHorizontalGridLayout(h_container));
       editfield_ui.ReadOnly = "on";
       x = char(string(App.TextSearcher.States.SearchTextPattern));
       x = x(2:end-1);  % Remove double quotes...
@@ -132,14 +129,14 @@ classdef TextSearchResultAppMain < handle
       editfield_ui.Value = x;
 
       % -----------------------------------------------------------------------
-      column_grid = addVerticalGridLayout(main_vertical_container);
-      horizontal_container = AppUtil1.HorizontalContainer(column_grid);
+      v_layout = addVerticalGridLayout(main_v_container);
+      h_container = AppUtil1.HorizontalContainer(v_layout);
 
-      indent_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container, Width="fit"));
+      indent_ui = AppUtil1.Component.Label(addHorizontalGridLayout(h_container, Width="fit"));
       indent_ui.ComponentWidth = App.width_name_ui;
       indent_ui.Text = "";
 
-      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));
+      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(h_container));
       if App.TextSearcher.States.IgnoreCase
         label_ui.Text = CodeUtil1.i18n("Case ignored");
       else
@@ -147,14 +144,14 @@ classdef TextSearchResultAppMain < handle
       end  % if
 
       % -----------------------------------------------------------------------
-      column_grid = addVerticalGridLayout(main_vertical_container);
-      horizontal_container = AppUtil1.HorizontalContainer(column_grid);
+      v_layout = addVerticalGridLayout(main_v_container);
+      h_container = AppUtil1.HorizontalContainer(v_layout);
 
-      indent_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container, Width="fit"));
+      indent_ui = AppUtil1.Component.Label(addHorizontalGridLayout(h_container, Width="fit"));
       indent_ui.ComponentWidth = App.width_name_ui;
       indent_ui.Text = "";
 
-      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));
+      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(h_container));
       if App.TextSearcher.States.MatchWholeWord
         label_ui.Text = CodeUtil1.i18n("Match whole word");
       else
@@ -162,40 +159,40 @@ classdef TextSearchResultAppMain < handle
       end  % if
 
       % -----------------------------------------------------------------------
-      column_grid = addVerticalGridLayout(main_vertical_container);
-      horizontal_container = AppUtil1.HorizontalContainer(column_grid);
+      v_layout = addVerticalGridLayout(main_v_container);
+      h_container = AppUtil1.HorizontalContainer(v_layout);
 
-      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container, Width="fit"));
+      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(h_container, Width="fit"));
       label_ui.ComponentWidth = App.width_name_ui;
       label_ui.Text = CodeUtil1.i18n("File types");
 
-      editfield_ui = AppUtil1.Component.EditField(addHorizontalGridLayout(horizontal_container));
+      editfield_ui = AppUtil1.Component.EditField(addHorizontalGridLayout(h_container));
       editfield_ui.ReadOnly = "on";
       editfield_ui.Value = join(App.TextSearcher.States.FileTypes, ", ");
 
       % -----------------------------------------------------------------------
-      column_grid = addVerticalGridLayout(main_vertical_container);
-      horizontal_container = AppUtil1.HorizontalContainer(column_grid);
+      v_layout = addVerticalGridLayout(main_v_container);
+      h_container = AppUtil1.HorizontalContainer(v_layout);
 
-      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container, Width="fit"));
+      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(h_container, Width="fit"));
       label_ui.ComponentWidth = App.width_name_ui;
       label_ui.Text = CodeUtil1.i18n("Folder");
 
       target_folder = App.TextSearcher.States.TargetFolder;
 
-      editfield_ui = AppUtil1.Component.EditField(addHorizontalGridLayout(horizontal_container));
+      editfield_ui = AppUtil1.Component.EditField(addHorizontalGridLayout(h_container));
       editfield_ui.ReadOnly = "on";
       editfield_ui.Value = replace(target_folder, ("/"|"\"), " > ");
 
       % -----------------------------------------------------------------------
-      column_grid = addVerticalGridLayout(main_vertical_container);
-      horizontal_container = AppUtil1.HorizontalContainer(column_grid);
+      v_layout = addVerticalGridLayout(main_v_container);
+      h_container = AppUtil1.HorizontalContainer(v_layout);
 
-      indent_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container, Width="fit"));
+      indent_ui = AppUtil1.Component.Label(addHorizontalGridLayout(h_container, Width="fit"));
       indent_ui.ComponentWidth = App.width_name_ui;
       indent_ui.Text = "";
 
-      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container));
+      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(h_container));
       if App.TextSearcher.States.IncludeSubfolders
         label_ui.Text = CodeUtil1.i18n("Including subfolders");
       else
@@ -203,18 +200,18 @@ classdef TextSearchResultAppMain < handle
       end
 
       % =======================================================================
-      column_grid = addVerticalGridLayout(main_vertical_container);
-      AppUtil1.Component.HorizontalLine(column_grid);
+      v_layout = addVerticalGridLayout(main_v_container);
+      AppUtil1.Component.HorizontalLine(v_layout);
 
       % =======================================================================
-      column_grid = addVerticalGridLayout(main_vertical_container);
-      horizontal_container = AppUtil1.HorizontalContainer(column_grid);
+      v_layout = addVerticalGridLayout(main_v_container);
+      h_container = AppUtil1.HorizontalContainer(v_layout);
 
-      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container, Width="fit"));
+      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(h_container, Width="fit"));
       label_ui.ComponentWidth = App.width_name_ui;
       label_ui.Text = "\textbf{" + CodeUtil1.i18n("Replace") + "}";
 
-      App.CopyReplaceCommandTextUI = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container));
+      App.CopyReplaceCommandTextUI = AppUtil1.Component.Button(addHorizontalGridLayout(h_container));
       App.CopyReplaceCommandTextUI.ButtonWidth = App.width_button;
       App.CopyReplaceCommandTextUI.HorizontalAlignment = "right";
       App.CopyReplaceCommandTextUI.Text = CodeUtil1.i18n("Copy command");
@@ -223,49 +220,56 @@ classdef TextSearchResultAppMain < handle
       App.CopyReplaceCommandTextUI.ButtonPushedCallback = @() react_CopyReplaceCommandButtonPushed(App);
 
       % -----------------------------------------------------------------------
-      column_grid = addVerticalGridLayout(main_vertical_container);
-      horizontal_container = AppUtil1.HorizontalContainer(column_grid);
+      v_layout = addVerticalGridLayout(main_v_container);
+      h_container = AppUtil1.HorizontalContainer(v_layout);
 
-      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container, Width="fit"));
+      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(h_container, Width="fit"));
       label_ui.ComponentWidth = App.width_name_ui;
       label_ui.Text = CodeUtil1.i18n("New text");
 
-      App.NewTextUI = AppUtil1.Component.EditableDropDown(addHorizontalGridLayout(horizontal_container));
+      App.NewTextUI = AppUtil1.Component.DropDown(addHorizontalGridLayout(h_container));
+      App.NewTextUI.Editable = "on";
       App.NewTextUI.Items = "";
       App.NewTextUI.Value = "";
       App.NewTextUI.ValueChangedCallback = @() react_ReplaceDropDownChanged(App);
 
       % =======================================================================
-      column_grid = addVerticalGridLayout(main_vertical_container);
-      AppUtil1.Component.HorizontalLine(column_grid);
+      v_layout = addVerticalGridLayout(main_v_container);
+      AppUtil1.Component.HorizontalLine(v_layout);
 
       % -----------------------------------------------------------------------
-      column_grid = addVerticalGridLayout(main_vertical_container);
-      horizontal_container = AppUtil1.HorizontalContainer(column_grid);
+      v_layout = addVerticalGridLayout(main_v_container);
+      h_container = AppUtil1.HorizontalContainer(v_layout);
 
-      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(horizontal_container, Width="fit"));
+      label_ui = AppUtil1.Component.Label(addHorizontalGridLayout(h_container, Width="fit"));
       label_ui.ComponentWidth = App.width_name_ui;
-      label_ui.Text = CodeUtil1.i18n("Number of matches");
+      label_ui.Text = CodeUtil1.i18n("Number of matched lines");
 
-      App.NumMatchesUI = AppUtil1.Component.EditField(addHorizontalGridLayout(horizontal_container, Width="1x"));
+      App.NumMatchesUI = AppUtil1.Component.EditField(addHorizontalGridLayout(h_container, Width="1x"));
       App.NumMatchesUI.ReadOnly = "on";
       App.NumMatchesUI.Value = string(height(App.SearchResult));
 
-      button_ui = AppUtil1.Component.Button(addHorizontalGridLayout(horizontal_container, Width="fit"));
+      button_ui = AppUtil1.Component.Button(addHorizontalGridLayout(h_container, Width="fit"));
       button_ui.ButtonWidth = App.width_button;
       button_ui.Text = CodeUtil1.i18n("Refresh");
       button_ui.MainButton.Tooltip = CodeUtil1.i18n("Rerun search and update the result table.");
       button_ui.ButtonPushedCallback = @() react_RefreshButtonPushed(App);
 
       % -----------------------------------------------------------------------
-      column_grid = addVerticalGridLayout(main_vertical_container);
-      label_ui = AppUtil1.Component.Label(column_grid);
+      v_layout = addVerticalGridLayout(main_v_container);
+      label_ui = AppUtil1.Component.Label(v_layout);
       label_ui.Text = CodeUtil1.i18n("Double-click a table row to open the file.");
 
       % -----------------------------------------------------------------------
-      column_grid = addVerticalGridLayout(main_vertical_container, Height="1x");
-      App.TableUI = AppUtil1.Component.Table(column_grid);
-      App.TableUI.ComponentHeight = App.TableUIHeight;
+
+      % Expand the uitable vertically to fit the available height of the app window.
+      v_layout = addVerticalGridLayout(main_v_container, Height="1x");  % !vertical-expansion
+
+      App.TableUI = AppUtil1.Component.Table(v_layout);
+
+      % Expand the uitable vertically to fit the available height of the app window.
+      App.TableUI.ComponentHeight = "1x";  % !vertical-expansion
+
       App.TableUI.MainTable.Data = App.SearchResult(:, ["FilePath", "LineNumber", "LineText"]);
       App.TableUI.MainTable.ColumnName = [CodeUtil1.i18n("File path"), CodeUtil1.i18n("Line number"), CodeUtil1.i18n("Line text")];
       App.TableUI.MainTable.ColumnWidth = {'fit', 100, 'auto'};

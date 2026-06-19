@@ -31,7 +31,7 @@ classdef uitest_HorizontalLine < matlab.uitest.TestCase
             return
 
           end  % if
-          delete(testcase.App.Window.MainFigure)
+          delete(testcase.App.MainFigure)
         end  % if
         close all
         bdclose all
@@ -71,10 +71,10 @@ classdef uitest_HorizontalLine < matlab.uitest.TestCase
       testcase.App = apptest_HorizontalLine_1;
       drawnow
       if not(isMATLABReleaseOlderThan("R2025a"))
-        testcase.App.Window.MainFigure.Theme = "light";
+        testcase.App.MainFigure.Theme = "light";
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-1.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function DarkTheme_1(testcase)
@@ -86,7 +86,7 @@ classdef uitest_HorizontalLine < matlab.uitest.TestCase
 
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-dark-1.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
   end  % methods

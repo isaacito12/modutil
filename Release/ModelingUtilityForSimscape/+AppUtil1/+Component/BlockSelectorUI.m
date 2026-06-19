@@ -1,12 +1,11 @@
 classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
   % UI component for opening model and selecting block
 
-  % Copyright 2025 The MathWorks, Inc.
+  % Copyright 2025-2026 The MathWorks, Inc.
 
   properties (Constant, Access=private)
     errorID (1,1) string = "BlockSelectorUI:"
   end  % properties
-
   properties
 
     % -------------------------------------------------------------------------
@@ -69,6 +68,11 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
 
     HighlightedBlock (1,1) string = ""
 
+    NameUIWidth (1,1) {mustBeInteger, mustBePositive} = AppUtil1.Constant.Width{"unitwidth"} * 14
+
+    ButtonUIWidth (1,1) {mustBeInteger, mustBePositive} = AppUtil1.Constant.Width{"unitwidth"} * 12
+    MainButtonWidth (1,1) {mustBeInteger, mustBePositive} = AppUtil1.Constant.Width{"unitwidth"} * 11
+
     % To see outputs from the setup method, you must modify Reporting to "on" here:
     Reporting (1,1) matlab.lang.OnOffSwitchState = "off"
 
@@ -90,7 +94,6 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
     SetParametersToBlockUI AppUtil1.Component.Button
 
   end  % properties
-
   properties (Dependent)
 
     % Assign a full path to a model file to this property, and it adds
@@ -99,7 +102,7 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
     % the existing item is selected.
     %
     % The target block is also selected. If the model has more than two blocks
-    % that matche TargetSimscapeBlockNames, the first match is selected.
+    % that match TargetSimscapeBlockNames, the first match is selected.
     ModelFileFullPath (1,1) string
 
     % Assign a block path to this property, and it selects the Block path drop down.
@@ -107,23 +110,26 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
     BlockPath (1,1) string
 
   end  % properties
-
   properties
+
     WorkingFolder (1,1) string
 
     % Callbacks may not work until components are initialized.
     Initialized (1,1) logical = false
-  end  % properties
 
+  end  % properties
   properties (Constant, Access=private)
+
     common_ui_height = AppUtil1.Constant.Height{"oneline++"}
 
-    unit_ui_width = AppUtil1.Constant.Width{"unitwidth"}
-    button_width = AppUtil1.Constant.Width{"unitwidth"} * 12
-  end  % properties
+    % unit_ui_width = AppUtil1.Constant.Width{"unitwidth"}
+    % button_width = AppUtil1.Constant.Width{"unitwidth"} * 12
 
+  end  % properties
   properties (Access=private)
+
     current_modelfile_fullpath (1,1) string = ""
+
   end  % properties
 
   methods
@@ -144,6 +150,10 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
         ModelFilePath (1,1) string = ""
       end  % arguments
 
+      if component.Reporting
+        FileUtil1.displayTimeAndFileLocation()
+      end  % if
+
       if ModelFilePath == ""
         component.current_modelfile_fullpath = "";
         component.ModelFileDropDownUI.Value = "";
@@ -163,10 +173,6 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
 
       component.current_modelfile_fullpath = ModelFilePath;
       component.WorkingFolder = fileparts(ModelFilePath);
-      cd(component.WorkingFolder)
-      if component.Reporting
-        FileUtil1.displayTimeAndFileLocation(pwd)
-      end  % if
 
       display_path = replace(ModelFilePath, ("/"|"\"), " > ");
 
@@ -248,7 +254,6 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
 
       modelfile_fullpath = replace(selected_modelfile_dropdown_item, " > ", filesep);
       [component.WorkingFolder, component.ModelName, ~] = fileparts(modelfile_fullpath);
-      cd(component.WorkingFolder)
       if component.Reporting
         FileUtil1.displayTimeAndFileLocation(pwd)
       end  % if
@@ -420,6 +425,10 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
         NameValuePair.ModelFileFullPath (1,1) string = ""
       end  % arguments
 
+      if component.Reporting
+        FileUtil1.displayTimeAndFileLocation()
+      end  % if
+
       if NameValuePair.ModelFileFullPath ~= ""
         % ModelFileFullPath option was specified.
         component.ModelFileFullPath = NameValuePair.ModelFileFullPath;
@@ -444,10 +453,6 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
           return
 
         end  % if
-      end  % if
-      cd(component.WorkingFolder)
-      if component.Reporting
-        FileUtil1.displayTimeAndFileLocation(pwd)
       end  % if
 
       component.ModelFileDropDownUI.MainDropDown.Enable = "on";
@@ -485,7 +490,7 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
       if selected_block_display_path == ""
         % Empty drop down item was selected.
 
-        % Use MainDropDown.Value to avoid infinitely trigerring the ValueChanged callback.
+        % Use MainDropDown.Value to avoid infinitely triggering the ValueChanged callback.
         component.BlockPathDropDownUI.MainDropDown.Value = "";
 
         component.BlockPathDropDownUI.MainDropDown.Tooltip = "";
@@ -570,14 +575,13 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
       if component.HilitBlockUI.Value
         % Make the target system/subsystem visible with open_system, then
         % highlight the target block in that system with hilit_system.
+
+        if component.Reporting
+          FileUtil1.displayTimeAndFileLocation("Hilit")
+        end  % if
+
         % Calling open_system for the containing system rather than the target block
         % prevents the Block Parameters window from opening.
-
-        model_folder_fullpath = fileparts(component.ModelFileFullPath);
-        cd(model_folder_fullpath)
-        if component.Reporting
-          FileUtil1.displayTimeAndFileLocation(pwd)
-        end  % if
         open_system(block_path)
 
         if getSimulinkBlockHandle(block_path) <= 0
@@ -624,8 +628,6 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
       % processed after this method finished.
       % To access the user-specified property values, use the update method.
 
-      label_width = component.unit_ui_width * 9;
-
       % Create three rows.
       % The first and third rows contain UI components while the second row is a spacer.
       component.base_grid.RowHeight = {component.common_ui_height, 4, component.common_ui_height};
@@ -649,7 +651,7 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
       component.ModelFileTextUI.Layout.Row = 1;
       component.ModelFileTextUI.Layout.Column = 1;
       component.ModelFileTextUI.Text = CodeUtil1.i18n("Model file");
-      component.ModelFileTextUI.ComponentWidth = label_width;
+      component.ModelFileTextUI.ComponentWidth = component.NameUIWidth;
 
       component.ModelFileDropDownUI = AppUtil1.Component.DropDown(component.ModelRow);
       component.ModelFileDropDownUI.Layout.Row = 1;
@@ -662,10 +664,9 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
       component.OpenModelUI = AppUtil1.Component.Button(component.ModelRow);
       component.OpenModelUI.Layout.Row = 1;
       component.OpenModelUI.Layout.Column = 3;
-      component.OpenModelUI.ComponentWidth = component.button_width;
-      component.OpenModelUI.ButtonWidth = component.button_width - 8;
-      component.OpenModelUI.Text = CodeUtil1.i18n("Open model");
-      component.OpenModelUI.MainButton.Icon = fullfile(matlabroot, "toolbox", "matlab", "icons", "simulinkicon.gif");
+      component.OpenModelUI.ComponentWidth = component.ButtonUIWidth;
+      component.OpenModelUI.ButtonWidth = component.MainButtonWidth;
+      component.OpenModelUI.Text = CodeUtil1.i18n("Open model...");
       component.OpenModelUI.ButtonPushedCallback = @() callback_open_model(component);
 
       % -----------------------------------------------------------------------
@@ -687,7 +688,7 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
       component.BlockPathTextUI = AppUtil1.Component.Label(component.BlockRow);
       component.BlockPathTextUI.Layout.Row = 1;
       component.BlockPathTextUI.Layout.Column = 1;
-      component.BlockPathTextUI.ComponentWidth = label_width;
+      component.BlockPathTextUI.ComponentWidth = component.NameUIWidth;
       component.BlockPathTextUI.ComponentHeight = component.common_ui_height;
       component.BlockPathTextUI.Text = CodeUtil1.i18n("Block path");
 
@@ -703,8 +704,8 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
       component.HilitBlockUI = AppUtil1.Component.StateButton(component.BlockRow);
       component.HilitBlockUI.Layout.Row = 1;
       component.HilitBlockUI.Layout.Column = 3;
-      component.HilitBlockUI.ComponentWidth = component.button_width;
-      component.HilitBlockUI.ButtonWidth = component.button_width - 8;
+      component.HilitBlockUI.ComponentWidth = component.ButtonUIWidth;
+      component.HilitBlockUI.ButtonWidth = component.MainButtonWidth;
       component.HilitBlockUI.Text = CodeUtil1.i18n("Highlight");
       component.HilitBlockUI.MainButton.Icon = fullfile(matlabroot, "toolbox", "matlab", "icons", "demoicon.gif");
       component.HilitBlockUI.MainButton.Tooltip = CodeUtil1.i18n("Open the model, and highlight or dehighlight the selected block.");
@@ -714,8 +715,8 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
       component.GetParametersFromBlockUI = AppUtil1.Component.Button(component.BlockRow);
       component.GetParametersFromBlockUI.Layout.Row = 1;
       component.GetParametersFromBlockUI.Layout.Column = 4;
-      component.GetParametersFromBlockUI.ComponentWidth = component.button_width;
-      component.GetParametersFromBlockUI.ButtonWidth = component.button_width - 8;
+      component.GetParametersFromBlockUI.ComponentWidth = component.ButtonUIWidth;
+      component.GetParametersFromBlockUI.ButtonWidth = component.MainButtonWidth;
       component.GetParametersFromBlockUI.Text = CodeUtil1.i18n("Get");
       component.GetParametersFromBlockUI.MainButton.Icon = fullfile(matlabroot, "toolbox", "matlab", "icons", "greencircleicon.gif");
       component.GetParametersFromBlockUI.MainButton.Tooltip = CodeUtil1.i18n("Get parameters from the selected block.");
@@ -725,8 +726,8 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
       component.SetParametersToBlockUI = AppUtil1.Component.Button(component.BlockRow);
       component.SetParametersToBlockUI.Layout.Row = 1;
       component.SetParametersToBlockUI.Layout.Column = 5;
-      component.SetParametersToBlockUI.ComponentWidth = component.button_width;
-      component.SetParametersToBlockUI.ButtonWidth = component.button_width - 8;
+      component.SetParametersToBlockUI.ComponentWidth = component.ButtonUIWidth;
+      component.SetParametersToBlockUI.ButtonWidth = component.MainButtonWidth;
       component.SetParametersToBlockUI.Text = CodeUtil1.i18n("Set");
       component.SetParametersToBlockUI.MainButton.Icon = fullfile(matlabroot, "toolbox", "matlab", "icons", "greenarrowicon.gif");
       component.SetParametersToBlockUI.MainButton.Tooltip = CodeUtil1.i18n("Set parameters to the selected block.");
@@ -775,7 +776,7 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
       % This runs only once after the first call to the drawnow,
       % which takes place after the setup method and property assignments finished.
       % Use this function to fix UI settings based on user specified property values,
-      % including the deletion of unecessary UI components.
+      % including the deletion of unnecessarily UI components.
       if component.Reporting
         FileUtil1.displayTimeAndFileLocation("first update")
       end  % if
@@ -787,15 +788,6 @@ classdef BlockSelectorUI < AppUtil1.Component.ComponentBase
         throw(MException(id, msg))
 
       end  % if
-
-      component.ModelFileTextUI.MainFigure = component.MainFigure;
-      component.ModelFileDropDownUI.MainFigure = component.MainFigure;
-      component.OpenModelUI.MainFigure = component.MainFigure;
-      component.BlockPathTextUI.MainFigure = component.MainFigure;
-      component.BlockPathDropDownUI.MainFigure = component.MainFigure;
-      component.HilitBlockUI.MainFigure = component.MainFigure;
-      component.GetParametersFromBlockUI.MainFigure = component.MainFigure;
-      component.SetParametersToBlockUI.MainFigure = component.MainFigure;
 
       if component.GetOnly
         % Hide the "Set" button.

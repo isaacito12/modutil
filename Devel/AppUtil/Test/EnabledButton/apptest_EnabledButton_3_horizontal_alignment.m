@@ -76,7 +76,7 @@ main_figure.Visible = "on";
 drawnow
 if nargout > 0
   App = struct;
-  App.Window.MainFigure = main_figure;
+  App.MainFigure = main_figure;
   App.EnabledButtonUI = enabled_button_ui_C2;
 end % if
 end  % function

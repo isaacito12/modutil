@@ -1,7 +1,6 @@
 function App = apptest_Panel_8_scatterhistogram
-% scatterhistogram in Panel
 
-% Copyright 2025 The MathWorks, Inc.
+% Copyright 2025-2026 The MathWorks, Inc.
 
 arguments (Output)
   App (:,1) struct
@@ -11,33 +10,36 @@ main_figure = uifigure(Visible="off");
 main_figure.Position(3) = 600;  % width
 main_figure.Position(4) = 420;  % height
 
-main_vertical_container = AppUtil1.VerticalContainer(main_figure);
-
-build_gui(main_vertical_container);
-
-%%
 if not(isMATLABReleaseOlderThan("R2025a"))
   main_figure.Theme = "light";
 end  % if
 
+main_v_container = AppUtil1.VerticalContainer(main_figure);
+
+% -----------------------------------------------------------------------------
+
+build_gui(main_v_container);
+
+% -----------------------------------------------------------------------------
 movegui(main_figure, "center")
 main_figure.Visible = "on";
 drawnow
 if nargout > 0
   App = struct;
-  App.Window.MainFigure = main_figure;
+  App.MainFigure = main_figure;
 end  % if
 end  % function
 
-function build_gui(vertical_container)
+function build_gui(v_container)
 %%
 arguments (Input)
-  vertical_container (1,1) AppUtil1.VerticalContainer
+  v_container (1,1) AppUtil1.VerticalContainer
 end  % arguments
 
-panel_ui = AppUtil1.Graphics.Panel(addVerticalGridLayout(vertical_container));  % !test-target
+v_layout = addVerticalGridLayout(v_container);
+panel_ui = AppUtil1.Graphics.Panel(v_layout);  % !test-target
 panel_ui.ComponentHeight = 380;
-% panel_ui.HighlightBackground = "on";
+panel_ui.HighlightBackground = "on";
 panel = panel_ui.MainPanel;
 
 Data1 = [93	77	83	75	80	70	88	82	78	86	77	68	74	95	79	92	95 ...

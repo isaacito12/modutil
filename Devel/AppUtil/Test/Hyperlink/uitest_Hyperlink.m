@@ -31,7 +31,7 @@ classdef uitest_Hyperlink < matlab.uitest.TestCase
             return
 
           end  % if
-          delete(testcase.App.Window.MainFigure)
+          delete(testcase.App.MainFigure)
         end  % if
         close all
         bdclose all
@@ -78,20 +78,20 @@ classdef uitest_Hyperlink < matlab.uitest.TestCase
       testcase.App = apptest_Hyperlink_1_simplest;
       drawnow
       if not(isMATLABReleaseOlderThan("R2025a"))
-        testcase.App.Window.MainFigure.Theme = "light";
+        testcase.App.MainFigure.Theme = "light";
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-1.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function LightTheme_2(testcase)
       testcase.App = apptest_Hyperlink_2_inner_align;
       drawnow
       if not(isMATLABReleaseOlderThan("R2025a"))
-        testcase.App.Window.MainFigure.Theme = "light";
+        testcase.App.MainFigure.Theme = "light";
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-2.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function DarkTheme_1(testcase)
@@ -103,7 +103,7 @@ classdef uitest_Hyperlink < matlab.uitest.TestCase
 
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-dark-1.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
     function DarkTheme_2(testcase)
@@ -115,7 +115,7 @@ classdef uitest_Hyperlink < matlab.uitest.TestCase
 
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-dark-2.png");
-      exportapp(testcase.App.Window.MainFigure, save_path)
+      exportapp(testcase.App.MainFigure, save_path)
     end  % function
 
   end  % methods

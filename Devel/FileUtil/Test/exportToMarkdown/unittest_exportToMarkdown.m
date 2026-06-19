@@ -50,14 +50,6 @@ classdef unittest_exportToMarkdown < matlab.unittest.TestCase
     end  % function
 
     function PassingTest_1(testcase)
-      if matlabRelease.Release == "R2026a"
-        FileUtil1.displayTimeAndFileLocation("R2026a");
-        verifyFail(testcase, "Not performing this test for now.")
-
-        return
-
-      end  % if
-
       target_file = "sampleScript_exportToMarkdown_1";
       target_fullpath = which(target_file);
       verifyTrue(testcase, not(isempty(target_fullpath)))
@@ -70,13 +62,6 @@ classdef unittest_exportToMarkdown < matlab.unittest.TestCase
     end  % function
 
     function PassingTest_2(testcase)
-      if matlabRelease.Release == "R2026a"
-        FileUtil1.displayTimeAndFileLocation("R2026a");
-        verifyFail(testcase, "Not performing this test for now.")
-
-        return
-
-      end  % if
       if isMATLABReleaseOlderThan("R2025a")
         % R2024b or older
         FileUtil1.displayTimeAndFileLocation("Plain-text Live Script is supported in R2025a or newer.");
@@ -98,13 +83,6 @@ classdef unittest_exportToMarkdown < matlab.unittest.TestCase
     end  % function
 
     function PassingTest_3(testcase)
-      if matlabRelease.Release == "R2026a"
-        FileUtil1.displayTimeAndFileLocation("R2026a");
-        verifyFail(testcase, "Not performing this test for now.")
-
-        return
-
-      end  % if
       if isMATLABReleaseOlderThan("R2025a")
         % R2024b or older
         FileUtil1.displayTimeAndFileLocation("Plain-text Live Script is supported in R2025a or newer.");
