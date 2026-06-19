@@ -11,11 +11,7 @@
 
 # Copyright 2025-2026 The MathWorks, Inc.
 
-<<<<<<< HEAD
 name: R2026a in Linux for Devel-folder workflow
-=======
-name: Devel-folder R2026a Linux
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 
 on:
   push:
