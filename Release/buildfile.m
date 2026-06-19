@@ -1,10 +1,7 @@
 function plan = buildfile
 % Define tasks for the buildtool to check code and run tests.
-<<<<<<< HEAD
 %   buildtool -verbosity Verbose Test
 %   buildtool -buildFile Release/buildfile.m -verbosity Verbose Test
-=======
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 
 % Overview of MATLAB Build Tool
 % https://www.mathworks.com/help/matlab/matlab_prog/overview-of-matlab-build-tool.html
@@ -31,19 +28,12 @@ plan("CodeIssues") = matlab.buildtool.tasks.CodeIssuesTask( ...
   SourceFiles = ["**/*.m", "**/*.mlx"], ...
   Results = "code-issues.sarif" );
 
-% If the following Test plan is enabled, they can run as follows.
-%   buildtool -verbosity Verbose Test
-%{
 plan("Test") = matlab.buildtool.tasks.TestTask( ...
   Dependencies = "DisplayRelease", ...
   ...
   SourceFiles = ["**/*.m", "**/*.mlx"], ...
   TestResults = "test-result/test-result.xml", ...
   CodeCoverageResults = "test-result/code-coverage.xml" );
-<<<<<<< HEAD
-=======
-%}
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 
 end  % function
 
