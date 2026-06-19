@@ -26,26 +26,4 @@ assertSuccess(results)
 
 disp(cov_result_1.Result)
 
-<<<<<<< HEAD
-=======
-all_results = cov_result_1.Result;
-
-if startsWith(pwd, "C:\local")
-
-  % Assigning the return value prevents the HTML report window from showing up.
-  % https://www.mathworks.com/help/matlab-test/ref/matlab.coverage.result.generatestandalonereport.html
-  % Since R2024a
-  p = generateStandaloneReport(all_results, ...
-    fullfile(pwd, "code-coverage-report.html"), ...
-    MetricLevel = "statement");  %#ok<NASGU> % decision, condition do not work.
-
-end  % if
-
-% Unlike the HTML generators, this does not return the path to the generated report.
-% https://www.mathworks.com/help/matlab/ref/matlab.coverage.result.generatecoberturareport.html
-% Since R2023a
-generateCoberturaReport(all_results, ...
-  fullfile(pwd, "code-coverage.xml"))
-
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 end  % function
