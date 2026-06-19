@@ -13,11 +13,7 @@ classdef uiUptodateTest_PhysicalUnitLabel < matlab.uitest.TestCase
   % Copyright 2026 The MathWorks, Inc.
 
   properties
-<<<<<<< HEAD
     % Some of the tests in this class run only if test is running locally under the LocalTopFolder.
-=======
-    % Some tests run only if test is running locally under the LocalTopFolder.
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
     LocalTopFolder (1,1) pattern = "C:\local"
   end  % properties
 
@@ -25,45 +21,30 @@ classdef uiUptodateTest_PhysicalUnitLabel < matlab.uitest.TestCase
     % Functions in this "TestMethodSetup" section always run before
     % each test defined in the "Test" section runs.
 
-<<<<<<< HEAD
     function test_method_setup_1(testcase)
-=======
-    function test_method_setup(testcase)
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
       %%
       % Close all before test
       close all
       bdclose all
-<<<<<<< HEAD
       evalin("base", "clearvars")
-=======
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 
       % addTeardown adds a function which always runs after each test.
       % Even if the execution of a test ends with an error, the teardown function runs.
       addTeardown(testcase, @closeAllAfterTest)
       function closeAllAfterTest
-<<<<<<< HEAD
         % Close/delete all figure windows. This closes/deletes not only the test targets but also
         % all the other figure windows too to provide clean state for the next test.
-=======
-        % Close all figure windows. This closes not only the test targets but also other figure windows.
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
         figs = findall(0, Type="Figure");
         if not(any(isempty(figs)))
           disp("Deleting figures (" + numel(figs) + ")")
           delete(figs)
         end  % if
-<<<<<<< HEAD
 
         bdclose all
 
         % Do not clear variables in the base workspace at the end of a test
         % to make it easy to debug after test if necessary.
 
-=======
-        bdclose all
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
       end  % nested function
     end  % function
 
@@ -99,15 +80,9 @@ classdef uiUptodateTest_PhysicalUnitLabel < matlab.uitest.TestCase
 
       if needs_update
         app = DemoApp_PhysicalUnitLabel_1_simplest;  % !screenshot-target
-<<<<<<< HEAD
         app.MainFigure.Theme = "dark";
         drawnow
         exportapp(app.MainFigure, destination_fullpath)
-=======
-        app.Window.MainFigure.Theme = "dark";
-        drawnow
-        exportapp(app.Window.MainFigure, destination_fullpath)
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
       else
         disp("The screenshot is up to date.")
       end  % if
@@ -145,15 +120,9 @@ classdef uiUptodateTest_PhysicalUnitLabel < matlab.uitest.TestCase
 
       if needs_update
         app = DemoApp_PhysicalUnitLabel_1_simplest;  % !screenshot-target
-<<<<<<< HEAD
         app.MainFigure.Theme = "light";
         drawnow
         exportapp(app.MainFigure, destination_fullpath)
-=======
-        app.Window.MainFigure.Theme = "light";
-        drawnow
-        exportapp(app.Window.MainFigure, destination_fullpath)
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
       else
         disp("The screenshot is up to date.")
       end  % if

@@ -375,13 +375,8 @@ classdef SignalDesignAppMain < handle
       % Disable plot auto-update. Restore it at the end of this function.
       % !attention: This logic is vulnerable if there is an error before
       % reaching the end of this function.
-<<<<<<< HEAD
       previous_auto_plot_state = App.UpdateButtonUI.CheckBoxUI.Value;
       App.UpdateButtonUI.CheckBoxUI.Value = false;
-=======
-      previous_auto_plot_state = App.PlotButtonUI.CheckBoxUI.Value;
-      App.PlotButtonUI.CheckBoxUI.Value = false;
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 
       % -----------------------------------------------------------------------
       block_path = App.SelectorUI.BlockPath;

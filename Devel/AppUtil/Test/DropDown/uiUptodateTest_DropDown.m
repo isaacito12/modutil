@@ -13,10 +13,7 @@ classdef uiUptodateTest_DropDown < matlab.uitest.TestCase
   % Copyright 2026 The MathWorks, Inc.
 
   properties
-<<<<<<< HEAD
     % Some of the tests in this class run only if test is running locally under the LocalTopFolder.
-=======
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
     LocalTopFolder (1,1) pattern = "C:\local"
   end  % properties
 

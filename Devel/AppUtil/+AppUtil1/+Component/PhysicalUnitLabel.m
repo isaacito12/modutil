@@ -1,13 +1,7 @@
 classdef PhysicalUnitLabel < AppUtil1.Component.ComponentBase
-<<<<<<< HEAD
   % Label UI component for displaying a physical unit.
   %
   % The text must be valid as Simscape's physical unit or a custom alias when unit is "1".
-=======
-  % Label component for displaying a physical unit.
-  % Label text is validated to be compatible with Simscape's physical unit or 
-  % an alias for the unit "1".
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 
   % Copyright 2026 The MathWorks, Inc.
 
@@ -17,11 +11,7 @@ classdef PhysicalUnitLabel < AppUtil1.Component.ComponentBase
   properties (Dependent)
 
     % UnitText corresponds to simscape.Unit's unit text.
-<<<<<<< HEAD
     % When this is "1", a custom alias can be defined (but optional).
-=======
-    % If unit alias is defined, this is "1".
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
     UnitText (1,1) string
 
     % UnitAlias is an alternative text for the unit "1".
@@ -33,11 +23,7 @@ classdef PhysicalUnitLabel < AppUtil1.Component.ComponentBase
 
     LabelUI AppUtil1.Component.Label
 
-<<<<<<< HEAD
     UnitChangedCallback {CodeUtil1.mustBeFunctionHandleOrEmpty} = []
-=======
-    UnitLabelChangedCallback {CodeUtil1.mustBeFunctionHandleOrEmpty} = []
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 
     ComponentWidth (1,:) {CodeUtil1.mustBeTextOrPositiveNumber} = "1x"
     ComponentHeight (1,:) {CodeUtil1.mustBeTextOrPositiveNumber} = AppUtil1.Constant.Height{"oneline++"}
@@ -51,13 +37,6 @@ classdef PhysicalUnitLabel < AppUtil1.Component.ComponentBase
     % If unit alias is specified, this is "1".
     CurrentUnitText (1,1) string = ""
 
-<<<<<<< HEAD
-=======
-%{
-    main_layout (1,1) matlab.ui.container.GridLayout
-%}
-
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
   end  % properties
   properties
     % The Reporting property is for testing purpose only.
@@ -80,22 +59,6 @@ classdef PhysicalUnitLabel < AppUtil1.Component.ComponentBase
       %%
       setup@AppUtil1.Component.ComponentBase(component)
 
-<<<<<<< HEAD
-=======
-%{
-      % The main layout of this component contains all the UI components.
-      % In this component, AppUtil's Label is the only UI component.
-      component.main_layout = uigridlayout(component.base_grid, [1 1]);
-      component.main_layout.Layout.Row = 1;
-      component.main_layout.Layout.Column = 1;
-      component.main_layout.Padding = [0 0 0 0];  % left bottom right top
-      component.main_layout.ColumnSpacing = 0;
-      component.main_layout.RowSpacing = 0;
-
-      component.LabelUI = AppUtil1.Component.Label(component.main_layout);
-%}
-
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
       component.LabelUI = AppUtil1.Component.Label(component.main_grid);
 
       % Use semicolon to ignore and suppress the return value.
@@ -106,12 +69,6 @@ classdef PhysicalUnitLabel < AppUtil1.Component.ComponentBase
       component.ComponentWidth = "1x";
       component.ComponentHeight = AppUtil1.Constant.Height{"oneline++"};
 
-<<<<<<< HEAD
-=======
-      % component.LabelUI.ComponentWidth = component.ComponentWidth;
-      % component.LabelUI.ComponentHeight = component.ComponentHeight;
-
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
       component.LabelUI.Text = "1";
       component.CurrentUnitText = "1";
 
@@ -126,19 +83,6 @@ classdef PhysicalUnitLabel < AppUtil1.Component.ComponentBase
 
       component.LabelUI.ComponentWidth = component.ComponentWidth;
       component.LabelUI.ComponentHeight = component.ComponentHeight;
-<<<<<<< HEAD
-=======
-
-      if component.HighlightBackground
-        component.LabelUI.HighlightBackground = "on";
-        % switch component.ThemeNameForBackGroundHighlight
-        %   case "light"
-        %     component.main_grid.BackgroundColor = component.LightThemeBackGroundColor;
-        %   case "dark"
-        %     component.main_grid.BackgroundColor = component.DarkThemeBackGroundColor;
-        % end  % switch
-      end  % if
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
     end  % function
 
   end  % methods
@@ -306,15 +250,9 @@ classdef PhysicalUnitLabel < AppUtil1.Component.ComponentBase
   methods (Access=private)
 
     function reactToUnitLabelChanged(component)
-<<<<<<< HEAD
       if not(isempty(component.UnitChangedCallback))
         % If not empty, the property validation guarantees it is a function handle.
         component.UnitChangedCallback()
-=======
-      if not(isempty(component.UnitLabelChangedCallback))
-        % If not empty, the property validation guarantees it is a function handle.
-        component.UnitLabelChangedCallback()
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
       end  % if
     end  % function
 

@@ -43,11 +43,7 @@ main_figure.Visible = "on";
 drawnow
 if nargout > 0
   App = struct;
-<<<<<<< HEAD
   App.MainFigure = main_figure;
-=======
-  App.Window.MainFigure = main_figure;
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
   App.PhysicalValueWithUnitLabel_1 = physval_ui_1;
   App.PhysicalValueWithUnitLabel_2 = physval_ui_2;
 end  % if

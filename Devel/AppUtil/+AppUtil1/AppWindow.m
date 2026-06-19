@@ -71,13 +71,8 @@ classdef AppWindow < handle
 
       AppWindow.Icon = AppWindow.DefaultIcon;
 
-<<<<<<< HEAD
       v_layout = addVerticalGridLayout(AppWindow.MainVerticalContainer);
       AppWindow.HeaderUI = AppUtil1.Component.WindowHeader(v_layout);
-=======
-      v_gridlayout = addVerticalGridLayout(AppWindow.MainVerticalContainer);
-      AppWindow.HeaderUI = AppUtil1.Component.WindowHeader(v_gridlayout);
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
       AppWindow.HeaderUI.AppSourceName = NameValuePair.SourceFile;
       AppWindow.HeaderUI.Reporting = NameValuePair.Reporting;
     end  % function

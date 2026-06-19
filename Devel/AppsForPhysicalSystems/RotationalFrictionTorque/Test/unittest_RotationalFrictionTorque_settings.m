@@ -1,8 +1,4 @@
-<<<<<<<< HEAD:Devel/AppsForPhysicalSystems/RotationalFrictionTorque/Test/unittest_RotationalFrictionTorque_settings.m
 classdef unittest_RotationalFrictionTorque_settings < matlab.unittest.TestCase
-========
-classdef unittest_Vehicle1D_settings < matlab.unittest.TestCase
->>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3:Devel/AppsForPhysicalSystems/Vehicle1D/Test/unittest_Vehicle1D_settings.m
   % Class-based unit test
 
   % Author Class-Based Unit Tests in MATLAB
@@ -38,11 +34,7 @@ classdef unittest_Vehicle1D_settings < matlab.unittest.TestCase
 
     function saved_release_2(testcase)
       % Check that the model was saved in the expected MATLAB Release.
-<<<<<<<< HEAD:Devel/AppsForPhysicalSystems/RotationalFrictionTorque/Test/unittest_RotationalFrictionTorque_settings.m
       info = Simulink.MDLInfo("RotationalFrictionTorque_SampleModel_refsub_24b");
-========
-      info = Simulink.MDLInfo("SampleModel_Vehicle1D_refsub_24b");
->>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3:Devel/AppsForPhysicalSystems/Vehicle1D/Test/unittest_Vehicle1D_settings.m
       verifyEqual(testcase, info.ReleaseName, 'R2024b')
     end  % function
 

@@ -42,13 +42,8 @@ __MWOPC_PART_BEGIN__ /metadata/coreProperties.xml
   <dcterms:created xsi:type="dcterms:W3CDTF">2025-11-28T09:08:10Z</dcterms:created>
   <dc:creator>isaacito</dc:creator>
   <cp:lastModifiedBy>isaacito</cp:lastModifiedBy>
-<<<<<<<< HEAD:Devel/AppsForPhysicalSystems/RotationalFrictionTorque/RotationalFrictionTorque_SampleModel_refsub_24b.mdl
   <dcterms:modified xsi:type="dcterms:W3CDTF">2026-05-28T10:12:07Z</dcterms:modified>
   <cp:revision>1.6</cp:revision>
-========
-  <dcterms:modified xsi:type="dcterms:W3CDTF">2026-05-05T12:20:17Z</dcterms:modified>
-  <cp:revision>1.12</cp:revision>
->>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3:Release/ModelingUtilityForSimscape/SampleModel_AbstractMotor_refsub_24b.mdl
   <cp:version>R2024b</cp:version>
 </cp:coreProperties>
 
@@ -80,13 +75,8 @@ __MWOPC_PART_BEGIN__ /metadata/mwcorePropertiesReleaseInfo.xml
 __MWOPC_PART_BEGIN__ /simulink/_rels/blockdiagram.xml.rels
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
-<<<<<<<< HEAD:Devel/AppsForPhysicalSystems/RotationalFrictionTorque/RotationalFrictionTorque_SampleModel_refsub_24b.mdl
   <Relationship Id="SimscapeInstrumentationVariables_1" Target="bdmxdata/SimscapeInstrumentationVariables_1.mxarray" Type="http://schemas.mathworks.com/simulinkModel/2015/relationships/modelMxArray"/>
   <Relationship Id="SimscapeInstrumentationVariables_2" Target="bdmxdata/SimscapeInstrumentationVariables_2.mxarray" Type="http://schemas.mathworks.com/simulinkModel/2015/relationships/modelMxArray"/>
-========
-  <Relationship Id="SimscapeInstrumentationVariables_7" Target="bdmxdata/SimscapeInstrumentationVariables_7.mxarray" Type="http://schemas.mathworks.com/simulinkModel/2015/relationships/modelMxArray"/>
-  <Relationship Id="SimscapeInstrumentationVariables_8" Target="bdmxdata/SimscapeInstrumentationVariables_8.mxarray" Type="http://schemas.mathworks.com/simulinkModel/2015/relationships/modelMxArray"/>
->>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3:Release/ModelingUtilityForSimscape/SampleModel_AbstractMotor_refsub_24b.mdl
   <Relationship Id="graphicalInterface" Target="graphicalInterface.json" Type="http://schemas.mathworks.com/simulinkModel/2014/relationships/graphicalInterface"/>
   <Relationship Id="system_root" Target="systems/system_root.xml" Type="http://schemas.mathworks.com/simulink/2010/relationships/system"/>
   <Relationship Id="windowsInfo" Target="windowsInfo.xml" Type="http://schemas.mathworks.com/simulinkModel/2019/relationships/windowsInfo"/>
@@ -110,7 +100,7 @@ __MWOPC_PART_BEGIN__ /simulink/bddefaults.xml
   </MaskDefaults>
 </BlockDiagramDefaults>
 
-__MWOPC_PART_BEGIN__ /simulink/bdmxdata/SimscapeInstrumentationVariables_7.mxarray BASE64
+__MWOPC_PART_BEGIN__ /simulink/bdmxdata/SimscapeInstrumentationVariables_1.mxarray BASE64
 AAFJTQAAAAAOAAAAoAAAAAYAAAAIAAAAEQAAAAAAAAABAAAAAAAAAAEABABNQ09TAQAAACYAAABz
 aW1zY2FwZS5pbnN0cnVtZW50YXRpb24uVmFyaWFibGVUYWJsZQAADgAAAEgAAAAGAAAACAAAAA0A
 AAAAAAAABQAAAAgAAAAGAAAAAQAAAAEAAAAAAAAABgAAABgAAAAAAADdAgAAAAEAAAABAAAAAQAA
@@ -135,11 +125,7 @@ CAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAAAAAAEAAAAAAAAABQAEAAEAAAABAAAAAAAAAA4AAACI
 AAAABgAAAAgAAAAJAAAAAAAAAAUAAAAIAAAAAQAAAFgAAAABAAAAAAAAAAIAAABYAAAAAAFJTQAA
 AAAOAAAASAAAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAFAAQABQAA
 AAEAAAAFAAAATUNPUwAAAAAOAAAAAAAAAA==
-<<<<<<<< HEAD:Devel/AppsForPhysicalSystems/RotationalFrictionTorque/RotationalFrictionTorque_SampleModel_refsub_24b.mdl
 __MWOPC_PART_BEGIN__ /simulink/bdmxdata/SimscapeInstrumentationVariables_2.mxarray BASE64
-========
-__MWOPC_PART_BEGIN__ /simulink/bdmxdata/SimscapeInstrumentationVariables_8.mxarray BASE64
->>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3:Release/ModelingUtilityForSimscape/SampleModel_AbstractMotor_refsub_24b.mdl
 AAFJTQAAAAAOAAAAoAAAAAYAAAAIAAAAEQAAAAAAAAABAAAAAAAAAAEABABNQ09TAQAAACYAAABz
 aW1zY2FwZS5pbnN0cnVtZW50YXRpb24uVmFyaWFibGVUYWJsZQAADgAAAEgAAAAGAAAACAAAAA0A
 AAAAAAAABQAAAAgAAAAGAAAAAQAAAAEAAAAAAAAABgAAABgAAAAAAADdAgAAAAEAAAABAAAAAQAA
@@ -168,7 +154,6 @@ __MWOPC_PART_BEGIN__ /simulink/blockdiagram.xml
 <?xml version="1.0" encoding="utf-8"?>
 <ModelInformation Version="1.0">
   <Subsystem>
-<<<<<<<< HEAD:Devel/AppsForPhysicalSystems/RotationalFrictionTorque/RotationalFrictionTorque_SampleModel_refsub_24b.mdl
     <P Name="ModelUUID">00094643-4e5e-40d7-b780-674704786c9c</P>
     <P Name="LastSavedArchitecture">win64</P>
     <P Name="HideAutomaticNames">off</P>
@@ -176,25 +161,11 @@ __MWOPC_PART_BEGIN__ /simulink/blockdiagram.xml
       <P Name="PhysicalModelingChecksum">2949094174</P>
       <P Name="PhysicalModelingParameterChecksum">2626762063</P>
       <P Name="PhysicalModelingProducts">Simscape</P>
-========
-    <P Name="ModelUUID">e6e5da82-05b0-42fb-b07b-5262fbfa726c</P>
-    <P Name="PreLoadFcn">SampleParams_AbstractMotor</P>
-    <P Name="LastSavedArchitecture">win64</P>
-    <P Name="HideAutomaticNames">off</P>
-    <UserParameters>
-      <P Name="PhysicalModelingChecksum">3526033244</P>
-      <P Name="PhysicalModelingParameterChecksum">2517838003</P>
-      <P Name="PhysicalModelingProducts">Power_System_Blocks</P>
->>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3:Release/ModelingUtilityForSimscape/SampleModel_AbstractMotor_refsub_24b.mdl
     </UserParameters>
     <ConfigManagerSettings>
       <P Name="ModifiedByFormat">%&lt;Auto&gt;</P>
       <P Name="ModifiedDateFormat">%&lt;Auto&gt;</P>
-<<<<<<<< HEAD:Devel/AppsForPhysicalSystems/RotationalFrictionTorque/RotationalFrictionTorque_SampleModel_refsub_24b.mdl
       <P Name="ModelVersionFormat">%&lt;AutoIncrement:1.6&gt;</P>
-========
-      <P Name="ModelVersionFormat">%&lt;AutoIncrement:1.12&gt;</P>
->>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3:Release/ModelingUtilityForSimscape/SampleModel_AbstractMotor_refsub_24b.mdl
     </ConfigManagerSettings>
     <SimulationSettings>
       <P Name="SimulationMode">normal</P>
@@ -996,7 +967,6 @@ __MWOPC_PART_BEGIN__ /simulink/graphicalInterface.json
     "GraphicalInterface":{
         "ExternalFileReferences":[
             {
-<<<<<<<< HEAD:Devel/AppsForPhysicalSystems/RotationalFrictionTorque/RotationalFrictionTorque_SampleModel_refsub_24b.mdl
                 "Path":"$bdroot\/Rotational Friction1",
                 "Reference":"fl_lib\/Mechanical\/Rotational Elements\/Rotational Friction",
                 "SID":"1",
@@ -1006,17 +976,6 @@ __MWOPC_PART_BEGIN__ /simulink/graphicalInterface.json
                 "Path":"$bdroot\/Rotational Friction2",
                 "Reference":"fl_lib\/Mechanical\/Rotational Elements\/Rotational Friction",
                 "SID":"2",
-========
-                "Path":"$bdroot\/Motor & Drive (System Level)1",
-                "Reference":"ee_lib\/Electromechanical\/Motor & Drive\n(System Level)",
-                "SID":"7",
-                "Type":"LIBRARY_BLOCK"
-            },
-            {
-                "Path":"$bdroot\/Motor & Drive (System Level)2",
-                "Reference":"ee_lib\/Electromechanical\/Motor & Drive\n(System Level)",
-                "SID":"8",
->>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3:Release/ModelingUtilityForSimscape/SampleModel_AbstractMotor_refsub_24b.mdl
                 "Type":"LIBRARY_BLOCK"
             }
         ],
@@ -1038,21 +997,14 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
   <P Name="Location">[23, 11, 904, 611]</P>
   <P Name="Open">on</P>
   <P Name="ReportName">simulink-default.rpt</P>
-<<<<<<<< HEAD:Devel/AppsForPhysicalSystems/RotationalFrictionTorque/RotationalFrictionTorque_SampleModel_refsub_24b.mdl
   <P Name="SIDHighWatermark">6</P>
   <Block BlockType="CustomCallbackButton" Name="Open Rotational Friction Torque App" SID="6">
     <P Name="Position">[160, 190, 270, 225]</P>
-========
-  <P Name="SIDHighWatermark">8</P>
-  <Block BlockType="CustomCallbackButton" Name="Abstract Motor App" SID="6">
-    <P Name="Position">[55, 245, 165, 280]</P>
->>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3:Release/ModelingUtilityForSimscape/SampleModel_AbstractMotor_refsub_24b.mdl
     <P Name="ZOrder">46</P>
     <P Name="ForegroundColor">[0.011765, 0.011765, 0.011765]</P>
     <P Name="BackgroundColor">[0.956863, 0.956863, 0.956863]</P>
     <P Name="HideAutomaticName">off</P>
     <P Name="FontSize">12</P>
-<<<<<<<< HEAD:Devel/AppsForPhysicalSystems/RotationalFrictionTorque/RotationalFrictionTorque_SampleModel_refsub_24b.mdl
     <P Name="Configuration">{&quot;components&quot;:[{&quot;name&quot;:&quot;BackgroundImageComponent&quot;,&quot;settings&quot;:{&quot;image&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;position&quot;:[0,0,1,1]}},{&quot;name&quot;:&quot;ButtonStateComponent&quot;,&quot;settings&quot;:{&quot;buttonType&quot;:&quot;momentary&quot;,&quot;clickFcn&quot;:&quot;RotationalFrictionTorqueApp(ModelName=bdroot)&quot;,&quot;onValue&quot;:1,&quot;position&quot;:[0,0,1,1],&quot;pressDelay&quot;:&quot;500&quot;,&quot;pressFcn&quot;:&quot;&quot;,&quot;repeatInterval&quot;:&quot;0&quot;,&quot;states&quot;:[{&quot;horizontalAlignment&quot;:&quot;center&quot;,&quot;image&quot;:{&quot;position&quot;:[0,0,1,1],&quot;size&quot;:[1,1],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;label&quot;:{&quot;color&quot;:[0.01176470588,0.01176470588,0.01176470588,1],&quot;icon&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;iconOffset&quot;:0,&quot;iconPlacement&quot;:&quot;left&quot;,&quot;opacity&quot;:1,&quot;show&quot;:true,&quot;text&quot;:{&quot;content&quot;:&quot;Open app&quot;,&quot;font&quot;:&quot;Helvetica&quot;}},&quot;labelOffset&quot;:[0,0],&quot;verticalAlignment&quot;:&quot;middle&quot;},{&quot;horizontalAlignment&quot;:&quot;center&quot;,&quot;image&quot;:{&quot;position&quot;:[0,0,1,1],&quot;size&quot;:[1,1],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;label&quot;:{&quot;color&quot;:[0.01176470588,0.01176470588,0.01176470588,1],&quot;icon&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;iconOffset&quot;:0,&quot;iconPlacement&quot;:&quot;left&quot;,&quot;opacity&quot;:1,&quot;show&quot;:true,&quot;text&quot;:{&quot;content&quot;:&quot;Open app&quot;,&quot;font&quot;:&quot;Helvetica&quot;}},&quot;labelOffset&quot;:[0,0],&quot;verticalAlignment&quot;:&quot;middle&quot;},{&quot;horizontalAlignment&quot;:&quot;center&quot;,&quot;image&quot;:{&quot;position&quot;:[0,0,1,1],&quot;size&quot;:[1,1],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;label&quot;:{&quot;color&quot;:[0.01176470588,0.01176470588,0.01176470588,1],&quot;icon&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;iconOffset&quot;:0,&quot;iconPlacement&quot;:&quot;left&quot;,&quot;opacity&quot;:1,&quot;show&quot;:true,&quot;text&quot;:{&quot;content&quot;:&quot;Open app&quot;,&quot;font&quot;:&quot;Helvetica&quot;}},&quot;labelOffset&quot;:[0,0],&quot;verticalAlignment&quot;:&quot;middle&quot;},{&quot;horizontalAlignment&quot;:&quot;center&quot;,&quot;image&quot;:{&quot;position&quot;:[0,0,1,1],&quot;size&quot;:[1,1],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;label&quot;:{&quot;color&quot;:[0.01176470588,0.01176470588,0.01176470588,1],&quot;icon&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;iconOffset&quot;:0,&quot;iconPlacement&quot;:&quot;left&quot;,&quot;opacity&quot;:1,&quot;show&quot;:true,&quot;text&quot;:{&quot;content&quot;:&quot;Open app&quot;,&quot;font&quot;:&quot;Helvetica&quot;}},&quot;labelOffset&quot;:[0,0],&quot;verticalAlignment&quot;:&quot;middle&quot;}]}},{&quot;name&quot;:&quot;ForegroundImageComponent&quot;,&quot;settings&quot;:{&quot;image&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;isForeground&quot;:1,&quot;position&quot;:[0,0,1,1]}}],&quot;settings&quot;:{&quot;BindingType&quot;:&quot;standalone&quot;,&quot;autoActivate&quot;:true,&quot;backgroundColor&quot;:[244,244,244,1],&quot;backgroundOffset&quot;:0.2,&quot;backgroundOpacity&quot;:1,&quot;fixedAspectRatio&quot;:&quot;on&quot;,&quot;foregroundColor&quot;:[0.01176470588,0.01176470588,0.01176470588,1],&quot;migratedFromLegacy&quot;:true,&quot;useBackgroundColor&quot;:true,&quot;variant&quot;:&quot;callback&quot;,&quot;version&quot;:&quot;R2024b&quot;},&quot;type&quot;:&quot;Button&quot;}</P>
     <P Name="CustomBackgroundColor">{&quot;color&quot;:[0.9568627451,0.9568627451,0.9568627451],&quot;show&quot;:true}</P>
   </Block>
@@ -1152,369 +1104,6 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
       <P Name="t_nominal_specify">off</P>
       <P Name="t_nominal_value">1</P>
       <P Name="t_nominal_unit">N*m</P>
-========
-    <P Name="Configuration">{&quot;components&quot;:[{&quot;name&quot;:&quot;BackgroundImageComponent&quot;,&quot;settings&quot;:{&quot;image&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;position&quot;:[0,0,1,1]}},{&quot;name&quot;:&quot;ButtonStateComponent&quot;,&quot;settings&quot;:{&quot;buttonType&quot;:&quot;momentary&quot;,&quot;clickFcn&quot;:&quot;disp(\&quot;Launching app...\&quot;)\nSampleParams_AbstractMotor\nAbstractMotorEfficiencyApp(ModelName=bdroot)&quot;,&quot;onValue&quot;:1,&quot;position&quot;:[0,0,1,1],&quot;pressDelay&quot;:&quot;500&quot;,&quot;pressFcn&quot;:&quot;&quot;,&quot;repeatInterval&quot;:&quot;0&quot;,&quot;states&quot;:[{&quot;horizontalAlignment&quot;:&quot;center&quot;,&quot;image&quot;:{&quot;position&quot;:[0,0,1,1],&quot;size&quot;:[1,1],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;label&quot;:{&quot;color&quot;:[0.01176470588,0.01176470588,0.01176470588,1],&quot;icon&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;iconOffset&quot;:0,&quot;iconPlacement&quot;:&quot;left&quot;,&quot;opacity&quot;:1,&quot;show&quot;:true,&quot;text&quot;:{&quot;content&quot;:&quot;Open app&quot;,&quot;font&quot;:&quot;Helvetica&quot;}},&quot;labelOffset&quot;:[0,0],&quot;verticalAlignment&quot;:&quot;middle&quot;},{&quot;horizontalAlignment&quot;:&quot;center&quot;,&quot;image&quot;:{&quot;position&quot;:[0,0,1,1],&quot;size&quot;:[1,1],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;label&quot;:{&quot;color&quot;:[0.01176470588,0.01176470588,0.01176470588,1],&quot;icon&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;iconOffset&quot;:0,&quot;iconPlacement&quot;:&quot;left&quot;,&quot;opacity&quot;:1,&quot;show&quot;:true,&quot;text&quot;:{&quot;content&quot;:&quot;Open app&quot;,&quot;font&quot;:&quot;Helvetica&quot;}},&quot;labelOffset&quot;:[0,0],&quot;verticalAlignment&quot;:&quot;middle&quot;},{&quot;horizontalAlignment&quot;:&quot;center&quot;,&quot;image&quot;:{&quot;position&quot;:[0,0,1,1],&quot;size&quot;:[1,1],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;label&quot;:{&quot;color&quot;:[0.01176470588,0.01176470588,0.01176470588,1],&quot;icon&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;iconOffset&quot;:0,&quot;iconPlacement&quot;:&quot;left&quot;,&quot;opacity&quot;:1,&quot;show&quot;:true,&quot;text&quot;:{&quot;content&quot;:&quot;Open app&quot;,&quot;font&quot;:&quot;Helvetica&quot;}},&quot;labelOffset&quot;:[0,0],&quot;verticalAlignment&quot;:&quot;middle&quot;},{&quot;horizontalAlignment&quot;:&quot;center&quot;,&quot;image&quot;:{&quot;position&quot;:[0,0,1,1],&quot;size&quot;:[1,1],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;label&quot;:{&quot;color&quot;:[0.01176470588,0.01176470588,0.01176470588,1],&quot;icon&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;iconOffset&quot;:0,&quot;iconPlacement&quot;:&quot;left&quot;,&quot;opacity&quot;:1,&quot;show&quot;:true,&quot;text&quot;:{&quot;content&quot;:&quot;Open app&quot;,&quot;font&quot;:&quot;Helvetica&quot;}},&quot;labelOffset&quot;:[0,0],&quot;verticalAlignment&quot;:&quot;middle&quot;}]}},{&quot;name&quot;:&quot;ForegroundImageComponent&quot;,&quot;settings&quot;:{&quot;image&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;isForeground&quot;:1,&quot;position&quot;:[0,0,1,1]}}],&quot;settings&quot;:{&quot;BindingType&quot;:&quot;standalone&quot;,&quot;autoActivate&quot;:true,&quot;backgroundColor&quot;:[244,244,244,1],&quot;backgroundOffset&quot;:0.2,&quot;backgroundOpacity&quot;:1,&quot;fixedAspectRatio&quot;:&quot;on&quot;,&quot;foregroundColor&quot;:[0.01176470588,0.01176470588,0.01176470588,1],&quot;migratedFromLegacy&quot;:true,&quot;useBackgroundColor&quot;:true,&quot;variant&quot;:&quot;callback&quot;,&quot;version&quot;:&quot;R2024b&quot;},&quot;type&quot;:&quot;Button&quot;}</P>
-    <P Name="CustomBackgroundColor">{&quot;color&quot;:[0.9568627451,0.9568627451,0.9568627451],&quot;show&quot;:true}</P>
-  </Block>
-  <Block BlockType="Reference" Name="Motor &amp; Drive&#xA;(System Level)1" SID="7">
-    <PortCounts lconn="3" rconn="3"/>
-    <P Name="Position">[240, 240, 340, 290]</P>
-    <P Name="ZOrder">47</P>
-    <P Name="BlockRotation">270</P>
-    <P Name="BlockMirror">on</P>
-    <P Name="BackgroundColor">automatic</P>
-    <P Name="NameLocation">right</P>
-    <P Name="LibraryVersion">24002000.3</P>
-    <P Name="SourceBlock">ee_lib/Electromechanical/Motor &amp; Drive
-(System Level)</P>
-    <P Name="SourceType">Motor &amp; Drive
-(System Level)</P>
-    <InstanceData>
-      <P Name="LogSimulationData">off</P>
-      <P Name="SimscapeInstrumentationLogging">off</P>
-      <P Name="SimscapeInstrumentationVariables" Ref="bdmxdata:SimscapeInstrumentationVariables_7"/>
-      <P Name="SourceFile">ee.electromech.motor_and_drive</P>
-      <P Name="InternalSimscapePortConfiguration">{&quot;Bottom&quot;:[],&quot;Left&quot;:[{&quot;id&quot;:&quot;Vp&quot;,&quot;label&quot;:&quot;+&quot;,&quot;type&quot;:&quot;foundation.electrical.electrical&quot;},{&quot;id&quot;:&quot;Tr&quot;,&quot;label&quot;:&quot;Tr&quot;,&quot;type&quot;:&quot;input&quot;},{&quot;id&quot;:&quot;R&quot;,&quot;label&quot;:&quot;R&quot;,&quot;type&quot;:&quot;foundation.mechanical.rotational.rotational&quot;}],&quot;Right&quot;:[{&quot;id&quot;:&quot;Vm&quot;,&quot;label&quot;:&quot;-&quot;,&quot;type&quot;:&quot;foundation.electrical.electrical&quot;},{&quot;id&quot;:&quot;Omega&quot;,&quot;label&quot;:&quot;w&quot;,&quot;type&quot;:&quot;output&quot;},{&quot;id&quot;:&quot;C&quot;,&quot;label&quot;:&quot;C&quot;,&quot;type&quot;:&quot;foundation.mechanical.rotational.rotational&quot;}],&quot;Top&quot;:[]}</P>
-      <P Name="SscBlockScalableBuild">off</P>
-      <P Name="ComponentPath">ee.electromech.motor_and_drive</P>
-      <P Name="ComponentVariants">[&quot;ee.electromech.motor_and_drive&quot;,&quot;ee.electromech.motor_and_drive_thermal&quot;]</P>
-      <P Name="ComponentVariantNames">[&quot;physmod:ee:library:comments:electromech:motor_and_drive_sscx:noThermalPort&quot;,&quot;physmod:ee:library:comments:electromech:motor_and_drive_sscx:showThermalPort&quot;]</P>
-      <P Name="ClassName">Simscape variant</P>
-      <P Name="SchemaVersion">1</P>
-      <P Name="torque_speed_param">ee.enum.electromech.envelope.torque_power</P>
-      <P Name="torque_speed_param_unit">1</P>
-      <P Name="torque_speed_param_conf">compiletime</P>
-      <P Name="overtorque_param">ee.enum.electromech.overtorque.no</P>
-      <P Name="overtorque_param_unit">1</P>
-      <P Name="overtorque_param_conf">compiletime</P>
-      <P Name="T_t">[.09, .08, .07, 0]</P>
-      <P Name="T_t_unit">N*m</P>
-      <P Name="T_t_conf">compiletime</P>
-      <P Name="T_t_intermittent">[.36, .32, .28, 0]</P>
-      <P Name="T_t_intermittent_unit">N*m</P>
-      <P Name="T_t_intermittent_conf">compiletime</P>
-      <P Name="T_t_2D">[.09, .09, .09; .08, .08, .08; .07, .07, .07; 0, 0, 0]</P>
-      <P Name="T_t_2D_unit">N*m</P>
-      <P Name="T_t_2D_conf">compiletime</P>
-      <P Name="T_t_intermittent_2D">[.36, .36, .36; .32, .32, .32; .28, .28, .28; 0, 0, 0]</P>
-      <P Name="T_t_intermittent_2D_unit">N*m</P>
-      <P Name="T_t_intermittent_2D_conf">compiletime</P>
-      <P Name="w_t">[0, 3750, 7500, 8000]</P>
-      <P Name="w_t_unit">rpm</P>
-      <P Name="w_t_conf">compiletime</P>
-      <P Name="vdc_t">[6, 12, 24]</P>
-      <P Name="vdc_t_unit">V</P>
-      <P Name="vdc_t_conf">compiletime</P>
-      <P Name="torque_max">160</P>
-      <P Name="torque_max_unit">N*m</P>
-      <P Name="torque_max_conf">compiletime</P>
-      <P Name="power_max">55</P>
-      <P Name="power_max_unit">kW</P>
-      <P Name="power_max_conf">compiletime</P>
-      <P Name="torque_max_intermittent">0.4</P>
-      <P Name="torque_max_intermittent_unit">N*m</P>
-      <P Name="torque_max_intermittent_conf">compiletime</P>
-      <P Name="power_max_intermittent">120</P>
-      <P Name="power_max_intermittent_unit">W</P>
-      <P Name="power_max_intermittent_conf">compiletime</P>
-      <P Name="time_overtorque">30</P>
-      <P Name="time_overtorque_unit">s</P>
-      <P Name="time_overtorque_conf">compiletime</P>
-      <P Name="time_recover">60</P>
-      <P Name="time_recover_unit">s</P>
-      <P Name="time_recover_conf">compiletime</P>
-      <P Name="Tc">0.02</P>
-      <P Name="Tc_unit">s</P>
-      <P Name="Tc_conf">compiletime</P>
-      <P Name="EnableSwitch">false</P>
-      <P Name="EnableSwitch_unit">1</P>
-      <P Name="EnableSwitch_conf">compiletime</P>
-      <P Name="losses_param">1</P>
-      <P Name="losses_param_unit">1</P>
-      <P Name="losses_param_conf">compiletime</P>
-      <P Name="eff">95</P>
-      <P Name="eff_unit">1</P>
-      <P Name="eff_conf">compiletime</P>
-      <P Name="w_eff">2000</P>
-      <P Name="w_eff_unit">rpm</P>
-      <P Name="w_eff_conf">compiletime</P>
-      <P Name="T_eff">50</P>
-      <P Name="T_eff_unit">N*m</P>
-      <P Name="T_eff_conf">compiletime</P>
-      <P Name="Piron">55</P>
-      <P Name="Piron_unit">W</P>
-      <P Name="Piron_conf">compiletime</P>
-      <P Name="Pbase">40</P>
-      <P Name="Pbase_unit">W</P>
-      <P Name="Pbase_conf">compiletime</P>
-      <P Name="w_eff_vec">[-8000, -4000, 0, 4000, 8000]</P>
-      <P Name="w_eff_vec_unit">rpm</P>
-      <P Name="w_eff_vec_conf">compiletime</P>
-      <P Name="T_eff_vec">[0, .03, .06, .09]</P>
-      <P Name="T_eff_vec_unit">N*m</P>
-      <P Name="T_eff_vec_conf">compiletime</P>
-      <P Name="v_eff_vec">[100, 250, 400]</P>
-      <P Name="v_eff_vec_unit">V</P>
-      <P Name="v_eff_vec_conf">compiletime</P>
-      <P Name="losses_mat">[1.49, 1.67, 2.21, 3.1; .42, .69, 1.14, 2.03; .06, .24, .78, 1.68; .42, .69, 1.14, 2.03; 1.49, 1.67, 2.21, 3.1]</P>
-      <P Name="losses_mat_unit">W</P>
-      <P Name="losses_mat_conf">compiletime</P>
-      <P Name="efficiency_mat">[95, 95, 95, 95; 95, 95, 95, 95; 95, 95, 95, 95; 95, 95, 95, 95; 95, 95, 95, 95]</P>
-      <P Name="efficiency_mat_unit">1</P>
-      <P Name="efficiency_mat_conf">compiletime</P>
-      <P Name="losses_mat_3D">ones(5, 4, 3)</P>
-      <P Name="losses_mat_3D_unit">W</P>
-      <P Name="losses_mat_3D_conf">compiletime</P>
-      <P Name="efficiency_mat_3D">95 * ones(5, 4, 3)</P>
-      <P Name="efficiency_mat_3D_unit">1</P>
-      <P Name="efficiency_mat_3D_conf">compiletime</P>
-      <P Name="Res">0</P>
-      <P Name="Res_unit">Ohm</P>
-      <P Name="Res_conf">compiletime</P>
-      <P Name="J">5e-6</P>
-      <P Name="J_unit">kg*m^2</P>
-      <P Name="J_conf">compiletime</P>
-      <P Name="lam">0.05</P>
-      <P Name="lam_unit">N*m*s/rad</P>
-      <P Name="lam_conf">compiletime</P>
-      <P Name="speed0">0</P>
-      <P Name="speed0_unit">rpm</P>
-      <P Name="speed0_conf">compiletime</P>
-      <P Name="fault_condition">1</P>
-      <P Name="fault_condition_unit">1</P>
-      <P Name="fault_condition_conf">compiletime</P>
-      <P Name="fault_threshold">0.5</P>
-      <P Name="fault_threshold_unit">1</P>
-      <P Name="fault_threshold_conf">compiletime</P>
-      <P Name="faulted_specify">off</P>
-      <P Name="faulted_priority">None</P>
-      <P Name="faulted">0</P>
-      <P Name="faulted_unit">1</P>
-      <P Name="faulted_nominal_specify">off</P>
-      <P Name="faulted_nominal_value">1</P>
-      <P Name="faulted_nominal_unit">1</P>
-      <P Name="isSwitchedOff_specify">off</P>
-      <P Name="isSwitchedOff_priority">None</P>
-      <P Name="isSwitchedOff">0</P>
-      <P Name="isSwitchedOff_unit">1</P>
-      <P Name="isSwitchedOff_nominal_specify">off</P>
-      <P Name="isSwitchedOff_nominal_value">1</P>
-      <P Name="isSwitchedOff_nominal_unit">1</P>
-      <P Name="torqueLimitContinuous_specify">off</P>
-      <P Name="torqueLimitContinuous_priority">None</P>
-      <P Name="torqueLimitContinuous">0</P>
-      <P Name="torqueLimitContinuous_unit">N*m</P>
-      <P Name="torqueLimitContinuous_nominal_specify">off</P>
-      <P Name="torqueLimitContinuous_nominal_value">1</P>
-      <P Name="torqueLimitContinuous_nominal_unit">N*m</P>
-      <P Name="alpha">3.93e-3</P>
-      <P Name="alpha_unit">1/K</P>
-      <P Name="alpha_conf">compiletime</P>
-      <P Name="Tmeas">25</P>
-      <P Name="Tmeas_unit">degC</P>
-      <P Name="Tmeas_conf">compiletime</P>
-      <P Name="Tmeas2">125</P>
-      <P Name="Tmeas2_unit">degC</P>
-      <P Name="Tmeas2_conf">compiletime</P>
-      <P Name="losses_mat_T2">[1.49, 1.74, 2.49, 3.74; .42, .67, 1.42, 2.67; .06, .31, 1.06, 2.31; .42, .67, 1.42, 2.67; 1.49, 1.74, 2.49, 3.74]</P>
-      <P Name="losses_mat_T2_unit">W</P>
-      <P Name="losses_mat_T2_conf">compiletime</P>
-      <P Name="efficiency_mat_T2">[95, 95, 95, 95; 95, 95, 95, 95; 95, 95, 95, 95; 95, 95, 95, 95; 95, 95, 95, 95]</P>
-      <P Name="efficiency_mat_T2_unit">1</P>
-      <P Name="efficiency_mat_T2_conf">compiletime</P>
-      <P Name="losses_mat_3D_T2">ones(5, 4, 3)</P>
-      <P Name="losses_mat_3D_T2_unit">W</P>
-      <P Name="losses_mat_3D_T2_conf">compiletime</P>
-      <P Name="efficiency_mat_3D_T2">95 * ones(5, 4, 3)</P>
-      <P Name="efficiency_mat_3D_T2_unit">1</P>
-      <P Name="efficiency_mat_3D_T2_conf">compiletime</P>
-      <P Name="thermal_mass">100</P>
-      <P Name="thermal_mass_unit">J/K</P>
-      <P Name="thermal_mass_conf">compiletime</P>
-      <P Name="initial_temperature">25</P>
-      <P Name="initial_temperature_unit">degC</P>
-      <P Name="initial_temperature_conf">compiletime</P>
-    </InstanceData>
-  </Block>
-  <Block BlockType="Reference" Name="Motor &amp; Drive&#xA;(System Level)2" SID="8">
-    <PortCounts lconn="3" rconn="3"/>
-    <P Name="Position">[465, 235, 565, 285]</P>
-    <P Name="ZOrder">48</P>
-    <P Name="BlockRotation">270</P>
-    <P Name="BlockMirror">on</P>
-    <P Name="BackgroundColor">automatic</P>
-    <P Name="NameLocation">right</P>
-    <P Name="LibraryVersion">24002000.3</P>
-    <P Name="SourceBlock">ee_lib/Electromechanical/Motor &amp; Drive
-(System Level)</P>
-    <P Name="SourceType">Motor &amp; Drive
-(System Level)</P>
-    <InstanceData>
-      <P Name="LogSimulationData">off</P>
-      <P Name="SimscapeInstrumentationLogging">off</P>
-      <P Name="SimscapeInstrumentationVariables" Ref="bdmxdata:SimscapeInstrumentationVariables_8"/>
-      <P Name="SourceFile">ee.electromech.motor_and_drive</P>
-      <P Name="InternalSimscapePortConfiguration">{&quot;Bottom&quot;:[],&quot;Left&quot;:[{&quot;id&quot;:&quot;Vp&quot;,&quot;label&quot;:&quot;+&quot;,&quot;type&quot;:&quot;foundation.electrical.electrical&quot;},{&quot;id&quot;:&quot;Tr&quot;,&quot;label&quot;:&quot;Tr&quot;,&quot;type&quot;:&quot;input&quot;},{&quot;id&quot;:&quot;R&quot;,&quot;label&quot;:&quot;R&quot;,&quot;type&quot;:&quot;foundation.mechanical.rotational.rotational&quot;}],&quot;Right&quot;:[{&quot;id&quot;:&quot;Vm&quot;,&quot;label&quot;:&quot;-&quot;,&quot;type&quot;:&quot;foundation.electrical.electrical&quot;},{&quot;id&quot;:&quot;Omega&quot;,&quot;label&quot;:&quot;w&quot;,&quot;type&quot;:&quot;output&quot;},{&quot;id&quot;:&quot;C&quot;,&quot;label&quot;:&quot;C&quot;,&quot;type&quot;:&quot;foundation.mechanical.rotational.rotational&quot;}],&quot;Top&quot;:[]}</P>
-      <P Name="SscBlockScalableBuild">off</P>
-      <P Name="ComponentPath">ee.electromech.motor_and_drive</P>
-      <P Name="ComponentVariants">[&quot;ee.electromech.motor_and_drive&quot;,&quot;ee.electromech.motor_and_drive_thermal&quot;]</P>
-      <P Name="ComponentVariantNames">[&quot;physmod:ee:library:comments:electromech:motor_and_drive_sscx:noThermalPort&quot;,&quot;physmod:ee:library:comments:electromech:motor_and_drive_sscx:showThermalPort&quot;]</P>
-      <P Name="ClassName">Simscape variant</P>
-      <P Name="SchemaVersion">1</P>
-      <P Name="torque_speed_param">ee.enum.electromech.envelope.torque_power</P>
-      <P Name="torque_speed_param_unit">1</P>
-      <P Name="torque_speed_param_conf">compiletime</P>
-      <P Name="overtorque_param">ee.enum.electromech.overtorque.no</P>
-      <P Name="overtorque_param_unit">1</P>
-      <P Name="overtorque_param_conf">compiletime</P>
-      <P Name="T_t">[.09, .08, .07, 0]</P>
-      <P Name="T_t_unit">N*m</P>
-      <P Name="T_t_conf">compiletime</P>
-      <P Name="T_t_intermittent">[.36, .32, .28, 0]</P>
-      <P Name="T_t_intermittent_unit">N*m</P>
-      <P Name="T_t_intermittent_conf">compiletime</P>
-      <P Name="T_t_2D">[.09, .09, .09; .08, .08, .08; .07, .07, .07; 0, 0, 0]</P>
-      <P Name="T_t_2D_unit">N*m</P>
-      <P Name="T_t_2D_conf">compiletime</P>
-      <P Name="T_t_intermittent_2D">[.36, .36, .36; .32, .32, .32; .28, .28, .28; 0, 0, 0]</P>
-      <P Name="T_t_intermittent_2D_unit">N*m</P>
-      <P Name="T_t_intermittent_2D_conf">compiletime</P>
-      <P Name="w_t">[0, 3750, 7500, 8000]</P>
-      <P Name="w_t_unit">rpm</P>
-      <P Name="w_t_conf">compiletime</P>
-      <P Name="vdc_t">[6, 12, 24]</P>
-      <P Name="vdc_t_unit">V</P>
-      <P Name="vdc_t_conf">compiletime</P>
-      <P Name="torque_max">MotorDrive.MaxTorque.value(&quot;N*m&quot;)</P>
-      <P Name="torque_max_unit">N*m</P>
-      <P Name="torque_max_conf">compiletime</P>
-      <P Name="power_max">MotorDrive.MaxPower.value(&quot;kW&quot;)</P>
-      <P Name="power_max_unit">kW</P>
-      <P Name="power_max_conf">compiletime</P>
-      <P Name="torque_max_intermittent">0.4</P>
-      <P Name="torque_max_intermittent_unit">N*m</P>
-      <P Name="torque_max_intermittent_conf">compiletime</P>
-      <P Name="power_max_intermittent">120</P>
-      <P Name="power_max_intermittent_unit">W</P>
-      <P Name="power_max_intermittent_conf">compiletime</P>
-      <P Name="time_overtorque">30</P>
-      <P Name="time_overtorque_unit">s</P>
-      <P Name="time_overtorque_conf">compiletime</P>
-      <P Name="time_recover">60</P>
-      <P Name="time_recover_unit">s</P>
-      <P Name="time_recover_conf">compiletime</P>
-      <P Name="Tc">0.02</P>
-      <P Name="Tc_unit">s</P>
-      <P Name="Tc_conf">compiletime</P>
-      <P Name="EnableSwitch">false</P>
-      <P Name="EnableSwitch_unit">1</P>
-      <P Name="EnableSwitch_conf">compiletime</P>
-      <P Name="losses_param">1</P>
-      <P Name="losses_param_unit">1</P>
-      <P Name="losses_param_conf">compiletime</P>
-      <P Name="eff">MotorDrive.MeasuredEfficiencyPercent</P>
-      <P Name="eff_unit">1</P>
-      <P Name="eff_conf">compiletime</P>
-      <P Name="w_eff">MotorDrive.MeasuredAngularSpeed.value(&quot;rpm&quot;)</P>
-      <P Name="w_eff_unit">rpm</P>
-      <P Name="w_eff_conf">compiletime</P>
-      <P Name="T_eff">MotorDrive.MeasuredTorque.value(&quot;N*m&quot;)</P>
-      <P Name="T_eff_unit">N*m</P>
-      <P Name="T_eff_conf">compiletime</P>
-      <P Name="Piron">MotorDrive.MeasuredIronLoss.value(&quot;W&quot;)</P>
-      <P Name="Piron_unit">W</P>
-      <P Name="Piron_conf">compiletime</P>
-      <P Name="Pbase">MotorDrive.FixedLoss.value(&quot;W&quot;)</P>
-      <P Name="Pbase_unit">W</P>
-      <P Name="Pbase_conf">compiletime</P>
-      <P Name="w_eff_vec">[-8000, -4000, 0, 4000, 8000]</P>
-      <P Name="w_eff_vec_unit">rpm</P>
-      <P Name="w_eff_vec_conf">compiletime</P>
-      <P Name="T_eff_vec">[0, .03, .06, .09]</P>
-      <P Name="T_eff_vec_unit">N*m</P>
-      <P Name="T_eff_vec_conf">compiletime</P>
-      <P Name="v_eff_vec">[100, 250, 400]</P>
-      <P Name="v_eff_vec_unit">V</P>
-      <P Name="v_eff_vec_conf">compiletime</P>
-      <P Name="losses_mat">[1.49, 1.67, 2.21, 3.1; .42, .69, 1.14, 2.03; .06, .24, .78, 1.68; .42, .69, 1.14, 2.03; 1.49, 1.67, 2.21, 3.1]</P>
-      <P Name="losses_mat_unit">W</P>
-      <P Name="losses_mat_conf">compiletime</P>
-      <P Name="efficiency_mat">[95, 95, 95, 95; 95, 95, 95, 95; 95, 95, 95, 95; 95, 95, 95, 95; 95, 95, 95, 95]</P>
-      <P Name="efficiency_mat_unit">1</P>
-      <P Name="efficiency_mat_conf">compiletime</P>
-      <P Name="losses_mat_3D">ones(5, 4, 3)</P>
-      <P Name="losses_mat_3D_unit">W</P>
-      <P Name="losses_mat_3D_conf">compiletime</P>
-      <P Name="efficiency_mat_3D">95 * ones(5, 4, 3)</P>
-      <P Name="efficiency_mat_3D_unit">1</P>
-      <P Name="efficiency_mat_3D_conf">compiletime</P>
-      <P Name="Res">0</P>
-      <P Name="Res_unit">Ohm</P>
-      <P Name="Res_conf">compiletime</P>
-      <P Name="J">5e-6</P>
-      <P Name="J_unit">kg*m^2</P>
-      <P Name="J_conf">compiletime</P>
-      <P Name="lam">MotorDrive.RotorDamping.value(&quot;N*m/(rad/s)&quot;)</P>
-      <P Name="lam_unit">N*m*s/rad</P>
-      <P Name="lam_conf">compiletime</P>
-      <P Name="speed0">0</P>
-      <P Name="speed0_unit">rpm</P>
-      <P Name="speed0_conf">compiletime</P>
-      <P Name="fault_condition">1</P>
-      <P Name="fault_condition_unit">1</P>
-      <P Name="fault_condition_conf">compiletime</P>
-      <P Name="fault_threshold">0.5</P>
-      <P Name="fault_threshold_unit">1</P>
-      <P Name="fault_threshold_conf">compiletime</P>
-      <P Name="faulted_specify">off</P>
-      <P Name="faulted_priority">None</P>
-      <P Name="faulted">0</P>
-      <P Name="faulted_unit">1</P>
-      <P Name="faulted_nominal_specify">off</P>
-      <P Name="faulted_nominal_value">1</P>
-      <P Name="faulted_nominal_unit">1</P>
-      <P Name="isSwitchedOff_specify">off</P>
-      <P Name="isSwitchedOff_priority">None</P>
-      <P Name="isSwitchedOff">0</P>
-      <P Name="isSwitchedOff_unit">1</P>
-      <P Name="isSwitchedOff_nominal_specify">off</P>
-      <P Name="isSwitchedOff_nominal_value">1</P>
-      <P Name="isSwitchedOff_nominal_unit">1</P>
-      <P Name="torqueLimitContinuous_specify">off</P>
-      <P Name="torqueLimitContinuous_priority">None</P>
-      <P Name="torqueLimitContinuous">0</P>
-      <P Name="torqueLimitContinuous_unit">N*m</P>
-      <P Name="torqueLimitContinuous_nominal_specify">off</P>
-      <P Name="torqueLimitContinuous_nominal_value">1</P>
-      <P Name="torqueLimitContinuous_nominal_unit">N*m</P>
-      <P Name="alpha">3.93e-3</P>
-      <P Name="alpha_unit">1/K</P>
-      <P Name="alpha_conf">compiletime</P>
-      <P Name="Tmeas">25</P>
-      <P Name="Tmeas_unit">degC</P>
-      <P Name="Tmeas_conf">compiletime</P>
-      <P Name="Tmeas2">125</P>
-      <P Name="Tmeas2_unit">degC</P>
-      <P Name="Tmeas2_conf">compiletime</P>
-      <P Name="losses_mat_T2">[1.49, 1.74, 2.49, 3.74; .42, .67, 1.42, 2.67; .06, .31, 1.06, 2.31; .42, .67, 1.42, 2.67; 1.49, 1.74, 2.49, 3.74]</P>
-      <P Name="losses_mat_T2_unit">W</P>
-      <P Name="losses_mat_T2_conf">compiletime</P>
-      <P Name="efficiency_mat_T2">[95, 95, 95, 95; 95, 95, 95, 95; 95, 95, 95, 95; 95, 95, 95, 95; 95, 95, 95, 95]</P>
-      <P Name="efficiency_mat_T2_unit">1</P>
-      <P Name="efficiency_mat_T2_conf">compiletime</P>
-      <P Name="losses_mat_3D_T2">ones(5, 4, 3)</P>
-      <P Name="losses_mat_3D_T2_unit">W</P>
-      <P Name="losses_mat_3D_T2_conf">compiletime</P>
-      <P Name="efficiency_mat_3D_T2">95 * ones(5, 4, 3)</P>
-      <P Name="efficiency_mat_3D_T2_unit">1</P>
-      <P Name="efficiency_mat_3D_T2_conf">compiletime</P>
-      <P Name="thermal_mass">100</P>
-      <P Name="thermal_mass_unit">J/K</P>
-      <P Name="thermal_mass_conf">compiletime</P>
-      <P Name="initial_temperature">25</P>
-      <P Name="initial_temperature_unit">degC</P>
-      <P Name="initial_temperature_conf">compiletime</P>
->>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3:Release/ModelingUtilityForSimscape/SampleModel_AbstractMotor_refsub_24b.mdl
     </InstanceData>
   </Block>
   <Annotation SID="3">
@@ -1522,13 +1111,8 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body align=&quot;left&quot; style=&quot; font-family:&apos;Helvetica&apos;; font-size:10px; font-weight:400; font-style:normal;&quot;&gt;
-<<<<<<<< HEAD:Devel/AppsForPhysicalSystems/RotationalFrictionTorque/RotationalFrictionTorque_SampleModel_refsub_24b.mdl
 &lt;p align=&quot;left&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Parameters refer to the &amp;quot;friction&amp;quot; struct. It must be loaded in the base workspace.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</P>
     <P Name="Position">[445, 206, 645, 261]</P>
-========
-&lt;p align=&quot;left&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Parameters refer to the &amp;quot;MotorDrive&amp;quot; struct. It must be loaded in the base workspace.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</P>
-    <P Name="Position">[369, 157, 599, 207]</P>
->>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3:Release/ModelingUtilityForSimscape/SampleModel_AbstractMotor_refsub_24b.mdl
     <P Name="InternalMargins">[0, 0, 0, 0]</P>
     <P Name="FixedHeight">on</P>
     <P Name="FixedWidth">on</P>
@@ -1541,13 +1125,8 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body align=&quot;left&quot; style=&quot; font-family:&apos;Helvetica&apos;; font-size:10px; font-weight:400; font-style:normal;&quot;&gt;
-<<<<<<<< HEAD:Devel/AppsForPhysicalSystems/RotationalFrictionTorque/RotationalFrictionTorque_SampleModel_refsub_24b.mdl
 &lt;p align=&quot;left&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12px;&quot;&gt;Copyright 2025-2026 The MathWorks, Inc.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</P>
     <P Name="Position">[236, 385, 463, 401]</P>
-========
-&lt;p align=&quot;left&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12px;&quot;&gt;Copyright 2026 The MathWorks, Inc.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</P>
-    <P Name="Position">[232, 371, 428, 387]</P>
->>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3:Release/ModelingUtilityForSimscape/SampleModel_AbstractMotor_refsub_24b.mdl
     <P Name="InternalMargins">[0, 0, 0, 0]</P>
     <P Name="Interpreter">rich</P>
     <P Name="ZOrder">-3</P>
@@ -1557,25 +1136,17 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body align=&quot;left&quot; style=&quot; font-family:&apos;Helvetica&apos;; font-size:10px; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;left&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px; font-weight:600;&quot;&gt;Sample model for Abstract Motor app&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;left&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px; font-weight:600;&quot;&gt;Sample model for Rotational Friction app&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;left&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;If you have the unit tests for the app, this model is used for testing too.&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;left&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;If you modify the model, make sure all tests pass.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</P>
-<<<<<<<< HEAD:Devel/AppsForPhysicalSystems/RotationalFrictionTorque/RotationalFrictionTorque_SampleModel_refsub_24b.mdl
     <P Name="Position">[60, 96, 496, 146]</P>
-========
-    <P Name="Position">[55, 79, 491, 129]</P>
->>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3:Release/ModelingUtilityForSimscape/SampleModel_AbstractMotor_refsub_24b.mdl
     <P Name="InternalMargins">[0, 0, 0, 0]</P>
     <P Name="Interpreter">rich</P>
     <P Name="ZOrder">-4</P>
   </Annotation>
   <Connector>
     <P Name="Annotation">3</P>
-<<<<<<<< HEAD:Devel/AppsForPhysicalSystems/RotationalFrictionTorque/RotationalFrictionTorque_SampleModel_refsub_24b.mdl
     <P Name="Target">Block:2</P>
-========
-    <P Name="Target">Block:8</P>
->>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3:Release/ModelingUtilityForSimscape/SampleModel_AbstractMotor_refsub_24b.mdl
     <P Name="MarkupType">markup</P>
     <P Name="StrokeWidth">2</P>
     <P Name="Color">[0.000000, 0.000000, 0.700000]</P>
@@ -1607,13 +1178,8 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
         <P Name="LoadSaveID" Class="char">0</P>
         <P Name="Extents" Class="double">[1226.0, 562.0]</P>
         <P Name="ZoomFactor" Class="double">1.0</P>
-<<<<<<<< HEAD:Devel/AppsForPhysicalSystems/RotationalFrictionTorque/RotationalFrictionTorque_SampleModel_refsub_24b.mdl
         <P Name="Offset" Class="double">[-44.178385416666686, 61.666666666666657]</P>
         <P Name="SceneRectInView" Class="double">[-44.178385416666686, 61.666666666666657, 817.33333333333337, 374.66666666666669]</P>
-========
-        <P Name="Offset" Class="double">[-59.104166666666686, 45.666666666666657]</P>
-        <P Name="SceneRectInView" Class="double">[-59.104166666666686, 45.666666666666657, 817.33333333333337, 374.66666666666669]</P>
->>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3:Release/ModelingUtilityForSimscape/SampleModel_AbstractMotor_refsub_24b.mdl
       </Object>
       <Array PropName="DockComponentsInfo" Type="Simulink.DockComponentInfo" Dimension="1*2">
         <Object ObjectID="6">
@@ -1622,15 +1188,10 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Visible" Class="logical">0</P>
           <P Name="CreateCallback" Class="char"/>
           <P Name="UserData" Class="char"/>
-          <P Name="Floating" Class="logical">1</P>
+          <P Name="Floating" Class="logical">0</P>
           <P Name="DockPosition" Class="char">Right</P>
-<<<<<<<< HEAD:Devel/AppsForPhysicalSystems/RotationalFrictionTorque/RotationalFrictionTorque_SampleModel_refsub_24b.mdl
           <P Name="Width" Class="int32">426</P>
           <P Name="Height" Class="int32">320</P>
-========
-          <P Name="Width" Class="int32">578</P>
-          <P Name="Height" Class="int32">761</P>
->>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3:Release/ModelingUtilityForSimscape/SampleModel_AbstractMotor_refsub_24b.mdl
           <P Name="Minimized" Class="char">Off</P>
         </Object>
         <Object ObjectID="7">
@@ -1647,19 +1208,11 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Minimized" Class="char">Unset</P>
         </Object>
       </Array>
-<<<<<<<< HEAD:Devel/AppsForPhysicalSystems/RotationalFrictionTorque/RotationalFrictionTorque_SampleModel_refsub_24b.mdl
       <P Name="WindowState" Class="char">AAAA/wAAAAD9AAAAAwAAAAAAAAC9AAAB+PwCAAAABPsAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAAAAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAACTAP////sAAABgAFMAaQBtAHUAbABpAG4AawA6AEUAZABpAHQAbwByADoAUgBlAGYAZQByAGUAbgBjAGUAZABGAGkAbABlAHMALwBSAGUAZgBlAHIAZQBuAGMAZQBkACAARgBpAGwAZQBzAAAAAAD/////AAAAxwD///8AAAABAAABxgAAAoD8AgAAAAH7AAAAVABHAEwAVQBFADIAOgBQAHIAbwBwAGUAcgB0AHkASQBuAHMAcABlAGMAdABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAC1AAACgAAAAoAA////AAAAAwAABQIAAAE2/AEAAAAB+/////8DAAAAXAAAA8gAAAUCAAABPAAABQIAAAKAAAAAAQAAAAIAAAABAAAAAvwAAAADAAAAAAAAAAEAAAA2AGMAbwBsAGwAYQBwAHMAaQBiAGwAZQBQAGEAbgBlAGwAVABvAG8AbABCAGEAcgBMAGUAZgB0AwAAAAD/////AAAAAAAAAAAAAAABAAAAAQAAADgAYwBvAGwAbABhAHAAcwBpAGIAbABlAFAAYQBuAGUAbABUAG8AbwBsAEIAYQByAFIAaQBnAGgAdAIAAAAA/////wAAAAAAAAAAAAAAAwAAAAEAAAA6AGMAbwBsAGwAYQBwAHMAaQBiAGwAZQBQAGEAbgBlAGwAVABvAG8AbABCAGEAcgBCAG8AdAB0AG8AbQAAAAAA/////wAAAAAAAAAA</P>
       <Array PropName="PersistedApps" Type="Cell" Dimension="0*1"/>
       <P Name="WindowUuid" Class="char">511db75c-0f30-41b4-bd51-77ef86656b82</P>
     </Object>
     <P Name="BDUuid" Class="char">491a63c0-aabd-4c77-95d5-4551cb0bc472</P>
-========
-      <P Name="WindowState" Class="char">AAAA/wAAAAD9AAAAAwAAAAAAAAC9AAAB+PwCAAAABPsAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAAAAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAACTAP////sAAABgAFMAaQBtAHUAbABpAG4AawA6AEUAZABpAHQAbwByADoAUgBlAGYAZQByAGUAbgBjAGUAZABGAGkAbABlAHMALwBSAGUAZgBlAHIAZQBuAGMAZQBkACAARgBpAGwAZQBzAAAAAAD/////AAAAxwD///8AAAABAAABxgAAAoD8AgAAAAH7AAAAVABHAEwAVQBFADIAOgBQAHIAbwBwAGUAcgB0AHkASQBuAHMAcABlAGMAdABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgIAAAVfAAAAvAAAA20AAASkAAAAAwAAAAAAAAAA/AEAAAAB+/////8AAAAAAP////8AAAOzAP///wAABQIAAAKAAAAAAQAAAAIAAAABAAAAAvwAAAADAAAAAAAAAAEAAAA2AGMAbwBsAGwAYQBwAHMAaQBiAGwAZQBQAGEAbgBlAGwAVABvAG8AbABCAGEAcgBMAGUAZgB0AwAAAAD/////AAAAAAAAAAAAAAABAAAAAQAAADgAYwBvAGwAbABhAHAAcwBpAGIAbABlAFAAYQBuAGUAbABUAG8AbwBsAEIAYQByAFIAaQBnAGgAdAIAAAAA/////wAAAAAAAAAAAAAAAwAAAAEAAAA6AGMAbwBsAGwAYQBwAHMAaQBiAGwAZQBQAGEAbgBlAGwAVABvAG8AbABCAGEAcgBCAG8AdAB0AG8AbQAAAAAA/////wAAAAAAAAAA</P>
-      <Array PropName="PersistedApps" Type="Cell" Dimension="0*1"/>
-      <P Name="WindowUuid" Class="char">511db75c-0f30-41b4-bd51-77ef86656b82</P>
-    </Object>
-    <P Name="BDUuid" Class="char">077da0a3-4e3e-4237-aabd-5ced9cc0fb66</P>
->>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3:Release/ModelingUtilityForSimscape/SampleModel_AbstractMotor_refsub_24b.mdl
   </Object>
 </WindowsInfo>
 

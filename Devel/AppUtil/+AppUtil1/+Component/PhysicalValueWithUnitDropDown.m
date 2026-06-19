@@ -1,5 +1,4 @@
 classdef PhysicalValueWithUnitDropDown < AppUtil1.Component.ComponentBase
-<<<<<<< HEAD
   % UI component for simscape.Value with unit drop-down selection.
   %
   % This component can accept numeric literals, MATLAB expressions, or
@@ -11,14 +10,6 @@ classdef PhysicalValueWithUnitDropDown < AppUtil1.Component.ComponentBase
   properties (Constant)
     errorID (1,1) string = "PhysicalValueWithUnitDropDown:"
   end  % properties
-=======
-  % UI component for simscape.Value with name, value, info, and drop-down UIs
-  %
-  % This component supports using a variable in the base workspace.
-
-  % Copyright 2026 The MathWorks, Inc.
-
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
   properties
 
     physical_value CodeUtil1.PhysicalValue
@@ -43,15 +34,11 @@ classdef PhysicalValueWithUnitDropDown < AppUtil1.Component.ComponentBase
     hasError (1,1) logical
   end  % properties
   properties (Dependent)
-<<<<<<< HEAD
 
     SimscapeValue (1,:) simscape.Value
 
     ValueTextIsSimscapeValue (1,1) logical
 
-=======
-    SimscapeValue (1,:) simscape.Value
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
   end  % properties
   properties
     ComponentHeight (1,:) {CodeUtil1.mustBeTextOrPositiveNumber} = AppUtil1.Constant.Height{"oneline++"}
@@ -322,7 +309,6 @@ classdef PhysicalValueWithUnitDropDown < AppUtil1.Component.ComponentBase
     end  % function
 
     % --------------------------------------------------------------------------
-<<<<<<< HEAD
     % get ValueTextIsSimscapeValue
 
     function x = get.ValueTextIsSimscapeValue(component)
@@ -337,8 +323,6 @@ classdef PhysicalValueWithUnitDropDown < AppUtil1.Component.ComponentBase
     end  % function
 
     % --------------------------------------------------------------------------
-=======
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
     % get hasError
 
     function true_or_false = get.hasError(component)
@@ -405,11 +389,7 @@ classdef PhysicalValueWithUnitDropDown < AppUtil1.Component.ComponentBase
       % This assignment avoids triggering the react_ValueTextUI_ValueChanged callback.
       component.ValueTextUI.MainEditField.Value = str;
 
-<<<<<<< HEAD
       % Show the tooltip because the width of the ValueTextUI can be shorter than its content.
-=======
-      % Show the tooltip because the width of the ValueTextUI may be shorter than its content.
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
       component.ValueTextUI.MainEditField.Tooltip = str;
 
       updateInfoAndUnitUIs(component)

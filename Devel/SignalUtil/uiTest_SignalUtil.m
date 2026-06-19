@@ -56,25 +56,11 @@ classdef uiTest_SignalUtil < matlab.uitest.TestCase
     % Make sure there is no warning when opening an app.
 
     function app_launches_without_warnings_1(testcase)
-<<<<<<< HEAD
       verifyWarningFree(testcase, @SignalDesignApp)
     end  % function
 
     function app_launches_without_warnings_2(testcase)
       verifyWarningFree(testcase, @TraceGeneratorApp)
-=======
-      verifyWarningFree(testcase, @() test_target)
-      function test_target
-        testcase.App = SignalDesignApp;  % !test-target
-      end  % nested function
-    end  % function
-
-    function app_launches_without_warnings_2(testcase)
-      verifyWarningFree(testcase, @() test_target)
-      function test_target
-        testcase.App = TraceGeneratorApp;  % !test-target
-      end  % nested function
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
     end  % function
 
   end  % methods

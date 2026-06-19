@@ -132,15 +132,9 @@ classdef unittest_RotationalFrictionTorque < matlab.unittest.TestCase
       verifyEqual(testcase, ds.BlockPath, block_path)
       verifyEqual(testcase, ds.ModelName, model_name)
       verifyEqual(testcase, ds.ModelParams.BreakawayTorque, simscape.Value(400, "lbf*in"))
-<<<<<<< HEAD:Devel/AppsForPhysicalSystems/RotationalFrictionTorque/Test/unittest_RotationalFrictionTorque.m
       verifyEqual(testcase, ds.ModelParams.BreakawayVelocity, simscape.Value(10, "rpm"))
       verifyEqual(testcase, ds.ModelParams.CoulombTorque, simscape.Value(300, "lbf*in"))
       verifyEqual(testcase, ds.ModelParams.ViscousCoefficient, simscape.Value(1, "lbf*in/rpm"))
-=======
-      verifyEqual(testcase, ds.ModelParams.BreakawayVelocity, simscape.Value(0.3, "rev/s"))
-      verifyEqual(testcase, ds.ModelParams.CoulombTorque, simscape.Value(200, "lbf*in"))
-      verifyEqual(testcase, ds.ModelParams.ViscousCoefficient, simscape.Value(50, "lbf*in/(rev/s)"))
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3:Devel/AppsForPhysicalSystems/RotationalFriction/Test/unittest_RotationalFriction.m
 
     end  % function
 

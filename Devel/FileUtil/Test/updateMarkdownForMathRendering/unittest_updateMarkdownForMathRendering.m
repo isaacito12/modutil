@@ -1,8 +1,4 @@
-<<<<<<<< HEAD:Devel/FileUtil/Test/updateMarkdownForMathRendering/unittest_updateMarkdownForMathRendering.m
 classdef unittest_updateMarkdownForMathRendering < matlab.unittest.TestCase
-========
-classdef unittest_mustBePositiveOrNan < matlab.unittest.TestCase
->>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3:Devel/CodeUtil/Test/mustBe/unittest_mustBePositiveOrNan.m
   % Class-based unit test
 
   % Author Class-Based Unit Tests in MATLAB
@@ -36,7 +32,6 @@ classdef unittest_mustBePositiveOrNan < matlab.unittest.TestCase
     % Functions in this "Test" section are the tests.
     % Before each function in this section runs, functions defined in the TestMethodSetup section run.
 
-<<<<<<<< HEAD:Devel/FileUtil/Test/updateMarkdownForMathRendering/unittest_updateMarkdownForMathRendering.m
     %% Minimum quality check
     % Check that models, scripts, functions, and classes run right out of the box.
 
@@ -61,29 +56,5 @@ classdef unittest_mustBePositiveOrNan < matlab.unittest.TestCase
       disp("Deleted target file.")
     end  % function
 
-========
-    function PassingTest_1(~)
-      CodeUtil1.mustBePositiveOrNan(0.1)  % !test-target
-    end  % function
-
-    function PassingTest_2(~)
-      CodeUtil1.mustBePositiveOrNan(nan)  % !test-target
-    end  % function
-
-    function Error_1(testcase)
-      verifyError(testcase, @() test_target, "mustBePositiveOrNan:InvalidType")
-      function test_target
-        CodeUtil1.mustBePositiveOrNan("dummy")  % !test-target
-      end  % nested function
-    end  % function
-
-    function Error_2(testcase)
-      verifyError(testcase, @() test_target, "mustBePositiveOrNan:InvalidValue")
-      function test_target
-        CodeUtil1.mustBePositiveOrNan(-0.1)  % !test-target
-      end  % nested function
-    end  % function
-
->>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3:Devel/CodeUtil/Test/mustBe/unittest_mustBePositiveOrNan.m
   end  % methods
 end  % classdef

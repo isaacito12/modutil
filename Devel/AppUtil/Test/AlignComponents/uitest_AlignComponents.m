@@ -98,32 +98,19 @@ classdef uitest_AlignComponents < matlab.uitest.TestCase
       end  % if
       app = apptest_Align_EditField_DropDown_2_vertical;
       drawnow
-<<<<<<< HEAD
       app.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-2-editfield.png");
       exportapp(app.MainFigure, save_path)
-=======
-      app.Window.MainFigure.Theme = "dark";
-      save_path = fullfile(pwd, "screenshot-testing-dark-2-editfield.png");
-      exportapp(app.Window.MainFigure, save_path)
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
     end  % function
 
     function LightTheme_2(~)
       app = apptest_Align_EditField_DropDown_2_vertical;
       drawnow
       if not(isMATLABReleaseOlderThan("R2025a"))
-<<<<<<< HEAD
         app.MainFigure.Theme = "light";
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-2-editfield.png");
       exportapp(app.MainFigure, save_path)
-=======
-        app.Window.MainFigure.Theme = "light";
-      end  % if
-      save_path = fullfile(pwd, "screenshot-testing-light-2-editfield.png");
-      exportapp(app.Window.MainFigure, save_path)
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
     end  % function
 
     function DarkTheme_3(~)
@@ -134,29 +121,17 @@ classdef uitest_AlignComponents < matlab.uitest.TestCase
       end  % if
       app = apptest_AlignComponents_1_horizontal;
       drawnow
-<<<<<<< HEAD
       app.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-3-horizontal.png");
       exportapp(app.MainFigure, save_path)
-=======
-      app.Window.MainFigure.Theme = "dark";
-      save_path = fullfile(pwd, "screenshot-testing-dark-3-horizontal.png");
-      exportapp(app.Window.MainFigure, save_path)
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
     end  % function
 
     function LightTheme_3(~)
       app = apptest_AlignComponents_1_horizontal;
       drawnow
-<<<<<<< HEAD
       app.MainFigure.Theme = "light";
       save_path = fullfile(pwd, "screenshot-testing-light-3-horizontal.png");
       exportapp(app.MainFigure, save_path)
-=======
-      app.Window.MainFigure.Theme = "light";
-      save_path = fullfile(pwd, "screenshot-testing-light-3-horizontal.png");
-      exportapp(app.Window.MainFigure, save_path)
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
     end  % function
 
     function DarkTheme_4(~)
@@ -167,29 +142,17 @@ classdef uitest_AlignComponents < matlab.uitest.TestCase
       end  % if
       app = apptest_AlignComponents_1_horizontal;
       drawnow
-<<<<<<< HEAD
       app.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-4-horizontal.png");
       exportapp(app.MainFigure, save_path)
-=======
-      app.Window.MainFigure.Theme = "dark";
-      save_path = fullfile(pwd, "screenshot-testing-dark-4-horizontal.png");
-      exportapp(app.Window.MainFigure, save_path)
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
     end  % function
 
     function LightTheme_4(~)
       app = apptest_AlignComponents_1_horizontal;
       drawnow
-<<<<<<< HEAD
       app.MainFigure.Theme = "light";
       save_path = fullfile(pwd, "screenshot-testing-light-4-horizontal.png");
       exportapp(app.MainFigure, save_path)
-=======
-      app.Window.MainFigure.Theme = "light";
-      save_path = fullfile(pwd, "screenshot-testing-light-4-horizontal.png");
-      exportapp(app.Window.MainFigure, save_path)
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
     end  % function
 
   end  % methods
