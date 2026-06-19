@@ -35,7 +35,10 @@ classdef AppWindow < handle
 
     % PNG file
     Icon (1,1) string
+<<<<<<< HEAD
 
+=======
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
   end  % properties
   properties (Constant, Access=private)
 
@@ -69,10 +72,17 @@ classdef AppWindow < handle
 
       AppWindow.MainVerticalContainer = AppUtil1.VerticalContainer(MainFigure);
 
+<<<<<<< HEAD
       AppWindow.Icon = AppWindow.DefaultIcon;
 
       v_layout = addVerticalGridLayout(AppWindow.MainVerticalContainer);
       AppWindow.HeaderUI = AppUtil1.Component.WindowHeader(v_layout);
+=======
+      AppWindow.Icon = "AppUtil-icon-150x150.png";
+
+      v_gridlayout = addVerticalGridLayout(AppWindow.MainVerticalContainer);
+      AppWindow.HeaderUI = AppUtil1.Component.WindowHeader(v_gridlayout);
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
       AppWindow.HeaderUI.AppSourceName = NameValuePair.SourceFile;
       AppWindow.HeaderUI.Reporting = NameValuePair.Reporting;
     end  % function

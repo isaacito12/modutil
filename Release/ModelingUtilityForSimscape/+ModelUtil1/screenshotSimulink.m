@@ -50,7 +50,11 @@ arguments (Input)
   NameValuePair.PaddingVertical_px (1,1) {mustBeInteger, mustBeNonnegative} = 0
 
   % [0 0 0] is black. [1 1 1] is white.
+<<<<<<< HEAD
   NameValuePair.PaddingColorRGB (1,3) {mustBeInRange(NameValuePair.PaddingColorRGB, 0, 1)} = [1,1,1] %#ok<MUSTINRANGE>
+=======
+  NameValuePair.PaddingColorRGB (1,3) {mustBeInRange(NameValuePair.PaddingColorRGB, 0, 1)} = [1,1,1]  %#ok<MUSTINRANGE>
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 
   % Options below are for test purposes.
 

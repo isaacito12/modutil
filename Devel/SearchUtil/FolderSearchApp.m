@@ -6,14 +6,25 @@ function App = FolderSearchApp(NameValuePair)
 %   FolderSearchApp
 %
 % Use search options to customize the app's initial states.
+<<<<<<< HEAD
 % Example:
 %
 %   FolderSearchApp(SearchFolderName="test-result", TopFolder=pwd)
+=======
+% See the NameValuePair options in the code below for available options.
+% Example:
+%
+%   FolderSearchApp(SearchFolderName=".buildtool", TopFolder=pwd)
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 
 % Copyright 2026 The MathWorks, Inc.
 
 arguments (Input)
+<<<<<<< HEAD
   NameValuePair.SearchFolderName (1,1) string = "test-result"
+=======
+  NameValuePair.SearchFolderName (1,1) string = ".buildtool"
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
   NameValuePair.TopFolder (1,1) string {mustBeFolder} = pwd
 end  % arguments
 

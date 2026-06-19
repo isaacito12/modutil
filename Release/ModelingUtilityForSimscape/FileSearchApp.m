@@ -6,6 +6,10 @@ function App = FileSearchApp(NameValuePair)
 %   FileSearchApp
 %
 % Use search options to customize the app's initial states.
+<<<<<<< HEAD
+=======
+% See the NameValuePair options in the code below for available options.
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 % Example:
 %
 %   FileSearchApp(SearchFileName="buildfile*.m", TopFolder=pwd)

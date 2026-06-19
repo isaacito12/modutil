@@ -7,7 +7,10 @@ arguments (Output)
 end  % arguments
 
 main_figure = uifigure(Visible="off");
+<<<<<<< HEAD
 main_figure.Name = "Test";
+=======
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 main_figure.Position(3) = 500;  % width
 main_figure.Position(4) = 300;  % height
 
@@ -18,13 +21,21 @@ v_container = AppUtil1.VerticalContainer(main_figure);
 v_layout = addVerticalGridLayout(v_container);
 unit_ui_1 = AppUtil1.Component.PhysicalUnitLabel(v_layout);
 unit_ui_1.UnitText = "m";
+<<<<<<< HEAD
 unit_ui_1.UnitChangedCallback = @() react_UnitLabelChanged(unit_ui_1);
+=======
+unit_ui_1.UnitLabelChangedCallback = @() react_UnitLabelChanged(unit_ui_1);
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 unit_ui_1.HighlightBackground = "off";
 
 v_layout = addVerticalGridLayout(v_container);
 unit_ui_2 = AppUtil1.Component.PhysicalUnitLabel(v_layout);
 unit_ui_2.UnitText = "s";
+<<<<<<< HEAD
 unit_ui_2.UnitChangedCallback = @() react_UnitLabelChanged(unit_ui_2);
+=======
+unit_ui_2.UnitLabelChangedCallback = @() react_UnitLabelChanged(unit_ui_2);
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 unit_ui_2.HighlightBackground = "on";
 
   function react_UnitLabelChanged(UnitUI)
@@ -38,7 +49,11 @@ unit_ui_2.HighlightBackground = "on";
     x = extractAfter(x, "react_UnitLabelChanged");
     x = extractBetween(x, "(", ")");
 
+<<<<<<< HEAD
     disp("UnitChangedCallback:" + x + ":" + UnitUI.UnitText)
+=======
+    disp("UnitLabelChangedCallback:" + x + ":" + UnitUI.UnitText)
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 
   end  % nested function
 
@@ -48,7 +63,11 @@ main_figure.Visible = "on";
 drawnow
 if nargout > 0
   App = struct;
+<<<<<<< HEAD
   App.MainFigure = main_figure;
+=======
+  App.Window.MainFigure = main_figure;
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
   App.PhysicalUnitLabel_1 = unit_ui_1;
   App.PhysicalUnitLabel_2 = unit_ui_2;
 end  % if

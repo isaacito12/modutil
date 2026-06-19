@@ -11,7 +11,10 @@ arguments (Output)
 end  % arguments
 
 main_figure = uifigure(Visible="off");
+<<<<<<< HEAD
 main_figure.Name = "Test";
+=======
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 main_figure.Position(3) = 500;  % width
 main_figure.Position(4) = 300;  % height
 
@@ -39,7 +42,11 @@ main_figure.Visible = "on";
 drawnow
 if nargout > 0
   App = struct;
+<<<<<<< HEAD
   App.MainFigure = main_figure;
+=======
+  App.Window.MainFigure = main_figure;
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
   App.PhysicalUnitLabel = physical_unit_label_ui;
 end  % if
 end  % function

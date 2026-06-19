@@ -1,8 +1,17 @@
 classdef PhysicalUnitDropDown < AppUtil1.Component.ComponentBase
+<<<<<<< HEAD
   % Drop-down UI component for selecting Simscape physical units.
   %
   % Units are validated as simscape.Unit and must be commensurate.
   % UnitItems can be defined only once; in editable mode, new commensurate units are auto-added.
+=======
+  % Drop-down UI component for Simscape physical units
+  %
+  % Programmatically specify a list of physical units for UnitItems.
+  % Then select a unit with UnitText, or from a drop-down list.
+  % Units can be defined only once.
+  % The unit texts must be valid as simscape.Unit.
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 
   % Copyright 2026 The MathWorks, Inc.
 
@@ -188,14 +197,23 @@ classdef PhysicalUnitDropDown < AppUtil1.Component.ComponentBase
       catch exception
 
         msg = exception.message;
+<<<<<<< HEAD
         main_figure = ancestor(component, "figure");
         if main_figure.Visible
+=======
+        main_fig = ancestor(component, "figure");
+        if main_fig.Visible
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
           % !todo: This branch may be unreachable. Formally verify?
           if component.Reporting
             FileUtil1.displayTimeAndFileLocation("2")
           end  % if
           window_title = CodeUtil1.i18n("Error");
+<<<<<<< HEAD
           uialert(main_figure, msg, window_title)
+=======
+          uialert(main_fig, msg, window_title)
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 
           return
 
@@ -255,10 +273,17 @@ classdef PhysicalUnitDropDown < AppUtil1.Component.ComponentBase
           component.DropDownUI.MainDropDown.Value = component.CurrentUnitText;
 
           msg = exception.message;
+<<<<<<< HEAD
           main_figure = ancestor(component, "figure");
           if main_figure.Visible
             window_title = CodeUtil1.i18n("Error");
             uialert(main_figure, msg, window_title)
+=======
+          main_fig = ancestor(component, "figure");
+          if main_fig.Visible
+            window_title = CodeUtil1.i18n("Error");
+            uialert(main_fig, msg, window_title)
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 
             return
 
@@ -278,10 +303,17 @@ classdef PhysicalUnitDropDown < AppUtil1.Component.ComponentBase
             component.DropDownUI.MainDropDown.Value = component.CurrentUnitText;
 
             msg = CodeUtil1.i18n("New unit must be commensurate with the defined units.");
+<<<<<<< HEAD
             main_figure = ancestor(component, "figure");
             if main_figure.Visible
               window_title = CodeUtil1.i18n("Error");
               uialert(main_figure, msg, window_title)
+=======
+            main_fig = ancestor(component, "figure");
+            if main_fig.Visible
+              window_title = CodeUtil1.i18n("Error");
+              uialert(main_fig, msg, window_title)
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 
               return
 
@@ -313,10 +345,17 @@ classdef PhysicalUnitDropDown < AppUtil1.Component.ComponentBase
         % Non-editable mode: UnitText must be one of existing UnitItems.
         if not(component.UnitSpecified)
           msg = CodeUtil1.i18n("UnitItems must be defined before assigning a value to UnitText.");
+<<<<<<< HEAD
           main_figure = ancestor(component, "figure");
           if main_figure.Visible
             window_title = CodeUtil1.i18n("Error");
             uialert(main_figure, msg, window_title)
+=======
+          main_fig = ancestor(component, "figure");
+          if main_fig.Visible
+            window_title = CodeUtil1.i18n("Error");
+            uialert(main_fig, msg, window_title)
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 
             return
 
@@ -342,10 +381,17 @@ classdef PhysicalUnitDropDown < AppUtil1.Component.ComponentBase
           end  % for
           if not(match_found)
             msg = CodeUtil1.i18n("UnitText must be one of UnitItems: ") + NewUnitText;
+<<<<<<< HEAD
             main_figure = ancestor(component, "figure");
             if main_figure.Visible
               window_title = CodeUtil1.i18n("Error");
               uialert(main_figure, msg, window_title)
+=======
+            main_fig = ancestor(component, "figure");
+            if main_fig.Visible
+              window_title = CodeUtil1.i18n("Error");
+              uialert(main_fig, msg, window_title)
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 
               return
 

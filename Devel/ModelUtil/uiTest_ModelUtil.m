@@ -64,9 +64,15 @@ classdef uiTest_ModelUtil < matlab.uitest.TestCase
     function PassingTest_App_1(~)
       % Check the ModelFilePath option.
       if TestUtil1.isR2024bOrOlder
+<<<<<<< HEAD
         target = SearchUtil1.searchFiles("LookupTable1DBlockPlotApp_SampleModel_24b.mdl");
       else
         target = SearchUtil1.searchFiles("LookupTable1DBlockPlotApp_SampleModel.mdl");
+=======
+        target = SearchUtil1.searchFiles("SampleModel_LookupTable1DBlockPlotApp_24b.mdl");
+      else
+        target = SearchUtil1.searchFiles("SampleModel_LookupTable1DBlockPlotApp.mdl");
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
       end  % if
       LookupTable1DBlockPlotApp(ModelFilePath=target)
     end  % function
@@ -74,9 +80,15 @@ classdef uiTest_ModelUtil < matlab.uitest.TestCase
     function PassingTest_SampleModel_1(~)
       % Check that the Callback Button works.
       if TestUtil1.isR2024bOrOlder
+<<<<<<< HEAD
         model_name = "LookupTable1DBlockPlotApp_SampleModel_24b";
       else
         model_name = "LookupTable1DBlockPlotApp_SampleModel";
+=======
+        model_name = "SampleModel_LookupTable1DBlockPlotApp_24b";
+      else
+        model_name = "SampleModel_LookupTable1DBlockPlotApp";
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
       end  % if
       block_path = model_name + "/LookupTable1DBlockPlotApp";  % !test-target
       load_system(model_name)
@@ -88,9 +100,15 @@ classdef uiTest_ModelUtil < matlab.uitest.TestCase
     function PassingTest_SampleModel_2(~)
       % Check that the Callback Button works.
       if TestUtil1.isR2024bOrOlder
+<<<<<<< HEAD
         model_name = "LookupTable1DBlockPlotApp_SampleModel_24b";
       else
         model_name = "LookupTable1DBlockPlotApp_SampleModel";
+=======
+        model_name = "SampleModel_LookupTable1DBlockPlotApp_24b";
+      else
+        model_name = "SampleModel_LookupTable1DBlockPlotApp";
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
       end  % if
       block_path = model_name + "/plotLookupTable1DBlocks";  % !test-target
       load_system(model_name)

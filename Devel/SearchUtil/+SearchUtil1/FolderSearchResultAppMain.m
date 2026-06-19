@@ -66,7 +66,11 @@ classdef FolderSearchResultAppMain < handle
       % Build app GUI
 
       App.Window = AppUtil1.AppWindow(main_figure, SourceFile=which(meta_data.Name));
+<<<<<<< HEAD
       App.Window.Name = CodeUtil1.i18n("Folder search result");
+=======
+      App.Window.Name = CodeUtil1.i18n("File search result");
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
       App.Window.Height = 400;
       App.Window.Width = 800;
 

@@ -35,7 +35,10 @@ classdef PassingTests < matlab.uitest.TestCase
       % Close all before test
       close all
       bdclose all
+<<<<<<< HEAD
       evalin("base", "clearvars")
+=======
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 
       % addTeardown adds a function which always runs after each test.
       % Even if the execution of a test ends with an error, the teardown function runs.
@@ -43,7 +46,11 @@ classdef PassingTests < matlab.uitest.TestCase
       function closeAllAfterTest
         % Close all figure windows. This closes not only the test targets but also other figure windows.
         figs = findall(0, Type="Figure");
+<<<<<<< HEAD
         if ~isempty(figs)
+=======
+        if not(any(isempty(figs)))
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
           disp("Deleting figures (" + numel(figs) + ")")
           delete(figs)
         end  % if
@@ -64,6 +71,7 @@ classdef PassingTests < matlab.uitest.TestCase
       verifyWarningFree(testcase, @AbstractMotorEfficiencyApp)
     end  % function
 
+<<<<<<< HEAD
     function PassingTest_AbstractMotor_Description_html(testcase)
       % Check that there is only one target file.
       target_file = SearchUtil1.searchFiles("AbstractMotorEfficiencyApp_Description.html");
@@ -92,6 +100,30 @@ classdef PassingTests < matlab.uitest.TestCase
       varnames = string({vars.name});
       verifyTrue(testcase, ismember("Params", varnames))
       evalin("base", "clear Params")  % Post-clean up the base workspace.
+=======
+    function PassingTest_AbstractMotorEfficiencyApp_WithVariables_1(testcase)
+      verifyWarningFree(testcase, @AbstractMotorEfficiencyApp_WithVariables)
+    end  % function
+
+    function PassingTest_AbstractMotor_Description_html(testcase)
+      % Check that there is only one target file.
+      target_file = SearchUtil1.searchFiles("AbstractMotor_Description.html");  % !test-target
+      verifyTrue(testcase, isscalar(target_file))
+    end  % function
+
+    function PassingTest_SampleModel_AbstractMotor_refsub_24b_1(~)
+      load_system("SampleModel_AbstractMotor_refsub_24b")  % !test-target
+    end  % function
+
+    function PassingTest_SampleParams_AbstractMotor_1(testcase)
+      % Check that the expected parameter "MotorDrive" is loaded in the base workspace.
+      evalin("base", "clear MotorDrive")  % Pre-clean up the base workspace.
+      evalin("base", "SampleParams_AbstractMotor")  % !test-target
+      vars = evalin("base", "whos");
+      varnames = string({vars.name});
+      verifyTrue(testcase, ismember("MotorDrive", varnames))
+      evalin("base", "clear MotorDrive")  % Post-clean up the base workspace.
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
     end  % function
 
     function PassingTest_CodeCoverageApp_1(testcase)
@@ -118,6 +150,7 @@ classdef PassingTests < matlab.uitest.TestCase
       verifyWarningFree(testcase, @LookupTable1DBlockPlotApp)
     end  % function
 
+<<<<<<< HEAD
     function PassingTest_SampleModel_1(~)
       load_system("LookupTable1DBlockPlotApp_SampleModel_24b")
     end  % function
@@ -154,6 +187,38 @@ classdef PassingTests < matlab.uitest.TestCase
       varnames = string({vars.name});
       verifyTrue(testcase, ismember("Params", varnames))
       evalin("base", "clear Params")  % Post-clean up the base workspace.
+=======
+    function PassingTest_samplemodel_LookupTable1DBlockPlotApp_24b_1(~)
+      load_system("samplemodel_LookupTable1DBlockPlotApp_24b")  % !test-target
+    end  % function
+
+    function PassingTest_RotationalFrictionApp_1(testcase)
+      verifyWarningFree(testcase, @RotationalFrictionApp)
+    end  % function
+
+    function PassingTest_RotationalFrictionCustomApp1_1(testcase)
+      verifyWarningFree(testcase, @RotationalFrictionCustomApp1)
+    end  % function
+
+    function PassingTest_RotationalFriction_Description_html(testcase)
+      % Check that there is only one target file.
+      target_file = SearchUtil1.searchFiles("RotationalFriction_Description.html");  % !test-target
+      verifyTrue(testcase, isscalar(target_file))
+    end  % function
+
+    function PassingTest_SampleModel_RotationalFriction_refsub_24b_1(~)
+      load_system("SampleModel_RotationalFriction_refsub_24b")  % !test-target
+    end  % function
+
+    function PassingTest_SampleParams_RotationalFriction_1(testcase)
+      % Check that the expected parameter "friction" is loaded in the base workspace.
+      evalin("base", "clear friction")  % Pre-clean up the base workspace.
+      evalin("base", "SampleParams_RotationalFriction")  % !test-target
+      vars = evalin("base", "whos");
+      varnames = string({vars.name});
+      verifyTrue(testcase, ismember("friction", varnames))
+      evalin("base", "clear friction")  % Post-clean up the base workspace.
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
     end  % function
 
     function PassingTest_SignalDesignApp_1(testcase)
@@ -162,7 +227,11 @@ classdef PassingTests < matlab.uitest.TestCase
 
     function PassingTest_SignalDesignApp_Description_html(testcase)
       % Check that there is only one target file.
+<<<<<<< HEAD
       target_file = SearchUtil1.searchFiles("SignalDesignApp_Description.html");
+=======
+      target_file = SearchUtil1.searchFiles("SignalDesignApp_Description.html");  % !test-target
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
       verifyTrue(testcase, isscalar(target_file))
     end  % function
 
@@ -184,6 +253,7 @@ classdef PassingTests < matlab.uitest.TestCase
 
     function PassingTest_TraceGeneratorApp_Description_html(testcase)
       % Check that there is only one target file.
+<<<<<<< HEAD
       target_file = SearchUtil1.searchFiles("TraceGeneratorApp_Description.html");
       verifyTrue(testcase, isscalar(target_file))
     end  % function
@@ -220,6 +290,14 @@ classdef PassingTests < matlab.uitest.TestCase
       varnames = string({vars.name});
       verifyTrue(testcase, ismember("Params", varnames))
       evalin("base", "clear Params")  % Post-clean up the base workspace.
+=======
+      target_file = SearchUtil1.searchFiles("TraceGeneratorApp_Description.html");  % !test-target
+      verifyTrue(testcase, isscalar(target_file))
+    end  % function
+
+    function PassingTest_Vehicle1DApp_1(testcase)
+      verifyWarningFree(testcase, @Vehicle1DApp)
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
     end  % function
 
   end  % methods

@@ -21,7 +21,10 @@ classdef uiTest_PhysicalUnitLabel < matlab.uitest.TestCase
       % Close all before test
       close all
       bdclose all
+<<<<<<< HEAD
      evalin("base", "clearvars")
+=======
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 
       % addTeardown adds a function which always runs after each test.
       % Even if the execution of a test ends with an error, the teardown function runs.
@@ -193,7 +196,11 @@ classdef uiTest_PhysicalUnitLabel < matlab.uitest.TestCase
         app.PhysicalUnitLabel_1.UnitAlias = "\%";  % Error. Unit, which is not "1", is already defined.
         
       catch exception
+<<<<<<< HEAD
         uialert(app.MainFigure, exception.message, "Error")
+=======
+        uialert(app.Window.MainFigure, exception.message, "Error")
+>>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
       end
     end  % function
 
