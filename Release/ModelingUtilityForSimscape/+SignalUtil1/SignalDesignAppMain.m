@@ -340,9 +340,9 @@ classdef SignalDesignAppMain < handle
       catch exception
         App.IsValidMatrix = false;
         msg = exception.message;
-        if App.MainFigure.Visible
+        if App.Window.MainFigure.Visible
           window_title = "Error";
-          uialert(App.MainFigure, msg, window_title)
+          uialert(App.Window.MainFigure, msg, window_title)
         else
           disp(msg)
         end  % if
@@ -356,9 +356,9 @@ classdef SignalDesignAppMain < handle
       if not(result.IsValid)
         App.IsValidMatrix = false;
         msg = result.Message;
-        if App.MainFigure.Visible
+        if App.Window.MainFigure.Visible
           window_title = "Error";
-          uialert(App.MainFigure, msg, window_title)
+          uialert(App.Window.MainFigure, msg, window_title)
         else
           disp(msg)
         end  % if
@@ -375,13 +375,8 @@ classdef SignalDesignAppMain < handle
       % Disable plot auto-update. Restore it at the end of this function.
       % !attention: This logic is vulnerable if there is an error before
       % reaching the end of this function.
-<<<<<<< HEAD
       previous_auto_plot_state = App.UpdateButtonUI.CheckBoxUI.Value;
       App.UpdateButtonUI.CheckBoxUI.Value = false;
-=======
-      previous_auto_plot_state = App.PlotButtonUI.CheckBoxUI.Value;
-      App.PlotButtonUI.CheckBoxUI.Value = false;
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 
       % -----------------------------------------------------------------------
       block_path = App.SelectorUI.BlockPath;
@@ -394,9 +389,9 @@ classdef SignalDesignAppMain < handle
         % Restore the previous plot auto-update setting.
         App.UpdateButtonUI.CheckBoxUI.Value = previous_auto_plot_state;
         msg = block_path + newline + "Target block has no text in the Description property.";
-        if App.MainFigure.Visible
+        if App.Window.MainFigure.Visible
           window_title = "Error";
-          uialert(App.MainFigure, msg, window_title)
+          uialert(App.Window.MainFigure, msg, window_title)
         else
           disp(msg)
         end  % if
@@ -410,9 +405,9 @@ classdef SignalDesignAppMain < handle
         % Restore the previous plot auto-update setting.
         App.UpdateButtonUI.CheckBoxUI.Value = previous_auto_plot_state;
         msg = block_path + newline + "Description in the Target block has no signal design matrix.";
-        if App.MainFigure.Visible
+        if App.Window.MainFigure.Visible
           window_title = "Error";
-          uialert(App.MainFigure, msg, window_title)
+          uialert(App.Window.MainFigure, msg, window_title)
         else
           disp(msg)
         end  % if
@@ -428,9 +423,9 @@ classdef SignalDesignAppMain < handle
       catch exception
         % Restore the previous plot auto-update setting.
         App.UpdateButtonUI.CheckBoxUI.Value = previous_auto_plot_state;
-        if App.MainFigure.Visible
+        if App.Window.MainFigure.Visible
           window_title = "Error";
-          uialert(App.MainFigure, exception.message, window_title)
+          uialert(App.Window.MainFigure, exception.message, window_title)
         else
 
           rethrow(exception)
@@ -503,9 +498,9 @@ classdef SignalDesignAppMain < handle
           % Restore the previous plot auto-update setting.
           App.UpdateButtonUI.CheckBoxUI.Value = previous_auto_plot_state;
           msg = "This app supports only ""Akima spline"", ""Linear point-slope"", and ""Flat"" for interpolation method.";
-          if App.MainFigure.Visible
+          if App.Window.MainFigure.Visible
             window_title = "Error";
-            uialert(App.MainFigure, msg, window_title)
+            uialert(App.Window.MainFigure, msg, window_title)
           else
            disp(msg)
           end  % if

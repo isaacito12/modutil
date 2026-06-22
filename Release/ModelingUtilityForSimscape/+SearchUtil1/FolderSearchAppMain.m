@@ -213,11 +213,7 @@ classdef FolderSearchAppMain < handle
       App.SearchResult = SearchUtil1.searchFolders(App.SearchFolderNameUI.Value, TopFolder=top_folder);
 
       if isempty(App.SearchResult)
-<<<<<<< HEAD
-        uialert(App.MainFigure, CodeUtil1.i18n("Folder was not found."), CodeUtil1.i18n("Not found"))
-=======
         uialert(App.Window.MainFigure, CodeUtil1.i18n("Folder was not found."), CodeUtil1.i18n("Not found"))
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 
         return
 

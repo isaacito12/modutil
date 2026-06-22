@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<coverage branch-rate="NaN" branches-covered="NaN" branches-valid="NaN" complexity="NaN" line-rate="0.48838" lines-covered="4434" lines-valid="9079" timestamp="1781859545.3918" version="">
+<coverage branch-rate="NaN" branches-covered="NaN" branches-valid="NaN" complexity="NaN" line-rate="0.48722" lines-covered="4423" lines-valid="9078" timestamp="1782117313.1384" version="">
   <sources>
     <source>C:\local\modutil\repo\worktrees\R2024b-devel\Release\</source>
   </sources>
@@ -1659,7 +1659,7 @@
         </class>
       </classes>
     </package>
-    <package branch-rate="NaN" complexity="NaN" line-rate="0.54403" name="AppUtil1.Component">
+    <package branch-rate="NaN" complexity="NaN" line-rate="0.53878" name="AppUtil1.Component">
       <classes>
         <class branch-rate="NaN" complexity="NaN" filename="ModelingUtilityForSimscape\+AppUtil1\+Component\BaseWorkspaceStructParameterUI.m" line-rate="0.49727" name="AppUtil1.Component.BaseWorkspaceStructParameterUI">
           <methods>
@@ -2071,7 +2071,7 @@
             <line hits="0" number="425"/>
           </lines>
         </class>
-        <class branch-rate="NaN" complexity="NaN" filename="ModelingUtilityForSimscape\+AppUtil1\+Component\BlockSelectorUI.m" line-rate="0.37383" name="AppUtil1.Component.BlockSelectorUI">
+        <class branch-rate="NaN" complexity="NaN" filename="ModelingUtilityForSimscape\+AppUtil1\+Component\BlockSelectorUI.m" line-rate="0.35514" name="AppUtil1.Component.BlockSelectorUI">
           <methods>
             <method branch-rate="NaN" line-rate="0" name="get.ModelFileFullPath" signature="x = get.ModelFileFullPath(component)">
               <lines>
@@ -2419,25 +2419,25 @@
                 <line hits="6" number="735"/>
               </lines>
             </method>
-            <method branch-rate="NaN" line-rate="1" name="update" signature="update(component)">
+            <method branch-rate="NaN" line-rate="0.66667" name="update" signature="update(component)">
               <lines>
-                <line hits="7" number="741"/>
-                <line hits="7" number="743"/>
-                <line hits="1" number="744"/>
-                <line hits="1" number="746"/>
+                <line hits="6" number="741"/>
+                <line hits="6" number="743"/>
+                <line hits="0" number="744"/>
+                <line hits="0" number="746"/>
                 <line hits="6" number="750"/>
                 <line hits="6" number="751"/>
               </lines>
             </method>
-            <method branch-rate="NaN" line-rate="0.44444" name="regular_update" signature="regular_update(component)">
+            <method branch-rate="NaN" line-rate="0" name="regular_update" signature="regular_update(component)">
               <lines>
-                <line hits="1" number="756"/>
+                <line hits="0" number="756"/>
                 <line hits="0" number="757"/>
-                <line hits="1" number="760"/>
+                <line hits="0" number="760"/>
                 <line hits="0" number="761"/>
-                <line hits="1" number="764"/>
+                <line hits="0" number="764"/>
                 <line hits="0" number="765"/>
-                <line hits="1" number="768"/>
+                <line hits="0" number="768"/>
                 <line hits="0" number="769"/>
                 <line hits="0" number="770"/>
               </lines>
@@ -2754,19 +2754,19 @@
             <line hits="6" number="733"/>
             <line hits="6" number="734"/>
             <line hits="6" number="735"/>
-            <line hits="7" number="741"/>
-            <line hits="7" number="743"/>
-            <line hits="1" number="744"/>
-            <line hits="1" number="746"/>
+            <line hits="6" number="741"/>
+            <line hits="6" number="743"/>
+            <line hits="0" number="744"/>
+            <line hits="0" number="746"/>
             <line hits="6" number="750"/>
             <line hits="6" number="751"/>
-            <line hits="1" number="756"/>
+            <line hits="0" number="756"/>
             <line hits="0" number="757"/>
-            <line hits="1" number="760"/>
+            <line hits="0" number="760"/>
             <line hits="0" number="761"/>
-            <line hits="1" number="764"/>
+            <line hits="0" number="764"/>
             <line hits="0" number="765"/>
-            <line hits="1" number="768"/>
+            <line hits="0" number="768"/>
             <line hits="0" number="769"/>
             <line hits="0" number="770"/>
             <line hits="6" number="780"/>
@@ -2807,21 +2807,21 @@
             </method>
             <method branch-rate="NaN" line-rate="0.82353" name="update" signature="update(component)">
               <lines>
-                <line hits="57" number="73"/>
-                <line hits="57" number="75"/>
-                <line hits="57" number="76"/>
-                <line hits="57" number="78"/>
-                <line hits="57" number="79"/>
+                <line hits="53" number="73"/>
+                <line hits="53" number="75"/>
+                <line hits="53" number="76"/>
+                <line hits="53" number="78"/>
+                <line hits="53" number="79"/>
                 <line hits="0" number="80"/>
-                <line hits="57" number="81"/>
-                <line hits="57" number="82"/>
+                <line hits="53" number="81"/>
+                <line hits="53" number="82"/>
                 <line hits="0" number="83"/>
                 <line hits="0" number="84"/>
-                <line hits="57" number="87"/>
-                <line hits="57" number="88"/>
+                <line hits="53" number="87"/>
+                <line hits="53" number="88"/>
                 <line hits="2" number="89"/>
-                <line hits="55" number="90"/>
-                <line hits="52" number="91"/>
+                <line hits="51" number="90"/>
+                <line hits="48" number="91"/>
                 <line hits="3" number="92"/>
                 <line hits="3" number="93"/>
               </lines>
@@ -2877,21 +2877,21 @@
             <line hits="52" number="63"/>
             <line hits="52" number="67"/>
             <line hits="52" number="68"/>
-            <line hits="57" number="73"/>
-            <line hits="57" number="75"/>
-            <line hits="57" number="76"/>
-            <line hits="57" number="78"/>
-            <line hits="57" number="79"/>
+            <line hits="53" number="73"/>
+            <line hits="53" number="75"/>
+            <line hits="53" number="76"/>
+            <line hits="53" number="78"/>
+            <line hits="53" number="79"/>
             <line hits="0" number="80"/>
-            <line hits="57" number="81"/>
-            <line hits="57" number="82"/>
+            <line hits="53" number="81"/>
+            <line hits="53" number="82"/>
             <line hits="0" number="83"/>
             <line hits="0" number="84"/>
-            <line hits="57" number="87"/>
-            <line hits="57" number="88"/>
+            <line hits="53" number="87"/>
+            <line hits="53" number="88"/>
             <line hits="2" number="89"/>
-            <line hits="55" number="90"/>
-            <line hits="52" number="91"/>
+            <line hits="51" number="90"/>
+            <line hits="48" number="91"/>
             <line hits="3" number="92"/>
             <line hits="3" number="93"/>
             <line hits="0" number="105"/>
@@ -2933,19 +2933,19 @@
             </method>
             <method branch-rate="NaN" line-rate="0.58824" name="update" signature="update(component)">
               <lines>
-                <line hits="41" number="66"/>
-                <line hits="41" number="68"/>
-                <line hits="41" number="69"/>
-                <line hits="41" number="71"/>
-                <line hits="41" number="72"/>
+                <line hits="38" number="66"/>
+                <line hits="38" number="68"/>
+                <line hits="38" number="69"/>
+                <line hits="38" number="71"/>
+                <line hits="38" number="72"/>
                 <line hits="0" number="73"/>
-                <line hits="41" number="74"/>
-                <line hits="41" number="75"/>
+                <line hits="38" number="74"/>
+                <line hits="38" number="75"/>
                 <line hits="0" number="76"/>
                 <line hits="0" number="77"/>
-                <line hits="41" number="80"/>
-                <line hits="41" number="81"/>
-                <line hits="41" number="82"/>
+                <line hits="38" number="80"/>
+                <line hits="38" number="81"/>
+                <line hits="38" number="82"/>
                 <line hits="0" number="83"/>
                 <line hits="0" number="84"/>
                 <line hits="0" number="85"/>
@@ -2997,19 +2997,19 @@
             <line hits="36" number="57"/>
             <line hits="36" number="60"/>
             <line hits="36" number="61"/>
-            <line hits="41" number="66"/>
-            <line hits="41" number="68"/>
-            <line hits="41" number="69"/>
-            <line hits="41" number="71"/>
-            <line hits="41" number="72"/>
+            <line hits="38" number="66"/>
+            <line hits="38" number="68"/>
+            <line hits="38" number="69"/>
+            <line hits="38" number="71"/>
+            <line hits="38" number="72"/>
             <line hits="0" number="73"/>
-            <line hits="41" number="74"/>
-            <line hits="41" number="75"/>
+            <line hits="38" number="74"/>
+            <line hits="38" number="75"/>
             <line hits="0" number="76"/>
             <line hits="0" number="77"/>
-            <line hits="41" number="80"/>
-            <line hits="41" number="81"/>
-            <line hits="41" number="82"/>
+            <line hits="38" number="80"/>
+            <line hits="38" number="81"/>
+            <line hits="38" number="82"/>
             <line hits="0" number="83"/>
             <line hits="0" number="84"/>
             <line hits="0" number="85"/>
@@ -3053,7 +3053,7 @@
             </method>
             <method branch-rate="NaN" line-rate="0.16667" name="update" signature="update(component)">
               <lines>
-                <line hits="834" number="106"/>
+                <line hits="762" number="106"/>
                 <line hits="0" number="107"/>
                 <line hits="0" number="108"/>
                 <line hits="0" number="109"/>
@@ -3094,7 +3094,7 @@
             <line hits="746" number="97"/>
             <line hits="746" number="100"/>
             <line hits="746" number="101"/>
-            <line hits="834" number="106"/>
+            <line hits="762" number="106"/>
             <line hits="0" number="107"/>
             <line hits="0" number="108"/>
             <line hits="0" number="109"/>
@@ -3486,7 +3486,7 @@
             <line hits="0" number="454"/>
           </lines>
         </class>
-        <class branch-rate="NaN" complexity="NaN" filename="ModelingUtilityForSimscape\+AppUtil1\+Component\DropDown.m" line-rate="0.71875" name="AppUtil1.Component.DropDown">
+        <class branch-rate="NaN" complexity="NaN" filename="ModelingUtilityForSimscape\+AppUtil1\+Component\DropDown.m" line-rate="0.6875" name="AppUtil1.Component.DropDown">
           <methods>
             <method branch-rate="NaN" line-rate="0.94444" name="setup" signature="setup(component)">
               <lines>
@@ -3510,14 +3510,14 @@
                 <line hits="58" number="102"/>
               </lines>
             </method>
-            <method branch-rate="NaN" line-rate="0.88889" name="update" signature="update(component)">
+            <method branch-rate="NaN" line-rate="0.66667" name="update" signature="update(component)">
               <lines>
-                <line hits="62" number="107"/>
+                <line hits="58" number="107"/>
                 <line hits="0" number="108"/>
-                <line hits="62" number="110"/>
-                <line hits="62" number="111"/>
-                <line hits="4" number="112"/>
-                <line hits="4" number="114"/>
+                <line hits="58" number="110"/>
+                <line hits="58" number="111"/>
+                <line hits="0" number="112"/>
+                <line hits="0" number="114"/>
                 <line hits="58" number="117"/>
                 <line hits="58" number="118"/>
                 <line hits="58" number="119"/>
@@ -3532,20 +3532,20 @@
             </method>
             <method branch-rate="NaN" line-rate="0.45455" name="regular_update" signature="regular_update(component)">
               <lines>
-                <line hits="62" number="139"/>
+                <line hits="58" number="139"/>
                 <line hits="0" number="140"/>
-                <line hits="62" number="143"/>
-                <line hits="62" number="144"/>
-                <line hits="62" number="146"/>
-                <line hits="62" number="147"/>
+                <line hits="58" number="143"/>
+                <line hits="58" number="144"/>
+                <line hits="58" number="146"/>
+                <line hits="58" number="147"/>
                 <line hits="0" number="148"/>
-                <line hits="62" number="149"/>
-                <line hits="62" number="150"/>
+                <line hits="58" number="149"/>
+                <line hits="58" number="150"/>
                 <line hits="0" number="151"/>
                 <line hits="0" number="152"/>
-                <line hits="62" number="155"/>
-                <line hits="62" number="156"/>
-                <line hits="62" number="157"/>
+                <line hits="58" number="155"/>
+                <line hits="58" number="156"/>
+                <line hits="58" number="157"/>
                 <line hits="0" number="159"/>
                 <line hits="0" number="160"/>
                 <line hits="0" number="161"/>
@@ -3568,7 +3568,7 @@
             </method>
             <method branch-rate="NaN" line-rate="1" name="get.Value" signature="x = get.Value(component)">
               <lines>
-                <line hits="18" number="194"/>
+                <line hits="16" number="194"/>
               </lines>
             </method>
             <method branch-rate="NaN" line-rate="1" name="set.Value" signature="set.Value(component, x)">
@@ -3608,32 +3608,32 @@
             <line hits="58" number="98"/>
             <line hits="58" number="101"/>
             <line hits="58" number="102"/>
-            <line hits="62" number="107"/>
+            <line hits="58" number="107"/>
             <line hits="0" number="108"/>
-            <line hits="62" number="110"/>
-            <line hits="62" number="111"/>
-            <line hits="4" number="112"/>
-            <line hits="4" number="114"/>
+            <line hits="58" number="110"/>
+            <line hits="58" number="111"/>
+            <line hits="0" number="112"/>
+            <line hits="0" number="114"/>
             <line hits="58" number="117"/>
             <line hits="58" number="118"/>
             <line hits="58" number="119"/>
             <line hits="58" number="127"/>
             <line hits="0" number="128"/>
             <line hits="58" number="133"/>
-            <line hits="62" number="139"/>
+            <line hits="58" number="139"/>
             <line hits="0" number="140"/>
-            <line hits="62" number="143"/>
-            <line hits="62" number="144"/>
-            <line hits="62" number="146"/>
-            <line hits="62" number="147"/>
+            <line hits="58" number="143"/>
+            <line hits="58" number="144"/>
+            <line hits="58" number="146"/>
+            <line hits="58" number="147"/>
             <line hits="0" number="148"/>
-            <line hits="62" number="149"/>
-            <line hits="62" number="150"/>
+            <line hits="58" number="149"/>
+            <line hits="58" number="150"/>
             <line hits="0" number="151"/>
             <line hits="0" number="152"/>
-            <line hits="62" number="155"/>
-            <line hits="62" number="156"/>
-            <line hits="62" number="157"/>
+            <line hits="58" number="155"/>
+            <line hits="58" number="156"/>
+            <line hits="58" number="157"/>
             <line hits="0" number="159"/>
             <line hits="0" number="160"/>
             <line hits="0" number="161"/>
@@ -3644,7 +3644,7 @@
             <line hits="0" number="166"/>
             <line hits="3" number="179"/>
             <line hits="92" number="187"/>
-            <line hits="18" number="194"/>
+            <line hits="16" number="194"/>
             <line hits="87" number="203"/>
             <line hits="87" number="206"/>
             <line hits="87" number="214"/>
@@ -3681,22 +3681,22 @@
             </method>
             <method branch-rate="NaN" line-rate="0.72727" name="update" signature="update(component)">
               <lines>
-                <line hits="147" number="61"/>
-                <line hits="147" number="63"/>
-                <line hits="147" number="65"/>
-                <line hits="147" number="66"/>
-                <line hits="147" number="68"/>
-                <line hits="147" number="69"/>
+                <line hits="137" number="61"/>
+                <line hits="137" number="63"/>
+                <line hits="137" number="65"/>
+                <line hits="137" number="66"/>
+                <line hits="137" number="68"/>
+                <line hits="137" number="69"/>
                 <line hits="0" number="70"/>
-                <line hits="147" number="71"/>
-                <line hits="147" number="72"/>
+                <line hits="137" number="71"/>
+                <line hits="137" number="72"/>
                 <line hits="0" number="73"/>
                 <line hits="0" number="74"/>
               </lines>
             </method>
             <method branch-rate="NaN" line-rate="1" name="get.Value" signature="x = get.Value(component)">
               <lines>
-                <line hits="73" number="88"/>
+                <line hits="68" number="88"/>
               </lines>
             </method>
             <method branch-rate="NaN" line-rate="1" name="set.Value" signature="set.Value(component, x)">
@@ -3729,18 +3729,18 @@
             <line hits="135" number="49"/>
             <line hits="135" number="50"/>
             <line hits="135" number="55"/>
-            <line hits="147" number="61"/>
-            <line hits="147" number="63"/>
-            <line hits="147" number="65"/>
-            <line hits="147" number="66"/>
-            <line hits="147" number="68"/>
-            <line hits="147" number="69"/>
+            <line hits="137" number="61"/>
+            <line hits="137" number="63"/>
+            <line hits="137" number="65"/>
+            <line hits="137" number="66"/>
+            <line hits="137" number="68"/>
+            <line hits="137" number="69"/>
             <line hits="0" number="70"/>
-            <line hits="147" number="71"/>
-            <line hits="147" number="72"/>
+            <line hits="137" number="71"/>
+            <line hits="137" number="72"/>
             <line hits="0" number="73"/>
             <line hits="0" number="74"/>
-            <line hits="73" number="88"/>
+            <line hits="68" number="88"/>
             <line hits="239" number="96"/>
             <line hits="0" number="106"/>
             <line hits="0" number="108"/>
@@ -3775,30 +3775,30 @@
             </method>
             <method branch-rate="NaN" line-rate="0.8" name="update" signature="update(component)">
               <lines>
-                <line hits="6" number="83"/>
-                <line hits="6" number="88"/>
-                <line hits="6" number="89"/>
-                <line hits="6" number="94"/>
-                <line hits="6" number="95"/>
-                <line hits="6" number="98"/>
-                <line hits="6" number="99"/>
-                <line hits="6" number="104"/>
-                <line hits="6" number="105"/>
-                <line hits="6" number="109"/>
-                <line hits="6" number="115"/>
-                <line hits="6" number="116"/>
-                <line hits="6" number="119"/>
-                <line hits="6" number="120"/>
-                <line hits="6" number="121"/>
+                <line hits="5" number="83"/>
+                <line hits="5" number="88"/>
+                <line hits="5" number="89"/>
+                <line hits="5" number="94"/>
+                <line hits="5" number="95"/>
+                <line hits="5" number="98"/>
+                <line hits="5" number="99"/>
+                <line hits="5" number="104"/>
+                <line hits="5" number="105"/>
+                <line hits="5" number="109"/>
+                <line hits="5" number="115"/>
+                <line hits="5" number="116"/>
+                <line hits="5" number="119"/>
+                <line hits="5" number="120"/>
+                <line hits="5" number="121"/>
                 <line hits="0" number="122"/>
                 <line hits="0" number="123"/>
                 <line hits="0" number="124"/>
                 <line hits="0" number="125"/>
-                <line hits="6" number="128"/>
-                <line hits="6" number="129"/>
-                <line hits="6" number="130"/>
-                <line hits="6" number="131"/>
-                <line hits="6" number="132"/>
+                <line hits="5" number="128"/>
+                <line hits="5" number="129"/>
+                <line hits="5" number="130"/>
+                <line hits="5" number="131"/>
+                <line hits="5" number="132"/>
                 <line hits="0" number="136"/>
               </lines>
             </method>
@@ -3890,30 +3890,30 @@
             <line hits="5" number="74"/>
             <line hits="5" number="75"/>
             <line hits="5" number="77"/>
-            <line hits="6" number="83"/>
-            <line hits="6" number="88"/>
-            <line hits="6" number="89"/>
-            <line hits="6" number="94"/>
-            <line hits="6" number="95"/>
-            <line hits="6" number="98"/>
-            <line hits="6" number="99"/>
-            <line hits="6" number="104"/>
-            <line hits="6" number="105"/>
-            <line hits="6" number="109"/>
-            <line hits="6" number="115"/>
-            <line hits="6" number="116"/>
-            <line hits="6" number="119"/>
-            <line hits="6" number="120"/>
-            <line hits="6" number="121"/>
+            <line hits="5" number="83"/>
+            <line hits="5" number="88"/>
+            <line hits="5" number="89"/>
+            <line hits="5" number="94"/>
+            <line hits="5" number="95"/>
+            <line hits="5" number="98"/>
+            <line hits="5" number="99"/>
+            <line hits="5" number="104"/>
+            <line hits="5" number="105"/>
+            <line hits="5" number="109"/>
+            <line hits="5" number="115"/>
+            <line hits="5" number="116"/>
+            <line hits="5" number="119"/>
+            <line hits="5" number="120"/>
+            <line hits="5" number="121"/>
             <line hits="0" number="122"/>
             <line hits="0" number="123"/>
             <line hits="0" number="124"/>
             <line hits="0" number="125"/>
-            <line hits="6" number="128"/>
-            <line hits="6" number="129"/>
-            <line hits="6" number="130"/>
-            <line hits="6" number="131"/>
-            <line hits="6" number="132"/>
+            <line hits="5" number="128"/>
+            <line hits="5" number="129"/>
+            <line hits="5" number="130"/>
+            <line hits="5" number="131"/>
+            <line hits="5" number="132"/>
             <line hits="0" number="136"/>
             <line hits="0" number="152"/>
             <line hits="5" number="161"/>
@@ -3997,23 +3997,23 @@
             </method>
             <method branch-rate="NaN" line-rate="0.76471" name="update" signature="update(component)">
               <lines>
-                <line hits="34" number="71"/>
-                <line hits="34" number="73"/>
-                <line hits="34" number="74"/>
-                <line hits="34" number="76"/>
-                <line hits="34" number="77"/>
+                <line hits="31" number="71"/>
+                <line hits="31" number="73"/>
+                <line hits="31" number="74"/>
+                <line hits="31" number="76"/>
+                <line hits="31" number="77"/>
                 <line hits="0" number="78"/>
-                <line hits="34" number="79"/>
-                <line hits="34" number="80"/>
+                <line hits="31" number="79"/>
+                <line hits="31" number="80"/>
                 <line hits="0" number="81"/>
                 <line hits="0" number="82"/>
-                <line hits="34" number="85"/>
-                <line hits="34" number="86"/>
-                <line hits="25" number="87"/>
-                <line hits="9" number="88"/>
+                <line hits="31" number="85"/>
+                <line hits="31" number="86"/>
+                <line hits="23" number="87"/>
+                <line hits="8" number="88"/>
                 <line hits="0" number="89"/>
-                <line hits="9" number="90"/>
-                <line hits="9" number="91"/>
+                <line hits="8" number="90"/>
+                <line hits="8" number="91"/>
               </lines>
             </method>
             <method branch-rate="NaN" line-rate="0" name="get.Text" signature="x = get.Text(component)">
@@ -4045,9 +4045,9 @@
             </method>
             <method branch-rate="NaN" line-rate="0.66667" name="set.Tooltip" signature="set.Tooltip(component, x)">
               <lines>
-                <line hits="31" number="150"/>
+                <line hits="30" number="150"/>
                 <line hits="0" number="151"/>
-                <line hits="31" number="153"/>
+                <line hits="30" number="153"/>
               </lines>
             </method>
           </methods>
@@ -4070,23 +4070,23 @@
             <line hits="29" number="64"/>
             <line hits="29" number="65"/>
             <line hits="29" number="66"/>
-            <line hits="34" number="71"/>
-            <line hits="34" number="73"/>
-            <line hits="34" number="74"/>
-            <line hits="34" number="76"/>
-            <line hits="34" number="77"/>
+            <line hits="31" number="71"/>
+            <line hits="31" number="73"/>
+            <line hits="31" number="74"/>
+            <line hits="31" number="76"/>
+            <line hits="31" number="77"/>
             <line hits="0" number="78"/>
-            <line hits="34" number="79"/>
-            <line hits="34" number="80"/>
+            <line hits="31" number="79"/>
+            <line hits="31" number="80"/>
             <line hits="0" number="81"/>
             <line hits="0" number="82"/>
-            <line hits="34" number="85"/>
-            <line hits="34" number="86"/>
-            <line hits="25" number="87"/>
-            <line hits="9" number="88"/>
+            <line hits="31" number="85"/>
+            <line hits="31" number="86"/>
+            <line hits="23" number="87"/>
+            <line hits="8" number="88"/>
             <line hits="0" number="89"/>
-            <line hits="9" number="90"/>
-            <line hits="9" number="91"/>
+            <line hits="8" number="90"/>
+            <line hits="8" number="91"/>
             <line hits="0" number="103"/>
             <line hits="58" number="111"/>
             <line hits="29" number="118"/>
@@ -4094,9 +4094,9 @@
             <line hits="29" number="130"/>
             <line hits="0" number="131"/>
             <line hits="0" number="139"/>
-            <line hits="31" number="150"/>
+            <line hits="30" number="150"/>
             <line hits="0" number="151"/>
-            <line hits="31" number="153"/>
+            <line hits="30" number="153"/>
           </lines>
         </class>
         <class branch-rate="NaN" complexity="NaN" filename="ModelingUtilityForSimscape\+AppUtil1\+Component\Label.m" line-rate="0.76316" name="AppUtil1.Component.Label">
@@ -4125,9 +4125,9 @@
             </method>
             <method branch-rate="NaN" line-rate="1" name="update" signature="update(component)">
               <lines>
-                <line hits="238" number="64"/>
-                <line hits="238" number="66"/>
-                <line hits="238" number="67"/>
+                <line hits="216" number="64"/>
+                <line hits="216" number="66"/>
+                <line hits="216" number="67"/>
               </lines>
             </method>
             <method branch-rate="NaN" line-rate="0" name="get.HorizontalAlignment" signature="x = get.HorizontalAlignment(component)">
@@ -4157,7 +4157,7 @@
             </method>
             <method branch-rate="NaN" line-rate="1" name="set.Text" signature="set.Text(component, x)">
               <lines>
-                <line hits="437" number="110"/>
+                <line hits="436" number="110"/>
               </lines>
             </method>
             <method branch-rate="NaN" line-rate="0" name="get.FontSize" signature="x = get.FontSize(component)">
@@ -4210,9 +4210,9 @@
             <line hits="211" number="57"/>
             <line hits="211" number="58"/>
             <line hits="211" number="59"/>
-            <line hits="238" number="64"/>
-            <line hits="238" number="66"/>
-            <line hits="238" number="67"/>
+            <line hits="216" number="64"/>
+            <line hits="216" number="66"/>
+            <line hits="216" number="67"/>
             <line hits="0" number="75"/>
             <line hits="215" number="81"/>
             <line hits="215" number="83"/>
@@ -4220,7 +4220,7 @@
             <line hits="211" number="93"/>
             <line hits="211" number="95"/>
             <line hits="0" number="102"/>
-            <line hits="437" number="110"/>
+            <line hits="436" number="110"/>
             <line hits="0" number="115"/>
             <line hits="0" number="117"/>
             <line hits="0" number="123"/>
@@ -4652,11 +4652,11 @@
             </method>
             <method branch-rate="NaN" line-rate="1" name="update" signature="update(component)">
               <lines>
-                <line hits="32" number="79"/>
-                <line hits="32" number="81"/>
-                <line hits="32" number="82"/>
-                <line hits="32" number="84"/>
-                <line hits="32" number="85"/>
+                <line hits="23" number="79"/>
+                <line hits="23" number="81"/>
+                <line hits="23" number="82"/>
+                <line hits="23" number="84"/>
+                <line hits="23" number="85"/>
               </lines>
             </method>
             <method branch-rate="NaN" line-rate="0.66667" name="get.UnitText" signature="unit_text = get.UnitText(component)">
@@ -4756,11 +4756,11 @@
             <line hits="23" number="70"/>
             <line hits="23" number="72"/>
             <line hits="23" number="73"/>
-            <line hits="32" number="79"/>
-            <line hits="32" number="81"/>
-            <line hits="32" number="82"/>
-            <line hits="32" number="84"/>
-            <line hits="32" number="85"/>
+            <line hits="23" number="79"/>
+            <line hits="23" number="81"/>
+            <line hits="23" number="82"/>
+            <line hits="23" number="84"/>
+            <line hits="23" number="85"/>
             <line hits="14" number="100"/>
             <line hits="0" number="101"/>
             <line hits="14" number="103"/>
@@ -5336,7 +5336,7 @@
             <line hits="42" number="605"/>
           </lines>
         </class>
-        <class branch-rate="NaN" complexity="NaN" filename="ModelingUtilityForSimscape\+AppUtil1\+Component\PhysicalValueWithUnitLabel.m" line-rate="0.57635" name="AppUtil1.Component.PhysicalValueWithUnitLabel">
+        <class branch-rate="NaN" complexity="NaN" filename="ModelingUtilityForSimscape\+AppUtil1\+Component\PhysicalValueWithUnitLabel.m" line-rate="0.5665" name="AppUtil1.Component.PhysicalValueWithUnitLabel">
           <methods>
             <method branch-rate="NaN" line-rate="0.96" name="setup" signature="setup(component)">
               <lines>
@@ -5367,14 +5367,14 @@
                 <line hits="23" number="144"/>
               </lines>
             </method>
-            <method branch-rate="NaN" line-rate="0.88889" name="update" signature="update(component)">
+            <method branch-rate="NaN" line-rate="0.66667" name="update" signature="update(component)">
               <lines>
-                <line hits="28" number="150"/>
+                <line hits="23" number="150"/>
                 <line hits="0" number="151"/>
-                <line hits="28" number="153"/>
-                <line hits="28" number="154"/>
-                <line hits="5" number="155"/>
-                <line hits="5" number="157"/>
+                <line hits="23" number="153"/>
+                <line hits="23" number="154"/>
+                <line hits="0" number="155"/>
+                <line hits="0" number="157"/>
                 <line hits="23" number="160"/>
                 <line hits="23" number="161"/>
                 <line hits="23" number="162"/>
@@ -5382,20 +5382,20 @@
             </method>
             <method branch-rate="NaN" line-rate="0.38462" name="regular_update" signature="regular_update(component)">
               <lines>
-                <line hits="28" number="167"/>
+                <line hits="23" number="167"/>
                 <line hits="0" number="168"/>
-                <line hits="28" number="171"/>
+                <line hits="23" number="171"/>
                 <line hits="23" number="172"/>
-                <line hits="28" number="175"/>
+                <line hits="23" number="175"/>
                 <line hits="0" number="177"/>
                 <line hits="0" number="178"/>
                 <line hits="0" number="179"/>
-                <line hits="28" number="182"/>
-                <line hits="28" number="183"/>
-                <line hits="28" number="186"/>
-                <line hits="28" number="187"/>
-                <line hits="28" number="188"/>
-                <line hits="28" number="190"/>
+                <line hits="23" number="182"/>
+                <line hits="23" number="183"/>
+                <line hits="23" number="186"/>
+                <line hits="23" number="187"/>
+                <line hits="23" number="188"/>
+                <line hits="23" number="190"/>
                 <line hits="0" number="191"/>
                 <line hits="0" number="192"/>
                 <line hits="0" number="194"/>
@@ -5545,9 +5545,9 @@
             </method>
             <method branch-rate="NaN" line-rate="0.66667" name="get.InfoText" signature="str = get.InfoText(component)">
               <lines>
-                <line hits="28" number="474"/>
+                <line hits="23" number="474"/>
                 <line hits="0" number="475"/>
-                <line hits="28" number="477"/>
+                <line hits="23" number="477"/>
               </lines>
             </method>
             <method branch-rate="NaN" line-rate="0.66667" name="set.InfoText" signature="set.InfoText(component, NewInfoText)">
@@ -5640,29 +5640,29 @@
             <line hits="23" number="141"/>
             <line hits="23" number="143"/>
             <line hits="23" number="144"/>
-            <line hits="28" number="150"/>
+            <line hits="23" number="150"/>
             <line hits="0" number="151"/>
-            <line hits="28" number="153"/>
-            <line hits="28" number="154"/>
-            <line hits="5" number="155"/>
-            <line hits="5" number="157"/>
+            <line hits="23" number="153"/>
+            <line hits="23" number="154"/>
+            <line hits="0" number="155"/>
+            <line hits="0" number="157"/>
             <line hits="23" number="160"/>
             <line hits="23" number="161"/>
             <line hits="23" number="162"/>
-            <line hits="28" number="167"/>
+            <line hits="23" number="167"/>
             <line hits="0" number="168"/>
-            <line hits="28" number="171"/>
+            <line hits="23" number="171"/>
             <line hits="23" number="172"/>
-            <line hits="28" number="175"/>
+            <line hits="23" number="175"/>
             <line hits="0" number="177"/>
             <line hits="0" number="178"/>
             <line hits="0" number="179"/>
-            <line hits="28" number="182"/>
-            <line hits="28" number="183"/>
-            <line hits="28" number="186"/>
-            <line hits="28" number="187"/>
-            <line hits="28" number="188"/>
-            <line hits="28" number="190"/>
+            <line hits="23" number="182"/>
+            <line hits="23" number="183"/>
+            <line hits="23" number="186"/>
+            <line hits="23" number="187"/>
+            <line hits="23" number="188"/>
+            <line hits="23" number="190"/>
             <line hits="0" number="191"/>
             <line hits="0" number="192"/>
             <line hits="0" number="194"/>
@@ -5772,9 +5772,9 @@
             <line hits="0" number="457"/>
             <line hits="0" number="458"/>
             <line hits="36" number="462"/>
-            <line hits="28" number="474"/>
+            <line hits="23" number="474"/>
             <line hits="0" number="475"/>
-            <line hits="28" number="477"/>
+            <line hits="23" number="477"/>
             <line hits="36" number="486"/>
             <line hits="0" number="487"/>
             <line hits="36" number="489"/>
@@ -5847,21 +5847,21 @@
             </method>
             <method branch-rate="NaN" line-rate="0.64706" name="update" signature="update(component)">
               <lines>
-                <line hits="7" number="70"/>
-                <line hits="7" number="72"/>
-                <line hits="7" number="73"/>
-                <line hits="7" number="75"/>
-                <line hits="7" number="76"/>
+                <line hits="6" number="70"/>
+                <line hits="6" number="72"/>
+                <line hits="6" number="73"/>
+                <line hits="6" number="75"/>
+                <line hits="6" number="76"/>
                 <line hits="0" number="77"/>
-                <line hits="7" number="78"/>
-                <line hits="7" number="79"/>
+                <line hits="6" number="78"/>
+                <line hits="6" number="79"/>
                 <line hits="0" number="80"/>
                 <line hits="0" number="81"/>
-                <line hits="7" number="84"/>
-                <line hits="7" number="85"/>
+                <line hits="6" number="84"/>
+                <line hits="6" number="85"/>
                 <line hits="0" number="86"/>
-                <line hits="7" number="87"/>
-                <line hits="7" number="88"/>
+                <line hits="6" number="87"/>
+                <line hits="6" number="88"/>
                 <line hits="0" number="89"/>
                 <line hits="0" number="90"/>
               </lines>
@@ -5938,21 +5938,21 @@
             <line hits="6" number="63"/>
             <line hits="6" number="64"/>
             <line hits="6" number="65"/>
-            <line hits="7" number="70"/>
-            <line hits="7" number="72"/>
-            <line hits="7" number="73"/>
-            <line hits="7" number="75"/>
-            <line hits="7" number="76"/>
+            <line hits="6" number="70"/>
+            <line hits="6" number="72"/>
+            <line hits="6" number="73"/>
+            <line hits="6" number="75"/>
+            <line hits="6" number="76"/>
             <line hits="0" number="77"/>
-            <line hits="7" number="78"/>
-            <line hits="7" number="79"/>
+            <line hits="6" number="78"/>
+            <line hits="6" number="79"/>
             <line hits="0" number="80"/>
             <line hits="0" number="81"/>
-            <line hits="7" number="84"/>
-            <line hits="7" number="85"/>
+            <line hits="6" number="84"/>
+            <line hits="6" number="85"/>
             <line hits="0" number="86"/>
-            <line hits="7" number="87"/>
-            <line hits="7" number="88"/>
+            <line hits="6" number="87"/>
+            <line hits="6" number="88"/>
             <line hits="0" number="89"/>
             <line hits="0" number="90"/>
             <line hits="0" number="102"/>
@@ -6054,13 +6054,13 @@
             </method>
             <method branch-rate="NaN" line-rate="0.5" name="update" signature="update(component)">
               <lines>
-                <line hits="3" number="78"/>
-                <line hits="3" number="80"/>
-                <line hits="3" number="81"/>
-                <line hits="3" number="83"/>
-                <line hits="3" number="84"/>
+                <line hits="1" number="78"/>
+                <line hits="1" number="80"/>
+                <line hits="1" number="81"/>
+                <line hits="1" number="83"/>
+                <line hits="1" number="84"/>
                 <line hits="0" number="86"/>
-                <line hits="3" number="89"/>
+                <line hits="1" number="89"/>
                 <line hits="0" number="90"/>
                 <line hits="0" number="91"/>
                 <line hits="0" number="92"/>
@@ -6106,13 +6106,13 @@
             <line hits="1" number="66"/>
             <line hits="1" number="67"/>
             <line hits="1" number="72"/>
-            <line hits="3" number="78"/>
-            <line hits="3" number="80"/>
-            <line hits="3" number="81"/>
-            <line hits="3" number="83"/>
-            <line hits="3" number="84"/>
+            <line hits="1" number="78"/>
+            <line hits="1" number="80"/>
+            <line hits="1" number="81"/>
+            <line hits="1" number="83"/>
+            <line hits="1" number="84"/>
             <line hits="0" number="86"/>
-            <line hits="3" number="89"/>
+            <line hits="1" number="89"/>
             <line hits="0" number="90"/>
             <line hits="0" number="91"/>
             <line hits="0" number="92"/>
@@ -6164,26 +6164,26 @@
             </method>
             <method branch-rate="NaN" line-rate="1" name="update" signature="update(component)">
               <lines>
-                <line hits="16" number="107"/>
-                <line hits="16" number="109"/>
-                <line hits="2" number="110"/>
-                <line hits="2" number="112"/>
+                <line hits="15" number="107"/>
+                <line hits="15" number="109"/>
+                <line hits="1" number="110"/>
+                <line hits="1" number="112"/>
                 <line hits="14" number="116"/>
                 <line hits="14" number="117"/>
               </lines>
             </method>
             <method branch-rate="NaN" line-rate="0.6" name="regular_update" signature="regular_update(component)">
               <lines>
-                <line hits="2" number="122"/>
+                <line hits="1" number="122"/>
                 <line hits="0" number="123"/>
                 <line hits="0" number="124"/>
-                <line hits="2" number="132"/>
-                <line hits="2" number="137"/>
+                <line hits="1" number="132"/>
+                <line hits="1" number="137"/>
                 <line hits="0" number="138"/>
                 <line hits="0" number="139"/>
-                <line hits="2" number="141"/>
-                <line hits="2" number="142"/>
-                <line hits="2" number="144"/>
+                <line hits="1" number="141"/>
+                <line hits="1" number="142"/>
+                <line hits="1" number="144"/>
               </lines>
             </method>
             <method branch-rate="NaN" line-rate="0.42857" name="first_update" signature="first_update(component)">
@@ -6289,22 +6289,22 @@
             <line hits="14" number="99"/>
             <line hits="14" number="100"/>
             <line hits="14" number="101"/>
-            <line hits="16" number="107"/>
-            <line hits="16" number="109"/>
-            <line hits="2" number="110"/>
-            <line hits="2" number="112"/>
+            <line hits="15" number="107"/>
+            <line hits="15" number="109"/>
+            <line hits="1" number="110"/>
+            <line hits="1" number="112"/>
             <line hits="14" number="116"/>
             <line hits="14" number="117"/>
-            <line hits="2" number="122"/>
+            <line hits="1" number="122"/>
             <line hits="0" number="123"/>
             <line hits="0" number="124"/>
-            <line hits="2" number="132"/>
-            <line hits="2" number="137"/>
+            <line hits="1" number="132"/>
+            <line hits="1" number="137"/>
             <line hits="0" number="138"/>
             <line hits="0" number="139"/>
-            <line hits="2" number="141"/>
-            <line hits="2" number="142"/>
-            <line hits="2" number="144"/>
+            <line hits="1" number="141"/>
+            <line hits="1" number="142"/>
+            <line hits="1" number="144"/>
             <line hits="14" number="153"/>
             <line hits="0" number="154"/>
             <line hits="0" number="155"/>
@@ -6375,10 +6375,10 @@
             </method>
             <method branch-rate="NaN" line-rate="0.44444" name="update" signature="update(component)">
               <lines>
-                <line hits="6" number="47"/>
-                <line hits="6" number="49"/>
-                <line hits="6" number="50"/>
-                <line hits="6" number="54"/>
+                <line hits="5" number="47"/>
+                <line hits="5" number="49"/>
+                <line hits="5" number="50"/>
+                <line hits="5" number="54"/>
                 <line hits="0" number="55"/>
                 <line hits="0" number="56"/>
                 <line hits="0" number="57"/>
@@ -6396,10 +6396,10 @@
             <line hits="5" number="36"/>
             <line hits="5" number="39"/>
             <line hits="5" number="42"/>
-            <line hits="6" number="47"/>
-            <line hits="6" number="49"/>
-            <line hits="6" number="50"/>
-            <line hits="6" number="54"/>
+            <line hits="5" number="47"/>
+            <line hits="5" number="49"/>
+            <line hits="5" number="50"/>
+            <line hits="5" number="54"/>
             <line hits="0" number="55"/>
             <line hits="0" number="56"/>
             <line hits="0" number="57"/>
@@ -6429,21 +6429,21 @@
             </method>
             <method branch-rate="NaN" line-rate="0.64706" name="update" signature="update(component)">
               <lines>
-                <line hits="70" number="64"/>
-                <line hits="70" number="66"/>
-                <line hits="70" number="67"/>
-                <line hits="70" number="69"/>
-                <line hits="70" number="70"/>
+                <line hits="65" number="64"/>
+                <line hits="65" number="66"/>
+                <line hits="65" number="67"/>
+                <line hits="65" number="69"/>
+                <line hits="65" number="70"/>
                 <line hits="0" number="71"/>
-                <line hits="70" number="72"/>
-                <line hits="70" number="73"/>
+                <line hits="65" number="72"/>
+                <line hits="65" number="73"/>
                 <line hits="0" number="74"/>
                 <line hits="0" number="75"/>
-                <line hits="70" number="78"/>
-                <line hits="70" number="79"/>
+                <line hits="65" number="78"/>
+                <line hits="65" number="79"/>
                 <line hits="0" number="80"/>
-                <line hits="70" number="81"/>
-                <line hits="70" number="82"/>
+                <line hits="65" number="81"/>
+                <line hits="65" number="82"/>
                 <line hits="0" number="83"/>
                 <line hits="0" number="84"/>
               </lines>
@@ -6480,21 +6480,21 @@
             <line hits="64" number="54"/>
             <line hits="64" number="55"/>
             <line hits="64" number="58"/>
-            <line hits="70" number="64"/>
-            <line hits="70" number="66"/>
-            <line hits="70" number="67"/>
-            <line hits="70" number="69"/>
-            <line hits="70" number="70"/>
+            <line hits="65" number="64"/>
+            <line hits="65" number="66"/>
+            <line hits="65" number="67"/>
+            <line hits="65" number="69"/>
+            <line hits="65" number="70"/>
             <line hits="0" number="71"/>
-            <line hits="70" number="72"/>
-            <line hits="70" number="73"/>
+            <line hits="65" number="72"/>
+            <line hits="65" number="73"/>
             <line hits="0" number="74"/>
             <line hits="0" number="75"/>
-            <line hits="70" number="78"/>
-            <line hits="70" number="79"/>
+            <line hits="65" number="78"/>
+            <line hits="65" number="79"/>
             <line hits="0" number="80"/>
-            <line hits="70" number="81"/>
-            <line hits="70" number="82"/>
+            <line hits="65" number="81"/>
+            <line hits="65" number="82"/>
             <line hits="0" number="83"/>
             <line hits="0" number="84"/>
             <line hits="0" number="96"/>
@@ -7553,10 +7553,10 @@
         <class branch-rate="NaN" complexity="NaN" filename="ModelingUtilityForSimscape\+CodeUtil1\mustBeTextOrPositiveInteger.m" line-rate="0.57143" name="CodeUtil1.mustBeTextOrPositiveInteger">
           <methods/>
           <lines>
-            <line hits="7" number="5"/>
-            <line hits="7" number="7"/>
-            <line hits="7" number="9"/>
-            <line hits="7" number="11"/>
+            <line hits="6" number="5"/>
+            <line hits="6" number="7"/>
+            <line hits="6" number="9"/>
+            <line hits="6" number="11"/>
             <line hits="0" number="12"/>
             <line hits="0" number="13"/>
             <line hits="0" number="15"/>
@@ -7565,10 +7565,10 @@
         <class branch-rate="NaN" complexity="NaN" filename="ModelingUtilityForSimscape\+CodeUtil1\mustBeTextOrPositiveNumber.m" line-rate="0.57143" name="CodeUtil1.mustBeTextOrPositiveNumber">
           <methods/>
           <lines>
-            <line hits="2026" number="9"/>
-            <line hits="2026" number="11"/>
-            <line hits="2026" number="13"/>
-            <line hits="2026" number="15"/>
+            <line hits="1997" number="9"/>
+            <line hits="1997" number="11"/>
+            <line hits="1997" number="13"/>
+            <line hits="1997" number="15"/>
             <line hits="0" number="16"/>
             <line hits="0" number="17"/>
             <line hits="0" number="19"/>
@@ -8816,7 +8816,7 @@
         </class>
       </classes>
     </package>
-    <package branch-rate="NaN" complexity="NaN" line-rate="0.62153" name="RotationalFrictionTorque1">
+    <package branch-rate="NaN" complexity="NaN" line-rate="0.62092" name="RotationalFrictionTorque1">
       <classes>
         <class branch-rate="NaN" complexity="NaN" filename="ModelingUtilityForSimscape\+RotationalFrictionTorque1\RotationalFrictionTorqueAppMain.m" line-rate="0.61174" name="RotationalFrictionTorque1.RotationalFrictionTorqueAppMain">
           <methods>
@@ -9897,7 +9897,7 @@
             <line hits="2" number="78"/>
           </lines>
         </class>
-        <class branch-rate="NaN" complexity="NaN" filename="ModelingUtilityForSimscape\+RotationalFrictionTorque1\plotRotationalFrictionTorque.m" line-rate="0.61321" name="RotationalFrictionTorque1.plotRotationalFrictionTorque">
+        <class branch-rate="NaN" complexity="NaN" filename="ModelingUtilityForSimscape\+RotationalFrictionTorque1\plotRotationalFrictionTorque.m" line-rate="0.60952" name="RotationalFrictionTorque1.plotRotationalFrictionTorque">
           <methods/>
           <lines>
             <line hits="1" number="9"/>
@@ -9916,96 +9916,95 @@
             <line hits="1" number="33"/>
             <line hits="1" number="35"/>
             <line hits="0" number="41"/>
-            <line hits="1" number="44"/>
-            <line hits="1" number="49"/>
+            <line hits="1" number="47"/>
+            <line hits="0" number="51"/>
+            <line hits="0" number="52"/>
             <line hits="0" number="53"/>
             <line hits="0" number="54"/>
-            <line hits="0" number="55"/>
             <line hits="0" number="56"/>
+            <line hits="0" number="57"/>
             <line hits="0" number="58"/>
-            <line hits="0" number="59"/>
             <line hits="0" number="60"/>
-            <line hits="0" number="62"/>
+            <line hits="0" number="61"/>
             <line hits="0" number="63"/>
-            <line hits="0" number="65"/>
+            <line hits="0" number="66"/>
+            <line hits="0" number="67"/>
             <line hits="0" number="68"/>
-            <line hits="0" number="69"/>
-            <line hits="0" number="70"/>
+            <line hits="0" number="71"/>
+            <line hits="0" number="72"/>
             <line hits="0" number="73"/>
             <line hits="0" number="74"/>
-            <line hits="0" number="75"/>
             <line hits="0" number="76"/>
+            <line hits="0" number="77"/>
             <line hits="0" number="78"/>
-            <line hits="0" number="79"/>
             <line hits="0" number="80"/>
-            <line hits="0" number="82"/>
+            <line hits="0" number="81"/>
             <line hits="0" number="83"/>
-            <line hits="0" number="85"/>
+            <line hits="0" number="84"/>
             <line hits="0" number="86"/>
+            <line hits="0" number="87"/>
             <line hits="0" number="88"/>
-            <line hits="0" number="89"/>
             <line hits="0" number="90"/>
+            <line hits="0" number="91"/>
             <line hits="0" number="92"/>
-            <line hits="0" number="93"/>
             <line hits="0" number="94"/>
-            <line hits="0" number="96"/>
-            <line hits="1" number="101"/>
-            <line hits="1" number="102"/>
-            <line hits="0" number="104"/>
-            <line hits="0" number="105"/>
-            <line hits="1" number="108"/>
+            <line hits="1" number="99"/>
+            <line hits="1" number="100"/>
+            <line hits="0" number="102"/>
+            <line hits="0" number="103"/>
+            <line hits="1" number="106"/>
+            <line hits="1" number="107"/>
             <line hits="1" number="109"/>
-            <line hits="1" number="111"/>
+            <line hits="1" number="110"/>
             <line hits="1" number="112"/>
+            <line hits="1" number="113"/>
             <line hits="1" number="114"/>
-            <line hits="1" number="115"/>
             <line hits="1" number="116"/>
+            <line hits="1" number="117"/>
             <line hits="1" number="118"/>
-            <line hits="1" number="119"/>
             <line hits="1" number="120"/>
+            <line hits="1" number="121"/>
             <line hits="1" number="122"/>
             <line hits="1" number="123"/>
-            <line hits="1" number="124"/>
-            <line hits="1" number="125"/>
+            <line hits="1" number="130"/>
             <line hits="1" number="132"/>
-            <line hits="1" number="134"/>
-            <line hits="1" number="135"/>
+            <line hits="1" number="133"/>
+            <line hits="0" number="135"/>
+            <line hits="0" number="136"/>
             <line hits="0" number="137"/>
             <line hits="0" number="138"/>
-            <line hits="0" number="139"/>
             <line hits="0" number="140"/>
-            <line hits="0" number="142"/>
+            <line hits="1" number="143"/>
             <line hits="1" number="145"/>
-            <line hits="1" number="147"/>
+            <line hits="1" number="146"/>
             <line hits="1" number="148"/>
             <line hits="1" number="150"/>
             <line hits="1" number="152"/>
+            <line hits="1" number="153"/>
             <line hits="1" number="154"/>
             <line hits="1" number="155"/>
             <line hits="1" number="156"/>
-            <line hits="1" number="157"/>
-            <line hits="1" number="158"/>
+            <line hits="1" number="159"/>
+            <line hits="1" number="160"/>
             <line hits="1" number="161"/>
             <line hits="1" number="162"/>
             <line hits="1" number="163"/>
-            <line hits="1" number="164"/>
-            <line hits="1" number="165"/>
+            <line hits="1" number="166"/>
+            <line hits="1" number="167"/>
             <line hits="1" number="168"/>
-            <line hits="1" number="169"/>
-            <line hits="1" number="170"/>
+            <line hits="1" number="171"/>
             <line hits="1" number="173"/>
-            <line hits="1" number="175"/>
+            <line hits="1" number="174"/>
             <line hits="1" number="176"/>
+            <line hits="1" number="177"/>
             <line hits="1" number="178"/>
-            <line hits="1" number="179"/>
             <line hits="1" number="180"/>
-            <line hits="1" number="182"/>
+            <line hits="1" number="181"/>
             <line hits="1" number="183"/>
-            <line hits="1" number="185"/>
-            <line hits="1" number="186"/>
-            <line hits="0" number="188"/>
-            <line hits="1" number="191"/>
-            <line hits="0" number="192"/>
+            <line hits="1" number="184"/>
+            <line hits="0" number="186"/>
+            <line hits="1" number="189"/>
+            <line hits="0" number="190"/>
           </lines>
         </class>
       </classes>
@@ -14583,65 +14582,64 @@
             <line hits="0" number="16"/>
             <line hits="0" number="19"/>
             <line hits="0" number="21"/>
-            <line hits="0" number="23"/>
-            <line hits="0" number="34"/>
-            <line hits="0" number="36"/>
+            <line hits="0" number="24"/>
+            <line hits="0" number="35"/>
             <line hits="0" number="37"/>
-            <line hits="0" number="39"/>
+            <line hits="0" number="38"/>
             <line hits="0" number="40"/>
-            <line hits="0" number="42"/>
+            <line hits="0" number="41"/>
             <line hits="0" number="43"/>
             <line hits="0" number="44"/>
             <line hits="0" number="45"/>
             <line hits="0" number="46"/>
-            <line hits="0" number="49"/>
-            <line hits="0" number="51"/>
+            <line hits="0" number="47"/>
+            <line hits="0" number="50"/>
             <line hits="0" number="52"/>
             <line hits="0" number="53"/>
             <line hits="0" number="54"/>
             <line hits="0" number="55"/>
             <line hits="0" number="56"/>
-            <line hits="0" number="59"/>
-            <line hits="0" number="61"/>
+            <line hits="0" number="57"/>
+            <line hits="0" number="60"/>
             <line hits="0" number="62"/>
-            <line hits="0" number="64"/>
-            <line hits="0" number="66"/>
+            <line hits="0" number="63"/>
+            <line hits="0" number="65"/>
             <line hits="0" number="67"/>
             <line hits="0" number="68"/>
             <line hits="0" number="69"/>
-            <line hits="0" number="76"/>
-            <line hits="0" number="78"/>
-            <line hits="0" number="80"/>
+            <line hits="0" number="70"/>
+            <line hits="0" number="77"/>
+            <line hits="0" number="79"/>
             <line hits="0" number="81"/>
             <line hits="0" number="82"/>
             <line hits="0" number="83"/>
             <line hits="0" number="84"/>
             <line hits="0" number="85"/>
-            <line hits="0" number="87"/>
+            <line hits="0" number="86"/>
             <line hits="0" number="88"/>
-            <line hits="0" number="90"/>
-            <line hits="0" number="92"/>
+            <line hits="0" number="89"/>
+            <line hits="0" number="91"/>
             <line hits="0" number="93"/>
             <line hits="0" number="94"/>
             <line hits="0" number="95"/>
             <line hits="0" number="96"/>
-            <line hits="0" number="98"/>
-            <line hits="0" number="101"/>
+            <line hits="0" number="97"/>
+            <line hits="0" number="99"/>
             <line hits="0" number="102"/>
             <line hits="0" number="103"/>
             <line hits="0" number="104"/>
-            <line hits="0" number="107"/>
-            <line hits="0" number="109"/>
-            <line hits="0" number="112"/>
+            <line hits="0" number="105"/>
+            <line hits="0" number="108"/>
+            <line hits="0" number="110"/>
             <line hits="0" number="113"/>
             <line hits="0" number="114"/>
             <line hits="0" number="115"/>
-            <line hits="0" number="120"/>
+            <line hits="0" number="116"/>
             <line hits="0" number="121"/>
-            <line hits="0" number="123"/>
+            <line hits="0" number="122"/>
             <line hits="0" number="124"/>
-            <line hits="0" number="126"/>
-            <line hits="0" number="128"/>
+            <line hits="0" number="125"/>
+            <line hits="0" number="127"/>
             <line hits="0" number="129"/>
             <line hits="0" number="130"/>
             <line hits="0" number="131"/>
@@ -14649,10 +14647,11 @@
             <line hits="0" number="133"/>
             <line hits="0" number="134"/>
             <line hits="0" number="135"/>
-            <line hits="0" number="137"/>
+            <line hits="0" number="136"/>
             <line hits="0" number="138"/>
-            <line hits="0" number="144"/>
+            <line hits="0" number="139"/>
             <line hits="0" number="145"/>
+            <line hits="0" number="146"/>
           </lines>
         </class>
         <class branch-rate="NaN" complexity="NaN" filename="ModelingUtilityForSimscape\+TestUtil1\getTestResultTable.m" line-rate="0" name="TestUtil1.getTestResultTable">

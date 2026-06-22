@@ -18,7 +18,8 @@ arguments (Input)
   % Names to ignore.
   NameValuePair.IgnoreNamePattern pattern = (textBoundary("start") + "buildfile" + wildcardPattern)
 
-  NameValuePair.OmitCoverageAbove (1,1) {mustBeInRange(NameValuePair.OmitCoverageAbove, 0, 1)} = 1  %#ok<MUSTINRANGE>
+  NameValuePair.OmitCoverageAbove (1,1) {mustBeInRange(NameValuePair.OmitCoverageAbove, 0, 1)} = 1 %#ok<MUSTINRANGE>
+  % mustBeInRange is not supported in R2024b.
 
   NameValuePair.KeepTempXMLFile (1,1) logical = false
 end  % arguments

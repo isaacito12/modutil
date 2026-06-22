@@ -41,8 +41,6 @@ arguments (Output)
   fig matlab.ui.Figure {mustBeScalarOrEmpty}
 end  % arguments
 
-errorID = "plotRotationalFrictionTorque:";
-
 % -----------------------------------------------------------------------------
 % Collect properties from the specified data source.
 

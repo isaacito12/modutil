@@ -1,5 +1,4 @@
 classdef PhysicalValueWithUnitLabel < AppUtil1.Component.ComponentBase
-<<<<<<< HEAD
   % UI component for simscape.Value with a read-only unit label.
   %
   % This component can accept numeric literals, MATLAB expressions, or
@@ -11,14 +10,6 @@ classdef PhysicalValueWithUnitLabel < AppUtil1.Component.ComponentBase
   properties (Constant)
     errorID (1,1) string = "PhysicalValueWithUnitLabel:"
   end  % properties
-=======
-  % UI component for simscape.Value with name, value, info, and label-unit UIs
-  %
-  % This component supports using a variable in the base workspace.
-
-  % Copyright 2023-2026 The MathWorks, Inc.
-
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
   properties
 
     physical_value CodeUtil1.PhysicalValue % = CodeUtil1.PhysicalValue
@@ -29,7 +20,6 @@ classdef PhysicalValueWithUnitLabel < AppUtil1.Component.ComponentBase
     NameInInfo (1,1) string = ""
   end  % properties
   properties (Dependent)
-<<<<<<< HEAD
 
     ValueText (1,1) string = ""
 
@@ -40,12 +30,6 @@ classdef PhysicalValueWithUnitLabel < AppUtil1.Component.ComponentBase
 
     ReadOnlyValueText (1,1) logical = false
 
-=======
-    ValueText (1,1) string = ""
-  end  % properties
-  properties
-    ReadOnlyValueText (1,1) logical = false
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
   end  % properties
   properties (Dependent)
     InfoText (1,1) string
@@ -74,11 +58,7 @@ classdef PhysicalValueWithUnitLabel < AppUtil1.Component.ComponentBase
     UnitLabelUI AppUtil1.Component.PhysicalUnitLabel
 
     ValueChangedCallback {CodeUtil1.mustBeFunctionHandleOrEmpty} = []
-<<<<<<< HEAD
     % UnitChangedCallback is not provided. !todo: Consider use-cases.
-=======
-    % UnitChangedCallback {CodeUtil1.mustBeFunctionHandleOrEmpty} = []
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
   end  % properties
 
   properties
@@ -162,10 +142,6 @@ classdef PhysicalValueWithUnitLabel < AppUtil1.Component.ComponentBase
 
       component.UnitLabelUI = AppUtil1.Component.PhysicalUnitLabel(component.unit_layout);
       component.UnitLabelUI.ComponentWidth = component.UnitUIWidth;
-<<<<<<< HEAD
-=======
-      % component.UnitLabelUI.UnitLabelChangedCallback = @() react_UnitLabelUI_UnitLabelChanged(component);
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
 
     end  % function
 
@@ -268,24 +244,6 @@ classdef PhysicalValueWithUnitLabel < AppUtil1.Component.ComponentBase
 
   methods
 
-<<<<<<< HEAD
-=======
-%     function react_UnitLabelUI_UnitLabelChanged(component)
-%       if component.Reporting
-%         FileUtil1.displayTimeAndFileLocation
-%       end  % if
-%       t = component.UnitLabelUI.UnitText;
-% disp("UnitText: " + t)
-%     end  % function
-
-    % function react_UnitLabelUIError(component)
-    %   msg = component.ErrorMessage;
-    %   component.AlertUI.MainImage.Visible = "on";
-    %   component.AlertUI.MainImage.Tooltip = msg + CodeUtil1.i18n(" (Click the icon to copy the message to clipboard.)");
-    %   component.AlertUI.ImageClickedCallback = @() clipboard("copy", msg);
-    % end  % function
-
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
     % --------------------------------------------------------------------------
     % get or set SimscapeValue
 
@@ -306,15 +264,11 @@ classdef PhysicalValueWithUnitLabel < AppUtil1.Component.ComponentBase
         rethrow(exception)
 
       end  % try, catch
-<<<<<<< HEAD
 
       updateInfoAndUnitUIs(component)
 
       x = ssc_val;
 
-=======
-      x = ssc_val;
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
     end  % function
 
     function set.SimscapeValue(component, x)
@@ -339,7 +293,6 @@ classdef PhysicalValueWithUnitLabel < AppUtil1.Component.ComponentBase
     end  % function
 
     % --------------------------------------------------------------------------
-<<<<<<< HEAD
     % get ValueTextIsSimscapeValue
 
     function x = get.ValueTextIsSimscapeValue(component)
@@ -354,8 +307,6 @@ classdef PhysicalValueWithUnitLabel < AppUtil1.Component.ComponentBase
     end  % function
 
     % --------------------------------------------------------------------------
-=======
->>>>>>> 49b1b055ff90fc90884c7bbae6cf7b0543850ed3
     % get hasError
 
     function true_or_false = get.hasError(component)
