@@ -12,6 +12,11 @@ classdef unittest_openWithLink < matlab.unittest.TestCase
 
   % Copyright 2026 The MathWorks, Inc.
 
+  properties
+    % Some of the tests in this class run only if test is running locally under the LocalTopFolder.
+    LocalTopFolder (1,1) pattern = "C:\local"
+  end  % properties
+
   methods (TestMethodSetup)
     % Functions in this section always run before each test defined in the Test section runs.
 
@@ -43,6 +48,13 @@ classdef unittest_openWithLink < matlab.unittest.TestCase
     end  % function
 
     function Test_error_2(testcase)
+      if TestUtil1.isNonLocal(testcase.LocalTopFolder)
+        disp("!Skipping (the test is not running within the specified local path.)")
+
+        return
+
+      end  %if
+
       verifyError(testcase, @() test_target, "MATLAB:open:fileNotFound")
       function test_target
         FileUtil1.openWithLink("dummy_dummy")

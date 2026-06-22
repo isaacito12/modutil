@@ -12,6 +12,11 @@ classdef uiTest_BaseWorkspaceStructParameterUI < matlab.uitest.TestCase
 
   % Copyright 2026 The MathWorks, Inc.
 
+  properties
+    % Some of the tests in this class run only if test is running locally under the LocalTopFolder.
+    LocalTopFolder (1,1) pattern = "C:\local"
+  end  % properties
+
   methods (TestMethodSetup)
     % Functions in this "TestMethodSetup" section always run before
     % each test defined in the "Test" section runs.
@@ -84,6 +89,13 @@ classdef uiTest_BaseWorkspaceStructParameterUI < matlab.uitest.TestCase
     end  % function
 
     function Gesture_2_1(testcase)
+      if TestUtil1.isNonLocal(testcase.LocalTopFolder)
+        disp("!Skipping (the test is not running within the specified local path.)")
+
+        return
+
+      end  %if
+
       app = DemoApp_BaseWorkspaceStructParameterUI_2;
 
       paramfile1 = FileUtil1.getFileFullPath("BaseWorkspaceStructParameterUI_SampleParams1.m");
@@ -113,6 +125,12 @@ classdef uiTest_BaseWorkspaceStructParameterUI < matlab.uitest.TestCase
     end  % function
 
     function Gesture_2_2(testcase)
+      if TestUtil1.isNonLocal(testcase.LocalTopFolder)
+        disp("!Skipping (the test is not running within the specified local path.)")
+
+        return
+
+      end  %if
       app = DemoApp_BaseWorkspaceStructParameterUI_2;
 
       paramfile1 = FileUtil1.getFileFullPath("BaseWorkspaceStructParameterUI_SampleParams1.m");

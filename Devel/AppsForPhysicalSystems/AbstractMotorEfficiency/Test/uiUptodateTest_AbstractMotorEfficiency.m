@@ -93,7 +93,7 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
     function app_screenshot_1_light(testcase)
       %%
       if TestUtil1.isNonLocal(testcase.LocalTopFolder)
-        disp("!Skipping")
+        disp("!Skipping (the test is not running within the specified local path.)")
 
         return
 
