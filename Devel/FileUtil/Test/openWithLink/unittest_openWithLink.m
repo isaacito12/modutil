@@ -62,6 +62,13 @@ classdef unittest_openWithLink < matlab.unittest.TestCase
     end  % function
 
     function PassingTest_1(testcase)
+      if TestUtil1.isNonLocal(testcase.LocalTopFolder)
+        disp("!Skipping (the test is not running within the specified local path.)")
+
+        return
+
+      end  %if
+
       target_file_name = "SampleScript_openWithLink_1";
 
       targetfile_fullpath = matlab.buildtool.io.FileCollection.fromPaths(fullfile(pwd, "**", target_file_name+".m")).paths;

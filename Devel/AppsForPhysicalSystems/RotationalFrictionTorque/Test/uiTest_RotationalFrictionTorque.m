@@ -92,7 +92,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
       model_filename = "TestUtil_common_model_empty.mdl";
       [~, model_name, ~] = fileparts(model_filename);
 
-      verifyError(testcase, @() test_target, "RotationalFrictionTorqueAppMain:InvalidModelName")
+      verifyError(testcase, @() test_target, "RotationalFrictionTorqueAppMain:SimscapeBlockWasNotFound")
       function test_target
         RotationalFrictionTorque1.RotationalFrictionTorqueAppMain(ModelName=model_name)  % !test-target
       end  % nested function
@@ -103,7 +103,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
       model_filename = "TestUtil_common_model_SimscapeBlocks.mdl";
       [~, model_name, ~] = fileparts(model_filename);
 
-      verifyError(testcase, @() test_target, "RotationalFrictionTorqueAppMain:InvalidModelName")
+      verifyError(testcase, @() test_target, "RotationalFrictionTorqueAppMain:SimscapeBlockWasNotFound")
       function test_target
         RotationalFrictionTorque1.RotationalFrictionTorqueAppMain(ModelName=model_name)  % !test-target
       end  % nested function
