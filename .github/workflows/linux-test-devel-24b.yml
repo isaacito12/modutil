@@ -102,20 +102,14 @@ jobs:
           sarif_file: Devel/test-result/code-issues.sarif
           category: matlab-analysis
 
-      - name: Publish test report
-        uses: mikepenz/action-junit-report@v4
-        # Run this step regardless of the previous step's success/failure state.
-        if: always()
-        with:
-          report_paths: 'Devel/test-result/test-result.xml'
-
       - name: Upload test result PDF
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         # Run this step regardless of the previous step's success/failure state.
         if: always()
         with:
           name: Test Result PDF
           path: Devel/test-result/test-result.pdf
+          archive: false
 
       - name: Upload test result folder
         uses: actions/upload-artifact@v4
@@ -124,11 +118,3 @@ jobs:
         with:
           name: Test Result Folder
           path: Devel/test-result
-
-      - name: Publish code coverage
-        uses: 5monkeys/cobertura-action@v14
-        # The failure of this step should not affect the entire job's pass/fail state.
-        continue-on-error: true
-        with:
-          path: Devel/test-result/code-coverage.xml
-          minimum_coverage: 75

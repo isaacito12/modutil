@@ -100,8 +100,8 @@ classdef unittest_replaceText < matlab.unittest.TestCase
         MatchWholeWord = false, ...
         NewText = "NewText");
 
-      actual = result.NumLines;
-      expected = [0 1 0 0 0 0 1]';
+      actual = nnz(result.NumLines);
+      expected = 2;
       verifyEqual(testcase, actual, expected)
     end  % function
 

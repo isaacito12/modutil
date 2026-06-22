@@ -99,7 +99,7 @@ classdef uiTest_BaseWorkspaceStructParameterUI < matlab.uitest.TestCase
       type(testcase, app.BaseWorkspaceStructParameterUI_1.StructNameDropDownUI.MainDropDown, "sample_struct1")
       press(testcase, app.BaseWorkspaceStructParameterUI_1.GetParametersFromBaseWorkspaceUI.MainButton)
       % This opens the Variables window (a.k.a. Variables Editor).
-      press(testcase, app.BaseWorkspaceStructParameterUI_1.OpenVariablesEditorButtonUI.MainButton)
+      press(testcase, app.BaseWorkspaceStructParameterUI_1.OpenVariablesEditorButtonUI.MainButton)  % !attention: locally works, but can fail in CI.
       % !todo: Close the Variables window here.
 
       choose(testcase, app.BaseWorkspaceStructParameterUI_1.ParameterFileDropDownUI.MainDropDown, "")
@@ -123,14 +123,14 @@ classdef uiTest_BaseWorkspaceStructParameterUI < matlab.uitest.TestCase
       app.BaseWorkspaceStructParameterUI_1.ParameterFileFullPath = paramfile2;
 
       choose(testcase, app.BaseWorkspaceStructParameterUI_1.ParameterFileDropDownUI.MainDropDown, replace(paramfile1, ("/"|"\"), " > "))
-      % This press opens the file in the editor.
-      press(testcase, app.BaseWorkspaceStructParameterUI_1.EditFileButtonUI.MainButton)  %!test-target
+      % This opens the file in the editor.
+      press(testcase, app.BaseWorkspaceStructParameterUI_1.EditFileButtonUI.MainButton)  % !test-target. !attention: locally works, but can fail in CI.
       % Close the currently active file in the editor.
       close(matlab.desktop.editor.getActive)
 
       choose(testcase, app.BaseWorkspaceStructParameterUI_1.ParameterFileDropDownUI.MainDropDown, replace(paramfile2, ("/"|"\"), " > "))
-      % This press opens the file in the editor.
-      press(testcase, app.BaseWorkspaceStructParameterUI_1.EditFileButtonUI.MainButton)  %!test-target
+      % This opens the file in the editor.
+      press(testcase, app.BaseWorkspaceStructParameterUI_1.EditFileButtonUI.MainButton)  % !test-target
       % Close the currently active file in the editor.
       close(matlab.desktop.editor.getActive)
 

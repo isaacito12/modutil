@@ -85,48 +85,19 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
 
     function Test_error_3(testcase)
       % Pass a model which has no Simscape blocks.
-
-      model_filename = FileUtil1.getUnusedFilename("temp_AbstractMotorEfficiency_testmodel.mdl");
-      if isfile(model_filename)
-        delete(model_filename)
-      end  % if
+      model_filename = "TestUtil_common_model_empty.mdl";
       [~, model_name, ~] = fileparts(model_filename);
-
-      new_system(model_name)
-      save_system(model_name)
-
-      modelfile_fullpath = FileUtil1.getFileFullPath(model_filename);
-      disp("Using a temporary model file: " + modelfile_fullpath)
 
       verifyError(testcase, @() test_target(), "AbstractMotorEfficiencyAppMain:SimscapeBlockWasNotFound")
       function test_target
         AbstractMotorEfficiency1.AbstractMotorEfficiencyAppMain(ModelName=model_name)  % !test-target
       end  % nested function
-
-      if isfile(model_filename)
-        delete(model_filename)
-        disp("Deleted the temporary model file.")
-      end  % if
     end  % function
 
     function Test_error_4(testcase)
       % Pass a model which has Simscape blocks but not the intended block.
-
-      model_filename = FileUtil1.getUnusedFilename("temp_AbstractMotorEfficiency_testmodel.mdl");
-      if isfile(model_filename)
-        delete(model_filename)
-      end  % if
+      model_filename = "TestUtil_common_model_SimscapeBlocks.mdl";
       [~, model_name, ~] = fileparts(model_filename);
-
-      new_system(model_name)
-
-      % Add a Simscape block which is not the intended Motor & Drive block.
-      add_block("fl_lib/Mechanical/Rotational Elements/Rotational Spring", model_name + "/Spring")
-
-      save_system(model_name)
-
-      modelfile_fullpath = FileUtil1.getFileFullPath(model_filename);
-      disp("Using a temporary model file: " + modelfile_fullpath)
 
       verifyError(testcase, @() test_target(), "AbstractMotorEfficiencyAppMain:SimscapeBlockWasNotFound")
       function test_target

@@ -70,7 +70,7 @@ classdef unittest_openWithLink < matlab.unittest.TestCase
       end  % if
 
       % This must open the intended Live Script in the Editor.
-      FileUtil1.openWithLink(targetfile_fullpath);  % !test-target
+      FileUtil1.openWithLink(targetfile_fullpath);  % !test-target !attention: locally works, but can fail in CI.
 
       % Find the target Live Script in the Editor and close it.
       docs_in_editor = matlab.desktop.editor.getAll;

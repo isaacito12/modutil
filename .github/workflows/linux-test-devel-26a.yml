@@ -93,3 +93,12 @@ jobs:
           # Commands below run within MATLAB.
           # The initial working folder is the top folder of the repo.
           command: ${{ matrix.config.cmd }}
+
+      - name: Upload test result PDF
+        uses: actions/upload-artifact@v7
+        # Run this step regardless of the previous step's success/failure state.
+        if: always()
+        with:
+          name: Test Result PDF
+          path: Devel/test-result/test-result.pdf
+          archive: false

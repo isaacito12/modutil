@@ -137,9 +137,11 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
       mdl = new_system(model_name);
       open_system(mdl)
       add_block("sdl_lib/Tires & Vehicles/Longitudinal Vehicle", block_path)
-      savedfile_fullpath = string(save_system(model_name));
 
-      verifyEqual(testcase, savedfile_fullpath, fullfile(pwd, model_filename))
+      savedfile_fullpath = string(save_system(model_name));
+      [saved_model_folderpath, saved_model_name, ~] = fileparts(savedfile_fullpath);
+
+      verifyEqual(testcase, fullfile(saved_model_folderpath, saved_model_name), fullfile(pwd, model_name))
 
       % -----------------------------------------------------------------------
       % Open the app with the target block in the model.

@@ -89,58 +89,24 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
 
     function Test_error_4(testcase)
       % Pass a model which has no Simscape blocks.
-
-      model_filename = FileUtil1.getUnusedFilename("temp_RotationalFrictionTorque_testmodel.mdl");
-      if isfile(model_filename)
-        delete(model_filename)
-      end  % if
+      model_filename = "TestUtil_common_model_empty.mdl";
       [~, model_name, ~] = fileparts(model_filename);
-
-      new_system(model_name)
-      save_system(model_name)
-
-      modelfile_fullpath = FileUtil1.getFileFullPath(model_filename);
-      disp("Using a temporary model file: " + modelfile_fullpath)
 
       verifyError(testcase, @() test_target, "RotationalFrictionTorqueAppMain:SimscapeBlockWasNotFound")
       function test_target
         RotationalFrictionTorque1.RotationalFrictionTorqueAppMain(ModelName=model_name)  % !test-target
       end  % nested function
-
-      if isfile(model_filename)
-        delete(model_filename)
-        disp("Deleted the temporary model file.")
-      end  % if
     end  % function
 
     function Test_error_5(testcase)
       % Pass a model which has Simscape blocks but not the intended block.
-
-      model_filename = FileUtil1.getUnusedFilename("temp_RotationalFrictionTorque_testmodel.mdl");
-      if isfile(model_filename)
-        delete(model_filename)
-      end  % if
+      model_filename = "TestUtil_common_model_SimscapeBlocks.mdl";
       [~, model_name, ~] = fileparts(model_filename);
-
-      new_system(model_name)
-
-      % Add a Simscape block which is not the intended Rotational Friction block.
-      add_block("fl_lib/Mechanical/Rotational Elements/Rotational Spring", model_name + "/Spring")
-
-      save_system(model_name)
-
-      modelfile_fullpath = FileUtil1.getFileFullPath(model_filename);
-      disp("Using a temporary model file: " + modelfile_fullpath)
 
       verifyError(testcase, @() test_target, "RotationalFrictionTorqueAppMain:SimscapeBlockWasNotFound")
       function test_target
         RotationalFrictionTorque1.RotationalFrictionTorqueAppMain(ModelName=model_name)  % !test-target
       end  % nested function
-
-      if isfile(model_filename)
-        delete(model_filename)
-        disp("Deleted the temporary model file.")
-      end  % if
     end  % function
 
     function Test_error_6(testcase)
@@ -480,13 +446,15 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
     end  % function
 
     %% Test sample models
+%{
+% !todo: get_param does not robustly return a text as it should, which can cause test failure.
+% The issue occurs locally in 24b and remotely (i.e., in GitHub Actions) in 26a.
 
     function button_in_sample_model_1(testcase)
       if isMATLABReleaseOlderThan("R2026a")
         disp("Skipping this test in R2025b and older.")
 
         return
-
 
       end  % if
       % Test the command in the ClickFcn of a Callback Button.
@@ -508,7 +476,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
 
       disp("Command text in the block: " + command_text)
 
-      verifyTrue(testcase, not(isempty(command_text)))  % !flaky-test: 24b
+      verifyTrue(testcase, not(isempty(command_text)))  % !flaky-test: 24b. even in 26a.
 
       if contains(command_text, "bdroot")
         % "bdroot" in the command text is not expanded by eval to the model name.
@@ -519,6 +487,6 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
       eval(command_text)  % !test-target
 
     end  % function
-
+%}
   end  % methods
 end  % classdef

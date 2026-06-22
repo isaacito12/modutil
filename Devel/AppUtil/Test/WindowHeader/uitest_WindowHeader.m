@@ -87,7 +87,7 @@ classdef uitest_WindowHeader < matlab.uitest.TestCase
       % For the documentation about the matlab.desktop.editor commands, type
       % "help matlab.desktop.editor" in the command window.
       testcase.App = apptest_WindowHeader_3;
-      press(testcase, testcase.App.WindowHeaderUI.SourceLinkUI.MainHyperlink)
+      press(testcase, testcase.App.WindowHeaderUI.SourceLinkUI.MainHyperlink)  % !attention: locally works, but can fail in CI.
       currentfile_fullpath = matlab.desktop.editor.getActiveFilename;
       close(matlab.desktop.editor.getActive)
       [~, actual_basefilename, ~] = fileparts(currentfile_fullpath);
