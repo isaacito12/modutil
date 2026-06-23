@@ -112,7 +112,7 @@ jobs:
           archive: false
 
       - name: Upload test result folder
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         # Run this step regardless of the previous step's success/failure state.
         if: always()
         with:
