@@ -9,6 +9,10 @@
 [![MATLAB](https://github.com/isaacito12/modutil/actions/workflows/linux-test-devel-26a.yml/badge.svg)](https://github.com/isaacito12/modutil/actions/workflows/linux-test-devel-26a.yml)
 [![MATLAB](https://github.com/isaacito12/modutil/actions/workflows/linux-test-release-26a.yml/badge.svg)](https://github.com/isaacito12/modutil/actions/workflows/linux-test-release-26a.yml)
 
+> ⚠️ In MATLAB R2026a, all tests pass in a local environment, but
+> one test fails in CI. The failure is trivial, due to the underlying component,
+> and does not negatively impact the use of this utility.
+
 This is a development repository of the Modeling Utility for Simscape.
 
 - Development is made under the `Devel` folder.
