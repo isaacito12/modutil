@@ -80,12 +80,12 @@ classdef uitest_WindowHeader < matlab.uitest.TestCase
       % 3. Check that the expected file opened.
       % For the documentation about the matlab.desktop.editor commands, type
       % "help matlab.desktop.editor" in the command window.
-      testcase.App = apptest_WindowHeader_3;
-      press(testcase, testcase.App.WindowHeaderUI.SourceLinkUI.MainHyperlink)  % !attention: locally works, but can fail in CI.
+      app = apptest_WindowHeader_3;
+      press(testcase, app.WindowHeaderUI.SourceLinkUI.MainHyperlink)  % !attention: locally works, but can fail in CI.
       currentfile_fullpath = matlab.desktop.editor.getActiveFilename;
       close(matlab.desktop.editor.getActive)
       [~, actual_basefilename, ~] = fileparts(currentfile_fullpath);
-      expected_basefilename = testcase.App.WindowHeaderUI.AppSourceName;
+      expected_basefilename = app.WindowHeaderUI.AppSourceName;
       verifyEqual(testcase, string(actual_basefilename), expected_basefilename)
     end  % function
 
@@ -93,13 +93,13 @@ classdef uitest_WindowHeader < matlab.uitest.TestCase
     % Take screenshots of the app. Visually inspect the saved images.
 
     function LightTheme_1(testcase)
-      testcase.App = apptest_WindowHeader_3;
+      app = apptest_WindowHeader_3;
       drawnow
       if not(isMATLABReleaseOlderThan("R2025a"))
-        testcase.App.MainFigure.Theme = "light";
+        app.MainFigure.Theme = "light";
       end  % if
       save_path = fullfile(pwd, "screenshot-testing-light-1.png");
-      exportapp(testcase.App.MainFigure, save_path)
+      exportapp(app.MainFigure, save_path)
     end  % function
 
     function DarkTheme_1(testcase)
@@ -108,11 +108,11 @@ classdef uitest_WindowHeader < matlab.uitest.TestCase
         return
 
       end  % if
-      testcase.App = apptest_WindowHeader_3;
+      app = apptest_WindowHeader_3;
       drawnow
-      testcase.App.MainFigure.Theme = "dark";
+      app.MainFigure.Theme = "dark";
       save_path = fullfile(pwd, "screenshot-testing-dark-1.png");
-      exportapp(testcase.App.MainFigure, save_path)
+      exportapp(app.MainFigure, save_path)
     end  % function
 
   end  % methods

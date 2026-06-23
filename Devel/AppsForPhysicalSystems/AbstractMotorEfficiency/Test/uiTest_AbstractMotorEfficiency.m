@@ -88,7 +88,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       model_filename = "TestUtil_common_model_empty.mdl";
       [~, model_name, ~] = fileparts(model_filename);
 
-      verifyError(testcase, @() test_target(), "AbstractMotorEfficiencyAppMain:InvalidModelName")
+      verifyError(testcase, @() test_target(), "AbstractMotorEfficiencyAppMain:SimscapeBlockWasNotFound")
       function test_target
         AbstractMotorEfficiency1.AbstractMotorEfficiencyAppMain(ModelName=model_name)  % !test-target
       end  % nested function
@@ -99,7 +99,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       model_filename = "TestUtil_common_model_SimscapeBlocks.mdl";
       [~, model_name, ~] = fileparts(model_filename);
 
-      verifyError(testcase, @() test_target(), "AbstractMotorEfficiencyAppMain:InvalidModelName")
+      verifyError(testcase, @() test_target(), "AbstractMotorEfficiencyAppMain:SimscapeBlockWasNotFound")
       function test_target
         AbstractMotorEfficiency1.AbstractMotorEfficiencyAppMain(ModelName=model_name)  % !test-target
       end  % nested function

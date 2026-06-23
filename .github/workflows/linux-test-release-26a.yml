@@ -53,7 +53,9 @@ jobs:
       matrix:
         config:
           - name: R2026a
-            cmd: "cd Release; buildtool -verbosity Verbose Test"
+            # The plot below is a workaround for the ID "MATLAB:graphics:HardwareUnavailable" whose message
+            # starts with "Graphics acceleration hardware is unavailable."
+            cmd: "f=figure;plot(axes(f),randi(10,[3,2]));delete(f); cd Release; buildtool -verbosity Verbose Test"
 
     name: Test job for Release-folder in MATLAB ${{ matrix.config.name }} on Linux
 

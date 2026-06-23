@@ -57,3 +57,11 @@ function DisplayReleaseTask(~)
 disp(datetime("now", TimeZone="UTC", Format="uuuu-MM-dd HH:mm:ss"))
 disp(matlabRelease)
 end  % local function
+
+function FigureWorkaroundTask(~)
+% ID "MATLAB:graphics:HardwareUnavailable"
+% Message starts with "Graphics acceleration hardware is unavailable."
+f = figure;
+plot(axes(f), randi(10,[3,2]))
+delete(f)
+end  % local function
