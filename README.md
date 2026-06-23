@@ -1,7 +1,7 @@
 # Development repository of the Modeling Utility for Simscape™
 
-![Version Number](https://img.shields.io/github/v/release/mathworks/toolboxdesign?label=version)
-![License](https://img.shields.io/github/license/isaacito12/modutil)
+![Version Number](https://img.shields.io/github/v/release/isaacito12/modutil-simscape?label=version)
+![License](https://img.shields.io/github/license/isaacito12/modutil-simscape)
 
 [![MATLAB](https://github.com/isaacito12/modutil/actions/workflows/linux-test-devel-24b.yml/badge.svg)](https://github.com/isaacito12/modutil/actions/workflows/linux-test-devel-24b.yml)
 [![MATLAB](https://github.com/isaacito12/modutil/actions/workflows/linux-test-release-24b.yml/badge.svg)](https://github.com/isaacito12/modutil/actions/workflows/linux-test-release-24b.yml)
