@@ -4,9 +4,9 @@ function App = TextSearchResultApp(Searcher, NameValuePair)
 % TextSearchApp uses this app to show the search result. You can also open this app
 % programmatically. The app takes a TextSearcher object and optionally a search result.
 %
-% To programmatically open the app, use the SearchUtil1.searchText to do a text search.
+% To programmatically open the app, use the mus1.SearchUtil.searchText to do a text search.
 %
-%   session = SearchUtil1.searchText("Copyright", FileTypes="*.m", TargetFolder=pwd);
+%   session = mus1.SearchUtil.searchText("Copyright", FileTypes="*.m", TargetFolder=pwd);
 %
 % Then, pass the return value from the search to the app as follows.
 %
@@ -21,12 +21,12 @@ function App = TextSearchResultApp(Searcher, NameValuePair)
 % Copyright 2025-2026 The MathWorks, Inc.
 
 arguments (Input)
-  Searcher SearchUtil1.TextSearcher = SearchUtil1.TextSearcher(Initialization="default")
+  Searcher mus1.SearchUtil.TextSearcher = mus1.SearchUtil.TextSearcher(Initialization="default")
   NameValuePair.SearchResult table
 end  % arguments
 
 arguments (Output)
-  App SearchUtil1.TextSearchResultAppMain {mustBeScalarOrEmpty}
+  App mus1.SearchUtil.TextSearchResultAppMain {mustBeScalarOrEmpty}
 end  % arguments
 
 if isfield(NameValuePair, "SearchResult")
@@ -35,7 +35,7 @@ else
   result = runSearch(Searcher);
 end  % if
 
-app_main = SearchUtil1.TextSearchResultAppMain(Searcher, SearchResult = result);
+app_main = mus1.SearchUtil.TextSearchResultAppMain(Searcher, SearchResult = result);
 
 app_main.Window.HeaderUI.AppSourceName = mfilename;
 

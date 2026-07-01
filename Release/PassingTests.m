@@ -66,7 +66,7 @@ classdef PassingTests < matlab.uitest.TestCase
 
     function PassingTest_AbstractMotor_Description_html(testcase)
       % Check that there is only one target file.
-      target_file = SearchUtil1.searchFiles("AbstractMotorEfficiencyApp_Description.html");
+      target_file = mus1.SearchUtil.searchFiles("AbstractMotorEfficiencyApp_Description.html");
       verifyTrue(testcase, isscalar(target_file))
     end  % function
 
@@ -128,7 +128,7 @@ classdef PassingTests < matlab.uitest.TestCase
 
     function PassingTest_RotationalFrictionTorqueApp_Description_html(testcase)
       % Check that there is only one target file.
-      target_file = SearchUtil1.searchFiles("RotationalFrictionTorqueApp_Description.html");
+      target_file = mus1.SearchUtil.searchFiles("RotationalFrictionTorqueApp_Description.html");
       verifyTrue(testcase, isscalar(target_file))
     end  % function
 
@@ -162,7 +162,7 @@ classdef PassingTests < matlab.uitest.TestCase
 
     function PassingTest_SignalDesignApp_Description_html(testcase)
       % Check that there is only one target file.
-      target_file = SearchUtil1.searchFiles("SignalDesignApp_Description.html");
+      target_file = mus1.SearchUtil.searchFiles("SignalDesignApp_Description.html");
       verifyTrue(testcase, isscalar(target_file))
     end  % function
 
@@ -184,7 +184,7 @@ classdef PassingTests < matlab.uitest.TestCase
 
     function PassingTest_TraceGeneratorApp_Description_html(testcase)
       % Check that there is only one target file.
-      target_file = SearchUtil1.searchFiles("TraceGeneratorApp_Description.html");
+      target_file = mus1.SearchUtil.searchFiles("TraceGeneratorApp_Description.html");
       verifyTrue(testcase, isscalar(target_file))
     end  % function
 
@@ -194,7 +194,7 @@ classdef PassingTests < matlab.uitest.TestCase
 
     function PassingTest_Vehicle1DForceApp_Description_html(testcase)
       % Check that there is only one target file.
-      target_file = SearchUtil1.searchFiles("Vehicle1DForceApp_Description.html");
+      target_file = mus1.SearchUtil.searchFiles("Vehicle1DForceApp_Description.html");
       verifyTrue(testcase, isscalar(target_file))
     end  % function
 

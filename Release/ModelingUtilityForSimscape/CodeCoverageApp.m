@@ -20,94 +20,94 @@ code_coverage_table = [];
 
 main_figure = uifigure(Visible="off");
 
-app_window = AppUtil1.AppWindow(main_figure, SourceFile=mfilename);
+app_window = mus1.AppUtil.AppWindow(main_figure, SourceFile=mfilename);
 app_window.Width = 900;
 app_window.Height = 450;
-app_window.Name = CodeUtil1.i18n("Code coverage");
+app_window.Name = mus1.CodeUtil.i18n("Code coverage");
 
 main_vertical_container = app_window.MainVerticalContainer;
 
 % -----------------------------------------------------------------------
 column_grid = addVerticalGridLayout(main_vertical_container);
-horizontal_container = AppUtil1.HorizontalContainer(column_grid);
+horizontal_container = mus1.AppUtil.HorizontalContainer(column_grid);
 
 row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
-label_ui = AppUtil1.Component.Label(row_grid);
+label_ui = mus1.AppUtil.Component.Label(row_grid);
 label_ui.MainFigure = main_figure;
-label_ui.Text = CodeUtil1.i18n("Code coverage file");
+label_ui.Text = mus1.CodeUtil.i18n("Code coverage file");
 
 row_grid = addHorizontalGridLayout(horizontal_container);
-button_ui = AppUtil1.Component.Button(row_grid);
+button_ui = mus1.AppUtil.Component.Button(row_grid);
 button_ui.MainFigure = main_figure;
 button_ui.ComponentWidth = 120;
-button_ui.Text = CodeUtil1.i18n("Select...");
+button_ui.Text = mus1.CodeUtil.i18n("Select...");
 button_ui.ButtonPushedCallback = @() react_SelectButtonPushed();
 
 % -----------------------------------------------------------------------
 column_grid = addVerticalGridLayout(main_vertical_container);
-horizontal_container = AppUtil1.HorizontalContainer(column_grid);
+horizontal_container = mus1.AppUtil.HorizontalContainer(column_grid);
 
 row_grid = addHorizontalGridLayout(horizontal_container);
-link_ui = AppUtil1.Component.Hyperlink(row_grid);
+link_ui = mus1.AppUtil.Component.Hyperlink(row_grid);
 link_ui.MainFigure = main_figure;
 link_ui.Text = "";
 
 % -----------------------------------------------------------------------
 column_grid = addVerticalGridLayout(main_vertical_container);
-horizontal_container = AppUtil1.HorizontalContainer(column_grid);
+horizontal_container = mus1.AppUtil.HorizontalContainer(column_grid);
 
 % ---
 row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
-label_ui = AppUtil1.Component.Label(row_grid);
+label_ui = mus1.AppUtil.Component.Label(row_grid);
 label_ui.MainFigure = main_figure;
-label_ui.Text = CodeUtil1.i18n("Omit coverage above:");
+label_ui.Text = mus1.CodeUtil.i18n("Omit coverage above:");
 
 row_grid = addHorizontalGridLayout(horizontal_container);
-cov_threshold_ui = AppUtil1.Component.Label(row_grid);
+cov_threshold_ui = mus1.AppUtil.Component.Label(row_grid);
 cov_threshold_ui.MainFigure = main_figure;
 cov_threshold_ui.Text = "";
 
 % ---
 row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
-label_ui = AppUtil1.Component.Label(row_grid);
+label_ui = mus1.AppUtil.Component.Label(row_grid);
 label_ui.MainFigure = main_figure;
-label_ui.Text = CodeUtil1.i18n("Overall line coverage:");
+label_ui.Text = mus1.CodeUtil.i18n("Overall line coverage:");
 
 row_grid = addHorizontalGridLayout(horizontal_container);
-line_coverage_ui = AppUtil1.Component.Label(row_grid);
+line_coverage_ui = mus1.AppUtil.Component.Label(row_grid);
 line_coverage_ui.MainFigure = main_figure;
 line_coverage_ui.Text = "";
 
 % ---
 row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
-label_ui = AppUtil1.Component.Label(row_grid);
+label_ui = mus1.AppUtil.Component.Label(row_grid);
 label_ui.MainFigure = main_figure;
-label_ui.Text = CodeUtil1.i18n("Lines covered:");
+label_ui.Text = mus1.CodeUtil.i18n("Lines covered:");
 
 row_grid = addHorizontalGridLayout(horizontal_container);
-lines_covered_ui = AppUtil1.Component.Label(row_grid);
+lines_covered_ui = mus1.AppUtil.Component.Label(row_grid);
 lines_covered_ui.MainFigure = main_figure;
 lines_covered_ui.Text = "";
 
 % ---
 row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
-label_ui = AppUtil1.Component.Label(row_grid);
+label_ui = mus1.AppUtil.Component.Label(row_grid);
 label_ui.MainFigure = main_figure;
-label_ui.Text = CodeUtil1.i18n("Lines valid:");
+label_ui.Text = mus1.CodeUtil.i18n("Lines valid:");
 
 row_grid = addHorizontalGridLayout(horizontal_container);
-lines_valid_ui = AppUtil1.Component.Label(row_grid);
+lines_valid_ui = mus1.AppUtil.Component.Label(row_grid);
 lines_valid_ui.MainFigure = main_figure;
 lines_valid_ui.Text = "";
 
 % -----------------------------------------------------------------------
 % column_grid = addVerticalGridLayout(main_vertical_container);
-% AppUtil1.Component.HorizontalLine(column_grid);
+% mus1.AppUtil.Component.HorizontalLine(column_grid);
 
 % -----------------------------------------------------------------------
 column_grid = addVerticalGridLayout(main_vertical_container, Height="1x");  % !vertical-expansion
 
-table_ui = AppUtil1.Component.Table(column_grid);
+table_ui = mus1.AppUtil.Component.Table(column_grid);
 table_ui.MainFigure = main_figure;
 table_ui.ComponentHeight = "1x";  % !vertical-expansion
 table_ui.MainTable.Data = table.empty;
@@ -135,10 +135,10 @@ table_ui.MainTable.DoubleClickedFcn = @(~, DoubleClickedData) ...
 
   function update_ui
     try
-      code_coverage_table = TestUtil1.getCodeCoverageTable(CodeCoverageFile);
+      code_coverage_table = mus1.TestUtil.getCodeCoverageTable(CodeCoverageFile);
     catch exception
-      window_title = CodeUtil1.i18n("Error");
-      msg = CodeUtil1.i18n("There was an error in obtaining code coverage. Not updating the coverage information.");
+      window_title = mus1.CodeUtil.i18n("Error");
+      msg = mus1.CodeUtil.i18n("There was an error in obtaining code coverage. Not updating the coverage information.");
       uialert(main_figure, msg, window_title)
 
       return
@@ -147,7 +147,7 @@ table_ui.MainTable.DoubleClickedFcn = @(~, DoubleClickedData) ...
 
     link_ui.Text = replace(CodeCoverageFile, "/"|"\", " > ");
     link_ui.HyperlinkClickedCallback = @() edit(CodeCoverageFile);
-    link_ui.Tooltip = CodeUtil1.i18n("Open in the editor.");
+    link_ui.Tooltip = mus1.CodeUtil.i18n("Open in the editor.");
 
     line_coverage_ui.Text = code_coverage_table.Properties.CustomProperties.LineCoverage;
     lines_covered_ui.Text = code_coverage_table.Properties.CustomProperties.LinesCovered;
@@ -163,9 +163,9 @@ table_ui.MainTable.DoubleClickedFcn = @(~, DoubleClickedData) ...
 % -----------------------------------------------------------------------
 column_grid = addVerticalGridLayout(main_vertical_container);
 
-default_message = CodeUtil1.i18n("Double-click a table row to open the file. (The file must exist.)");
+default_message = mus1.CodeUtil.i18n("Double-click a table row to open the file. (The file must exist.)");
 
-message_ui = AppUtil1.Component.Label(column_grid);
+message_ui = mus1.AppUtil.Component.Label(column_grid);
 message_ui.MainFigure = main_figure;
 message_ui.Text = default_message;
 
@@ -181,7 +181,7 @@ deferred_message.TimerFcn = @(~,~) show_default_message();
 
     target_filepath = which(clicked_row.FilePath);
     if not(isfile(target_filepath))
-      message_ui.Text = CodeUtil1.i18n("File not found.");
+      message_ui.Text = mus1.CodeUtil.i18n("File not found.");
       start(deferred_message)
 
       return

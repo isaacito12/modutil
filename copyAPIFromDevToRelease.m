@@ -3,7 +3,7 @@ function copyAPIFromDevToRelease(NameValuePair)
 %
 % This function assumes that the source files are version-managed with git.
 %
-% This function copies all "+*Util" folders under the Devel folder to
+% This function copies the "+mus1" namespace folder under the Devel folder to
 % the destination "Release > ModelingUtilityForSimscape" folder.
 % This function deletes the ModelingUtilityForSimscape folder if it already exists before copying.
 
@@ -25,6 +25,9 @@ repo_top_folder = repo.WorkingFolder;
 devel_top_folder = fullfile(repo_top_folder, "Devel");
 assert(isfolder(devel_top_folder))
 
+source_folder = fullfile(devel_top_folder, "+mus1");
+assert(isfolder(source_folder))
+
 destination_folder = fullfile(repo_top_folder, "Release", "ModelingUtilityForSimscape");
 if not(NameValuePair.DryRun)
   if isfolder(destination_folder)
@@ -35,26 +38,17 @@ if not(NameValuePair.DryRun)
   mkdir(destination_folder)
 end  % if
 
-source_folders = matlab.buildtool.io.FileCollection.fromPaths(fullfile(devel_top_folder, "**", "+*Util*")).paths';
-target_folders = extractAfter(source_folders, "Util"+("/"|"\"));
-command_texts = strings(numel(target_folders), 1);
-for ii = 1 : numel(target_folders)
-  src = source_folders(ii);
-  dst = fullfile(destination_folder, target_folders(ii));
-  command_texts(ii) = "copyfile(""" + src + """, """ + dst + """)";
-end  % for
+dst = fullfile(destination_folder, "+mus1");
+cmd = "copyfile(""" + source_folder + """, """ + dst + """)";
 
 if NameValuePair.DryRun
-  joined_text = join("Dry run: " + command_texts, newline);
-  disp(joined_text)
+  disp("Dry run: " + cmd)
 
   return
 
 end  % if
 
-for ii = 1 : numel(command_texts)
-  disp(command_texts(ii))
-  eval(command_texts(ii))
-end  % for
+disp(cmd)
+eval(cmd)
 
 end  % function

@@ -19,7 +19,7 @@ arguments (Output)
   App struct
 end  % arguments
 
-test_result_app = TestUtil1.TestResultAppMain(TestResultFileName=TestResultFileName);
+test_result_app = mus1.TestUtil.TestResultAppMain(TestResultFileName=TestResultFileName);
 
 if nargout > 0
   App = struct;

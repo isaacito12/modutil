@@ -19,7 +19,7 @@ catch exception
 end  % try, catch
 repo_top_folder = repo.WorkingFolder;
 
-source_folder = fullfile(repo_top_folder, "Devel", "AppUtil");
+source_folder = fullfile(repo_top_folder, "Devel", "Test", "AppUtil");
 assert(isfolder(source_folder))
 
 destination_top_folder = fullfile(repo_top_folder, "Release", "ModelingUtilityForSimscape");

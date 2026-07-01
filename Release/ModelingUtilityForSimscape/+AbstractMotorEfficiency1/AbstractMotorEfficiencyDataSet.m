@@ -79,7 +79,7 @@ classdef AbstractMotorEfficiencyDataSet
     % The abstract motor model and the Motor & Drive block do not have
     % a parameter for the max speed.
     MaxAngularSpeed (1,1) simscape.Value ...
-      {CodeUtil1.mustBeSimscapeValuePositiveOrNan, simscape.mustBeCommensurateUnit(MaxAngularSpeed, "rad/s")} ...
+      {mus1.CodeUtil.mustBeSimscapeValuePositiveOrNan, simscape.mustBeCommensurateUnit(MaxAngularSpeed, "rad/s")} ...
       = simscape.Value(nan, "rpm")
 
     % -------------------------------------------------------------------------
@@ -163,22 +163,22 @@ classdef AbstractMotorEfficiencyDataSet
           DataSet.MotorModelType = "Full";
         else
           id = DataSet.errorID + "InvalidBlock";
-          msg = CodeUtil1.i18n("Specified block is invalid: ") + DataSet.BlockPath;
+          msg = mus1.CodeUtil.i18n("Specified block is invalid: ") + DataSet.BlockPath;
 
           throw(MException(id, msg))
 
         end  % if
 
-        DataSet.ModelParams.MaxTorque = ModelUtil1.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "torque_max");
-        DataSet.ModelParams.MaxPower = ModelUtil1.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "power_max");
-        DataSet.ModelParams.OverallEfficiencyPercent = ModelUtil1.getDoubleValueFromBlockParameter(DataSet.BlockPath, "eff");
-        DataSet.ModelParams.MeasuredAngularSpeed = ModelUtil1.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "w_eff");
-        DataSet.ModelParams.MeasuredTorque = ModelUtil1.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "T_eff");
+        DataSet.ModelParams.MaxTorque = mus1.ModelUtil.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "torque_max");
+        DataSet.ModelParams.MaxPower = mus1.ModelUtil.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "power_max");
+        DataSet.ModelParams.OverallEfficiencyPercent = mus1.ModelUtil.getDoubleValueFromBlockParameter(DataSet.BlockPath, "eff");
+        DataSet.ModelParams.MeasuredAngularSpeed = mus1.ModelUtil.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "w_eff");
+        DataSet.ModelParams.MeasuredTorque = mus1.ModelUtil.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "T_eff");
 
         if DataSet.MotorModelType == "Full"
-          DataSet.ModelParams.MeasuredIronLosses = ModelUtil1.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "Piron");
-          DataSet.ModelParams.FixedLosses = ModelUtil1.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "Pbase");
-          DataSet.ModelParams.RotorDampingCoefficient = ModelUtil1.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "Lam");
+          DataSet.ModelParams.MeasuredIronLosses = mus1.ModelUtil.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "Piron");
+          DataSet.ModelParams.FixedLosses = mus1.ModelUtil.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "Pbase");
+          DataSet.ModelParams.RotorDampingCoefficient = mus1.ModelUtil.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "Lam");
         else
           % Simplified.
           DataSet.ModelParams.MeasuredIronLosses = simscape.Value(0, "W");
@@ -273,7 +273,7 @@ classdef AbstractMotorEfficiencyDataSet
       contour_levels = DataSet.PlotContourLevelsPercent;
       if numel(contour_levels) <= 2
         id = DataSet.errorID + "NotEnoughElements";
-        msg = CodeUtil1.i18n("Contour levels must have 3 or more elements.");
+        msg = mus1.CodeUtil.i18n("Contour levels must have 3 or more elements.");
 
         throw(MException(id, msg))
 

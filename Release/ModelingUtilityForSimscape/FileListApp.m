@@ -28,7 +28,7 @@ function App = FileListApp(FileList, NameValuePair)
 %
 % First, do text search with searchText.
 %
-%   session = SearchUtil1.searchText( ...
+%   session = mus1.SearchUtil.searchText( ...
 %     "movegui", ...
 %     TopFolder = "D:\local\modutil\modeling-utility\Devel", ...
 %     IncludeSubfolders = true, ...
@@ -56,7 +56,7 @@ errorID = "FileListApp:";
 if class(FileList) == "string"
   if isempty(FileList) || (isscalar(FileList) && FileList == "")
     id = errorID + "EmptyStringForFileList";
-    msg = CodeUtil1.i18n("FileList string must be non-empty.");
+    msg = mus1.CodeUtil.i18n("FileList string must be non-empty.");
 
     throw(MException(id, msg))
 
@@ -68,7 +68,7 @@ else
   % FileList is a table.
   if isempty(FileList)
     id = errorID + "EmptyTableForFileList";
-    msg = CodeUtil1.i18n("FileList table must be non-empty.");
+    msg = mus1.CodeUtil.i18n("FileList table must be non-empty.");
 
     throw(MException(id, msg))
 
@@ -76,7 +76,7 @@ else
   column_names = string(FileList.Properties.VariableNames);
   if not(ismember("FilePath", column_names))
     id = errorID + "MissingFilePathColumn";
-    msg = CodeUtil1.i18n("Table must have FilePath column.");
+    msg = mus1.CodeUtil.i18n("Table must have FilePath column.");
 
     throw(MException(id, msg))
 
@@ -92,21 +92,21 @@ end  % if
 
 main_figure = uifigure(Visible="off");
 
-app_window = AppUtil1.AppWindow(main_figure, SourceFile=mfilename);
+app_window = mus1.AppUtil.AppWindow(main_figure, SourceFile=mfilename);
 app_window.Width = 800;
 app_window.Height = 500;
-app_window.Name = CodeUtil1.i18n("File list");
+app_window.Name = mus1.CodeUtil.i18n("File list");
 
 app_v_container = app_window.MainVerticalContainer;
 
 % -----------------------------------------------------------------------
 v_layout = addVerticalGridLayout(app_v_container);
-label_ui = AppUtil1.Component.Label(v_layout);
-label_ui.Text = CodeUtil1.i18n("Folder");
+label_ui = mus1.AppUtil.Component.Label(v_layout);
+label_ui.Text = mus1.CodeUtil.i18n("Folder");
 
 % -----------------------------------------------------------------------
 v_layout = addVerticalGridLayout(app_v_container);
-folder_ui = AppUtil1.Component.EditField(v_layout);
+folder_ui = mus1.AppUtil.Component.EditField(v_layout);
 folder_ui.Value = replace(NameValuePair.TopFolder, ("/"|"\"), " > ");
 
 % -----------------------------------------------------------------------
@@ -116,7 +116,7 @@ folder_ui.Value = replace(NameValuePair.TopFolder, ("/"|"\"), " > ");
 
 v_layout = addVerticalGridLayout(app_v_container, Height="1x");  % !vertical-expansion
 
-table_ui = AppUtil1.Component.Table(v_layout);
+table_ui = mus1.AppUtil.Component.Table(v_layout);
 table_ui.ComponentHeight = "1x";  % !vertical-expansion
 
 table_ui.MainTable.Data = FileList;
@@ -124,13 +124,13 @@ table_ui.MainTable.Data = FileList;
 if not(isfield(NameValuePair, "ColumnNames"))
   if width(FileList) == 2
     % Default setting
-    table_ui.MainTable.ColumnName = [CodeUtil1.i18n("File path"), CodeUtil1.i18n("Line number")];
+    table_ui.MainTable.ColumnName = [mus1.CodeUtil.i18n("File path"), mus1.CodeUtil.i18n("Line number")];
   end
 
 elseif isfield(NameValuePair, "ColumnNames")
   if numel(NameValuePair.ColumnNames) < 3
     id = errorID + "InvalidColumnNames";
-    msg = CodeUtil1.i18n("ColumnNames must have 3 or more elements.");
+    msg = mus1.CodeUtil.i18n("ColumnNames must have 3 or more elements.");
 
     throw(MException(id, msg))
 
@@ -147,7 +147,7 @@ if not(isfield(NameValuePair, "ColumnWidth"))
 elseif isfield(NameValuePair, "ColumnWidth")
   if numel(NameValuePair.ColumnWidth) < 3
     id = errorID + "InvalidColumnWidth";
-    msg = CodeUtil1.i18n("ColumnWidth must have 3 or more elements.");
+    msg = mus1.CodeUtil.i18n("ColumnWidth must have 3 or more elements.");
 
     throw(MException(id, msg))
 
@@ -168,9 +168,9 @@ table_ui.MainTable.DoubleClickedFcn = @(~, DoubleClickedData) ...
 % -----------------------------------------------------------------------
 v_layout = addVerticalGridLayout(app_v_container);
 
-default_message = CodeUtil1.i18n("Double-click to open the file.");
+default_message = mus1.CodeUtil.i18n("Double-click to open the file.");
 
-message_ui = AppUtil1.Component.Label(v_layout);
+message_ui = mus1.AppUtil.Component.Label(v_layout);
 message_ui.Text = default_message;
 
 % -----------------------------------------------------------------------
@@ -185,7 +185,7 @@ deferred_message.TimerFcn = @(~,~) show_default_message();
     target_filepath = replace(target_row.FilePath, " > ", filesep);
     file_fullpath = fullfile(NameValuePair.TopFolder, target_filepath);
     if not(isfile(file_fullpath))
-      message_ui.Text = CodeUtil1.i18n("File not found: ") + file_fullpath;
+      message_ui.Text = mus1.CodeUtil.i18n("File not found: ") + file_fullpath;
       start(deferred_message)
 
       return

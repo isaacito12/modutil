@@ -51,18 +51,18 @@ arguments (Input)
 
   % ---------------------------------------------------------------------------
   % StatesSource=="external"
-  NameValuePair.SearchStates (1,:) SearchUtil1.TextSearchStates
+  NameValuePair.SearchStates (1,:) mus1.SearchUtil.TextSearchStates
 
 end  % arguments
 
 arguments (Output)
-  App SearchUtil1.TextSearchAppMain {mustBeScalarOrEmpty}
+  App mus1.SearchUtil.TextSearchAppMain {mustBeScalarOrEmpty}
 end  % arguments
 
 switch NameValuePair.StatesSource
 
   case "options"
-    app_main = SearchUtil1.TextSearchAppMain( ...
+    app_main = mus1.SearchUtil.TextSearchAppMain( ...
       StatesSource = "options", ...
       TargetFolder = NameValuePair.TargetFolder, ...
       IncludeSubfolders = NameValuePair.IncludeSubfolders, ...
@@ -75,7 +75,7 @@ switch NameValuePair.StatesSource
       SearchText = NameValuePair.SearchText );
 
   case "external"
-    app_main = SearchUtil1.TextSearchAppMain( ...
+    app_main = mus1.SearchUtil.TextSearchAppMain( ...
       StatesSource = "external", ...
       SearchStates = NameValuePair.SearchStates );
 

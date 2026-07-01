@@ -18,8 +18,8 @@ if not(isMATLABReleaseOlderThan("R2025a"))
   main_figure.Theme = "light";
 end  % if
 
-app_window = AppUtil1.AppWindow(main_figure, SourceFile=mfilename);
-app_window.Name = CodeUtil1.i18n("Contour and Quiver");
+app_window = mus1.AppUtil.AppWindow(main_figure, SourceFile=mfilename);
+app_window.Name = mus1.CodeUtil.i18n("Contour and Quiver");
 app_window.Width = 480;
 app_window.Height = 570;
 
@@ -29,17 +29,17 @@ app_v_container = app_window.MainVerticalContainer;
 
 v_layout = addVerticalGridLayout(app_v_container);
 
-label_ui = AppUtil1.Component.Label(v_layout);
-label_ui.ComponentHeight = AppUtil1.Constant.Height{"oneline+"} * 3;
-label_ui.Text = CodeUtil1.i18n("Make a plot of the following function.") ...
+label_ui = mus1.AppUtil.Component.Label(v_layout);
+label_ui.ComponentHeight = mus1.AppUtil.Constant.Height{"oneline+"} * 3;
+label_ui.Text = mus1.CodeUtil.i18n("Make a plot of the following function.") ...
   + newline + "$z(x, y) = x \exp ( -x^2 - y^2 )$";
 
 % -----------------------------------------------------------------------------
 
 v_layout = addVerticalGridLayout(app_v_container);
 
-num_contour_ui = AppUtil1.Component.DoubleValueUI(v_layout);
-num_contour_ui.NameText = CodeUtil1.i18n("Number of contours");
+num_contour_ui = mus1.AppUtil.Component.DoubleValueUI(v_layout);
+num_contour_ui.NameText = mus1.CodeUtil.i18n("Number of contours");
 num_contour_ui.ValueChangedCallback = @() react_NumContourUI_ValueChanged();
 
 current_num_contour_text = "10";
@@ -56,7 +56,7 @@ num_contour_ui.ValueText = current_num_contour_text;
     try
       mustBeInteger(x)
     catch exception
-      uialert(main_figure, exception.message, CodeUtil1.i18n("Error"))
+      uialert(main_figure, exception.message, mus1.CodeUtil.i18n("Error"))
       num_contour_ui.ValueText = current_num_contour_text;
 
       return
@@ -65,7 +65,7 @@ num_contour_ui.ValueText = current_num_contour_text;
     try
       mustBePositive(x)
     catch exception
-      uialert(main_figure, exception.message, CodeUtil1.i18n("Error"))
+      uialert(main_figure, exception.message, mus1.CodeUtil.i18n("Error"))
       num_contour_ui.ValueText = current_num_contour_text;
 
       return
@@ -81,16 +81,16 @@ num_contour_ui.ValueText = current_num_contour_text;
 
 v_layout = addVerticalGridLayout(app_v_container);
 
-label_ui = AppUtil1.Component.Label(v_layout);
-label_ui.Text = CodeUtil1.i18n("Base workspace variable is supported.");
+label_ui = mus1.AppUtil.Component.Label(v_layout);
+label_ui.Text = mus1.CodeUtil.i18n("Base workspace variable is supported.");
 label_ui.HorizontalAlignment = "right";
 
 % -----------------------------------------------------------------------------
 
 v_layout = addVerticalGridLayout(app_v_container);
 
-checkbox_ui = AppUtil1.Component.CheckBox(v_layout);
-checkbox_ui.Text = CodeUtil1.i18n("Show contour values");
+checkbox_ui = mus1.AppUtil.Component.CheckBox(v_layout);
+checkbox_ui.Text = mus1.CodeUtil.i18n("Show contour values");
 checkbox_ui.ValueChangedCallback = @() update_plot();
 
 % -----------------------------------------------------------------------------
@@ -99,26 +99,26 @@ checkbox_ui.ValueChangedCallback = @() update_plot();
 
 v_layout = addVerticalGridLayout(app_v_container);
 
-h_container = AppUtil1.HorizontalContainer(v_layout);
+h_container = mus1.AppUtil.HorizontalContainer(v_layout);
 
 h_layout = addHorizontalGridLayout(h_container);
-button_ui = AppUtil1.Component.Button(h_layout);
+button_ui = mus1.AppUtil.Component.Button(h_layout);
 button_ui.HorizontalAlignment = "left";
 button_ui.ComponentWidth = 140;
-button_ui.Text = CodeUtil1.i18n("Update plot");
+button_ui.Text = mus1.CodeUtil.i18n("Update plot");
 button_ui.ButtonPushedCallback = @() update_plot();
 
 h_layout = addHorizontalGridLayout(h_container);
-openfig_ui = AppUtil1.Component.Hyperlink(h_layout);
+openfig_ui = mus1.AppUtil.Component.Hyperlink(h_layout);
 openfig_ui.HorizontalAlignment = "right";
-openfig_ui.Text = CodeUtil1.i18n("Open in figure window");
+openfig_ui.Text = mus1.CodeUtil.i18n("Open in figure window");
 openfig_ui.HyperlinkClickedCallback = @() update_plot(axes(figure));
 
 % -----------------------------------------------------------------------------
 
 v_layout = addVerticalGridLayout(app_v_container);
 
-panel_ui = AppUtil1.Graphics.Panel(v_layout);
+panel_ui = mus1.AppUtil.Graphics.Panel(v_layout);
 panel_ui.ComponentHeight = 360;
 
 % Create an axes object outside of the update_plot callback

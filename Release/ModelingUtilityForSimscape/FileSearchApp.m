@@ -18,10 +18,10 @@ arguments (Input)
 end  % arguments
 
 arguments (Output)
-  App SearchUtil1.FileSearchAppMain {mustBeScalarOrEmpty}
+  App mus1.SearchUtil.FileSearchAppMain {mustBeScalarOrEmpty}
 end  % arguments
 
-app_main = SearchUtil1.FileSearchAppMain( ...
+app_main = mus1.SearchUtil.FileSearchAppMain( ...
   SearchFileName = NameValuePair.SearchFileName, ...
   TopFolder = NameValuePair.TopFolder );
 

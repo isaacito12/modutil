@@ -142,16 +142,16 @@ classdef RotationalFrictionTorqueDataSet
         mask_type = get_param(DataSet.BlockPath, "MaskType");
         if mask_type ~= "Rotational Friction"
           id = DataSet.errorID + "InvalidBlock";
-          msg = CodeUtil1.i18n("Specified block is invalid: ") + DataSet.BlockPath;
+          msg = mus1.CodeUtil.i18n("Specified block is invalid: ") + DataSet.BlockPath;
 
           throw(MException(id, msg))
 
         end  % if
 
-        DataSet.ModelParams.BreakawayTorque = ModelUtil1.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "brkwy_trq");
-        DataSet.ModelParams.BreakawayVelocity = ModelUtil1.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "brkwy_vel");
-        DataSet.ModelParams.CoulombTorque = ModelUtil1.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "Col_trq");
-        DataSet.ModelParams.ViscousCoefficient = ModelUtil1.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "visc_coef");
+        DataSet.ModelParams.BreakawayTorque = mus1.ModelUtil.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "brkwy_trq");
+        DataSet.ModelParams.BreakawayVelocity = mus1.ModelUtil.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "brkwy_vel");
+        DataSet.ModelParams.CoulombTorque = mus1.ModelUtil.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "Col_trq");
+        DataSet.ModelParams.ViscousCoefficient = mus1.ModelUtil.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "visc_coef");
 
         DataSet = resetCommonSettings(DataSet);
       end  % if

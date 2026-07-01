@@ -23,67 +23,67 @@ classdef Vehicle1DForceAppMain < handle
     % GUI parts
 
     MainFigure matlab.ui.Figure
-    Window AppUtil1.AppWindow
+    Window mus1.AppUtil.AppWindow
 
     WindowWidth (1,1) double {mustBeInteger, mustBePositive} = 1100
-    LeftSideWidth (1,1) {CodeUtil1.mustBeStringOrPositiveInteger} = "1x"
-    RightSideWidth (1,1) {CodeUtil1.mustBeStringOrPositiveInteger} = "1x"
+    LeftSideWidth (1,1) {mus1.CodeUtil.mustBeStringOrPositiveInteger} = "1x"
+    RightSideWidth (1,1) {mus1.CodeUtil.mustBeStringOrPositiveInteger} = "1x"
 
     WindowHeight (1,1) double {mustBeInteger, mustBePositive} = 730
     PlotUIHeight (1,1) double {mustBeInteger, mustBePositive} = 420
 
     % === Preset
 
-    PresetDropDownUI AppUtil1.Component.DropDown
+    PresetDropDownUI mus1.AppUtil.Component.DropDown
 
     % === Vehicle
 
-    VehicleMassUI AppUtil1.Component.PhysicalValueWithUnitDropDown
-    TireRollingCoefficientUI AppUtil1.Component.PhysicalValueWithUnitLabel
-    AirDragCoefficientUI AppUtil1.Component.PhysicalValueWithUnitLabel
-    FrontalAreaUI AppUtil1.Component.PhysicalValueWithUnitDropDown
+    VehicleMassUI mus1.AppUtil.Component.PhysicalValueWithUnitDropDown
+    TireRollingCoefficientUI mus1.AppUtil.Component.PhysicalValueWithUnitLabel
+    AirDragCoefficientUI mus1.AppUtil.Component.PhysicalValueWithUnitLabel
+    FrontalAreaUI mus1.AppUtil.Component.PhysicalValueWithUnitDropDown
 
     % === Environment
 
-    GravitationalAccelerationUI AppUtil1.Component.PhysicalValueWithUnitLabel
-    DryAirDensityUI AppUtil1.Component.PhysicalValueWithUnitLabel
+    GravitationalAccelerationUI mus1.AppUtil.Component.PhysicalValueWithUnitLabel
+    DryAirDensityUI mus1.AppUtil.Component.PhysicalValueWithUnitLabel
 
     % === Road-load coefficient
 
-    RoadLoadBUI AppUtil1.Component.PhysicalValueWithUnitLabel
+    RoadLoadBUI mus1.AppUtil.Component.PhysicalValueWithUnitLabel
 
     % === Performance
 
-    TopSpeedUI AppUtil1.Component.PhysicalValueWithUnitDropDown
-    MaxClimbGradePercentUI AppUtil1.Component.PhysicalValueWithUnitLabel
-    MaxAccelerationUI AppUtil1.Component.PhysicalValueWithUnitLabel
+    TopSpeedUI mus1.AppUtil.Component.PhysicalValueWithUnitDropDown
+    MaxClimbGradePercentUI mus1.AppUtil.Component.PhysicalValueWithUnitLabel
+    MaxAccelerationUI mus1.AppUtil.Component.PhysicalValueWithUnitLabel
 
     % === Derived parameters
 
-    RoadLoadAUI AppUtil1.Component.PhysicalValueWithUnitLabel
-    RoadLoadCUI AppUtil1.Component.PhysicalValueWithUnitLabel
-    MaxForceUI AppUtil1.Component.PhysicalValueWithUnitLabel
-    MaxClimbPowerUI AppUtil1.Component.PhysicalValueWithUnitLabel
-    MaxClimbPowerPSUI AppUtil1.Component.PhysicalValueWithUnitLabel
-    MaxClimbPowerBHPUI AppUtil1.Component.PhysicalValueWithUnitLabel
+    RoadLoadAUI mus1.AppUtil.Component.PhysicalValueWithUnitLabel
+    RoadLoadCUI mus1.AppUtil.Component.PhysicalValueWithUnitLabel
+    MaxForceUI mus1.AppUtil.Component.PhysicalValueWithUnitLabel
+    MaxClimbPowerUI mus1.AppUtil.Component.PhysicalValueWithUnitLabel
+    MaxClimbPowerPSUI mus1.AppUtil.Component.PhysicalValueWithUnitLabel
+    MaxClimbPowerBHPUI mus1.AppUtil.Component.PhysicalValueWithUnitLabel
 
     % === Visualization
 
-    UpdateButtonUI AppUtil1.Component.EnabledButton
-    OpenInFigureWindowUI AppUtil1.Component.Hyperlink
-    AxesUI AppUtil1.Graphics.Axes
+    UpdateButtonUI mus1.AppUtil.Component.EnabledButton
+    OpenInFigureWindowUI mus1.AppUtil.Component.Hyperlink
+    AxesUI mus1.AppUtil.Graphics.Axes
 
     % === Plot customization
 
-    PlotSpeedUpperBoundUI AppUtil1.Component.PhysicalValueWithUnitDropDown
-    PlotForceUpperBoundUI AppUtil1.Component.PhysicalValueWithUnitDropDown
-    PlotGradesUI AppUtil1.Component.PhysicalValueWithUnitLabel
-    PlotPowersUI AppUtil1.Component.PhysicalValueWithUnitLabel
+    PlotSpeedUpperBoundUI mus1.AppUtil.Component.PhysicalValueWithUnitDropDown
+    PlotForceUpperBoundUI mus1.AppUtil.Component.PhysicalValueWithUnitDropDown
+    PlotGradesUI mus1.AppUtil.Component.PhysicalValueWithUnitLabel
+    PlotPowersUI mus1.AppUtil.Component.PhysicalValueWithUnitLabel
 
     % === Struct parameter UI and block selector UI
 
-    StructParameterUI AppUtil1.Component.BaseWorkspaceStructParameterUI;
-    AppBlockSelectorUI AppUtil1.Component.BlockSelectorUI
+    StructParameterUI mus1.AppUtil.Component.BaseWorkspaceStructParameterUI;
+    AppBlockSelectorUI mus1.AppUtil.Component.BlockSelectorUI
 
   end  % properties
   properties (Constant, Access=private)
@@ -94,15 +94,15 @@ classdef Vehicle1DForceAppMain < handle
     force_unit_items = ["N", "lbf"]
     mass_unit_items = ["kg", "lbm"]
 
-    width_unit = AppUtil1.Constant.Width{"unitwidth"}
-    name_ui_width = AppUtil1.Constant.Width{"unitwidth"} * 20
-    unit_ui_width = AppUtil1.Constant.Width{"unitwidth"} * 12
-    button_width = AppUtil1.Constant.Width{"unitwidth"} * 12
+    width_unit = mus1.AppUtil.Constant.Width{"unitwidth"}
+    name_ui_width = mus1.AppUtil.Constant.Width{"unitwidth"} * 20
+    unit_ui_width = mus1.AppUtil.Constant.Width{"unitwidth"} * 12
+    button_width = mus1.AppUtil.Constant.Width{"unitwidth"} * 12
 
     % !todo: Define alert ui width in a common resource file.
     alert_ui_width = 30
 
-    oneline_height = AppUtil1.Constant.Height{"oneline+"}
+    oneline_height = mus1.AppUtil.Constant.Height{"oneline+"}
 
   end  % properties
   properties (Access=private)
@@ -139,7 +139,7 @@ classdef Vehicle1DForceAppMain < handle
         App.ModelName = extractBefore(App.BlockPath, "/");
         if App.ModelName == ""
           id = App.errorID + "InvalidModelName";
-          msg = CodeUtil1.i18n("Empty model name is not allowed.");
+          msg = mus1.CodeUtil.i18n("Empty model name is not allowed.");
 
           throw(MException(id, msg))
 
@@ -156,7 +156,7 @@ classdef Vehicle1DForceAppMain < handle
 
       if App.ModelName ~= ""
         try
-          App.ModelFileFullPath = ModelUtil1.getModelFileFullPath(App.ModelName);
+          App.ModelFileFullPath = mus1.ModelUtil.getModelFileFullPath(App.ModelName);
         catch exception
           id = App.errorID + "InvalidModelName";
           msg = exception.message;
@@ -167,7 +167,7 @@ classdef Vehicle1DForceAppMain < handle
 
         % The target block must exist in the specified model.
         try
-          result = ModelUtil1.findSimscapeBlocks(App.ModelName, App.TargetSimscapeBlockNames);
+          result = mus1.ModelUtil.findSimscapeBlocks(App.ModelName, App.TargetSimscapeBlockNames);
         catch exception
           id = App.errorID + "SimscapeBlockWasNotFound";
           msg = exception.message;
@@ -182,7 +182,7 @@ classdef Vehicle1DForceAppMain < handle
         else
           if not(ismember(App.BlockPath, result))
             id = App.errorID + "InvalidBlockPath";
-            msg = CodeUtil1.i18n("The specified block was not found in the specified model.");
+            msg = mus1.CodeUtil.i18n("The specified block was not found in the specified model.");
 
             throw(MException(id, msg))
 
@@ -194,8 +194,8 @@ classdef Vehicle1DForceAppMain < handle
       App.MainFigure = uifigure(Visible="off");
 
       meta_data = metaclass(App);
-      App.Window = AppUtil1.AppWindow(App.MainFigure, SourceFile=which(meta_data.Name));
-      App.Window.Name = CodeUtil1.i18n("Vehicle 1D Force");
+      App.Window = mus1.AppUtil.AppWindow(App.MainFigure, SourceFile=which(meta_data.Name));
+      App.Window.Name = mus1.CodeUtil.i18n("Vehicle 1D Force");
       App.Window.Width = App.WindowWidth;
       App.Window.Height = App.WindowHeight;
 
@@ -209,14 +209,14 @@ classdef Vehicle1DForceAppMain < handle
       if NameValuePair.AppParameterFileName ~= ""
         if not(isfile(NameValuePair.AppParameterFileName))
           id = App.errorID + "InvalidAppParameterFileName";
-          msg = CodeUtil1.i18n("Invalid file was specified: " + NameValuePair.AppParameterFileName);
+          msg = mus1.CodeUtil.i18n("Invalid file was specified: " + NameValuePair.AppParameterFileName);
 
           throw(MException(id, msg))
 
         end  % if
         if NameValuePair.AppParameterStructName == ""
           id = App.errorID + "AppParameterStructNameIsRequired";
-          msg = CodeUtil1.i18n("AppParameterStructName is required when AppParameterFile is specified.");
+          msg = mus1.CodeUtil.i18n("AppParameterStructName is required when AppParameterFile is specified.");
 
           throw(MException(id, msg))
 
@@ -325,35 +325,35 @@ classdef Vehicle1DForceAppMain < handle
       appmain_v_container = App.Window.MainVerticalContainer;
       appmain_v_layout = addVerticalGridLayout(appmain_v_container);
 
-      appmain_h_container = AppUtil1.HorizontalContainer(appmain_v_layout);
+      appmain_h_container = mus1.AppUtil.HorizontalContainer(appmain_v_layout);
 
       % =======================================================================
       % Left side of the app window
       % =======================================================================
       appleft_h_layout = addHorizontalGridLayout(appmain_h_container, Width=App.LeftSideWidth);
-      appleft_v_container = AppUtil1.VerticalContainer(appleft_h_layout);
+      appleft_v_container = mus1.AppUtil.VerticalContainer(appleft_h_layout);
 
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
-      description_link_ui = AppUtil1.Component.Hyperlink(appleft_v_layout);
-      description_link_ui.Text = CodeUtil1.i18n("Description");
+      description_link_ui = mus1.AppUtil.Component.Hyperlink(appleft_v_layout);
+      description_link_ui.Text = mus1.CodeUtil.i18n("Description");
       description_link_ui.HyperlinkClickedCallback = @() web("Vehicle1DForceApp_Description.html");
 
       %% ======================================================================
       % Preset
 
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
-      h_container = AppUtil1.HorizontalContainer(appleft_v_layout);
+      h_container = mus1.AppUtil.HorizontalContainer(appleft_v_layout);
 
       h_layout = addHorizontalGridLayout(h_container, Width="fit");
-      label_ui = AppUtil1.Component.Label(h_layout);
+      label_ui = mus1.AppUtil.Component.Label(h_layout);
       % Add a horizontal space (alert_ui_width) between this label and the drop down created below.
       % This makes the left side of the drop down aligned with the edit fields of
       % PhysicalValueWithUnitDropDown components that are vertically placed beneath the drop down.
       label_ui.ComponentWidth = App.name_ui_width + App.alert_ui_width;
-      label_ui.Text = "\textbf{" + CodeUtil1.i18n("Preset") + "}";
+      label_ui.Text = "\textbf{" + mus1.CodeUtil.i18n("Preset") + "}";
 
       h_layout = addHorizontalGridLayout(h_container);
-      App.PresetDropDownUI = AppUtil1.Component.DropDown(h_layout);
+      App.PresetDropDownUI = mus1.AppUtil.Component.DropDown(h_layout);
       App.PresetDropDownUI.Editable = "off";
       App.PresetDropDownUI.Items = [""; keys(App.presets.PresetDictionary)];
       App.PresetDropDownUI.MainDropDown.Value = "";
@@ -363,17 +363,17 @@ classdef Vehicle1DForceAppMain < handle
       % Vehicle
 
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
-      label_ui = AppUtil1.Component.Label(appleft_v_layout);
-      label_ui.Text = "\textbf{" + CodeUtil1.i18n("Vehicle") + "}";
+      label_ui = mus1.AppUtil.Component.Label(appleft_v_layout);
+      label_ui.Text = "\textbf{" + mus1.CodeUtil.i18n("Vehicle") + "}";
 
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.VehicleMassUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
+      App.VehicleMassUI = mus1.AppUtil.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
       App.VehicleMassUI.Editable = "on";
       App.VehicleMassUI.NameUIWidth = App.name_ui_width;
       App.VehicleMassUI.UnitUIWidth = App.unit_ui_width;
-      App.VehicleMassUI.NameText = CodeUtil1.i18n("Vehicle mass, $M_v$");
+      App.VehicleMassUI.NameText = mus1.CodeUtil.i18n("Vehicle mass, $M_v$");
       App.VehicleMassUI.UnitItems = App.mass_unit_items;
       App.VehicleMassUI.UnitText = "kg";
       App.VehicleMassUI.ValueChangedCallback = @() updateApp(App);
@@ -382,31 +382,31 @@ classdef Vehicle1DForceAppMain < handle
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.TireRollingCoefficientUI = AppUtil1.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
+      App.TireRollingCoefficientUI = mus1.AppUtil.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
       App.TireRollingCoefficientUI.NameUIWidth = App.name_ui_width;
       App.TireRollingCoefficientUI.UnitUIWidth = App.unit_ui_width;
-      App.TireRollingCoefficientUI.NameText = CodeUtil1.i18n("Tire rolling coefficient, $C_{roll}$");
+      App.TireRollingCoefficientUI.NameText = mus1.CodeUtil.i18n("Tire rolling coefficient, $C_{roll}$");
       App.TireRollingCoefficientUI.UnitAlias = "";
       App.TireRollingCoefficientUI.ValueChangedCallback = @() updateApp(App);
 
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.AirDragCoefficientUI = AppUtil1.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
+      App.AirDragCoefficientUI = mus1.AppUtil.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
       App.AirDragCoefficientUI.NameUIWidth = App.name_ui_width;
       App.AirDragCoefficientUI.UnitUIWidth = App.unit_ui_width;
-      App.AirDragCoefficientUI.NameText = CodeUtil1.i18n("Air drag coefficient, $C_d$");
+      App.AirDragCoefficientUI.NameText = mus1.CodeUtil.i18n("Air drag coefficient, $C_d$");
       App.AirDragCoefficientUI.UnitAlias = "";
       App.AirDragCoefficientUI.ValueChangedCallback = @() updateApp(App);
 
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.FrontalAreaUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
+      App.FrontalAreaUI = mus1.AppUtil.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
       App.FrontalAreaUI.Editable = "on";
       App.FrontalAreaUI.NameUIWidth = App.name_ui_width;
       App.FrontalAreaUI.UnitUIWidth = App.unit_ui_width;
-      App.FrontalAreaUI.NameText = CodeUtil1.i18n("Frontal area, $A_f$");
+      App.FrontalAreaUI.NameText = mus1.CodeUtil.i18n("Frontal area, $A_f$");
       App.FrontalAreaUI.UnitItems = ["m^2", "ft^2"];
       App.FrontalAreaUI.UnitText = "m^2";
       App.FrontalAreaUI.ValueChangedCallback = @() updateApp(App);
@@ -416,26 +416,26 @@ classdef Vehicle1DForceAppMain < handle
       % Environment
 
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
-      label_ui = AppUtil1.Component.Label(appleft_v_layout);
-      label_ui.Text = "\textbf{" + CodeUtil1.i18n("Environment") + "}";
+      label_ui = mus1.AppUtil.Component.Label(appleft_v_layout);
+      label_ui.Text = "\textbf{" + mus1.CodeUtil.i18n("Environment") + "}";
 
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.GravitationalAccelerationUI = AppUtil1.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
+      App.GravitationalAccelerationUI = mus1.AppUtil.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
       App.GravitationalAccelerationUI.NameUIWidth = App.name_ui_width;
       App.GravitationalAccelerationUI.UnitUIWidth = App.unit_ui_width;
-      App.GravitationalAccelerationUI.NameText = CodeUtil1.i18n("Gravitational acceleration, $g$");
+      App.GravitationalAccelerationUI.NameText = mus1.CodeUtil.i18n("Gravitational acceleration, $g$");
       App.GravitationalAccelerationUI.UnitText = "m/s^2";
       App.GravitationalAccelerationUI.ValueChangedCallback = @() updateApp(App);
 
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.DryAirDensityUI = AppUtil1.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
+      App.DryAirDensityUI = mus1.AppUtil.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
       App.DryAirDensityUI.NameUIWidth = App.name_ui_width;
       App.DryAirDensityUI.UnitUIWidth = App.unit_ui_width;
-      App.DryAirDensityUI.NameText = CodeUtil1.i18n("Dry air density, $\rho$");
+      App.DryAirDensityUI.NameText = mus1.CodeUtil.i18n("Dry air density, $\rho$");
       App.DryAirDensityUI.UnitText = "kg/m^3";
       App.DryAirDensityUI.ValueChangedCallback = @() updateApp(App);
 
@@ -443,16 +443,16 @@ classdef Vehicle1DForceAppMain < handle
       % Road-load coefficient
 
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
-      label_ui = AppUtil1.Component.Label(appleft_v_layout);
-      label_ui.Text = "\textbf{" + CodeUtil1.i18n("Road-load coefficient") + "}";
+      label_ui = mus1.AppUtil.Component.Label(appleft_v_layout);
+      label_ui.Text = "\textbf{" + mus1.CodeUtil.i18n("Road-load coefficient") + "}";
 
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.RoadLoadBUI = AppUtil1.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
+      App.RoadLoadBUI = mus1.AppUtil.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
       App.RoadLoadBUI.NameUIWidth = App.name_ui_width;
       App.RoadLoadBUI.UnitUIWidth = App.unit_ui_width;
-      App.RoadLoadBUI.NameText = CodeUtil1.i18n("$B_{rl}$");
+      App.RoadLoadBUI.NameText = mus1.CodeUtil.i18n("$B_{rl}$");
       App.RoadLoadBUI.UnitText = "N/(m/s)";
       App.RoadLoadBUI.ValueChangedCallback = @() updateApp(App);
 
@@ -460,17 +460,17 @@ classdef Vehicle1DForceAppMain < handle
       % Performance
 
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
-      label_ui = AppUtil1.Component.Label(appleft_v_layout);
-      label_ui.Text = "\textbf{" + CodeUtil1.i18n("Performance") + "}";
+      label_ui = mus1.AppUtil.Component.Label(appleft_v_layout);
+      label_ui.Text = "\textbf{" + mus1.CodeUtil.i18n("Performance") + "}";
 
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.TopSpeedUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
+      App.TopSpeedUI = mus1.AppUtil.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
       App.TopSpeedUI.Editable = "on";
       App.TopSpeedUI.NameUIWidth = App.name_ui_width;
       App.TopSpeedUI.UnitUIWidth = App.unit_ui_width;
-      App.TopSpeedUI.NameText = CodeUtil1.i18n("Top speed, $V_{max}$");
+      App.TopSpeedUI.NameText = mus1.CodeUtil.i18n("Top speed, $V_{max}$");
       App.TopSpeedUI.UnitItems = App.speed_unit_items;
       App.TopSpeedUI.UnitText = "km/hr";
       App.TopSpeedUI.ValueChangedCallback = @() updateApp(App);
@@ -479,20 +479,20 @@ classdef Vehicle1DForceAppMain < handle
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.MaxClimbGradePercentUI = AppUtil1.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
+      App.MaxClimbGradePercentUI = mus1.AppUtil.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
       App.MaxClimbGradePercentUI.NameUIWidth = App.name_ui_width;
       App.MaxClimbGradePercentUI.UnitUIWidth = App.unit_ui_width;
-      App.MaxClimbGradePercentUI.NameText = CodeUtil1.i18n("Max climb grade, $\beta_{max}$");
+      App.MaxClimbGradePercentUI.NameText = mus1.CodeUtil.i18n("Max climb grade, $\beta_{max}$");
       App.MaxClimbGradePercentUI.UnitAlias = "\%";
       App.MaxClimbGradePercentUI.ValueChangedCallback = @() updateApp(App);
 
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.MaxAccelerationUI = AppUtil1.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
+      App.MaxAccelerationUI = mus1.AppUtil.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
       App.MaxAccelerationUI.NameUIWidth = App.name_ui_width;
       App.MaxAccelerationUI.UnitUIWidth = App.unit_ui_width;
-      App.MaxAccelerationUI.NameText = CodeUtil1.i18n("Max acceleration, $g_{max}$");
+      App.MaxAccelerationUI.NameText = mus1.CodeUtil.i18n("Max acceleration, $g_{max}$");
       App.MaxAccelerationUI.UnitAlias = "G";
       App.MaxAccelerationUI.ValueChangedCallback = @() updateApp(App);
 
@@ -500,23 +500,23 @@ classdef Vehicle1DForceAppMain < handle
       % Derived parameters
 
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
-      label_ui = AppUtil1.Component.Label(appleft_v_layout);
-      label_ui.Text = "\textbf{" + CodeUtil1.i18n("Derived parameters") + "}";
+      label_ui = mus1.AppUtil.Component.Label(appleft_v_layout);
+      label_ui.Text = "\textbf{" + mus1.CodeUtil.i18n("Derived parameters") + "}";
 
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.MaxClimbPowerUI = AppUtil1.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
+      App.MaxClimbPowerUI = mus1.AppUtil.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
       App.MaxClimbPowerUI.NameUIWidth = App.name_ui_width;
       App.MaxClimbPowerUI.UnitUIWidth = App.unit_ui_width;
-      App.MaxClimbPowerUI.NameText = CodeUtil1.i18n("Climb power, $P_c$, at $V_{max}, \beta_{max}$");
+      App.MaxClimbPowerUI.NameText = mus1.CodeUtil.i18n("Climb power, $P_c$, at $V_{max}, \beta_{max}$");
       App.MaxClimbPowerUI.UnitText = "kW";
       App.MaxClimbPowerUI.ReadOnlyValueText = true;
 
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.MaxClimbPowerBHPUI = AppUtil1.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
+      App.MaxClimbPowerBHPUI = mus1.AppUtil.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
       App.MaxClimbPowerBHPUI.NameUIWidth = App.name_ui_width;
       App.MaxClimbPowerBHPUI.UnitUIWidth = App.unit_ui_width;
       App.MaxClimbPowerBHPUI.NameText = "$P_{c,bhp} =  P_c / 0.7457$";
@@ -526,7 +526,7 @@ classdef Vehicle1DForceAppMain < handle
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.MaxClimbPowerPSUI = AppUtil1.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
+      App.MaxClimbPowerPSUI = mus1.AppUtil.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
       App.MaxClimbPowerPSUI.NameUIWidth = App.name_ui_width;
       App.MaxClimbPowerPSUI.UnitUIWidth = App.unit_ui_width;
       App.MaxClimbPowerPSUI.NameText = "$P_{c,ps} =  P_c / 0.7355$";
@@ -536,30 +536,30 @@ classdef Vehicle1DForceAppMain < handle
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.MaxForceUI = AppUtil1.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
+      App.MaxForceUI = mus1.AppUtil.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
       App.MaxForceUI.NameUIWidth = App.name_ui_width;
       App.MaxForceUI.UnitUIWidth = App.unit_ui_width;
-      App.MaxForceUI.NameText = CodeUtil1.i18n("Max force, $F_{max} = g_{max} M_v g$");
+      App.MaxForceUI.NameText = mus1.CodeUtil.i18n("Max force, $F_{max} = g_{max} M_v g$");
       App.MaxForceUI.UnitText = "N";
       App.MaxForceUI.ReadOnlyValueText = true;
 
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.RoadLoadAUI = AppUtil1.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
+      App.RoadLoadAUI = mus1.AppUtil.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
       App.RoadLoadAUI.NameUIWidth = App.name_ui_width;
       App.RoadLoadAUI.UnitUIWidth = App.unit_ui_width;
-      App.RoadLoadAUI.NameText = CodeUtil1.i18n("$A_{rl} = C_{roll} M_v g$");
+      App.RoadLoadAUI.NameText = mus1.CodeUtil.i18n("$A_{rl} = C_{roll} M_v g$");
       App.RoadLoadAUI.UnitText = "N";
       App.RoadLoadAUI.ReadOnlyValueText = true;
 
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.RoadLoadCUI = AppUtil1.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
+      App.RoadLoadCUI = mus1.AppUtil.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
       App.RoadLoadCUI.NameUIWidth = App.name_ui_width;
       App.RoadLoadCUI.UnitUIWidth = App.unit_ui_width;
-      App.RoadLoadCUI.NameText = CodeUtil1.i18n("$C_{rl} = (1/2) C_d A_f \rho$");
+      App.RoadLoadCUI.NameText = mus1.CodeUtil.i18n("$C_{rl} = (1/2) C_d A_f \rho$");
       App.RoadLoadCUI.UnitText = "N/(m/s)^2";
       App.RoadLoadCUI.ReadOnlyValueText = true;
 
@@ -571,29 +571,29 @@ classdef Vehicle1DForceAppMain < handle
       % Right side of the app window
       % =======================================================================
       appright_h_layout = addHorizontalGridLayout(appmain_h_container, Width=App.RightSideWidth);
-      appright_v_container = AppUtil1.VerticalContainer(appright_h_layout);
+      appright_v_container = mus1.AppUtil.VerticalContainer(appright_h_layout);
 
       % -----------------------------------------------------------------------
       appright_v_layout = addVerticalGridLayout(appright_v_container);
-      h_container = AppUtil1.HorizontalContainer(appright_v_layout);
+      h_container = mus1.AppUtil.HorizontalContainer(appright_v_layout);
 
       h_layout = addHorizontalGridLayout(h_container, Width="fit");
-      App.UpdateButtonUI = AppUtil1.Component.EnabledButton(h_layout);
+      App.UpdateButtonUI = mus1.AppUtil.Component.EnabledButton(h_layout);
       App.UpdateButtonUI.HorizontalAlignment = "left";
       App.UpdateButtonUI.ButtonUIWidth = App.button_width + App.width_unit;
       App.UpdateButtonUI.ButtonWidth = App.button_width;
       App.UpdateButtonUI.CheckBoxUIWidth = "fit";
       App.UpdateButtonUI.CheckBoxWidth = "fit";
-      App.UpdateButtonUI.ButtonText = CodeUtil1.i18n("Update");
+      App.UpdateButtonUI.ButtonText = mus1.CodeUtil.i18n("Update");
       App.UpdateButtonUI.ButtonUI.MainButton.Icon = which("mus-icon-rotation-arrow.svg");
-      App.UpdateButtonUI.CheckBoxText = CodeUtil1.i18n("Auto update");
+      App.UpdateButtonUI.CheckBoxText = mus1.CodeUtil.i18n("Auto update");
       App.UpdateButtonUI.ButtonPushedCallback = @() updateApp(App, PlotMode="force");
       % Set auto-update to false and keep it until the entire app is ready.
       App.UpdateButtonUI.ButtonDisable = "on";
 
       h_layout = addHorizontalGridLayout(h_container);
-      App.OpenInFigureWindowUI = AppUtil1.Component.Hyperlink(h_layout);
-      App.OpenInFigureWindowUI.Text = CodeUtil1.i18n("Open in figure window");
+      App.OpenInFigureWindowUI = mus1.AppUtil.Component.Hyperlink(h_layout);
+      App.OpenInFigureWindowUI.Text = mus1.CodeUtil.i18n("Open in figure window");
       App.OpenInFigureWindowUI.HorizontalAlignment = "right";
 
       App.OpenInFigureWindowUI.HyperlinkClickedCallback = @open_in_figure_window;
@@ -606,24 +606,24 @@ classdef Vehicle1DForceAppMain < handle
       % -----------------------------------------------------------------------
       appright_v_layout = addVerticalGridLayout(appright_v_container);
 
-      App.AxesUI = AppUtil1.Graphics.Axes(appright_v_layout);
+      App.AxesUI = mus1.AppUtil.Graphics.Axes(appright_v_layout);
       App.AxesUI.ComponentHeight = App.PlotUIHeight;
 
       %% ======================================================================
       % Plot customization
 
       appright_v_layout = addVerticalGridLayout(appright_v_container);
-      label_ui = AppUtil1.Component.Label(appright_v_layout);
-      label_ui.Text = "\textbf{" + CodeUtil1.i18n("Plot customization") + "}";
+      label_ui = mus1.AppUtil.Component.Label(appright_v_layout);
+      label_ui.Text = "\textbf{" + mus1.CodeUtil.i18n("Plot customization") + "}";
 
       % -----------------------------------------------------------------------
       appright_v_layout = addVerticalGridLayout(appright_v_container);
 
-      App.PlotSpeedUpperBoundUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appright_v_layout);
+      App.PlotSpeedUpperBoundUI = mus1.AppUtil.Component.PhysicalValueWithUnitDropDown(appright_v_layout);
       App.PlotSpeedUpperBoundUI.Editable = "on";
       App.PlotSpeedUpperBoundUI.NameUIWidth = App.name_ui_width;
       App.PlotSpeedUpperBoundUI.UnitUIWidth = App.unit_ui_width;
-      App.PlotSpeedUpperBoundUI.NameText = CodeUtil1.i18n("Speed upper bound");
+      App.PlotSpeedUpperBoundUI.NameText = mus1.CodeUtil.i18n("Speed upper bound");
       App.PlotSpeedUpperBoundUI.UnitItems = App.speed_unit_items;
       App.PlotSpeedUpperBoundUI.UnitText = "km/hr";
       App.PlotSpeedUpperBoundUI.ValueChangedCallback = @() updateApp(App);
@@ -632,11 +632,11 @@ classdef Vehicle1DForceAppMain < handle
       % -----------------------------------------------------------------------
       appright_v_layout = addVerticalGridLayout(appright_v_container);
 
-      App.PlotForceUpperBoundUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appright_v_layout);
+      App.PlotForceUpperBoundUI = mus1.AppUtil.Component.PhysicalValueWithUnitDropDown(appright_v_layout);
       App.PlotForceUpperBoundUI.Editable = "on";
       App.PlotForceUpperBoundUI.NameUIWidth = App.name_ui_width;
       App.PlotForceUpperBoundUI.UnitUIWidth = App.unit_ui_width;
-      App.PlotForceUpperBoundUI.NameText = CodeUtil1.i18n("Force upper bound");
+      App.PlotForceUpperBoundUI.NameText = mus1.CodeUtil.i18n("Force upper bound");
       App.PlotForceUpperBoundUI.UnitItems = App.force_unit_items;
       App.PlotForceUpperBoundUI.UnitText = "N";
       App.PlotForceUpperBoundUI.ValueChangedCallback = @() updateApp(App);
@@ -645,20 +645,20 @@ classdef Vehicle1DForceAppMain < handle
       % -----------------------------------------------------------------------
       appright_v_layout = addVerticalGridLayout(appright_v_container);
 
-      App.PlotGradesUI = AppUtil1.Component.PhysicalValueWithUnitLabel(appright_v_layout);
+      App.PlotGradesUI = mus1.AppUtil.Component.PhysicalValueWithUnitLabel(appright_v_layout);
       App.PlotGradesUI.NameUIWidth = App.name_ui_width;
       App.PlotGradesUI.UnitUIWidth = App.unit_ui_width;
-      App.PlotGradesUI.NameText = CodeUtil1.i18n("Road grades");
+      App.PlotGradesUI.NameText = mus1.CodeUtil.i18n("Road grades");
       App.PlotGradesUI.UnitAlias = "\%";
       App.PlotGradesUI.ValueChangedCallback = @() updateApp(App);
 
       % -----------------------------------------------------------------------
       appright_v_layout = addVerticalGridLayout(appright_v_container);
 
-      App.PlotPowersUI = AppUtil1.Component.PhysicalValueWithUnitLabel(appright_v_layout);
+      App.PlotPowersUI = mus1.AppUtil.Component.PhysicalValueWithUnitLabel(appright_v_layout);
       App.PlotPowersUI.NameUIWidth = App.name_ui_width;
       App.PlotPowersUI.UnitUIWidth = App.unit_ui_width;
-      App.PlotPowersUI.NameText = CodeUtil1.i18n("Constant power curves");
+      App.PlotPowersUI.NameText = mus1.CodeUtil.i18n("Constant power curves");
       App.PlotPowersUI.UnitText = "kW";
       App.PlotPowersUI.ValueChangedCallback = @() updateApp(App);
 
@@ -667,20 +667,20 @@ classdef Vehicle1DForceAppMain < handle
 
       % -----------------------------------------------------------------------
       appmain_v_layout = addVerticalGridLayout(appmain_v_container);
-      AppUtil1.Component.HorizontalLine(appmain_v_layout);
+      mus1.AppUtil.Component.HorizontalLine(appmain_v_layout);
 
       % -----------------------------------------------------------------------
       appmain_v_layout = addVerticalGridLayout(appmain_v_container);
-      App.StructParameterUI = AppUtil1.Component.BaseWorkspaceStructParameterUI(appmain_v_layout);
+      App.StructParameterUI = mus1.AppUtil.Component.BaseWorkspaceStructParameterUI(appmain_v_layout);
       App.StructParameterUI.GetParametersFromBaseWorkspaceCallback = @() loadParametersFromBaseWorkspace(App);
 
       % -----------------------------------------------------------------------
       appmain_v_layout = addVerticalGridLayout(appmain_v_container);
-      AppUtil1.Component.HorizontalLine(appmain_v_layout);
+      mus1.AppUtil.Component.HorizontalLine(appmain_v_layout);
 
       % -----------------------------------------------------------------------
       appmain_v_layout = addVerticalGridLayout(appmain_v_container);
-      App.AppBlockSelectorUI = AppUtil1.Component.BlockSelectorUI(appmain_v_layout);
+      App.AppBlockSelectorUI = mus1.AppUtil.Component.BlockSelectorUI(appmain_v_layout);
       App.AppBlockSelectorUI.TargetSimscapeBlockNames = App.TargetSimscapeBlockNames;
       App.AppBlockSelectorUI.GetParametersFromBlockCallback = @() callback_get_parameters(App);
       App.AppBlockSelectorUI.SetParametersToBlockCallback = @() callback_set_parameters(App);
@@ -751,7 +751,7 @@ classdef Vehicle1DForceAppMain < handle
       catch exception
         if App.MainFigure.Visible
           msg = exception.message;
-          window_title = CodeUtil1.i18n("Error");
+          window_title = mus1.CodeUtil.i18n("Error");
           uialert(App.MainFigure, msg, window_title)
 
           return
@@ -821,7 +821,7 @@ classdef Vehicle1DForceAppMain < handle
       var_names = string({base_workspace_vars.name}');
       if not(ismember(var_base_name, var_names))
         id = App.errorID + "StructNotFoundInBaseWorkspace";
-        msg = CodeUtil1.i18n("Specified struct was not found in the base workspace: ") + var_base_name;
+        msg = mus1.CodeUtil.i18n("Specified struct was not found in the base workspace: ") + var_base_name;
 
         throw(MException(id, msg))
 
@@ -984,7 +984,7 @@ classdef Vehicle1DForceAppMain < handle
           end  % if
           if App.MainFigure.Visible
             msg = exception.message;
-            window_title = CodeUtil1.i18n("Error");
+            window_title = mus1.CodeUtil.i18n("Error");
             uialert(App.MainFigure, msg, window_title, Interpreter="html")
 
             return
@@ -1025,7 +1025,7 @@ classdef Vehicle1DForceAppMain < handle
         updateApp(App, PlotMode="skip")
 
         msg = exception.message;
-        window_title = CodeUtil1.i18n("Error");
+        window_title = mus1.CodeUtil.i18n("Error");
         uialert(App.MainFigure, msg, window_title)
 
         return
