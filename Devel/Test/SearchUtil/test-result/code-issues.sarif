@@ -1,0 +1,235 @@
+{
+  "version": "2.1.0",
+  "properties": {
+    "Date": "2026-06-30 16:03:59",
+    "Release": "R2026b",
+    "CodeAnalyzerConfiguration": "active"
+  },
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Code Analyzer"
+        }
+      },
+      "originalUriBaseIds": {
+        "SourceRoot": {
+          "uri": "file:///C:/local/modutil/repo/worktrees/R2024b-devel/Devel/Test/SearchUtil/"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "FileSearchApp.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "FileSearchAppMain/uiTest_FileSearchAppMain.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "FileSearchAppMain/uiUptodateTest_FileSearchAppMain.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "FileSearchResultAppMain/uiTest_FileSearchResultAppMain.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "FileSearchResultAppMain/uiUptodateTest_FileSearchResultAppMain.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "FolderSearchApp.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "TextSearchApp.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "TextSearchAppMain/uiTest_TextSearchAppMain.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "TextSearchAppMain/uiUptodateTest_TextSearchAppMain.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "TextSearchResultApp.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "TextSearchResultAppMain/uiTest_TextSearchResultAppMain.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "TextSearchResultAppMain/uiUptodateTest_TextSearchResultAppMain.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "TextSearcher/sample%20folder/subfolder%201/samplefunction_11.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "TextSearcher/sample%20folder/subfolder%201/subfolder%2011/samplefunction_111.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "TextSearcher/sample%20folder/subfolder%202/samplescript_21.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "TextSearcher/sample%20folder/subfolder%203/samplescript_31.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "TextSearcher/sample%20folder/subfolder%203/samplescript_32_live.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "TextSearcher/unittest_TextSearcher.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "buildReplaceCommandText/unittest_buildReplaceCommandText.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "buildfile.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "replaceText/unittest_replaceText.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "searchFiles/unittest_searchFiles.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "searchText/sample%20folder/subfolder%201/samplefunction_11.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "searchText/sample%20folder/subfolder%201/subfolder%2011/samplefunction_111.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "searchText/sample%20folder/subfolder%202/samplescript_21.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "searchText/sample%20folder/subfolder%203/samplescript_31.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "searchText/sample%20folder/subfolder%203/samplescript_32_live.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "searchText/unittest_searchText.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "uiTest_SearchUtil.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "uiUptodateTest_SearchUtil.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "buildReplaceCommandText/demo_buildReplaceCommandText_1.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "buildReplaceCommandText/demo_buildReplaceCommandText_2.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "replaceText/DemoScript_replaceText_1.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "replaceText/DemoScript_replaceText_2.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "searchText/demo_searchText.mlx"
+          }
+        }
+      ],
+      "results": []
+    }
+  ]
+}

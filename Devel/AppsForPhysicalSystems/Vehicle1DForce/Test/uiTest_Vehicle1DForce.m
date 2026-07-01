@@ -129,7 +129,7 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
       % By default, the "Parameterization type" of the block is "Regular parameter set",
       % which the app requires.
 
-      model_filename = FileUtil1.getUnusedFilename("tmp_model.mdl");
+      model_filename = mus1.FileUtil.getUnusedFilename("tmp_model.mdl");
       [~, model_name, ~] = fileparts(model_filename);
 
       block_path = model_name + "/Longitudinal Vehicle";
@@ -261,7 +261,7 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
     %% callback_set_parameters with SimscapeValue
 
     function Test_set_parameters_simscape_value(testcase)
-      model_filename = FileUtil1.getUnusedFilename("tmp_model_sv.mdl");
+      model_filename = mus1.FileUtil.getUnusedFilename("tmp_model_sv.mdl");
       [~, model_name, ~] = fileparts(model_filename);
       block_path = model_name + "/Longitudinal Vehicle";
       new_system(model_name);
@@ -296,7 +296,7 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
 
     function Test_get_parameters_error_visible(testcase)
       % Create model with RoadLoad parameterization (unsupported by app).
-      model_filename = FileUtil1.getUnusedFilename("tmp_model_rl.mdl");
+      model_filename = mus1.FileUtil.getUnusedFilename("tmp_model_rl.mdl");
       [~, model_name, ~] = fileparts(model_filename);
       block_path = model_name + "/Longitudinal Vehicle";
       new_system(model_name);
@@ -320,7 +320,7 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
 
     function Test_get_parameters_error_invisible(testcase)
       % Create model with RoadLoad parameterization.
-      model_filename = FileUtil1.getUnusedFilename("tmp_model_inv.mdl");
+      model_filename = mus1.FileUtil.getUnusedFilename("tmp_model_inv.mdl");
       [~, model_name, ~] = fileparts(model_filename);
       block_path = model_name + "/Longitudinal Vehicle";
       new_system(model_name);

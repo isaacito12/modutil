@@ -1,0 +1,163 @@
+{
+  "version": "2.1.0",
+  "properties": {
+    "Date": "2026-06-30 10:06:31",
+    "Release": "R2026a",
+    "CodeAnalyzerConfiguration": "active"
+  },
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Code Analyzer"
+        }
+      },
+      "originalUriBaseIds": {
+        "SourceRoot": {
+          "uri": "file:///C:/local/modutil/repo/worktrees/R2024b-devel/Devel/Test/SignalUtil/"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "SignalDesignApp.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "SignalDesignAppMain/AppTest_SignalDesignAppMain.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "SignalDesignAppMain/uiTest_SignalDesignAppMain.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "TraceGeneratorApp.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "TraceGeneratorAppMain/uitest_TraceGeneratorAppMain.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "buildfile.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "generateSignalDesignMatrixFromTraceProperties/unittest_generateSignalDesignMatrixFromTraceProperties.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "getTimetableFromLoggedSignal/unittest_getTimetableFromLoggedSignal.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "getVectorsFromSignalDesignMatrix/demo_getVectorsFromSignalDesignMatrix.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "getVectorsFromSignalDesignMatrix/unittest_getVectorsFromSignalDesignMatrix.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "plotDifference/demo_plotDifference.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "plotDifference/unittest_plotDifference.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "plotDifference/uptodatetest_plotDifference.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "uiTest_SignalUtil.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "uiUptodateTest_SignalUtil.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "unittest_SignalUtil.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "unittest_SignalUtil_settings.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "uptodateTest_SignalUtil.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "SignalDesignApp_Description.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "TraceGeneratorApp_Description.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "demo_TimedTrace.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "generateSignalDesignMatrixFromTraceProperties/demo_generateSignalDesignMatrixFromTraceProperties.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "getTimetableFromLoggedSignal/demo_getTimetableFromLoggedSignal.mlx"
+          }
+        }
+      ],
+      "results": []
+    }
+  ]
+}

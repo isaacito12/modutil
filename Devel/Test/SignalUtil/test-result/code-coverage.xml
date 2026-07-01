@@ -1,0 +1,1135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<coverage branch-rate="NaN" branches-covered="NaN" branches-valid="NaN" complexity="NaN" line-rate="0.69979" lines-covered="338" lines-valid="483" timestamp="1782814106.3935" version="">
+  <sources>
+    <source>C:\local\modutil\repo\worktrees\R2024b-devel\Devel\Test\SignalUtil\</source>
+  </sources>
+  <packages>
+    <package branch-rate="NaN" complexity="NaN" line-rate="0.69979" name="">
+      <classes>
+        <class branch-rate="NaN" complexity="NaN" filename="SignalDesignApp.m" line-rate="1" name="SignalDesignApp">
+          <methods/>
+          <lines>
+            <line hits="4" number="6"/>
+            <line hits="3" number="10"/>
+            <line hits="4" number="13"/>
+            <line hits="4" number="15"/>
+            <line hits="4" number="17"/>
+            <line hits="3" number="18"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="SignalDesignAppMain\AppTest_SignalDesignAppMain.m" line-rate="0.875" name="AppTest_SignalDesignAppMain">
+          <methods/>
+          <lines>
+            <line hits="1" number="8"/>
+            <line hits="2" number="11"/>
+            <line hits="0" number="12"/>
+            <line hits="2" number="14"/>
+            <line hits="2" number="17"/>
+            <line hits="2" number="19"/>
+            <line hits="2" number="21"/>
+            <line hits="1" number="22"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="SignalDesignAppMain\uiTest_SignalDesignAppMain.m" line-rate="1" name="uiTest_SignalDesignAppMain">
+          <methods>
+            <method branch-rate="NaN" line-rate="1" name="test_method_setup_1" signature="test_method_setup_1(testcase)">
+              <lines>
+                <line hits="4" number="19"/>
+                <line hits="4" number="20"/>
+                <line hits="4" number="24"/>
+                <line hits="4" number="27"/>
+                <line hits="4" number="28"/>
+                <line hits="4" number="29"/>
+                <line hits="4" number="30"/>
+                <line hits="4" number="32"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="app_launches_without_warnings_1" signature="app_launches_without_warnings_1(testcase)">
+              <lines>
+                <line hits="1" number="49"/>
+                <line hits="1" number="51"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="app_launches_without_warnings_2" signature="app_launches_without_warnings_2(testcase)">
+              <lines>
+                <line hits="1" number="56"/>
+                <line hits="1" number="58"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="uitest_1" signature="uitest_1(testcase)">
+              <lines>
+                <line hits="1" number="65"/>
+                <line hits="1" number="67"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="uitest_2" signature="uitest_2(testcase)">
+              <lines>
+                <line hits="1" number="71"/>
+                <line hits="1" number="73"/>
+                <line hits="1" number="75"/>
+                <line hits="1" number="77"/>
+                <line hits="1" number="79"/>
+                <line hits="1" number="80"/>
+                <line hits="1" number="82"/>
+                <line hits="1" number="83"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line hits="4" number="19"/>
+            <line hits="4" number="20"/>
+            <line hits="4" number="24"/>
+            <line hits="4" number="27"/>
+            <line hits="4" number="28"/>
+            <line hits="4" number="29"/>
+            <line hits="4" number="30"/>
+            <line hits="4" number="32"/>
+            <line hits="1" number="49"/>
+            <line hits="1" number="51"/>
+            <line hits="1" number="56"/>
+            <line hits="1" number="58"/>
+            <line hits="1" number="65"/>
+            <line hits="1" number="67"/>
+            <line hits="1" number="71"/>
+            <line hits="1" number="73"/>
+            <line hits="1" number="75"/>
+            <line hits="1" number="77"/>
+            <line hits="1" number="79"/>
+            <line hits="1" number="80"/>
+            <line hits="1" number="82"/>
+            <line hits="1" number="83"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="SignalDesignApp_Description.mlx" line-rate="0.5" name="SignalDesignApp_Description">
+          <methods/>
+          <lines>
+            <line hits="1" number="1"/>
+            <line hits="1" number="2"/>
+            <line hits="1" number="3"/>
+            <line hits="0" number="4"/>
+            <line hits="0" number="5"/>
+            <line hits="0" number="6"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="TraceGeneratorApp.m" line-rate="1" name="TraceGeneratorApp">
+          <methods/>
+          <lines>
+            <line hits="3" number="6"/>
+            <line hits="3" number="8"/>
+            <line hits="3" number="10"/>
+            <line hits="3" number="11"/>
+            <line hits="3" number="13"/>
+            <line hits="3" number="15"/>
+            <line hits="3" number="16"/>
+            <line hits="3" number="17"/>
+            <line hits="3" number="18"/>
+            <line hits="3" number="20"/>
+            <line hits="3" number="22"/>
+            <line hits="3" number="23"/>
+            <line hits="2" number="27"/>
+            <line hits="3" number="30"/>
+            <line hits="3" number="31"/>
+            <line hits="3" number="32"/>
+            <line hits="3" number="34"/>
+            <line hits="3" number="35"/>
+            <line hits="3" number="37"/>
+            <line hits="3" number="39"/>
+            <line hits="3" number="40"/>
+            <line hits="3" number="41"/>
+            <line hits="3" number="42"/>
+            <line hits="3" number="44"/>
+            <line hits="3" number="46"/>
+            <line hits="3" number="47"/>
+            <line hits="3" number="49"/>
+            <line hits="3" number="51"/>
+            <line hits="2" number="52"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="TraceGeneratorAppMain\uitest_TraceGeneratorAppMain.m" line-rate="0.95" name="uitest_TraceGeneratorAppMain">
+          <methods>
+            <method branch-rate="NaN" line-rate="1" name="test_method_setup_1" signature="test_method_setup_1(testcase)">
+              <lines>
+                <line hits="3" number="22"/>
+                <line hits="3" number="23"/>
+                <line hits="3" number="24"/>
+                <line hits="3" number="28"/>
+                <line hits="3" number="32"/>
+                <line hits="3" number="33"/>
+                <line hits="3" number="34"/>
+                <line hits="3" number="35"/>
+                <line hits="3" number="38"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="app_launches_without_warnings_1" signature="app_launches_without_warnings_1(testcase)">
+              <lines>
+                <line hits="1" number="59"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="0.83333" name="Test_1" signature="Test_1(testcase)">
+              <lines>
+                <line hits="1" number="68"/>
+                <line hits="0" number="70"/>
+                <line hits="1" number="73"/>
+                <line hits="1" number="76"/>
+                <line hits="1" number="77"/>
+                <line hits="1" number="78"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="uitest_1" signature="uitest_1(testcase)">
+              <lines>
+                <line hits="1" number="84"/>
+                <line hits="1" number="85"/>
+                <line hits="1" number="86"/>
+                <line hits="1" number="87"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line hits="3" number="22"/>
+            <line hits="3" number="23"/>
+            <line hits="3" number="24"/>
+            <line hits="3" number="28"/>
+            <line hits="3" number="32"/>
+            <line hits="3" number="33"/>
+            <line hits="3" number="34"/>
+            <line hits="3" number="35"/>
+            <line hits="3" number="38"/>
+            <line hits="1" number="59"/>
+            <line hits="1" number="68"/>
+            <line hits="0" number="70"/>
+            <line hits="1" number="73"/>
+            <line hits="1" number="76"/>
+            <line hits="1" number="77"/>
+            <line hits="1" number="78"/>
+            <line hits="1" number="84"/>
+            <line hits="1" number="85"/>
+            <line hits="1" number="86"/>
+            <line hits="1" number="87"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="TraceGeneratorApp_Description.mlx" line-rate="1" name="TraceGeneratorApp_Description">
+          <methods/>
+          <lines>
+            <line hits="1" number="1"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="buildfile.m" line-rate="0" name="buildfile">
+          <methods/>
+          <lines>
+            <line hits="0" number="24"/>
+            <line hits="0" number="26"/>
+            <line hits="0" number="28"/>
+            <line hits="0" number="29"/>
+            <line hits="0" number="30"/>
+            <line hits="0" number="31"/>
+            <line hits="0" number="32"/>
+            <line hits="0" number="33"/>
+            <line hits="0" number="34"/>
+            <line hits="0" number="36"/>
+            <line hits="0" number="37"/>
+            <line hits="0" number="38"/>
+            <line hits="0" number="39"/>
+            <line hits="0" number="40"/>
+            <line hits="0" number="41"/>
+            <line hits="0" number="42"/>
+            <line hits="0" number="43"/>
+            <line hits="0" number="44"/>
+            <line hits="0" number="45"/>
+            <line hits="0" number="46"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="demo_TimedTrace.mlx" line-rate="0.75" name="demo_TimedTrace">
+          <methods/>
+          <lines>
+            <line hits="1" number="1"/>
+            <line hits="1" number="2"/>
+            <line hits="1" number="3"/>
+            <line hits="1" number="4"/>
+            <line hits="1" number="5"/>
+            <line hits="1" number="6"/>
+            <line hits="1" number="7"/>
+            <line hits="1" number="8"/>
+            <line hits="1" number="9"/>
+            <line hits="1" number="10"/>
+            <line hits="1" number="11"/>
+            <line hits="1" number="12"/>
+            <line hits="0" number="14"/>
+            <line hits="0" number="16"/>
+            <line hits="0" number="17"/>
+            <line hits="0" number="18"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="generateSignalDesignMatrixFromTraceProperties\demo_generateSignalDesignMatrixFromTraceProperties.mlx" line-rate="0.026316" name="demo_generateSignalDesignMatrixFromTraceProperties">
+          <methods/>
+          <lines>
+            <line hits="1" number="1"/>
+            <line hits="0" number="2"/>
+            <line hits="0" number="3"/>
+            <line hits="0" number="4"/>
+            <line hits="0" number="5"/>
+            <line hits="0" number="6"/>
+            <line hits="0" number="8"/>
+            <line hits="0" number="9"/>
+            <line hits="0" number="10"/>
+            <line hits="0" number="12"/>
+            <line hits="0" number="13"/>
+            <line hits="0" number="14"/>
+            <line hits="0" number="15"/>
+            <line hits="0" number="17"/>
+            <line hits="0" number="18"/>
+            <line hits="0" number="19"/>
+            <line hits="0" number="21"/>
+            <line hits="0" number="23"/>
+            <line hits="0" number="24"/>
+            <line hits="0" number="25"/>
+            <line hits="0" number="26"/>
+            <line hits="0" number="28"/>
+            <line hits="0" number="29"/>
+            <line hits="0" number="30"/>
+            <line hits="0" number="32"/>
+            <line hits="0" number="33"/>
+            <line hits="0" number="34"/>
+            <line hits="0" number="35"/>
+            <line hits="0" number="37"/>
+            <line hits="0" number="38"/>
+            <line hits="0" number="39"/>
+            <line hits="0" number="41"/>
+            <line hits="0" number="42"/>
+            <line hits="0" number="44"/>
+            <line hits="0" number="45"/>
+            <line hits="0" number="46"/>
+            <line hits="0" number="47"/>
+            <line hits="0" number="48"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="generateSignalDesignMatrixFromTraceProperties\unittest_generateSignalDesignMatrixFromTraceProperties.m" line-rate="1" name="unittest_generateSignalDesignMatrixFromTraceProperties">
+          <methods>
+            <method branch-rate="NaN" line-rate="1" name="test_method_setup_1" signature="test_method_setup_1(testcase)">
+              <lines>
+                <line hits="4" number="20"/>
+                <line hits="4" number="21"/>
+                <line hits="2" number="23"/>
+                <line hits="2" number="26"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="PassingTest_1" signature="PassingTest_1(~)">
+              <lines>
+                <line hits="1" number="39"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="PassingTest_2" signature="PassingTest_2(~)">
+              <lines>
+                <line hits="1" number="43"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line hits="4" number="20"/>
+            <line hits="4" number="21"/>
+            <line hits="2" number="23"/>
+            <line hits="2" number="26"/>
+            <line hits="1" number="39"/>
+            <line hits="1" number="43"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="getTimetableFromLoggedSignal\demo_getTimetableFromLoggedSignal.mlx" line-rate="0.85185" name="demo_getTimetableFromLoggedSignal">
+          <methods/>
+          <lines>
+            <line hits="1" number="1"/>
+            <line hits="1" number="2"/>
+            <line hits="1" number="3"/>
+            <line hits="1" number="5"/>
+            <line hits="1" number="6"/>
+            <line hits="1" number="7"/>
+            <line hits="1" number="8"/>
+            <line hits="1" number="9"/>
+            <line hits="1" number="10"/>
+            <line hits="1" number="12"/>
+            <line hits="1" number="13"/>
+            <line hits="1" number="14"/>
+            <line hits="1" number="16"/>
+            <line hits="1" number="17"/>
+            <line hits="1" number="18"/>
+            <line hits="1" number="19"/>
+            <line hits="1" number="20"/>
+            <line hits="1" number="21"/>
+            <line hits="1" number="22"/>
+            <line hits="1" number="24"/>
+            <line hits="1" number="25"/>
+            <line hits="1" number="26"/>
+            <line hits="1" number="28"/>
+            <line hits="0" number="29"/>
+            <line hits="0" number="30"/>
+            <line hits="0" number="31"/>
+            <line hits="0" number="32"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="getTimetableFromLoggedSignal\unittest_getTimetableFromLoggedSignal.m" line-rate="1" name="unittest_getTimetableFromLoggedSignal">
+          <methods>
+            <method branch-rate="NaN" line-rate="1" name="test_method_setup_1" signature="test_method_setup_1(testcase)">
+              <lines>
+                <line hits="18" number="20"/>
+                <line hits="18" number="21"/>
+                <line hits="9" number="23"/>
+                <line hits="9" number="26"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="PassingTest_1" signature="PassingTest_1(~)">
+              <lines>
+                <line hits="1" number="40"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="PassingTest_2" signature="PassingTest_2(~)">
+              <lines>
+                <line hits="1" number="44"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="PassingTest_3" signature="PassingTest_3(~)">
+              <lines>
+                <line hits="1" number="49"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="PassingTest_4" signature="PassingTest_4(~)">
+              <lines>
+                <line hits="1" number="53"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="PassingTest_5" signature="PassingTest_5(~)">
+              <lines>
+                <line hits="1" number="60"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="Test_1" signature="Test_1(testcase)">
+              <lines>
+                <line hits="1" number="68"/>
+                <line hits="1" number="69"/>
+                <line hits="1" number="70"/>
+                <line hits="1" number="72"/>
+                <line hits="1" number="74"/>
+                <line hits="1" number="75"/>
+                <line hits="1" number="77"/>
+                <line hits="1" number="78"/>
+                <line hits="1" number="79"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="Test_2" signature="Test_2(testcase)">
+              <lines>
+                <line hits="1" number="85"/>
+                <line hits="1" number="86"/>
+                <line hits="1" number="87"/>
+                <line hits="1" number="89"/>
+                <line hits="1" number="91"/>
+                <line hits="1" number="92"/>
+                <line hits="1" number="94"/>
+                <line hits="1" number="95"/>
+                <line hits="1" number="96"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="Test_3" signature="Test_3(testcase)">
+              <lines>
+                <line hits="1" number="100"/>
+                <line hits="1" number="101"/>
+                <line hits="1" number="102"/>
+                <line hits="1" number="104"/>
+                <line hits="1" number="106"/>
+                <line hits="1" number="107"/>
+                <line hits="1" number="109"/>
+                <line hits="1" number="110"/>
+                <line hits="1" number="111"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="Test_4" signature="Test_4(testcase)">
+              <lines>
+                <line hits="1" number="115"/>
+                <line hits="1" number="116"/>
+                <line hits="1" number="117"/>
+                <line hits="1" number="119"/>
+                <line hits="1" number="121"/>
+                <line hits="1" number="122"/>
+                <line hits="1" number="124"/>
+                <line hits="1" number="125"/>
+                <line hits="1" number="126"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line hits="18" number="20"/>
+            <line hits="18" number="21"/>
+            <line hits="9" number="23"/>
+            <line hits="9" number="26"/>
+            <line hits="1" number="40"/>
+            <line hits="1" number="44"/>
+            <line hits="1" number="49"/>
+            <line hits="1" number="53"/>
+            <line hits="1" number="60"/>
+            <line hits="1" number="68"/>
+            <line hits="1" number="69"/>
+            <line hits="1" number="70"/>
+            <line hits="1" number="72"/>
+            <line hits="1" number="74"/>
+            <line hits="1" number="75"/>
+            <line hits="1" number="77"/>
+            <line hits="1" number="78"/>
+            <line hits="1" number="79"/>
+            <line hits="1" number="85"/>
+            <line hits="1" number="86"/>
+            <line hits="1" number="87"/>
+            <line hits="1" number="89"/>
+            <line hits="1" number="91"/>
+            <line hits="1" number="92"/>
+            <line hits="1" number="94"/>
+            <line hits="1" number="95"/>
+            <line hits="1" number="96"/>
+            <line hits="1" number="100"/>
+            <line hits="1" number="101"/>
+            <line hits="1" number="102"/>
+            <line hits="1" number="104"/>
+            <line hits="1" number="106"/>
+            <line hits="1" number="107"/>
+            <line hits="1" number="109"/>
+            <line hits="1" number="110"/>
+            <line hits="1" number="111"/>
+            <line hits="1" number="115"/>
+            <line hits="1" number="116"/>
+            <line hits="1" number="117"/>
+            <line hits="1" number="119"/>
+            <line hits="1" number="121"/>
+            <line hits="1" number="122"/>
+            <line hits="1" number="124"/>
+            <line hits="1" number="125"/>
+            <line hits="1" number="126"/>
+            <line hits="2" number="136"/>
+            <line hits="2" number="137"/>
+            <line hits="4" number="153"/>
+            <line hits="4" number="155"/>
+            <line hits="4" number="156"/>
+            <line hits="4" number="157"/>
+            <line hits="4" number="159"/>
+            <line hits="2" number="166"/>
+            <line hits="2" number="167"/>
+            <line hits="4" number="173"/>
+            <line hits="4" number="175"/>
+            <line hits="4" number="176"/>
+            <line hits="4" number="177"/>
+            <line hits="4" number="178"/>
+            <line hits="4" number="180"/>
+            <line hits="4" number="181"/>
+            <line hits="4" number="182"/>
+            <line hits="4" number="183"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="getVectorsFromSignalDesignMatrix\demo_getVectorsFromSignalDesignMatrix.m" line-rate="1" name="demo_getVectorsFromSignalDesignMatrix">
+          <methods/>
+          <lines>
+            <line hits="1" number="2"/>
+            <line hits="1" number="3"/>
+            <line hits="1" number="4"/>
+            <line hits="1" number="5"/>
+            <line hits="1" number="7"/>
+            <line hits="1" number="8"/>
+            <line hits="1" number="10"/>
+            <line hits="1" number="11"/>
+            <line hits="1" number="12"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="getVectorsFromSignalDesignMatrix\unittest_getVectorsFromSignalDesignMatrix.m" line-rate="1" name="unittest_getVectorsFromSignalDesignMatrix">
+          <methods>
+            <method branch-rate="NaN" line-rate="1" name="test_method_setup_1" signature="test_method_setup_1(testcase)">
+              <lines>
+                <line hits="4" number="20"/>
+                <line hits="4" number="21"/>
+                <line hits="2" number="23"/>
+                <line hits="2" number="26"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="PassingTest_1" signature="PassingTest_1(~)">
+              <lines>
+                <line hits="1" number="39"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="PassingTest_2" signature="PassingTest_2(~)">
+              <lines>
+                <line hits="1" number="43"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line hits="4" number="20"/>
+            <line hits="4" number="21"/>
+            <line hits="2" number="23"/>
+            <line hits="2" number="26"/>
+            <line hits="1" number="39"/>
+            <line hits="1" number="43"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="plotDifference\demo_plotDifference.m" line-rate="1" name="demo_plotDifference">
+          <methods/>
+          <lines>
+            <line hits="1" number="3"/>
+            <line hits="1" number="5"/>
+            <line hits="1" number="6"/>
+            <line hits="1" number="8"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="plotDifference\unittest_plotDifference.m" line-rate="1" name="unittest_plotDifference">
+          <methods>
+            <method branch-rate="NaN" line-rate="1" name="test_method_setup_1" signature="test_method_setup_1(testcase)">
+              <lines>
+                <line hits="12" number="20"/>
+                <line hits="12" number="21"/>
+                <line hits="6" number="23"/>
+                <line hits="6" number="26"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="PassingTest_1" signature="PassingTest_1(~)">
+              <lines>
+                <line hits="1" number="39"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="PassingTest_2" signature="PassingTest_2(~)">
+              <lines>
+                <line hits="1" number="43"/>
+                <line hits="1" number="44"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="PassingTest_3" signature="PassingTest_3(~)">
+              <lines>
+                <line hits="1" number="48"/>
+                <line hits="1" number="49"/>
+                <line hits="1" number="50"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="PassingTest_4" signature="PassingTest_4(~)">
+              <lines>
+                <line hits="1" number="54"/>
+                <line hits="1" number="55"/>
+                <line hits="1" number="56"/>
+                <line hits="1" number="57"/>
+                <line hits="1" number="58"/>
+                <line hits="1" number="61"/>
+                <line hits="1" number="62"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="PassingTest_5" signature="PassingTest_5(~)">
+              <lines>
+                <line hits="1" number="66"/>
+                <line hits="1" number="67"/>
+                <line hits="1" number="68"/>
+                <line hits="1" number="69"/>
+                <line hits="1" number="70"/>
+                <line hits="1" number="72"/>
+                <line hits="1" number="73"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="PassingTest_6" signature="PassingTest_6(~)">
+              <lines>
+                <line hits="1" number="77"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line hits="12" number="20"/>
+            <line hits="12" number="21"/>
+            <line hits="6" number="23"/>
+            <line hits="6" number="26"/>
+            <line hits="1" number="39"/>
+            <line hits="1" number="43"/>
+            <line hits="1" number="44"/>
+            <line hits="1" number="48"/>
+            <line hits="1" number="49"/>
+            <line hits="1" number="50"/>
+            <line hits="1" number="54"/>
+            <line hits="1" number="55"/>
+            <line hits="1" number="56"/>
+            <line hits="1" number="57"/>
+            <line hits="1" number="58"/>
+            <line hits="1" number="61"/>
+            <line hits="1" number="62"/>
+            <line hits="1" number="66"/>
+            <line hits="1" number="67"/>
+            <line hits="1" number="68"/>
+            <line hits="1" number="69"/>
+            <line hits="1" number="70"/>
+            <line hits="1" number="72"/>
+            <line hits="1" number="73"/>
+            <line hits="1" number="77"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="plotDifference\uptodatetest_plotDifference.m" line-rate="0.30769" name="uptodatetest_plotDifference">
+          <methods>
+            <method branch-rate="NaN" line-rate="1" name="test_method_setup_1" signature="test_method_setup_1(testcase)">
+              <lines>
+                <line hits="4" number="20"/>
+                <line hits="4" number="21"/>
+                <line hits="2" number="23"/>
+                <line hits="2" number="26"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="0.18182" name="markdowns_are_uptodate" signature="markdowns_are_uptodate(testcase)">
+              <lines>
+                <line hits="1" number="40"/>
+                <line hits="1" number="42"/>
+                <line hits="0" number="47"/>
+                <line hits="0" number="48"/>
+                <line hits="0" number="49"/>
+                <line hits="0" number="51"/>
+                <line hits="0" number="52"/>
+                <line hits="0" number="53"/>
+                <line hits="0" number="54"/>
+                <line hits="0" number="58"/>
+                <line hits="0" number="60"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="0.18182" name="markdown_files_exist" signature="markdown_files_exist(testcase)">
+              <lines>
+                <line hits="1" number="67"/>
+                <line hits="1" number="69"/>
+                <line hits="0" number="77"/>
+                <line hits="0" number="81"/>
+                <line hits="0" number="83"/>
+                <line hits="0" number="84"/>
+                <line hits="0" number="86"/>
+                <line hits="0" number="88"/>
+                <line hits="0" number="89"/>
+                <line hits="0" number="91"/>
+                <line hits="0" number="92"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line hits="4" number="20"/>
+            <line hits="4" number="21"/>
+            <line hits="2" number="23"/>
+            <line hits="2" number="26"/>
+            <line hits="1" number="40"/>
+            <line hits="1" number="42"/>
+            <line hits="0" number="47"/>
+            <line hits="0" number="48"/>
+            <line hits="0" number="49"/>
+            <line hits="0" number="51"/>
+            <line hits="0" number="52"/>
+            <line hits="0" number="53"/>
+            <line hits="0" number="54"/>
+            <line hits="0" number="58"/>
+            <line hits="0" number="60"/>
+            <line hits="1" number="67"/>
+            <line hits="1" number="69"/>
+            <line hits="0" number="77"/>
+            <line hits="0" number="81"/>
+            <line hits="0" number="83"/>
+            <line hits="0" number="84"/>
+            <line hits="0" number="86"/>
+            <line hits="0" number="88"/>
+            <line hits="0" number="89"/>
+            <line hits="0" number="91"/>
+            <line hits="0" number="92"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="uiTest_SignalUtil.m" line-rate="1" name="uiTest_SignalUtil">
+          <methods>
+            <method branch-rate="NaN" line-rate="1" name="test_method_setup_1" signature="test_method_setup_1(testcase)">
+              <lines>
+                <line hits="2" number="22"/>
+                <line hits="2" number="23"/>
+                <line hits="2" number="24"/>
+                <line hits="2" number="28"/>
+                <line hits="2" number="32"/>
+                <line hits="2" number="33"/>
+                <line hits="2" number="34"/>
+                <line hits="2" number="35"/>
+                <line hits="2" number="38"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="app_launches_without_warnings_1" signature="app_launches_without_warnings_1(testcase)">
+              <lines>
+                <line hits="1" number="59"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="app_launches_without_warnings_2" signature="app_launches_without_warnings_2(testcase)">
+              <lines>
+                <line hits="1" number="63"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line hits="2" number="22"/>
+            <line hits="2" number="23"/>
+            <line hits="2" number="24"/>
+            <line hits="2" number="28"/>
+            <line hits="2" number="32"/>
+            <line hits="2" number="33"/>
+            <line hits="2" number="34"/>
+            <line hits="2" number="35"/>
+            <line hits="2" number="38"/>
+            <line hits="1" number="59"/>
+            <line hits="1" number="63"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="uiUptodateTest_SignalUtil.m" line-rate="0.5974" name="uiUptodateTest_SignalUtil">
+          <methods>
+            <method branch-rate="NaN" line-rate="0.66667" name="test_method_setup" signature="test_method_setup(testcase)">
+              <lines>
+                <line hits="4" number="27"/>
+                <line hits="4" number="28"/>
+                <line hits="0" number="31"/>
+                <line hits="4" number="34"/>
+                <line hits="0" number="36"/>
+                <line hits="0" number="37"/>
+                <line hits="4" number="42"/>
+                <line hits="4" number="44"/>
+                <line hits="4" number="45"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="0.58824" name="app_screenshot_is_uptodate_1_1_dark" signature="app_screenshot_is_uptodate_1_1_dark(testcase)">
+              <lines>
+                <line hits="1" number="58"/>
+                <line hits="1" number="60"/>
+                <line hits="1" number="61"/>
+                <line hits="1" number="62"/>
+                <line hits="1" number="64"/>
+                <line hits="0" number="65"/>
+                <line hits="0" number="66"/>
+                <line hits="1" number="68"/>
+                <line hits="1" number="71"/>
+                <line hits="1" number="73"/>
+                <line hits="1" number="75"/>
+                <line hits="1" number="77"/>
+                <line hits="0" number="80"/>
+                <line hits="0" number="81"/>
+                <line hits="0" number="86"/>
+                <line hits="0" number="89"/>
+                <line hits="0" number="90"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="0.58824" name="app_screenshot_is_uptodate_1_2_light" signature="app_screenshot_is_uptodate_1_2_light(testcase)">
+              <lines>
+                <line hits="1" number="95"/>
+                <line hits="1" number="97"/>
+                <line hits="1" number="98"/>
+                <line hits="1" number="99"/>
+                <line hits="1" number="101"/>
+                <line hits="0" number="102"/>
+                <line hits="0" number="103"/>
+                <line hits="1" number="105"/>
+                <line hits="1" number="108"/>
+                <line hits="1" number="110"/>
+                <line hits="1" number="112"/>
+                <line hits="1" number="114"/>
+                <line hits="0" number="117"/>
+                <line hits="0" number="118"/>
+                <line hits="0" number="123"/>
+                <line hits="0" number="126"/>
+                <line hits="0" number="127"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="0.58824" name="app_screenshot_is_uptodate_2_1_dark" signature="app_screenshot_is_uptodate_2_1_dark(testcase)">
+              <lines>
+                <line hits="1" number="132"/>
+                <line hits="1" number="134"/>
+                <line hits="1" number="135"/>
+                <line hits="1" number="136"/>
+                <line hits="1" number="138"/>
+                <line hits="0" number="139"/>
+                <line hits="0" number="140"/>
+                <line hits="1" number="142"/>
+                <line hits="1" number="145"/>
+                <line hits="1" number="147"/>
+                <line hits="1" number="149"/>
+                <line hits="1" number="151"/>
+                <line hits="0" number="154"/>
+                <line hits="0" number="155"/>
+                <line hits="0" number="160"/>
+                <line hits="0" number="163"/>
+                <line hits="0" number="164"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="0.58824" name="app_screenshot_is_uptodate_2_2_light" signature="app_screenshot_is_uptodate_2_2_light(testcase)">
+              <lines>
+                <line hits="1" number="169"/>
+                <line hits="1" number="171"/>
+                <line hits="1" number="172"/>
+                <line hits="1" number="173"/>
+                <line hits="1" number="175"/>
+                <line hits="0" number="176"/>
+                <line hits="0" number="177"/>
+                <line hits="1" number="179"/>
+                <line hits="1" number="182"/>
+                <line hits="1" number="184"/>
+                <line hits="1" number="186"/>
+                <line hits="1" number="188"/>
+                <line hits="0" number="191"/>
+                <line hits="0" number="192"/>
+                <line hits="0" number="197"/>
+                <line hits="0" number="200"/>
+                <line hits="0" number="201"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line hits="4" number="27"/>
+            <line hits="4" number="28"/>
+            <line hits="0" number="31"/>
+            <line hits="4" number="34"/>
+            <line hits="0" number="36"/>
+            <line hits="0" number="37"/>
+            <line hits="4" number="42"/>
+            <line hits="4" number="44"/>
+            <line hits="4" number="45"/>
+            <line hits="1" number="58"/>
+            <line hits="1" number="60"/>
+            <line hits="1" number="61"/>
+            <line hits="1" number="62"/>
+            <line hits="1" number="64"/>
+            <line hits="0" number="65"/>
+            <line hits="0" number="66"/>
+            <line hits="1" number="68"/>
+            <line hits="1" number="71"/>
+            <line hits="1" number="73"/>
+            <line hits="1" number="75"/>
+            <line hits="1" number="77"/>
+            <line hits="0" number="80"/>
+            <line hits="0" number="81"/>
+            <line hits="0" number="86"/>
+            <line hits="0" number="89"/>
+            <line hits="0" number="90"/>
+            <line hits="1" number="95"/>
+            <line hits="1" number="97"/>
+            <line hits="1" number="98"/>
+            <line hits="1" number="99"/>
+            <line hits="1" number="101"/>
+            <line hits="0" number="102"/>
+            <line hits="0" number="103"/>
+            <line hits="1" number="105"/>
+            <line hits="1" number="108"/>
+            <line hits="1" number="110"/>
+            <line hits="1" number="112"/>
+            <line hits="1" number="114"/>
+            <line hits="0" number="117"/>
+            <line hits="0" number="118"/>
+            <line hits="0" number="123"/>
+            <line hits="0" number="126"/>
+            <line hits="0" number="127"/>
+            <line hits="1" number="132"/>
+            <line hits="1" number="134"/>
+            <line hits="1" number="135"/>
+            <line hits="1" number="136"/>
+            <line hits="1" number="138"/>
+            <line hits="0" number="139"/>
+            <line hits="0" number="140"/>
+            <line hits="1" number="142"/>
+            <line hits="1" number="145"/>
+            <line hits="1" number="147"/>
+            <line hits="1" number="149"/>
+            <line hits="1" number="151"/>
+            <line hits="0" number="154"/>
+            <line hits="0" number="155"/>
+            <line hits="0" number="160"/>
+            <line hits="0" number="163"/>
+            <line hits="0" number="164"/>
+            <line hits="1" number="169"/>
+            <line hits="1" number="171"/>
+            <line hits="1" number="172"/>
+            <line hits="1" number="173"/>
+            <line hits="1" number="175"/>
+            <line hits="0" number="176"/>
+            <line hits="0" number="177"/>
+            <line hits="1" number="179"/>
+            <line hits="1" number="182"/>
+            <line hits="1" number="184"/>
+            <line hits="1" number="186"/>
+            <line hits="1" number="188"/>
+            <line hits="0" number="191"/>
+            <line hits="0" number="192"/>
+            <line hits="0" number="197"/>
+            <line hits="0" number="200"/>
+            <line hits="0" number="201"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="unittest_SignalUtil.m" line-rate="1" name="unittest_SignalUtil">
+          <methods>
+            <method branch-rate="NaN" line-rate="1" name="test_method_setup_1" signature="test_method_setup_1(testcase)">
+              <lines>
+                <line hits="6" number="20"/>
+                <line hits="6" number="21"/>
+                <line hits="3" number="23"/>
+                <line hits="3" number="26"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="PassingTest_1" signature="PassingTest_1(~)">
+              <lines>
+                <line hits="1" number="36"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="PassingTest_2" signature="PassingTest_2(~)">
+              <lines>
+                <line hits="1" number="40"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="1" name="PassingTest_3" signature="PassingTest_3(~)">
+              <lines>
+                <line hits="1" number="44"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line hits="6" number="20"/>
+            <line hits="6" number="21"/>
+            <line hits="3" number="23"/>
+            <line hits="3" number="26"/>
+            <line hits="1" number="36"/>
+            <line hits="1" number="40"/>
+            <line hits="1" number="44"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="unittest_SignalUtil_settings.m" line-rate="0.41176" name="unittest_SignalUtil_settings">
+          <methods>
+            <method branch-rate="NaN" line-rate="1" name="test_method_setup_1" signature="test_method_setup_1(testcase)">
+              <lines>
+                <line hits="4" number="20"/>
+                <line hits="4" number="21"/>
+                <line hits="2" number="23"/>
+                <line hits="2" number="26"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="0.33333" name="linked_app_in_live_script_1" signature="linked_app_in_live_script_1(testcase)">
+              <lines>
+                <line hits="1" number="37"/>
+                <line hits="1" number="39"/>
+                <line hits="1" number="40"/>
+                <line hits="1" number="41"/>
+                <line hits="1" number="43"/>
+                <line hits="0" number="47"/>
+                <line hits="0" number="48"/>
+                <line hits="0" number="49"/>
+                <line hits="0" number="51"/>
+                <line hits="0" number="54"/>
+                <line hits="0" number="55"/>
+                <line hits="0" number="56"/>
+                <line hits="0" number="57"/>
+                <line hits="0" number="58"/>
+                <line hits="0" number="60"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="0.33333" name="linked_app_in_live_script_2" signature="linked_app_in_live_script_2(testcase)">
+              <lines>
+                <line hits="1" number="68"/>
+                <line hits="1" number="70"/>
+                <line hits="1" number="71"/>
+                <line hits="1" number="72"/>
+                <line hits="1" number="74"/>
+                <line hits="0" number="78"/>
+                <line hits="0" number="79"/>
+                <line hits="0" number="80"/>
+                <line hits="0" number="82"/>
+                <line hits="0" number="85"/>
+                <line hits="0" number="86"/>
+                <line hits="0" number="87"/>
+                <line hits="0" number="88"/>
+                <line hits="0" number="89"/>
+                <line hits="0" number="91"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line hits="4" number="20"/>
+            <line hits="4" number="21"/>
+            <line hits="2" number="23"/>
+            <line hits="2" number="26"/>
+            <line hits="1" number="37"/>
+            <line hits="1" number="39"/>
+            <line hits="1" number="40"/>
+            <line hits="1" number="41"/>
+            <line hits="1" number="43"/>
+            <line hits="0" number="47"/>
+            <line hits="0" number="48"/>
+            <line hits="0" number="49"/>
+            <line hits="0" number="51"/>
+            <line hits="0" number="54"/>
+            <line hits="0" number="55"/>
+            <line hits="0" number="56"/>
+            <line hits="0" number="57"/>
+            <line hits="0" number="58"/>
+            <line hits="0" number="60"/>
+            <line hits="1" number="68"/>
+            <line hits="1" number="70"/>
+            <line hits="1" number="71"/>
+            <line hits="1" number="72"/>
+            <line hits="1" number="74"/>
+            <line hits="0" number="78"/>
+            <line hits="0" number="79"/>
+            <line hits="0" number="80"/>
+            <line hits="0" number="82"/>
+            <line hits="0" number="85"/>
+            <line hits="0" number="86"/>
+            <line hits="0" number="87"/>
+            <line hits="0" number="88"/>
+            <line hits="0" number="89"/>
+            <line hits="0" number="91"/>
+          </lines>
+        </class>
+        <class branch-rate="NaN" complexity="NaN" filename="uptodateTest_SignalUtil.m" line-rate="0.72727" name="uptodateTest_SignalUtil">
+          <methods>
+            <method branch-rate="NaN" line-rate="1" name="test_method_setup_1" signature="test_method_setup_1(testcase)">
+              <lines>
+                <line hits="4" number="20"/>
+                <line hits="4" number="21"/>
+                <line hits="2" number="23"/>
+                <line hits="2" number="26"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="0.66667" name="html_with_code_is_uptodate_1" signature="html_with_code_is_uptodate_1(testcase)">
+              <lines>
+                <line hits="1" number="41"/>
+                <line hits="1" number="42"/>
+                <line hits="1" number="45"/>
+                <line hits="1" number="46"/>
+                <line hits="0" number="49"/>
+                <line hits="0" number="50"/>
+                <line hits="0" number="51"/>
+                <line hits="1" number="54"/>
+                <line hits="1" number="55"/>
+              </lines>
+            </method>
+            <method branch-rate="NaN" line-rate="0.66667" name="html_with_code_is_uptodate_2" signature="html_with_code_is_uptodate_2(testcase)">
+              <lines>
+                <line hits="1" number="62"/>
+                <line hits="1" number="63"/>
+                <line hits="1" number="66"/>
+                <line hits="1" number="67"/>
+                <line hits="0" number="70"/>
+                <line hits="0" number="71"/>
+                <line hits="0" number="72"/>
+                <line hits="1" number="75"/>
+                <line hits="1" number="76"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line hits="4" number="20"/>
+            <line hits="4" number="21"/>
+            <line hits="2" number="23"/>
+            <line hits="2" number="26"/>
+            <line hits="1" number="41"/>
+            <line hits="1" number="42"/>
+            <line hits="1" number="45"/>
+            <line hits="1" number="46"/>
+            <line hits="0" number="49"/>
+            <line hits="0" number="50"/>
+            <line hits="0" number="51"/>
+            <line hits="1" number="54"/>
+            <line hits="1" number="55"/>
+            <line hits="1" number="62"/>
+            <line hits="1" number="63"/>
+            <line hits="1" number="66"/>
+            <line hits="1" number="67"/>
+            <line hits="0" number="70"/>
+            <line hits="0" number="71"/>
+            <line hits="0" number="72"/>
+            <line hits="1" number="75"/>
+            <line hits="1" number="76"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+  </packages>
+</coverage>

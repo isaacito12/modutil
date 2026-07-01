@@ -1,0 +1,186 @@
+function App = TestResultApp_AppUtil
+% App to view test result and double-click to open a test file
+%
+% This app takes a test result XML file which the Build Tool generated.
+% This function internally builds a table containing TestClass, TestFunction, and
+% TestTimeInSeconds columns using the summarizeTestResult function in the TestUtil
+% and shows the table. You can double-click a row in the table to open the test file.
+%
+% If no test result file is specified, the app opens with empty data, and
+% the user has to load a test result file using the "Select file" button.
+
+% Copyright 2025 The MathWorks, Inc.
+
+arguments (Output)
+  App struct
+end  % arguments
+
+% Use the buildtool API to find files from a folder tree.
+% getFileFullPath in the file util is to find files on the MATLAB path.
+files = matlab.buildtool.io.FileCollection.fromPaths(fullfile(pwd, "**", "test-result.xml")).paths';
+
+if matlabRelease.Release == "R2024b"
+  logical_index = contains(files, "AppUtil") & contains(files, "test-result-24b");
+else
+  % Assume the release is 25a or newer.
+  logical_index = contains(files, "AppUtil") & contains(files, "test-result" + ("/"|"\"));
+end  % if
+TestResultFile = files(logical_index);
+
+test_summary = [];
+
+main_figure = uifigure(Visible="off");
+
+app_window = mus1.AppUtil.AppWindow(main_figure, SourceFile=mfilename);
+app_window.Width = 840;
+app_window.Height = 470;
+app_window.Name = mus1.CodeUtil.i18n("Test Result");
+
+main_vertical_container = app_window.MainVerticalContainer;
+
+% -----------------------------------------------------------------------
+column_grid = addVerticalGridLayout(main_vertical_container);
+horizontal_container = mus1.AppUtil.HorizontalContainer(column_grid);
+
+row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
+label_ui = mus1.AppUtil.Component.Label(row_grid);
+label_ui.Text = mus1.CodeUtil.i18n("Test result file");
+
+row_grid = addHorizontalGridLayout(horizontal_container);
+button_ui = mus1.AppUtil.Component.Button(row_grid);
+button_ui.ComponentWidth = 120;
+button_ui.Text = mus1.CodeUtil.i18n("Select file");
+button_ui.ButtonPushedCallback = @() react_SelectButtonPushed();
+
+% -----------------------------------------------------------------------
+column_grid = addVerticalGridLayout(main_vertical_container);
+horizontal_container = mus1.AppUtil.HorizontalContainer(column_grid);
+
+row_grid = addHorizontalGridLayout(horizontal_container);
+link_ui = mus1.AppUtil.Component.Hyperlink(row_grid);
+link_ui.Text = "";
+
+% -----------------------------------------------------------------------
+column_grid = addVerticalGridLayout(main_vertical_container);
+horizontal_container = mus1.AppUtil.HorizontalContainer(column_grid);
+
+row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
+label_ui = mus1.AppUtil.Component.Label(row_grid);
+label_ui.Text = mus1.CodeUtil.i18n("Number of tests");
+
+row_grid = addHorizontalGridLayout(horizontal_container);
+num_tests_ui = mus1.AppUtil.Component.Label(row_grid);
+num_tests_ui.Text = "";
+
+% -----------------------------------------------------------------------
+column_grid = addVerticalGridLayout(main_vertical_container);
+horizontal_container = mus1.AppUtil.HorizontalContainer(column_grid);
+
+row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
+label_ui = mus1.AppUtil.Component.Label(row_grid);
+label_ui.Text = mus1.CodeUtil.i18n("Total test time (s) ");
+
+row_grid = addHorizontalGridLayout(horizontal_container);
+total_time_label_ui = mus1.AppUtil.Component.Label(row_grid);
+total_time_label_ui.Text = "";
+
+% -----------------------------------------------------------------------
+column_grid = addVerticalGridLayout(main_vertical_container);
+horizontal_container = mus1.AppUtil.HorizontalContainer(column_grid);
+
+row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
+label_ui = mus1.AppUtil.Component.Label(row_grid);
+label_ui.Text = mus1.CodeUtil.i18n("Average test time (s) ");
+
+row_grid = addHorizontalGridLayout(horizontal_container);
+mean_time_label_ui = mus1.AppUtil.Component.Label(row_grid);
+mean_time_label_ui.Text = "";
+
+% -----------------------------------------------------------------------
+column_grid = addVerticalGridLayout(main_vertical_container);
+horizontal_container = mus1.AppUtil.HorizontalContainer(column_grid);
+
+row_grid = addHorizontalGridLayout(horizontal_container, Width="fit");
+label_ui = mus1.AppUtil.Component.Label(row_grid);
+label_ui.Text = mus1.CodeUtil.i18n("Median test time (s) ");
+
+row_grid = addHorizontalGridLayout(horizontal_container);
+median_time_label_ui = mus1.AppUtil.Component.Label(row_grid);
+median_time_label_ui.Text = "";
+
+% -----------------------------------------------------------------------
+column_grid = addVerticalGridLayout(main_vertical_container);
+mus1.AppUtil.Component.HorizontalLine(column_grid);
+
+% -----------------------------------------------------------------------
+column_grid = addVerticalGridLayout(main_vertical_container);
+label_ui = mus1.AppUtil.Component.Label(column_grid);
+label_ui.Text = mus1.CodeUtil.i18n("Double-click a table row to open the file.");
+
+% -----------------------------------------------------------------------
+column_grid = addVerticalGridLayout(main_vertical_container, Height="1x");
+
+table_ui = mus1.AppUtil.Component.Table(column_grid);
+table_ui.ComponentHeight = 260;
+table_ui.MainTable.Data = table.empty;
+% uitable's DoubleClickedFcn callback is given a DoubleClickedData object as the second argument,
+% and the object provides information such as the clicked row via InteractionInformation.Row, etc.
+% Search "DoubleClickedData" or "InteractionInformation" in the documentation for details.
+% https://www.mathworks.com/help/matlab/ref/matlab.ui.control.table.html
+table_ui.MainTable.DoubleClickedFcn = @(~, DoubleClickedData) ...
+  react_TableDoubleClicked(DoubleClickedData.InteractionInformation.Row);
+
+  function react_TableDoubleClicked(row_number)
+    clicked_row = test_summary(row_number, :);
+
+    target_file = which(clicked_row.TestClass + ".m");
+    % !todo: check that the file exists.
+
+    target_function = clicked_row.TestFunction;
+    matlab.desktop.editor.openAndGoToFunction(target_file, target_function);
+  end  % function
+
+  function react_SelectButtonPushed
+    % Open a dialog window to interactively get a test result file name from the user.
+    [file, location] = uigetfile('*.xml');
+    if not(isequal(file, 0))
+      TestResultFile = fullfile(location, file);
+      update_ui()
+
+    else
+      % User cancelled selecting file.
+
+      return
+
+    end  % if
+  end  % nested function
+
+  function update_ui
+    test_summary = mus1.TestUtil.summarizeTestResult(TestResultFile);
+
+    link_ui.Text = replace(TestResultFile, "/"|"\", " > ");
+    link_ui.HyperlinkClickedCallback = @() edit(TestResultFile);
+    link_ui.Tooltip = mus1.CodeUtil.i18n("Open in the editor.");
+
+    num_tests_ui.Text = test_summary.Properties.CustomProperties.NumberOfTests;
+    total_time_label_ui.Text = test_summary.Properties.CustomProperties.TotalTestTimeInSeconds;
+    mean_time_label_ui.Text = test_summary.Properties.CustomProperties.MeanTestTimeInSeconds;
+    median_time_label_ui.Text = test_summary.Properties.CustomProperties.MedianTestTimeInSeconds;
+
+    table_ui.MainTable.Data = test_summary;
+    table_ui.MainTable.ColumnWidth = {'fit', '1x', 'fit'};
+    table_ui.MainTable.ColumnSortable = true;
+    table_ui.MainTable.SelectionType = "row";
+  end  % nested function
+
+if isfile(TestResultFile)
+  update_ui()
+end  % if
+movegui(main_figure, "center")
+main_figure.Visible = "on";
+drawnow
+if nargout > 0
+  App = struct;
+  App.Window = app_window;
+end  % if
+end  % function

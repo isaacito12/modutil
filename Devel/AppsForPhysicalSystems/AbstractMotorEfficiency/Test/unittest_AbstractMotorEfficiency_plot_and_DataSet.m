@@ -404,7 +404,7 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
       model_name = "AbstractMotorEfficiency_SampleModel_refsub_24b";
 
       % Make sure the model exists in the MATLAB path.
-      target_fullpath = FileUtil1.getFileFullPath(model_name);
+      target_fullpath = mus1.FileUtil.getFileFullPath(model_name);
       verifyTrue(testcase, isscalar(target_fullpath))
       verifyTrue(testcase, isfile(target_fullpath))
 
@@ -430,7 +430,7 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
       model_name = "AbstractMotorEfficiency_SampleModel_refsub_24b";
 
       % Make sure the model exists in the MATLAB path.
-      target_fullpath = FileUtil1.getFileFullPath(model_name);
+      target_fullpath = mus1.FileUtil.getFileFullPath(model_name);
       verifyTrue(testcase, isscalar(target_fullpath))
       verifyTrue(testcase, isfile(target_fullpath))
 

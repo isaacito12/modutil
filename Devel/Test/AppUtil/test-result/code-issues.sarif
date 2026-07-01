@@ -1,0 +1,840 @@
+{
+  "version": "2.1.0",
+  "properties": {
+    "Date": "2026-06-30 08:16:01",
+    "Release": "R2026a",
+    "CodeAnalyzerConfiguration": "active"
+  },
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Code Analyzer"
+        }
+      },
+      "originalUriBaseIds": {
+        "SourceRoot": {
+          "uri": "file:///C:/local/modutil/repo/worktrees/R2024b-devel/Devel/Test/AppUtil/"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "AlignComponents/apptest_AlignComponents_1_horizontal.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "AlignComponents/apptest_AlignComponents_2_vertical.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "AlignComponents/apptest_Align_EditField_DropDown_1_horizontal.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "AlignComponents/apptest_Align_EditField_DropDown_2_vertical.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "AlignComponents/uitest_AlignComponents.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "AppWindow/apptest_AppWindow_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "AppWindow/apptest_AppWindow_2_vertical_scrollbar.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "AppWindow/uiTest_AppWindow.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Axes/apptest_Axes_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Axes/apptest_Axes_2_vertical_scrollbar.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Axes/apptest_Axes_3_WithLayout.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Axes/apptest_Axes_4_WithAppWindow.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Axes/uitest_Axes.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "BaseWorkspaceStructParameterUI/BaseWorkspaceStructParameterUI_SampleParams1.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "BaseWorkspaceStructParameterUI/BaseWorkspaceStructParameterUI_SampleParams2.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "BaseWorkspaceStructParameterUI/DemoApp_BaseWorkspaceStructParameterUI_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "BaseWorkspaceStructParameterUI/DemoApp_BaseWorkspaceStructParameterUI_2.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "BaseWorkspaceStructParameterUI/runTestForCoverage_BaseWorkspaceStructParameterUI.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "BaseWorkspaceStructParameterUI/uiTest_BaseWorkspaceStructParameterUI.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "BlockSelectorUI/DemoApp_BlockSelectorUI_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "BlockSelectorUI/DemoApp_BlockSelectorUI_2_preselect_block.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "BlockSelectorUI/DemoApp_BlockSelectorUI_3_preload_2models.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "BlockSelectorUI/DemoApp_BlockSelectorUI_4_2blocks.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "BlockSelectorUI/DemoApp_BlockSelectorUI_5_mix.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "BlockSelectorUI/uiTest_BlockSelectorUI.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Button/apptest_Button_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Button/apptest_Button_2_align_inside.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Button/apptest_Button_3_icon.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Button/apptest_Button_4_tiling.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Button/uitest_Button.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "CheckBox/apptest_CheckBox_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "CheckBox/apptest_CheckBox_2_align_inside.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "CheckBox/apptest_CheckBox_3_tiling.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "CheckBox/uitest_CheckBox.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "CodeCoverageApp_AppUtil.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "ContourQuiverApp.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "DoubleValueUI/DemoApp_DoubleValueUI_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "DoubleValueUI/DemoApp_DoubleValueUI_2.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "DoubleValueUI/uiTest_DoubleValueUI.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "DoubleValueUI/uiUptodateTest_DoubleValueUI.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "DropDown/DemoApp_DropDown_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "DropDown/DemoApp_DropDown_2_editable_off.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "DropDown/DemoApp_DropDown_3_editable_on.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "DropDown/DemoApp_DropDown_4_align.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "DropDown/runTestForCoverage_DropDown.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "DropDown/uiTest_DropDown.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "DropDown/uiUptodateTest_DropDown.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "EditField/apptest_EditField_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "EditField/uitest_EditField.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "EnabledButton/apptest_EnabledButton_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "EnabledButton/apptest_EnabledButton_2_fit.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "EnabledButton/apptest_EnabledButton_3_horizontal_alignment.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "EnabledButton/uitest_EnabledButton.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "HorizontalContainer/AppTest_HorizontalContainer_1.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "HorizontalContainer/AppTest_HorizontalContainer_2.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "HorizontalContainer/uiTest_HorizontalContainer.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "HorizontalLine/apptest_HorizontalLine_1.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "HorizontalLine/uitest_HorizontalLine.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Hyperlink/apptest_Hyperlink_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Hyperlink/apptest_Hyperlink_2_inner_align.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Hyperlink/uitest_Hyperlink.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Image/DemoApp_Image_0_raw.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Image/DemoApp_Image_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Image/DemoApp_Image_2_ver_hor_align.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Image/DemoApp_Image_3.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Image/uiUptodateTest_Image.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Image/uitest_Image.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Label/apptest_Label_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Label/apptest_Label_2_inner_align.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Label/apptest_Label_3_wordwrap.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Label/uitest_Label.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "ListBox/apptest_ListBox_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "ListBox/uitest_ListBox.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "MixedLayout/apptest_MixedLayout_1_row_major.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "MixedLayout/apptest_MixedLayout_2_column_major.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "MixedLayout/uitest_MixedLayout.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "MonitorInfoApp.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Panel/apptest_Panel_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Panel/apptest_Panel_2_tiledlayout.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Panel/apptest_Panel_3_heatmap.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Panel/apptest_Panel_4_heatmap_in_tiledlayout.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Panel/apptest_Panel_5_stackedplot.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Panel/apptest_Panel_6_parallelplot.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Panel/apptest_Panel_7_piechart_donutchart.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Panel/apptest_Panel_8_scatterhistogram.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Panel/uitest_Panel.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PhysicalUnitDropDown/DemoApp_PhysicalUnitDropDown_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PhysicalUnitDropDown/DemoApp_PhysicalUnitDropDown_2.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PhysicalUnitDropDown/runTestForCoverage_PhysicalUnitDropDown.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PhysicalUnitDropDown/uiTest_PhysicalUnitDropDown.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PhysicalUnitLabel/DemoApp_PhysicalUnitLabel_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PhysicalUnitLabel/DemoApp_PhysicalUnitLabel_2_StartupError.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PhysicalUnitLabel/DemoApp_PhysicalUnitLabel_3_callback.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PhysicalUnitLabel/runTestForCoverage_PhysicalUnitLabel.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PhysicalUnitLabel/uiTest_PhysicalUnitLabel.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PhysicalUnitLabel/uiUptodateTest_PhysicalUnitLabel.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PhysicalValueWithUnitDropDown/DemoApp_PhysicalValueWithUnitDropDown_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PhysicalValueWithUnitDropDown/DemoApp_PhysicalValueWithUnitDropDown_2.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PhysicalValueWithUnitDropDown/DemoApp_PhysicalValueWithUnitDropDown_3.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PhysicalValueWithUnitDropDown/runTestForCoverage_PhysicalValueWithUnitDropDown.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PhysicalValueWithUnitDropDown/uiTest_PhysicalValueWithUnitDropDown.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PhysicalValueWithUnitLabel/DemoApp_PhysicalValueWithUnitLabel_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PhysicalValueWithUnitLabel/DemoApp_PhysicalValueWithUnitLabel_2.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PhysicalValueWithUnitLabel/DemoApp_PhysicalValueWithUnitLabel_3.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PhysicalValueWithUnitLabel/DemoApp_PhysicalValueWithUnitLabel_4.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PhysicalValueWithUnitLabel/runTestForCoverage_PhysicalValueWithUnitLabel.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PhysicalValueWithUnitLabel/uiTest_PhysicalValueWithUnitLabel.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PolarAxes/apptest_PolarAxes_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PolarAxes/apptest_PolarAxes_2_polarplot.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "PolarAxes/uitest_PolarAxes.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "StateButton/apptest_StateButton_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "StateButton/uitest_StateButton.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Table/apptest_Table_1_rowdata.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Table/uitest_Table.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "TestResultApp_AppUtil.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "TextArea/apptest_TextArea_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "TextArea/uitest_TextArea.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "VerticalContainer/AppTest_VerticalContainer_1.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "VerticalContainer/AppTest_VerticalContainer_2.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "VerticalContainer/uiTest_VerticalContainer.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "WindowHeader/apptest_WindowHeader_1_simplest.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "WindowHeader/apptest_WindowHeader_2_no_MainFigure.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "WindowHeader/apptest_WindowHeader_3.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "WindowHeader/uitest_WindowHeader.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "buildfile.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "uiTest_AppUtil.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "uiTest_ContourQuiverApp.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "uiUptodateTest_AppUtil.m"
+          }
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "MANU",
+          "level": "warning",
+          "message": {
+            "text": "Input argument might be unused. Consider replacing the argument with ~, or make this method Static instead."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uriBaseId": "SourceRoot",
+                  "uri": "WindowHeader/uitest_WindowHeader.m"
+                },
+                "region": {
+                  "startLine": 95,
+                  "endLine": 95,
+                  "startColumn": 27,
+                  "endColumn": 35
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "MANU",
+          "level": "warning",
+          "message": {
+            "text": "Input argument might be unused. Consider replacing the argument with ~, or make this method Static instead."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uriBaseId": "SourceRoot",
+                  "uri": "WindowHeader/uitest_WindowHeader.m"
+                },
+                "region": {
+                  "startLine": 105,
+                  "endLine": 105,
+                  "startColumn": 26,
+                  "endColumn": 34
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

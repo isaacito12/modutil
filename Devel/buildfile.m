@@ -1,17 +1,18 @@
 function plan = buildfile
 % Define tasks for the buildtool to check code and run tests.
+
 % If the Devel folder is the current folder, start tests as follows.
 %   buildtool -verbosity Verbose Test
-
+%
 % Overview of MATLAB Build Tool
 % https://www.mathworks.com/help/matlab/matlab_prog/overview-of-matlab-build-tool.html
-%
-% Run Build from Toolstrip (R2025a or newer)
-% https://www.mathworks.com/help/matlab/matlab_prog/run-build-from-toolstrip.html
 %
 % matlab.buildtool.tasks.TestTask Class
 % "SupportingFiles" property is supported from R2025a, i.e., R2024b does not support it.
 % https://www.mathworks.com/help/releases/R2026a/matlab/ref/matlab.buildtool.tasks.testtask-class.html
+%
+% Run Build from Toolstrip (R2025a or newer)
+% https://www.mathworks.com/help/matlab/matlab_prog/run-build-from-toolstrip.html
 
 % Copyright 2023-2026 The MathWorks, Inc.
 
@@ -22,7 +23,7 @@ plan.DefaultTasks = "CodeIssues";
 
 plan("CodeIssues") = matlab.buildtool.tasks.CodeIssuesTask( ...
   ... The "DisplayRelease" plan is defined by the DisplayReleaseTask local function.
-  Dependencies = ["SetupPaths", "DisplayRelease"], ...
+  Dependencies = ["SetupPaths", "DisplayRelease", "cleanupRefsub"], ...
   ...
   WarningThreshold = Inf, ...
   ...
@@ -33,7 +34,7 @@ plan("CodeIssues") = matlab.buildtool.tasks.CodeIssuesTask( ...
   ]);
 
 plan("Test") = matlab.buildtool.tasks.TestTask( ...
-  Dependencies = ["SetupPaths", "DisplayRelease"], ...
+  Dependencies = ["SetupPaths", "DisplayRelease", "cleanupRefsub"], ...
   ...
   SourceFiles = ["**/*.m", "**/*.mlx"], ...
   TestResults = [
@@ -64,4 +65,20 @@ function FigureWorkaroundTask(~)
 f = figure;
 plot(axes(f), randi(10,[3,2]))
 delete(f)
+end  % local function
+
+function cleanupRefsubTask(~)
+% Delete default_refsub.mdl (or default_refsub.slx) files from the folder tree before
+% starting a test process. These files must be deleted to prevent shadowing.
+target = "default_refsub";
+files = mus1.FileUtil.getFileFullPath(target, ReturnMultipleMatches=true, ReturnIfNotFound=true);
+if isscalar(files) && (files == "")
+
+  return
+
+end
+disp("Cleaning " + numel(files) + target + " file(s).")
+for k = 1:numel(files)
+  delete(files{k});
+end  % for
 end  % local function

@@ -15,7 +15,7 @@ result_table = session.Result;
 logical_index = contains(result_table.LineText, "App.MainFigure");
 target_table = result_table(not(logical_index), :);
 
-logical_index = contains(target_table.FilePath, "+AppUtil1");
+logical_index = contains(target_table.FilePath, "+mus1.AppUtil");
 target_table = target_table(not(logical_index), :);
 
 logical_index = contains(target_table.FilePath, ".MainFigure = uifigure");

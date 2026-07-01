@@ -1,0 +1,46 @@
+function App = demoapp_plotLookupTable1DBlocks_24b()
+
+% Copyright 2025-2026 The MathWorks, Inc.
+
+arguments (Output)
+  App (1,:) struct
+end  % arguments
+
+model_name = "samplemodel_plotLookupTable1DBlocks_refsub_24b";
+disp("Target model: " + model_name)
+load_system(model_name)
+
+main_figure = uifigure(Visible="off");
+main_figure.Name = mus1.CodeUtil.i18n("Demo App");
+main_figure.Position(3) = 600;  % width
+main_figure.Position(4) = 450;  % height
+
+vertical_container = mus1.AppUtil.VerticalContainer(main_figure);
+
+label_ui = mus1.AppUtil.Component.Label(addVerticalGridLayout(vertical_container));
+label_ui.Text = mus1.CodeUtil.i18n("Model name: ") + model_name;
+label_ui.HorizontalAlignment = "center";
+
+panel_ui = mus1.AppUtil.Graphics.Panel(addVerticalGridLayout(vertical_container));
+panel_ui.ComponentHeight = 390;
+% panel_ui.HighlightBackground = "on";
+
+mus1.ModelUtil.plotLookupTable1DBlocks( ...
+  model_name + "/Subsystem", ...
+  Blocks = ["PS smooth1" "SL smooth1"], ...
+  ParentType = "Panel", ...
+  ParentPanel = panel_ui.MainPanel )
+
+button_ui = mus1.AppUtil.Component.Button(addVerticalGridLayout(vertical_container));
+button_ui.Text = mus1.CodeUtil.i18n("Open model");
+button_ui.ButtonWidth = 120;
+button_ui.HorizontalAlignment = "center";
+button_ui.ButtonPushedCallback = @() open_system(model_name);
+
+movegui(main_figure, "center")
+main_figure.Visible = "on";
+drawnow
+if nargout > 0
+  App.MainFigure = main_figure;
+end  % if
+end  % function

@@ -54,19 +54,19 @@ classdef Vehicle1DForceDataSet
     % Visualization parameters
 
     PlotSpeedUpperBound (1,1) simscape.Value ...
-      { simscape.mustBeCommensurateUnit(PlotSpeedUpperBound, "m/s"), CodeUtil1.mustBeSimscapeValuePositiveOrNan } ...
+      { simscape.mustBeCommensurateUnit(PlotSpeedUpperBound, "m/s"), mus1.CodeUtil.mustBeSimscapeValuePositiveOrNan } ...
       = simscape.Value(nan, "km/hr")
 
     PlotForceUpperBound (1,1) simscape.Value ...
-      { simscape.mustBeCommensurateUnit(PlotForceUpperBound, "N"), CodeUtil1.mustBeSimscapeValuePositiveOrNan } ...
+      { simscape.mustBeCommensurateUnit(PlotForceUpperBound, "N"), mus1.CodeUtil.mustBeSimscapeValuePositiveOrNan } ...
       = simscape.Value(nan, "N")
 
     % Road grades (in percent) to plot force curves
-    PlotGrades (1,:) double { CodeUtil1.mustBeNonnegativeOrNan } = [nan, nan]
+    PlotGrades (1,:) double { mus1.CodeUtil.mustBeNonnegativeOrNan } = [nan, nan]
 
     % Power values to plot constant power contours
     PlotPowers (1,:) simscape.Value ...
-      { simscape.mustBeCommensurateUnit(PlotPowers, "kW"), CodeUtil1.mustBeSimscapeValuePositiveOrNan } ...
+      { simscape.mustBeCommensurateUnit(PlotPowers, "kW"), mus1.CodeUtil.mustBeSimscapeValuePositiveOrNan } ...
       = simscape.Value([nan, nan], "kW")
 
     % -------------------------------------------------------------------------
@@ -128,7 +128,7 @@ classdef Vehicle1DForceDataSet
         mask_type = get_param(DataSet.BlockPath, "MaskType");
         if mask_type ~= "Longitudinal Vehicle"
           id = DataSet.errorID + "InvalidBlock";
-          msg = CodeUtil1.i18n("Specified block is invalid: ") + DataSet.BlockPath;
+          msg = mus1.CodeUtil.i18n("Specified block is invalid: ") + DataSet.BlockPath;
 
           throw(MException(id, msg))
 
@@ -138,21 +138,21 @@ classdef Vehicle1DForceDataSet
         if veh_type ~= string(sdl.enum.VehicleParameterizationType.Regular) ...
             && veh_type ~= "sdl.enum.VehicleParameterizationType.Regular"
           id = DataSet.errorID + "InvalidParameterization";
-          msg = CodeUtil1.i18n("Parameterization type must be Regular parameter set.");
+          msg = mus1.CodeUtil.i18n("Parameterization type must be Regular parameter set.");
 
           throw(MException(id, msg))
 
         end  % if
 
-        DataSet.ModelParams.VehicleMass = ModelUtil1.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "M_vehicle");
-        DataSet.ModelParams.TireRollingCoefficient = ModelUtil1.getDoubleValueFromBlockParameter(DataSet.BlockPath, "C_tireroll");
-        DataSet.ModelParams.AirDragCoefficient = ModelUtil1.getDoubleValueFromBlockParameter(DataSet.BlockPath, "C_airdrag");
-        DataSet.ModelParams.FrontalArea = ModelUtil1.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "A_front");
-        DataSet.ModelParams.GravitationalAcceleration = ModelUtil1.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "g");
+        DataSet.ModelParams.VehicleMass = mus1.ModelUtil.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "M_vehicle");
+        DataSet.ModelParams.TireRollingCoefficient = mus1.ModelUtil.getDoubleValueFromBlockParameter(DataSet.BlockPath, "C_tireroll");
+        DataSet.ModelParams.AirDragCoefficient = mus1.ModelUtil.getDoubleValueFromBlockParameter(DataSet.BlockPath, "C_airdrag");
+        DataSet.ModelParams.FrontalArea = mus1.ModelUtil.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "A_front");
+        DataSet.ModelParams.GravitationalAcceleration = mus1.ModelUtil.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "g");
 
         % Dry air density is a private parameter in the Longitudinal Vehicle block.
         % !todo: Make the "Dry air density" parameter of the block public.
-        DataSet.ModelParams.DryAirDensity = ModelUtil1.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "air_density");
+        DataSet.ModelParams.DryAirDensity = mus1.ModelUtil.getSimscapeValueFromBlockParameter(DataSet.BlockPath, "air_density");
 
         DataSet = resetCommonSettings(DataSet);
       end  % if

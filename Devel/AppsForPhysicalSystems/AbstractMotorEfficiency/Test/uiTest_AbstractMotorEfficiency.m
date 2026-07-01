@@ -123,7 +123,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
     function Test_error_6(testcase)
       verifyError(testcase, @() test_target(), "AbstractMotorEfficiencyAppMain:AppParameterStructNameIsRequired")
       function test_target
-        paramfile_fullpath = FileUtil1.getFileFullPath("AbstractMotorEfficiency_SampleParams1.m");
+        paramfile_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleParams1.m");
         [~, param_basefilename, ~] = fileparts(paramfile_fullpath);
         evalin("base", param_basefilename)
         AbstractMotorEfficiencyApp(AppParameterFileName=paramfile_fullpath)  % !test-target
@@ -133,20 +133,20 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
     %% Command option tests
 
     function command_option_1_1(~)
-      paramfile_fullpath = FileUtil1.getFileFullPath("AbstractMotorEfficiency_SampleParams1.m");
+      paramfile_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleParams1.m");
       [~, param_basefilename, ~] = fileparts(paramfile_fullpath);
       evalin("base", param_basefilename)
       AbstractMotorEfficiencyApp(AppParameterStructName="MotorParams")  % !test-target
     end  % function
 
     function command_option_1_2(~)
-      paramfile_fullpath = FileUtil1.getFileFullPath("AbstractMotorEfficiency_SampleParams1.m");
+      paramfile_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleParams1.m");
       AbstractMotorEfficiencyApp(AppParameterFileName=paramfile_fullpath, AppParameterStructName="MotorParams")
     end  % function
 
     function command_option_2_1(~)
       % Test a nested struct.
-      paramfile_fullpath = FileUtil1.getFileFullPath("AbstractMotorEfficiency_SampleParams2.m");
+      paramfile_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleParams2.m");
       AbstractMotorEfficiencyApp(AppParameterFileName=paramfile_fullpath, AppParameterStructName="Params.Motor")
     end  % function
 
@@ -215,11 +215,11 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
 
     function base_workspace_1(testcase)
       %%
-      paramfile1_fullpath = FileUtil1.getFileFullPath("AbstractMotorEfficiency_SampleParams1.m");
+      paramfile1_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleParams1.m");
       [~, param1_basefilename, ~] = fileparts(paramfile1_fullpath);
       evalin("base", param1_basefilename)
 
-      paramfile2_fullpath = FileUtil1.getFileFullPath("AbstractMotorEfficiency_SampleParams2.m");
+      paramfile2_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleParams2.m");
       [~, param2_basefilename, ~] = fileparts(paramfile2_fullpath);
       evalin("base", param2_basefilename)
 
@@ -238,7 +238,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
 
     function base_workspace_2(testcase)
       %%
-      paramfile1_fullpath = FileUtil1.getFileFullPath("AbstractMotorEfficiency_SampleParams1.m");
+      paramfile1_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleParams1.m");
       [~, param1_basefilename, ~] = fileparts(paramfile1_fullpath);
       evalin("base", param1_basefilename)
 
@@ -260,7 +260,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
 
     function launch_with_model_name_1(~)
       %%
-      modelfile_fullpath = FileUtil1.getFileFullPath("AbstractMotorEfficiency_SampleModel_refsub_24b.mdl");
+      modelfile_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleModel_refsub_24b.mdl");
       [~, model_name, ~] = fileparts(modelfile_fullpath);
 
       AbstractMotorEfficiencyApp(ModelName=model_name)
@@ -269,11 +269,11 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
 
     function launch_with_block_path_1(~)
       %%
-      paramfile_fullpath = FileUtil1.getFileFullPath("AbstractMotorEfficiency_SampleParams2.m");
+      paramfile_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleParams2.m");
       [~, paramfile_name, ~] = fileparts(paramfile_fullpath);
       evalin("base", paramfile_name)
 
-      modelfile_fullpath = FileUtil1.getFileFullPath("AbstractMotorEfficiency_SampleModel_refsub_24b.mdl");
+      modelfile_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleModel_refsub_24b.mdl");
       [~, model_name, ~] = fileparts(modelfile_fullpath);
 
       % Specify a block whose parameters are defined in a struct in the base workspace variable.
@@ -287,7 +287,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       %%
       % Test with the first Motor & Drive (System Level) block.
 
-      modelfile_fullpath = FileUtil1.getFileFullPath("AbstractMotorEfficiency_SampleModel_refsub_24b.mdl");
+      modelfile_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleModel_refsub_24b.mdl");
       [~, model_name, ~] = fileparts(modelfile_fullpath);
 
       app = AbstractMotorEfficiencyApp(ModelName=model_name);
@@ -307,11 +307,11 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       % Test with a block containing simscape.Value objects for the block parameters.
       % Parameters must be loaded in the base workspace.
 
-      paramfile_fullpath = FileUtil1.getFileFullPath("AbstractMotorEfficiency_SampleParams2.m");
+      paramfile_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleParams2.m");
       [~, paramfile_name, ~] = fileparts(paramfile_fullpath);
       evalin("base", paramfile_name)
 
-      modelfile_fullpath = FileUtil1.getFileFullPath("AbstractMotorEfficiency_SampleModel_refsub_24b.mdl");
+      modelfile_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleModel_refsub_24b.mdl");
       [~, model_name, ~] = fileparts(modelfile_fullpath);
 
       app = AbstractMotorEfficiencyApp(ModelName=model_name);

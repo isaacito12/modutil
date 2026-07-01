@@ -1,0 +1,307 @@
+{
+  "version": "2.1.0",
+  "properties": {
+    "Date": "2026-06-30 09:35:18",
+    "Release": "R2026a",
+    "CodeAnalyzerConfiguration": "active"
+  },
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Code Analyzer"
+        }
+      },
+      "originalUriBaseIds": {
+        "SourceRoot": {
+          "uri": "file:///C:/local/modutil/repo/worktrees/R2024b-devel/Devel/Test/FileUtil/"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "batchGenerateMarkdowns/sample%20folder/sampleScript_batchGenerateMarkdowns_1.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "batchGenerateMarkdowns/sample%20folder/subfolder%201/sampleScript_batchGenerateMarkdowns_12.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "batchGenerateMarkdowns/sample%20folder/subfolder%202/sampleScript_batchGenerateMarkdowns_22.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "batchGenerateMarkdowns/unittest_batchGenerateMarkdowns.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "buildfile.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "displayTimeAndFileLocation/unittest_displayTimeAndFileLocation.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "evalMFile/sampleScript_evalMFile.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "evalMFile/unittest_evalMFile.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "exportToMarkdown/sample%20folder/sampleScript_exportToMarkdown_2.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "exportToMarkdown/unittest_exportToMarkdown.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "generateMarkdownsFromLiveScripts/sample%20folder/sampleScript_generateMarkdownsFromLiveScripts_2.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "generateMarkdownsFromLiveScripts/unittest_generateMarkdownsFromLiveScripts.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "getFileFullPath/unittest_getFileFullPath.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "getFolderFullPath/unittest_getFolderFullPath.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "getLinkedCommandFromPlainTextLiveScript/sampleScript_getLinkedCommandFromPlainTextLiveScript_1.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "getLinkedCommandFromPlainTextLiveScript/unittest_getLinkedCommandFromPlainTextLiveScript.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "getLinkedCommandFromText/unittest_getLinkedCommandFromText.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "getUnusedFilename/unittest_getUnusedFilename.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "isModelFile/unittest_isModelFile.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "isPlainTextLiveScript/sample%20folder/samplescript1.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "isPlainTextLiveScript/sample%20folder/samplescript3.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "isPlainTextLiveScript/sample%20folder/subfolder%201/samplescript11.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "isPlainTextLiveScript/sample%20folder/subfolder%201/samplescript13.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "isPlainTextLiveScript/sample%20folder/subfolder%201/subfolder%2011/samplescript111.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "isPlainTextLiveScript/sample%20folder/subfolder%201/subfolder%2011/samplescript113.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "isPlainTextLiveScript/sample%20folder/subfolder%202/samplescript21.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "isPlainTextLiveScript/sample%20folder/subfolder%202/samplescript23.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "isPlainTextLiveScript/unittest_isPlainTextLiveScript.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "mustBeLiveScript/sample%20folder/sampleScript_mustBeLiveScript_2.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "mustBeLiveScript/unittest_mustBeLiveScript.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "openWithLink/unittest_openWithLink.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "sourceFileIsNewer/unittest_sourceFileIsNewer.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "updateMarkdownForMathRendering/unittest_updateMarkdownForMathRendering.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "batchGenerateMarkdowns/sample%20folder/sampleScript_batchGenerateMarkdowns_2.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "batchGenerateMarkdowns/sample%20folder/subfolder%201/sampleScript_batchGenerateMarkdowns_11.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "batchGenerateMarkdowns/sample%20folder/subfolder%202/sampleScript_batchGenerateMarkdowns_21.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "exportToMarkdown/sample%20folder/sampleScript_exportToMarkdown_1.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "generateMarkdownsFromLiveScripts/sample%20folder/sampleScript_generateMarkdownsFromLiveScripts_1.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "generateMarkdownsFromLiveScripts/sample%20folder/sampleScript_generateMarkdownsFromLiveScripts_3.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "getLinkedCommandFromPlainTextLiveScript/demo_getLinkedCommandFromPlainTextLiveScript.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "getLinkedCommandFromText/demo_getLinkedCommandFromText.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "isPlainTextLiveScript/sample%20folder/samplescript2.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "isPlainTextLiveScript/sample%20folder/subfolder%201/samplescript12.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "isPlainTextLiveScript/sample%20folder/subfolder%201/subfolder%2011/samplescript112.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "isPlainTextLiveScript/sample%20folder/subfolder%202/samplescript22.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "mustBeLiveScript/sample%20folder/sampleScript_mustBeLiveScript_1.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "openWithLink/SampleScript_openWithLink_1.mlx"
+          }
+        }
+      ],
+      "results": []
+    }
+  ]
+}

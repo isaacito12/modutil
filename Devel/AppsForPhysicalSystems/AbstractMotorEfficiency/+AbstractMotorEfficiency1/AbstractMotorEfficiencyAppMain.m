@@ -32,60 +32,60 @@ classdef AbstractMotorEfficiencyAppMain < handle
     % GUI parts
 
     MainFigure matlab.ui.Figure
-    Window AppUtil1.AppWindow
+    Window mus1.AppUtil.AppWindow
 
     WindowWidth (1,1) double {mustBeInteger, mustBePositive} = 1100
-    LeftSideWidth (1,1) {CodeUtil1.mustBeStringOrPositiveInteger} = "3x"
-    RightSideWidth (1,1) {CodeUtil1.mustBeStringOrPositiveInteger} = "2x"
+    LeftSideWidth (1,1) {mus1.CodeUtil.mustBeStringOrPositiveInteger} = "3x"
+    RightSideWidth (1,1) {mus1.CodeUtil.mustBeStringOrPositiveInteger} = "2x"
 
     WindowHeight (1,1) double {mustBeInteger, mustBePositive} = 680
     PlotUIHeight (1,1) double {mustBeInteger, mustBePositive} = 370
 
-    DescriptionLinkUI AppUtil1.Component.Hyperlink
+    DescriptionLinkUI mus1.AppUtil.Component.Hyperlink
 
     % === Editable parameters
 
-    MaxAngularSpeedModeUI AppUtil1.Component.DropDown
-    MaxAngularSpeedUI AppUtil1.Component.PhysicalValueWithUnitDropDown
+    MaxAngularSpeedModeUI mus1.AppUtil.Component.DropDown
+    MaxAngularSpeedUI mus1.AppUtil.Component.PhysicalValueWithUnitDropDown
 
-    MaxTorqueUI AppUtil1.Component.PhysicalValueWithUnitDropDown
-    MaxPowerUI AppUtil1.Component.PhysicalValueWithUnitDropDown
+    MaxTorqueUI mus1.AppUtil.Component.PhysicalValueWithUnitDropDown
+    MaxPowerUI mus1.AppUtil.Component.PhysicalValueWithUnitDropDown
 
-    OverallEfficiencyPercentUI AppUtil1.Component.PhysicalValueWithUnitLabel
-    MeasuredAngularSpeedUI AppUtil1.Component.PhysicalValueWithUnitDropDown
-    MeasuredTorqueUI AppUtil1.Component.PhysicalValueWithUnitDropDown
+    OverallEfficiencyPercentUI mus1.AppUtil.Component.PhysicalValueWithUnitLabel
+    MeasuredAngularSpeedUI mus1.AppUtil.Component.PhysicalValueWithUnitDropDown
+    MeasuredTorqueUI mus1.AppUtil.Component.PhysicalValueWithUnitDropDown
 
-    MeasuredIronLossesUI AppUtil1.Component.PhysicalValueWithUnitDropDown
-    FixedLossesUI AppUtil1.Component.PhysicalValueWithUnitDropDown
-    RotorDampingCoefficientUI AppUtil1.Component.PhysicalValueWithUnitDropDown
+    MeasuredIronLossesUI mus1.AppUtil.Component.PhysicalValueWithUnitDropDown
+    FixedLossesUI mus1.AppUtil.Component.PhysicalValueWithUnitDropDown
+    RotorDampingCoefficientUI mus1.AppUtil.Component.PhysicalValueWithUnitDropDown
 
     % === Derived parameters
 
     % Nominal loss (rated loss) at efficiency measurement point
-    MeasuredNominalLossesUI AppUtil1.Component.PhysicalValueWithUnitDropDown
+    MeasuredNominalLossesUI mus1.AppUtil.Component.PhysicalValueWithUnitDropDown
 
-    IronToNominalLossRatioPercentUI AppUtil1.Component.PhysicalValueWithUnitLabel
+    IronToNominalLossRatioPercentUI mus1.AppUtil.Component.PhysicalValueWithUnitLabel
 
-    MeasuredCopperLossesUI AppUtil1.Component.PhysicalValueWithUnitDropDown
+    MeasuredCopperLossesUI mus1.AppUtil.Component.PhysicalValueWithUnitDropDown
 
-    MeasuredIronLossCoefficientUI AppUtil1.Component.PhysicalValueWithUnitDropDown
-    MeasuredCopperLossCoefficientUI AppUtil1.Component.PhysicalValueWithUnitDropDown
+    MeasuredIronLossCoefficientUI mus1.AppUtil.Component.PhysicalValueWithUnitDropDown
+    MeasuredCopperLossCoefficientUI mus1.AppUtil.Component.PhysicalValueWithUnitDropDown
 
     % === Visualization
 
-    UpdateButtonUI AppUtil1.Component.EnabledButton
-    OpenInFigureWindowUI AppUtil1.Component.Hyperlink
+    UpdateButtonUI mus1.AppUtil.Component.EnabledButton
+    OpenInFigureWindowUI mus1.AppUtil.Component.Hyperlink
 
-    AxesUI AppUtil1.Graphics.Axes
+    AxesUI mus1.AppUtil.Graphics.Axes
 
-    PlotAutoRangeUI AppUtil1.Component.CheckBox
-    PlotAngularSpeedUpperBoundUI AppUtil1.Component.PhysicalValueWithUnitDropDown
-    PlotTorqueUpperBoundUI AppUtil1.Component.PhysicalValueWithUnitDropDown
-    PlotContourLevelsPercentUI AppUtil1.Component.PhysicalValueWithUnitLabel
+    PlotAutoRangeUI mus1.AppUtil.Component.CheckBox
+    PlotAngularSpeedUpperBoundUI mus1.AppUtil.Component.PhysicalValueWithUnitDropDown
+    PlotTorqueUpperBoundUI mus1.AppUtil.Component.PhysicalValueWithUnitDropDown
+    PlotContourLevelsPercentUI mus1.AppUtil.Component.PhysicalValueWithUnitLabel
 
     % === Struct parameter UI and block selector UI
-    StructParameterUI AppUtil1.Component.BaseWorkspaceStructParameterUI;
-    AppBlockSelectorUI AppUtil1.Component.BlockSelectorUI
+    StructParameterUI mus1.AppUtil.Component.BaseWorkspaceStructParameterUI;
+    AppBlockSelectorUI mus1.AppUtil.Component.BlockSelectorUI
 
   end  % properties
   properties (Constant, Access=private)
@@ -99,16 +99,16 @@ classdef AbstractMotorEfficiencyAppMain < handle
     power_unit_items = ["kW", "W"];
     friction_coefficient_unit_items = ["N*m/rpm", "N*m/(rad/s)", "N*m/(rev/s)", "lbf*ft/rpm"]
 
-    width_unit = AppUtil1.Constant.Width{"unitwidth"}
-    name_ui_width = AppUtil1.Constant.Width{"unitwidth"} * 29
-    name_ui_wide_width = AppUtil1.Constant.Width{"unitwidth"} * 34
-    button_width = AppUtil1.Constant.Width{"unitwidth"} * 12
-    physical_unit_ui_width = AppUtil1.Constant.Width{"unitwidth"} * 12
+    width_unit = mus1.AppUtil.Constant.Width{"unitwidth"}
+    name_ui_width = mus1.AppUtil.Constant.Width{"unitwidth"} * 29
+    name_ui_wide_width = mus1.AppUtil.Constant.Width{"unitwidth"} * 34
+    button_width = mus1.AppUtil.Constant.Width{"unitwidth"} * 12
+    physical_unit_ui_width = mus1.AppUtil.Constant.Width{"unitwidth"} * 12
 
     % !todo: Define alert ui width in a common resource file.
     alert_ui_width = 30
 
-    oneline_height = AppUtil1.Constant.Height{"oneline+"}
+    oneline_height = mus1.AppUtil.Constant.Height{"oneline+"}
 
   end  % properties
 
@@ -135,7 +135,7 @@ classdef AbstractMotorEfficiencyAppMain < handle
         App.ModelName = extractBefore(App.BlockPath, "/");
         if App.ModelName == ""
           id = App.errorID + "InvalidModelName";
-          msg = CodeUtil1.i18n("Empty model name is not allowed.");
+          msg = mus1.CodeUtil.i18n("Empty model name is not allowed.");
 
           throw(MException(id, msg))
 
@@ -152,7 +152,7 @@ classdef AbstractMotorEfficiencyAppMain < handle
 
       if App.ModelName ~= ""
         try
-          App.ModelFileFullPath = ModelUtil1.getModelFileFullPath(App.ModelName);
+          App.ModelFileFullPath = mus1.ModelUtil.getModelFileFullPath(App.ModelName);
         catch exception
           id = App.errorID + "InvalidModelName";
           msg = exception.message;
@@ -163,7 +163,7 @@ classdef AbstractMotorEfficiencyAppMain < handle
 
         % The target block must exist in the specified model.
         try
-          result = ModelUtil1.findSimscapeBlocks(App.ModelName, App.TargetSimscapeBlockNames);
+          result = mus1.ModelUtil.findSimscapeBlocks(App.ModelName, App.TargetSimscapeBlockNames);
         catch exception
           id = App.errorID + "SimscapeBlockWasNotFound";
           msg = exception.message;
@@ -178,7 +178,7 @@ classdef AbstractMotorEfficiencyAppMain < handle
         else
           if not(ismember(App.BlockPath, result))
             id = App.errorID + "InvalidBlockPath";
-            msg = CodeUtil1.i18n("The specified block was not found in the specified model.");
+            msg = mus1.CodeUtil.i18n("The specified block was not found in the specified model.");
 
             throw(MException(id, msg))
 
@@ -190,8 +190,8 @@ classdef AbstractMotorEfficiencyAppMain < handle
       App.MainFigure = uifigure(Visible="off");
 
       meta_data = metaclass(App);
-      App.Window = AppUtil1.AppWindow(App.MainFigure, SourceFile=which(meta_data.Name));
-      App.Window.Name = CodeUtil1.i18n("Abstract Motor Efficiency");
+      App.Window = mus1.AppUtil.AppWindow(App.MainFigure, SourceFile=which(meta_data.Name));
+      App.Window.Name = mus1.CodeUtil.i18n("Abstract Motor Efficiency");
       App.Window.Width = App.WindowWidth;
       App.Window.Height = App.WindowHeight;
 
@@ -228,7 +228,7 @@ classdef AbstractMotorEfficiencyAppMain < handle
       App.PlotAutoRangeUI.Value = App.DataSet.PlotAutoRange;
       App.PlotAngularSpeedUpperBoundUI.SimscapeValue = App.DataSet.PlotAngularSpeedUpperBound;
       App.PlotTorqueUpperBoundUI.SimscapeValue = App.DataSet.PlotTorqueUpperBound;
-      App.PlotContourLevelsPercentUI.ValueText = CodeUtil1.stringify(App.DataSet.PlotContourLevelsPercent);
+      App.PlotContourLevelsPercentUI.ValueText = mus1.CodeUtil.stringify(App.DataSet.PlotContourLevelsPercent);
 
       % -----------------------------------------------------------------------
       % After building app GUI
@@ -236,14 +236,14 @@ classdef AbstractMotorEfficiencyAppMain < handle
       if NameValuePair.AppParameterFileName ~= ""
         if not(isfile(NameValuePair.AppParameterFileName))
           id = App.errorID + "InvalidAppParameterFileName";
-          msg = CodeUtil1.i18n("Invalid file was specified: " + NameValuePair.AppParameterFileName);
+          msg = mus1.CodeUtil.i18n("Invalid file was specified: " + NameValuePair.AppParameterFileName);
 
           throw(MException(id, msg))
 
         end  % if
         if NameValuePair.AppParameterStructName == ""
           id = App.errorID + "AppParameterStructNameIsRequired";
-          msg = CodeUtil1.i18n("AppParameterStructName is required when AppParameterFile is specified.");
+          msg = mus1.CodeUtil.i18n("AppParameterStructName is required when AppParameterFile is specified.");
 
           throw(MException(id, msg))
 
@@ -312,46 +312,46 @@ classdef AbstractMotorEfficiencyAppMain < handle
       appmain_v_container = App.Window.MainVerticalContainer;
       appmain_v_layout = addVerticalGridLayout(appmain_v_container);
 
-      appmain_h_container = AppUtil1.HorizontalContainer(appmain_v_layout);
+      appmain_h_container = mus1.AppUtil.HorizontalContainer(appmain_v_layout);
 
       % =======================================================================
       % Left side of the app window
       % =======================================================================
       appleft_h_layout = addHorizontalGridLayout(appmain_h_container, Width=App.LeftSideWidth);
 
-      appleft_v_container = AppUtil1.VerticalContainer(appleft_h_layout);
+      appleft_v_container = mus1.AppUtil.VerticalContainer(appleft_h_layout);
 
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
-      h_container = AppUtil1.HorizontalContainer(appleft_v_layout);
+      h_container = mus1.AppUtil.HorizontalContainer(appleft_v_layout);
 
       h_layout = addHorizontalGridLayout(h_container, Width="fit");
-      App.DescriptionLinkUI = AppUtil1.Component.Hyperlink(h_layout);
-      App.DescriptionLinkUI.Text = CodeUtil1.i18n("Description");
+      App.DescriptionLinkUI = mus1.AppUtil.Component.Hyperlink(h_layout);
+      App.DescriptionLinkUI.Text = mus1.CodeUtil.i18n("Description");
       App.DescriptionLinkUI.HyperlinkClickedCallback = @() web("AbstractMotorEfficiencyApp_Description.html");
 
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      label_ui = AppUtil1.Component.Label(appleft_v_layout);
-      label_ui.Text = "\textbf{" + CodeUtil1.i18n("Parameters") + "}";
+      label_ui = mus1.AppUtil.Component.Label(appleft_v_layout);
+      label_ui.Text = "\textbf{" + mus1.CodeUtil.i18n("Parameters") + "}";
 
       % -----------------------------------------------------------------------
       % Continuous max angular speed, 1/2 - auto/specify drop down
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
-      h_container = AppUtil1.HorizontalContainer(appleft_v_layout);
+      h_container = mus1.AppUtil.HorizontalContainer(appleft_v_layout);
 
       h_layout = addHorizontalGridLayout(h_container, Width="fit");
-      label_ui = AppUtil1.Component.Label(h_layout);
+      label_ui = mus1.AppUtil.Component.Label(h_layout);
       % Add a horizontal space (alert_ui_width) between this label and the drop down created below.
       % This makes the left side of the drop down aligned with the edit fields of
       % PhysicalValueWithUnitDropDown components that are vertically placed beneath the drop down.
       label_ui.ComponentWidth = App.name_ui_width + App.alert_ui_width;
-      label_ui.Text = CodeUtil1.i18n("Continuous max angular speed, $\omega_{max}$");
+      label_ui.Text = mus1.CodeUtil.i18n("Continuous max angular speed, $\omega_{max}$");
 
       h_layout = addHorizontalGridLayout(h_container);
-      App.MaxAngularSpeedModeUI = AppUtil1.Component.DropDown(h_layout);
-      App.MaxAngularSpeedModeUI.Items = [CodeUtil1.i18n("Auto"), CodeUtil1.i18n("Specify")];
+      App.MaxAngularSpeedModeUI = mus1.AppUtil.Component.DropDown(h_layout);
+      App.MaxAngularSpeedModeUI.Items = [mus1.CodeUtil.i18n("Auto"), mus1.CodeUtil.i18n("Specify")];
       App.MaxAngularSpeedModeUI.MainDropDown.ItemsData = ["auto", "specify"];
       App.MaxAngularSpeedModeUI.ValueChangedCallback = @() updateApp(App);
 
@@ -360,7 +360,7 @@ classdef AbstractMotorEfficiencyAppMain < handle
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
       % The above drop down is given the name. This component is given "" for the NameText.
-      App.MaxAngularSpeedUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
+      App.MaxAngularSpeedUI = mus1.AppUtil.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
       App.MaxAngularSpeedUI.Editable = "on";
       App.MaxAngularSpeedUI.NameUIWidth = App.name_ui_width;
       App.MaxAngularSpeedUI.UnitUIWidth = App.physical_unit_ui_width;
@@ -373,11 +373,11 @@ classdef AbstractMotorEfficiencyAppMain < handle
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.MaxTorqueUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
+      App.MaxTorqueUI = mus1.AppUtil.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
       App.MaxTorqueUI.Editable = "on";
       App.MaxTorqueUI.NameUIWidth = App.name_ui_width;
       App.MaxTorqueUI.UnitUIWidth = App.physical_unit_ui_width;
-      App.MaxTorqueUI.NameText = CodeUtil1.i18n("Continuous max torque, $\tau_{max}$");
+      App.MaxTorqueUI.NameText = mus1.CodeUtil.i18n("Continuous max torque, $\tau_{max}$");
       App.MaxTorqueUI.UnitItems = App.torque_unit_items;
       App.MaxTorqueUI.UnitText = "N*m";
       App.MaxTorqueUI.ValueChangedCallback = @() updateApp(App);
@@ -386,11 +386,11 @@ classdef AbstractMotorEfficiencyAppMain < handle
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.MaxPowerUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
+      App.MaxPowerUI = mus1.AppUtil.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
       App.MaxPowerUI.Editable = "on";
       App.MaxPowerUI.NameUIWidth = App.name_ui_width;
       App.MaxPowerUI.UnitUIWidth = App.physical_unit_ui_width;
-      App.MaxPowerUI.NameText = CodeUtil1.i18n("Continuous max power, $P_{max}$");
+      App.MaxPowerUI.NameText = mus1.CodeUtil.i18n("Continuous max power, $P_{max}$");
       App.MaxPowerUI.UnitItems = App.power_unit_items;
       App.MaxPowerUI.UnitText = "kW";
       App.MaxPowerUI.ValueChangedCallback = @() updateApp(App);
@@ -399,21 +399,21 @@ classdef AbstractMotorEfficiencyAppMain < handle
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.OverallEfficiencyPercentUI = AppUtil1.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
+      App.OverallEfficiencyPercentUI = mus1.AppUtil.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
       App.OverallEfficiencyPercentUI.NameUIWidth = App.name_ui_width;
       App.OverallEfficiencyPercentUI.UnitUIWidth = App.physical_unit_ui_width;
-      App.OverallEfficiencyPercentUI.NameText = CodeUtil1.i18n("Overall efficiency, $\eta(\omega_{m}, \tau_{m})$");
+      App.OverallEfficiencyPercentUI.NameText = mus1.CodeUtil.i18n("Overall efficiency, $\eta(\omega_{m}, \tau_{m})$");
       App.OverallEfficiencyPercentUI.UnitAlias = "\%";
       App.OverallEfficiencyPercentUI.ValueChangedCallback = @() updateApp(App);
 
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.MeasuredAngularSpeedUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
+      App.MeasuredAngularSpeedUI = mus1.AppUtil.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
       App.MeasuredAngularSpeedUI.Editable = "on";
       App.MeasuredAngularSpeedUI.NameUIWidth = App.name_ui_width;
       App.MeasuredAngularSpeedUI.UnitUIWidth = App.physical_unit_ui_width;
-      App.MeasuredAngularSpeedUI.NameText = CodeUtil1.i18n("Speed at which $\eta$ was measured, $\omega_{m}$");
+      App.MeasuredAngularSpeedUI.NameText = mus1.CodeUtil.i18n("Speed at which $\eta$ was measured, $\omega_{m}$");
       App.MeasuredAngularSpeedUI.UnitItems = App.angular_speed_unit_items;
       App.MeasuredAngularSpeedUI.UnitText = "rpm";
       App.MeasuredAngularSpeedUI.ValueChangedCallback = @() updateApp(App);
@@ -422,11 +422,11 @@ classdef AbstractMotorEfficiencyAppMain < handle
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.MeasuredTorqueUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
+      App.MeasuredTorqueUI = mus1.AppUtil.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
       App.MeasuredTorqueUI.Editable = "on";
       App.MeasuredTorqueUI.NameUIWidth = App.name_ui_width;
       App.MeasuredTorqueUI.UnitUIWidth = App.physical_unit_ui_width;
-      App.MeasuredTorqueUI.NameText = CodeUtil1.i18n("Torque at which $\eta$ was measured, $\tau_{m}$");
+      App.MeasuredTorqueUI.NameText = mus1.CodeUtil.i18n("Torque at which $\eta$ was measured, $\tau_{m}$");
       App.MeasuredTorqueUI.UnitItems = App.torque_unit_items;
       App.MeasuredTorqueUI.UnitText = "N*m";
       App.MeasuredTorqueUI.ValueChangedCallback = @() updateApp(App);
@@ -435,12 +435,12 @@ classdef AbstractMotorEfficiencyAppMain < handle
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.MeasuredIronLossesUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
+      App.MeasuredIronLossesUI = mus1.AppUtil.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
       App.MeasuredIronLossesUI.Editable = "on";
       App.MeasuredIronLossesUI.ComponentHeight = App.oneline_height;
       App.MeasuredIronLossesUI.NameUIWidth = App.name_ui_width;
       App.MeasuredIronLossesUI.UnitUIWidth = App.physical_unit_ui_width;
-      App.MeasuredIronLossesUI.NameText = CodeUtil1.i18n("Iron losses at measurement speed, $P_{iron,m}$");
+      App.MeasuredIronLossesUI.NameText = mus1.CodeUtil.i18n("Iron losses at measurement speed, $P_{iron,m}$");
       App.MeasuredIronLossesUI.UnitItems = App.power_unit_items;
       App.MeasuredIronLossesUI.UnitText = "W";
       App.MeasuredIronLossesUI.ValueChangedCallback = @() updateApp(App);
@@ -449,11 +449,11 @@ classdef AbstractMotorEfficiencyAppMain < handle
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.FixedLossesUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
+      App.FixedLossesUI = mus1.AppUtil.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
       App.FixedLossesUI.Editable = "on";
       App.FixedLossesUI.NameUIWidth = App.name_ui_width;
       App.FixedLossesUI.UnitUIWidth = App.physical_unit_ui_width;
-      App.FixedLossesUI.NameText = CodeUtil1.i18n("Fixed losses, $P_{fixed}$");
+      App.FixedLossesUI.NameText = mus1.CodeUtil.i18n("Fixed losses, $P_{fixed}$");
       App.FixedLossesUI.UnitItems = App.power_unit_items;
       App.FixedLossesUI.UnitText = "W";
       App.FixedLossesUI.ValueChangedCallback = @() updateApp(App);
@@ -462,11 +462,11 @@ classdef AbstractMotorEfficiencyAppMain < handle
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.RotorDampingCoefficientUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
+      App.RotorDampingCoefficientUI = mus1.AppUtil.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
       App.RotorDampingCoefficientUI.Editable = "on";
       App.RotorDampingCoefficientUI.NameUIWidth = App.name_ui_width;
       App.RotorDampingCoefficientUI.UnitUIWidth = App.physical_unit_ui_width;
-      App.RotorDampingCoefficientUI.NameText = CodeUtil1.i18n("Rotor damping coefficient, $k_f$");
+      App.RotorDampingCoefficientUI.NameText = mus1.CodeUtil.i18n("Rotor damping coefficient, $k_f$");
       App.RotorDampingCoefficientUI.UnitItems = App.friction_coefficient_unit_items;
       App.RotorDampingCoefficientUI.UnitText = "N*m/(rad/s)";
       App.RotorDampingCoefficientUI.ValueChangedCallback = @() updateApp(App);
@@ -477,13 +477,13 @@ classdef AbstractMotorEfficiencyAppMain < handle
 
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
-      label_ui = AppUtil1.Component.Label(appleft_v_layout);
-      label_ui.Text = "\textbf{" + CodeUtil1.i18n("Derived parameters") + "}";
+      label_ui = mus1.AppUtil.Component.Label(appleft_v_layout);
+      label_ui.Text = "\textbf{" + mus1.CodeUtil.i18n("Derived parameters") + "}";
 
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.MeasuredNominalLossesUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
+      App.MeasuredNominalLossesUI = mus1.AppUtil.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
       % App.MeasuredNominalLossesUI.Editable = "on";
       App.MeasuredNominalLossesUI.ComponentHeight = App.oneline_height * 2;
       App.MeasuredNominalLossesUI.NameUIWidth = App.name_ui_wide_width;
@@ -492,23 +492,23 @@ classdef AbstractMotorEfficiencyAppMain < handle
       App.MeasuredNominalLossesUI.UnitText = "W";
       App.MeasuredNominalLossesUI.ReadOnlyValueText = true;
       App.MeasuredNominalLossesUI.UnitChangedCallback = @() update_DerivedParameterUI(App, "MeasuredNominalLoss");
-      App.MeasuredNominalLossesUI.NameText = CodeUtil1.i18n("Nominal losses at measurement point") ...
-        + newline + CodeUtil1.i18n("$P_{nom,m} = \left( 100/\eta - 1  \right) \tau_{m} \cdot \omega_{m}$");
+      App.MeasuredNominalLossesUI.NameText = mus1.CodeUtil.i18n("Nominal losses at measurement point") ...
+        + newline + mus1.CodeUtil.i18n("$P_{nom,m} = \left( 100/\eta - 1  \right) \tau_{m} \cdot \omega_{m}$");
 
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.IronToNominalLossRatioPercentUI = AppUtil1.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
+      App.IronToNominalLossRatioPercentUI = mus1.AppUtil.Component.PhysicalValueWithUnitLabel(appleft_v_layout);
       App.IronToNominalLossRatioPercentUI.NameUIWidth = App.name_ui_wide_width;
       App.IronToNominalLossRatioPercentUI.UnitUIWidth = App.physical_unit_ui_width;
-      App.IronToNominalLossRatioPercentUI.NameText = CodeUtil1.i18n("Iron-to-nominal loss ratio");
+      App.IronToNominalLossRatioPercentUI.NameText = mus1.CodeUtil.i18n("Iron-to-nominal loss ratio");
       App.IronToNominalLossRatioPercentUI.UnitAlias = "\%";
       App.IronToNominalLossRatioPercentUI.ReadOnlyValueText = true;
 
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.MeasuredCopperLossesUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
+      App.MeasuredCopperLossesUI = mus1.AppUtil.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
       App.MeasuredCopperLossesUI.ComponentHeight = App.oneline_height * 2;
       App.MeasuredCopperLossesUI.NameUIWidth = App.name_ui_wide_width;
       App.MeasuredCopperLossesUI.UnitUIWidth = App.physical_unit_ui_width;
@@ -516,13 +516,13 @@ classdef AbstractMotorEfficiencyAppMain < handle
       App.MeasuredCopperLossesUI.UnitText = "W";
       App.MeasuredCopperLossesUI.ReadOnlyValueText = true;
       App.MeasuredCopperLossesUI.UnitChangedCallback = @() update_DerivedParameterUI(App, "MeasuredCopperLoss");
-      App.MeasuredCopperLossesUI.NameText = CodeUtil1.i18n("Copper losses at measurement point") ...
-        + newline + CodeUtil1.i18n("$P_{copper,m} = P_{nom,m} - P_{iron,m} - P_{fixed} = k_{copper} \cdot \tau_{m}^2$");
+      App.MeasuredCopperLossesUI.NameText = mus1.CodeUtil.i18n("Copper losses at measurement point") ...
+        + newline + mus1.CodeUtil.i18n("$P_{copper,m} = P_{nom,m} - P_{iron,m} - P_{fixed} = k_{copper} \cdot \tau_{m}^2$");
 
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.MeasuredIronLossCoefficientUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
+      App.MeasuredIronLossCoefficientUI = mus1.AppUtil.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
       App.MeasuredIronLossCoefficientUI.ComponentHeight = App.oneline_height * 2;
       App.MeasuredIronLossCoefficientUI.NameUIWidth = App.name_ui_wide_width;
       App.MeasuredIronLossCoefficientUI.UnitUIWidth = App.physical_unit_ui_width;
@@ -530,13 +530,13 @@ classdef AbstractMotorEfficiencyAppMain < handle
       App.MeasuredIronLossCoefficientUI.UnitText = "W/rpm^2";
       App.MeasuredIronLossCoefficientUI.ReadOnlyValueText = true;
       App.MeasuredIronLossCoefficientUI.UnitChangedCallback = @() update_DerivedParameterUI(App, "MeasuredIronLossCoefficient");
-      App.MeasuredIronLossCoefficientUI.NameText = CodeUtil1.i18n("Iron loss coefficient") ...
-        + newline + CodeUtil1.i18n("$k_{iron} = P_{iron,m} / \omega_{m}^2$");
+      App.MeasuredIronLossCoefficientUI.NameText = mus1.CodeUtil.i18n("Iron loss coefficient") ...
+        + newline + mus1.CodeUtil.i18n("$k_{iron} = P_{iron,m} / \omega_{m}^2$");
 
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
 
-      App.MeasuredCopperLossCoefficientUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
+      App.MeasuredCopperLossCoefficientUI = mus1.AppUtil.Component.PhysicalValueWithUnitDropDown(appleft_v_layout);
       App.MeasuredCopperLossCoefficientUI.ComponentHeight = App.oneline_height * 2;
       App.MeasuredCopperLossCoefficientUI.NameUIWidth = App.name_ui_wide_width;
       App.MeasuredCopperLossCoefficientUI.UnitUIWidth = App.physical_unit_ui_width;
@@ -544,36 +544,36 @@ classdef AbstractMotorEfficiencyAppMain < handle
       App.MeasuredCopperLossCoefficientUI.UnitText = "W/(N*m)^2";
       App.MeasuredCopperLossCoefficientUI.ReadOnlyValueText = true;
       App.MeasuredCopperLossCoefficientUI.UnitChangedCallback = @() update_DerivedParameterUI(App, "MeasuredCopperLossCoefficient");
-      App.MeasuredCopperLossCoefficientUI.NameText = CodeUtil1.i18n("Copper loss coefficient") ...
-        + newline + CodeUtil1.i18n("$k_{copper} = P_{copper,m} / \tau_{m}^2$");
+      App.MeasuredCopperLossCoefficientUI.NameText = mus1.CodeUtil.i18n("Copper loss coefficient") ...
+        + newline + mus1.CodeUtil.i18n("$k_{copper} = P_{copper,m} / \tau_{m}^2$");
 
       % =======================================================================
       % Right side of the app window
       % =======================================================================
       appright_h_layout = addHorizontalGridLayout(appmain_h_container, Width=App.RightSideWidth);
-      appright_v_container = AppUtil1.VerticalContainer(appright_h_layout);
+      appright_v_container = mus1.AppUtil.VerticalContainer(appright_h_layout);
 
       % -----------------------------------------------------------------------
       appright_v_layout = addVerticalGridLayout(appright_v_container);
-      h_container = AppUtil1.HorizontalContainer(appright_v_layout);
+      h_container = mus1.AppUtil.HorizontalContainer(appright_v_layout);
 
       h_layout = addHorizontalGridLayout(h_container);
-      App.UpdateButtonUI = AppUtil1.Component.EnabledButton(h_layout);
+      App.UpdateButtonUI = mus1.AppUtil.Component.EnabledButton(h_layout);
       App.UpdateButtonUI.HorizontalAlignment = "left";
       App.UpdateButtonUI.ButtonUIWidth = App.button_width + App.width_unit;
       App.UpdateButtonUI.ButtonWidth = App.button_width;
       App.UpdateButtonUI.CheckBoxUIWidth = "fit";
       App.UpdateButtonUI.CheckBoxWidth = "fit";
-      App.UpdateButtonUI.ButtonText = CodeUtil1.i18n("Update");
+      App.UpdateButtonUI.ButtonText = mus1.CodeUtil.i18n("Update");
       App.UpdateButtonUI.ButtonUI.MainButton.Icon = which("mus-icon-rotation-arrow.svg");
-      App.UpdateButtonUI.CheckBoxText = CodeUtil1.i18n("Auto update");
+      App.UpdateButtonUI.CheckBoxText = mus1.CodeUtil.i18n("Auto update");
       App.UpdateButtonUI.ButtonPushedCallback = @() updateApp(App, PlotMode="force");
       % Set auto-update to false and keep it until the entire app is ready.
       App.UpdateButtonUI.ButtonDisable = "on";
 
       h_layout = addHorizontalGridLayout(h_container);
-      App.OpenInFigureWindowUI = AppUtil1.Component.Hyperlink(h_layout);
-      App.OpenInFigureWindowUI.Text = CodeUtil1.i18n("Open in figure window");
+      App.OpenInFigureWindowUI = mus1.AppUtil.Component.Hyperlink(h_layout);
+      App.OpenInFigureWindowUI.Text = mus1.CodeUtil.i18n("Open in figure window");
       App.OpenInFigureWindowUI.HorizontalAlignment = "right";
 
       App.OpenInFigureWindowUI.HyperlinkClickedCallback = @() open_in_figure_window();
@@ -586,34 +586,34 @@ classdef AbstractMotorEfficiencyAppMain < handle
       % -----------------------------------------------------------------------
       appright_v_layout = addVerticalGridLayout(appright_v_container);
 
-      App.AxesUI = AppUtil1.Graphics.Axes(appright_v_layout);
+      App.AxesUI = mus1.AppUtil.Graphics.Axes(appright_v_layout);
       App.AxesUI.ComponentHeight = App.PlotUIHeight;
 
       %% ======================================================================
       % Plot customization
 
       appright_v_layout = addVerticalGridLayout(appright_v_container);
-      label_ui = AppUtil1.Component.Label(appright_v_layout);
-      label_ui.Text = "\textbf{" + CodeUtil1.i18n("Plot customization") + "}";
+      label_ui = mus1.AppUtil.Component.Label(appright_v_layout);
+      label_ui.Text = "\textbf{" + mus1.CodeUtil.i18n("Plot customization") + "}";
 
       local_name_ui_width = App.width_unit * 22;
 
       % -----------------------------------------------------------------------
       appright_v_layout = addVerticalGridLayout(appright_v_container);
 
-      App.PlotAutoRangeUI = AppUtil1.Component.CheckBox(appright_v_layout);
-      App.PlotAutoRangeUI.Text = CodeUtil1.i18n("Auto range");
+      App.PlotAutoRangeUI = mus1.AppUtil.Component.CheckBox(appright_v_layout);
+      App.PlotAutoRangeUI.Text = mus1.CodeUtil.i18n("Auto range");
       App.PlotAutoRangeUI.Value = true;
       App.PlotAutoRangeUI.ValueChangedCallback = @() updateApp(App);
 
       % -----------------------------------------------------------------------
       appright_v_layout = addVerticalGridLayout(appright_v_container);
 
-      App.PlotAngularSpeedUpperBoundUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appright_v_layout);
+      App.PlotAngularSpeedUpperBoundUI = mus1.AppUtil.Component.PhysicalValueWithUnitDropDown(appright_v_layout);
       App.PlotAngularSpeedUpperBoundUI.Editable = "on";
       App.PlotAngularSpeedUpperBoundUI.NameUIWidth = local_name_ui_width;
       App.PlotAngularSpeedUpperBoundUI.UnitUIWidth = App.physical_unit_ui_width;
-      App.PlotAngularSpeedUpperBoundUI.NameText = CodeUtil1.i18n("Angular speed upper bound");
+      App.PlotAngularSpeedUpperBoundUI.NameText = mus1.CodeUtil.i18n("Angular speed upper bound");
       App.PlotAngularSpeedUpperBoundUI.UnitItems = App.angular_speed_unit_items;
       App.PlotAngularSpeedUpperBoundUI.UnitText = "rpm";
       App.PlotAngularSpeedUpperBoundUI.ValueChangedCallback = @() updateApp(App);
@@ -622,11 +622,11 @@ classdef AbstractMotorEfficiencyAppMain < handle
       % -----------------------------------------------------------------------
       appright_v_layout = addVerticalGridLayout(appright_v_container);
 
-      App.PlotTorqueUpperBoundUI = AppUtil1.Component.PhysicalValueWithUnitDropDown(appright_v_layout);
+      App.PlotTorqueUpperBoundUI = mus1.AppUtil.Component.PhysicalValueWithUnitDropDown(appright_v_layout);
       App.PlotTorqueUpperBoundUI.Editable = "on";
       App.PlotTorqueUpperBoundUI.NameUIWidth = local_name_ui_width;
       App.PlotTorqueUpperBoundUI.UnitUIWidth = App.physical_unit_ui_width;
-      App.PlotTorqueUpperBoundUI.NameText = CodeUtil1.i18n("Torque upper bound");
+      App.PlotTorqueUpperBoundUI.NameText = mus1.CodeUtil.i18n("Torque upper bound");
       App.PlotTorqueUpperBoundUI.UnitItems = App.torque_unit_items;
       App.PlotTorqueUpperBoundUI.UnitText = "N*m";
       App.PlotTorqueUpperBoundUI.ValueChangedCallback = @() updateApp(App);
@@ -635,10 +635,10 @@ classdef AbstractMotorEfficiencyAppMain < handle
       % -----------------------------------------------------------------------
       appright_v_layout = addVerticalGridLayout(appright_v_container);
 
-      App.PlotContourLevelsPercentUI = AppUtil1.Component.PhysicalValueWithUnitLabel(appright_v_layout);
+      App.PlotContourLevelsPercentUI = mus1.AppUtil.Component.PhysicalValueWithUnitLabel(appright_v_layout);
       App.PlotContourLevelsPercentUI.NameUIWidth = local_name_ui_width;
       App.PlotContourLevelsPercentUI.UnitUIWidth = App.physical_unit_ui_width;
-      App.PlotContourLevelsPercentUI.NameText = CodeUtil1.i18n("Contour levels");
+      App.PlotContourLevelsPercentUI.NameText = mus1.CodeUtil.i18n("Contour levels");
       App.PlotContourLevelsPercentUI.UnitAlias = "\%";
       App.PlotContourLevelsPercentUI.ValueChangedCallback = @() updateApp(App);
 
@@ -647,20 +647,20 @@ classdef AbstractMotorEfficiencyAppMain < handle
 
       % -----------------------------------------------------------------------
       appmain_v_layout = addVerticalGridLayout(appmain_v_container);
-      AppUtil1.Component.HorizontalLine(appmain_v_layout);
+      mus1.AppUtil.Component.HorizontalLine(appmain_v_layout);
 
       % -----------------------------------------------------------------------
       appmain_v_layout = addVerticalGridLayout(appmain_v_container);
-      App.StructParameterUI = AppUtil1.Component.BaseWorkspaceStructParameterUI(appmain_v_layout);
+      App.StructParameterUI = mus1.AppUtil.Component.BaseWorkspaceStructParameterUI(appmain_v_layout);
       App.StructParameterUI.GetParametersFromBaseWorkspaceCallback = @() loadParametersFromBaseWorkspace(App);
 
       % -----------------------------------------------------------------------
       appmain_v_layout = addVerticalGridLayout(appmain_v_container);
-      AppUtil1.Component.HorizontalLine(appmain_v_layout);
+      mus1.AppUtil.Component.HorizontalLine(appmain_v_layout);
 
       % -----------------------------------------------------------------------
       appmain_v_layout = addVerticalGridLayout(appmain_v_container);
-      App.AppBlockSelectorUI = AppUtil1.Component.BlockSelectorUI(appmain_v_layout);
+      App.AppBlockSelectorUI = mus1.AppUtil.Component.BlockSelectorUI(appmain_v_layout);
       App.AppBlockSelectorUI.TargetSimscapeBlockNames = App.TargetSimscapeBlockNames;
       App.AppBlockSelectorUI.GetParametersFromBlockCallback = @() callback_get_parameters(App);
       App.AppBlockSelectorUI.SetParametersToBlockCallback = @() callback_set_parameters(App);
@@ -780,7 +780,7 @@ classdef AbstractMotorEfficiencyAppMain < handle
       catch exception
         if App.MainFigure.Visible
           msg = exception.message;
-          title_word = CodeUtil1.i18n("Error");
+          title_word = mus1.CodeUtil.i18n("Error");
           uialert(App.MainFigure, msg, title_word)
 
           return
@@ -866,7 +866,7 @@ classdef AbstractMotorEfficiencyAppMain < handle
       var_names = string({base_workspace_vars.name}');
       if not(ismember(var_base_name, var_names))
         id = App.errorID + "StructNotFoundInBaseWorkspace";
-        msg = CodeUtil1.i18n("Specified struct was not found in the base workspace: ") + var_base_name;
+        msg = mus1.CodeUtil.i18n("Specified struct was not found in the base workspace: ") + var_base_name;
 
         throw(MException(id, msg))
 
@@ -1034,7 +1034,7 @@ classdef AbstractMotorEfficiencyAppMain < handle
           end  % if
           if App.MainFigure.Visible
             msg = exception.message;
-            window_title = CodeUtil1.i18n("Error");
+            window_title = mus1.CodeUtil.i18n("Error");
             uialert(App.MainFigure, msg, window_title, Interpreter="html")
 
             return
@@ -1073,7 +1073,7 @@ classdef AbstractMotorEfficiencyAppMain < handle
         updateApp(App, PlotMode="skip")
 
         msg = exception.message;
-        window_title = CodeUtil1.i18n("Error");
+        window_title = mus1.CodeUtil.i18n("Error");
         uialert(App.MainFigure, msg, window_title)
 
         return

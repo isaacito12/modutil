@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" name="uiTest_SearchUtil" skipped="0" tests="6" time="25.7069">
+    <testcase classname="uiTest_SearchUtil" name="app_launches_without_warnings_1" time="1.0764"/>
+    <testcase classname="uiTest_SearchUtil" name="app_launches_without_warnings_2" time="2.2159"/>
+    <testcase classname="uiTest_SearchUtil" name="app_launches_without_warnings_3" time="2.1785"/>
+    <testcase classname="uiTest_SearchUtil" name="Gesture_1" time="5.7226"/>
+    <testcase classname="uiTest_SearchUtil" name="Gesture_2" time="7.2912"/>
+    <testcase classname="uiTest_SearchUtil" name="Gesture_3" time="7.2222"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_SearchUtil" skipped="0" tests="6" time="0.073839">
+    <testcase classname="uiUptodateTest_SearchUtil" name="app_screenshot_dark_1" time="0.029302"/>
+    <testcase classname="uiUptodateTest_SearchUtil" name="app_screenshot_dark_2" time="0.014057"/>
+    <testcase classname="uiUptodateTest_SearchUtil" name="app_screenshot_dark_3" time="0.015375"/>
+    <testcase classname="uiUptodateTest_SearchUtil" name="app_screenshot_light_1" time="0.0040691"/>
+    <testcase classname="uiUptodateTest_SearchUtil" name="app_screenshot_light_2" time="0.0049138"/>
+    <testcase classname="uiUptodateTest_SearchUtil" name="app_screenshot_light_3" time="0.0061228"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiTest_FileSearchAppMain" skipped="0" tests="3" time="9.7211">
+    <testcase classname="uiTest_FileSearchAppMain" name="app_launches_without_warnings_1" time="0.82563"/>
+    <testcase classname="uiTest_FileSearchAppMain" name="Gesture_1" time="5.7249"/>
+    <testcase classname="uiTest_FileSearchAppMain" name="Gesture_2" time="3.1705"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_FileSearchAppMain" skipped="0" tests="2" time="0.01983">
+    <testcase classname="uiUptodateTest_FileSearchAppMain" name="app_screenshot_dark_1" time="0.01322"/>
+    <testcase classname="uiUptodateTest_FileSearchAppMain" name="app_screenshot_light_1" time="0.0066105"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiTest_FileSearchResultAppMain" skipped="0" tests="3" time="9.2271">
+    <testcase classname="uiTest_FileSearchResultAppMain" name="app_launches_without_warnings_1" time="0.94118"/>
+    <testcase classname="uiTest_FileSearchResultAppMain" name="Gesture_1" time="5.9408"/>
+    <testcase classname="uiTest_FileSearchResultAppMain" name="Gesture_2" time="2.3452"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_FileSearchResultAppMain" skipped="0" tests="2" time="0.013645">
+    <testcase classname="uiUptodateTest_FileSearchResultAppMain" name="app_screenshot_dark_1" time="0.0095706"/>
+    <testcase classname="uiUptodateTest_FileSearchResultAppMain" name="app_screenshot_light_1" time="0.0040748"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiTest_TextSearchAppMain" skipped="0" tests="4" time="19.812">
+    <testcase classname="uiTest_TextSearchAppMain" name="app_launches_without_warnings_1" time="1.2315"/>
+    <testcase classname="uiTest_TextSearchAppMain" name="Gesture_1" time="8.1401"/>
+    <testcase classname="uiTest_TextSearchAppMain" name="Gesture_2" time="3.5521"/>
+    <testcase classname="uiTest_TextSearchAppMain" name="Gesture_3" time="6.8883"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_TextSearchAppMain" skipped="0" tests="2" time="0.019632">
+    <testcase classname="uiUptodateTest_TextSearchAppMain" name="app_screenshot_dark_1" time="0.013973"/>
+    <testcase classname="uiUptodateTest_TextSearchAppMain" name="app_screenshot_light_1" time="0.0056581"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiTest_TextSearchResultAppMain" skipped="0" tests="3" time="12.7429">
+    <testcase classname="uiTest_TextSearchResultAppMain" name="app_launches_without_warnings_1" time="1.6164"/>
+    <testcase classname="uiTest_TextSearchResultAppMain" name="Gesture_1" time="7.6381"/>
+    <testcase classname="uiTest_TextSearchResultAppMain" name="Gesture_2" time="3.4884"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_TextSearchResultAppMain" skipped="0" tests="2" time="0.018564">
+    <testcase classname="uiUptodateTest_TextSearchResultAppMain" name="app_screenshot_dark_1" time="0.011545"/>
+    <testcase classname="uiUptodateTest_TextSearchResultAppMain" name="app_screenshot_light_1" time="0.0070181"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_TextSearcher" skipped="0" tests="9" time="0.29316">
+    <testcase classname="unittest_TextSearcher" name="PassingTest_1" time="0.017822"/>
+    <testcase classname="unittest_TextSearcher" name="Error_1" time="0.021636"/>
+    <testcase classname="unittest_TextSearcher" name="Test_1" time="0.01076"/>
+    <testcase classname="unittest_TextSearcher" name="Test_2" time="0.0082034"/>
+    <testcase classname="unittest_TextSearcher" name="Test_MatchWholeWord_1" time="0.024464"/>
+    <testcase classname="unittest_TextSearcher" name="Test_MatchWholeWord_2_1" time="0.029487"/>
+    <testcase classname="unittest_TextSearcher" name="Test_DoNotIgnoreCase_1" time="0.010712"/>
+    <testcase classname="unittest_TextSearcher" name="Test_SearchAll_1" time="0.091478"/>
+    <testcase classname="unittest_TextSearcher" name="Test_SearchAll_ExcludeLiveScript_1" time="0.078599"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_buildReplaceCommandText" skipped="0" tests="9" time="0.21656">
+    <testcase classname="unittest_buildReplaceCommandText" name="PassingTest_1" time="0.066449"/>
+    <testcase classname="unittest_buildReplaceCommandText" name="PassingTest_2" time="0.063035"/>
+    <testcase classname="unittest_buildReplaceCommandText" name="Error_1" time="0.013668"/>
+    <testcase classname="unittest_buildReplaceCommandText" name="Error_2" time="0.020601"/>
+    <testcase classname="unittest_buildReplaceCommandText" name="Error_3" time="0.013194"/>
+    <testcase classname="unittest_buildReplaceCommandText" name="Error_4" time="0.0095952"/>
+    <testcase classname="unittest_buildReplaceCommandText" name="Error_5" time="0.0091557"/>
+    <testcase classname="unittest_buildReplaceCommandText" name="Error_6" time="0.010122"/>
+    <testcase classname="unittest_buildReplaceCommandText" name="Error_7" time="0.010742"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_replaceText" skipped="0" tests="7" time="0.26985">
+    <testcase classname="unittest_replaceText" name="PassingTest_1" time="0.090957"/>
+    <testcase classname="unittest_replaceText" name="PassingTest_2" time="0.075099"/>
+    <testcase classname="unittest_replaceText" name="Error_1" time="0.015724"/>
+    <testcase classname="unittest_replaceText" name="Error_2" time="0.036623"/>
+    <testcase classname="unittest_replaceText" name="Error_3" time="0.0085612"/>
+    <testcase classname="unittest_replaceText" name="Test_1" time="0.028032"/>
+    <testcase classname="unittest_replaceText" name="Test_2" time="0.014857"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_searchFiles" skipped="0" tests="6" time="0.038939">
+    <testcase classname="unittest_searchFiles" name="Test_error_1" time="0.015017"/>
+    <testcase classname="unittest_searchFiles" name="Test_error_2" time="0.0078987"/>
+    <testcase classname="unittest_searchFiles" name="PassingTest_1" time="0.0044314"/>
+    <testcase classname="unittest_searchFiles" name="PassingTest_2" time="0.0036498"/>
+    <testcase classname="unittest_searchFiles" name="PassingTest_3" time="0.0041532"/>
+    <testcase classname="unittest_searchFiles" name="PassingTest_4" time="0.0037889"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_searchText" skipped="0" tests="10" time="0.13303">
+    <testcase classname="unittest_searchText" name="PassingTest_1" time="0.011226"/>
+    <testcase classname="unittest_searchText" name="Error_1" time="0.012899"/>
+    <testcase classname="unittest_searchText" name="Error_2" time="0.013157"/>
+    <testcase classname="unittest_searchText" name="Error_3" time="0.010851"/>
+    <testcase classname="unittest_searchText" name="Error_4" time="0.0097791"/>
+    <testcase classname="unittest_searchText" name="Test_1" time="0.0079116"/>
+    <testcase classname="unittest_searchText" name="Test_2" time="0.0074667"/>
+    <testcase classname="unittest_searchText" name="Test_3" time="0.01308"/>
+    <testcase classname="unittest_searchText" name="Test_4" time="0.0090672"/>
+    <testcase classname="unittest_searchText" name="Test_5" time="0.037594"/>
+  </testsuite>
+</testsuites>

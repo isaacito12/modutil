@@ -1,0 +1,289 @@
+{
+  "version": "2.1.0",
+  "properties": {
+    "Date": "2026-06-30 15:56:15",
+    "Release": "R2026b",
+    "CodeAnalyzerConfiguration": "active"
+  },
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Code Analyzer"
+        }
+      },
+      "originalUriBaseIds": {
+        "SourceRoot": {
+          "uri": "file:///C:/local/modutil/repo/worktrees/R2024b-devel/Devel/Test/ModelUtil/"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "LookupTable1DBlockPlotApp.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "buildfile.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "checkEditInCallbackButton/unittest_checkEditInCallbackButton.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "checkEditInCode/unittest_checkEditInCode.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "checkRefSubInCallbackButton/demo_checkRefSubInCallbackButton_24b_live.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "checkRefSubInCallbackButton/unittest_checkRefSubInCallbackButton.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "checkRefSubInSetParam/unittest_checkRefSubInSetParam.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "findAllSimscapeBlocks/DemoScript_findAllSimscapeBlocks_1.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "findAllSimscapeBlocks/unittest_findAllSimscapeBlocks.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "findLookupTable1DBlocks/unittest_findLookupTable1DBlocks.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "findSimscapeBlocks/DemoScript_findSimscapeBlocks_1.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "findSimscapeBlocks/unittest_findSimscapeBlocks.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "getDoubleValueFromBlockParameter/unittest_getDoubleValueFromBlockParameter.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "getModelFileFullPath/unittest_getModelFileFullPath.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "getSimscapeValueFromBlockParameter/unittest_getSimscapeValueFromBlockParameter.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "plotLookupTable1DBlocks/demoapp_plotLookupTable1DBlocks.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "plotLookupTable1DBlocks/demoapp_plotLookupTable1DBlocks_24b.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "plotLookupTable1DBlocks/uiTest_plotLookupTable1DBlocks.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "plotLookupTable1DBlocks/unittest_plotLookupTable1DBlocks.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "saveModels/unittest_saveModels.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "screenshotSimulink/unittest_screenshotSimulink.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "setSystemMaskIcon/unittest_setSystemMaskIcon.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "uiTest_ModelUtil.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "uiUptodateTest_ModelUtil.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "checkEditInCallbackButton/demo_checkEditInCallbackButton.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "checkEditInCallbackButton/demo_checkEditInCallbackButton_24b.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "checkEditInCode/demo_checkEditInCode.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "checkRefSubInCallbackButton/demo_checkRefSubInCallbackButton.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "checkRefSubInCallbackButton/demo_checkRefSubInCallbackButton_24b.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "checkRefSubInSetParam/demo_checkRefSubInSetParam.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "checkRefSubInSetParam/demo_checkRefSubInSetParam_24b.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "findLookupTable1DBlocks/demo_findLookupTable1DBlocks.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "findLookupTable1DBlocks/demo_findLookupTable1DBlocks_24b.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "getDoubleValueFromBlockParameter/SampleScript_getDoubleValueFromBlockParameter.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "getSimscapeValueFromBlockParameter/demo_getSimscapeValueFromBlockParameter.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "getSimscapeValueFromBlockParameter/demo_getSimscapeValueFromBlockParameter_24b.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "plotLookupTable1DBlocks/demo_plotLookupTable1DBlocks.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "plotLookupTable1DBlocks/demo_plotLookupTable1DBlocks_24b.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "saveModels/demo_saveModels.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "screenshotSimulink/setupLogging_testmodel_screenshotSimulink.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "screenshotSimulink/setupLogging_testmodel_screenshotSimulink_24b.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "screenshotSimulink/setupProbe_testmodel_screenshotSimulink.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "screenshotSimulink/setupProbe_testmodel_screenshotSimulink_24b.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "setSystemMaskIcon/demo_setSystemMaskIcon.mlx"
+          }
+        }
+      ],
+      "results": []
+    }
+  ]
+}

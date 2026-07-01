@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" name="uiTest_TestUtil" skipped="0" tests="2" time="4.0034">
+    <testcase classname="uiTest_TestUtil" name="app_launches_without_warnings_1" time="1.6133"/>
+    <testcase classname="uiTest_TestUtil" name="PassingTest_1" time="2.3901"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_TestUtil" skipped="0" tests="6" time="40.6293">
+    <testcase classname="uiUptodateTest_TestUtil" name="app_screenshot_1_dark" time="7.3603"/>
+    <testcase classname="uiUptodateTest_TestUtil" name="app_screenshot_1_light" time="6.8454"/>
+    <testcase classname="uiUptodateTest_TestUtil" name="app_screenshot_2_dark" time="6.6796"/>
+    <testcase classname="uiUptodateTest_TestUtil" name="app_screenshot_2_light" time="6.6142"/>
+    <testcase classname="uiUptodateTest_TestUtil" name="app_screenshot_3_dark" time="6.6485"/>
+    <testcase classname="uiUptodateTest_TestUtil" name="app_screenshot_3_light" time="6.4813"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_CommonResources" skipped="0" tests="2" time="0.2362">
+    <testcase classname="unittest_CommonResources" name="test_load_model_1" time="0.14877"/>
+    <testcase classname="unittest_CommonResources" name="test_load_model_2" time="0.087427"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiTest_TestResultAppMain" skipped="0" tests="6" time="16.8022">
+    <testcase classname="uiTest_TestResultAppMain" name="app_launches_without_warnings_1" time="1.4976"/>
+    <testcase classname="uiTest_TestResultAppMain" name="app_launches_without_warnings_2" time="1.9118"/>
+    <testcase classname="uiTest_TestResultAppMain" name="ErrorCase_1" time="0.4463"/>
+    <testcase classname="uiTest_TestResultAppMain" name="PassingTest_1" time="1.8605"/>
+    <testcase classname="uiTest_TestResultAppMain" name="PassingTest_2" time="2.4015"/>
+    <testcase classname="uiTest_TestResultAppMain" name="GestureTest_1" time="8.6843"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="uiUptodateTest_TestResultAppMain" skipped="0" tests="2" time="16.9969">
+    <testcase classname="uiUptodateTest_TestResultAppMain" name="app_screenshot_dark_1" time="8.4414"/>
+    <testcase classname="uiUptodateTest_TestResultAppMain" name="app_screenshot_light_1" time="8.5555"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_checkLiveScriptsAndMarkdowns" skipped="0" tests="5" time="0.22471">
+    <testcase classname="unittest_checkLiveScriptsAndMarkdowns" name="Test_error_1" time="0.065359"/>
+    <testcase classname="unittest_checkLiveScriptsAndMarkdowns" name="Test_error_2" time="0.025681"/>
+    <testcase classname="unittest_checkLiveScriptsAndMarkdowns" name="PassingTest_1" time="0.066913"/>
+    <testcase classname="unittest_checkLiveScriptsAndMarkdowns" name="PassingTest_2" time="0.02904"/>
+    <testcase classname="unittest_checkLiveScriptsAndMarkdowns" name="PassingTest_3" time="0.037714"/>
+  </testsuite>
+  <testsuite errors="1" failures="0" name="unittest_getTestResultTable" skipped="0" tests="5" time="0.16591">
+    <testcase classname="unittest_getTestResultTable" name="Test_error_1" time="0.021339"/>
+    <testcase classname="unittest_getTestResultTable" name="Test_error_2" time="0.013659"/>
+    <testcase classname="unittest_getTestResultTable" name="Test_error_3" time="0.022197"/>
+    <testcase classname="unittest_getTestResultTable" name="PassingTest_1" time="0.0074446">
+      <error>Error occurred in unittest_getTestResultTable/PassingTest_1 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:undefinedVarOrClass'
+    --------------
+    Error Details:
+    --------------
+    Unable to resolve the name 'SearchUtil1.searchFiles'.
+    
+    Error in demo_getTestResultTable_1 (line 1)
+    file_fullpath = SearchUtil1.searchFiles("sample-test-result-22tests-2errors.xml");
+    
+    Error in unittest_getTestResultTable/PassingTest_1 (line 64)
+          demo_getTestResultTable_1</error>
+    </testcase>
+    <testcase classname="unittest_getTestResultTable" name="Test_1" time="0.10127"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" name="unittest_isNonLocal" skipped="0" tests="4" time="0.033846">
+    <testcase classname="unittest_isNonLocal" name="Test_error_1" time="0.014488"/>
+    <testcase classname="unittest_isNonLocal" name="Test_1" time="0.0071294"/>
+    <testcase classname="unittest_isNonLocal" name="Test_2" time="0.0071798"/>
+    <testcase classname="unittest_isNonLocal" name="Test_3" time="0.0050481"/>
+  </testsuite>
+  <testsuite errors="2" failures="0" name="unittest_summarizeCodeCoverage" skipped="0" tests="4" time="0.13559">
+    <testcase classname="unittest_summarizeCodeCoverage" name="Test_error_1" time="0.016267"/>
+    <testcase classname="unittest_summarizeCodeCoverage" name="PassingTest_1" time="0.0058026">
+      <error>Error occurred in unittest_summarizeCodeCoverage/PassingTest_1 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:undefinedVarOrClass'
+    --------------
+    Error Details:
+    --------------
+    Unable to resolve the name 'SearchUtil1.searchFiles'.
+    
+    Error in demo_summarizeCodeCoverage_1 (line 1)
+    coverage_file = SearchUtil1.searchFiles("sample-code-coverage-2.xml");
+    
+    Error in unittest_summarizeCodeCoverage/PassingTest_1 (line 50)
+          demo_summarizeCodeCoverage_1</error>
+    </testcase>
+    <testcase classname="unittest_summarizeCodeCoverage" name="PassingTest_2" time="0.0054551">
+      <error>Error occurred in unittest_summarizeCodeCoverage/PassingTest_2 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:undefinedVarOrClass'
+    --------------
+    Error Details:
+    --------------
+    Unable to resolve the name 'SearchUtil1.searchFiles'.
+    
+    Error in demo_summarizeCodeCoverage_2 (line 1)
+    coverage_file = SearchUtil1.searchFiles("sample-code-coverage-2.xml");
+    
+    Error in unittest_summarizeCodeCoverage/PassingTest_2 (line 54)
+          demo_summarizeCodeCoverage_2</error>
+    </testcase>
+    <testcase classname="unittest_summarizeCodeCoverage" name="Test_1" time="0.10807"/>
+  </testsuite>
+  <testsuite errors="1" failures="0" name="unittest_summarizeTestResult" skipped="0" tests="3" time="0.11374">
+    <testcase classname="unittest_summarizeTestResult" name="Test_error_1" time="0.020856"/>
+    <testcase classname="unittest_summarizeTestResult" name="PassingTest_1" time="0.0083435">
+      <error>Error occurred in unittest_summarizeTestResult/PassingTest_1 and it did not run to completion.
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:undefinedVarOrClass'
+    --------------
+    Error Details:
+    --------------
+    Unable to resolve the name 'SearchUtil1.searchFiles'.
+    
+    Error in demo_summarizeTestResult_1 (line 1)
+    test_result_file = SearchUtil1.searchFiles("sample-test-result.xml");
+    
+    Error in unittest_summarizeTestResult/PassingTest_1 (line 50)
+          demo_summarizeTestResult_1</error>
+    </testcase>
+    <testcase classname="unittest_summarizeTestResult" name="Test_1" time="0.08454"/>
+  </testsuite>
+</testsuites>

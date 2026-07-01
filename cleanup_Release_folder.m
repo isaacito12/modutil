@@ -48,18 +48,6 @@ if isfolder(folder_to_delete)
   end  % if
 end  % if
 
-% Delete the folder generated to store unit test results.
-folder_to_delete = fullfile(release_top_folder, "test-result-24b");
-if isfolder(folder_to_delete)
-  cmd = "rmdir(""" + folder_to_delete + """, ""s"")";
-  if NameValuePair.DryRun
-    disp("Dry run: " + cmd)
-  else
-    disp(folder_to_delete)
-    eval(cmd)
-  end  % if
-end  % if
-
 % -----------------------------------------------------------------------------
 % Delete files under the "Release > ModelingUtilityForSimscape" folder.
 target_folder = fullfile(release_top_folder, "ModelingUtilityForSimscape");

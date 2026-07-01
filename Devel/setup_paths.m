@@ -2,30 +2,13 @@
 
 % Copyright 2025-2026 The MathWorks, Inc.
 
-addpath(genpath("AppsForPhysicalSystems"))
-
-addpath("AppUtil")
-addpath(genpath("AppUtil/Test"))
-
-addpath("CodeUtil")
-addpath(genpath("CodeUtil/Test"))
-
-addpath("FileUtil")
-addpath(genpath("FileUtil/Test"))
-
-addpath("ModelUtil")
-addpath(genpath("ModelUtil/Test"))
+% This folder must be added so that the namespace folder continues to be accessible
+% even when the working folder is not this folder.
+% Running unit test can change the working folder, and it needs this settings.
+addpath(".")
 
 addpath("mus-icons")
 
-addpath("ProjectUtil")
-addpath(genpath("ProjectUtil/Test"))
+addpath(genpath("Test"))
 
-addpath("SearchUtil")
-addpath(genpath("SearchUtil/Test"))
-
-addpath("SignalUtil")
-addpath(genpath("SignalUtil/Test"))
-
-addpath("TestUtil")
-addpath(genpath("TestUtil/Test"))
+addpath(genpath("AppsForPhysicalSystems"))

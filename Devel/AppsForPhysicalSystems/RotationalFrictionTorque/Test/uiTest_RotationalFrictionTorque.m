@@ -62,7 +62,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
     function Test_error_1(testcase)
       verifyError(testcase, @() test_target, "RotationalFrictionTorqueAppMain:AppParameterStructNameIsRequired")
       function test_target
-        paramfile_fullpath = FileUtil1.getFileFullPath("RotationalFrictionTorque_SampleParams1.m");
+        paramfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleParams1.m");
         [~, param_basefilename, ~] = fileparts(paramfile_fullpath);
         evalin("base", param_basefilename)
         RotationalFrictionTorqueApp(AppParameterFileName=paramfile_fullpath)  % !test-target
@@ -166,25 +166,25 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
 
     function command_option_1_1(~)
       % Use a base workspace variable to set up the app.
-      paramfile_fullpath = FileUtil1.getFileFullPath("RotationalFrictionTorque_SampleParams1.m");
+      paramfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleParams1.m");
       [~, param_basefilename, ~] = fileparts(paramfile_fullpath);
       evalin("base", param_basefilename)
       RotationalFrictionTorqueApp(AppParameterStructName="FrictionParams1")  % !test-target
     end  % function
 
     function command_option_1_2(~)
-      paramfile_fullpath = FileUtil1.getFileFullPath("RotationalFrictionTorque_SampleParams1.m");
+      paramfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleParams1.m");
       RotationalFrictionTorqueApp(AppParameterFileName=paramfile_fullpath, AppParameterStructName="FrictionParams1")
     end  % function
 
     function command_option_2_1(~)
       % Use a base workspace variable to set up the app.
-      paramfile_fullpath = FileUtil1.getFileFullPath("RotationalFrictionTorque_SampleParams2.m");
+      paramfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleParams2.m");
       RotationalFrictionTorqueApp(AppParameterFileName=paramfile_fullpath, AppParameterStructName="Params.Friction2")
     end  % function
 
     function command_option_3_paramfile_with_block(~)
-      paramfile_fullpath = FileUtil1.getFileFullPath("RotationalFrictionTorque_SampleParams1.m");
+      paramfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleParams1.m");
       model_name = "RotationalFrictionTorque_SampleModel_refsub_24b";
       block_path = model_name + "/Rotational Friction1";
       RotationalFrictionTorqueApp( ...
@@ -266,11 +266,11 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
 
     function base_workspace_1(testcase)
 
-      paramfile1_fullpath = FileUtil1.getFileFullPath("RotationalFrictionTorque_SampleParams1.m");
+      paramfile1_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleParams1.m");
       [~, param1_basefilename, ~] = fileparts(paramfile1_fullpath);
       evalin("base", param1_basefilename)
 
-      paramfile2_fullpath = FileUtil1.getFileFullPath("RotationalFrictionTorque_SampleParams2.m");
+      paramfile2_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleParams2.m");
       [~, param2_basefilename, ~] = fileparts(paramfile2_fullpath);
       evalin("base", param2_basefilename)
 
@@ -316,7 +316,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
 
     function launch_with_model_name_1(~)
       %%
-      modelfile_fullpath = FileUtil1.getFileFullPath("RotationalFrictionTorque_SampleModel_refsub_24b.mdl");
+      modelfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleModel_refsub_24b.mdl");
       [~, model_name, ~] = fileparts(modelfile_fullpath);
 
       RotationalFrictionTorqueApp(ModelName=model_name)
@@ -325,11 +325,11 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
 
     function launch_with_block_path_1(~)
       %%
-      paramfile_fullpath = FileUtil1.getFileFullPath("RotationalFrictionTorque_SampleParams2.m");
+      paramfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleParams2.m");
       [~, paramfile_name, ~] = fileparts(paramfile_fullpath);
       evalin("base", paramfile_name)
 
-      modelfile_fullpath = FileUtil1.getFileFullPath("RotationalFrictionTorque_SampleModel_refsub_24b.mdl");
+      modelfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleModel_refsub_24b.mdl");
       [~, model_name, ~] = fileparts(modelfile_fullpath);
 
       % Specify a block whose parameters are defined in a struct in the base workspace variable.
@@ -343,7 +343,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
       %%
       % Test with a block containing numbers for the block parameters.
 
-      modelfile_fullpath = FileUtil1.getFileFullPath("RotationalFrictionTorque_SampleModel_refsub_24b.mdl");
+      modelfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleModel_refsub_24b.mdl");
       [~, model_name, ~] = fileparts(modelfile_fullpath);
 
       app = RotationalFrictionTorqueApp(ModelName=model_name);
@@ -363,11 +363,11 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
       % Test with a block containing simscape.Value objects for the block parameters.
       % Parameters must be loaded in the base workspace.
 
-      paramfile_fullpath = FileUtil1.getFileFullPath("RotationalFrictionTorque_SampleParams2.m");
+      paramfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleParams2.m");
       [~, paramfile_name, ~] = fileparts(paramfile_fullpath);
       evalin("base", paramfile_name)
 
-      modelfile_fullpath = FileUtil1.getFileFullPath("RotationalFrictionTorque_SampleModel_refsub_24b.mdl");
+      modelfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleModel_refsub_24b.mdl");
       [~, model_name, ~] = fileparts(modelfile_fullpath);
 
       app = RotationalFrictionTorqueApp(ModelName=model_name);
@@ -409,7 +409,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
     function get_parameters_error_visible_figure(testcase)
       % Open app normally with a valid model (figure becomes visible).
       % Then clear workspace variables so that Get fails with figure visible.
-      paramfile_fullpath = FileUtil1.getFileFullPath("RotationalFrictionTorque_SampleParams2.m");
+      paramfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleParams2.m");
       [~, paramfile_name, ~] = fileparts(paramfile_fullpath);
       evalin("base", paramfile_name)
 

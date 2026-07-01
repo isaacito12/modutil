@@ -34,7 +34,7 @@ classdef uptodateTest_Vehicle1DForce < matlab.unittest.TestCase
 
     function description_html_is_uptodate(testcase)
       %%
-      if TestUtil1.isNonLocal(testcase.LocalTopFolder)
+      if mus1.TestUtil.isNonLocal(testcase.LocalTopFolder)
         disp("The current path is outside of LocalTopFolder. Skipping.")
 
         return
@@ -42,11 +42,11 @@ classdef uptodateTest_Vehicle1DForce < matlab.unittest.TestCase
       end  % if
       % Make sure the description HTML file is up to date.
 
-      source_fullpath = FileUtil1.getFileFullPath("Vehicle1DForceApp_Description.mlx");
+      source_fullpath = mus1.FileUtil.getFileFullPath("Vehicle1DForceApp_Description.mlx");
       [folder, file_base_name, ~] = fileparts(source_fullpath);
       destination_fullpath = fullfile(folder, file_base_name + ".html");
       if isfile(destination_fullpath)
-        destination_is_newer = not(FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath));
+        destination_is_newer = not(mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath));
         if destination_is_newer
           disp("The HTML file is up to date. Skipping.")
 
@@ -57,7 +57,7 @@ classdef uptodateTest_Vehicle1DForce < matlab.unittest.TestCase
       % Generate HTML.
       actual_path = string( export(source_fullpath, destination_fullpath, Run=true, Format="html", HideCode=false));
       verifyEqual(testcase, actual_path, destination_fullpath)
-      destination_is_newer = not(FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath, DisplayInfo=true));
+      destination_is_newer = not(mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath, DisplayInfo=true));
       verifyTrue(testcase, destination_is_newer)
     end  % function
 
@@ -69,7 +69,7 @@ classdef uptodateTest_Vehicle1DForce < matlab.unittest.TestCase
         return
 
       end  % if
-      if TestUtil1.isNonLocal(testcase.LocalTopFolder)
+      if mus1.TestUtil.isNonLocal(testcase.LocalTopFolder)
         disp("The current path is outside of LocalTopFolder. Skipping.")
 
         return
@@ -77,11 +77,11 @@ classdef uptodateTest_Vehicle1DForce < matlab.unittest.TestCase
       end  % if
       % Make sure the description Markdown file is up to date.
 
-      source_fullpath = FileUtil1.getFileFullPath("Vehicle1DForceApp_Description.mlx");
+      source_fullpath = mus1.FileUtil.getFileFullPath("Vehicle1DForceApp_Description.mlx");
       [folder, file_base_name, ~] = fileparts(source_fullpath);
       destination_fullpath = fullfile(folder, file_base_name + ".md");
       if isfile(destination_fullpath)
-        destination_is_newer = not(FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath));
+        destination_is_newer = not(mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath));
         if destination_is_newer
           disp("The Markdown file is up to date. Skipping.")
 
@@ -91,8 +91,8 @@ classdef uptodateTest_Vehicle1DForce < matlab.unittest.TestCase
       end  % if
       % Generate Markdown.
       destination_folder = fileparts(destination_fullpath);
-      FileUtil1.exportToMarkdown(source_fullpath, MarkdownFolderPath=destination_folder, HideCode=true);
-      destination_is_newer = not(FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath, DisplayInfo=true));
+      mus1.FileUtil.exportToMarkdown(source_fullpath, MarkdownFolderPath=destination_folder, HideCode=true);
+      destination_is_newer = not(mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath, DisplayInfo=true));
       verifyTrue(testcase, destination_is_newer)
     end  % function
 

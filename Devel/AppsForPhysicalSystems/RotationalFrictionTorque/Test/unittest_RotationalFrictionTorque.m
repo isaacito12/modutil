@@ -95,7 +95,7 @@ classdef unittest_RotationalFrictionTorque < matlab.unittest.TestCase
       model_name = "RotationalFrictionTorque_SampleModel_refsub_24b";
 
       % Make sure the model exists in the MATLAB path.
-      target_fullpath = FileUtil1.getFileFullPath(model_name);
+      target_fullpath = mus1.FileUtil.getFileFullPath(model_name);
       verifyTrue(testcase, isscalar(target_fullpath))
       verifyTrue(testcase, isfile(target_fullpath))
 
@@ -117,7 +117,7 @@ classdef unittest_RotationalFrictionTorque < matlab.unittest.TestCase
       model_name = "RotationalFrictionTorque_SampleModel_refsub_24b";
 
       % Make sure the model exists in the MATLAB path.
-      target_fullpath = FileUtil1.getFileFullPath(model_name);
+      target_fullpath = mus1.FileUtil.getFileFullPath(model_name);
       verifyTrue(testcase, isscalar(target_fullpath))
       verifyTrue(testcase, isfile(target_fullpath))
 
@@ -140,7 +140,7 @@ classdef unittest_RotationalFrictionTorque < matlab.unittest.TestCase
 
     function Test_DataSet_invalid_block_type(testcase)
       % Pass a block that exists but is not a Rotational Friction block.
-      model_filename = FileUtil1.getUnusedFilename("temp_RotFric_wrongtype.mdl");
+      model_filename = mus1.FileUtil.getUnusedFilename("temp_RotFric_wrongtype.mdl");
       [~, model_name, ~] = fileparts(model_filename);
       new_system(model_name)
       add_block("fl_lib/Mechanical/Rotational Elements/Rotational Spring", model_name + "/Spring")

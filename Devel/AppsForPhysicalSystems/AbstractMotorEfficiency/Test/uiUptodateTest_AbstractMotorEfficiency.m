@@ -55,14 +55,14 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
 
     function app_screenshot_1_dark(testcase)
       %%
-      if TestUtil1.isR2024bOrOlder || TestUtil1.isNonLocal(testcase.LocalTopFolder)
+      if mus1.TestUtil.isR2024bOrOlder || mus1.TestUtil.isNonLocal(testcase.LocalTopFolder)
         disp("!Skipping")
 
         return
 
       end  % if
       % R2025a or newer
-      source_fullpath = FileUtil1.getFileFullPath("AbstractMotorEfficiency1.AbstractMotorEfficiencyAppMain");
+      source_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency1.AbstractMotorEfficiencyAppMain");
 
       destination_folder = fileparts(source_fullpath);
       destination_folder = extractBefore(destination_folder, ("/"|"\") + "+AbstractMotorEfficiency1");
@@ -72,7 +72,7 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       destination_fullpath = fullfile(destination_folder, "screenshot-AbstractMotorEfficiencyAppMain-dark-1.png");
 
       if isfile(destination_fullpath)
-        needs_update = FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
+        needs_update = mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
       else
         needs_update = true;
       end  % if
@@ -86,34 +86,34 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
         disp("The screenshot is up to date.")
       end  % if
 
-      destination_is_newer = not(FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath));
+      destination_is_newer = not(mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath));
       verifyTrue(testcase, destination_is_newer)
     end  % function
 
     function app_screenshot_1_light(testcase)
       %%
-      if TestUtil1.isNonLocal(testcase.LocalTopFolder)
+      if mus1.TestUtil.isNonLocal(testcase.LocalTopFolder)
         disp("!Skipping (the test is not running within the specified local path.)")
 
         return
 
       end  %if
 
-      source_fullpath = FileUtil1.getFileFullPath("AbstractMotorEfficiency1.AbstractMotorEfficiencyAppMain");
+      source_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency1.AbstractMotorEfficiencyAppMain");
 
       destination_folder = fileparts(source_fullpath);
       destination_folder = extractBefore(destination_folder, ("/"|"\") + "+AbstractMotorEfficiency1");
       destination_folder = fullfile(destination_folder, "media");
       [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
-      if TestUtil1.isR2024bOrOlder
+      if mus1.TestUtil.isR2024bOrOlder
         destination_fullpath = fullfile(destination_folder, "screenshot-AbstractMotorEfficiencyAppMain-24b-1.png");
       else
         destination_fullpath = fullfile(destination_folder, "screenshot-AbstractMotorEfficiencyAppMain-light-1.png");
       end  % if
 
       if isfile(destination_fullpath)
-        needs_update = FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
+        needs_update = mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
       else
         needs_update = true;
       end  % if
@@ -127,7 +127,7 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
         disp("The screenshot is up to date.")
       end  % if
 
-      destination_is_newer = not(FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath));
+      destination_is_newer = not(mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath));
       verifyTrue(testcase, destination_is_newer)
     end  % function
 
@@ -136,14 +136,14 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
 
     function app_screenshot_2_dark(testcase)
       %%
-      if TestUtil1.isR2024bOrOlder || TestUtil1.isNonLocal(testcase.LocalTopFolder)
+      if mus1.TestUtil.isR2024bOrOlder || mus1.TestUtil.isNonLocal(testcase.LocalTopFolder)
         disp("!Skipping")
 
         return
 
       end  % if
       % R2025a or newer
-      source_fullpath = FileUtil1.getFileFullPath("AbstractMotorEfficiencyApp");
+      source_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiencyApp");
 
       destination_folder = fileparts(source_fullpath);
       destination_folder = fullfile(destination_folder, "media");
@@ -152,7 +152,7 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       destination_fullpath = fullfile(destination_folder, "screenshot-AbstractMotorEfficiencyApp-dark-1.png");
 
       if isfile(destination_fullpath)
-        needs_update = FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
+        needs_update = mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
       else
         needs_update = true;
       end  % if
@@ -166,33 +166,33 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
         disp("The screenshot is up to date.")
       end  % if
 
-      destination_is_newer = not(FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath));
+      destination_is_newer = not(mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath));
       verifyTrue(testcase, destination_is_newer)
     end  % function
 
     function app_screenshot_2_light(testcase)
       %%
-      if TestUtil1.isNonLocal(testcase.LocalTopFolder)
+      if mus1.TestUtil.isNonLocal(testcase.LocalTopFolder)
         disp("!Skipping")
 
         return
 
       end  %if
 
-      source_fullpath = FileUtil1.getFileFullPath("AbstractMotorEfficiencyApp");
+      source_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiencyApp");
 
       destination_folder = fileparts(source_fullpath);
       destination_folder = fullfile(destination_folder, "media");
       [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
-      if TestUtil1.isR2024bOrOlder
+      if mus1.TestUtil.isR2024bOrOlder
         destination_fullpath = fullfile(destination_folder, "screenshot-AbstractMotorEfficiencyApp-24b-1.png");
       else
         destination_fullpath = fullfile(destination_folder, "screenshot-AbstractMotorEfficiencyApp-light-1.png");
       end  % if
 
       if isfile(destination_fullpath)
-        needs_update = FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
+        needs_update = mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
       else
         needs_update = true;
       end  % if
@@ -206,7 +206,7 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
         disp("The screenshot is up to date.")
       end  % if
 
-      destination_is_newer = not(FileUtil1.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath));
+      destination_is_newer = not(mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath));
       verifyTrue(testcase, destination_is_newer)
     end  % function
 

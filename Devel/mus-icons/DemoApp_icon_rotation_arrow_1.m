@@ -10,17 +10,17 @@ main_figure = uifigure(Visible="off");
 main_figure.Position(3) = 300;  % width
 main_figure.Position(4) = 200;  % height
 
-v_container = AppUtil1.VerticalContainer(main_figure);
+v_container = mus1.AppUtil.VerticalContainer(main_figure);
 
 % -----------------------------------------------------------------------------
 v_layout = addVerticalGridLayout(v_container);
-h_container = AppUtil1.HorizontalContainer(v_layout);
+h_container = mus1.AppUtil.HorizontalContainer(v_layout);
 
 L_1 = 40;
 L_2 = 22;
 
 h_layout = addHorizontalGridLayout(h_container, Width=100);  % fixed width
-image_ui_1 = AppUtil1.Graphics.Image(h_layout);
+image_ui_1 = mus1.AppUtil.Graphics.Image(h_layout);
 image_ui_1.MainFigure = main_figure;
 image_ui_1.ComponentHeight = L_1;
 image_ui_1.ImageSource = which("mus-icon-rotation-arrow.svg");
@@ -31,7 +31,7 @@ image_ui_1.HorizontalAlignment = "left";
 image_ui_1.HighlightBackground = "off";
 
 h_layout = addHorizontalGridLayout(h_container, Width=100);  % fixed width
-image_ui_1 = AppUtil1.Graphics.Image(h_layout);
+image_ui_1 = mus1.AppUtil.Graphics.Image(h_layout);
 image_ui_1.MainFigure = main_figure;
 image_ui_1.ComponentHeight = L_1;
 image_ui_1.ImageSource = which("mus-icon-rotation-arrow.svg");
@@ -42,7 +42,7 @@ image_ui_1.HorizontalAlignment = "center";
 image_ui_1.HighlightBackground = "on";
 
 h_layout = addHorizontalGridLayout(h_container, Width=100);  % fixed width
-image_ui_1 = AppUtil1.Graphics.Image(h_layout);
+image_ui_1 = mus1.AppUtil.Graphics.Image(h_layout);
 image_ui_1.MainFigure = main_figure;
 image_ui_1.ComponentHeight = L_1;
 image_ui_1.ImageSource = which("mus-icon-rotation-arrow.svg");
@@ -54,13 +54,13 @@ image_ui_1.HighlightBackground = "off";
 
 % -----------------------------------------------------------------------------
 v_layout = addVerticalGridLayout(v_container);
-h_container = AppUtil1.HorizontalContainer(v_layout);
+h_container = mus1.AppUtil.HorizontalContainer(v_layout);
 
 L_1 = 60;
 L_2 = 32;
 
 h_layout = addHorizontalGridLayout(h_container, Width=100);  % fixed width
-image_ui_1 = AppUtil1.Graphics.Image(h_layout);
+image_ui_1 = mus1.AppUtil.Graphics.Image(h_layout);
 image_ui_1.MainFigure = main_figure;
 image_ui_1.ComponentHeight = L_1;
 image_ui_1.ImageSource = which("mus-icon-rotation-arrow.svg");
@@ -71,7 +71,7 @@ image_ui_1.HorizontalAlignment = "left";
 image_ui_1.HighlightBackground = "on";
 
 h_layout = addHorizontalGridLayout(h_container, Width=100);  % fixed width
-image_ui_1 = AppUtil1.Graphics.Image(h_layout);
+image_ui_1 = mus1.AppUtil.Graphics.Image(h_layout);
 image_ui_1.MainFigure = main_figure;
 image_ui_1.ComponentHeight = L_1;
 image_ui_1.ImageSource = which("mus-icon-rotation-arrow.svg");
@@ -82,7 +82,7 @@ image_ui_1.HorizontalAlignment = "center";
 image_ui_1.HighlightBackground = "off";
 
 h_layout = addHorizontalGridLayout(h_container, Width=100);  % fixed width
-image_ui_1 = AppUtil1.Graphics.Image(h_layout);
+image_ui_1 = mus1.AppUtil.Graphics.Image(h_layout);
 image_ui_1.MainFigure = main_figure;
 image_ui_1.ComponentHeight = L_1;
 image_ui_1.ImageSource = which("mus-icon-rotation-arrow.svg");
@@ -94,13 +94,13 @@ image_ui_1.HighlightBackground = "on";
 
 % -----------------------------------------------------------------------------
 v_layout = addVerticalGridLayout(v_container);
-h_container = AppUtil1.HorizontalContainer(v_layout);
+h_container = mus1.AppUtil.HorizontalContainer(v_layout);
 
 L_1 = 80;
 L_2 = 42;
 
 h_layout = addHorizontalGridLayout(h_container, Width=100);  % fixed width
-image_ui_1 = AppUtil1.Graphics.Image(h_layout);
+image_ui_1 = mus1.AppUtil.Graphics.Image(h_layout);
 image_ui_1.MainFigure = main_figure;
 image_ui_1.ComponentHeight = L_1;
 image_ui_1.ImageSource = which("mus-icon-rotation-arrow.svg");
@@ -111,7 +111,7 @@ image_ui_1.HorizontalAlignment = "left";
 image_ui_1.HighlightBackground = "off";
 
 h_layout = addHorizontalGridLayout(h_container, Width=100);  % fixed width
-image_ui_1 = AppUtil1.Graphics.Image(h_layout);
+image_ui_1 = mus1.AppUtil.Graphics.Image(h_layout);
 image_ui_1.MainFigure = main_figure;
 image_ui_1.ComponentHeight = L_1;
 image_ui_1.ImageSource = which("mus-icon-rotation-arrow.svg");
@@ -122,7 +122,7 @@ image_ui_1.HorizontalAlignment = "center";
 image_ui_1.HighlightBackground = "on";
 
 h_layout = addHorizontalGridLayout(h_container, Width=100);  % fixed width
-image_ui_1 = AppUtil1.Graphics.Image(h_layout);
+image_ui_1 = mus1.AppUtil.Graphics.Image(h_layout);
 image_ui_1.MainFigure = main_figure;
 image_ui_1.ComponentHeight = L_1;
 image_ui_1.ImageSource = which("mus-icon-rotation-arrow.svg");
