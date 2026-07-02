@@ -46,11 +46,11 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
     % Check that models, scripts, functions, and classes run right out of the box.
 
     function clean_launch_1(testcase)
-      verifyWarningFree(testcase, @Vehicle1DForce1.Vehicle1DForceAppMain)
+      verifyWarningFree(testcase, @mus1.app.Vehicle1DForce.Vehicle1DForceAppMain)
     end  % function
 
     function clean_launch_2(testcase)
-      verifyWarningFree(testcase, @Vehicle1DForceApp)
+      verifyWarningFree(testcase, @mus1_Vehicle1DForceApp)
     end  % function
 
     %% Error case tests
@@ -60,39 +60,39 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
       function test_target
         % The model does not exist.
         model_name = "test_test_test";
-        Vehicle1DForce1.Vehicle1DForceAppMain(ModelName=model_name)  % !test-target
+        mus1.app.Vehicle1DForce.Vehicle1DForceAppMain(ModelName=model_name)  % !test-target
       end  % nested function
     end  % function
 
     %% Gesture test
 
     function Gesture_1(testcase)
-      app = Vehicle1DForce1.Vehicle1DForceAppMain;
+      app = mus1.app.Vehicle1DForce.Vehicle1DForceAppMain;
       choose(testcase, app.VehicleMassUI.UnitDropDownUI.DropDownUI.MainDropDown, "lbm")
       type(testcase, app.VehicleMassUI.ValueTextUI.MainEditField, "4000")
     end  % function
 
     function Gesture_2(testcase)
-      app = Vehicle1DForce1.Vehicle1DForceAppMain;
+      app = mus1.app.Vehicle1DForce.Vehicle1DForceAppMain;
       choose(testcase, app.TopSpeedUI.UnitDropDownUI.DropDownUI.MainDropDown, "mph")
       type(testcase, app.TopSpeedUI.ValueTextUI.MainEditField, "100")
     end  % function
 
     function Gesture_preset(testcase)
-      app = Vehicle1DForce1.Vehicle1DForceAppMain;
+      app = mus1.app.Vehicle1DForce.Vehicle1DForceAppMain;
       choose(testcase, app.PresetDropDownUI.MainDropDown, "Small car")
       choose(testcase, app.PresetDropDownUI.MainDropDown, "Large SUV")
       choose(testcase, app.PresetDropDownUI.MainDropDown, "Medium car")
     end  % function
 
     function Gesture_figure_window_1(testcase)
-      app = Vehicle1DForce1.Vehicle1DForceAppMain;
+      app = mus1.app.Vehicle1DForce.Vehicle1DForceAppMain;
       press(testcase, app.OpenInFigureWindowUI.MainHyperlink)
     end  % function
 
     function Gesture_figure_window_2(~)
       % Directly invoke the callback, which allows manual select-and-run for interactive visual inspection.
-      app = Vehicle1DForce1.Vehicle1DForceAppMain;
+      app = mus1.app.Vehicle1DForce.Vehicle1DForceAppMain;
       app.PresetDropDownUI.Value = "Large SUV";
       app.OpenInFigureWindowUI.HyperlinkClickedCallback()
       app.PresetDropDownUI.Value = "Medium car";
@@ -103,12 +103,12 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
 
     function option_ModelName_1(~)
       model_name = "Vehicle1DForce_SampleModel_refsub_24b";
-      Vehicle1DForce1.Vehicle1DForceAppMain(ModelName=model_name)
+      mus1.app.Vehicle1DForce.Vehicle1DForceAppMain(ModelName=model_name)
     end  % function
 
     function option_BlockPath_1(~)
       block_path = "Vehicle1DForce_SampleModel_refsub_24b/Longitudinal Vehicle";
-      Vehicle1DForce1.Vehicle1DForceAppMain(BlockPath=block_path)
+      mus1.app.Vehicle1DForce.Vehicle1DForceAppMain(BlockPath=block_path)
     end  % function
 
     function option_BlockPath_2(~)
@@ -118,7 +118,7 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
       block_path = "Vehicle1DForce_SampleModel_refsub_24b/Longitudinal Vehicle1";
       model_name = "Vehicle1DForce_SampleModel_refsub_24b";
       % BlockPath must win over ModelName.
-      Vehicle1DForce1.Vehicle1DForceAppMain(BlockPath=block_path, ModelName=model_name)
+      mus1.app.Vehicle1DForce.Vehicle1DForceAppMain(BlockPath=block_path, ModelName=model_name)
     end  % function
 
     function set_parameter_to_block_1(testcase)
@@ -147,7 +147,7 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
       % Open the app with the target block in the model.
       % Change values in the app, send the values to the block by clicking the Set button.
 
-      app = Vehicle1DForce1.Vehicle1DForceAppMain(BlockPath=block_path);
+      app = mus1.app.Vehicle1DForce.Vehicle1DForceAppMain(BlockPath=block_path);
 
       choose(testcase, app.PresetDropDownUI.MainDropDown, "Large SUV")
 
@@ -194,7 +194,7 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
     function Test_error_InvalidModelName_from_BlockPath(testcase)
       % BlockPath without "/" yields empty model name.
       verifyError(testcase, ...
-        @() Vehicle1DForce1.Vehicle1DForceAppMain(BlockPath="NoSlashHere"), ...
+        @() mus1.app.Vehicle1DForce.Vehicle1DForceAppMain(BlockPath="NoSlashHere"), ...
         "Vehicle1DForceAppMain:InvalidModelName")
     end  % function
 
@@ -206,7 +206,7 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
       addTeardown(testcase, @() bdclose(model_name))
       addTeardown(testcase, @() delete(which(model_name)))
       verifyError(testcase, ...
-        @() Vehicle1DForce1.Vehicle1DForceAppMain(ModelName=model_name), ...
+        @() mus1.app.Vehicle1DForce.Vehicle1DForceAppMain(ModelName=model_name), ...
         "Vehicle1DForceAppMain:SimscapeBlockWasNotFound")
     end  % function
 
@@ -215,7 +215,7 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
       model_name = "Vehicle1DForce_SampleModel_refsub_24b";
       wrong_path = model_name + "/Nonexistent Block XYZ";
       verifyError(testcase, ...
-        @() Vehicle1DForce1.Vehicle1DForceAppMain(BlockPath=wrong_path), ...
+        @() mus1.app.Vehicle1DForce.Vehicle1DForceAppMain(BlockPath=wrong_path), ...
         "Vehicle1DForceAppMain:InvalidBlockPath")
     end  % function
 
@@ -223,7 +223,7 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
 
     function Test_error_InvalidAppParameterFileName(testcase)
       verifyError(testcase, ...
-        @() Vehicle1DForce1.Vehicle1DForceAppMain( ...
+        @() mus1.app.Vehicle1DForce.Vehicle1DForceAppMain( ...
           AppParameterFileName="nonexistent_file_xyz_123.m", ...
           AppParameterStructName="SomeStruct"), ...
         "Vehicle1DForceAppMain:InvalidAppParameterFileName")
@@ -232,7 +232,7 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
     function Test_error_AppParameterStructNameIsRequired(testcase)
       param_file = which("Vehicle1DForce_SampleParams1.m");
       verifyError(testcase, ...
-        @() Vehicle1DForce1.Vehicle1DForceAppMain( ...
+        @() mus1.app.Vehicle1DForce.Vehicle1DForceAppMain( ...
           AppParameterFileName=param_file, ...
           AppParameterStructName=""), ...
         "Vehicle1DForceAppMain:AppParameterStructNameIsRequired")
@@ -241,7 +241,7 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
     function Test_AppParameterFile_success(testcase)
       param_file = which("Vehicle1DForce_SampleParams1.m");
       addTeardown(testcase, @() evalin("base", "clear VehicleParams1"))
-      app = Vehicle1DForce1.Vehicle1DForceAppMain( ...
+      app = mus1.app.Vehicle1DForce.Vehicle1DForceAppMain( ...
         AppParameterFileName=param_file, ...
         AppParameterStructName="VehicleParams1");
       verifyEqual(testcase, app.AppParameterStructName, "VehicleParams1")
@@ -253,7 +253,7 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
     function Test_AppParameterStructName_only(testcase)
       evalin("base", "Vehicle1DForce_SampleParams1");
       addTeardown(testcase, @() evalin("base", "clear VehicleParams1"))
-      app = Vehicle1DForce1.Vehicle1DForceAppMain( ...
+      app = mus1.app.Vehicle1DForce.Vehicle1DForceAppMain( ...
         AppParameterStructName="VehicleParams1");
       verifyEqual(testcase, app.AppParameterStructName, "VehicleParams1")
     end  % function
@@ -271,7 +271,7 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
       addTeardown(testcase, @() bdclose(model_name))
       addTeardown(testcase, @() delete(which(model_name)))
 
-      app = Vehicle1DForce1.Vehicle1DForceAppMain(BlockPath=block_path);
+      app = mus1.app.Vehicle1DForce.Vehicle1DForceAppMain(BlockPath=block_path);
 
       % Set ValueText to simscape.Value expressions.
       app.VehicleMassUI.ValueText = "simscape.Value(1500, 'kg')";
@@ -307,7 +307,7 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
       addTeardown(testcase, @() delete(which(model_name)))
 
       % Launch app normally (figure becomes visible).
-      app = Vehicle1DForce1.Vehicle1DForceAppMain;
+      app = mus1.app.Vehicle1DForce.Vehicle1DForceAppMain;
 
       % Point the block path dropdown to the bad block.
       app.AppBlockSelectorUI.BlockPathDropDownUI.Items(end+1) = replace(block_path, "/", " / ");
@@ -333,14 +333,14 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
       % During app construction with BlockPath, the figure is not yet visible.
       % The DataSet constructor will throw InvalidParameterization, which gets rethrown.
       verifyError(testcase, ...
-        @() Vehicle1DForce1.Vehicle1DForceAppMain(BlockPath=block_path), ...
+        @() mus1.app.Vehicle1DForce.Vehicle1DForceAppMain(BlockPath=block_path), ...
         "Vehicle1DForceDataSet:InvalidParameterization")
     end  % function
 
     %% loadParametersFromBaseWorkspace
 
     function Test_loadParams_empty_returns_early(testcase)
-      app = Vehicle1DForce1.Vehicle1DForceAppMain;
+      app = mus1.app.Vehicle1DForce.Vehicle1DForceAppMain;
       app.StructParameterUI.StructNameDropDownUI.Value = "";
       % Should return immediately without error.
       app.loadParametersFromBaseWorkspace();
@@ -352,13 +352,13 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
       evalin("base", "test_nested_v1d.sub = VehicleParams1;");
       addTeardown(testcase, @() evalin("base", "clear VehicleParams1 test_nested_v1d"))
 
-      app = Vehicle1DForce1.Vehicle1DForceAppMain;
+      app = mus1.app.Vehicle1DForce.Vehicle1DForceAppMain;
       app.loadParametersFromBaseWorkspace(StructName="test_nested_v1d.sub");
       verifyEqual(testcase, app.AppParameterStructName, "test_nested_v1d.sub")
     end  % function
 
     function Test_loadParams_struct_not_found(testcase)
-      app = Vehicle1DForce1.Vehicle1DForceAppMain;
+      app = mus1.app.Vehicle1DForce.Vehicle1DForceAppMain;
       verifyError(testcase, ...
         @() app.loadParametersFromBaseWorkspace(StructName="nonexistent_var_xyz"), ...
         "Vehicle1DForceAppMain:StructNotFoundInBaseWorkspace")
@@ -368,7 +368,7 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
       evalin("base", "Vehicle1DForce_SampleParams1");
       addTeardown(testcase, @() evalin("base", "clear VehicleParams1"))
 
-      app = Vehicle1DForce1.Vehicle1DForceAppMain;
+      app = mus1.app.Vehicle1DForce.Vehicle1DForceAppMain;
       app.StructParameterUI.StructNameDropDownUI.Items(end+1) = "VehicleParams1";
       app.StructParameterUI.StructNameDropDownUI.Value = "VehicleParams1";
       app.loadParametersFromBaseWorkspace();
@@ -381,7 +381,7 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
       evalin("base", "bad_v1d_struct.VehicleMass = 'invalid([';");
       addTeardown(testcase, @() evalin("base", "clear bad_v1d_struct"))
 
-      app = Vehicle1DForce1.Vehicle1DForceAppMain;
+      app = mus1.app.Vehicle1DForce.Vehicle1DForceAppMain;
       original_value = app.VehicleMassUI.ValueText;
       % Should not throw; gracefully handles the error.
       app.loadParametersFromBaseWorkspace(StructName="bad_v1d_struct");
@@ -396,7 +396,7 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
       % Test with DataSet.ModelParams.
       % There are multiple properties in DataSet.ModelParams, but test with just one.
 
-      app = Vehicle1DForce1.Vehicle1DForceAppMain;
+      app = mus1.app.Vehicle1DForce.Vehicle1DForceAppMain;
       value_before = value(app.DataSet.ModelParams.VehicleMass, "kg");
 
       % This results in uialert and reverts DataSet.
@@ -410,7 +410,7 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
       % Test with DataSet.
       % There are multiple properties in DataSet, but test with just one.
 
-      app = Vehicle1DForce1.Vehicle1DForceAppMain;
+      app = mus1.app.Vehicle1DForce.Vehicle1DForceAppMain;
       value_before = value(app.DataSet.PlotSpeedUpperBound, "km/hr");
 
       % This results in uialert and reverts DataSet.
@@ -422,7 +422,7 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
 
     % !wip: does not run as expected.
     function WIP_updateApp_error_recovery(testcase)
-      app = Vehicle1DForce1.Vehicle1DForceAppMain;
+      app = mus1.app.Vehicle1DForce.Vehicle1DForceAppMain;
       original_mass = value(app.DataSet.ModelParams.VehicleMass, "kg");
 
       % Set invalid value that will make updateDataSet throw.
@@ -435,7 +435,7 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
     end  % function
 
     function Test_updateApp_PlotMode_skip(testcase)
-      app = Vehicle1DForce1.Vehicle1DForceAppMain;
+      app = mus1.app.Vehicle1DForce.Vehicle1DForceAppMain;
       % Call with PlotMode="skip" — should compute derived params but skip plot.
       app.updateApp(PlotMode="skip");
       % Verify derived parameters were still computed.

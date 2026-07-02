@@ -25,7 +25,7 @@ arguments (Input)
 
   % DataSet is ignored if DataSource is "direct".
   NameValuePair.DataSource (1,1) string {mustBeMember(NameValuePair.DataSource, ["direct", "dataset"])} = "direct"
-  NameValuePair.DataSet Vehicle1DForce1.Vehicle1DForceDataSet {mustBeScalarOrEmpty}
+  NameValuePair.DataSet mus1.app.Vehicle1DForce.Vehicle1DForceDataSet {mustBeScalarOrEmpty}
 
   % ===========================================================================
   % Options for the direct data source
@@ -174,7 +174,7 @@ else
   if isfield(NameValuePair, "DataSet")
     DataSet = NameValuePair.DataSet;
   else
-    DataSet = Vehicle1DForce1.Vehicle1DForceDataSet(Initialization=true);
+    DataSet = mus1.app.Vehicle1DForce.Vehicle1DForceDataSet(Initialization=true);
   end  % if
 
   max_vehicle_force = DataSet.ModelParams.MaxForce;

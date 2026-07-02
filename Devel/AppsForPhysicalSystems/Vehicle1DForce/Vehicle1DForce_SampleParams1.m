@@ -5,7 +5,7 @@
 % This script creates a variable of Vehicle1DForceAppParameters, which
 % provides predefined fields for the app parameters and tab-completion for edit.
 % The app can also read these fields with the "Get" button all at once.
-VehicleParams1 = Vehicle1DForce1.Vehicle1DForceAppParameters;
+VehicleParams1 = mus1.app.Vehicle1DForce.Vehicle1DForceAppParameters;
 
 VehicleParams1.VehicleMass = simscape.Value(5000, "lbm");
 VehicleParams1.TireRollingCoefficient = 0.014;

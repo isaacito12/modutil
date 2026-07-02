@@ -44,7 +44,7 @@ classdef Vehicle1DForceDataSet
   properties
 
     % Parameters of the target model
-    ModelParams (1,1) Vehicle1DForce1.Vehicle1DForceModelParameters
+    ModelParams (1,1) mus1.app.Vehicle1DForce.Vehicle1DForceModelParameters
 
     % Block path to the target block in a model
     BlockPath (1,1) string = ""
@@ -100,7 +100,7 @@ classdef Vehicle1DForceDataSet
         NameValuePair.BlockPath (1,1) string = ""
       end  % arguments
 
-      DataSet.ModelParams = Vehicle1DForce1.Vehicle1DForceModelParameters;
+      DataSet.ModelParams = mus1.app.Vehicle1DForce.Vehicle1DForceModelParameters;
 
       if NameValuePair.BlockPath ~= ""
         DataSet.BlockPath = NameValuePair.BlockPath;

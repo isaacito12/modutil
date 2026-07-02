@@ -29,7 +29,7 @@ classdef uptodateTest_Vehicle1DForce < matlab.unittest.TestCase
 
     function PassingTest_1(~)
       % The description file is a Live Script. Make sure it runs without any errors.
-      Vehicle1DForceApp_Description
+      Vehicle1DForceApp_Description_mus1
     end  % function
 
     function description_html_is_uptodate(testcase)
@@ -42,7 +42,7 @@ classdef uptodateTest_Vehicle1DForce < matlab.unittest.TestCase
       end  % if
       % Make sure the description HTML file is up to date.
 
-      source_fullpath = mus1.FileUtil.getFileFullPath("Vehicle1DForceApp_Description.mlx");
+      source_fullpath = mus1.FileUtil.getFileFullPath("Vehicle1DForceApp_Description_mus1.mlx");
       [folder, file_base_name, ~] = fileparts(source_fullpath);
       destination_fullpath = fullfile(folder, file_base_name + ".html");
       if isfile(destination_fullpath)
@@ -77,7 +77,7 @@ classdef uptodateTest_Vehicle1DForce < matlab.unittest.TestCase
       end  % if
       % Make sure the description Markdown file is up to date.
 
-      source_fullpath = mus1.FileUtil.getFileFullPath("Vehicle1DForceApp_Description.mlx");
+      source_fullpath = mus1.FileUtil.getFileFullPath("Vehicle1DForceApp_Description_mus1.mlx");
       [folder, file_base_name, ~] = fileparts(source_fullpath);
       destination_fullpath = fullfile(folder, file_base_name + ".md");
       if isfile(destination_fullpath)

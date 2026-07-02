@@ -3,7 +3,7 @@ classdef Vehicle1DForcePresets
   % Copyright 2024-2026 The MathWorks, Inc.
 
   properties (SetAccess=immutable)
-    PresetDictionary = configureDictionary("string", "Vehicle1DForce1.Vehicle1DForceDataSet")
+    PresetDictionary = configureDictionary("string", "mus1.app.Vehicle1DForce.Vehicle1DForceDataSet")
   end  % properties
 
   methods
@@ -11,7 +11,7 @@ classdef Vehicle1DForcePresets
     function PresetDictionary = Vehicle1DForcePresets()
       %%
 
-      data_set = Vehicle1DForce1.Vehicle1DForceDataSet;
+      data_set = mus1.app.Vehicle1DForce.Vehicle1DForceDataSet;
 
       data_set.ModelParams.VehicleMass = simscape.Value(1100, "kg");
       data_set.ModelParams.TireRollingCoefficient = 0.013;
@@ -35,7 +35,7 @@ classdef Vehicle1DForcePresets
 
       % -----------------------------------------------------------------------
 
-      data_set = Vehicle1DForce1.Vehicle1DForceDataSet;
+      data_set = mus1.app.Vehicle1DForce.Vehicle1DForceDataSet;
 
       data_set.ModelParams.VehicleMass = simscape.Value(1800, "kg");
       data_set.ModelParams.TireRollingCoefficient = 0.0136;
@@ -59,7 +59,7 @@ classdef Vehicle1DForcePresets
 
       % -----------------------------------------------------------------------
 
-      data_set = Vehicle1DForce1.Vehicle1DForceDataSet;
+      data_set = mus1.app.Vehicle1DForce.Vehicle1DForceDataSet;
 
       data_set.ModelParams.VehicleMass = simscape.Value(2600, "kg");
       data_set.ModelParams.TireRollingCoefficient = 0.014;

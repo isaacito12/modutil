@@ -36,50 +36,50 @@ classdef unittest_Vehicle1DForce < matlab.unittest.TestCase
     % Check that models, scripts, functions, and classes run right out of the box.
 
     function PassingTest_1_1(~)
-      Vehicle1DForce1.Vehicle1DForceModelParameters  % !test-target
+      mus1.app.Vehicle1DForce.Vehicle1DForceModelParameters  % !test-target
     end  % function
 
     function PassingTest_1_2(~)
-      Vehicle1DForce1.Vehicle1DForceModelParameters(Initialization=true)  % !test-target
+      mus1.app.Vehicle1DForce.Vehicle1DForceModelParameters(Initialization=true)  % !test-target
     end  % function
 
     function PassingTest_2_1(~)
-      Vehicle1DForce1.Vehicle1DForceDataSet  % !test-target
+      mus1.app.Vehicle1DForce.Vehicle1DForceDataSet  % !test-target
     end  % function
 
     function PassingTest_2_2(~)
-      Vehicle1DForce1.Vehicle1DForceDataSet(Initialization=true)  % !test-target
+      mus1.app.Vehicle1DForce.Vehicle1DForceDataSet(Initialization=true)  % !test-target
     end  % function
 
     function PassingTest_2_3(~)
-      Vehicle1DForce1.Vehicle1DForcePresets  % !test-target
+      mus1.app.Vehicle1DForce.Vehicle1DForcePresets  % !test-target
     end  % function
 
     % -------------------------------------------------------------------------
     % plot - direct data source
 
     function PassingTest_3_1(~)
-      Vehicle1DForce1.plotVehicle1DForce  % !test-target
+      mus1.app.Vehicle1DForce.plotVehicle1DForce  % !test-target
     end  % function
 
     function PassingTest_3_2(~)
-      Vehicle1DForce1.plotVehicle1DForce(DataSource="direct")  % !test-target
+      mus1.app.Vehicle1DForce.plotVehicle1DForce(DataSource="direct")  % !test-target
     end  % function
 
     % -------------------------------------------------------------------------
     % plot - external data source
 
     function PassingTest_4_1(~)
-      Vehicle1DForce1.plotVehicle1DForce(DataSource="dataset")  % !test-target
+      mus1.app.Vehicle1DForce.plotVehicle1DForce(DataSource="dataset")  % !test-target
     end  % function
 
     function PassingTest_4_2(~)
-      ds = Vehicle1DForce1.Vehicle1DForceDataSet(Initialization=true);  % !test-target
-      Vehicle1DForce1.plotVehicle1DForce(DataSource="dataset", DataSet=ds)  % !test-target
+      ds = mus1.app.Vehicle1DForce.Vehicle1DForceDataSet(Initialization=true);  % !test-target
+      mus1.app.Vehicle1DForce.plotVehicle1DForce(DataSource="dataset", DataSet=ds)  % !test-target
     end  % function
 
     function PassingTest_4_3(~)
-      ds = Vehicle1DForce1.Vehicle1DForceDataSet(Initialization=true);
+      ds = mus1.app.Vehicle1DForce.Vehicle1DForceDataSet(Initialization=true);
       ds.PlotSpeedUpperBound = simscape.Value(200, "mph");  % !test-target
 
       ds.ModelParams.VehicleMass = simscape.Value(1000, "lbm");  % !test-target
@@ -87,7 +87,7 @@ classdef unittest_Vehicle1DForce < matlab.unittest.TestCase
       % When modifying model parameters, make sure to update derived parameters.
       ds = updateDataSet(ds);
 
-      Vehicle1DForce1.plotVehicle1DForce(DataSource="dataset", DataSet=ds)
+      mus1.app.Vehicle1DForce.plotVehicle1DForce(DataSource="dataset", DataSet=ds)
     end  % function
 
     % -------------------------------------------------------------------------
@@ -100,7 +100,7 @@ classdef unittest_Vehicle1DForce < matlab.unittest.TestCase
     %% Tests - Derived parameters
 
     function Test_derived_1(testcase)
-      params = Vehicle1DForce1.Vehicle1DForceModelParameters(Initialization=true);
+      params = mus1.app.Vehicle1DForce.Vehicle1DForceModelParameters(Initialization=true);
 
       verifyTrue(testcase, value(params.RoadLoadA, "N") > 0)
       verifyTrue(testcase, value(params.RoadLoadC, "N/(m/s)^2") > 0)
@@ -109,7 +109,7 @@ classdef unittest_Vehicle1DForce < matlab.unittest.TestCase
     end  % function
 
     function Test_derived_2(testcase)
-      params = Vehicle1DForce1.Vehicle1DForceModelParameters(Initialization=true);
+      params = mus1.app.Vehicle1DForce.Vehicle1DForceModelParameters(Initialization=true);
 
       % RoadLoadA = C_roll * M_veh * g
       expected_A = value(params.TireRollingCoefficient * params.VehicleMass * params.GravitationalAcceleration, "N");
@@ -120,7 +120,7 @@ classdef unittest_Vehicle1DForce < matlab.unittest.TestCase
     %% Tests - Presets
 
     function Test_presets_1(testcase)
-      presets = Vehicle1DForce1.Vehicle1DForcePresets;
+      presets = mus1.app.Vehicle1DForce.Vehicle1DForcePresets;
       preset_dict = presets.PresetDictionary;
 
       verifyTrue(testcase, isKey(preset_dict, "Small car"))
@@ -129,7 +129,7 @@ classdef unittest_Vehicle1DForce < matlab.unittest.TestCase
     end  % function
 
     function Test_presets_2(testcase)
-      presets = Vehicle1DForce1.Vehicle1DForcePresets;
+      presets = mus1.app.Vehicle1DForce.Vehicle1DForcePresets;
 
       small = presets.PresetDictionary("Small car");
       verifyEqual(testcase, value(small.ModelParams.VehicleMass, "kg"), 1100)
@@ -142,7 +142,7 @@ classdef unittest_Vehicle1DForce < matlab.unittest.TestCase
     end  % function
 
     function Test_presets_3(testcase)
-      presets = Vehicle1DForce1.Vehicle1DForcePresets;
+      presets = mus1.app.Vehicle1DForce.Vehicle1DForcePresets;
 
       medium = presets.PresetDictionary("Medium car");
       verifyTrue(testcase, value(medium.ModelParams.RoadLoadA, "N") > 0)
@@ -154,7 +154,7 @@ classdef unittest_Vehicle1DForce < matlab.unittest.TestCase
     %% Tests - DataSet update
 
     function Test_dataset_1(testcase)
-      ds = Vehicle1DForce1.Vehicle1DForceDataSet(Initialization=true);
+      ds = mus1.app.Vehicle1DForce.Vehicle1DForceDataSet(Initialization=true);
 
       verifyEqual(testcase, ds.NumSpeedPoints, 200)
       verifyEqual(testcase, numel(ds.PlotGrades), 5)
@@ -163,7 +163,7 @@ classdef unittest_Vehicle1DForce < matlab.unittest.TestCase
     end  % function
 
     function Test_dataset_2(testcase)
-      ds = Vehicle1DForce1.Vehicle1DForceDataSet(Initialization=true);
+      ds = mus1.app.Vehicle1DForce.Vehicle1DForceDataSet(Initialization=true);
 
       ds.ModelParams.VehicleMass = simscape.Value(2000, "kg");
       ds = updateDataSet(ds);
@@ -173,7 +173,7 @@ classdef unittest_Vehicle1DForce < matlab.unittest.TestCase
 
     function test_DataSet_3(testcase)
 
-      ds = Vehicle1DForce1.Vehicle1DForceDataSet;
+      ds = mus1.app.Vehicle1DForce.Vehicle1DForceDataSet;
       ds.ModelParams.VehicleMass = simscape.Value(4000, "lbm");  % 4000 lbm = 1814 kg
       ds.ModelParams.TireRollingRadius = simscape.Value(12, "in");  % 12 in = 30.48 cm
       ds.ModelParams.TireRollingCoefficient = 0.018;
@@ -203,7 +203,7 @@ classdef unittest_Vehicle1DForce < matlab.unittest.TestCase
     %% Tests - ModelParameters uninitialized
 
     function Test_params_uninit_1(testcase)
-      params = Vehicle1DForce1.Vehicle1DForceModelParameters(Initialization=false);
+      params = mus1.app.Vehicle1DForce.Vehicle1DForceModelParameters(Initialization=false);
 
       verifyTrue(testcase, isnan(value(params.VehicleMass, "kg")))
       verifyTrue(testcase, isnan(params.TireRollingCoefficient))
@@ -220,7 +220,7 @@ classdef unittest_Vehicle1DForce < matlab.unittest.TestCase
     %% Tests - DataSet uninitialized
 
     function Test_dataset_uninit_1(testcase)
-      ds = Vehicle1DForce1.Vehicle1DForceDataSet;
+      ds = mus1.app.Vehicle1DForce.Vehicle1DForceDataSet;
 
       verifyTrue(testcase, isnan(value(ds.ModelParams.VehicleMass, "kg")))
       verifyEqual(testcase, ds.VehicleForceValues, simscape.Value([0, 0]', "N"))
@@ -229,7 +229,7 @@ classdef unittest_Vehicle1DForce < matlab.unittest.TestCase
     %% Tests - Derived parameters (additional)
 
     function Test_derived_RoadLoadC(testcase)
-      params = Vehicle1DForce1.Vehicle1DForceModelParameters(Initialization=true);
+      params = mus1.app.Vehicle1DForce.Vehicle1DForceModelParameters(Initialization=true);
 
       expected_C = value((1/2) * params.AirDragCoefficient * params.FrontalArea * params.DryAirDensity, "N/(m/s)^2");
       actual_C = value(params.RoadLoadC, "N/(m/s)^2");
@@ -237,7 +237,7 @@ classdef unittest_Vehicle1DForce < matlab.unittest.TestCase
     end  % function
 
     function Test_derived_MaxForce(testcase)
-      params = Vehicle1DForce1.Vehicle1DForceModelParameters(Initialization=true);
+      params = mus1.app.Vehicle1DForce.Vehicle1DForceModelParameters(Initialization=true);
 
       expected_F = value(params.MaxAcceleration * params.VehicleMass * params.GravitationalAcceleration, "N");
       actual_F = value(params.MaxForce, "N");
@@ -245,7 +245,7 @@ classdef unittest_Vehicle1DForce < matlab.unittest.TestCase
     end  % function
 
     function Test_derived_MaxClimbPower(testcase)
-      params = Vehicle1DForce1.Vehicle1DForceModelParameters(Initialization=true);
+      params = mus1.app.Vehicle1DForce.Vehicle1DForceModelParameters(Initialization=true);
 
       A_rl = params.RoadLoadA;
       B_rl = params.RoadLoadB;
@@ -262,14 +262,14 @@ classdef unittest_Vehicle1DForce < matlab.unittest.TestCase
     %% Tests - DataSet dimensions
 
     function Test_dataset_ForceAtConstantPower_size(testcase)
-      ds = Vehicle1DForce1.Vehicle1DForceDataSet(Initialization=true);
+      ds = mus1.app.Vehicle1DForce.Vehicle1DForceDataSet(Initialization=true);
 
       verifyEqual(testcase, size(ds.ForceValuesAtConstantPower, 1), ds.NumSpeedPoints)
       verifyEqual(testcase, size(ds.ForceValuesAtConstantPower, 2), numel(ds.PlotPowers))
     end  % function
 
     function Test_dataset_update_PlotGrades(testcase)
-      ds = Vehicle1DForce1.Vehicle1DForceDataSet(Initialization=true);
+      ds = mus1.app.Vehicle1DForce.Vehicle1DForceDataSet(Initialization=true);
 
       ds.PlotGrades = [0, 10, 20];
       ds = updateDataSet(ds);

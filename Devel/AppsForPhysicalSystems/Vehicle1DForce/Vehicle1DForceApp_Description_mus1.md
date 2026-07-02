@@ -3,7 +3,7 @@
 The vehicle 1d force app visualizes the longitudinal vehicle force model. The model is used by the [Longitudinal Vehicle](https://www.mathworks.com/help/sdl/ref/longitudinalvehicle.html) block (Simscape Driveline).
 
 <p style="text-align:left">
-   <img src="media/Vehicle1DForceApp_Description_media/image_0.png" width="953" alt="image_0.png">
+   <img src="media/Vehicle1DForceApp_Description_mus1_media/image_0.png" width="953" alt="image_0.png">
 </p>
 
 # Open the app
@@ -39,7 +39,7 @@ For convenience, use `Vehicle1DForceAppParameters` to get predefined struct fiel
 <pre>
 % Use Vehicle1DForceAppParameters to get predefined fields for the app parameters.
 % This provides tab-completion for edit too.
-VehicleParams = Vehicle1DForce1.Vehicle1DForceAppParameters;
+VehicleParams = mus1.app.Vehicle1DForce.Vehicle1DForceAppParameters;
 
 VehicleParams.VehicleMass = simscape.Value(5000, "lbm");
 VehicleParams.TireRollingCoefficient = 0.014;
@@ -97,11 +97,11 @@ Use `plotVehicle1DForcea` to create a plot programmatically. The app internally 
 
 The following is an example of using `DataSource="direct"`.
 
-<center><img src="media/Vehicle1DForceApp_Description_media/figure_0.png" width="562" alt="figure_0.png"></center>
+<center><img src="media/Vehicle1DForceApp_Description_mus1_media/figure_0.png" width="562" alt="figure_0.png"></center>
 
 The following is an example of using `DataSource="dataset"`. In this case, first create a `Vehicle1DForceDataSet` object, specify parameters, update the object, and then pass it to the plot function.
 
-<center><img src="media/Vehicle1DForceApp_Description_media/figure_1.png" width="562" alt="figure_1.png"></center>
+<center><img src="media/Vehicle1DForceApp_Description_mus1_media/figure_1.png" width="562" alt="figure_1.png"></center>
 
 By using the data set, you can access internal information including derived parameters.
 

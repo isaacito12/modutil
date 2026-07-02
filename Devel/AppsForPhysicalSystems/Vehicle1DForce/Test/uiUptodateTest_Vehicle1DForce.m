@@ -50,7 +50,7 @@ classdef uiUptodateTest_Vehicle1DForce < matlab.uitest.TestCase
     %% Screenshots
 
     % -------------------------------------------------------------------------
-    % Vehicle1DForce1.Vehicle1DForceAppMain
+    % mus1.app.Vehicle1DForce.Vehicle1DForceAppMain
     % Save the screenshot image file outside of the namespace.
 
     function app_screenshot_1_dark(testcase)
@@ -62,12 +62,11 @@ classdef uiUptodateTest_Vehicle1DForce < matlab.uitest.TestCase
 
       end  % if
       % R2025a or newer
-      source_fullpath = mus1.FileUtil.getFileFullPath("Vehicle1DForce1.Vehicle1DForceAppMain");
+      source_fullpath = mus1.FileUtil.getFileFullPath("mus1.app.Vehicle1DForce.Vehicle1DForceAppMain");
 
-      destination_folder = fileparts(source_fullpath);
-      destination_folder = extractBefore(destination_folder, ("/"|"\") + "+Vehicle1DForce1");
-      destination_folder = fullfile(destination_folder, "media");
-      [~, ~] = mkdir(destination_folder);  % Assign return value to suppress warning.
+      destination_folder = extractBefore(source_fullpath, ("/"|"\") + "Devel");
+      destination_folder = fullfile(destination_folder, "Devel", "AppsForPhysicalSystems", "Vehicle1DForce", "media");
+      [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
       destination_fullpath = fullfile(destination_folder, "screenshot-Vehicle1DForceAppMain-dark-1.png");
 
@@ -78,11 +77,11 @@ classdef uiUptodateTest_Vehicle1DForce < matlab.uitest.TestCase
       end  % if
 
       if needs_update
-        app = Vehicle1DForce1.Vehicle1DForceAppMain;  % !screenshot-target
+        disp("Generating: " + destination_fullpath)
+        app = mus1.app.Vehicle1DForce.Vehicle1DForceAppMain;  % !screenshot-target
         app.Window.MainFigure.Theme = "dark";
         drawnow
         exportapp(app.Window.MainFigure, destination_fullpath)
-        disp("Exported: " + destination_fullpath)
       else
         disp("The screenshot is up to date.")
       end  % if
@@ -94,18 +93,17 @@ classdef uiUptodateTest_Vehicle1DForce < matlab.uitest.TestCase
     function app_screenshot_1_light(testcase)
       %%
       if mus1.TestUtil.isNonLocal(testcase.LocalTopFolder)
-        disp("!Skipping")
+        disp("!Skipping (the test is not running within the specified local path.)")
 
         return
 
       end  %if
 
-      source_fullpath = mus1.FileUtil.getFileFullPath("Vehicle1DForce1.Vehicle1DForceAppMain");
+      source_fullpath = mus1.FileUtil.getFileFullPath("mus1.app.Vehicle1DForce.Vehicle1DForceAppMain");
 
-      destination_folder = fileparts(source_fullpath);
-      destination_folder = extractBefore(destination_folder, ("/"|"\") + "+Vehicle1DForce1");
-      destination_folder = fullfile(destination_folder, "media");
-      [~, ~] = mkdir(destination_folder);  % Assign return value to suppress warning.
+      destination_folder = extractBefore(source_fullpath, ("/"|"\") + "Devel");
+      destination_folder = fullfile(destination_folder, "Devel", "AppsForPhysicalSystems", "Vehicle1DForce", "media");
+      [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
       if mus1.TestUtil.isR2024bOrOlder
         destination_fullpath = fullfile(destination_folder, "screenshot-Vehicle1DForceAppMain-24b-1.png");
@@ -120,11 +118,11 @@ classdef uiUptodateTest_Vehicle1DForce < matlab.uitest.TestCase
       end  % if
 
       if needs_update
-        app = Vehicle1DForce1.Vehicle1DForceAppMain;  % !screenshot-target
+        disp("Generating: " + destination_fullpath)
+        app = mus1.app.Vehicle1DForce.Vehicle1DForceAppMain;  % !screenshot-target
         app.Window.MainFigure.Theme = "light";
         drawnow
         exportapp(app.Window.MainFigure, destination_fullpath)
-        disp("Exported: " + destination_fullpath)
       else
         disp("The screenshot is up to date.")
       end  % if
@@ -134,7 +132,7 @@ classdef uiUptodateTest_Vehicle1DForce < matlab.uitest.TestCase
     end  % function
 
     % -------------------------------------------------------------------------
-    % Vehicle1DForceApp
+    % mus1_Vehicle1DForceApp
 
     function app_screenshot_2_dark(testcase)
       %%
@@ -145,11 +143,11 @@ classdef uiUptodateTest_Vehicle1DForce < matlab.uitest.TestCase
 
       end  % if
       % R2025a or newer
-      source_fullpath = mus1.FileUtil.getFileFullPath("Vehicle1DForceApp");
+      source_fullpath = mus1.FileUtil.getFileFullPath("mus1_Vehicle1DForceApp");
 
-      destination_folder = fileparts(source_fullpath);
-      destination_folder = fullfile(destination_folder, "media");
-      [~, ~] = mkdir(destination_folder);  % Assign return value to suppress warning.
+      destination_folder = extractBefore(source_fullpath, ("/"|"\") + "Devel");
+      destination_folder = fullfile(destination_folder, "Devel", "AppsForPhysicalSystems", "Vehicle1DForce", "media");
+      [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
       destination_fullpath = fullfile(destination_folder, "screenshot-Vehicle1DForceApp-dark-1.png");
 
@@ -160,11 +158,11 @@ classdef uiUptodateTest_Vehicle1DForce < matlab.uitest.TestCase
       end  % if
 
       if needs_update
-        app = Vehicle1DForceApp;  % !screenshot-target
+        disp("Generating: " + destination_fullpath)
+        app = mus1_Vehicle1DForceApp;  % !screenshot-target
         app.Window.MainFigure.Theme = "dark";
         drawnow
         exportapp(app.Window.MainFigure, destination_fullpath)
-        disp("Exported: " + destination_fullpath)
       else
         disp("The screenshot is up to date.")
       end  % if
@@ -182,11 +180,11 @@ classdef uiUptodateTest_Vehicle1DForce < matlab.uitest.TestCase
 
       end  %if
 
-      source_fullpath = mus1.FileUtil.getFileFullPath("Vehicle1DForceApp");
+      source_fullpath = mus1.FileUtil.getFileFullPath("mus1_Vehicle1DForceApp");
 
-      destination_folder = fileparts(source_fullpath);
-      destination_folder = fullfile(destination_folder, "media");
-      [~, ~] = mkdir(destination_folder);  % Assign return value to suppress warning.
+      destination_folder = extractBefore(source_fullpath, ("/"|"\") + "Devel");
+      destination_folder = fullfile(destination_folder, "Devel", "AppsForPhysicalSystems", "Vehicle1DForce", "media");
+      [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
       if mus1.TestUtil.isR2024bOrOlder
         destination_fullpath = fullfile(destination_folder, "screenshot-Vehicle1DForceApp-24b-1.png");
@@ -201,11 +199,11 @@ classdef uiUptodateTest_Vehicle1DForce < matlab.uitest.TestCase
       end  % if
 
       if needs_update
-        app = Vehicle1DForceApp;  % !screenshot-target
+        disp("Generating: " + destination_fullpath)
+        app = mus1_Vehicle1DForceApp;  % !screenshot-target
         app.Window.MainFigure.Theme = "light";
         drawnow
         exportapp(app.Window.MainFigure, destination_fullpath)
-        disp("Exported: " + destination_fullpath)
       else
         disp("The screenshot is up to date.")
       end  % if

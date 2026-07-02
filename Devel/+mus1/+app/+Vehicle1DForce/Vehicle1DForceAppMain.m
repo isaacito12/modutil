@@ -11,7 +11,7 @@ classdef Vehicle1DForceAppMain < handle
   end  % properties
   properties
 
-    DataSet (1,1) Vehicle1DForce1.Vehicle1DForceDataSet
+    DataSet (1,1) mus1.app.Vehicle1DForce.Vehicle1DForceDataSet
 
     AppParameterStructName (1,1) string = ""
 
@@ -106,7 +106,7 @@ classdef Vehicle1DForceAppMain < handle
 
   end  % properties
   properties (Access=private)
-    presets (1,1) Vehicle1DForce1.Vehicle1DForcePresets
+    presets (1,1) mus1.app.Vehicle1DForce.Vehicle1DForcePresets
   end  % properties
 
   methods
@@ -130,8 +130,8 @@ classdef Vehicle1DForceAppMain < handle
       % Metric horsepower (Pferdestärke)
       pm_addunit("ps", 735.5, "W")
 
-      App.presets = Vehicle1DForce1.Vehicle1DForcePresets;
-      App.DataSet = Vehicle1DForce1.Vehicle1DForceDataSet(Initialization=true);
+      App.presets = mus1.app.Vehicle1DForce.Vehicle1DForcePresets;
+      App.DataSet = mus1.app.Vehicle1DForce.Vehicle1DForceDataSet(Initialization=true);
 
       % BlockPath takes precedence over ModelName.
       if NameValuePair.BlockPath ~= ""
@@ -290,7 +290,7 @@ classdef Vehicle1DForceAppMain < handle
 
         % .....................................................................
         % Set up non-block parameters with defaults.
-        data_set = Vehicle1DForce1.Vehicle1DForceDataSet(Initialization=true);
+        data_set = mus1.app.Vehicle1DForce.Vehicle1DForceDataSet(Initialization=true);
 
         % !todo: Remove this once the vehicle block starts providing dry air as a public parameter.
         App.DryAirDensityUI.SimscapeValue = data_set.ModelParams.DryAirDensity;
@@ -336,7 +336,7 @@ classdef Vehicle1DForceAppMain < handle
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
       description_link_ui = mus1.AppUtil.Component.Hyperlink(appleft_v_layout);
       description_link_ui.Text = mus1.CodeUtil.i18n("Description");
-      description_link_ui.HyperlinkClickedCallback = @() web("Vehicle1DForceApp_Description.html");
+      description_link_ui.HyperlinkClickedCallback = @() web("Vehicle1DForceApp_Description_mus1.html");
 
       %% ======================================================================
       % Preset
@@ -598,7 +598,7 @@ classdef Vehicle1DForceAppMain < handle
 
       App.OpenInFigureWindowUI.HyperlinkClickedCallback = @open_in_figure_window;
       function open_in_figure_window
-        Vehicle1DForce1.plotVehicle1DForce( ...
+        mus1.app.Vehicle1DForce.plotVehicle1DForce( ...
           ParentAxes = axes(figure), ...
           DataSource="dataset", DataSet=App.DataSet)
       end  % nested function
@@ -747,7 +747,7 @@ classdef Vehicle1DForceAppMain < handle
       % If block parameters refer to workspace variables, the workspace variables must be loaded upfront.
       % This updates the derived parameters too.
       try
-        App.DataSet = Vehicle1DForce1.Vehicle1DForceDataSet(BlockPath=App.BlockPath);
+        App.DataSet = mus1.app.Vehicle1DForce.Vehicle1DForceDataSet(BlockPath=App.BlockPath);
       catch exception
         if App.MainFigure.Visible
           msg = exception.message;
@@ -1051,7 +1051,7 @@ classdef Vehicle1DForceAppMain < handle
 
       elseif NameValuePair.PlotMode == "force" ...
           || ((NameValuePair.PlotMode == "auto") && App.UpdateButtonUI.CheckBoxUI.Value)
-        Vehicle1DForce1.plotVehicle1DForce( ...
+        mus1.app.Vehicle1DForce.plotVehicle1DForce( ...
           ParentAxes = App.AxesUI.MainAxes, ...
           DataSource="dataset", DataSet=App.DataSet)
       end  % if
