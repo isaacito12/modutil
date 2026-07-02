@@ -60,7 +60,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
     end  % function
 
     function clean_launch_2(testcase)
-      verifyWarningFree(testcase, @AbstractMotorEfficiencyApp)
+      verifyWarningFree(testcase, @mus1_AbstractMotorEfficiencyApp)
     end  % function
 
     %% Error case tests
@@ -126,7 +126,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
         paramfile_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleParams1.m");
         [~, param_basefilename, ~] = fileparts(paramfile_fullpath);
         evalin("base", param_basefilename)
-        AbstractMotorEfficiencyApp(AppParameterFileName=paramfile_fullpath)  % !test-target
+        mus1_AbstractMotorEfficiencyApp(AppParameterFileName=paramfile_fullpath)  % !test-target
       end  % nested function
     end  % function
 
@@ -136,25 +136,25 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       paramfile_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleParams1.m");
       [~, param_basefilename, ~] = fileparts(paramfile_fullpath);
       evalin("base", param_basefilename)
-      AbstractMotorEfficiencyApp(AppParameterStructName="MotorParams")  % !test-target
+      mus1_AbstractMotorEfficiencyApp(AppParameterStructName="MotorParams")  % !test-target
     end  % function
 
     function command_option_1_2(~)
       paramfile_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleParams1.m");
-      AbstractMotorEfficiencyApp(AppParameterFileName=paramfile_fullpath, AppParameterStructName="MotorParams")
+      mus1_AbstractMotorEfficiencyApp(AppParameterFileName=paramfile_fullpath, AppParameterStructName="MotorParams")
     end  % function
 
     function command_option_2_1(~)
       % Test a nested struct.
       paramfile_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleParams2.m");
-      AbstractMotorEfficiencyApp(AppParameterFileName=paramfile_fullpath, AppParameterStructName="Params.Motor")
+      mus1_AbstractMotorEfficiencyApp(AppParameterFileName=paramfile_fullpath, AppParameterStructName="Params.Motor")
     end  % function
 
     %% Visual tests
     % These tests need visual inspection.
 
     function open_in_figure_window_1(testcase)
-      app = AbstractMotorEfficiencyApp;
+      app = mus1_AbstractMotorEfficiencyApp;
       press(testcase, app.OpenInFigureWindowUI.MainHyperlink)
     end  % function
 
@@ -163,7 +163,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
     % Visually inspect that the app reacts to (programmatic) user actions.
 
     function model_parameters_drop_downs_1(testcase)
-      app = AbstractMotorEfficiencyApp;
+      app = mus1_AbstractMotorEfficiencyApp;
 
       choose(testcase, app.MaxAngularSpeedModeUI.MainDropDown, "Specify")
       choose(testcase, app.MaxAngularSpeedUI.UnitDropDownUI.DropDownUI.MainDropDown, "rad/s")
@@ -189,7 +189,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
     end  % function
 
     function plot_customization_drop_downs_1(testcase)
-      app = AbstractMotorEfficiencyApp;
+      app = mus1_AbstractMotorEfficiencyApp;
 
       press(testcase, app.PlotAutoRangeUI.MainCheckBox)
 
@@ -223,7 +223,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       [~, param2_basefilename, ~] = fileparts(paramfile2_fullpath);
       evalin("base", param2_basefilename)
 
-      app = AbstractMotorEfficiencyApp;
+      app = mus1_AbstractMotorEfficiencyApp;
 
       type(testcase, app.StructParameterUI.StructNameDropDownUI.MainDropDown, "MotorParams")
       type(testcase, app.StructParameterUI.StructNameDropDownUI.MainDropDown, "Params.Motor")
@@ -242,7 +242,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       [~, param1_basefilename, ~] = fileparts(paramfile1_fullpath);
       evalin("base", param1_basefilename)
 
-      app = AbstractMotorEfficiencyApp(AppParameterStructName="MotorParams");
+      app = mus1_AbstractMotorEfficiencyApp(AppParameterStructName="MotorParams");
 
       % "Variable name" UI in the app must contain the struct variable in the base workspace as text.
       verifyEqual(testcase, app.StructParameterUI.StructNameDropDownUI.Value, "MotorParams")
@@ -263,7 +263,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       modelfile_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleModel_refsub_24b.mdl");
       [~, model_name, ~] = fileparts(modelfile_fullpath);
 
-      AbstractMotorEfficiencyApp(ModelName=model_name)
+      mus1_AbstractMotorEfficiencyApp(ModelName=model_name)
 
     end  % function
 
@@ -279,7 +279,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       % Specify a block whose parameters are defined in a struct in the base workspace variable.
       block_path = model_name + "/Motor & Drive" + newline + "(System Level)2";
 
-      AbstractMotorEfficiencyApp(BlockPath=block_path)
+      mus1_AbstractMotorEfficiencyApp(BlockPath=block_path)
 
     end  % function
 
@@ -290,7 +290,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       modelfile_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleModel_refsub_24b.mdl");
       [~, model_name, ~] = fileparts(modelfile_fullpath);
 
-      app = AbstractMotorEfficiencyApp(ModelName=model_name);
+      app = mus1_AbstractMotorEfficiencyApp(ModelName=model_name);
 
       % !test-target: Select the first block.
       logical_index = endsWith(app.AppBlockSelectorUI.BlockPathDropDownUI.Items, "(System Level)1");
@@ -314,7 +314,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       modelfile_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleModel_refsub_24b.mdl");
       [~, model_name, ~] = fileparts(modelfile_fullpath);
 
-      app = AbstractMotorEfficiencyApp(ModelName=model_name);
+      app = mus1_AbstractMotorEfficiencyApp(ModelName=model_name);
 
       % !test-target: Select the second block with workspace variable references.
       logical_index = endsWith(app.AppBlockSelectorUI.BlockPathDropDownUI.Items, "(System Level)2");
