@@ -15,7 +15,7 @@ arguments (Input)
   NameValuePair.DataSource (1,1) string {mustBeMember(NameValuePair.DataSource, ["direct", "dataset"])} = "direct"
 
   % DataSet is ignored if DataSource is "direct".
-  NameValuePair.DataSet RotationalFrictionTorque1.RotationalFrictionTorqueDataSet {mustBeScalarOrEmpty}
+  NameValuePair.DataSet mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueDataSet {mustBeScalarOrEmpty}
 
   % ---------------------------------------------------------------------------
   % Options for the direct data source
@@ -99,7 +99,7 @@ else
   if isfield(NameValuePair, "DataSet")
     data_source = NameValuePair.DataSet;
   else
-    data_source = RotationalFrictionTorque1.RotationalFrictionTorqueDataSet( ...
+    data_source = mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueDataSet( ...
       Initialization=true);
   end  % if
 

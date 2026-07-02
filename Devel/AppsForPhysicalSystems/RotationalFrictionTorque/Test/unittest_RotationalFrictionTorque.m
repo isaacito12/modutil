@@ -36,19 +36,19 @@ classdef unittest_RotationalFrictionTorque < matlab.unittest.TestCase
     % Check that models, scripts, functions, and classes run right out of the box.
 
     function PassingTest_1_1(~)
-      RotationalFrictionTorque1.RotationalFrictionTorqueModelParameters  % !test-target
+      mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueModelParameters  % !test-target
     end  % function
 
     function PassingTest_1_2(~)
-      RotationalFrictionTorque1.RotationalFrictionTorqueModelParameters(Initialization=true)  % !test-target
+      mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueModelParameters(Initialization=true)  % !test-target
     end  % function
 
     function PassingTest_2_1(~)
-      RotationalFrictionTorque1.RotationalFrictionTorqueDataSet  % !test-target
+      mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueDataSet  % !test-target
     end  % function
 
     function PassingTest_2_2(~)
-      RotationalFrictionTorque1.RotationalFrictionTorqueDataSet(Initialization=true)  % !test-target
+      mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueDataSet(Initialization=true)  % !test-target
     end  % function
 
     function PassingTest_3_1(~)
@@ -60,31 +60,31 @@ classdef unittest_RotationalFrictionTorque < matlab.unittest.TestCase
     end  % function
 
     function PassingTest_4_1(~)
-      RotationalFrictionTorque1.plotRotationalFrictionTorque  % !test-target
+      mus1.app.RotationalFrictionTorque.plotRotationalFrictionTorque  % !test-target
     end  % function
 
     function PassingTest_4_2(~)
-      RotationalFrictionTorque1.plotRotationalFrictionTorque(DataSource="direct")  % !test-target
+      mus1.app.RotationalFrictionTorque.plotRotationalFrictionTorque(DataSource="direct")  % !test-target
     end  % function
 
     function PassingTest_4_3(~)
-      RotationalFrictionTorque1.plotRotationalFrictionTorque(DataSource="dataset")  % !test-target
+      mus1.app.RotationalFrictionTorque.plotRotationalFrictionTorque(DataSource="dataset")  % !test-target
     end  % function
 
     function PassingTest_4_4(~)
-      ds = RotationalFrictionTorque1.RotationalFrictionTorqueDataSet(Initialization=true);
+      ds = mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueDataSet(Initialization=true);
 
       ds.PlotAngularVelocityUnit = "rad/s";
       ds.PlotTorqueUnit = "lbf*ft";
 
       ds.ModelParams.ViscousCoefficient = simscape.Value(0.1, "N*m/(rad/s)");
 
-      RotationalFrictionTorque1.plotRotationalFrictionTorque(DataSource="dataset", DataSet=ds)  % !test-target
+      mus1.app.RotationalFrictionTorque.plotRotationalFrictionTorque(DataSource="dataset", DataSet=ds)  % !test-target
 
     end  % function
 
     function PassingTest_4_5_output_arg(testcase)
-      fig = RotationalFrictionTorque1.plotRotationalFrictionTorque;
+      fig = mus1.app.RotationalFrictionTorque.plotRotationalFrictionTorque;
       addTeardown(testcase, @() delete(fig))
       verifyClass(testcase, fig, ?matlab.ui.Figure)
     end  % function
@@ -101,7 +101,7 @@ classdef unittest_RotationalFrictionTorque < matlab.unittest.TestCase
 
       block_path = model_name + "/Rotational Friction1";
 
-      ds = RotationalFrictionTorque1.RotationalFrictionTorqueDataSet(BlockPath=block_path);  % !test-target
+      ds = mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueDataSet(BlockPath=block_path);  % !test-target
 
       verifyEqual(testcase, ds.BlockPath, block_path)
       verifyEqual(testcase, ds.ModelName, model_name)
@@ -127,7 +127,7 @@ classdef unittest_RotationalFrictionTorque < matlab.unittest.TestCase
 
       block_path = model_name + "/Rotational Friction2";
 
-      ds = RotationalFrictionTorque1.RotationalFrictionTorqueDataSet(BlockPath=block_path);  % !test-target
+      ds = mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueDataSet(BlockPath=block_path);  % !test-target
 
       verifyEqual(testcase, ds.BlockPath, block_path)
       verifyEqual(testcase, ds.ModelName, model_name)
@@ -152,7 +152,7 @@ classdef unittest_RotationalFrictionTorque < matlab.unittest.TestCase
       end  % nested function
       block_path = model_name + "/Spring";
       verifyError(testcase, ...
-        @() RotationalFrictionTorque1.RotationalFrictionTorqueDataSet(BlockPath=block_path), ...
+        @() mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueDataSet(BlockPath=block_path), ...
         "RotationalFrictionTorqueDataSet:InvalidBlock")
     end  % function
 

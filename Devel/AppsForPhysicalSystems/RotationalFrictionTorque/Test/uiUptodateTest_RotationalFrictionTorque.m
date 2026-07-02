@@ -69,12 +69,11 @@ classdef uiUptodateTest_RotationalFrictionTorque < matlab.uitest.TestCase
 
       end  % if
       % R2025a or newer
-      source_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque1.RotationalFrictionTorqueAppMain");
+      source_fullpath = mus1.FileUtil.getFileFullPath("mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueAppMain");
 
-      destination_folder = fileparts(source_fullpath);
-      destination_folder = extractBefore(destination_folder, ("/"|"\") + "+RotationalFrictionTorque1");
-      destination_folder = fullfile(destination_folder, "media");
-      [~, ~] = mkdir(destination_folder);  % Assign return value to suppress warning.
+      destination_folder = extractBefore(source_fullpath, ("/"|"\") + "Devel");
+      destination_folder = fullfile(destination_folder, "Devel", "AppsForPhysicalSystems", "RotationalFrictionTorque", "media");
+      [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
       destination_fullpath = fullfile(destination_folder, "screenshot-RotationalFrictionTorqueAppMain-dark-1.png");
 
@@ -85,10 +84,11 @@ classdef uiUptodateTest_RotationalFrictionTorque < matlab.uitest.TestCase
       end  % if
 
       if needs_update
-        app = RotationalFrictionTorque1.RotationalFrictionTorqueAppMain;  % !screenshot-target
-        app.MainFigure.Theme = "dark";
+        disp("Generating: " + destination_fullpath)
+        app = mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueAppMain;  % !screenshot-target
+        app.Window.MainFigure.Theme = "dark";
         drawnow
-        exportapp(app.MainFigure, destination_fullpath)
+        exportapp(app.Window.MainFigure, destination_fullpath)
       else
         disp("The screenshot is up to date.")
       end  % if
@@ -100,18 +100,17 @@ classdef uiUptodateTest_RotationalFrictionTorque < matlab.uitest.TestCase
     function app_screenshot_1_light(testcase)
       %%
       if mus1.TestUtil.isNonLocal(testcase.LocalTopFolder)
-        disp("!Skipping")
+        disp("!Skipping (the test is not running within the specified local path.)")
 
         return
 
       end  %if
 
-      source_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque1.RotationalFrictionTorqueAppMain");
+      source_fullpath = mus1.FileUtil.getFileFullPath("mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueAppMain");
 
-      destination_folder = fileparts(source_fullpath);
-      destination_folder = extractBefore(destination_folder, ("/"|"\") + "+RotationalFrictionTorque1");
-      destination_folder = fullfile(destination_folder, "media");
-      [~, ~] = mkdir(destination_folder);  % Assign return value to suppress warning.
+      destination_folder = extractBefore(source_fullpath, ("/"|"\") + "Devel");
+      destination_folder = fullfile(destination_folder, "Devel", "AppsForPhysicalSystems", "RotationalFrictionTorque", "media");
+      [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
       if mus1.TestUtil.isR2024bOrOlder
         destination_fullpath = fullfile(destination_folder, "screenshot-RotationalFrictionTorqueAppMain-24b-1.png");
@@ -126,10 +125,11 @@ classdef uiUptodateTest_RotationalFrictionTorque < matlab.uitest.TestCase
       end  % if
 
       if needs_update
-        app = RotationalFrictionTorque1.RotationalFrictionTorqueAppMain;  % !screenshot-target
-        app.MainFigure.Theme = "light";
+        disp("Generating: " + destination_fullpath)
+        app = mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueAppMain;  % !screenshot-target
+        app.Window.MainFigure.Theme = "light";
         drawnow
-        exportapp(app.MainFigure, destination_fullpath)
+        exportapp(app.Window.MainFigure, destination_fullpath)
       else
         disp("The screenshot is up to date.")
       end  % if
@@ -150,11 +150,11 @@ classdef uiUptodateTest_RotationalFrictionTorque < matlab.uitest.TestCase
 
       end  % if
       % R2025a or newer
-      source_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorqueApp");
+      source_fullpath = mus1.FileUtil.getFileFullPath("mus1_RotationalFrictionTorqueApp");
 
-      destination_folder = fileparts(source_fullpath);
-      destination_folder = fullfile(destination_folder, "media");
-      [~, ~] = mkdir(destination_folder);  % Assign return value to suppress warning.
+      destination_folder = extractBefore(source_fullpath, ("/"|"\") + "Devel");
+      destination_folder = fullfile(destination_folder, "Devel", "AppsForPhysicalSystems", "RotationalFrictionTorque", "media");
+      [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
       destination_fullpath = fullfile(destination_folder, "screenshot-RotationalFrictionTorqueApp-dark-1.png");
 
@@ -165,10 +165,11 @@ classdef uiUptodateTest_RotationalFrictionTorque < matlab.uitest.TestCase
       end  % if
 
       if needs_update
-        app = RotationalFrictionTorqueApp;  % !screenshot-target
-        app.MainFigure.Theme = "dark";
+        disp("Generating: " + destination_fullpath)
+        app = mus1_RotationalFrictionTorqueApp;  % !screenshot-target
+        app.Window.MainFigure.Theme = "dark";
         drawnow
-        exportapp(app.MainFigure, destination_fullpath)
+        exportapp(app.Window.MainFigure, destination_fullpath)
       else
         disp("The screenshot is up to date.")
       end  % if
@@ -186,11 +187,11 @@ classdef uiUptodateTest_RotationalFrictionTorque < matlab.uitest.TestCase
 
       end  %if
 
-      source_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorqueApp");
+      source_fullpath = mus1.FileUtil.getFileFullPath("mus1_RotationalFrictionTorqueApp");
 
-      destination_folder = fileparts(source_fullpath);
-      destination_folder = fullfile(destination_folder, "media");
-      [~, ~] = mkdir(destination_folder);  % Assign return value to suppress warning.
+      destination_folder = extractBefore(source_fullpath, ("/"|"\") + "Devel");
+      destination_folder = fullfile(destination_folder, "Devel", "AppsForPhysicalSystems", "RotationalFrictionTorque", "media");
+      [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
       if mus1.TestUtil.isR2024bOrOlder
         destination_fullpath = fullfile(destination_folder, "screenshot-RotationalFrictionTorqueApp-24b-1.png");
@@ -205,10 +206,11 @@ classdef uiUptodateTest_RotationalFrictionTorque < matlab.uitest.TestCase
       end  % if
 
       if needs_update
-        app = RotationalFrictionTorqueApp;  % !screenshot-target
-        app.MainFigure.Theme = "light";
+        disp("Generating: " + destination_fullpath)
+        app = mus1_RotationalFrictionTorqueApp;  % !screenshot-target
+        app.Window.MainFigure.Theme = "light";
         drawnow
-        exportapp(app.MainFigure, destination_fullpath)
+        exportapp(app.Window.MainFigure, destination_fullpath)
       else
         disp("The screenshot is up to date.")
       end  % if

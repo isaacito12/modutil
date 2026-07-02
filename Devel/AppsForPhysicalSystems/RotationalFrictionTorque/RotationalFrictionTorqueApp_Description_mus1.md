@@ -3,7 +3,7 @@
 The rotational friction torque app visualizes the rotational friction torque model. The model is used by the [Rotational Friction block](https://www.mathworks.com/help/simscape/ref/rotationalfriction.html) (Simscape).
 
 <p style="text-align:left">
-   <img src="media/RotationalFrictionTorqueApp_Description_media/image_0.png" width="953" alt="image_0.png">
+   <img src="media/RotationalFrictionTorqueApp_Description_mus1_media/image_0.png" width="953" alt="image_0.png">
 </p>
 
 # Open the app

@@ -50,11 +50,11 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
     % Make sure there is no warning when opening an app.
 
     function clean_launch_1(testcase)
-      verifyWarningFree(testcase, @RotationalFrictionTorque1.RotationalFrictionTorqueAppMain)
+      verifyWarningFree(testcase, @mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueAppMain)
     end  % function
 
     function clean_launch_2(testcase)
-      verifyWarningFree(testcase, @RotationalFrictionTorqueApp)
+      verifyWarningFree(testcase, @mus1_RotationalFrictionTorqueApp)
     end  % function
 
     %% Error case tests
@@ -65,7 +65,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
         paramfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleParams1.m");
         [~, param_basefilename, ~] = fileparts(paramfile_fullpath);
         evalin("base", param_basefilename)
-        RotationalFrictionTorqueApp(AppParameterFileName=paramfile_fullpath)  % !test-target
+        mus1_RotationalFrictionTorqueApp(AppParameterFileName=paramfile_fullpath)  % !test-target
       end  % nested function
     end  % function
 
@@ -74,7 +74,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
       function test_target
         % The model does not exist.
         model_name = "test_test_test";
-        RotationalFrictionTorque1.RotationalFrictionTorqueAppMain(ModelName=model_name)  % !test-target
+        mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueAppMain(ModelName=model_name)  % !test-target
       end  % nested function
     end  % function
 
@@ -83,7 +83,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
       function test_target
         % The model name must not be "".
         block_path = "/test";
-        RotationalFrictionTorque1.RotationalFrictionTorqueAppMain(BlockPath=block_path)  % !test-target
+        mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueAppMain(BlockPath=block_path)  % !test-target
       end  % nested function
     end  % function
 
@@ -94,7 +94,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
 
       verifyError(testcase, @() test_target, "RotationalFrictionTorqueAppMain:SimscapeBlockWasNotFound")
       function test_target
-        RotationalFrictionTorque1.RotationalFrictionTorqueAppMain(ModelName=model_name)  % !test-target
+        mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueAppMain(ModelName=model_name)  % !test-target
       end  % nested function
     end  % function
 
@@ -105,7 +105,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
 
       verifyError(testcase, @() test_target, "RotationalFrictionTorqueAppMain:SimscapeBlockWasNotFound")
       function test_target
-        RotationalFrictionTorque1.RotationalFrictionTorqueAppMain(ModelName=model_name)  % !test-target
+        mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueAppMain(ModelName=model_name)  % !test-target
       end  % nested function
     end  % function
 
@@ -114,7 +114,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
       function test_target
         % Specified parameter file does not exist. Some parameter struct name must be specified.
         paramfile_name = "test_test_test";
-        RotationalFrictionTorque1.RotationalFrictionTorqueAppMain(AppParameterFileName=paramfile_name, AppParameterStructName="dummy")  % !test-target
+        mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueAppMain(AppParameterFileName=paramfile_name, AppParameterStructName="dummy")  % !test-target
       end  % nested function
     end  % function
 
@@ -124,7 +124,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
       block_path = model_name + "/NonExistentFrictionBlock";
       verifyError(testcase, @() test_target, "RotationalFrictionTorqueAppMain:InvalidBlockPath")
       function test_target
-        RotationalFrictionTorque1.RotationalFrictionTorqueAppMain(BlockPath=block_path)
+        mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueAppMain(BlockPath=block_path)
       end  % nested function
     end  % function
 
@@ -143,14 +143,14 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
 
       verifyError(testcase, @() test_target, ?MException)
       function test_target
-        RotationalFrictionTorque1.RotationalFrictionTorqueAppMain( ...
+        mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueAppMain( ...
           AppParameterFileName=temp_file, AppParameterStructName="dummy")
       end  % nested function
     end  % function
 
     function updateApp_error_recovery(testcase)
       % Trigger updateDataSet failure via incompatible plot unit to exercise catch block.
-      app = RotationalFrictionTorqueApp;
+      app = mus1_RotationalFrictionTorqueApp;
 
       % Type an incompatible unit into the angular velocity plot unit dropdown.
       % "N*m" is a torque unit, not an angular velocity unit.
@@ -169,37 +169,37 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
       paramfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleParams1.m");
       [~, param_basefilename, ~] = fileparts(paramfile_fullpath);
       evalin("base", param_basefilename)
-      RotationalFrictionTorqueApp(AppParameterStructName="FrictionParams1")  % !test-target
+      mus1_RotationalFrictionTorqueApp(AppParameterStructName="FrictionParams1")  % !test-target
     end  % function
 
     function command_option_1_2(~)
       paramfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleParams1.m");
-      RotationalFrictionTorqueApp(AppParameterFileName=paramfile_fullpath, AppParameterStructName="FrictionParams1")
+      mus1_RotationalFrictionTorqueApp(AppParameterFileName=paramfile_fullpath, AppParameterStructName="FrictionParams1")
     end  % function
 
     function command_option_2_1(~)
       % Use a base workspace variable to set up the app.
       paramfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleParams2.m");
-      RotationalFrictionTorqueApp(AppParameterFileName=paramfile_fullpath, AppParameterStructName="Params.Friction2")
+      mus1_RotationalFrictionTorqueApp(AppParameterFileName=paramfile_fullpath, AppParameterStructName="Params.Friction2")
     end  % function
 
     function command_option_3_paramfile_with_block(~)
       paramfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleParams1.m");
       model_name = "RotationalFrictionTorque_SampleModel_refsub_24b";
       block_path = model_name + "/Rotational Friction1";
-      RotationalFrictionTorqueApp( ...
+      mus1_RotationalFrictionTorqueApp( ...
         AppParameterFileName=paramfile_fullpath, ...
         AppParameterStructName="FrictionParams1", ...
         BlockPath=block_path)
     end  % function
 
     function open_in_figure_window_1(testcase)
-      app = RotationalFrictionTorqueApp;
+      app = mus1_RotationalFrictionTorqueApp;
       press(testcase, app.OpenInFigureWindowUI.MainHyperlink)
     end  % function
 
     function model_parameters_drop_downs_1(testcase)
-      app = RotationalFrictionTorqueApp;
+      app = mus1_RotationalFrictionTorqueApp;
 
       choose(testcase, app.BreakawayTorqueUI.UnitDropDownUI.DropDownUI.MainDropDown, "lbf*ft")
       choose(testcase, app.BreakawayTorqueUI.UnitDropDownUI.DropDownUI.MainDropDown, "N*m")
@@ -219,7 +219,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
     end  % function
 
     function derived_parameters_drop_downs_1(testcase)
-      app = RotationalFrictionTorqueApp;
+      app = mus1_RotationalFrictionTorqueApp;
 
       choose(testcase, app.StribeckScaledTorqueUI.UnitDropDownUI.DropDownUI.MainDropDown, "lbf*ft")
       choose(testcase, app.StribeckScaledTorqueUI.UnitDropDownUI.DropDownUI.MainDropDown, "N*m")
@@ -235,7 +235,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
     end  % function
 
     function plot_customization_check_boxes_1(testcase)
-      app = RotationalFrictionTorqueApp;
+      app = mus1_RotationalFrictionTorqueApp;
 
       press(testcase, app.ShowStribeckTorqueUI.MainCheckBox)
       press(testcase, app.ShowCoulombTorqueUI.MainCheckBox)
@@ -252,7 +252,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
     end  % function
 
     function plot_customization_drop_downs_1(testcase)
-      app = RotationalFrictionTorqueApp;
+      app = mus1_RotationalFrictionTorqueApp;
 
       choose(testcase, app.PlotAngularVelocityUnitUI.DropDownUI.MainDropDown, "rpm")
       choose(testcase, app.PlotAngularVelocityUnitUI.DropDownUI.MainDropDown, "rev/s")
@@ -274,7 +274,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
       [~, param2_basefilename, ~] = fileparts(paramfile2_fullpath);
       evalin("base", param2_basefilename)
 
-      app = RotationalFrictionTorqueApp;
+      app = mus1_RotationalFrictionTorqueApp;
 
       type(testcase, app.StructParameterUI.StructNameDropDownUI.MainDropDown, "FrictionParams1")
       type(testcase, app.StructParameterUI.StructNameDropDownUI.MainDropDown, "Params.Friction2")
@@ -292,7 +292,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
       evalin("base", "BadFrictionStruct.NonExistentField = simscape.Value(1, 'N*m');")
       addTeardown(testcase, @() evalin("base", "clear BadFrictionStruct"))
 
-      app = RotationalFrictionTorqueApp;
+      app = mus1_RotationalFrictionTorqueApp;
 
       type(testcase, app.StructParameterUI.StructNameDropDownUI.MainDropDown, "BadFrictionStruct")
       press(testcase, app.StructParameterUI.GetParametersFromBaseWorkspaceUI.MainButton)
@@ -303,7 +303,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
 
     function load_params_empty_struct_name(testcase)
       %% Press Get Parameters with empty struct name -- should return early without error.
-      app = RotationalFrictionTorqueApp;
+      app = mus1_RotationalFrictionTorqueApp;
 
       % Struct name dropdown is empty by default -- just press the button.
       press(testcase, app.StructParameterUI.GetParametersFromBaseWorkspaceUI.MainButton)
@@ -319,7 +319,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
       modelfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleModel_refsub_24b.mdl");
       [~, model_name, ~] = fileparts(modelfile_fullpath);
 
-      RotationalFrictionTorqueApp(ModelName=model_name)
+      mus1_RotationalFrictionTorqueApp(ModelName=model_name)
 
     end  % function
 
@@ -335,7 +335,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
       % Specify a block whose parameters are defined in a struct in the base workspace variable.
       block_path = model_name + "/Rotational Friction2";
 
-      RotationalFrictionTorqueApp(BlockPath=block_path)
+      mus1_RotationalFrictionTorqueApp(BlockPath=block_path)
 
     end  % function
 
@@ -346,7 +346,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
       modelfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleModel_refsub_24b.mdl");
       [~, model_name, ~] = fileparts(modelfile_fullpath);
 
-      app = RotationalFrictionTorqueApp(ModelName=model_name);
+      app = mus1_RotationalFrictionTorqueApp(ModelName=model_name);
 
       % !test-target: Select a block containing numbers for the block parameters.
       logical_index = endsWith(app.AppBlockSelectorUI.BlockPathDropDownUI.Items, " / Rotational Friction1");
@@ -370,7 +370,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
       modelfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleModel_refsub_24b.mdl");
       [~, model_name, ~] = fileparts(modelfile_fullpath);
 
-      app = RotationalFrictionTorqueApp(ModelName=model_name);
+      app = mus1_RotationalFrictionTorqueApp(ModelName=model_name);
 
       % !test-target: Select a block containing simscape.Value objects for the block parameters.
       logical_index = endsWith(app.AppBlockSelectorUI.BlockPathDropDownUI.Items, " / Rotational Friction2");
@@ -387,7 +387,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
     function set_parameters_with_simscapevalue_text(testcase)
       %% Test that Set Parameters works when ValueText contains simscape.Value expressions.
       model_name = "RotationalFrictionTorque_SampleModel_refsub_24b";
-      app = RotationalFrictionTorqueApp(ModelName=model_name);
+      app = mus1_RotationalFrictionTorqueApp(ModelName=model_name);
 
       % Type simscape.Value expressions directly into the value fields.
       type(testcase, app.BreakawayTorqueUI.ValueTextUI.MainEditField, "simscape.Value(30, ""N*m"")")
@@ -414,7 +414,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
       evalin("base", paramfile_name)
 
       model_name = "RotationalFrictionTorque_SampleModel_refsub_24b";
-      app = RotationalFrictionTorqueApp(ModelName=model_name);
+      app = mus1_RotationalFrictionTorqueApp(ModelName=model_name);
 
       % Clear base workspace variables so that block parameter evaluation fails.
       evalin("base", "clear Params")
@@ -432,7 +432,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
 
     function safeupdate_catch_block_with_incompatible_unit(testcase)
       %% Trigger safeupdate catch block by injecting incompatible unit (lines 800-813).
-      app = RotationalFrictionTorqueApp;
+      app = mus1_RotationalFrictionTorqueApp;
 
       % Type a simscape.Value with an incompatible unit (mass instead of torque).
       % When updateApp fires, it calls safeupdate_DataSetModelParams_from_SimscapeValue

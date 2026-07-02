@@ -34,7 +34,7 @@ classdef RotationalFrictionTorqueDataSet
   properties
 
     % Parameters of the torque model
-    ModelParams (1,1) RotationalFrictionTorque1.RotationalFrictionTorqueModelParameters
+    ModelParams (1,1) mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueModelParameters
 
     % Block path to the target block in a model
     BlockPath (1,1) string = ""
@@ -114,7 +114,7 @@ classdef RotationalFrictionTorqueDataSet
         NameValuePair.BlockPath (1,1) string = ""
       end  % arguments
 
-      DataSet.ModelParams = RotationalFrictionTorque1.RotationalFrictionTorqueModelParameters;
+      DataSet.ModelParams = mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueModelParameters;
 
       if NameValuePair.BlockPath ~= ""
         DataSet.BlockPath = NameValuePair.BlockPath;

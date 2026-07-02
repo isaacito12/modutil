@@ -19,7 +19,7 @@ classdef RotationalFrictionTorqueAppMain < handle
   end  % properties
   properties
 
-    DataSet (1,1) RotationalFrictionTorque1.RotationalFrictionTorqueDataSet
+    DataSet (1,1) mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueDataSet
 
     AppParameterStructName (1,1) string = ""
 
@@ -95,7 +95,7 @@ classdef RotationalFrictionTorqueAppMain < handle
       % -----------------------------------------------------------------------
       % Before building app GUI
 
-      App.DataSet = RotationalFrictionTorque1.RotationalFrictionTorqueDataSet(Initialization=true);
+      App.DataSet = mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueDataSet(Initialization=true);
 
       % BlockPath takes precedence over ModelName.
       if NameValuePair.BlockPath ~= ""
@@ -277,7 +277,7 @@ classdef RotationalFrictionTorqueAppMain < handle
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
       description_link_ui = mus1.AppUtil.Component.Hyperlink(appleft_v_layout);
       description_link_ui.Text = mus1.CodeUtil.i18n("Description");
-      description_link_ui.HyperlinkClickedCallback = @() web("RotationalFrictionTorqueApp_Description.html");
+      description_link_ui.HyperlinkClickedCallback = @() web("RotationalFrictionTorqueApp_Description_mus1.html");
 
       % -----------------------------------------------------------------------
       appleft_v_layout = addVerticalGridLayout(appleft_v_container);
@@ -455,7 +455,7 @@ classdef RotationalFrictionTorqueAppMain < handle
       App.OpenInFigureWindowUI.HorizontalAlignment = "right";
       App.OpenInFigureWindowUI.HyperlinkClickedCallback = @() open_in_figure_window();
       function open_in_figure_window
-        RotationalFrictionTorque1.plotRotationalFrictionTorque( ...
+        mus1.app.RotationalFrictionTorque.plotRotationalFrictionTorque( ...
           ParentAxes = axes(figure), ...
           DataSource="dataset", DataSet=App.DataSet)
       end  % nested function
@@ -633,7 +633,7 @@ classdef RotationalFrictionTorqueAppMain < handle
       % the workspace variables must be loaded upfront.
       % This updates the derived parameters too.
       try
-        App.DataSet = RotationalFrictionTorque1.RotationalFrictionTorqueDataSet(BlockPath=App.BlockPath);
+        App.DataSet = mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueDataSet(BlockPath=App.BlockPath);
       catch exception
         if App.MainFigure.Visible
           msg = exception.message;
@@ -671,7 +671,7 @@ classdef RotationalFrictionTorqueAppMain < handle
 
       if not(App.MainFigure.Visible)
         % Set up parameters that are not block parameters. (Use the default values.)
-        data_set = RotationalFrictionTorque1.RotationalFrictionTorqueDataSet(Initialization=true);
+        data_set = mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueDataSet(Initialization=true);
 
         App.ShowStribeckTorqueUI.Value = data_set.ShowStribeckTorque;
         App.ShowCoulombTorqueUI.Value = data_set.ShowCoulombTorque;
@@ -856,7 +856,7 @@ classdef RotationalFrictionTorqueAppMain < handle
 
       elseif NameValuePair.PlotMode == "force" ...
           || ((NameValuePair.PlotMode == "auto") && App.UpdateButtonUI.CheckBoxUI.Value)
-        RotationalFrictionTorque1.plotRotationalFrictionTorque( ...
+        mus1.app.RotationalFrictionTorque.plotRotationalFrictionTorque( ...
           ParentAxes = App.AxesUI.MainAxes, ...
           DataSource="dataset", DataSet=App.DataSet)
       end  % if

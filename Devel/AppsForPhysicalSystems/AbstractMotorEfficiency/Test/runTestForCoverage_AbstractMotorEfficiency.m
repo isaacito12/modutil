@@ -1,5 +1,7 @@
 function runTestForCoverage_AbstractMotorEfficiency
 % Run test and measure code coverage for specified source files.
+%
+% To run this function, change the folder to where this file is stored.
 
 % Copyright 2026 The MathWorks, Inc.
 
@@ -12,12 +14,13 @@ coverage_target_namespace_1 = "mus1.app.AbstractMotorEfficiency";
 
 % Files that implements tests. They must exist.
 test_files = [
- "uiTest_AbstractMotorEfficiency.m"
- "unittest_AbstractMotorEfficiency_core.m"
- "unittest_AbstractMotorEfficiency_plot_and_DataSet.m"
- "unittest_AbstractMotorEfficiency_settings.m"
- "unittest_AbstractMotorEfficiencyModelParameters.m"
- "uptodateTest_AbstractMotorEfficiency.m"
+  "uiTest_AbstractMotorEfficiency.m"
+  "uiUptodateTest_AbstractMotorEfficiency.m"
+  "unittest_AbstractMotorEfficiency_core.m"
+  "unittest_AbstractMotorEfficiency_plot_and_DataSet.m"
+  "unittest_AbstractMotorEfficiency_settings.m"
+  "unittest_AbstractMotorEfficiencyModelParameters.m"
+  "uptodateTest_AbstractMotorEfficiency.m"
   ];
 test_files = fullfile(pwd, test_files);
 for k = 1 : numel(test_files)
