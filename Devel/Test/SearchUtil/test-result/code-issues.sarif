@@ -1,8 +1,8 @@
 {
   "version": "2.1.0",
   "properties": {
-    "Date": "2026-06-30 16:03:59",
-    "Release": "R2026b",
+    "Date": "2026-07-01 15:42:37",
+    "Release": "R2026a",
     "CodeAnalyzerConfiguration": "active"
   },
   "runs": [
@@ -18,78 +18,6 @@
         }
       },
       "artifacts": [
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "FileSearchApp.m"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "FileSearchAppMain/uiTest_FileSearchAppMain.m"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "FileSearchAppMain/uiUptodateTest_FileSearchAppMain.m"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "FileSearchResultAppMain/uiTest_FileSearchResultAppMain.m"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "FileSearchResultAppMain/uiUptodateTest_FileSearchResultAppMain.m"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "FolderSearchApp.m"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "TextSearchApp.m"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "TextSearchAppMain/uiTest_TextSearchAppMain.m"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "TextSearchAppMain/uiUptodateTest_TextSearchAppMain.m"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "TextSearchResultApp.m"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "TextSearchResultAppMain/uiTest_TextSearchResultAppMain.m"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "TextSearchResultAppMain/uiUptodateTest_TextSearchResultAppMain.m"
-          }
-        },
         {
           "location": {
             "uriBaseId": "SourceRoot",
@@ -184,18 +112,6 @@
           "location": {
             "uriBaseId": "SourceRoot",
             "uri": "searchText/unittest_searchText.m"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "uiTest_SearchUtil.m"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "uiUptodateTest_SearchUtil.m"
           }
         },
         {

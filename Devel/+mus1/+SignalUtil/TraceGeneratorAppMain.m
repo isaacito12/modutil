@@ -153,7 +153,7 @@ classdef TraceGeneratorAppMain < handle
 
       % Use getFileFullPath to check that the file exists.
       % If it doesn't, an error is issued and the app doesn't start.
-      html_file = mus1.CodeUtil.i18n("TraceGeneratorApp_Description.html");
+      html_file = mus1.CodeUtil.i18n("TraceGeneratorApp_Description_mus1.html");
       mus1.FileUtil.getFileFullPath(html_file);
 
       link_ui = mus1.AppUtil.Component.Hyperlink(left_column_grid);

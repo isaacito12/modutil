@@ -50,7 +50,7 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
     %% Screenshots
 
     % -------------------------------------------------------------------------
-    % AbstractMotorEfficiency1.AbstractMotorEfficiencyAppMain
+    % mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyAppMain
     % Save the screenshot image file outside of the namespace.
 
     function app_screenshot_1_dark(testcase)
@@ -62,10 +62,10 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
 
       end  % if
       % R2025a or newer
-      source_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency1.AbstractMotorEfficiencyAppMain");
+      source_fullpath = mus1.FileUtil.getFileFullPath("mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyAppMain");
 
       destination_folder = fileparts(source_fullpath);
-      destination_folder = extractBefore(destination_folder, ("/"|"\") + "+AbstractMotorEfficiency1");
+      destination_folder = extractBefore(destination_folder, ("/"|"\") + "+mus1.app.AbstractMotorEfficiency");
       destination_folder = fullfile(destination_folder, "media");
       [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
@@ -78,7 +78,7 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       end  % if
 
       if needs_update
-        app = AbstractMotorEfficiency1.AbstractMotorEfficiencyAppMain;  % !screenshot-target
+        app = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyAppMain;  % !screenshot-target
         app.Window.MainFigure.Theme = "dark";
         drawnow
         exportapp(app.Window.MainFigure, destination_fullpath)
@@ -99,10 +99,10 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
 
       end  %if
 
-      source_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency1.AbstractMotorEfficiencyAppMain");
+      source_fullpath = mus1.FileUtil.getFileFullPath("mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyAppMain");
 
       destination_folder = fileparts(source_fullpath);
-      destination_folder = extractBefore(destination_folder, ("/"|"\") + "+AbstractMotorEfficiency1");
+      destination_folder = extractBefore(destination_folder, ("/"|"\") + "+mus1.app.AbstractMotorEfficiency");
       destination_folder = fullfile(destination_folder, "media");
       [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
@@ -119,7 +119,7 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       end  % if
 
       if needs_update
-        app = AbstractMotorEfficiency1.AbstractMotorEfficiencyAppMain;  % !screenshot-target
+        app = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyAppMain;  % !screenshot-target
         app.Window.MainFigure.Theme = "light";
         drawnow
         exportapp(app.Window.MainFigure, destination_fullpath)
@@ -143,7 +143,7 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
 
       end  % if
       % R2025a or newer
-      source_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiencyApp");
+      source_fullpath = mus1.FileUtil.getFileFullPath("mus1_AbstractMotorEfficiencyApp");
 
       destination_folder = fileparts(source_fullpath);
       destination_folder = fullfile(destination_folder, "media");
@@ -158,7 +158,7 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       end  % if
 
       if needs_update
-        app = AbstractMotorEfficiencyApp;  % !screenshot-target
+        app = mus1_AbstractMotorEfficiencyApp;  % !screenshot-target
         app.Window.MainFigure.Theme = "dark";
         drawnow
         exportapp(app.Window.MainFigure, destination_fullpath)
@@ -179,7 +179,7 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
 
       end  %if
 
-      source_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiencyApp");
+      source_fullpath = mus1.FileUtil.getFileFullPath("mus1_AbstractMotorEfficiencyApp");
 
       destination_folder = fileparts(source_fullpath);
       destination_folder = fullfile(destination_folder, "media");
@@ -198,7 +198,7 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       end  % if
 
       if needs_update
-        app = AbstractMotorEfficiencyApp;  % !screenshot-target
+        app = mus1_AbstractMotorEfficiencyApp;  % !screenshot-target
         app.Window.MainFigure.Theme = "light";
         drawnow
         exportapp(app.Window.MainFigure, destination_fullpath)

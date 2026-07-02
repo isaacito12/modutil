@@ -55,7 +55,7 @@ classdef unittest_AbstractMotorEfficiency_core < matlab.unittest.TestCase
     function Test_DataSet_1(testcase)
       %%
 
-      ds = AbstractMotorEfficiency1.AbstractMotorEfficiencyDataSet(Initialization=true);
+      ds = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyDataSet(Initialization=true);
 
       verifyTrue(testcase, ds.PlotResolution > 3)
 
@@ -77,10 +77,10 @@ classdef unittest_AbstractMotorEfficiency_core < matlab.unittest.TestCase
     function Test_DataSet_2(testcase)
       %%
 
-      [~, result_direct] = AbstractMotorEfficiency1.plotAbstractMotorEfficiency(DataSource="direct");
+      [~, result_direct] = mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency(DataSource="direct");
 
-      ds = AbstractMotorEfficiency1.AbstractMotorEfficiencyDataSet(Initialization=true);
-      [~, result_dataset] = AbstractMotorEfficiency1.plotAbstractMotorEfficiency(DataSource="dataset", DataSet=ds);
+      ds = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyDataSet(Initialization=true);
+      [~, result_dataset] = mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency(DataSource="dataset", DataSet=ds);
 
       u1 = string(unit(result_direct.TorqueValues));
       u2 = string(unit(result_dataset.TorqueValues));
@@ -113,16 +113,16 @@ classdef unittest_AbstractMotorEfficiency_core < matlab.unittest.TestCase
     function Test_DataSet_3(testcase)
       %%
 
-      [~, result_direct] = AbstractMotorEfficiency1.plotAbstractMotorEfficiency( ...
+      [~, result_direct] = mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency( ...
         DataSource = "direct", ...
         MaxTorque = simscape.Value(123, "N*m"), ...
         MaxPower = simscape.Value(150, "kW") );
 
-      ds = AbstractMotorEfficiency1.AbstractMotorEfficiencyDataSet(Initialization=true);
+      ds = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyDataSet(Initialization=true);
       ds.ModelParams.MaxTorque = simscape.Value(123, "N*m");
       ds.ModelParams.MaxPower = simscape.Value(150, "kW");
       ds = updateDataSet(ds);
-      [~, result_dataset] = AbstractMotorEfficiency1.plotAbstractMotorEfficiency(DataSource="dataset", DataSet=ds);
+      [~, result_dataset] = mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency(DataSource="dataset", DataSet=ds);
 
       u1 = string(unit(result_direct.TorqueValues));
       u2 = string(unit(result_dataset.TorqueValues));

@@ -1,228 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" name="uiTest_SignalUtil" skipped="0" tests="2" time="12.317">
-    <testcase classname="uiTest_SignalUtil" name="app_launches_without_warnings_1" time="4.9791"/>
-    <testcase classname="uiTest_SignalUtil" name="app_launches_without_warnings_2" time="7.3379"/>
+  <testsuite errors="0" failures="0" name="unittest_generateSignalDesignMatrixFromTraceProperties" skipped="0" tests="2" time="0.20703">
+    <testcase classname="unittest_generateSignalDesignMatrixFromTraceProperties" name="PassingTest_1" time="0.015251"/>
+    <testcase classname="unittest_generateSignalDesignMatrixFromTraceProperties" name="PassingTest_2" time="0.19178"/>
   </testsuite>
-  <testsuite errors="4" failures="0" name="uiUptodateTest_SignalUtil" skipped="0" tests="4" time="26.8858">
-    <testcase classname="uiUptodateTest_SignalUtil" name="app_screenshot_is_uptodate_1_1_dark" time="6.7219">
-      <error>Error occurred in uiUptodateTest_SignalUtil/app_screenshot_is_uptodate_1_1_dark and it did not run to completion.
-    ---------
-    Error ID:
-    ---------
-    'MATLAB:noSuchMethodOrField'
-    --------------
-    Error Details:
-    --------------
-    Unrecognized method, property, or field 'MainFigure' for class 'mus1.SignalUtil.SignalDesignAppMain'.
-    
-    Error in uiUptodateTest_SignalUtil/app_screenshot_is_uptodate_1_1_dark (line 77)
-            testcase.App.MainFigure.Theme = theme_name;Error occurred in uiUptodateTest_SignalUtil/app_screenshot_is_uptodate_1_1_dark and it did not run to completion.
-    ---------
-    Error ID:
-    ---------
-    'MATLAB:noSuchMethodOrField'
-    --------------
-    Error Details:
-    --------------
-    Unrecognized method, property, or field 'MainFigure' for class 'mus1.SignalUtil.SignalDesignAppMain'.
-    
-    Error in uiUptodateTest_SignalUtil/test_method_setup/closeAll (line 34)
-              delete(testcase.App.MainFigure)</error>
-    </testcase>
-    <testcase classname="uiUptodateTest_SignalUtil" name="app_screenshot_is_uptodate_1_2_light" time="4.9846">
-      <error>Error occurred in uiUptodateTest_SignalUtil/app_screenshot_is_uptodate_1_2_light and it did not run to completion.
-    ---------
-    Error ID:
-    ---------
-    'MATLAB:noSuchMethodOrField'
-    --------------
-    Error Details:
-    --------------
-    Unrecognized method, property, or field 'MainFigure' for class 'mus1.SignalUtil.SignalDesignAppMain'.
-    
-    Error in uiUptodateTest_SignalUtil/app_screenshot_is_uptodate_1_2_light (line 114)
-            testcase.App.MainFigure.Theme = theme_name;Error occurred in uiUptodateTest_SignalUtil/app_screenshot_is_uptodate_1_2_light and it did not run to completion.
-    ---------
-    Error ID:
-    ---------
-    'MATLAB:noSuchMethodOrField'
-    --------------
-    Error Details:
-    --------------
-    Unrecognized method, property, or field 'MainFigure' for class 'mus1.SignalUtil.SignalDesignAppMain'.
-    
-    Error in uiUptodateTest_SignalUtil/test_method_setup/closeAll (line 34)
-              delete(testcase.App.MainFigure)</error>
-    </testcase>
-    <testcase classname="uiUptodateTest_SignalUtil" name="app_screenshot_is_uptodate_2_1_dark" time="4.4898">
-      <error>Error occurred in uiUptodateTest_SignalUtil/app_screenshot_is_uptodate_2_1_dark and it did not run to completion.
-    ---------
-    Error ID:
-    ---------
-    'MATLAB:noSuchMethodOrField'
-    --------------
-    Error Details:
-    --------------
-    Unrecognized method, property, or field 'MainFigure' for class 'mus1.SignalUtil.TraceGeneratorAppMain'.
-    
-    Error in uiUptodateTest_SignalUtil/app_screenshot_is_uptodate_2_1_dark (line 151)
-            testcase.App.MainFigure.Theme = theme_name;Error occurred in uiUptodateTest_SignalUtil/app_screenshot_is_uptodate_2_1_dark and it did not run to completion.
-    ---------
-    Error ID:
-    ---------
-    'MATLAB:noSuchMethodOrField'
-    --------------
-    Error Details:
-    --------------
-    Unrecognized method, property, or field 'MainFigure' for class 'mus1.SignalUtil.TraceGeneratorAppMain'.
-    
-    Error in uiUptodateTest_SignalUtil/test_method_setup/closeAll (line 34)
-              delete(testcase.App.MainFigure)</error>
-    </testcase>
-    <testcase classname="uiUptodateTest_SignalUtil" name="app_screenshot_is_uptodate_2_2_light" time="10.6895">
-      <error>Error occurred in uiUptodateTest_SignalUtil/app_screenshot_is_uptodate_2_2_light and it did not run to completion.
-    ---------
-    Error ID:
-    ---------
-    'MATLAB:noSuchMethodOrField'
-    --------------
-    Error Details:
-    --------------
-    Unrecognized method, property, or field 'MainFigure' for class 'mus1.SignalUtil.TraceGeneratorAppMain'.
-    
-    Error in uiUptodateTest_SignalUtil/app_screenshot_is_uptodate_2_2_light (line 188)
-            testcase.App.MainFigure.Theme = theme_name;Error occurred in uiUptodateTest_SignalUtil/app_screenshot_is_uptodate_2_2_light and it did not run to completion.
-    ---------
-    Error ID:
-    ---------
-    'MATLAB:noSuchMethodOrField'
-    --------------
-    Error Details:
-    --------------
-    Unrecognized method, property, or field 'MainFigure' for class 'mus1.SignalUtil.TraceGeneratorAppMain'.
-    
-    Error in uiUptodateTest_SignalUtil/test_method_setup/closeAll (line 34)
-              delete(testcase.App.MainFigure)</error>
-    </testcase>
+  <testsuite errors="0" failures="0" name="unittest_getTimetableFromLoggedSignal" skipped="0" tests="9" time="5.994">
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_1" time="0.10036"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_2" time="0.2445"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_3" time="0.01911"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_4" time="0.09916"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_5" time="5.247"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_1" time="0.11634"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_2" time="0.076235"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_3" time="0.049401"/>
+    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_4" time="0.041875"/>
   </testsuite>
-  <testsuite errors="2" failures="0" name="unittest_SignalUtil" skipped="0" tests="3" time="0.22276">
-    <testcase classname="unittest_SignalUtil" name="PassingTest_1" time="0.0097048">
-      <error>Error occurred in unittest_SignalUtil/PassingTest_1 and it did not run to completion.
-    ---------
-    Error ID:
-    ---------
-    'MATLAB:undefinedVarOrClass'
-    --------------
-    Error Details:
-    --------------
-    Unable to resolve the name 'SignalUtil1.generateSignalDesignMatrixFromTraceProperties'.
-    
-    Error in demo_TimedTrace (line 1)
-    signal_design_matrix = SignalUtil1.generateSignalDesignMatrixFromTraceProperties(...
-    
-    Error in unittest_SignalUtil/PassingTest_1 (line 36)
-          demo_TimedTrace</error>
-    </testcase>
-    <testcase classname="unittest_SignalUtil" name="PassingTest_2" time="0.14925">
-      <error>Error occurred in unittest_SignalUtil/PassingTest_2 and it did not run to completion.
-    ---------
-    Error ID:
-    ---------
-    'MATLAB:undefinedVarOrClass'
-    --------------
-    Error Details:
-    --------------
-    Unable to resolve the name 'SignalUtil1.getVectorsFromSignalDesignMatrix'.
-    
-    Error in SignalDesignApp_Description (line 3)
-    tt = SignalUtil1.getVectorsFromSignalDesignMatrix(design_matrix);
-    
-    Error in unittest_SignalUtil/PassingTest_2 (line 40)
-          SignalDesignApp_Description</error>
-    </testcase>
-    <testcase classname="unittest_SignalUtil" name="PassingTest_3" time="0.063809"/>
+  <testsuite errors="0" failures="0" name="unittest_getVectorsFromSignalDesignMatrix" skipped="0" tests="2" time="0.14341">
+    <testcase classname="unittest_getVectorsFromSignalDesignMatrix" name="PassingTest_1" time="0.013172"/>
+    <testcase classname="unittest_getVectorsFromSignalDesignMatrix" name="PassingTest_2" time="0.13024"/>
   </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_SignalUtil_settings" skipped="0" tests="2" time="0.046284">
-    <testcase classname="unittest_SignalUtil_settings" name="linked_app_in_live_script_1" time="0.028777"/>
-    <testcase classname="unittest_SignalUtil_settings" name="linked_app_in_live_script_2" time="0.017507"/>
+  <testsuite errors="0" failures="0" name="unittest_plotDifference" skipped="0" tests="6" time="0.36791">
+    <testcase classname="unittest_plotDifference" name="PassingTest_1" time="0.075725"/>
+    <testcase classname="unittest_plotDifference" name="PassingTest_2" time="0.046335"/>
+    <testcase classname="unittest_plotDifference" name="PassingTest_3" time="0.051795"/>
+    <testcase classname="unittest_plotDifference" name="PassingTest_4" time="0.06295"/>
+    <testcase classname="unittest_plotDifference" name="PassingTest_5" time="0.046038"/>
+    <testcase classname="unittest_plotDifference" name="PassingTest_6" time="0.085066"/>
   </testsuite>
-  <testsuite errors="0" failures="0" name="uptodateTest_SignalUtil" skipped="0" tests="2" time="0.020176">
-    <testcase classname="uptodateTest_SignalUtil" name="html_with_code_is_uptodate_1" time="0.013521"/>
-    <testcase classname="uptodateTest_SignalUtil" name="html_with_code_is_uptodate_2" time="0.006655"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uiTest_SignalDesignAppMain" skipped="0" tests="4" time="31.601">
-    <testcase classname="uiTest_SignalDesignAppMain" name="app_launches_without_warnings_1" time="8.86"/>
-    <testcase classname="uiTest_SignalDesignAppMain" name="app_launches_without_warnings_2" time="5.1581"/>
-    <testcase classname="uiTest_SignalDesignAppMain" name="uitest_1" time="7.8411"/>
-    <testcase classname="uiTest_SignalDesignAppMain" name="uitest_2" time="9.7418"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uitest_TraceGeneratorAppMain" skipped="0" tests="3" time="28.2533">
-    <testcase classname="uitest_TraceGeneratorAppMain" name="app_launches_without_warnings_1" time="6.0271"/>
-    <testcase classname="uitest_TraceGeneratorAppMain" name="Test_1" time="10.9278"/>
-    <testcase classname="uitest_TraceGeneratorAppMain" name="uitest_1" time="11.2984"/>
-  </testsuite>
-  <testsuite errors="1" failures="0" name="unittest_generateSignalDesignMatrixFromTraceProperties" skipped="0" tests="2" time="0.024966">
-    <testcase classname="unittest_generateSignalDesignMatrixFromTraceProperties" name="PassingTest_1" time="0.014273"/>
-    <testcase classname="unittest_generateSignalDesignMatrixFromTraceProperties" name="PassingTest_2" time="0.010694">
-      <error>Error occurred in unittest_generateSignalDesignMatrixFromTraceProperties/PassingTest_2 and it did not run to completion.
-    ---------
-    Error ID:
-    ---------
-    'MATLAB:undefinedVarOrClass'
-    --------------
-    Error Details:
-    --------------
-    Unable to resolve the name 'SignalUtil1.generateSignalDesignMatrixFromTraceProperties'.
-    
-    Error in demo_generateSignalDesignMatrixFromTraceProperties (line 1)
-    signal_design_matrix = SignalUtil1.generateSignalDesignMatrixFromTraceProperties;
-    
-    Error in unittest_generateSignalDesignMatrixFromTraceProperties/PassingTest_2 (line 43)
-          demo_generateSignalDesignMatrixFromTraceProperties</error>
-    </testcase>
-  </testsuite>
-  <testsuite errors="1" failures="0" name="unittest_getTimetableFromLoggedSignal" skipped="0" tests="9" time="2.965">
-    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_1" time="0.10705"/>
-    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_2" time="0.29838"/>
-    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_3" time="0.01864"/>
-    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_4" time="0.10329"/>
-    <testcase classname="unittest_getTimetableFromLoggedSignal" name="PassingTest_5" time="2.0663">
-      <error>Error occurred in unittest_getTimetableFromLoggedSignal/PassingTest_5 and it did not run to completion.
-    ---------
-    Error ID:
-    ---------
-    'MATLAB:undefinedVarOrClass'
-    --------------
-    Error Details:
-    --------------
-    Unable to resolve the name 'SignalUtil1.getTimetableFromLoggedSignal'.
-    
-    Error in demo_getTimetableFromLoggedSignal (line 28)
-    tt = SignalUtil1.getTimetableFromLoggedSignal(sim_out.logsout);
-    
-    Error in unittest_getTimetableFromLoggedSignal/PassingTest_5 (line 60)
-          demo_getTimetableFromLoggedSignal</error>
-    </testcase>
-    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_1" time="0.084706"/>
-    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_2" time="0.071938"/>
-    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_3" time="0.12573"/>
-    <testcase classname="unittest_getTimetableFromLoggedSignal" name="Test_4" time="0.088881"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_getVectorsFromSignalDesignMatrix" skipped="0" tests="2" time="0.15521">
-    <testcase classname="unittest_getVectorsFromSignalDesignMatrix" name="PassingTest_1" time="0.010023"/>
-    <testcase classname="unittest_getVectorsFromSignalDesignMatrix" name="PassingTest_2" time="0.14518"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="unittest_plotDifference" skipped="0" tests="6" time="0.3968">
-    <testcase classname="unittest_plotDifference" name="PassingTest_1" time="0.079703"/>
-    <testcase classname="unittest_plotDifference" name="PassingTest_2" time="0.053141"/>
-    <testcase classname="unittest_plotDifference" name="PassingTest_3" time="0.057671"/>
-    <testcase classname="unittest_plotDifference" name="PassingTest_4" time="0.062476"/>
-    <testcase classname="unittest_plotDifference" name="PassingTest_5" time="0.045121"/>
-    <testcase classname="unittest_plotDifference" name="PassingTest_6" time="0.098689"/>
-  </testsuite>
-  <testsuite errors="0" failures="0" name="uptodatetest_plotDifference" skipped="0" tests="2" time="0.0055578">
-    <testcase classname="uptodatetest_plotDifference" name="markdowns_are_uptodate" time="0.0037795"/>
-    <testcase classname="uptodatetest_plotDifference" name="markdown_files_exist" time="0.0017783"/>
+  <testsuite errors="0" failures="0" name="uptodatetest_plotDifference" skipped="0" tests="2" time="0.023073">
+    <testcase classname="uptodatetest_plotDifference" name="markdowns_are_uptodate" time="0.021696"/>
+    <testcase classname="uptodatetest_plotDifference" name="markdown_files_exist" time="0.0013767"/>
   </testsuite>
 </testsuites>

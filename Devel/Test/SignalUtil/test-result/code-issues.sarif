@@ -1,7 +1,7 @@
 {
   "version": "2.1.0",
   "properties": {
-    "Date": "2026-06-30 10:06:31",
+    "Date": "2026-07-01 13:51:26",
     "Release": "R2026a",
     "CodeAnalyzerConfiguration": "active"
   },
@@ -18,36 +18,6 @@
         }
       },
       "artifacts": [
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "SignalDesignApp.m"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "SignalDesignAppMain/AppTest_SignalDesignAppMain.m"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "SignalDesignAppMain/uiTest_SignalDesignAppMain.m"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "TraceGeneratorApp.m"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "TraceGeneratorAppMain/uitest_TraceGeneratorAppMain.m"
-          }
-        },
         {
           "location": {
             "uriBaseId": "SourceRoot",
@@ -94,54 +64,6 @@
           "location": {
             "uriBaseId": "SourceRoot",
             "uri": "plotDifference/uptodatetest_plotDifference.m"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "uiTest_SignalUtil.m"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "uiUptodateTest_SignalUtil.m"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "unittest_SignalUtil.m"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "unittest_SignalUtil_settings.m"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "uptodateTest_SignalUtil.m"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "SignalDesignApp_Description.mlx"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "TraceGeneratorApp_Description.mlx"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "demo_TimedTrace.mlx"
           }
         },
         {

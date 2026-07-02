@@ -36,11 +36,11 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
     % Check that models, scripts, functions, and classes run right out of the box.
 
     function PassingTest_1_1(~)
-      AbstractMotorEfficiency1.AbstractMotorEfficiencyDataSet
+      mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyDataSet
     end  % function
 
     function PassingTest_1_2(~)
-      AbstractMotorEfficiency1.AbstractMotorEfficiencyDataSet(Initialization=true)
+      mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyDataSet(Initialization=true)
     end  % function
 
     function PassingTest_2(~)
@@ -54,23 +54,23 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
     % Programmatically running these tests only check that they run without errors.
 
     function Plot_1(~)
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency
     end  % function
 
     function Plot_2(~)
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency(ParentAxes = axes(uipanel))
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency(ParentAxes = axes(uipanel))
     end  % function
 
     function Plot_3_1(~)
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency(ThemeMode="manual", Theme="light", PlotContourLevelsPercent=[1 80 93 97])
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency(ThemeMode="manual", Theme="light", PlotContourLevelsPercent=[1 80 93 97])
     end  % function
 
     function Plot_3_2(~)
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency(ThemeMode="manual", Theme="dark", ShowContourText="off")
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency(ThemeMode="manual", Theme="dark", ShowContourText="off")
     end  % function
 
     function Plot_3_3(~)
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency(ThemeMode="auto", ShowTorqueEnvelope="off")
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency(ThemeMode="auto", ShowTorqueEnvelope="off")
     end  % function
 
     % -------------------------------------------------------------------------
@@ -78,7 +78,7 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
 
     function option_torque_1(~)
       % PlotAutoRange must appreciate MaxTorque for plot torque upper bound.
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency( ...
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency( ...
         PlotAutoRange = "on", ... 
         MaxTorque = simscape.Value(100, "lbf*ft") );
     end  % function
@@ -88,7 +88,7 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
       % Torque is configured by MaxTorque and PlotTorqueUpperBound.
       %
       % MaxAngularSpeedMode is "on" by default, thus angular speed is automatically determined.
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency( ...
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency( ...
         PlotAutoRange = "off", ...
         MaxTorque = simscape.Value(80, "N*m"), ...
         PlotTorqueUpperBound = simscape.Value(100, "N*m") );
@@ -97,7 +97,7 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
     function option_torque_2_2(~)
       % Even when PlotAutoRange is "off", angular speed is still automatically determined by MaxAngularSpeedRate.
       % Compare this case with the previous one. (Visually inspect.)
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency( ...
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency( ...
         PlotAutoRange = "off", ...
         MaxTorque = simscape.Value(80, "N*m"), ...
         PlotTorqueUpperBound = simscape.Value(100, "N*m"), ...
@@ -108,21 +108,21 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
     % Test options for angular speed.
 
     function option_speed_1_1(~)
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency( ...
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency( ...
         PlotAutoRange = "on", ...
         MaxAngularSpeedMode = "auto" );
     end  % function
 
     function option_speed_1_2(~)
       % MaxAngularSpeed is ignored when MaxAngularSpeedMode is "auto".
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency( ...
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency( ...
         PlotAutoRange = "on", ...
         MaxAngularSpeedMode = "auto", ...
         MaxAngularSpeed = simscape.Value(6000, "rpm") );  % must be ignored.
     end  % function
 
     function option_speed_1_3(~)
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency( ...
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency( ...
         PlotAutoRange = "on", ...
         MaxAngularSpeedMode = "auto", ...
         MaxAngularSpeed = simscape.Value(6000, "rpm"), ... must be ignored.
@@ -138,14 +138,14 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
     % but it should still work.
 
     function option_speed_2_1_1(~)
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency( ...
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency( ...
         PlotAutoRange = "on", ...
         MaxAngularSpeedMode = "specify" );
     end  % function
 
     function option_speed_2_1_2(~)
       % MaxAngularSpeedRate is used only when MaxAngularSpeedMode is "auto".
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency( ...
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency( ...
         PlotAutoRange = "on", ...
         MaxAngularSpeedMode = "specify", ...
         MaxAngularSpeedRate = 0.6 );  % must be ignored.
@@ -154,7 +154,7 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
     function option_speed_2_1_3(~)
       % MaxAngularSpeed can be specified, but the plot angular speed upper bound is
       % determined by the plot auto range logic.
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency( ...
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency( ...
         PlotAutoRange = "on", ...
         MaxAngularSpeedMode = "specify", ...
         MaxAngularSpeedRate = 0.6, ... must be ignored.
@@ -164,7 +164,7 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
     function option_speed_2_1_4(~)
       % PlotAngularSpeedUpperBound can be used to override the plot auto range logic.
       % In this case, the plot auto range logic works for the torque only.
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency( ...
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency( ...
         PlotAutoRange = "on", ...
         MaxAngularSpeedMode = "specify", ...
         MaxAngularSpeedRate = 0.6, ... must be ignored.
@@ -174,7 +174,7 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
 
     function option_speed_2_1_5(~)
       % If PlotAutoRange is "on", MaxTorque is used but PlotTorqueUpperBound is ignored.
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency( ...
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency( ...
         PlotAutoRange = "on", ...
         MaxAngularSpeedMode = "specify", ...
         MaxAngularSpeedRate = 0.6, ... must be ignored.
@@ -191,7 +191,7 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
 
     function option_speed_2_2(~)
       % To use PlotTorqueUpperBound, PlotAutoRange must be "off".
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency( ...
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency( ...
         PlotAutoRange = "off", ... Must be off for the plot torque upper bound.
         MaxAngularSpeedMode = "specify", ...
         MaxAngularSpeedRate = 0.6, ... must be ignored.
@@ -205,33 +205,33 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
     % Additional coverage tests for the plot function.
 
     function option_speed_6(~)
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency( ...
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency( ...
         MaxAngularSpeedMode = "specify", ...
         MaxAngularSpeedRate = 0.3, ...
         PlotAutoRange = "on" );
     end  % function
 
     function option_speed_7(~)
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency( ...
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency( ...
         MaxAngularSpeedMode = "specify", ...
         PlotAutoRange = "off", ...
         PlotAngularSpeedUpperBound = simscape.Value(2000, "rad/s") );
     end  % function
 
     function option_resolution_1(~)
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency( ...
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency( ...
         PlotResolution = 50 );
     end  % function
 
     function Plot_output_1(testcase)
-      fig = AbstractMotorEfficiency1.plotAbstractMotorEfficiency;
+      fig = mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency;
       verifyTrue(testcase, isa(fig, 'matlab.ui.Figure'))
     end  % function
 
     function Plot_error_contour_levels(testcase)
       verifyError(testcase, @test_target, "plotAbstractMotorEfficiency:NotEnoughElements")
       function test_target
-        AbstractMotorEfficiency1.plotAbstractMotorEfficiency(PlotContourLevelsPercent=[50 90])  % !test-target
+        mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency(PlotContourLevelsPercent=[50 90])  % !test-target
       end  % nested function
     end  % function
 
@@ -243,7 +243,7 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
         % ParentAxes must be of type matlab.graphics.axis.Axes.
         % Directly passing uipanel to ParentAxes must fail.
         % (To use uipanel, pass axes(uipanel) to ParentAxes.)
-        AbstractMotorEfficiency1.plotAbstractMotorEfficiency(ParentAxes = uipanel)  % !test-target
+        mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency(ParentAxes = uipanel)  % !test-target
       end  % nested function
     end  % function
 
@@ -254,16 +254,16 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
     % Programmatically running these tests only check that they run without errors.
 
     function Plot_DataSet_1(~)
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency(DataSource="dataset")  % !test-target
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency(DataSource="dataset")  % !test-target
     end  % function
 
     function Plot_DataSet_2_1(~)
-      ds = AbstractMotorEfficiency1.AbstractMotorEfficiencyDataSet(Initialization=true);
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency(DataSource="dataset", DataSet=ds)  % !test-target
+      ds = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyDataSet(Initialization=true);
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency(DataSource="dataset", DataSet=ds)  % !test-target
     end  % function
 
     function Plot_DataSet_2_2(~)
-      ds = AbstractMotorEfficiency1.AbstractMotorEfficiencyDataSet(Initialization=true);
+      ds = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyDataSet(Initialization=true);
 
       ds.PlotAutoRange = "off";
 
@@ -280,20 +280,20 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
 
       updateDataSet(ds)
 
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency(DataSource="dataset", DataSet=ds)  % !test-target
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency(DataSource="dataset", DataSet=ds)  % !test-target
     end  % function
 
     function Plot_DataSet_2_3(~)
-      ds = AbstractMotorEfficiency1.AbstractMotorEfficiencyDataSet(Initialization=true);
+      ds = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyDataSet(Initialization=true);
       ds.ShowContourText = "off";
       ds.ShowTorqueEnvelope = "off";
-      AbstractMotorEfficiency1.plotAbstractMotorEfficiency(DataSource="dataset", DataSet=ds)  % !test-target
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency(DataSource="dataset", DataSet=ds)  % !test-target
     end  % function
 
     function Test_DataSet_1(testcase)
       %%
 
-      ds = AbstractMotorEfficiency1.AbstractMotorEfficiencyDataSet(Initialization=true);
+      ds = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyDataSet(Initialization=true);
 
       verifyTrue(testcase, ds.PlotResolution > 3)
 
@@ -315,10 +315,10 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
     function Test_DataSet_2(testcase)
       %%
 
-      [~, result_direct] = AbstractMotorEfficiency1.plotAbstractMotorEfficiency(DataSource="direct");
+      [~, result_direct] = mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency(DataSource="direct");
 
-      ds = AbstractMotorEfficiency1.AbstractMotorEfficiencyDataSet(Initialization=true);
-      [~, result_dataset] = AbstractMotorEfficiency1.plotAbstractMotorEfficiency(DataSource="dataset", DataSet=ds);
+      ds = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyDataSet(Initialization=true);
+      [~, result_dataset] = mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency(DataSource="dataset", DataSet=ds);
 
       u1 = string(unit(result_direct.TorqueValues));
       u2 = string(unit(result_dataset.TorqueValues));
@@ -351,7 +351,7 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
     function Test_DataSet_3(testcase)
       %%
 
-      [~, result_direct] = AbstractMotorEfficiency1.plotAbstractMotorEfficiency( ...
+      [~, result_direct] = mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency( ...
         DataSource = "direct", ...
         MaxTorque = simscape.Value(10, "N*m"), ...
         MaxPower = simscape.Value(10, "kW"), ...
@@ -360,7 +360,7 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
         MeasuredTorque = simscape.Value(5, "N*m"), ...
         MeasuredIronLosses = simscape.Value(1, "W") );
 
-      ds = AbstractMotorEfficiency1.AbstractMotorEfficiencyDataSet(Initialization=true);
+      ds = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyDataSet(Initialization=true);
       ds.ModelParams.MaxTorque = simscape.Value(10, "N*m");
       ds.ModelParams.MaxPower = simscape.Value(10, "kW");
       ds.ModelParams.OverallEfficiencyPercent = 94;
@@ -368,7 +368,7 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
       ds.ModelParams.MeasuredTorque = simscape.Value(5, "N*m");
       ds.ModelParams.MeasuredIronLosses = simscape.Value(1, "W");
       ds = updateDataSet(ds);
-      [~, result_dataset] = AbstractMotorEfficiency1.plotAbstractMotorEfficiency(DataSource="dataset", DataSet=ds);
+      [~, result_dataset] = mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency(DataSource="dataset", DataSet=ds);
 
       u1 = string(unit(result_direct.TorqueValues));
       u2 = string(unit(result_dataset.TorqueValues));
@@ -410,7 +410,7 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
 
       block_path = model_name + "/Motor & Drive (System Level)1";
 
-      ds = AbstractMotorEfficiency1.AbstractMotorEfficiencyDataSet(BlockPath=block_path);  % !test-target
+      ds = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyDataSet(BlockPath=block_path);  % !test-target
 
       verifyEqual(testcase, ds.BlockPath, block_path)
       verifyEqual(testcase, ds.ModelName, model_name)
@@ -440,7 +440,7 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
 
       block_path = model_name + "/Motor & Drive (System Level)2";
 
-      ds = AbstractMotorEfficiency1.AbstractMotorEfficiencyDataSet(BlockPath=block_path);  % !test-target
+      ds = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyDataSet(BlockPath=block_path);  % !test-target
 
       verifyEqual(testcase, ds.BlockPath, block_path)
       verifyEqual(testcase, ds.ModelName, model_name)

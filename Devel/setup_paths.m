@@ -11,4 +11,8 @@ addpath("mus-icons")
 
 addpath(genpath("Test"))
 
+addpath(genpath("AppsForModeling"))
+
 addpath(genpath("AppsForPhysicalSystems"))
+
+addpath(genpath("BasicApps"))

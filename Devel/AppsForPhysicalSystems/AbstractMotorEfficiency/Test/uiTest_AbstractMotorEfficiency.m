@@ -56,7 +56,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
     % Make sure there is no warning when opening an app.
 
     function clean_launch_1(testcase)
-      verifyWarningFree(testcase, @AbstractMotorEfficiency1.AbstractMotorEfficiencyAppMain)
+      verifyWarningFree(testcase, @mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyAppMain)
     end  % function
 
     function clean_launch_2(testcase)
@@ -70,7 +70,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       function test_target
         % The model does not exist.
         model_name = "test_test_test";
-        AbstractMotorEfficiency1.AbstractMotorEfficiencyAppMain(ModelName=model_name)  % !test-target
+        mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyAppMain(ModelName=model_name)  % !test-target
       end  % nested function
     end  % function
 
@@ -79,7 +79,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       function test_target
         % The model name must not be "".
         block_path = "/test";
-        AbstractMotorEfficiency1.AbstractMotorEfficiencyAppMain(BlockPath=block_path)  % !test-target
+        mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyAppMain(BlockPath=block_path)  % !test-target
       end  % nested function
     end  % function
 
@@ -90,7 +90,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
 
       verifyError(testcase, @() test_target(), "AbstractMotorEfficiencyAppMain:SimscapeBlockWasNotFound")
       function test_target
-        AbstractMotorEfficiency1.AbstractMotorEfficiencyAppMain(ModelName=model_name)  % !test-target
+        mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyAppMain(ModelName=model_name)  % !test-target
       end  % nested function
     end  % function
 
@@ -101,7 +101,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
 
       verifyError(testcase, @() test_target(), "AbstractMotorEfficiencyAppMain:SimscapeBlockWasNotFound")
       function test_target
-        AbstractMotorEfficiency1.AbstractMotorEfficiencyAppMain(ModelName=model_name)  % !test-target
+        mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyAppMain(ModelName=model_name)  % !test-target
       end  % nested function
 
       if isfile(model_filename)
@@ -115,7 +115,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       function test_target
         % Specified parameter file does not exist. Some parameter struct name must be specified.
         paramfile_name = "test_test_test";
-        AbstractMotorEfficiency1.AbstractMotorEfficiencyAppMain( ...
+        mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyAppMain( ...
           AppParameterFileName=paramfile_name, AppParameterStructName="dummy")  % !test-target
       end  % nested function
     end  % function
@@ -202,12 +202,12 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
     end  % function
 
     function hyperlink_1(testcase)
-      app = AbstractMotorEfficiency1.AbstractMotorEfficiencyAppMain;
+      app = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyAppMain;
       press(testcase, app.DescriptionLinkUI.MainHyperlink)
     end  % function
 
     function update_button_1(testcase)
-      app = AbstractMotorEfficiency1.AbstractMotorEfficiencyAppMain;
+      app = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyAppMain;
       press(testcase, app.UpdateButtonUI.ButtonUI.MainButton)
     end  % function
 

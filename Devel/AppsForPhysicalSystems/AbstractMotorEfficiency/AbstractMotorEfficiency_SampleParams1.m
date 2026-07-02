@@ -8,7 +8,7 @@
 % This script creates a variable of AbstractMotorEfficiencyAppParameters, which
 % provides predefined fields for the app parameters and tab-completion for edit.
 % The app can also read these fields with the "Get" button all at once.
-MotorParams = AbstractMotorEfficiency1.AbstractMotorEfficiencyAppParameters;
+MotorParams = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyAppParameters;
 
 MotorParams.MaxAngularSpeedMode = "auto";
 % MotorParams.MaxAngularSpeed = simscape.Value(12000, "rpm");

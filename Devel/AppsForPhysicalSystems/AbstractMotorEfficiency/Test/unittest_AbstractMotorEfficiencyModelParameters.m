@@ -53,11 +53,11 @@ classdef unittest_AbstractMotorEfficiencyModelParameters < matlab.unittest.TestC
     % Check that models, scripts, functions, and classes run right out of the box.
 
     function PassingTest_1(~)
-      AbstractMotorEfficiency1.AbstractMotorEfficiencyModelParameters
+      mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyModelParameters
     end  % function
 
     function PassingTest_2(~)
-      AbstractMotorEfficiency1.AbstractMotorEfficiencyModelParameters(Initialization=true)
+      mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyModelParameters(Initialization=true)
     end  % function
 
     % -------------------------------------------------------------------------
@@ -66,7 +66,7 @@ classdef unittest_AbstractMotorEfficiencyModelParameters < matlab.unittest.TestC
       %%
       % Wrong parameter values for torques.
 
-      params = AbstractMotorEfficiency1.AbstractMotorEfficiencyModelParameters(Initialization=true);
+      params = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyModelParameters(Initialization=true);
 
       params.MaxTorque = simscape.Value(1, "N*m");
       params.MeasuredTorque = simscape.Value(10, "N*m");
@@ -81,7 +81,7 @@ classdef unittest_AbstractMotorEfficiencyModelParameters < matlab.unittest.TestC
       %%
       % Wrong parameter values for angular speeds.
 
-      params = AbstractMotorEfficiency1.AbstractMotorEfficiencyModelParameters(Initialization=true);
+      params = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyModelParameters(Initialization=true);
 
       % MaxPower/MaxTorque must be smaller than MeasuredAngularSpeed.
       % These settings violate it.
@@ -102,7 +102,7 @@ classdef unittest_AbstractMotorEfficiencyModelParameters < matlab.unittest.TestC
       %%
       % Wrong parameter value for efficiency, resulting in inconsistency in derived iron loss value.
 
-      params = AbstractMotorEfficiency1.AbstractMotorEfficiencyModelParameters(Initialization=true);
+      params = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyModelParameters(Initialization=true);
 
       params.OverallEfficiencyPercent = 99.7;
 
@@ -126,7 +126,7 @@ classdef unittest_AbstractMotorEfficiencyModelParameters < matlab.unittest.TestC
       %%
       % Ideal motor settings
 
-      params = AbstractMotorEfficiency1.AbstractMotorEfficiencyModelParameters(Initialization=true);
+      params = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyModelParameters(Initialization=true);
 
       % Conversion efficiency above the internal threshold of 99.8 % sets the motor to be ideal.
       params.OverallEfficiencyPercent = 99.9;
@@ -147,7 +147,7 @@ classdef unittest_AbstractMotorEfficiencyModelParameters < matlab.unittest.TestC
       % corresponds to the Motor & Drive block in Simscape Driveline.
       % Note that measured copper loss is still non-zero.
 
-      params = AbstractMotorEfficiency1.AbstractMotorEfficiencyModelParameters(Initialization=true);
+      params = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyModelParameters(Initialization=true);
 
       params.MeasuredIronLosses = simscape.Value(0, "W");
 

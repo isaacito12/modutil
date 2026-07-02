@@ -3,7 +3,7 @@ function runTestForCoverage_AbstractMotorEfficiency
 
 % Copyright 2026 The MathWorks, Inc.
 
-namespace_1 = "AbstractMotorEfficiency1";
+namespace_1 = "mus1.app.AbstractMotorEfficiency";
 
 test_file_1 = fullfile(pwd, "uiTest_AbstractMotorEfficiency.m");
 assert(isfile(test_file_1))

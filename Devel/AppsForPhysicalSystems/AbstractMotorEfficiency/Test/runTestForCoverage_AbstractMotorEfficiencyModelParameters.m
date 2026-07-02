@@ -3,7 +3,7 @@ function runTestForCoverage_AbstractMotorEfficiencyModelParameters
 
 % Copyright 2026 The MathWorks, Inc.
 
-target_file = fullfile(pwd, "..", "+AbstractMotorEfficiency1", "AbstractMotorEfficiencyModelParameters.m");
+target_file = fullfile(pwd, "..", "+mus1.app.AbstractMotorEfficiency", "AbstractMotorEfficiencyModelParameters.m");
 test_file = fullfile(pwd, "unittest_AbstractMotorEfficiencyModelParameters.m");
 report_file = fullfile(pwd, "code-coverage-report_AbstractMotorEfficiencyModelParameters.html");
 
