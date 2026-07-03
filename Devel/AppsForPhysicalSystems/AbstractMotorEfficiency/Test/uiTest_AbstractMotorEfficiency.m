@@ -260,7 +260,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
 
     function launch_with_model_name_1(~)
       %%
-      modelfile_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleModel_refsub_24b.mdl");
+      modelfile_fullpath = mus1.FileUtil.getFileFullPath("SampleModel_AbstractMotorEfficiency_refsub_24b.mdl");
       [~, model_name, ~] = fileparts(modelfile_fullpath);
 
       mus1_AbstractMotorEfficiencyApp(ModelName=model_name)
@@ -273,7 +273,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       [~, paramfile_name, ~] = fileparts(paramfile_fullpath);
       evalin("base", paramfile_name)
 
-      modelfile_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleModel_refsub_24b.mdl");
+      modelfile_fullpath = mus1.FileUtil.getFileFullPath("SampleModel_AbstractMotorEfficiency_refsub_24b.mdl");
       [~, model_name, ~] = fileparts(modelfile_fullpath);
 
       % Specify a block whose parameters are defined in a struct in the base workspace variable.
@@ -287,7 +287,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       %%
       % Test with the first Motor & Drive (System Level) block.
 
-      modelfile_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleModel_refsub_24b.mdl");
+      modelfile_fullpath = mus1.FileUtil.getFileFullPath("SampleModel_AbstractMotorEfficiency_refsub_24b.mdl");
       [~, model_name, ~] = fileparts(modelfile_fullpath);
 
       app = mus1_AbstractMotorEfficiencyApp(ModelName=model_name);
@@ -311,7 +311,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       [~, paramfile_name, ~] = fileparts(paramfile_fullpath);
       evalin("base", paramfile_name)
 
-      modelfile_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleModel_refsub_24b.mdl");
+      modelfile_fullpath = mus1.FileUtil.getFileFullPath("SampleModel_AbstractMotorEfficiency_refsub_24b.mdl");
       [~, model_name, ~] = fileparts(modelfile_fullpath);
 
       app = mus1_AbstractMotorEfficiencyApp(ModelName=model_name);
@@ -338,7 +338,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       % Test the command in the ClickFcn of a Callback Button.
       % Rather than clicking the button programmatically, get the command text and evaluate it.
 
-      model_name = "AbstractMotorEfficiency_SampleModel_refsub_24b";
+      model_name = "SampleModel_AbstractMotorEfficiency_refsub_24b";
       block_path = model_name + "/Open Abstract Motor Efficiency app";
 
       load_system(model_name)

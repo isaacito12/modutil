@@ -31,47 +31,22 @@ safe_mkdir(destination_media_folder, NameValuePair.DryRun)
 % -----------------------------------------------------------------------------
 % Copy releasing files.
 
-file_to_copy = fullfile(source_folder, "media", "screenshot-Vehicle1DForceApp-light.png");
-safe_copyfile(file_to_copy, destination_media_folder, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_folder, "media", "screenshot-Vehicle1DForceApp-light.png"), destination_media_folder, NameValuePair.DryRun)
+
+% Description media folder
+src_desc_media = fullfile(source_folder, "media", "Vehicle1DForceApp_Description_mus1_media");
+dst_desc_media = fullfile(destination_top_folder, "Vehicle1DForceApp_Description_mus1_media");
+safe_mkdir(dst_desc_media, NameValuePair.DryRun)
+safe_copyfile(fullfile(src_desc_media, "image_0.png"), dst_desc_media, NameValuePair.DryRun)
+safe_copyfile(fullfile(src_desc_media, "figure_0.png"), dst_desc_media, NameValuePair.DryRun)
+safe_copyfile(fullfile(src_desc_media, "figure_1.png"), dst_desc_media, NameValuePair.DryRun)
 
 % ---
 
-destination_subfolder = fullfile(destination_top_folder, "+Vehicle1DForce1");
-safe_mkdir(destination_subfolder, NameValuePair.DryRun)
-
-file_to_copy = fullfile(source_folder, "+Vehicle1DForce1", "Vehicle1DForceAppMain.m");
-safe_copyfile(file_to_copy, destination_subfolder, NameValuePair.DryRun)
-
-file_to_copy = fullfile(source_folder, "+Vehicle1DForce1", "Vehicle1DForceAppParameters.m");
-safe_copyfile(file_to_copy, destination_subfolder, NameValuePair.DryRun)
-
-file_to_copy = fullfile(source_folder, "+Vehicle1DForce1", "Vehicle1DForceDataSet.m");
-safe_copyfile(file_to_copy, destination_subfolder, NameValuePair.DryRun)
-
-file_to_copy = fullfile(source_folder, "+Vehicle1DForce1", "Vehicle1DForceModelParameters.m");
-safe_copyfile(file_to_copy, destination_subfolder, NameValuePair.DryRun)
-
-file_to_copy = fullfile(source_folder, "+Vehicle1DForce1", "Vehicle1DForcePresets.m");
-safe_copyfile(file_to_copy, destination_subfolder, NameValuePair.DryRun)
-
-file_to_copy = fullfile(source_folder, "+Vehicle1DForce1", "plotVehicle1DForce.m");
-safe_copyfile(file_to_copy, destination_subfolder, NameValuePair.DryRun)
-
-% ---
-
-file_to_copy = fullfile(source_folder, "Vehicle1DForceApp_Description.html");
-safe_copyfile(file_to_copy, destination_top_folder, NameValuePair.DryRun)
-
-file_to_copy = fullfile(source_folder, "Vehicle1DForceApp.m");
-safe_copyfile(file_to_copy, destination_top_folder, NameValuePair.DryRun)
-
-file_to_copy = fullfile(source_folder, "Vehicle1DForce_SampleModel_refsub_24b.mdl");
-safe_copyfile(file_to_copy, destination_top_folder, NameValuePair.DryRun)
-
-file_to_copy = fullfile(source_folder, "Vehicle1DForce_SampleParams1.m");
-safe_copyfile(file_to_copy, destination_top_folder, NameValuePair.DryRun)
-
-file_to_copy = fullfile(source_folder, "Vehicle1DForce_SampleParams2.m");
-safe_copyfile(file_to_copy, destination_top_folder, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_folder, "mus1_Vehicle1DForceApp.m"), destination_top_folder, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_folder, "Vehicle1DForceApp_Description_mus1.html"), destination_top_folder, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_folder, "SampleModel_Vehicle1DForce_refsub_24b.mdl"), destination_top_folder, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_folder, "Vehicle1DForce_SampleParams1.m"), destination_top_folder, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_folder, "Vehicle1DForce_SampleParams2.m"), destination_top_folder, NameValuePair.DryRun)
 
 end  % function

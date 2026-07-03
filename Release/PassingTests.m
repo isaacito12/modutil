@@ -61,17 +61,17 @@ classdef PassingTests < matlab.uitest.TestCase
     % Check that models, scripts, functions, and classes run right out of the box.
 
     function PassingTest_AbstractMotorEfficiencyApp_1(testcase)
-      verifyWarningFree(testcase, @AbstractMotorEfficiencyApp)
+      verifyWarningFree(testcase, @mus1_AbstractMotorEfficiencyApp)
     end  % function
 
     function PassingTest_AbstractMotor_Description_html(testcase)
       % Check that there is only one target file.
-      target_file = mus1.SearchUtil.searchFiles("AbstractMotorEfficiencyApp_Description.html");
+      target_file = mus1.SearchUtil.searchFiles("AbstractMotorEfficiencyApp_Description_mus1.html");
       verifyTrue(testcase, isscalar(target_file))
     end  % function
 
     function PassingTest_AbstractMotorEfficiency_SampleModel_refsub_24b_1(~)
-      load_system("AbstractMotorEfficiency_SampleModel_refsub_24b")
+      load_system("SampleModel_AbstractMotorEfficiency_refsub_24b")
     end  % function
 
     function PassingTest_SampleParams_AbstractMotor_1(testcase)
@@ -103,37 +103,37 @@ classdef PassingTests < matlab.uitest.TestCase
     end  % function
 
     function PassingTest_FileListApp_1(testcase)
-      verifyWarningFree(testcase, @FileListApp)
+      verifyWarningFree(testcase, @mus1_FileListApp)
     end  % function
 
     function PassingTest_FileSearchApp_1(testcase)
-      verifyWarningFree(testcase, @FileSearchApp)
+      verifyWarningFree(testcase, @mus1_FileSearchApp)
     end  % function
 
     function PassingTest_FolderSearchApp_1(testcase)
-      verifyWarningFree(testcase, @FolderSearchApp)
+      verifyWarningFree(testcase, @mus1_FolderSearchApp)
     end  % function
 
     function PassingTest_LookupTable1DBlockPlotApp_1(testcase)
-      verifyWarningFree(testcase, @LookupTable1DBlockPlotApp)
+      verifyWarningFree(testcase, @mus1_LookupTable1DBlockPlotApp)
     end  % function
 
     function PassingTest_SampleModel_1(~)
-      load_system("LookupTable1DBlockPlotApp_SampleModel_24b")
+      load_system("SampleModel_LookupTable1DBlockPlotApp_24b")
     end  % function
 
     function PassingTest_RotationalFrictionTorqueApp_1(testcase)
-      verifyWarningFree(testcase, @RotationalFrictionTorqueApp)
+      verifyWarningFree(testcase, @mus1_RotationalFrictionTorqueApp)
     end  % function
 
     function PassingTest_RotationalFrictionTorqueApp_Description_html(testcase)
       % Check that there is only one target file.
-      target_file = mus1.SearchUtil.searchFiles("RotationalFrictionTorqueApp_Description.html");
+      target_file = mus1.SearchUtil.searchFiles("RotationalFrictionTorqueApp_Description_mus1.html");
       verifyTrue(testcase, isscalar(target_file))
     end  % function
 
     function PassingTest_RotationalFrictionTorque_SampleModel_refsub_24b_1(~)
-      load_system("RotationalFrictionTorque_SampleModel_refsub_24b")
+      load_system("SampleModel_RotationalFrictionTorque_refsub_24b")
     end  % function
 
     function PassingTest_RotationalFrictionTorque_SampleParams1_1(testcase)
@@ -157,12 +157,12 @@ classdef PassingTests < matlab.uitest.TestCase
     end  % function
 
     function PassingTest_SignalDesignApp_1(testcase)
-      verifyWarningFree(testcase, @SignalDesignApp)
+      verifyWarningFree(testcase, @mus1_SignalDesignApp)
     end  % function
 
     function PassingTest_SignalDesignApp_Description_html(testcase)
       % Check that there is only one target file.
-      target_file = mus1.SearchUtil.searchFiles("SignalDesignApp_Description.html");
+      target_file = mus1.SearchUtil.searchFiles("SignalDesignApp_Description_mus1.html");
       verifyTrue(testcase, isscalar(target_file))
     end  % function
 
@@ -171,35 +171,35 @@ classdef PassingTests < matlab.uitest.TestCase
     end  % function
 
     function PassingTest_TextSearchApp_1(testcase)
-      verifyWarningFree(testcase, @TextSearchApp)
+      verifyWarningFree(testcase, @mus1_TextSearchApp)
     end  % function
 
     function PassingTest_TextSearchResultApp_1(testcase)
-      verifyWarningFree(testcase, @TextSearchResultApp)
+      verifyWarningFree(testcase, @mus1_TextSearchResultApp)
     end  % function
 
     function PassingTest_TraceGeneratorApp_1(testcase)
-      verifyWarningFree(testcase, @TraceGeneratorApp)
+      verifyWarningFree(testcase, @mus1_TraceGeneratorApp)
     end  % function
 
     function PassingTest_TraceGeneratorApp_Description_html(testcase)
       % Check that there is only one target file.
-      target_file = mus1.SearchUtil.searchFiles("TraceGeneratorApp_Description.html");
+      target_file = mus1.SearchUtil.searchFiles("TraceGeneratorApp_Description_mus1.html");
       verifyTrue(testcase, isscalar(target_file))
     end  % function
 
     function PassingTest_Vehicle1DForceApp_1(testcase)
-      verifyWarningFree(testcase, @Vehicle1DForceApp)
+      verifyWarningFree(testcase, @mus1_Vehicle1DForceApp)
     end  % function
 
     function PassingTest_Vehicle1DForceApp_Description_html(testcase)
       % Check that there is only one target file.
-      target_file = mus1.SearchUtil.searchFiles("Vehicle1DForceApp_Description.html");
+      target_file = mus1.SearchUtil.searchFiles("Vehicle1DForceApp_Description_mus1.html");
       verifyTrue(testcase, isscalar(target_file))
     end  % function
 
     function PassingTest_Vehicle1DForce_SampleModel_refsub_24b_1(~)
-      load_system("Vehicle1DForce_SampleModel_refsub_24b")
+      load_system("SampleModel_Vehicle1DForce_refsub_24b")
     end  % function
 
     function PassingTest_Vehicle1DForce_SampleParams1_1(testcase)

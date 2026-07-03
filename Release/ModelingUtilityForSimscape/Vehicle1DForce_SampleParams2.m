@@ -2,7 +2,7 @@
 
 % Copyright 2026 The MathWorks, Inc.
 
-Params.Vehicle = Vehicle1DForce1.Vehicle1DForceAppParameters;
+Params.Vehicle = mus1.app.Vehicle1DForce.Vehicle1DForceAppParameters;
 
 Params.Vehicle.VehicleMass = simscape.Value(1600, "kg");
 Params.Vehicle.TireRollingCoefficient = 0.014;

@@ -401,7 +401,7 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
     %% Tests
 
     function Test_1_1(testcase)
-      model_name = "AbstractMotorEfficiency_SampleModel_refsub_24b";
+      model_name = "SampleModel_AbstractMotorEfficiency_refsub_24b";
 
       % Make sure the model exists in the MATLAB path.
       target_fullpath = mus1.FileUtil.getFileFullPath(model_name);
@@ -427,7 +427,7 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
 
     function Test_1_2(testcase)
 
-      model_name = "AbstractMotorEfficiency_SampleModel_refsub_24b";
+      model_name = "SampleModel_AbstractMotorEfficiency_refsub_24b";
 
       % Make sure the model exists in the MATLAB path.
       target_fullpath = mus1.FileUtil.getFileFullPath(model_name);

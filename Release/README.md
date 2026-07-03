@@ -26,7 +26,7 @@ in a desired location in your computer and add the folder to the MATLAB path.
 
 ### Rotational friction torque app
 
-Use the `RotationalFrictionTorqueApp` to understand the friction model
+Use `mus1_RotationalFrictionTorqueApp` to understand the friction model
 and its parameters used in the Rotational Friction block in Simscape.
 
 <img src="ModelingUtilityForSimscape/media/screenshot-RotationalFrictionTorqueApp-light.png"
@@ -34,9 +34,9 @@ and its parameters used in the Rotational Friction block in Simscape.
 
 ## **SignalUtil** - Design signals for simulation
 
-### `SignalDesignApp`
+### `mus1_SignalDesignApp`
 
-Use the `SignalDesignApp` to create input signals for simulation.
+Use `mus1_SignalDesignApp` to create input signals for simulation.
 
 The app can transfer the signal parameters to Lookup Table blocks
 in Simscape or in Simulink.
@@ -45,9 +45,9 @@ The app can also get signal parameters from existing Lookup Table blocks.
 <img src="ModelingUtilityForSimscape/media/screenshot-SignalDesignApp-light.png"
  alt="Signal design app" width="700"/><!-- w=860px -->
 
-### `TraceGeneratorApp`
+### `mus1_TraceGeneratorApp`
 
-Use the `TraceGeneratorApp` to generate signal traces from high-level signal properties
+Use `mus1_TraceGeneratorApp` to generate signal traces from high-level signal properties
 and a random number generator.
 
 <img src="ModelingUtilityForSimscape/media/screenshot-TraceGeneratorApp-light.png"
@@ -55,7 +55,7 @@ and a random number generator.
  
 ## **ModelUtil** - Lookup table visualization
 
-Use the `LookupTable1DBlockPlotApp` to find and visualize
+Use `mus1_LookupTable1DBlockPlotApp` to find and visualize
 Simscape PS Lookup Table (1D) blocks and Simulink 1-D Lookup Table blocks
 in models.
 
@@ -66,7 +66,7 @@ in models.
 
 Use the `SearchUtil` API for complex search and replace operations.
 
-Use the `TextSearchApp` and the `TextSearchResultViewerApp` to search
+Use `mus1_TextSearchApp` and `mus1_TextSearchResultApp` to search
 and replace text in files and models.
 
 

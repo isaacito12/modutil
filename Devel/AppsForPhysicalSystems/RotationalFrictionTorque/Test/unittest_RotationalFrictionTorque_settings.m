@@ -34,7 +34,7 @@ classdef unittest_RotationalFrictionTorque_settings < matlab.unittest.TestCase
 
     function saved_release_2(testcase)
       % Check that the model was saved in the expected MATLAB Release.
-      info = Simulink.MDLInfo("RotationalFrictionTorque_SampleModel_refsub_24b");
+      info = Simulink.MDLInfo("SampleModel_RotationalFrictionTorque_refsub_24b");
       verifyEqual(testcase, info.ReleaseName, 'R2024b')
     end  % function
 

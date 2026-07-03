@@ -31,44 +31,14 @@ safe_mkdir(destination_media_folder, NameValuePair.DryRun)
 % -----------------------------------------------------------------------------
 % Copy releasing files.
 
-file_to_copy = fullfile(source_folder, "media", "screenshot-RotationalFrictionTorqueApp-light.png");
-safe_copyfile(file_to_copy, destination_media_folder, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_folder, "media", "screenshot-RotationalFrictionTorqueApp-light.png"), destination_media_folder, NameValuePair.DryRun)
 
 % ---
 
-destination_subfolder = fullfile(destination_top_folder, "+RotationalFrictionTorque1");
-safe_mkdir(destination_subfolder, NameValuePair.DryRun)
-
-file_to_copy = fullfile(source_folder, "+RotationalFrictionTorque1", "RotationalFrictionTorqueAppMain.m");
-safe_copyfile(file_to_copy, destination_subfolder, NameValuePair.DryRun)
-
-file_to_copy = fullfile(source_folder, "+RotationalFrictionTorque1", "RotationalFrictionTorqueAppParameters.m");
-safe_copyfile(file_to_copy, destination_subfolder, NameValuePair.DryRun)
-
-file_to_copy = fullfile(source_folder, "+RotationalFrictionTorque1", "RotationalFrictionTorqueDataSet.m");
-safe_copyfile(file_to_copy, destination_subfolder, NameValuePair.DryRun)
-
-file_to_copy = fullfile(source_folder, "+RotationalFrictionTorque1", "RotationalFrictionTorqueModelParameters.m");
-safe_copyfile(file_to_copy, destination_subfolder, NameValuePair.DryRun)
-
-file_to_copy = fullfile(source_folder, "+RotationalFrictionTorque1", "plotRotationalFrictionTorque.m");
-safe_copyfile(file_to_copy, destination_subfolder, NameValuePair.DryRun)
-
-% ---
-
-file_to_copy = fullfile(source_folder, "RotationalFrictionTorqueApp_Description.html");
-safe_copyfile(file_to_copy, destination_top_folder, NameValuePair.DryRun)
-
-file_to_copy = fullfile(source_folder, "RotationalFrictionTorqueApp.m");
-safe_copyfile(file_to_copy, destination_top_folder, NameValuePair.DryRun)
-
-file_to_copy = fullfile(source_folder, "RotationalFrictionTorque_SampleModel_refsub_24b.mdl");
-safe_copyfile(file_to_copy, destination_top_folder, NameValuePair.DryRun)
-
-file_to_copy = fullfile(source_folder, "RotationalFrictionTorque_SampleParams1.m");
-safe_copyfile(file_to_copy, destination_top_folder, NameValuePair.DryRun)
-
-file_to_copy = fullfile(source_folder, "RotationalFrictionTorque_SampleParams2.m");
-safe_copyfile(file_to_copy, destination_top_folder, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_folder, "mus1_RotationalFrictionTorqueApp.m"), destination_top_folder, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_folder, "RotationalFrictionTorqueApp_Description_mus1.html"), destination_top_folder, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_folder, "SampleModel_RotationalFrictionTorque_refsub_24b.mdl"), destination_top_folder, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_folder, "RotationalFrictionTorque_SampleParams1.m"), destination_top_folder, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_folder, "RotationalFrictionTorque_SampleParams2.m"), destination_top_folder, NameValuePair.DryRun)
 
 end  % function

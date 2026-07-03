@@ -1,0 +1,223 @@
+{
+  "version": "2.1.0",
+  "properties": {
+    "Date": "2026-07-03 13:51:19",
+    "Release": "R2026a",
+    "CodeAnalyzerConfiguration": "active"
+  },
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Code Analyzer"
+        }
+      },
+      "originalUriBaseIds": {
+        "SourceRoot": {
+          "uri": "file:///C:/local/modutil/repo/worktrees/R2024b-devel/Devel/AppsForPhysicalSystems/"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "AbstractMotorEfficiency/AbstractMotorEfficiency_SampleParams1.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "AbstractMotorEfficiency/AbstractMotorEfficiency_SampleParams2.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "AbstractMotorEfficiency/Test/runTestForCoverage_AbstractMotorEfficiency.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "AbstractMotorEfficiency/Test/uiTest_AbstractMotorEfficiency.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "AbstractMotorEfficiency/Test/uiUptodateTest_AbstractMotorEfficiency.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "AbstractMotorEfficiency/Test/unittest_AbstractMotorEfficiencyModelParameters.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "AbstractMotorEfficiency/Test/unittest_AbstractMotorEfficiency_core.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "AbstractMotorEfficiency/Test/unittest_AbstractMotorEfficiency_plot_and_DataSet.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "AbstractMotorEfficiency/Test/unittest_AbstractMotorEfficiency_settings.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "AbstractMotorEfficiency/Test/uptodateTest_AbstractMotorEfficiency.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "AbstractMotorEfficiency/mus1_AbstractMotorEfficiencyApp.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "RotationalFrictionTorque/RotationalFrictionTorque_SampleParams1.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "RotationalFrictionTorque/RotationalFrictionTorque_SampleParams2.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "RotationalFrictionTorque/Test/runTestForCoverage_RotationalFrictionTorque.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "RotationalFrictionTorque/Test/uiTest_RotationalFrictionTorque.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "RotationalFrictionTorque/Test/uiUptodateTest_RotationalFrictionTorque.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "RotationalFrictionTorque/Test/unittest_RotationalFrictionTorque.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "RotationalFrictionTorque/Test/unittest_RotationalFrictionTorque_settings.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "RotationalFrictionTorque/Test/uptodateTest_RotationalFrictionTorque.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "RotationalFrictionTorque/mus1_RotationalFrictionTorqueApp.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Vehicle1DForce/Test/runTestForCoverage_Vehicle1DForce.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Vehicle1DForce/Test/uiTest_Vehicle1DForce.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Vehicle1DForce/Test/uiUptodateTest_Vehicle1DForce.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Vehicle1DForce/Test/unittest_Vehicle1DForce.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Vehicle1DForce/Test/unittest_Vehicle1DForce_settings.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Vehicle1DForce/Test/uptodateTest_Vehicle1DForce.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Vehicle1DForce/Vehicle1DForce_SampleParams1.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Vehicle1DForce/Vehicle1DForce_SampleParams2.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Vehicle1DForce/mus1_Vehicle1DForceApp.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "buildfile.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "AbstractMotorEfficiency/AbstractMotorEfficiencyApp_Description_mus1.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "RotationalFrictionTorque/RotationalFrictionTorqueApp_Description_mus1.mlx"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Vehicle1DForce/Vehicle1DForceApp_Description_mus1.mlx"
+          }
+        }
+      ],
+      "results": []
+    }
+  ]
+}

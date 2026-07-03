@@ -120,7 +120,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
 
     function Test_error_7_InvalidBlockPath(testcase)
       % Model has Rotational Friction blocks, but specified BlockPath is not among them.
-      model_name = "RotationalFrictionTorque_SampleModel_refsub_24b";
+      model_name = "SampleModel_RotationalFrictionTorque_refsub_24b";
       block_path = model_name + "/NonExistentFrictionBlock";
       verifyError(testcase, @() test_target, "RotationalFrictionTorqueAppMain:InvalidBlockPath")
       function test_target
@@ -185,7 +185,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
 
     function command_option_3_paramfile_with_block(~)
       paramfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleParams1.m");
-      model_name = "RotationalFrictionTorque_SampleModel_refsub_24b";
+      model_name = "SampleModel_RotationalFrictionTorque_refsub_24b";
       block_path = model_name + "/Rotational Friction1";
       mus1_RotationalFrictionTorqueApp( ...
         AppParameterFileName=paramfile_fullpath, ...
@@ -316,7 +316,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
 
     function launch_with_model_name_1(~)
       %%
-      modelfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleModel_refsub_24b.mdl");
+      modelfile_fullpath = mus1.FileUtil.getFileFullPath("SampleModel_RotationalFrictionTorque_refsub_24b.mdl");
       [~, model_name, ~] = fileparts(modelfile_fullpath);
 
       mus1_RotationalFrictionTorqueApp(ModelName=model_name)
@@ -329,7 +329,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
       [~, paramfile_name, ~] = fileparts(paramfile_fullpath);
       evalin("base", paramfile_name)
 
-      modelfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleModel_refsub_24b.mdl");
+      modelfile_fullpath = mus1.FileUtil.getFileFullPath("SampleModel_RotationalFrictionTorque_refsub_24b.mdl");
       [~, model_name, ~] = fileparts(modelfile_fullpath);
 
       % Specify a block whose parameters are defined in a struct in the base workspace variable.
@@ -343,7 +343,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
       %%
       % Test with a block containing numbers for the block parameters.
 
-      modelfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleModel_refsub_24b.mdl");
+      modelfile_fullpath = mus1.FileUtil.getFileFullPath("SampleModel_RotationalFrictionTorque_refsub_24b.mdl");
       [~, model_name, ~] = fileparts(modelfile_fullpath);
 
       app = mus1_RotationalFrictionTorqueApp(ModelName=model_name);
@@ -367,7 +367,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
       [~, paramfile_name, ~] = fileparts(paramfile_fullpath);
       evalin("base", paramfile_name)
 
-      modelfile_fullpath = mus1.FileUtil.getFileFullPath("RotationalFrictionTorque_SampleModel_refsub_24b.mdl");
+      modelfile_fullpath = mus1.FileUtil.getFileFullPath("SampleModel_RotationalFrictionTorque_refsub_24b.mdl");
       [~, model_name, ~] = fileparts(modelfile_fullpath);
 
       app = mus1_RotationalFrictionTorqueApp(ModelName=model_name);
@@ -386,7 +386,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
 
     function set_parameters_with_simscapevalue_text(testcase)
       %% Test that Set Parameters works when ValueText contains simscape.Value expressions.
-      model_name = "RotationalFrictionTorque_SampleModel_refsub_24b";
+      model_name = "SampleModel_RotationalFrictionTorque_refsub_24b";
       app = mus1_RotationalFrictionTorqueApp(ModelName=model_name);
 
       % Type simscape.Value expressions directly into the value fields.
@@ -413,7 +413,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
       [~, paramfile_name, ~] = fileparts(paramfile_fullpath);
       evalin("base", paramfile_name)
 
-      model_name = "RotationalFrictionTorque_SampleModel_refsub_24b";
+      model_name = "SampleModel_RotationalFrictionTorque_refsub_24b";
       app = mus1_RotationalFrictionTorqueApp(ModelName=model_name);
 
       % Clear base workspace variables so that block parameter evaluation fails.
@@ -460,7 +460,7 @@ classdef uiTest_RotationalFrictionTorque < matlab.uitest.TestCase
       % Test the command in the ClickFcn of a Callback Button.
       % Rather than clicking the button programmatically, get the command text and evaluate it.
 
-      model_name = "RotationalFrictionTorque_SampleModel_refsub_24b";
+      model_name = "SampleModel_RotationalFrictionTorque_refsub_24b";
       block_path = model_name + "/Open Rotational Friction Torque App";
 
       load_system(model_name)

@@ -34,7 +34,7 @@ classdef unittest_Vehicle1DForce_settings < matlab.unittest.TestCase
 
     function saved_release_1(testcase)
       % Check that the model was saved in the intended MATLAB Release.
-      info = Simulink.MDLInfo("Vehicle1DForce_SampleModel_refsub_24b");
+      info = Simulink.MDLInfo("SampleModel_Vehicle1DForce_refsub_24b");
       verifyEqual(testcase, info.ReleaseName, 'R2024b')
     end  % function
 

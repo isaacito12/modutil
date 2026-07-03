@@ -8,7 +8,7 @@
 % This script creates a variable of AbstractMotorEfficiencyAppParameters, which
 % provides predefined fields for the app parameters and tab-completion for edit.
 % The app can also read these fields with the "Get" button all at once.
-FrictionParams1 = RotationalFrictionTorque1.RotationalFrictionTorqueAppParameters;
+FrictionParams1 = mus1.app.RotationalFrictionTorque.RotationalFrictionTorqueAppParameters;
 
 FrictionParams1.BreakawayTorque = simscape.Value(30, "N*m");
 FrictionParams1.BreakawayVelocity = simscape.Value(1, "rad/s");
