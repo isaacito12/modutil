@@ -17,6 +17,22 @@ classdef uptodateTest_Vehicle1DForce < matlab.unittest.TestCase
     LocalTopFolder (1,1) pattern = "C:\local"
   end  % properties
 
+  methods (TestMethodSetup)
+    % Functions in this section always run before each test defined in the Test section runs.
+
+    function test_method_setup_1(testcase)
+      function closeAll
+        close all
+        bdclose all
+      end  % nested function
+      closeAll
+      % addTeardown adds a function which always runs after each test.
+      % Even if the execution of a test ends with an error, the teardown function runs.
+      addTeardown(testcase, @closeAll)
+    end  % function
+
+  end  % methods
+
   methods (Test)
     % Functions in this "Test" section are the tests.
     % Before a function in this section runs, the TestSetup function

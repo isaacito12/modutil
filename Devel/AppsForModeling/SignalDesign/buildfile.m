@@ -11,7 +11,7 @@ buildtool Test -buildFile AppsForModeling/SignalDesign/buildfile.m -verbosity Ve
 % https://www.mathworks.com/help/matlab/matlab_prog/overview-of-matlab-build-tool.html
 %
 % matlab.buildtool.tasks.TestTask Class
-% "SupportingFiles" property is supported from R2025a.
+% "SupportingFiles" option is supported from R2025a.
 % https://www.mathworks.com/help/matlab/ref/matlab.buildtool.tasks.testtask-class.html
 %
 % Run Build from Toolstrip (R2025a or newer)
