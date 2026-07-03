@@ -1,4 +1,4 @@
-classdef uiUptodateTest_ModelUtil < matlab.uitest.TestCase
+classdef uiUptodateTest_LookupTable1DBlockPlot < matlab.uitest.TestCase
   % Class-based unit test for app
 
   % Overview of App Testing Framework
@@ -26,18 +26,25 @@ classdef uiUptodateTest_ModelUtil < matlab.uitest.TestCase
       % Close all before test
       close all
       bdclose all
+      evalin("base", "clearvars")
 
       % addTeardown adds a function which always runs after each test.
       % Even if the execution of a test ends with an error, the teardown function runs.
       addTeardown(testcase, @closeAllAfterTest)
       function closeAllAfterTest
-        % Close all figure windows. This closes not only the test targets but also other figure windows.
+        % Close/delete all figure windows. This closes/deletes not only the test targets but also
+        % all the other figure windows too to provide clean state for the next test.
         figs = findall(0, Type="Figure");
         if not(any(isempty(figs)))
           disp("Deleting figures (" + numel(figs) + ")")
           delete(figs)
         end  % if
+
         bdclose all
+
+        % Do not clear variables in the base workspace at the end of a test
+        % to make it easy to debug after test if necessary.
+
       end  % nested function
     end  % function
 
@@ -49,20 +56,23 @@ classdef uiUptodateTest_ModelUtil < matlab.uitest.TestCase
 
     %% Screenshots
 
-    % -------------------------------------------------------------------------
-    % LookupTable1DBlockPlotApp
-
     function app_screenshot_1_dark(testcase)
       %%
       if mus1.TestUtil.isR2024bOrOlder || mus1.TestUtil.isNonLocal(testcase.LocalTopFolder)
-        disp("!Skipping")
+        disp("!Skipping (the test is not running within the specified local path.)")
 
         return
 
       end  % if
       % R2025a or newer
-      source_fullpath = mus1.FileUtil.getFileFullPath("LookupTable1DBlockPlotApp");
+      source_fullpath = mus1.FileUtil.getFileFullPath("mus1_LookupTable1DBlockPlotApp");
+
       destination_folder = fileparts(source_fullpath);
+      destination_folder = extractBefore(destination_folder, ("/"|"\") + "Devel" + ("/"|"\"));
+      verifyTrue(testcase, isfolder(fullfile(destination_folder, "Devel", "AppsForModeling", "LookupTable1DBlockPlot")))
+      destination_folder = fullfile(destination_folder, "Devel", "AppsForModeling", "LookupTable1DBlockPlot", "media");
+      [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
+
       destination_fullpath = fullfile(destination_folder, "screenshot-LookupTable1DBlockPlotApp-dark-1.png");
 
       if isfile(destination_fullpath)
@@ -72,8 +82,8 @@ classdef uiUptodateTest_ModelUtil < matlab.uitest.TestCase
       end  % if
 
       if needs_update
-        modelfile_fullpath = fullfile(pwd, "LookupTable1DBlockPlotApp_SampleModel.mdl");
-        app = LookupTable1DBlockPlotApp(ModelFilePath=modelfile_fullpath);  % !screenshot-target
+        modelfile_fullpath = mus1.FileUtil.getFileFullPath("LookupTable1DBlockPlotApp_SampleModel.mdl");
+        app = mus1_LookupTable1DBlockPlotApp(ModelFilePath=modelfile_fullpath);  % !screenshot-target
         app.Window.MainFigure.Theme = "dark";
         drawnow
         exportapp(app.Window.MainFigure, destination_fullpath)
@@ -85,25 +95,30 @@ classdef uiUptodateTest_ModelUtil < matlab.uitest.TestCase
       verifyTrue(testcase, destination_is_newer)
     end  % function
 
-    function app_screenshot_2_light(testcase)
+    function app_screenshot_1_light(testcase)
       %%
       if mus1.TestUtil.isNonLocal(testcase.LocalTopFolder)
-        disp("!Skipping")
+        disp("!Skipping (the test is not running within the specified local path.)")
 
         return
 
       end  %if
-
-      source_fullpath = mus1.FileUtil.getFileFullPath("LookupTable1DBlockPlotApp");
+      % R2025a or newer
+      keyword = "LookupTable1DBlockPlotApp";
+      source_fullpath = mus1.FileUtil.getFileFullPath("mus1_LookupTable1DBlockPlotApp");
 
       destination_folder = fileparts(source_fullpath);
+      destination_folder = extractBefore(destination_folder, ("/"|"\") + "Devel" + ("/"|"\"));
+      verifyTrue(testcase, isfolder(fullfile(destination_folder, "Devel", "AppsForModeling", "LookupTable1DBlockPlot")))
+      destination_folder = fullfile(destination_folder, "Devel", "AppsForModeling", "LookupTable1DBlockPlot", "media");
+      [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
       if mus1.TestUtil.isR2024bOrOlder
-        destination_fullpath = fullfile(destination_folder, "screenshot-LookupTable1DBlockPlotApp-24b-1.png");
-        modelfile_fullpath = fullfile(pwd, "LookupTable1DBlockPlotApp_SampleModel_24b.mdl");
+        destination_fullpath = fullfile(destination_folder, "screenshot-LookupTable1DBlockPlotApp-24b.png");
+        modelfile_fullpath = mus1.FileUtil.getFileFullPath("SampleModel_LookupTable1DBlockPlotApp_24b.mdl");
       else
         destination_fullpath = fullfile(destination_folder, "screenshot-LookupTable1DBlockPlotApp-light-1.png");
-        modelfile_fullpath = fullfile(pwd, "LookupTable1DBlockPlotApp_SampleModel.mdl");
+        modelfile_fullpath = mus1.FileUtil.getFileFullPath("SampleModel_LookupTable1DBlockPlotApp.mdl");
       end  % if
 
       if isfile(destination_fullpath)
@@ -114,13 +129,16 @@ classdef uiUptodateTest_ModelUtil < matlab.uitest.TestCase
 
       if needs_update
         % Open the app with a model to take a screenshot.
-        app = LookupTable1DBlockPlotApp(ModelFilePath=modelfile_fullpath);  % !screenshot-target
+        app = mus1_LookupTable1DBlockPlotApp(ModelFilePath=modelfile_fullpath);  % !screenshot-target
         app.Window.MainFigure.Theme = "light";
         drawnow
         exportapp(app.Window.MainFigure, destination_fullpath)
       else
         disp("The screenshot is up to date.")
       end  % if
+
+      verifyTrue(testcase, contains(source_fullpath, keyword))
+      verifyTrue(testcase, contains(destination_fullpath, keyword))
 
       destination_is_newer = not(mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath));
       verifyTrue(testcase, destination_is_newer)

@@ -19,7 +19,7 @@ catch exception
 end  % try, catch
 repo_top_folder = repo.WorkingFolder;
 
-source_folder = fullfile(repo_top_folder, "Devel", "Test", "ModelUtil");
+source_folder = fullfile(repo_top_folder, "Devel", "AppsForModeling", "LookupTable1DBlockPlot");
 assert(isfolder(source_folder))
 
 destination_top_folder = fullfile(repo_top_folder, "Release", "ModelingUtilityForSimscape");
@@ -31,13 +31,12 @@ safe_mkdir(destination_media_folder, NameValuePair.DryRun)
 % -----------------------------------------------------------------------------
 % Copy releasing files.
 
-files = matlab.buildtool.io.FileCollection.fromPaths(fullfile(source_folder, "**", "screenshot-LookupTable1DBlockPlotApp-light.png")).paths';
-file_to_copy = files(1);
+file_to_copy = fullfile(source_folder, "media", "screenshot-LookupTable1DBlockPlotApp-light.png");
 safe_copyfile(file_to_copy, destination_media_folder, NameValuePair.DryRun)
 
 % ---
 
-releasing_file = fullfile(source_folder, "LookupTable1DBlockPlotApp.m");
+releasing_file = fullfile(source_folder, "mus1_LookupTable1DBlockPlotApp.m");
 safe_copyfile(releasing_file, destination_top_folder, NameValuePair.DryRun)
 
 releasing_file = fullfile(source_folder, "LookupTable1DBlockPlotApp_SampleModel_24b.mdl");

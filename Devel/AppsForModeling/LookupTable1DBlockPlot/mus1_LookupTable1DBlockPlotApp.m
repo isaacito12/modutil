@@ -1,4 +1,4 @@
-function App = LookupTable1DBlockPlotApp(NameValuePair)
+function App = mus1_LookupTable1DBlockPlotApp(NameValuePair)
 % App to visualize lookup table blocks in a model
 %
 % By default, the app opens with no model being linked. Use the "Open model" button

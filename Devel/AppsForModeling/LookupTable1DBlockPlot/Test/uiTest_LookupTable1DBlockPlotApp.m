@@ -1,4 +1,4 @@
-classdef uiTest_ModelUtil < matlab.uitest.TestCase
+classdef uiTest_LookupTable1DBlockPlotApp < matlab.uitest.TestCase
   % Class-based unit test for app
 
   % Overview of App Testing Framework
@@ -56,7 +56,7 @@ classdef uiTest_ModelUtil < matlab.uitest.TestCase
     % Make sure there is no warning when opening an app.
 
     function clean_launch_1(testcase)
-      verifyWarningFree(testcase, @LookupTable1DBlockPlotApp)
+      verifyWarningFree(testcase, @mus1_LookupTable1DBlockPlotApp)
     end  % function
 
     %% Passing tests
@@ -64,19 +64,19 @@ classdef uiTest_ModelUtil < matlab.uitest.TestCase
     function PassingTest_App_1(~)
       % Check the ModelFilePath option.
       if mus1.TestUtil.isR2024bOrOlder
-        target = mus1.SearchUtil.searchFiles("LookupTable1DBlockPlotApp_SampleModel_24b.mdl");
+        target = mus1.FileUtil.getFileFullPath("SampleModel_LookupTable1DBlockPlotApp_24b.mdl");
       else
-        target = mus1.SearchUtil.searchFiles("LookupTable1DBlockPlotApp_SampleModel.mdl");
+        target = mus1.FileUtil.getFileFullPath("SampleModel_LookupTable1DBlockPlotApp.mdl");
       end  % if
-      LookupTable1DBlockPlotApp(ModelFilePath=target)
+      mus1_LookupTable1DBlockPlotApp(ModelFilePath=target)
     end  % function
 
     function PassingTest_SampleModel_1(~)
       % Check that the Callback Button works.
       if mus1.TestUtil.isR2024bOrOlder
-        model_name = "LookupTable1DBlockPlotApp_SampleModel_24b";
+        model_name = "SampleModel_LookupTable1DBlockPlotApp_24b";
       else
-        model_name = "LookupTable1DBlockPlotApp_SampleModel";
+        model_name = "SampleModel_LookupTable1DBlockPlotApp";
       end  % if
       block_path = model_name + "/LookupTable1DBlockPlotApp";  % !test-target
       load_system(model_name)
@@ -88,9 +88,9 @@ classdef uiTest_ModelUtil < matlab.uitest.TestCase
     function PassingTest_SampleModel_2(~)
       % Check that the Callback Button works.
       if mus1.TestUtil.isR2024bOrOlder
-        model_name = "LookupTable1DBlockPlotApp_SampleModel_24b";
+        model_name = "SampleModel_LookupTable1DBlockPlotApp_24b";
       else
-        model_name = "LookupTable1DBlockPlotApp_SampleModel";
+        model_name = "SampleModel_LookupTable1DBlockPlotApp";
       end  % if
       block_path = model_name + "/plotLookupTable1DBlocks";  % !test-target
       load_system(model_name)

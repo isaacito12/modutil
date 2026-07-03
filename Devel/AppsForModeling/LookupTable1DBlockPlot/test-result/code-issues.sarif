@@ -1,0 +1,49 @@
+{
+  "version": "2.1.0",
+  "properties": {
+    "Date": "2026-07-03 10:47:02",
+    "Release": "R2026a",
+    "CodeAnalyzerConfiguration": "active"
+  },
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Code Analyzer"
+        }
+      },
+      "originalUriBaseIds": {
+        "SourceRoot": {
+          "uri": "file:///C:/local/modutil/repo/worktrees/R2024b-devel/Devel/AppsForModeling/LookupTable1DBlockPlot/"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/uiTest_LookupTable1DBlockPlotApp.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/uiUptodateTest_LookupTable1DBlockPlot.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "buildfile.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "mus1_LookupTable1DBlockPlotApp.m"
+          }
+        }
+      ],
+      "results": []
+    }
+  ]
+}
