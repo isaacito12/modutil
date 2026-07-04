@@ -71,7 +71,7 @@ classdef uiTest_TraceGeneratorAppMain < matlab.uitest.TestCase
 
       if mus1.TestUtil.isR2024bOrOlder
         % Only R2024b works. 24a or older don't.
-        model_name = "samplemodel_TraceGeneratorAppMain_24b";
+        model_name = "SampleModel_TraceGeneratorAppMain_24b";
       else
         % R2025a or newer
         model_name = "SampleModel_TraceGeneratorAppMain";

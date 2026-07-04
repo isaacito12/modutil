@@ -1,6 +1,6 @@
 %[text] # checkRefSubInCallbackButton demo
 %[text] This script uses a model saved in R2024b.
-model_name = "samplemodel_checkRefSubInCallbackButton_24b";
+model_name = "SampleModel_checkRefSubInCallbackButton_24b";
 result = mus1.ModelUtil.checkRefSubInCallbackButton(model_name, DisplayInfo=true); %[output:21874aca]
 disp(result) %[output:9172b517]
 %[text] *Copyright 2025-2026 The MathWorks, Inc.*

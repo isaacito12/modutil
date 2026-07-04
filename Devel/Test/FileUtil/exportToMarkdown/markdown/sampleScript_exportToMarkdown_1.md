@@ -1,3 +1,4 @@
+
 # <span style="color:rgb(213,80,0)">Sample script</span>
 
 For testing
@@ -17,4 +18,6 @@ contour(peaks)
 
 <center><img src="media/sampleScript_exportToMarkdown_1_media/figure_0.png" width="562" alt="figure_0.png"></center>
 
+
 *Copyright 2025 The MathWorks, Inc.*
+

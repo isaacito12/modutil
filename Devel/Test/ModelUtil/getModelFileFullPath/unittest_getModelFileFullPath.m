@@ -10,7 +10,7 @@ classdef unittest_getModelFileFullPath < matlab.unittest.TestCase
   % Test Browser
   % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
-  % Copyright 2025 The MathWorks, Inc.
+  % Copyright 2025-2026 The MathWorks, Inc.
 
   methods (TestMethodSetup)
     % Functions in this section always run before each test defined in the Test section runs.
@@ -62,26 +62,26 @@ classdef unittest_getModelFileFullPath < matlab.unittest.TestCase
       % This error is issued by getFileFullPath, not getModelFileFullPath.
       verifyError(testcase, @() test_target, "getFileFullPath:TwoOrMoreMatches")
       function test_target
-        mus1.ModelUtil.getModelFileFullPath("samplemodel_getModelFileFullPath_3")
+        mus1.ModelUtil.getModelFileFullPath("SampleModel_getModelFileFullPath_3")
       end  % nested function
     end  % function
 
     % Regular cases
 
     function PassingTest_1(~)
-      mus1.ModelUtil.getModelFileFullPath("samplemodel_getModelFileFullPath_1");
+      mus1.ModelUtil.getModelFileFullPath("SampleModel_getModelFileFullPath_1");
     end  % function
 
     function PassingTest_2(~)
-      mus1.ModelUtil.getModelFileFullPath("samplemodel_getModelFileFullPath_1.mdl");
+      mus1.ModelUtil.getModelFileFullPath("SampleModel_getModelFileFullPath_1.mdl");
     end  % function
 
     function PassingTest_3(~)
-      mus1.ModelUtil.getModelFileFullPath("samplemodel_getModelFileFullPath_2");
+      mus1.ModelUtil.getModelFileFullPath("SampleModel_getModelFileFullPath_2");
     end  % function
 
     function PassingTest_4(~)
-      mus1.ModelUtil.getModelFileFullPath("samplemodel_getModelFileFullPath_2.slx");
+      mus1.ModelUtil.getModelFileFullPath("SampleModel_getModelFileFullPath_2.slx");
     end  % function
 
   end  % methods
