@@ -1,7 +1,7 @@
 {
   "version": "2.1.0",
   "properties": {
-    "Date": "2026-07-01 15:31:57",
+    "Date": "2026-07-06 12:36:16",
     "Release": "R2026a",
     "CodeAnalyzerConfiguration": "active"
   },
@@ -14,7 +14,7 @@
       },
       "originalUriBaseIds": {
         "SourceRoot": {
-          "uri": "file:///C:/local/modutil/repo/worktrees/R2024b-devel/Devel/BasicApps/TextSearch/"
+          "uri": "file:///C:/local/modutil/repo/worktrees/R2024b-devel/Devel/BasicApps/TextSearch/mus1/"
         }
       },
       "artifacts": [

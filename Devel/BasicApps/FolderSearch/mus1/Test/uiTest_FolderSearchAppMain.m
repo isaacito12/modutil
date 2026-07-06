@@ -1,4 +1,4 @@
-classdef uiTest_FolderSearchApp < matlab.uitest.TestCase
+classdef uiTest_FolderSearchAppMain < matlab.uitest.TestCase
   % Class-based unit test for app
 
   % Overview of App Testing Framework
@@ -55,42 +55,63 @@ classdef uiTest_FolderSearchApp < matlab.uitest.TestCase
     % Warnings can be displayed even when the app opens and starts working seemingly normally.
     % Make sure there is no warning when opening an app.
 
-    function clean_launch_1_1(testcase)
+    function clean_launch_1(testcase)
       verifyWarningFree(testcase, @mus1.SearchUtil.FolderSearchAppMain)
     end  % function
 
-    function clean_launch_1_2(testcase)
-      verifyWarningFree(testcase, @mus1_FolderSearchApp)
+    function Test_error_1(testcase)
+      verifyError(testcase, @test_target, "MATLAB:validators:mustBeFolder")
+      function test_target
+        mus1_FolderSearchApp(TopFolder="test_test_test")  % !test-target
+      end  % nested function
     end  % function
 
-    function clean_launch_2_1(testcase)
-      verifyWarningFree(testcase, @mus1.SearchUtil.FolderSearchResultAppMain)
+    function Test_error_2(testcase)
+      verifyError(testcase, @test_target, "MATLAB:validators:mustBeFolder")
+      function test_target
+        mus1.SearchUtil.FolderSearchAppMain(TopFolder="test_test_test")  % !test-target
+      end  % nested function
     end  % function
 
-    %% UI test
-%{
-    function uitest_1(testcase)
-      app = mus1_SignalDesignApp;
-      % Plot must update when a new value is typed in.
-      type(testcase, app.MatrixTextUI.MainTextArea, "[0 2 10; 4 6 2; 8 12 6]")
+    %% Tests
+
+    function PassingTest_1(testcase)
+      %%
+      app = mus1_FolderSearchApp();  % !test-target
+      verifyTrue(testcase, app.GUIReady)
     end  % function
-%}
-%{
-    function uitest_2(testcase)
-      app = AppForTesting_SignalDesignAppMain;
 
-      press(testcase, app.SelectorUI.HilitBlockUI.MainButton)
+    function PassingTest_2(testcase)
+      %%
+      source_fullpath = mus1.FileUtil.getFileFullPath("uiTest_FolderSearchAppMain.m");
 
-      type(testcase, app.MatrixTextUI.MainTextArea, "[0 2 0; 4 5 2; 6 8 1]")
+      targetfolder_fullpath = extractBefore(source_fullpath, ("/"|"\") + "Devel");
+      targetfolder_fullpath = fullfile(targetfolder_fullpath, "Devel", "Test", "ForTesting");
 
-      press(testcase, app.SelectorUI.SetParametersToBlockUI.MainButton)
-
-      x_in_block = string(get_param(bdroot + "/PS Lookup Table (1D)", "x"));
-      verifyEqual(testcase, x_in_block, "[0, 1, 2, 4, 4.5, 5, 6, 7, 8]")
-
-      f_in_block = string(get_param(bdroot + "/PS Lookup Table (1D)", "f"));
-      verifyEqual(testcase, f_in_block, "[0, 0, 0, 2, 2, 2, 1, 1, 1]")
+      app = mus1_FolderSearchApp(SearchFolderName="test-result", TopFolder=targetfolder_fullpath);  % !test-target
+      verifyTrue(testcase, app.GUIReady)
     end  % function
-%}
+
+    %% Gesture test
+
+    function Gesture_1(testcase)
+      app = mus1.SearchUtil.FolderSearchAppMain(SearchFolderName="test-result");
+
+      % Press the Search button. A new window for the search result must open.
+      press(testcase, app.SearchButtonUI.MainButton)
+    end  % function
+
+    function Gesture_2(testcase)
+      app = mus1.SearchUtil.FolderSearchAppMain;
+
+      % Press the "Copy command" button.
+      press(testcase, app.CopyCommandButtonUI.MainButton)
+
+      % Get the data from the system clipboard.
+      contents = clipboard("paste");
+
+      verifyTrue(testcase, startsWith(contents, "mus1.SearchUtil.searchFolders("))
+    end  % function
+
   end  % methods
 end  % classdef

@@ -1,4 +1,4 @@
-classdef uiUptodateTest_TextSearchAppMain < matlab.uitest.TestCase
+classdef uiUptodateTest_FolderSearchAppMain < matlab.uitest.TestCase
   % Class-based unit test for app
 
   % Overview of App Testing Framework
@@ -10,7 +10,7 @@ classdef uiUptodateTest_TextSearchAppMain < matlab.uitest.TestCase
   % Test Browser
   % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
-  % Copyright 2024-2026 The MathWorks, Inc.
+  % Copyright 2026 The MathWorks, Inc.
 
   properties
     % Some of the tests in this class run only if test is running locally under the LocalTopFolder.
@@ -65,16 +65,16 @@ classdef uiUptodateTest_TextSearchAppMain < matlab.uitest.TestCase
 
       end  % if
       % R2025a or newer
-      keyword = "TextSearch";
-      source_fullpath = mus1.FileUtil.getFileFullPath("mus1.SearchUtil.TextSearchAppMain");
+      keyword = "FolderSearch";
+      source_fullpath = mus1.FileUtil.getFileFullPath("mus1.SearchUtil.FolderSearchAppMain");
 
       destination_folder = fileparts(source_fullpath);
       destination_folder = extractBefore(destination_folder, ("/"|"\") + "+mus1" + ("/"|"\"));
-      verifyTrue(testcase, isfolder(fullfile(destination_folder, "BasicApps", "TextSearch")))
-      destination_folder = fullfile(destination_folder, "BasicApps", "TextSearch", "mus1", "media");
+      verifyTrue(testcase, isfolder(fullfile(destination_folder, "BasicApps", "FolderSearch")))
+      destination_folder = fullfile(destination_folder, "BasicApps", "FolderSearch", "mus1", "media");
       [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
-      destination_fullpath = fullfile(destination_folder, "screenshot-TextSearchAppMain-dark-1.png");
+      destination_fullpath = fullfile(destination_folder, "screenshot-FolderSearchAppMain-dark-1.png");
 
       if isfile(destination_fullpath)
         needs_update = mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
@@ -83,7 +83,7 @@ classdef uiUptodateTest_TextSearchAppMain < matlab.uitest.TestCase
       end  % if
 
       if needs_update
-        app = mus1.SearchUtil.TextSearchAppMain;  % !screenshot-target
+        app = mus1.SearchUtil.FolderSearchAppMain;  % !screenshot-target
         app.Window.MainFigure.Theme = "dark";
         drawnow
         exportapp(app.Window.MainFigure, destination_fullpath)
@@ -107,19 +107,19 @@ classdef uiUptodateTest_TextSearchAppMain < matlab.uitest.TestCase
 
       end  %if
       % R2025a or newer
-      keyword = "TextSearch";
-      source_fullpath = mus1.FileUtil.getFileFullPath("mus1.SearchUtil.TextSearchAppMain");
+      keyword = "FolderSearch";
+      source_fullpath = mus1.FileUtil.getFileFullPath("mus1.SearchUtil.FolderSearchAppMain");
 
       destination_folder = fileparts(source_fullpath);
       destination_folder = extractBefore(destination_folder, ("/"|"\") + "+mus1" + ("/"|"\"));
-      verifyTrue(testcase, isfolder(fullfile(destination_folder, "BasicApps", "TextSearch")))
-      destination_folder = fullfile(destination_folder, "BasicApps", "TextSearch", "mus1", "media");
+      verifyTrue(testcase, isfolder(fullfile(destination_folder, "BasicApps", "FolderSearch")))
+      destination_folder = fullfile(destination_folder, "BasicApps", "FolderSearch", "mus1", "media");
       [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
       if mus1.TestUtil.isR2024bOrOlder
-        destination_fullpath = fullfile(destination_folder, "screenshot-TextSearchAppMain-24b.png");
+        destination_fullpath = fullfile(destination_folder, "screenshot-FolderSearchAppMain-24b.png");
       else
-        destination_fullpath = fullfile(destination_folder, "screenshot-TextSearchAppMain-light-1.png");
+        destination_fullpath = fullfile(destination_folder, "screenshot-FolderSearchAppMain-light-1.png");
       end  % if
 
       if isfile(destination_fullpath)
@@ -129,7 +129,7 @@ classdef uiUptodateTest_TextSearchAppMain < matlab.uitest.TestCase
       end  % if
 
       if needs_update
-        app = mus1.SearchUtil.TextSearchAppMain;  % !screenshot-target
+        app = mus1.SearchUtil.FolderSearchAppMain;  % !screenshot-target
         app.Window.MainFigure.Theme = "light";
         drawnow
         exportapp(app.Window.MainFigure, destination_fullpath)

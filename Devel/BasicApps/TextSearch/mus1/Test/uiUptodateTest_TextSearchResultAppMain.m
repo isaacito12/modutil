@@ -71,10 +71,10 @@ classdef uiUptodateTest_TextSearchResultAppMain < matlab.uitest.TestCase
       destination_folder = fileparts(source_fullpath);
       destination_folder = extractBefore(destination_folder, ("/"|"\") + "+mus1" + ("/"|"\"));
       verifyTrue(testcase, isfolder(fullfile(destination_folder, "BasicApps", "TextSearch")))
-      destination_folder = fullfile(destination_folder, "BasicApps", "TextSearch", "media");
+      destination_folder = fullfile(destination_folder, "BasicApps", "TextSearch", "mus1", "media");
       [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
-      destination_fullpath = fullfile(destination_folder, "screenshot-TextSearchResultAppMain-dark.png");
+      destination_fullpath = fullfile(destination_folder, "screenshot-TextSearchResultAppMain-dark-1.png");
 
       if isfile(destination_fullpath)
         needs_update = mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
@@ -113,13 +113,13 @@ classdef uiUptodateTest_TextSearchResultAppMain < matlab.uitest.TestCase
       destination_folder = fileparts(source_fullpath);
       destination_folder = extractBefore(destination_folder, ("/"|"\") + "+mus1" + ("/"|"\"));
       verifyTrue(testcase, isfolder(fullfile(destination_folder, "BasicApps", "TextSearch")))
-      destination_folder = fullfile(destination_folder, "BasicApps", "TextSearch", "media");
+      destination_folder = fullfile(destination_folder, "BasicApps", "TextSearch", "mus1", "media");
       [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
       if mus1.TestUtil.isR2024bOrOlder
         destination_fullpath = fullfile(destination_folder, "screenshot-TextSearchResultAppMain-24b.png");
       else
-        destination_fullpath = fullfile(destination_folder, "screenshot-TextSearchResultAppMain-light.png");
+        destination_fullpath = fullfile(destination_folder, "screenshot-TextSearchResultAppMain-light-1.png");
       end  % if
 
       if isfile(destination_fullpath)

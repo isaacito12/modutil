@@ -1,4 +1,4 @@
-classdef uiTest_TextSearchAppMain < matlab.uitest.TestCase
+classdef uiTest_FolderSearchResultAppMain < matlab.uitest.TestCase
   % Class-based unit test for app
 
   % Overview of App Testing Framework
@@ -10,7 +10,7 @@ classdef uiTest_TextSearchAppMain < matlab.uitest.TestCase
   % Test Browser
   % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
-  % Copyright 2024-2026 The MathWorks, Inc.
+  % Copyright 2026 The MathWorks, Inc.
 
   methods (TestMethodSetup)
     % Functions in this "TestMethodSetup" section always run before
@@ -55,74 +55,24 @@ classdef uiTest_TextSearchAppMain < matlab.uitest.TestCase
     % Warnings can be displayed even when the app opens and starts working seemingly normally.
     % Make sure there is no warning when opening an app.
 
-    function clean_launch_1_1(testcase)
-      verifyWarningFree(testcase, @mus1.SearchUtil.TextSearchAppMain)
-    end  % function
-
-    function clean_launch_1_2(testcase)
-      verifyWarningFree(testcase, @mus1_TextSearchApp)
+    function clean_launch_1(testcase)
+      verifyWarningFree(testcase, @mus1.SearchUtil.FolderSearchResultAppMain)
     end  % function
 
     function Test_error_1(testcase)
       verifyError(testcase, @test_target, "MATLAB:validators:mustBeFolder")
       function test_target
-        mus1_TextSearchApp(TargetFolder="test_test_test")  % !test-target
+        mus1.SearchUtil.FolderSearchResultAppMain(TopFolder="test_test_test")  % !test-target
       end  % nested function
-    end  % function
-
-    function Test_error_2(testcase)
-      verifyError(testcase, @test_target, "MATLAB:validators:mustBeFolder")
-      function test_target
-        mus1.SearchUtil.TextSearchAppMain(TargetFolder="test_test_test")  % !test-target
-      end  % nested function
-    end  % function
-
-    %% Tests
-
-    function PassingTest_1(testcase)
-      %%
-      app = mus1_TextSearchApp();  % !test-target
-      verifyTrue(testcase, app.GUIReady)
-    end  % function
-
-    function PassingTest_2(testcase)
-      %%
-      source_fullpath = mus1.FileUtil.getFileFullPath("uiTest_TextSearchAppMain.m");
-
-      targetfolder_fullpath = extractBefore(source_fullpath, ("/"|"\") + "Devel");
-      targetfolder_fullpath = fullfile(targetfolder_fullpath, "Devel", "Test", "ForTesting");
-
-      app = mus1_TextSearchApp(SearchText="Copyright", TargetFolder=targetfolder_fullpath);  % !test-target
-      verifyTrue(testcase, app.GUIReady)
     end  % function
 
     %% Gesture test
 
     function Gesture_1(testcase)
-      app = mus1.SearchUtil.TextSearchAppMain;
+      app = mus1.SearchUtil.FolderSearchResultAppMain;
 
-      % Press the Search button. A new window for the search result must open.
-      press(testcase, app.SearchButtonUI.MainButton)  % !test-target
-    end  % function
-
-    function Gesture_2(testcase)
-      app = mus1.SearchUtil.TextSearchAppMain;
-
-      % Press the "Copy command" button.
-      press(testcase, app.CopyCommandButtonUI.MainButton)  % !test-target
-
-      % Get the data from the system clipboard.
-      contents = clipboard("paste");
-
-      verifyTrue(testcase, startsWith(contents, "mus1.SearchUtil.searchText("))
-    end  % function
-
-    function Gesture_3(testcase)
-      app = mus1.SearchUtil.TextSearchAppMain;
-
-      press(testcase, app.IgnoreCaseUI.MainCheckBox)  % !test-target
-
-      press(testcase, app.SearchButtonUI.MainButton)
+      % Click the "New search..." button.
+      press(testcase, app.NewSearchButtonUI.MainButton)
     end  % function
 
   end  % methods
