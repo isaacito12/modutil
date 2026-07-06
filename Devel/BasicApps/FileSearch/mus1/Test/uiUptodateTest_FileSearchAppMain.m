@@ -74,7 +74,7 @@ classdef uiUptodateTest_FileSearchAppMain < matlab.uitest.TestCase
       destination_folder = fullfile(destination_folder, "BasicApps", "FileSearch", "mus1", "media");
       [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
-      destination_fullpath = fullfile(destination_folder, "screenshot-FileSearchAppMain-dark.png");
+      destination_fullpath = fullfile(destination_folder, "screenshot-FileSearchAppMain-dark-1.png");
 
       if isfile(destination_fullpath)
         needs_update = mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
@@ -119,7 +119,7 @@ classdef uiUptodateTest_FileSearchAppMain < matlab.uitest.TestCase
       if mus1.TestUtil.isR2024bOrOlder
         destination_fullpath = fullfile(destination_folder, "screenshot-FileSearchAppMain-24b.png");
       else
-        destination_fullpath = fullfile(destination_folder, "screenshot-FileSearchAppMain-light.png");
+        destination_fullpath = fullfile(destination_folder, "screenshot-FileSearchAppMain-light-1.png");
       end  % if
 
       if isfile(destination_fullpath)

@@ -1,0 +1,49 @@
+{
+  "version": "2.1.0",
+  "properties": {
+    "Date": "2026-07-06 12:08:17",
+    "Release": "R2026a",
+    "CodeAnalyzerConfiguration": "active"
+  },
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Code Analyzer"
+        }
+      },
+      "originalUriBaseIds": {
+        "SourceRoot": {
+          "uri": "file:///C:/local/modutil/repo/worktrees/R2024b-devel/Devel/BasicApps/FileList/mus1/"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/uiTest_FileListApp.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/uiUptodateTest_FileListApp.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "buildfile.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "mus1_FileListApp.m"
+          }
+        }
+      ],
+      "results": []
+    }
+  ]
+}

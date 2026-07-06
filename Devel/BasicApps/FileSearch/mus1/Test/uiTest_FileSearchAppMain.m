@@ -59,6 +59,39 @@ classdef uiTest_FileSearchAppMain < matlab.uitest.TestCase
       verifyWarningFree(testcase, @mus1.SearchUtil.FileSearchAppMain)
     end  % function
 
+    function Test_error_1(testcase)
+      verifyError(testcase, @test_target, "MATLAB:validators:mustBeFolder")
+      function test_target
+        mus1_FileSearchApp(TopFolder="test_test_test")  % !test-target
+      end  % nested function
+    end  % function
+
+    function Test_error_2(testcase)
+      verifyError(testcase, @test_target, "MATLAB:validators:mustBeFolder")
+      function test_target
+        mus1.SearchUtil.FileSearchAppMain(TopFolder="test_test_test")  % !test-target
+      end  % nested function
+    end  % function
+
+    %% Tests
+
+    function PassingTest_1(testcase)
+      %%
+      app = mus1_FileSearchApp();  % !test-target
+      verifyTrue(testcase, app.GUIReady)
+    end  % function
+
+    function PassingTest_2(testcase)
+      %%
+      source_fullpath = mus1.FileUtil.getFileFullPath("uiTest_FileSearchAppMain.m");
+
+      targetfolder_fullpath = extractBefore(source_fullpath, ("/"|"\") + "Devel");
+      targetfolder_fullpath = fullfile(targetfolder_fullpath, "Devel", "Test", "ForTesting");
+
+      app = mus1_FileSearchApp(SearchFileName="*.m", TopFolder=targetfolder_fullpath);  % !test-target
+      verifyTrue(testcase, app.GUIReady)
+    end  % function
+
     %% Gesture test
 
     function Gesture_1(testcase)
