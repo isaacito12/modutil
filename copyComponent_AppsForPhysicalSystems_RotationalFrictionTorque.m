@@ -22,7 +22,7 @@ repo_top_folder = repo.WorkingFolder;
 source_folder = fullfile(repo_top_folder, "Devel", "AppsForPhysicalSystems", "RotationalFrictionTorque");
 assert(isfolder(source_folder))
 
-destination_top_folder = fullfile(repo_top_folder, "Release", "ModelingUtilityForSimscape");
+destination_top_folder = fullfile(repo_top_folder, "Release-mus1", "ModelingUtilityForSimscape");
 safe_mkdir(destination_top_folder, NameValuePair.DryRun)
 
 destination_media_folder = fullfile(destination_top_folder, "media");
@@ -35,8 +35,8 @@ safe_copyfile(fullfile(source_folder, "media", "screenshot-RotationalFrictionTor
 
 % ---
 
-safe_copyfile(fullfile(source_folder, "mus1_RotationalFrictionTorqueApp.m"), destination_top_folder, NameValuePair.DryRun)
-safe_copyfile(fullfile(source_folder, "RotationalFrictionTorqueApp_Description_mus1.html"), destination_top_folder, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_folder, "mus1", "mus1_RotationalFrictionTorqueApp.m"), destination_top_folder, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_folder, "mus1", "RotationalFrictionTorqueApp_Description_mus1.html"), destination_top_folder, NameValuePair.DryRun)
 safe_copyfile(fullfile(source_folder, "SampleModel_RotationalFrictionTorque_refsub_24b.mdl"), destination_top_folder, NameValuePair.DryRun)
 safe_copyfile(fullfile(source_folder, "RotationalFrictionTorque_SampleParams1.m"), destination_top_folder, NameValuePair.DryRun)
 safe_copyfile(fullfile(source_folder, "RotationalFrictionTorque_SampleParams2.m"), destination_top_folder, NameValuePair.DryRun)

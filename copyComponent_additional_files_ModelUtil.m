@@ -22,7 +22,7 @@ repo_top_folder = repo.WorkingFolder;
 source_folder = fullfile(repo_top_folder, "Devel", "AppsForModeling", "LookupTable1DBlockPlot");
 assert(isfolder(source_folder))
 
-destination_top_folder = fullfile(repo_top_folder, "Release", "ModelingUtilityForSimscape");
+destination_top_folder = fullfile(repo_top_folder, "Release-mus1", "ModelingUtilityForSimscape");
 safe_mkdir(destination_top_folder, NameValuePair.DryRun)
 
 destination_media_folder = fullfile(destination_top_folder, "media");
@@ -36,7 +36,7 @@ safe_copyfile(file_to_copy, destination_media_folder, NameValuePair.DryRun)
 
 % ---
 
-releasing_file = fullfile(source_folder, "mus1_LookupTable1DBlockPlotApp.m");
+releasing_file = fullfile(source_folder, "mus1", "mus1_LookupTable1DBlockPlotApp.m");
 safe_copyfile(releasing_file, destination_top_folder, NameValuePair.DryRun)
 
 releasing_file = fullfile(source_folder, "SampleModel_LookupTable1DBlockPlotApp_24b.mdl");

@@ -22,7 +22,7 @@ repo_top_folder = repo.WorkingFolder;
 source_folder = fullfile(repo_top_folder, "Devel", "Test", "TestUtil");
 assert(isfolder(source_folder))
 
-destination_top_folder = fullfile(repo_top_folder, "Release", "ModelingUtilityForSimscape");
+destination_top_folder = fullfile(repo_top_folder, "Release-mus1", "ModelingUtilityForSimscape");
 safe_mkdir(destination_top_folder, NameValuePair.DryRun)
 
 destination_media_folder = fullfile(destination_top_folder, "media");

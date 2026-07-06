@@ -22,7 +22,7 @@ repo_top_folder = repo.WorkingFolder;
 source_folder = fullfile(repo_top_folder, "Devel", "AppsForModeling", "SignalDesign");
 assert(isfolder(source_folder))
 
-dst = fullfile(repo_top_folder, "Release", "ModelingUtilityForSimscape");
+dst = fullfile(repo_top_folder, "Release-mus1", "ModelingUtilityForSimscape");
 safe_mkdir(dst, NameValuePair.DryRun)
 
 dst_media = fullfile(dst, "media");
@@ -33,8 +33,8 @@ safe_mkdir(dst_media, NameValuePair.DryRun)
 
 safe_copyfile(fullfile(source_folder, "media", "screenshot-SignalDesignApp-light.png"), dst_media, NameValuePair.DryRun)
 
-safe_copyfile(fullfile(source_folder, "mus1_SignalDesignApp.m"), dst, NameValuePair.DryRun)
-safe_copyfile(fullfile(source_folder, "SignalDesignApp_Description_mus1.html"), dst, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_folder, "mus1", "mus1_SignalDesignApp.m"), dst, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_folder, "mus1", "SignalDesignApp_Description_mus1.html"), dst, NameValuePair.DryRun)
 safe_copyfile(fullfile(source_folder, "SampleModel_SignalDesignAppMain_24b.mdl"), dst, NameValuePair.DryRun)
 
 end  % function

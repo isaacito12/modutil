@@ -71,7 +71,7 @@ classdef uiUptodateTest_FileSearchAppMain < matlab.uitest.TestCase
       destination_folder = fileparts(source_fullpath);
       destination_folder = extractBefore(destination_folder, ("/"|"\") + "+mus1" + ("/"|"\"));
       verifyTrue(testcase, isfolder(fullfile(destination_folder, "BasicApps", "FileSearch")))
-      destination_folder = fullfile(destination_folder, "BasicApps", "FileSearch", "media");
+      destination_folder = fullfile(destination_folder, "BasicApps", "FileSearch", "mus1", "media");
       [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
       destination_fullpath = fullfile(destination_folder, "screenshot-FileSearchAppMain-dark.png");
@@ -113,7 +113,7 @@ classdef uiUptodateTest_FileSearchAppMain < matlab.uitest.TestCase
       destination_folder = fileparts(source_fullpath);
       destination_folder = extractBefore(destination_folder, ("/"|"\") + "+mus1" + ("/"|"\"));
       verifyTrue(testcase, isfolder(fullfile(destination_folder, "BasicApps", "FileSearch")))
-      destination_folder = fullfile(destination_folder, "BasicApps", "FileSearch", "media");
+      destination_folder = fullfile(destination_folder, "BasicApps", "FileSearch", "mus1", "media");
       [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
       if mus1.TestUtil.isR2024bOrOlder

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<coverage branch-rate="NaN" branches-covered="NaN" branches-valid="NaN" complexity="NaN" line-rate="0.79605" lines-covered="363" lines-valid="456" timestamp="1782920566.3684" version="">
+<coverage branch-rate="NaN" branches-covered="NaN" branches-valid="NaN" complexity="NaN" line-rate="0.74561" lines-covered="340" lines-valid="456" timestamp="1783165236.6648" version="">
   <sources>
     <source>C:\local\modutil\repo\worktrees\R2024b-devel\Devel\Test\SearchUtil\</source>
   </sources>
   <packages>
-    <package branch-rate="NaN" complexity="NaN" line-rate="0.79605" name="">
+    <package branch-rate="NaN" complexity="NaN" line-rate="0.74561" name="">
       <classes>
         <class branch-rate="NaN" complexity="NaN" filename="TextSearcher\sample folder\subfolder 1\samplefunction_11.m" line-rate="0" name="samplefunction_11">
           <methods/>
@@ -36,7 +36,7 @@
             <line hits="0" number="2"/>
           </lines>
         </class>
-        <class branch-rate="NaN" complexity="NaN" filename="TextSearcher\unittest_TextSearcher.m" line-rate="0.99291" name="unittest_TextSearcher">
+        <class branch-rate="NaN" complexity="NaN" filename="TextSearcher\unittest_TextSearcher.m" line-rate="0.82979" name="unittest_TextSearcher">
           <methods>
             <method branch-rate="NaN" line-rate="1" name="test_method_setup_1" signature="test_method_setup_1(testcase)">
               <lines>
@@ -189,34 +189,34 @@
                 <line hits="1" number="228"/>
               </lines>
             </method>
-            <method branch-rate="NaN" line-rate="0.96154" name="Test_SearchAll_ExcludeLiveScript_1" signature="Test_SearchAll_ExcludeLiveScript_1(testcase)">
+            <method branch-rate="NaN" line-rate="0.076923" name="Test_SearchAll_ExcludeLiveScript_1" signature="Test_SearchAll_ExcludeLiveScript_1(testcase)">
               <lines>
                 <line hits="1" number="232"/>
-                <line hits="0" number="236"/>
-                <line hits="1" number="240"/>
-                <line hits="1" number="241"/>
-                <line hits="1" number="243"/>
-                <line hits="1" number="244"/>
-                <line hits="1" number="245"/>
-                <line hits="1" number="248"/>
-                <line hits="1" number="249"/>
-                <line hits="1" number="251"/>
-                <line hits="1" number="253"/>
-                <line hits="1" number="254"/>
-                <line hits="1" number="255"/>
-                <line hits="1" number="256"/>
-                <line hits="1" number="257"/>
-                <line hits="1" number="258"/>
-                <line hits="1" number="260"/>
-                <line hits="1" number="262"/>
-                <line hits="1" number="263"/>
-                <line hits="1" number="265"/>
-                <line hits="1" number="267"/>
-                <line hits="1" number="268"/>
-                <line hits="1" number="271"/>
-                <line hits="1" number="272"/>
-                <line hits="1" number="273"/>
-                <line hits="1" number="274"/>
+                <line hits="1" number="236"/>
+                <line hits="0" number="240"/>
+                <line hits="0" number="241"/>
+                <line hits="0" number="243"/>
+                <line hits="0" number="244"/>
+                <line hits="0" number="245"/>
+                <line hits="0" number="248"/>
+                <line hits="0" number="249"/>
+                <line hits="0" number="251"/>
+                <line hits="0" number="253"/>
+                <line hits="0" number="254"/>
+                <line hits="0" number="255"/>
+                <line hits="0" number="256"/>
+                <line hits="0" number="257"/>
+                <line hits="0" number="258"/>
+                <line hits="0" number="260"/>
+                <line hits="0" number="262"/>
+                <line hits="0" number="263"/>
+                <line hits="0" number="265"/>
+                <line hits="0" number="267"/>
+                <line hits="0" number="268"/>
+                <line hits="0" number="271"/>
+                <line hits="0" number="272"/>
+                <line hits="0" number="273"/>
+                <line hits="0" number="274"/>
               </lines>
             </method>
           </methods>
@@ -337,31 +337,31 @@
             <line hits="1" number="227"/>
             <line hits="1" number="228"/>
             <line hits="1" number="232"/>
-            <line hits="0" number="236"/>
-            <line hits="1" number="240"/>
-            <line hits="1" number="241"/>
-            <line hits="1" number="243"/>
-            <line hits="1" number="244"/>
-            <line hits="1" number="245"/>
-            <line hits="1" number="248"/>
-            <line hits="1" number="249"/>
-            <line hits="1" number="251"/>
-            <line hits="1" number="253"/>
-            <line hits="1" number="254"/>
-            <line hits="1" number="255"/>
-            <line hits="1" number="256"/>
-            <line hits="1" number="257"/>
-            <line hits="1" number="258"/>
-            <line hits="1" number="260"/>
-            <line hits="1" number="262"/>
-            <line hits="1" number="263"/>
-            <line hits="1" number="265"/>
-            <line hits="1" number="267"/>
-            <line hits="1" number="268"/>
-            <line hits="1" number="271"/>
-            <line hits="1" number="272"/>
-            <line hits="1" number="273"/>
-            <line hits="1" number="274"/>
+            <line hits="1" number="236"/>
+            <line hits="0" number="240"/>
+            <line hits="0" number="241"/>
+            <line hits="0" number="243"/>
+            <line hits="0" number="244"/>
+            <line hits="0" number="245"/>
+            <line hits="0" number="248"/>
+            <line hits="0" number="249"/>
+            <line hits="0" number="251"/>
+            <line hits="0" number="253"/>
+            <line hits="0" number="254"/>
+            <line hits="0" number="255"/>
+            <line hits="0" number="256"/>
+            <line hits="0" number="257"/>
+            <line hits="0" number="258"/>
+            <line hits="0" number="260"/>
+            <line hits="0" number="262"/>
+            <line hits="0" number="263"/>
+            <line hits="0" number="265"/>
+            <line hits="0" number="267"/>
+            <line hits="0" number="268"/>
+            <line hits="0" number="271"/>
+            <line hits="0" number="272"/>
+            <line hits="0" number="273"/>
+            <line hits="0" number="274"/>
           </lines>
         </class>
         <class branch-rate="NaN" complexity="NaN" filename="buildReplaceCommandText\demo_buildReplaceCommandText_1.mlx" line-rate="1" name="demo_buildReplaceCommandText_1">

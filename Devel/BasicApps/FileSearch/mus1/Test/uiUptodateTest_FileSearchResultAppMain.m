@@ -1,4 +1,4 @@
-classdef uiUptodateTest_FileListApp < matlab.uitest.TestCase
+classdef uiUptodateTest_FileSearchResultAppMain < matlab.uitest.TestCase
   % Class-based unit test for app
 
   % Overview of App Testing Framework
@@ -65,14 +65,16 @@ classdef uiUptodateTest_FileListApp < matlab.uitest.TestCase
 
       end  % if
       % R2025a or newer
-      keyword = "FileList";
-      source_fullpath = mus1.FileUtil.getFileFullPath("mus1_FileListApp");
+      keyword = "FileSearch";
+      source_fullpath = mus1.FileUtil.getFileFullPath("mus1.SearchUtil.FileSearchResultAppMain");
 
       destination_folder = fileparts(source_fullpath);
-      destination_folder = fullfile(destination_folder, "media");
+      destination_folder = extractBefore(destination_folder, ("/"|"\") + "+mus1" + ("/"|"\"));
+      verifyTrue(testcase, isfolder(fullfile(destination_folder, "BasicApps", "FileSearch")))
+      destination_folder = fullfile(destination_folder, "BasicApps", "FileSearch", "mus1", "media");
       [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
-      destination_fullpath = fullfile(destination_folder, "screenshot-FileListApp-dark.png");
+      destination_fullpath = fullfile(destination_folder, "screenshot-FileSearchResultAppMain-dark.png");
 
       if isfile(destination_fullpath)
         needs_update = mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
@@ -81,7 +83,7 @@ classdef uiUptodateTest_FileListApp < matlab.uitest.TestCase
       end  % if
 
       if needs_update
-        app = mus1_FileListApp;  % !screenshot-target
+        app = mus1.SearchUtil.FileSearchResultAppMain;  % !screenshot-target
         app.Window.MainFigure.Theme = "dark";
         drawnow
         exportapp(app.Window.MainFigure, destination_fullpath)
@@ -105,17 +107,19 @@ classdef uiUptodateTest_FileListApp < matlab.uitest.TestCase
 
       end  %if
       % R2025a or newer
-      keyword = "FileList";
-      source_fullpath = mus1.FileUtil.getFileFullPath("mus1_FileListApp");
+      keyword = "FileSearch";
+      source_fullpath = mus1.FileUtil.getFileFullPath("mus1.SearchUtil.FileSearchResultAppMain");
 
       destination_folder = fileparts(source_fullpath);
-      destination_folder = fullfile(destination_folder, "media");
+      destination_folder = extractBefore(destination_folder, ("/"|"\") + "+mus1" + ("/"|"\"));
+      verifyTrue(testcase, isfolder(fullfile(destination_folder, "BasicApps", "FileSearch")))
+      destination_folder = fullfile(destination_folder, "BasicApps", "FileSearch", "mus1", "media");
       [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
       if mus1.TestUtil.isR2024bOrOlder
-        destination_fullpath = fullfile(destination_folder, "screenshot-FileListApp-24b.png");
+        destination_fullpath = fullfile(destination_folder, "screenshot-FileSearchResultAppMain-24b.png");
       else
-        destination_fullpath = fullfile(destination_folder, "screenshot-FileListApp-light.png");
+        destination_fullpath = fullfile(destination_folder, "screenshot-FileSearchResultAppMain-light.png");
       end  % if
 
       if isfile(destination_fullpath)
@@ -125,7 +129,7 @@ classdef uiUptodateTest_FileListApp < matlab.uitest.TestCase
       end  % if
 
       if needs_update
-        app = mus1_FileListApp;  % !screenshot-target
+        app = mus1.SearchUtil.FileSearchResultAppMain;  % !screenshot-target
         app.Window.MainFigure.Theme = "light";
         drawnow
         exportapp(app.Window.MainFigure, destination_fullpath)

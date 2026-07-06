@@ -28,7 +28,7 @@ assert(isfolder(devel_top_folder))
 source_folder = fullfile(devel_top_folder, "+mus1");
 assert(isfolder(source_folder))
 
-destination_folder = fullfile(repo_top_folder, "Release", "ModelingUtilityForSimscape");
+destination_folder = fullfile(repo_top_folder, "Release-mus1", "ModelingUtilityForSimscape");
 if not(NameValuePair.DryRun)
   if isfolder(destination_folder)
 

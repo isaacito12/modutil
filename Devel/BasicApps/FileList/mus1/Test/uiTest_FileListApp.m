@@ -89,6 +89,20 @@ classdef uiTest_FileListApp < matlab.uitest.TestCase
       end  % nested function
     end  % function
 
+    function Test_error_5(testcase)
+      %%
+      app = mus1_FileListApp("this_does_not_exist_as_file");
+
+      % The uialert window pops up, but it won't be visible.
+      % Ideally, the app's error state should be checked, but it is skipped.
+      % This is because the app is a function-based simple app which, by design,
+      % does basic error handling only.
+      % To see the uialert window, run the above command interactively in
+      % Command Window, and then manually double-click the table row in the app.
+      choose(testcase, app.TableUI.MainTable, [1 1])
+
+    end  % function
+
     %% Tests
 
     function PassingTest_1_1(~)
@@ -113,10 +127,42 @@ classdef uiTest_FileListApp < matlab.uitest.TestCase
       mus1_FileListApp(file_list_table)
     end  % function
 
-    function PassingTest_3_1(~)
-      % Test the TopFolder option.
-      file_list = "file1.m";
-      mus1_FileListApp(file_list, TopFolder=matlabroot)
+    function PassingTest_3_1(testcase)
+      %%
+      source_fullpath = mus1.FileUtil.getFileFullPath("uiTest_FileListApp.m");
+
+      targetfolder_fullpath = extractBefore(source_fullpath, ("/"|"\") + "Devel");
+      targetfolder_fullpath = fullfile(targetfolder_fullpath, "Devel", "Test", "ForTesting");
+
+      file_list = ["mustest_script1.m"; "mustest_script2.m"];
+
+      % Pass a string array of file paths.
+      app = mus1_FileListApp(file_list, TopFolder=targetfolder_fullpath);  % !test-target
+
+      verifyEqual(testcase, height(app.TableUI.MainTable.Data), 2)
+
+      % !todo: Programmatically double-click the table row and open the file in the editor.
+
+    end  % function
+
+    function PassingTest_4_1(testcase)
+      %%
+      source_fullpath = mus1.FileUtil.getFileFullPath("uiTest_FileListApp.m");
+
+      targetfolder_fullpath = extractBefore(source_fullpath, ("/"|"\") + "Devel");
+      targetfolder_fullpath = fullfile(targetfolder_fullpath, "Devel", "Test", "ForTesting");
+
+      FilePath = ["mustest_script1.m"; "mustest_script2.m"];
+      LineNumber = [3; 5];
+      target_table = table(FilePath, LineNumber);
+
+      % Pass a table with specified line numbers.
+      app = mus1_FileListApp(target_table, TopFolder=targetfolder_fullpath);  % !test-target
+
+      verifyEqual(testcase, height(app.TableUI.MainTable.Data), 2)
+
+      % !todo: Programmatically double-click the table row and open the file in the editor.
+
     end  % function
 
   end  % methods
