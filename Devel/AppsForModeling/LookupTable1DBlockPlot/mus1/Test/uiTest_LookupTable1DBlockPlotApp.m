@@ -59,16 +59,24 @@ classdef uiTest_LookupTable1DBlockPlotApp < matlab.uitest.TestCase
       verifyWarningFree(testcase, @mus1_LookupTable1DBlockPlotApp)
     end  % function
 
+    function Test_error_1(testcase)
+      verifyError(testcase, @test_target, "LookupTable1DBlockPlotApp:InvalidModelFilePath")
+      function test_target
+        mus1_LookupTable1DBlockPlotApp(ModelFilePath="test_test_test")  % !test-target
+      end  % nested function
+    end  % function
+
     %% Passing tests
 
-    function PassingTest_App_1(~)
+    function PassingTest_App_1(testcase)
       % Check the ModelFilePath option.
       if mus1.TestUtil.isR2024bOrOlder
         target = mus1.FileUtil.getFileFullPath("SampleModel_LookupTable1DBlockPlotApp_24b.mdl");
       else
         target = mus1.FileUtil.getFileFullPath("SampleModel_LookupTable1DBlockPlotApp.mdl");
       end  % if
-      mus1_LookupTable1DBlockPlotApp(ModelFilePath=target)
+      app = mus1_LookupTable1DBlockPlotApp(ModelFilePath=target);
+      verifyTrue(testcase, isfield(app, "Window"))
     end  % function
 
     function PassingTest_SampleModel_1(~)

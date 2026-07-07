@@ -58,7 +58,6 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
 
     % -------------------------------------------------------------------------
     % mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyAppMain
-    % Save the screenshot image file outside of the namespace.
 
     function app_screenshot_1_dark(testcase)
       %%
@@ -69,10 +68,16 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
 
       end  % if
       % R2025a or newer
+      keyword = "AbstractMotorEfficiency";
       source_fullpath = mus1.FileUtil.getFileFullPath("mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyAppMain");
 
-      destination_folder = extractBefore(source_fullpath, ("/"|"\") + "Devel");
-      destination_folder = fullfile(destination_folder, "Devel", "AppsForPhysicalSystems", "AbstractMotorEfficiency", "media");
+      destination_folder = fileparts(source_fullpath);
+      destination_folder = extractBefore(destination_folder, ("/"|"\") + "+mus1" + ("/"|"\"));
+      destination_folder = fullfile(destination_folder, "AppsForPhysicalSystems", "AbstractMotorEfficiency", "mus1");
+
+      verifyTrue(testcase, isfolder(destination_folder))
+
+      destination_folder = fullfile(destination_folder, "media");
       [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
       destination_fullpath = fullfile(destination_folder, "screenshot-AbstractMotorEfficiencyAppMain-dark-1.png");
@@ -93,6 +98,9 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
         disp("The screenshot is up to date.")
       end  % if
 
+      verifyTrue(testcase, contains(source_fullpath, keyword))
+      verifyTrue(testcase, contains(destination_fullpath, keyword))
+
       destination_is_newer = not(mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath));
       verifyTrue(testcase, destination_is_newer)
     end  % function
@@ -106,10 +114,16 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
 
       end  %if
 
+      keyword = "AbstractMotorEfficiency";
       source_fullpath = mus1.FileUtil.getFileFullPath("mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyAppMain");
 
-      destination_folder = extractBefore(source_fullpath, ("/"|"\") + "Devel");
-      destination_folder = fullfile(destination_folder, "Devel", "AppsForPhysicalSystems", "AbstractMotorEfficiency", "media");
+      destination_folder = fileparts(source_fullpath);
+      destination_folder = extractBefore(destination_folder, ("/"|"\") + "+mus1" + ("/"|"\"));
+      destination_folder = fullfile(destination_folder, "AppsForPhysicalSystems", "AbstractMotorEfficiency", "mus1");
+
+      verifyTrue(testcase, isfolder(destination_folder))
+
+      destination_folder = fullfile(destination_folder, "media");
       [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
       if mus1.TestUtil.isR2024bOrOlder
@@ -134,6 +148,9 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
         disp("The screenshot is up to date.")
       end  % if
 
+      verifyTrue(testcase, contains(source_fullpath, keyword))
+      verifyTrue(testcase, contains(destination_fullpath, keyword))
+
       destination_is_newer = not(mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath));
       verifyTrue(testcase, destination_is_newer)
     end  % function
@@ -150,10 +167,10 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
 
       end  % if
       % R2025a or newer
+      keyword = "AbstractMotorEfficiency";
       source_fullpath = mus1.FileUtil.getFileFullPath("mus1_AbstractMotorEfficiencyApp");
 
-      destination_folder = extractBefore(source_fullpath, ("/"|"\") + "Devel");
-      destination_folder = fullfile(destination_folder, "Devel", "AppsForPhysicalSystems", "AbstractMotorEfficiency", "media");
+      destination_folder = fullfile(fileparts(source_fullpath), "media");
       [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
       destination_fullpath = fullfile(destination_folder, "screenshot-AbstractMotorEfficiencyApp-dark-1.png");
@@ -174,6 +191,9 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
         disp("The screenshot is up to date.")
       end  % if
 
+      verifyTrue(testcase, contains(source_fullpath, keyword))
+      verifyTrue(testcase, contains(destination_fullpath, keyword))
+
       destination_is_newer = not(mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath));
       verifyTrue(testcase, destination_is_newer)
     end  % function
@@ -187,10 +207,10 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
 
       end  %if
 
+      keyword = "AbstractMotorEfficiency";
       source_fullpath = mus1.FileUtil.getFileFullPath("mus1_AbstractMotorEfficiencyApp");
 
-      destination_folder = extractBefore(source_fullpath, ("/"|"\") + "Devel");
-      destination_folder = fullfile(destination_folder, "Devel", "AppsForPhysicalSystems", "AbstractMotorEfficiency", "media");
+      destination_folder = fullfile(fileparts(source_fullpath), "media");
       [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
       if mus1.TestUtil.isR2024bOrOlder
@@ -214,6 +234,9 @@ classdef uiUptodateTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       else
         disp("The screenshot is up to date.")
       end  % if
+
+      verifyTrue(testcase, contains(source_fullpath, keyword))
+      verifyTrue(testcase, contains(destination_fullpath, keyword))
 
       destination_is_newer = not(mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath));
       verifyTrue(testcase, destination_is_newer)

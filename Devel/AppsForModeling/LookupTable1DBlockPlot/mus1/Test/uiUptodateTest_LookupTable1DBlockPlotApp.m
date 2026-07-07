@@ -1,4 +1,4 @@
-classdef uiUptodateTest_SignalDesign < matlab.uitest.TestCase
+classdef uiUptodateTest_LookupTable1DBlockPlotApp < matlab.uitest.TestCase
   % Class-based unit test for app
 
   % Overview of App Testing Framework
@@ -10,7 +10,7 @@ classdef uiUptodateTest_SignalDesign < matlab.uitest.TestCase
   % Test Browser
   % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
-  % Copyright 2026 The MathWorks, Inc.
+  % Copyright 2024-2026 The MathWorks, Inc.
 
   properties
     % Some of the tests in this class run only if test is running locally under the LocalTopFolder.
@@ -65,16 +65,19 @@ classdef uiUptodateTest_SignalDesign < matlab.uitest.TestCase
 
       end  % if
       % R2025a or newer
-      keyword = "SignalDesign";
-      source_fullpath = mus1.FileUtil.getFileFullPath("mus1.SignalUtil.SignalDesignAppMain");
+      keyword = "LookupTable1DBlockPlot";
+      source_fullpath = mus1.FileUtil.getFileFullPath("mus1_LookupTable1DBlockPlotApp");
 
       destination_folder = fileparts(source_fullpath);
-      destination_folder = extractBefore(destination_folder, ("/"|"\") + "+mus1" + ("/"|"\"));
-      verifyTrue(testcase, isfolder(fullfile(destination_folder, "AppsForModeling", "SignalDesign")))
-      destination_folder = fullfile(destination_folder, "AppsForModeling", "SignalDesign", "media");
+      destination_folder = extractBefore(destination_folder, ("/"|"\") + "Devel" + ("/"|"\"));
+      destination_folder = fullfile(destination_folder, "Devel", "AppsForModeling", "LookupTable1DBlockPlot", "mus1");
+
+      verifyTrue(testcase, isfolder(destination_folder))
+
+      destination_folder = fullfile(destination_folder, "media");
       [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
-      destination_fullpath = fullfile(destination_folder, "screenshot-SignalDesignAppMain-dark.png");
+      destination_fullpath = fullfile(destination_folder, "screenshot-LookupTable1DBlockPlotApp-dark-1.png");
 
       if isfile(destination_fullpath)
         needs_update = mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
@@ -83,7 +86,8 @@ classdef uiUptodateTest_SignalDesign < matlab.uitest.TestCase
       end  % if
 
       if needs_update
-        app = mus1.SignalUtil.SignalDesignAppMain;  % !screenshot-target
+        modelfile_fullpath = mus1.FileUtil.getFileFullPath("SampleModel_LookupTable1DBlockPlotApp_24b.mdl");
+        app = mus1_LookupTable1DBlockPlotApp(ModelFilePath=modelfile_fullpath);  % !screenshot-target
         app.Window.MainFigure.Theme = "dark";
         drawnow
         exportapp(app.Window.MainFigure, destination_fullpath)
@@ -107,19 +111,24 @@ classdef uiUptodateTest_SignalDesign < matlab.uitest.TestCase
 
       end  %if
       % R2025a or newer
-      keyword = "SignalDesign";
-      source_fullpath = mus1.FileUtil.getFileFullPath("mus1.SignalUtil.SignalDesignAppMain");
+      keyword = "LookupTable1DBlockPlot";
+      source_fullpath = mus1.FileUtil.getFileFullPath("mus1_LookupTable1DBlockPlotApp");
 
       destination_folder = fileparts(source_fullpath);
-      destination_folder = extractBefore(destination_folder, ("/"|"\") + "+mus1" + ("/"|"\"));
-      verifyTrue(testcase, isfolder(fullfile(destination_folder, "AppsForModeling", "SignalDesign")))
-      destination_folder = fullfile(destination_folder, "AppsForModeling", "SignalDesign", "media");
+      destination_folder = extractBefore(destination_folder, ("/"|"\") + "Devel" + ("/"|"\"));
+      destination_folder = fullfile(destination_folder, "Devel", "AppsForModeling", "LookupTable1DBlockPlot", "mus1");
+
+      verifyTrue(testcase, isfolder(destination_folder))
+
+      destination_folder = fullfile(destination_folder, "media");
       [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
       if mus1.TestUtil.isR2024bOrOlder
-        destination_fullpath = fullfile(destination_folder, "screenshot-SignalDesignAppMain-24b.png");
+        destination_fullpath = fullfile(destination_folder, "screenshot-LookupTable1DBlockPlotApp-24b.png");
+        modelfile_fullpath = mus1.FileUtil.getFileFullPath("SampleModel_LookupTable1DBlockPlotApp_24b.mdl");
       else
-        destination_fullpath = fullfile(destination_folder, "screenshot-SignalDesignAppMain-light.png");
+        destination_fullpath = fullfile(destination_folder, "screenshot-LookupTable1DBlockPlotApp-light-1.png");
+        modelfile_fullpath = mus1.FileUtil.getFileFullPath("SampleModel_LookupTable1DBlockPlotApp.mdl");
       end  % if
 
       if isfile(destination_fullpath)
@@ -129,7 +138,8 @@ classdef uiUptodateTest_SignalDesign < matlab.uitest.TestCase
       end  % if
 
       if needs_update
-        app = mus1.SignalUtil.SignalDesignAppMain;  % !screenshot-target
+        % Open the app with a model to take a screenshot.
+        app = mus1_LookupTable1DBlockPlotApp(ModelFilePath=modelfile_fullpath);  % !screenshot-target
         app.Window.MainFigure.Theme = "light";
         drawnow
         exportapp(app.Window.MainFigure, destination_fullpath)

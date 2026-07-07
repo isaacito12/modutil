@@ -18,25 +18,36 @@ classdef uptodateTest_Vehicle1DForce < matlab.unittest.TestCase
   end  % properties
 
   methods (TestMethodSetup)
-    % Functions in this section always run before each test defined in the Test section runs.
+    % Functions in this "TestMethodSetup" section always run before
+    % each test defined in the "Test" section runs.
 
     function test_method_setup_1(testcase)
-      function closeAll
-        close all
-        bdclose all
-      end  % nested function
-      closeAll
+      %%
+      % Close all before test
+      close all
+      bdclose all
+
       % addTeardown adds a function which always runs after each test.
       % Even if the execution of a test ends with an error, the teardown function runs.
-      addTeardown(testcase, @closeAll)
+      addTeardown(testcase, @closeAllAfterTest)
+      function closeAllAfterTest
+        % Running a live script can open figure windows.
+        % Delete all figure windows (not just making the window invisible).
+        % This closes not only the test targets but also all other figure windows.
+        figs = findall(0, Type="Figure");
+        if not(any(isempty(figs)))
+          disp("Deleting figures (" + numel(figs) + ")")
+          delete(figs)
+        end  % if
+        bdclose all
+      end  % nested function
     end  % function
 
   end  % methods
 
   methods (Test)
     % Functions in this "Test" section are the tests.
-    % Before a function in this section runs, the TestSetup function
-    % defined in the "TestMethodSetup" section runs.
+    % Before a function in this section runs, the functions defined in the TestMethodSetup section run.
 
     %% Up-to-date tests
 

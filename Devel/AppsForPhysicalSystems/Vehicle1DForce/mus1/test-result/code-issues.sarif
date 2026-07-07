@@ -1,7 +1,7 @@
 {
   "version": "2.1.0",
   "properties": {
-    "Date": "2026-07-01 13:49:24",
+    "Date": "2026-07-07 08:24:59",
     "Release": "R2026a",
     "CodeAnalyzerConfiguration": "active"
   },
@@ -14,32 +14,44 @@
       },
       "originalUriBaseIds": {
         "SourceRoot": {
-          "uri": "file:///C:/local/modutil/repo/worktrees/R2024b-devel/Devel/AppsForModeling/TraceGenerator/"
+          "uri": "file:///C:/local/modutil/repo/worktrees/R2024b-devel/Devel/AppsForPhysicalSystems/Vehicle1DForce/mus1/"
         }
       },
       "artifacts": [
         {
           "location": {
             "uriBaseId": "SourceRoot",
-            "uri": "Test/uiTest_TraceGeneratorAppMain.m"
+            "uri": "Test/runTestForCoverage_Vehicle1DForce.m"
           }
         },
         {
           "location": {
             "uriBaseId": "SourceRoot",
-            "uri": "Test/uiUptodateTest_TraceGenerator.m"
+            "uri": "Test/uiTest_Vehicle1DForce.m"
           }
         },
         {
           "location": {
             "uriBaseId": "SourceRoot",
-            "uri": "Test/unittest_TraceGenerator.m"
+            "uri": "Test/uiUptodateTest_Vehicle1DForce.m"
           }
         },
         {
           "location": {
             "uriBaseId": "SourceRoot",
-            "uri": "Test/uptodateTest_TraceGeneratorApp.m"
+            "uri": "Test/unittest_Vehicle1DForce.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/unittest_Vehicle1DForce_settings.m"
+          }
+        },
+        {
+          "location": {
+            "uriBaseId": "SourceRoot",
+            "uri": "Test/uptodateTest_Vehicle1DForce.m"
           }
         },
         {
@@ -51,19 +63,13 @@
         {
           "location": {
             "uriBaseId": "SourceRoot",
-            "uri": "mus1_TraceGeneratorApp.m"
+            "uri": "mus1_Vehicle1DForceApp.m"
           }
         },
         {
           "location": {
             "uriBaseId": "SourceRoot",
-            "uri": "SampleScript_TraceGeneratorAPI.mlx"
-          }
-        },
-        {
-          "location": {
-            "uriBaseId": "SourceRoot",
-            "uri": "TraceGeneratorApp_Description_mus1.mlx"
+            "uri": "Vehicle1DForceApp_Description_mus1.mlx"
           }
         }
       ],

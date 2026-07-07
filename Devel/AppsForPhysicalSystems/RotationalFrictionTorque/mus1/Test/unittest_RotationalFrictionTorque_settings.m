@@ -38,5 +38,36 @@ classdef unittest_RotationalFrictionTorque_settings < matlab.unittest.TestCase
       verifyEqual(testcase, info.ReleaseName, 'R2024b')
     end  % function
 
+    function linked_app_in_live_script_1(testcase)
+      %%
+      script_fullpath = string( which("RotationalFrictionTorqueApp_Description_mus1"));
+
+      if endsWith(script_fullpath, ".mlx")
+        disp("The target file is not plain-text Live Script.")
+        disp("!Skipping")
+
+        return
+
+      end  % if
+
+      result = mus1.FileUtil.getLinkedCommandFromPlainTextLiveScript(script_fullpath);
+      if isempty(result)
+        disp("No linked apps were found.")
+
+        return
+
+      end  % for
+      for ii = 1 : height(result)
+        target_command = result.Command(ii);
+        if endsWith(target_command, "App")
+          disp("Hyperlinked app: " + target_command)
+          fullpath = string( which(target_command));
+
+          verifyTrue(testcase, fullpath ~= "")
+
+        end  % if
+      end  % for
+    end  % function
+
   end  % methods
 end  % classdef

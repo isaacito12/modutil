@@ -1,4 +1,4 @@
-classdef uiUptodateTest_TraceGenerator < matlab.uitest.TestCase
+classdef uiUptodateTest_TraceGeneratorAppMain < matlab.uitest.TestCase
   % Class-based unit test for app
 
   % Overview of App Testing Framework
@@ -70,11 +70,14 @@ classdef uiUptodateTest_TraceGenerator < matlab.uitest.TestCase
 
       destination_folder = fileparts(source_fullpath);
       destination_folder = extractBefore(destination_folder, ("/"|"\") + "+mus1" + ("/"|"\"));
-      verifyTrue(testcase, isfolder(fullfile(destination_folder, "AppsForModeling", "TraceGenerator")))
-      destination_folder = fullfile(destination_folder, "AppsForModeling", "TraceGenerator", "media");
+      destination_folder = fullfile(destination_folder, "AppsForModeling", "TraceGenerator", "mus1");
+
+      verifyTrue(testcase, isfolder(destination_folder))
+
+      destination_folder = fullfile(destination_folder, "media");
       [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
-      destination_fullpath = fullfile(destination_folder, "screenshot-TraceGeneratorAppMain-dark.png");
+      destination_fullpath = fullfile(destination_folder, "screenshot-TraceGeneratorAppMain-dark-1.png");
 
       if isfile(destination_fullpath)
         needs_update = mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
@@ -112,14 +115,17 @@ classdef uiUptodateTest_TraceGenerator < matlab.uitest.TestCase
 
       destination_folder = fileparts(source_fullpath);
       destination_folder = extractBefore(destination_folder, ("/"|"\") + "+mus1" + ("/"|"\"));
-      verifyTrue(testcase, isfolder(fullfile(destination_folder, "AppsForModeling", "TraceGenerator")))
-      destination_folder = fullfile(destination_folder, "AppsForModeling", "TraceGenerator", "media");
+      destination_folder = fullfile(destination_folder, "AppsForModeling", "TraceGenerator", "mus1");
+
+      verifyTrue(testcase, isfolder(destination_folder))
+
+      destination_folder = fullfile(destination_folder, "media");
       [~, ~] = mkdir(destination_folder);  % Assign return values to suppress warning.
 
       if mus1.TestUtil.isR2024bOrOlder
         destination_fullpath = fullfile(destination_folder, "screenshot-TraceGeneratorAppMain-24b.png");
       else
-        destination_fullpath = fullfile(destination_folder, "screenshot-TraceGeneratorAppMain-light.png");
+        destination_fullpath = fullfile(destination_folder, "screenshot-TraceGeneratorAppMain-light-1.png");
       end  % if
 
       if isfile(destination_fullpath)

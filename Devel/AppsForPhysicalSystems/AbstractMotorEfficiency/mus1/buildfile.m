@@ -4,14 +4,14 @@ function plan = buildfile
 % Start the Test task with options as needed.
 %{
 buildtool Test -verbosity Verbose
-buildtool Test -buildFile AppsForModeling/LookupTable1DBlockPlot/buildfile.m -verbosity Verbose
+buildtool Test -buildFile AppsForPhysicalSystems/AbstractMotorEfficiency/mus1/buildfile.m -verbosity Verbose
 %}
 %
 % Overview of MATLAB Build Tool
 % https://www.mathworks.com/help/matlab/matlab_prog/overview-of-matlab-build-tool.html
 %
 % matlab.buildtool.tasks.TestTask Class
-% "SupportingFiles" option is supported from R2025a.
+% "SupportingFiles" property is supported from R2025a.
 % https://www.mathworks.com/help/matlab/ref/matlab.buildtool.tasks.testtask-class.html
 %
 % Run Build from Toolstrip (R2025a or newer)

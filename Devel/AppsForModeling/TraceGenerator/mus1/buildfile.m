@@ -4,7 +4,7 @@ function plan = buildfile
 % Start the Test task with options as needed.
 %{
 buildtool Test -verbosity Verbose
-buildtool Test -buildFile AppsForModeling/SignalDesign/buildfile.m -verbosity Verbose
+buildtool Test -buildFile AppsForModeling/TraceGenerator/mus1/buildfile.m -verbosity Verbose
 %}
 %
 % Overview of MATLAB Build Tool
