@@ -1,10 +1,5 @@
-# Ignore ".../test-result/release/" at any depth
-**/test-result/release/
-
-# Ignore ".../test-release-24b/release" at any depth
-**/test-result-24b/release/
-
-**/code-coverage.html
+# Ignore ".../test-result/" at any folder depth
+**/test-result/
 
 **/tmp_*
 
@@ -46,8 +41,8 @@ codegen/
 # Cloud based storage dotfile
 .MATLABDriveTag
 
-# buildtool cache folder
-.buildtool/
+# buildtool cache folder at any folder depth
+**/.buildtool/
 
 # SimBiology backup files
 *.sbproj.backup
