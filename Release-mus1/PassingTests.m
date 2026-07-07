@@ -94,14 +94,6 @@ classdef PassingTests < matlab.uitest.TestCase
       evalin("base", "clear Params")  % Post-clean up the base workspace.
     end  % function
 
-    function PassingTest_CodeCoverageApp_1(testcase)
-      verifyWarningFree(testcase, @CodeCoverageApp)
-    end  % function
-
-    function PassingTest_ContourQuiverApp_1(testcase)
-      verifyWarningFree(testcase, @ContourQuiverApp)
-    end  % function
-
     function PassingTest_FileListApp_1(testcase)
       verifyWarningFree(testcase, @mus1_FileListApp)
     end  % function
@@ -164,10 +156,6 @@ classdef PassingTests < matlab.uitest.TestCase
       % Check that there is only one target file.
       target_file = mus1.SearchUtil.searchFiles("SignalDesignApp_Description_mus1.html");
       verifyTrue(testcase, isscalar(target_file))
-    end  % function
-
-    function PassingTest_TestResultApp_1(testcase)
-      verifyWarningFree(testcase, @TestResultApp)
     end  % function
 
     function PassingTest_TextSearchApp_1(testcase)

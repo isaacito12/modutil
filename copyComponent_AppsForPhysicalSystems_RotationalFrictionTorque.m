@@ -31,7 +31,7 @@ safe_mkdir(destination_media_folder, NameValuePair.DryRun)
 % -----------------------------------------------------------------------------
 % Copy releasing files.
 
-safe_copyfile(fullfile(source_folder, "media", "screenshot-RotationalFrictionTorqueApp-light.png"), destination_media_folder, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_folder, "mus1", "media", "screenshot-RotationalFrictionTorqueApp-light.png"), destination_media_folder, NameValuePair.DryRun)
 
 % ---
 

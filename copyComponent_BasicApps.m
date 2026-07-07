@@ -32,22 +32,22 @@ safe_mkdir(dst_media, NameValuePair.DryRun)
 % FileList
 
 safe_copyfile(fullfile(source_top, "FileList", "mus1", "mus1_FileListApp.m"), dst, NameValuePair.DryRun)
-safe_copyfile(fullfile(source_top, "FileList", "media", "screenshot-FileListApp-light.png"), dst_media, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_top, "FileList", "mus1", "media", "screenshot-FileListApp-light.png"), dst_media, NameValuePair.DryRun)
 
 % FileSearch
 safe_copyfile(fullfile(source_top, "FileSearch", "mus1", "mus1_FileSearchApp.m"), dst, NameValuePair.DryRun)
-safe_copyfile(fullfile(source_top, "FileSearch", "media", "screenshot-FileSearchApp-light.png"), dst_media, NameValuePair.DryRun)
-safe_copyfile(fullfile(source_top, "FileSearch", "media", "screenshot-FileSearchResultApp-light.png"), dst_media, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_top, "FileSearch", "mus1", "media", "screenshot-FileSearchApp-light.png"), dst_media, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_top, "FileSearch", "mus1", "media", "screenshot-FileSearchResultApp-light.png"), dst_media, NameValuePair.DryRun)
 
 % FolderSearch
 safe_copyfile(fullfile(source_top, "FolderSearch", "mus1", "mus1_FolderSearchApp.m"), dst, NameValuePair.DryRun)
-safe_copyfile(fullfile(source_top, "FolderSearch", "media", "screenshot-FolderSearchApp-light.png"), dst_media, NameValuePair.DryRun)
-safe_copyfile(fullfile(source_top, "FolderSearch", "media", "screenshot-FolderSearchResultApp-light.png"), dst_media, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_top, "FolderSearch", "mus1", "media", "screenshot-FolderSearchApp-light.png"), dst_media, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_top, "FolderSearch", "mus1", "media", "screenshot-FolderSearchResultApp-light.png"), dst_media, NameValuePair.DryRun)
 
 % TextSearch
 safe_copyfile(fullfile(source_top, "TextSearch", "mus1", "mus1_TextSearchApp.m"), dst, NameValuePair.DryRun)
 safe_copyfile(fullfile(source_top, "TextSearch", "mus1", "mus1_TextSearchResultApp.m"), dst, NameValuePair.DryRun)
-safe_copyfile(fullfile(source_top, "TextSearch", "media", "screenshot-TextSearchApp-light.png"), dst_media, NameValuePair.DryRun)
-safe_copyfile(fullfile(source_top, "TextSearch", "media", "screenshot-TextSearchResultApp-light.png"), dst_media, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_top, "TextSearch", "mus1", "media", "screenshot-TextSearchApp-light.png"), dst_media, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_top, "TextSearch", "mus1", "media", "screenshot-TextSearchResultApp-light.png"), dst_media, NameValuePair.DryRun)
 
 end  % function

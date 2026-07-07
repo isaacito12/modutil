@@ -2,48 +2,65 @@ function App = mus1_FileListApp(FileList, NameValuePair)
 % App to show a file list for click-to-open
 %
 % This is an app to open a file with double-click on a table row in the list of files.
-% This app takes either a string array or a table.
-% A string array must contain a list of file paths.
-% A table must contain the "FilePath" column, and optionally the "LineNumber" column.
-% If the table has no LineNumber column, first line is used to open the file.
 %
 %   FileListApp(<file_list>)
+%
+% This app takes <file_list> either as a string array or as a table.
+% A string array must contain a list of file paths.
+% A table must contain the "FilePath" column, and optionally the "LineNumber" column.
+% If the table has the "LineNumber" column, double-clicking on a table row
+% opens the selected file in the editor and the cursor jumps to the specified line number.
+% If the table has no LineNumber column, the cursor jumps to the first line.
 %
 % Use the TopFolder option if the file path in the file list does not start from
 % the current folder.
 %
 %   FileListApp(<file_list>, TopFolder=<path/to/folder>)
 %
-% If the file list is a table, two of the columns must be "FilePath" and "LineNumber".
-% Other columns can have any column names.
-% To customize the column names, use the ColumnNames option.
+% If the file list is a table, the table must have at least two columns whose
+% names are "FilePath" and "LineNumber".
+%
+% To customize the column names, use the ColumnName option.
 % To customize the column width, use the ColumnWidth option.
-% ColumnNames and ColumnWidth are passed to uitable.
+% These options are directly passed to uitable.
 % See the documentation about uitable for details.
 % https://www.mathworks.com/help/matlab/ref/matlab.ui.control.table.html
-% If names and/or widths are not customized, uitable's default settings are used.
 %
 % -----------------------------------------------------------------------------
-% Example using the result of the searchText command
+% Notes about function-based app
 %
+% This is an app implemented as a function, which is simpler to implement
+% compared to class-based apps. However, accessing the internal states of
+% a function-based app is trickier than class-based apps.
+%
+% -----------------------------------------------------------------------------
+% Example
+%
+% Use the result of the searchText command.
 % First, do text search with searchText.
 %
-%   session = mus1.SearchUtil.searchText( ...
-%     "movegui", ...
-%     TopFolder = "D:\local\modutil\modeling-utility\Devel", ...
-%     IncludeSubfolders = true, ...
-%     FileTypes = "*.m" );
+%{
+% !example: With a proper TargetFolder, this command should run.
+session = mus1.SearchUtil.searchText( ...
+  "movegui", ...
+  TargetFolder = "C:\local\modutil\repo\worktrees\R2024b-devel\Devel", ...
+  IncludeSubfolders = true, ...
+  FileTypes = "*.m" );
+%}
 %
 % Then pass the search result to the FileListApp as follows.
 %
-%   FileListApp(session.Result, TopFolder=session.Searcher.States.TargetFolder)
+%{
+% !example: Run this command after running the above example command.
+mus1_FileListApp(session.Result, TopFolder=session.Searcher.States.TargetFolder)
+%}
 
 % Copyright 2025-2026 The MathWorks, Inc.
 
 arguments (Input)
   FileList {mustBeA(FileList, ["string", "table"])} = "sample.m"
   NameValuePair.TopFolder {mustBeFolder} = pwd
-  NameValuePair.ColumnNames
+  NameValuePair.ColumnName
   NameValuePair.ColumnWidth
 end  % arguments
 
@@ -121,21 +138,21 @@ table_ui.ComponentHeight = "1x";  % !vertical-expansion
 
 table_ui.MainTable.Data = FileList;
 
-if not(isfield(NameValuePair, "ColumnNames"))
+if not(isfield(NameValuePair, "ColumnName"))
   if width(FileList) == 2
     % Default setting
     table_ui.MainTable.ColumnName = [mus1.CodeUtil.i18n("File path"), mus1.CodeUtil.i18n("Line number")];
   end
 
-elseif isfield(NameValuePair, "ColumnNames")
-  if numel(NameValuePair.ColumnNames) < 3
-    id = errorID + "InvalidColumnNames";
-    msg = mus1.CodeUtil.i18n("ColumnNames must have 3 or more elements.");
+elseif isfield(NameValuePair, "ColumnName")
+  if numel(NameValuePair.ColumnName) < 3
+    id = errorID + "InvalidColumnName";
+    msg = mus1.CodeUtil.i18n("ColumnName must have 3 or more elements.");
 
     throw(MException(id, msg))
 
   end  % if
-  table_ui.MainTable.ColumnNames = NameValuePair.ColumnNames;
+  table_ui.MainTable.ColumnName = NameValuePair.ColumnName;
 end  % if
 
 if not(isfield(NameValuePair, "ColumnWidth"))
@@ -176,27 +193,20 @@ message_ui.Text = default_message;
 % -----------------------------------------------------------------------
 % Callback functions
 
-deferred_message = timer;
-deferred_message.StartDelay = 3;  % seconds
-deferred_message.TimerFcn = @(~,~) show_default_message();
-
   function react_TableDoubleClicked(row_number)
     target_row = FileList(row_number, :);
     target_filepath = replace(target_row.FilePath, " > ", filesep);
     file_fullpath = fullfile(NameValuePair.TopFolder, target_filepath);
     if not(isfile(file_fullpath))
-      message_ui.Text = mus1.CodeUtil.i18n("File not found: ") + file_fullpath;
-      start(deferred_message)
+      msg = mus1.CodeUtil.i18n("File not found:") + newline + replace(file_fullpath, ("/"|"\"), " > ");
+      window_title = mus1.CodeUtil.i18n("Error");
+
+      uialert(main_figure, msg, window_title)
 
       return
 
     end  % if
     matlab.desktop.editor.openAndGoToLine(file_fullpath, target_row.LineNumber);
-  end  % nested function
-
-  function show_default_message
-    message_ui.Text = default_message;
-    drawnow
   end  % nested function
 
 % -----------------------------------------------------------------------
@@ -206,5 +216,6 @@ drawnow
 if nargout > 0
   App = struct;
   App.Window = app_window;
+  App.TableUI = table_ui;
 end  % if
 end  % function

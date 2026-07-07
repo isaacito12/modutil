@@ -31,7 +31,7 @@ safe_mkdir(dst_media, NameValuePair.DryRun)
 % -----------------------------------------------------------------------------
 % Copy releasing files.
 
-safe_copyfile(fullfile(source_folder, "media", "screenshot-TraceGeneratorApp-light.png"), dst_media, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_folder, "mus1", "media", "screenshot-TraceGeneratorApp-light.png"), dst_media, NameValuePair.DryRun)
 
 safe_copyfile(fullfile(source_folder, "mus1", "mus1_TraceGeneratorApp.m"), dst, NameValuePair.DryRun)
 safe_copyfile(fullfile(source_folder, "mus1", "TraceGeneratorApp_Description_mus1.html"), dst, NameValuePair.DryRun)

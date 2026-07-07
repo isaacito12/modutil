@@ -31,7 +31,7 @@ safe_mkdir(destination_media_folder, NameValuePair.DryRun)
 % -----------------------------------------------------------------------------
 % Copy releasing files.
 
-file_to_copy = fullfile(source_folder, "media", "screenshot-LookupTable1DBlockPlotApp-light.png");
+file_to_copy = fullfile(source_folder, "mus1", "media", "screenshot-LookupTable1DBlockPlotApp-light.png");
 safe_copyfile(file_to_copy, destination_media_folder, NameValuePair.DryRun)
 
 % ---
