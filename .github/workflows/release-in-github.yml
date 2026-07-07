@@ -40,7 +40,7 @@ jobs:
           echo "TAG: $TAG"
           ARCHIVE="${{ env.ArchiveBaseName }}-${TAG}-${{ env.MatlabRelease }}.zip"
           # Zip the contents of the "Release" folder.
-          cd Release
+          cd Release-mus1
           rm -rf .claude
           rm -f buildfile.m
           rm -f code*

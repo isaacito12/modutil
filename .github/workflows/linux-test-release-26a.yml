@@ -55,7 +55,7 @@ jobs:
           - name: R2026a
             # The first use of a figure in a uifigure can result in the ID "MATLAB:graphics:HardwareUnavailable" warning, i.e.,
             # "Graphics acceleration hardware is unavailable."
-            cmd: "cd Release; buildtool -verbosity Verbose Test"
+            cmd: "cd Release-mus1; buildtool -verbosity Verbose Test"
 
     name: Test job for Release-folder in MATLAB ${{ matrix.config.name }} on Linux
 
