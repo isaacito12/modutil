@@ -37,7 +37,7 @@ classdef unittest_AbstractMotorEfficiency_settings < matlab.unittest.TestCase
 
     function Test_1(testcase)
       % Check that the model was saved in the expected MATLAB Release.
-      info = Simulink.MDLInfo("SampleModel_AbstractMotorEfficiency_refsub_24b");
+      info = Simulink.MDLInfo("AbstractMotorEfficiency_SampleModel_refsub_24b");
       verifyEqual(testcase, info.ReleaseName, 'R2024b')
     end  % function
 

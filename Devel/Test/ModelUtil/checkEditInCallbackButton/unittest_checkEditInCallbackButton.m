@@ -50,7 +50,7 @@ classdef unittest_checkEditInCallbackButton < matlab.unittest.TestCase
       verifyError(testcase, @test_target, "checkEditInCallbackButton:InvalidCode")
       function test_target()
         % The ClickFcn callback must not be an empty.
-        mus1.ModelUtil.checkEditInCallbackButton("samplemodel_checkEditInCallbackButton_emptycode_24b")  % !test-target
+        mus1.ModelUtil.checkEditInCallbackButton("checkEditInCallbackButton_SampleModel_emptycode_24b")  % !test-target
       end  % nested function
     end  % function
 
@@ -59,10 +59,10 @@ classdef unittest_checkEditInCallbackButton < matlab.unittest.TestCase
       % !todo: Ideally these two lines should be unnecessary because checkEditInCallbackButton loads
       % the specified model. However, there seems to be a timing issue in R2024b and R2025b where
       % the test proceeds before the model is fully loaded, resulting in a test failure.
-      open_system("samplemodel_checkEditInCallbackButton_24b")
+      open_system("checkEditInCallbackButton_SampleModel_24b")
       pause(3)
 
-      result = mus1.ModelUtil.checkEditInCallbackButton("samplemodel_checkEditInCallbackButton_24b");
+      result = mus1.ModelUtil.checkEditInCallbackButton("checkEditInCallbackButton_SampleModel_24b");
       verifyEqual(testcase, result.Found(1), true)
       verifyEqual(testcase, result.Found(2), true)
     end  % function

@@ -9,9 +9,9 @@ arguments (Output)
 end  % arguments
 
 if isMATLABReleaseOlderThan("R2025a")
-  block_path = "SampleModel_SignalDesignAppMain_24b/PS Lookup Table (1D)";
+  block_path = "SignalDesignAppMain_SampleModel_24b/PS Lookup Table (1D)";
 else
-  block_path = "SampleModel_SignalDesignAppMain/PS Lookup Table (1D)";
+  block_path = "SignalDesignAppMain_SampleModel/PS Lookup Table (1D)";
 end  % if
 
 app_main = mus1.SignalUtil.SignalDesignAppMain(BlockPath=block_path);

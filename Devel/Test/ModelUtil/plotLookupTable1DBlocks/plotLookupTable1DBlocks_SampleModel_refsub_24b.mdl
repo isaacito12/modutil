@@ -78,11 +78,15 @@ __MWOPC_PART_BEGIN__ /simulink/_rels/blockdiagram.xml.rels
   <Relationship Id="LibrarySourceProduct_42" Target="bdmxdata/LibrarySourceProduct_42.mxarray" Type="http://schemas.mathworks.com/simulinkModel/2015/relationships/modelMxArray"/>
   <Relationship Id="LibrarySourceProduct_47" Target="bdmxdata/LibrarySourceProduct_47.mxarray" Type="http://schemas.mathworks.com/simulinkModel/2015/relationships/modelMxArray"/>
   <Relationship Id="LibrarySourceProduct_62" Target="bdmxdata/LibrarySourceProduct_62.mxarray" Type="http://schemas.mathworks.com/simulinkModel/2015/relationships/modelMxArray"/>
+  <Relationship Id="LibrarySourceProduct_83" Target="bdmxdata/LibrarySourceProduct_83.mxarray" Type="http://schemas.mathworks.com/simulinkModel/2015/relationships/modelMxArray"/>
   <Relationship Id="SimscapeInstrumentationVariables_41" Target="bdmxdata/SimscapeInstrumentationVariables_41.mxarray" Type="http://schemas.mathworks.com/simulinkModel/2015/relationships/modelMxArray"/>
   <Relationship Id="SimscapeInstrumentationVariables_45" Target="bdmxdata/SimscapeInstrumentationVariables_45.mxarray" Type="http://schemas.mathworks.com/simulinkModel/2015/relationships/modelMxArray"/>
   <Relationship Id="SimscapeInstrumentationVariables_50" Target="bdmxdata/SimscapeInstrumentationVariables_50.mxarray" Type="http://schemas.mathworks.com/simulinkModel/2015/relationships/modelMxArray"/>
-  <Relationship Id="SimscapeInstrumentationVariables_65" Target="bdmxdata/SimscapeInstrumentationVariables_65.mxarray" Type="http://schemas.mathworks.com/simulinkModel/2015/relationships/modelMxArray"/>
   <Relationship Id="SimscapeInstrumentationVariables_74" Target="bdmxdata/SimscapeInstrumentationVariables_74.mxarray" Type="http://schemas.mathworks.com/simulinkModel/2015/relationships/modelMxArray"/>
+  <Relationship Id="SimscapeInstrumentationVariables_77" Target="bdmxdata/SimscapeInstrumentationVariables_77.mxarray" Type="http://schemas.mathworks.com/simulinkModel/2015/relationships/modelMxArray"/>
+  <Relationship Id="SimscapeInstrumentationVariables_79" Target="bdmxdata/SimscapeInstrumentationVariables_79.mxarray" Type="http://schemas.mathworks.com/simulinkModel/2015/relationships/modelMxArray"/>
+  <Relationship Id="SimscapeInstrumentationVariables_81" Target="bdmxdata/SimscapeInstrumentationVariables_81.mxarray" Type="http://schemas.mathworks.com/simulinkModel/2015/relationships/modelMxArray"/>
+  <Relationship Id="SimscapeInstrumentationVariables_87" Target="bdmxdata/SimscapeInstrumentationVariables_87.mxarray" Type="http://schemas.mathworks.com/simulinkModel/2015/relationships/modelMxArray"/>
   <Relationship Id="graphicalInterface" Target="graphicalInterface.json" Type="http://schemas.mathworks.com/simulinkModel/2014/relationships/graphicalInterface"/>
   <Relationship Id="system_root" Target="systems/system_root.xml" Type="http://schemas.mathworks.com/simulink/2010/relationships/system"/>
   <Relationship Id="windowsInfo" Target="windowsInfo.xml" Type="http://schemas.mathworks.com/simulinkModel/2019/relationships/windowsInfo"/>
@@ -123,6 +127,14 @@ AAAAABAAAgBTTAAADgAAAGAAAAAGAAAACAAAAAEAAAAAAAAABQAAAAgAAAABAAAAAQAAAAEAAAAA
 AAAADgAAADAAAAAGAAAACAAAAAQAAAAAAAAABQAAAAgAAAABAAAAAgAAAAEAAAAAAAAAEAACAFNM
 AAA==
 __MWOPC_PART_BEGIN__ /simulink/bdmxdata/LibrarySourceProduct_62.mxarray BASE64
+AAFJTQAAAAAOAAAASAEAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAF
+AAQAEAAAAAEAAAAwAAAAUHJvZHVjdE5hbWUAAAAAAFByb2R1Y3RDb2RlAAAAAABQcm9kdWN0Q29k
+ZUxpc3QADgAAADgAAAAGAAAACAAAAAQAAAAAAAAABQAAAAgAAAABAAAACAAAAAEAAAAAAAAAEAAA
+AAgAAABTaW11bGluaw4AAAAwAAAABgAAAAgAAAAEAAAAAAAAAAUAAAAIAAAAAQAAAAIAAAABAAAA
+AAAAABAAAgBTTAAADgAAAGAAAAAGAAAACAAAAAEAAAAAAAAABQAAAAgAAAABAAAAAQAAAAEAAAAA
+AAAADgAAADAAAAAGAAAACAAAAAQAAAAAAAAABQAAAAgAAAABAAAAAgAAAAEAAAAAAAAAEAACAFNM
+AAA==
+__MWOPC_PART_BEGIN__ /simulink/bdmxdata/LibrarySourceProduct_83.mxarray BASE64
 AAFJTQAAAAAOAAAASAEAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAF
 AAQAEAAAAAEAAAAwAAAAUHJvZHVjdE5hbWUAAAAAAFByb2R1Y3RDb2RlAAAAAABQcm9kdWN0Q29k
 ZUxpc3QADgAAADgAAAAGAAAACAAAAAQAAAAAAAAABQAAAAgAAAABAAAACAAAAAEAAAAAAAAAEAAA
@@ -205,7 +217,7 @@ CAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAAAAAAEAAAAAAAAABQAEAAEAAAABAAAAAAAAAA4AAACI
 AAAABgAAAAgAAAAJAAAAAAAAAAUAAAAIAAAAAQAAAFgAAAABAAAAAAAAAAIAAABYAAAAAAFJTQAA
 AAAOAAAASAAAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAFAAQABQAA
 AAEAAAAFAAAATUNPUwAAAAAOAAAAAAAAAA==
-__MWOPC_PART_BEGIN__ /simulink/bdmxdata/SimscapeInstrumentationVariables_65.mxarray BASE64
+__MWOPC_PART_BEGIN__ /simulink/bdmxdata/SimscapeInstrumentationVariables_74.mxarray BASE64
 AAFJTQAAAAAOAAAAoAAAAAYAAAAIAAAAEQAAAAAAAAABAAAAAAAAAAEABABNQ09TAQAAACYAAABz
 aW1zY2FwZS5pbnN0cnVtZW50YXRpb24uVmFyaWFibGVUYWJsZQAADgAAAEgAAAAGAAAACAAAAA0A
 AAAAAAAABQAAAAgAAAAGAAAAAQAAAAEAAAAAAAAABgAAABgAAAAAAADdAgAAAAEAAAABAAAAAQAA
@@ -230,7 +242,82 @@ CAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAAAAAAEAAAAAAAAABQAEAAEAAAABAAAAAAAAAA4AAACI
 AAAABgAAAAgAAAAJAAAAAAAAAAUAAAAIAAAAAQAAAFgAAAABAAAAAAAAAAIAAABYAAAAAAFJTQAA
 AAAOAAAASAAAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAFAAQABQAA
 AAEAAAAFAAAATUNPUwAAAAAOAAAAAAAAAA==
-__MWOPC_PART_BEGIN__ /simulink/bdmxdata/SimscapeInstrumentationVariables_74.mxarray BASE64
+__MWOPC_PART_BEGIN__ /simulink/bdmxdata/SimscapeInstrumentationVariables_77.mxarray BASE64
+AAFJTQAAAAAOAAAAoAAAAAYAAAAIAAAAEQAAAAAAAAABAAAAAAAAAAEABABNQ09TAQAAACYAAABz
+aW1zY2FwZS5pbnN0cnVtZW50YXRpb24uVmFyaWFibGVUYWJsZQAADgAAAEgAAAAGAAAACAAAAA0A
+AAAAAAAABQAAAAgAAAAGAAAAAQAAAAEAAAAAAAAABgAAABgAAAAAAADdAgAAAAEAAAABAAAAAQAA
+AAEAAAAOAAAAgAQAAAYAAAAIAAAACQAAAAAAAAAFAAAACAAAAAEAAABQBAAAAQAAAAAAAAACAAAA
+UAQAAAABSU0AAAAADgAAALADAAAGAAAACAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAQAAAAEAAAAA
+AAAABQAEAAUAAAABAAAABQAAAE1DT1MAAAAADgAAAGgDAAAGAAAACAAAABEAAAAAAAAAAQAAAAAA
+AAABAAQATUNPUwEAAAANAAAARmlsZVdyYXBwZXJfXwAAAA4AAAAoAwAABgAAAAgAAAABAAAAAAAA
+AAUAAAAIAAAABgAAAAEAAAABAAAAAAAAAA4AAAAAAQAABgAAAAgAAAAJAAAAAAAAAAUAAAAIAAAA
+0AAAAAEAAAABAAAAAAAAAAIAAADQAAAABAAAAAMAAABYAAAAeAAAAJAAAADAAAAAyAAAAMgAAADI
+AAAA0AAAAGFueQBWYXJpYWJsZVRhYmxlAHNpbXNjYXBlLmluc3RydW1lbnRhdGlvbgAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAADAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAEAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAA4AAAAAAAAADgAAAEgAAAAGAAAACAAAAAQAAAAAAAAABQAAAAgAAAABAAAAGAAAAAEAAAAA
+AAAAEAAAABgAAAB7InRhYmxlIjpbXSwidmVyIjoiMS4wIn0OAAAAqAAAAAYAAAAIAAAAAQAAAAAA
+AAAFAAAACAAAAAIAAAABAAAAAQAAAAAAAAAOAAAAOAAAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAA
+AAEAAAAAAAAAAQAAAAAAAAAFAAQAAQAAAAEAAAAAAAAADgAAADgAAAAGAAAACAAAAAIAAAAAAAAA
+BQAAAAgAAAABAAAAAAAAAAEAAAAAAAAABQAEAAEAAAABAAAAAAAAAA4AAAA4AAAABgAAAAgAAAAM
+AAAAAAAAAAUAAAAIAAAAAgAAAAEAAAABAAAAAAAAAAUAAAAIAAAAAAAAAAAAAAAOAAAAqAAAAAYA
+AAAIAAAAAQAAAAAAAAAFAAAACAAAAAIAAAABAAAAAQAAAAAAAAAOAAAAOAAAAAYAAAAIAAAAAgAA
+AAAAAAAFAAAACAAAAAEAAAAAAAAAAQAAAAAAAAAFAAQAAQAAAAEAAAAAAAAADgAAADgAAAAGAAAA
+CAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAAAAAAEAAAAAAAAABQAEAAEAAAABAAAAAAAAAA4AAACI
+AAAABgAAAAgAAAAJAAAAAAAAAAUAAAAIAAAAAQAAAFgAAAABAAAAAAAAAAIAAABYAAAAAAFJTQAA
+AAAOAAAASAAAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAFAAQABQAA
+AAEAAAAFAAAATUNPUwAAAAAOAAAAAAAAAA==
+__MWOPC_PART_BEGIN__ /simulink/bdmxdata/SimscapeInstrumentationVariables_79.mxarray BASE64
+AAFJTQAAAAAOAAAAoAAAAAYAAAAIAAAAEQAAAAAAAAABAAAAAAAAAAEABABNQ09TAQAAACYAAABz
+aW1zY2FwZS5pbnN0cnVtZW50YXRpb24uVmFyaWFibGVUYWJsZQAADgAAAEgAAAAGAAAACAAAAA0A
+AAAAAAAABQAAAAgAAAAGAAAAAQAAAAEAAAAAAAAABgAAABgAAAAAAADdAgAAAAEAAAABAAAAAQAA
+AAEAAAAOAAAAgAQAAAYAAAAIAAAACQAAAAAAAAAFAAAACAAAAAEAAABQBAAAAQAAAAAAAAACAAAA
+UAQAAAABSU0AAAAADgAAALADAAAGAAAACAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAQAAAAEAAAAA
+AAAABQAEAAUAAAABAAAABQAAAE1DT1MAAAAADgAAAGgDAAAGAAAACAAAABEAAAAAAAAAAQAAAAAA
+AAABAAQATUNPUwEAAAANAAAARmlsZVdyYXBwZXJfXwAAAA4AAAAoAwAABgAAAAgAAAABAAAAAAAA
+AAUAAAAIAAAABgAAAAEAAAABAAAAAAAAAA4AAAAAAQAABgAAAAgAAAAJAAAAAAAAAAUAAAAIAAAA
+0AAAAAEAAAABAAAAAAAAAAIAAADQAAAABAAAAAMAAABYAAAAeAAAAJAAAADAAAAAyAAAAMgAAADI
+AAAA0AAAAGFueQBWYXJpYWJsZVRhYmxlAHNpbXNjYXBlLmluc3RydW1lbnRhdGlvbgAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAADAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAEAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAA4AAAAAAAAADgAAAEgAAAAGAAAACAAAAAQAAAAAAAAABQAAAAgAAAABAAAAGAAAAAEAAAAA
+AAAAEAAAABgAAAB7InRhYmxlIjpbXSwidmVyIjoiMS4wIn0OAAAAqAAAAAYAAAAIAAAAAQAAAAAA
+AAAFAAAACAAAAAIAAAABAAAAAQAAAAAAAAAOAAAAOAAAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAA
+AAEAAAAAAAAAAQAAAAAAAAAFAAQAAQAAAAEAAAAAAAAADgAAADgAAAAGAAAACAAAAAIAAAAAAAAA
+BQAAAAgAAAABAAAAAAAAAAEAAAAAAAAABQAEAAEAAAABAAAAAAAAAA4AAAA4AAAABgAAAAgAAAAM
+AAAAAAAAAAUAAAAIAAAAAgAAAAEAAAABAAAAAAAAAAUAAAAIAAAAAAAAAAAAAAAOAAAAqAAAAAYA
+AAAIAAAAAQAAAAAAAAAFAAAACAAAAAIAAAABAAAAAQAAAAAAAAAOAAAAOAAAAAYAAAAIAAAAAgAA
+AAAAAAAFAAAACAAAAAEAAAAAAAAAAQAAAAAAAAAFAAQAAQAAAAEAAAAAAAAADgAAADgAAAAGAAAA
+CAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAAAAAAEAAAAAAAAABQAEAAEAAAABAAAAAAAAAA4AAACI
+AAAABgAAAAgAAAAJAAAAAAAAAAUAAAAIAAAAAQAAAFgAAAABAAAAAAAAAAIAAABYAAAAAAFJTQAA
+AAAOAAAASAAAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAFAAQABQAA
+AAEAAAAFAAAATUNPUwAAAAAOAAAAAAAAAA==
+__MWOPC_PART_BEGIN__ /simulink/bdmxdata/SimscapeInstrumentationVariables_81.mxarray BASE64
+AAFJTQAAAAAOAAAAoAAAAAYAAAAIAAAAEQAAAAAAAAABAAAAAAAAAAEABABNQ09TAQAAACYAAABz
+aW1zY2FwZS5pbnN0cnVtZW50YXRpb24uVmFyaWFibGVUYWJsZQAADgAAAEgAAAAGAAAACAAAAA0A
+AAAAAAAABQAAAAgAAAAGAAAAAQAAAAEAAAAAAAAABgAAABgAAAAAAADdAgAAAAEAAAABAAAAAQAA
+AAEAAAAOAAAAgAQAAAYAAAAIAAAACQAAAAAAAAAFAAAACAAAAAEAAABQBAAAAQAAAAAAAAACAAAA
+UAQAAAABSU0AAAAADgAAALADAAAGAAAACAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAQAAAAEAAAAA
+AAAABQAEAAUAAAABAAAABQAAAE1DT1MAAAAADgAAAGgDAAAGAAAACAAAABEAAAAAAAAAAQAAAAAA
+AAABAAQATUNPUwEAAAANAAAARmlsZVdyYXBwZXJfXwAAAA4AAAAoAwAABgAAAAgAAAABAAAAAAAA
+AAUAAAAIAAAABgAAAAEAAAABAAAAAAAAAA4AAAAAAQAABgAAAAgAAAAJAAAAAAAAAAUAAAAIAAAA
+0AAAAAEAAAABAAAAAAAAAAIAAADQAAAABAAAAAMAAABYAAAAeAAAAJAAAADAAAAAyAAAAMgAAADI
+AAAA0AAAAGFueQBWYXJpYWJsZVRhYmxlAHNpbXNjYXBlLmluc3RydW1lbnRhdGlvbgAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAADAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAEAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAA4AAAAAAAAADgAAAEgAAAAGAAAACAAAAAQAAAAAAAAABQAAAAgAAAABAAAAGAAAAAEAAAAA
+AAAAEAAAABgAAAB7InRhYmxlIjpbXSwidmVyIjoiMS4wIn0OAAAAqAAAAAYAAAAIAAAAAQAAAAAA
+AAAFAAAACAAAAAIAAAABAAAAAQAAAAAAAAAOAAAAOAAAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAA
+AAEAAAAAAAAAAQAAAAAAAAAFAAQAAQAAAAEAAAAAAAAADgAAADgAAAAGAAAACAAAAAIAAAAAAAAA
+BQAAAAgAAAABAAAAAAAAAAEAAAAAAAAABQAEAAEAAAABAAAAAAAAAA4AAAA4AAAABgAAAAgAAAAM
+AAAAAAAAAAUAAAAIAAAAAgAAAAEAAAABAAAAAAAAAAUAAAAIAAAAAAAAAAAAAAAOAAAAqAAAAAYA
+AAAIAAAAAQAAAAAAAAAFAAAACAAAAAIAAAABAAAAAQAAAAAAAAAOAAAAOAAAAAYAAAAIAAAAAgAA
+AAAAAAAFAAAACAAAAAEAAAAAAAAAAQAAAAAAAAAFAAQAAQAAAAEAAAAAAAAADgAAADgAAAAGAAAA
+CAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAAAAAAEAAAAAAAAABQAEAAEAAAABAAAAAAAAAA4AAACI
+AAAABgAAAAgAAAAJAAAAAAAAAAUAAAAIAAAAAQAAAFgAAAABAAAAAAAAAAIAAABYAAAAAAFJTQAA
+AAAOAAAASAAAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAFAAQABQAA
+AAEAAAAFAAAATUNPUwAAAAAOAAAAAAAAAA==
+__MWOPC_PART_BEGIN__ /simulink/bdmxdata/SimscapeInstrumentationVariables_87.mxarray BASE64
 AAFJTQAAAAAOAAAAoAAAAAYAAAAIAAAAEQAAAAAAAAABAAAAAAAAAAEABABNQ09TAQAAACYAAABz
 aW1zY2FwZS5pbnN0cnVtZW50YXRpb24uVmFyaWFibGVUYWJsZQAADgAAAEgAAAAGAAAACAAAAA0A
 AAAAAAAABQAAAAgAAAAGAAAAAQAAAAEAAAAAAAAABgAAABgAAAAAAADdAgAAAAEAAAABAAAAAQAA
@@ -259,11 +346,11 @@ __MWOPC_PART_BEGIN__ /simulink/blockdiagram.xml
 <?xml version="1.0" encoding="utf-8"?>
 <ModelInformation Version="1.0">
   <Subsystem>
-    <P Name="ModelUUID">1826653e-7144-41d5-b46c-3e14266a90d8</P>
+    <P Name="ModelUUID">f13c30d7-484d-407d-8744-a209f1bec180</P>
     <P Name="LastSavedArchitecture">win64</P>
     <UserParameters>
-      <P Name="PhysicalModelingChecksum">1451844349</P>
-      <P Name="PhysicalModelingParameterChecksum">4042417536</P>
+      <P Name="PhysicalModelingChecksum">349837898</P>
+      <P Name="PhysicalModelingParameterChecksum">274487925</P>
       <P Name="PhysicalModelingProducts">Simscape</P>
     </UserParameters>
     <ConfigManagerSettings>
@@ -1095,15 +1182,33 @@ __MWOPC_PART_BEGIN__ /simulink/graphicalInterface.json
                 "Type":"LIBRARY_BLOCK"
             },
             {
+                "Path":"$bdroot\/Subsystem\/PS smooth1",
+                "Reference":"fl_lib\/Physical Signals\/Lookup Tables\/PS Lookup Table (1D)",
+                "SID":"77",
+                "Type":"LIBRARY_BLOCK"
+            },
+            {
                 "Path":"$bdroot\/Subsystem\/Subsystem\/PS Lookup Table (1D)",
                 "Reference":"fl_lib\/Physical Signals\/Lookup Tables\/PS Lookup Table (1D)",
                 "SID":"50",
                 "Type":"LIBRARY_BLOCK"
             },
             {
-                "Path":"$bdroot\/Subsystem\/Subsystem1\/PS Lookup Table (1D)",
+                "Path":"$bdroot\/Subsystem\/Subsystem\/PS smooth1",
                 "Reference":"fl_lib\/Physical Signals\/Lookup Tables\/PS Lookup Table (1D)",
-                "SID":"65",
+                "SID":"79",
+                "Type":"LIBRARY_BLOCK"
+            },
+            {
+                "Path":"$bdroot\/Subsystem\/Subsystem A\/PS smooth1",
+                "Reference":"fl_lib\/Physical Signals\/Lookup Tables\/PS Lookup Table (1D)",
+                "SID":"81",
+                "Type":"LIBRARY_BLOCK"
+            },
+            {
+                "Path":"$bdroot\/Subsystem\/Subsystem A\/Subsystem B\/PS smooth1",
+                "Reference":"fl_lib\/Physical Signals\/Lookup Tables\/PS Lookup Table (1D)",
+                "SID":"87",
                 "Type":"LIBRARY_BLOCK"
             }
         ],
@@ -1129,6 +1234,12 @@ __MWOPC_PART_BEGIN__ /simulink/systems/_rels/system_42.xml.rels
 <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
   <Relationship Id="system_47" Target="system_47.xml" Type="http://schemas.mathworks.com/simulink/2010/relationships/system"/>
   <Relationship Id="system_62" Target="system_62.xml" Type="http://schemas.mathworks.com/simulink/2010/relationships/system"/>
+</Relationships>
+
+__MWOPC_PART_BEGIN__ /simulink/systems/_rels/system_62.xml.rels
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Id="system_83" Target="system_83.xml" Type="http://schemas.mathworks.com/simulink/2010/relationships/system"/>
 </Relationships>
 
 __MWOPC_PART_BEGIN__ /simulink/systems/_rels/system_root.xml.rels
@@ -1159,7 +1270,7 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_42.xml
   </Block>
   <Block BlockType="Reference" Name="PS Lookup Table (1D)" SID="45">
     <PortCounts lconn="1" rconn="1"/>
-    <P Name="Position">[140, -14, 190, 34]</P>
+    <P Name="Position">[-120, -59, -70, -11]</P>
     <P Name="ZOrder">31148</P>
     <P Name="BackgroundColor">automatic</P>
     <P Name="HideAutomaticName">off</P>
@@ -1191,6 +1302,57 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_42.xml
       <P Name="SimscapeInstrumentationVariables" Ref="bdmxdata:SimscapeInstrumentationVariables_45"/>
     </InstanceData>
   </Block>
+  <Block BlockType="Reference" Name="PS smooth1" SID="77">
+    <PortCounts lconn="1" rconn="1"/>
+    <P Name="Position">[85, -59, 135, -11]</P>
+    <P Name="ZOrder">31154</P>
+    <P Name="BackgroundColor">automatic</P>
+    <P Name="HideAutomaticName">off</P>
+    <P Name="AttributesFormatString">interp_method: %&lt;interp_method&gt;
+extrap_method: %&lt;extrap_method&gt;
+f_unit: %&lt;f_unit&gt;
+x_unit: %&lt;x_unit&gt;</P>
+    <P Name="LibraryVersion">26000997.0</P>
+    <P Name="SourceBlock">fl_lib/Physical Signals/Lookup Tables/PS Lookup Table (1D)</P>
+    <P Name="SourceType">PS Lookup Table (1D)</P>
+    <InstanceData>
+      <P Name="LogSimulationData">off</P>
+      <P Name="SimscapeInstrumentationLogging">off</P>
+      <P Name="SourceFile">foundation.signal.lookup_tables.one_dimensional</P>
+      <P Name="SscBlockScalableBuild">off</P>
+      <P Name="ComponentPath">foundation.signal.lookup_tables.one_dimensional</P>
+      <P Name="ComponentVariants">[&quot;foundation.signal.lookup_tables.one_dimensional&quot;]</P>
+      <P Name="ComponentVariantNames">[&quot;one_dimensional&quot;]</P>
+      <P Name="ClassName">one_dimensional</P>
+      <P Name="SchemaVersion">1</P>
+      <P Name="x">[0 1 2 5 6 7]</P>
+      <P Name="x_unit">s</P>
+      <P Name="x_conf">compiletime</P>
+      <P Name="f">[2 3 0 0 4 4]</P>
+      <P Name="f_unit">1</P>
+      <P Name="f_conf">compiletime</P>
+      <P Name="interp_method">simscape.enum.interpolation.smooth</P>
+      <P Name="interp_method_unit">1</P>
+      <P Name="interp_method_conf">compiletime</P>
+      <P Name="extrap_method">simscape.enum.extrapolation.nearest</P>
+      <P Name="extrap_method_unit">1</P>
+      <P Name="extrap_method_conf">compiletime</P>
+      <P Name="SimscapeInstrumentationVariables" Ref="bdmxdata:SimscapeInstrumentationVariables_77"/>
+    </InstanceData>
+  </Block>
+  <Block BlockType="Lookup_n-D" Name="SL smooth1" SID="78">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[455, -8, 515, 28]</P>
+    <P Name="ZOrder">31155</P>
+    <P Name="HideAutomaticName">off</P>
+    <P Name="InputPortMap">u0</P>
+    <P Name="NumberOfTableDimensions">1</P>
+    <P Name="BreakpointsForDimension1">[0 1 2 5 6 7]</P>
+    <P Name="Table">[2 3 0 0 4 4]</P>
+    <P Name="InterpMethod">Akima spline</P>
+    <P Name="InternalRulePriority">Speed</P>
+    <P Name="RndMeth">Simplest</P>
+  </Block>
   <Block BlockType="SubSystem" Name="Subsystem" SID="47">
     <PortCounts in="1" out="1"/>
     <P Name="Position">[140, 176, 190, 224]</P>
@@ -1200,7 +1362,7 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_42.xml
     <P Name="ContentPreviewEnabled">on</P>
     <System Ref="system_47"/>
   </Block>
-  <Block BlockType="SubSystem" Name="Subsystem1" SID="62">
+  <Block BlockType="SubSystem" Name="Subsystem A" SID="62">
     <PortCounts in="1" out="1"/>
     <P Name="Position">[295, 176, 345, 224]</P>
     <P Name="ZOrder">31151</P>
@@ -1242,7 +1404,7 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_47.xml
   </Block>
   <Block BlockType="Reference" Name="PS Lookup Table (1D)" SID="50">
     <PortCounts lconn="1" rconn="1"/>
-    <P Name="Position">[150, -14, 200, 34]</P>
+    <P Name="Position">[125, -14, 175, 34]</P>
     <P Name="ZOrder">31148</P>
     <P Name="BackgroundColor">automatic</P>
     <P Name="HideAutomaticName">off</P>
@@ -1274,6 +1436,57 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_47.xml
       <P Name="SimscapeInstrumentationVariables" Ref="bdmxdata:SimscapeInstrumentationVariables_50"/>
     </InstanceData>
   </Block>
+  <Block BlockType="Reference" Name="PS smooth1" SID="79">
+    <PortCounts lconn="1" rconn="1"/>
+    <P Name="Position">[100, 181, 150, 229]</P>
+    <P Name="ZOrder">31156</P>
+    <P Name="BackgroundColor">automatic</P>
+    <P Name="HideAutomaticName">off</P>
+    <P Name="AttributesFormatString">interp_method: %&lt;interp_method&gt;
+extrap_method: %&lt;extrap_method&gt;
+f_unit: %&lt;f_unit&gt;
+x_unit: %&lt;x_unit&gt;</P>
+    <P Name="LibraryVersion">26000997.0</P>
+    <P Name="SourceBlock">fl_lib/Physical Signals/Lookup Tables/PS Lookup Table (1D)</P>
+    <P Name="SourceType">PS Lookup Table (1D)</P>
+    <InstanceData>
+      <P Name="LogSimulationData">off</P>
+      <P Name="SimscapeInstrumentationLogging">off</P>
+      <P Name="SourceFile">foundation.signal.lookup_tables.one_dimensional</P>
+      <P Name="SscBlockScalableBuild">off</P>
+      <P Name="ComponentPath">foundation.signal.lookup_tables.one_dimensional</P>
+      <P Name="ComponentVariants">[&quot;foundation.signal.lookup_tables.one_dimensional&quot;]</P>
+      <P Name="ComponentVariantNames">[&quot;one_dimensional&quot;]</P>
+      <P Name="ClassName">one_dimensional</P>
+      <P Name="SchemaVersion">1</P>
+      <P Name="x">[0 1 2 5 6 7]</P>
+      <P Name="x_unit">s</P>
+      <P Name="x_conf">compiletime</P>
+      <P Name="f">[-2 -3 0 0 -4 -4]</P>
+      <P Name="f_unit">1</P>
+      <P Name="f_conf">compiletime</P>
+      <P Name="interp_method">simscape.enum.interpolation.smooth</P>
+      <P Name="interp_method_unit">1</P>
+      <P Name="interp_method_conf">compiletime</P>
+      <P Name="extrap_method">simscape.enum.extrapolation.nearest</P>
+      <P Name="extrap_method_unit">1</P>
+      <P Name="extrap_method_conf">compiletime</P>
+      <P Name="SimscapeInstrumentationVariables" Ref="bdmxdata:SimscapeInstrumentationVariables_79"/>
+    </InstanceData>
+  </Block>
+  <Block BlockType="Lookup_n-D" Name="SL smooth1" SID="80">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[325, 187, 385, 223]</P>
+    <P Name="ZOrder">31157</P>
+    <P Name="HideAutomaticName">off</P>
+    <P Name="InputPortMap">u0</P>
+    <P Name="NumberOfTableDimensions">1</P>
+    <P Name="BreakpointsForDimension1">[0 1 2 5 6 7]</P>
+    <P Name="Table">[-2 -3 0 0 -4 -4]</P>
+    <P Name="InterpMethod">Akima spline</P>
+    <P Name="InternalRulePriority">Speed</P>
+    <P Name="RndMeth">Simplest</P>
+  </Block>
   <Block BlockType="Outport" Name="Out1" SID="51">
     <P Name="Position">[360, 103, 390, 117]</P>
     <P Name="ZOrder">-2</P>
@@ -1293,24 +1506,16 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_62.xml
     <P Name="Position">[110, 103, 140, 117]</P>
     <P Name="ZOrder">-1</P>
   </Block>
-  <Block BlockType="Lookup_n-D" Name="1-D Lookup&#xA;Table" SID="64">
-    <PortCounts in="1" out="1"/>
-    <P Name="Position">[290, -22, 355, 42]</P>
-    <P Name="ZOrder">31149</P>
-    <P Name="HideAutomaticName">off</P>
-    <P Name="InputPortMap">u0</P>
-    <P Name="NumberOfTableDimensions">1</P>
-    <P Name="BreakpointsForDimension1">[-5:5]</P>
-    <P Name="Table">tanh([-5:5])</P>
-    <P Name="InternalRulePriority">Speed</P>
-    <P Name="RndMeth">Simplest</P>
-  </Block>
-  <Block BlockType="Reference" Name="PS Lookup Table (1D)" SID="65">
+  <Block BlockType="Reference" Name="PS smooth1" SID="81">
     <PortCounts lconn="1" rconn="1"/>
-    <P Name="Position">[155, -14, 205, 34]</P>
-    <P Name="ZOrder">31148</P>
+    <P Name="Position">[130, 171, 180, 219]</P>
+    <P Name="ZOrder">31158</P>
     <P Name="BackgroundColor">automatic</P>
     <P Name="HideAutomaticName">off</P>
+    <P Name="AttributesFormatString">interp_method: %&lt;interp_method&gt;
+extrap_method: %&lt;extrap_method&gt;
+f_unit: %&lt;f_unit&gt;
+x_unit: %&lt;x_unit&gt;</P>
     <P Name="LibraryVersion">26000997.0</P>
     <P Name="SourceBlock">fl_lib/Physical Signals/Lookup Tables/PS Lookup Table (1D)</P>
     <P Name="SourceType">PS Lookup Table (1D)</P>
@@ -1324,20 +1529,42 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_62.xml
       <P Name="ComponentVariantNames">[&quot;one_dimensional&quot;]</P>
       <P Name="ClassName">one_dimensional</P>
       <P Name="SchemaVersion">1</P>
-      <P Name="x">[1, 2, 3, 4, 5]</P>
-      <P Name="x_unit">1</P>
+      <P Name="x">[0 1 2 5 6 7]</P>
+      <P Name="x_unit">s</P>
       <P Name="x_conf">compiletime</P>
-      <P Name="f">[0, 1, 2, 3, 4]</P>
-      <P Name="f_unit">1</P>
+      <P Name="f">[3 2 0 0 0 4]</P>
+      <P Name="f_unit">N*m</P>
       <P Name="f_conf">compiletime</P>
-      <P Name="interp_method">simscape.enum.interpolation.linear</P>
+      <P Name="interp_method">simscape.enum.interpolation.smooth</P>
       <P Name="interp_method_unit">1</P>
       <P Name="interp_method_conf">compiletime</P>
-      <P Name="extrap_method">simscape.enum.extrapolation.linear</P>
+      <P Name="extrap_method">simscape.enum.extrapolation.nearest</P>
       <P Name="extrap_method_unit">1</P>
       <P Name="extrap_method_conf">compiletime</P>
-      <P Name="SimscapeInstrumentationVariables" Ref="bdmxdata:SimscapeInstrumentationVariables_65"/>
+      <P Name="SimscapeInstrumentationVariables" Ref="bdmxdata:SimscapeInstrumentationVariables_81"/>
     </InstanceData>
+  </Block>
+  <Block BlockType="Lookup_n-D" Name="SL smooth1" SID="82">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[355, 177, 415, 213]</P>
+    <P Name="ZOrder">31159</P>
+    <P Name="HideAutomaticName">off</P>
+    <P Name="InputPortMap">u0</P>
+    <P Name="NumberOfTableDimensions">1</P>
+    <P Name="BreakpointsForDimension1">[0 1 2 5 6 7]</P>
+    <P Name="Table">[3 2 0 0 0 4]</P>
+    <P Name="InterpMethod">Akima spline</P>
+    <P Name="InternalRulePriority">Speed</P>
+    <P Name="RndMeth">Simplest</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="Subsystem B" SID="83">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[510, 176, 560, 224]</P>
+    <P Name="ZOrder">31160</P>
+    <P Name="HideAutomaticName">off</P>
+    <P Name="LibrarySourceProduct" Ref="bdmxdata:LibrarySourceProduct_83"/>
+    <P Name="ContentPreviewEnabled">on</P>
+    <System Ref="system_83"/>
   </Block>
   <Block BlockType="Outport" Name="Out1" SID="71">
     <P Name="Position">[360, 103, 390, 117]</P>
@@ -1350,26 +1577,24 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_62.xml
   </Line>
 </System>
 
-__MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
+__MWOPC_PART_BEGIN__ /simulink/systems/system_83.xml
 <?xml version="1.0" encoding="utf-8"?>
 <System>
   <P Name="Location">[30, 30, 1010, 769]</P>
-  <P Name="ReportName">simulink-default.rpt</P>
-  <P Name="SIDHighWatermark">74</P>
-  <Block BlockType="BusCreator" Name="Bus&#xA;Creator" SID="73">
-    <PortCounts in="3" out="1"/>
-    <P Name="Position">[-135, -108, -130, 98]</P>
-    <P Name="ZOrder">31150</P>
-    <P Name="Inputs">3</P>
-    <P Name="DisplayOption">bar</P>
-    <P Name="InheritFromInputs">on</P>
+  <Block BlockType="Inport" Name="In1" SID="84">
+    <P Name="Position">[110, 103, 140, 117]</P>
+    <P Name="ZOrder">-1</P>
   </Block>
-  <Block BlockType="Reference" Name="PS Lookup Table (1D)" SID="41">
+  <Block BlockType="Reference" Name="PS smooth1" SID="87">
     <PortCounts lconn="1" rconn="1"/>
-    <P Name="Position">[-535, 156, -485, 204]</P>
-    <P Name="ZOrder">31147</P>
+    <P Name="Position">[75, 171, 125, 219]</P>
+    <P Name="ZOrder">31158</P>
     <P Name="BackgroundColor">automatic</P>
     <P Name="HideAutomaticName">off</P>
+    <P Name="AttributesFormatString">interp_method: %&lt;interp_method&gt;
+extrap_method: %&lt;extrap_method&gt;
+f_unit: %&lt;f_unit&gt;
+x_unit: %&lt;x_unit&gt;</P>
     <P Name="LibraryVersion">26000997.0</P>
     <P Name="SourceBlock">fl_lib/Physical Signals/Lookup Tables/PS Lookup Table (1D)</P>
     <P Name="SourceType">PS Lookup Table (1D)</P>
@@ -1383,10 +1608,99 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
       <P Name="ComponentVariantNames">[&quot;one_dimensional&quot;]</P>
       <P Name="ClassName">one_dimensional</P>
       <P Name="SchemaVersion">1</P>
-      <P Name="x">[1, 2, 3, 4, 5]</P>
+      <P Name="x">[0 1 2 4 5 6 7]</P>
+      <P Name="x_unit">s</P>
+      <P Name="x_conf">compiletime</P>
+      <P Name="f">[3 3 3  0 1 1 1]</P>
+      <P Name="f_unit">1</P>
+      <P Name="f_conf">compiletime</P>
+      <P Name="interp_method">simscape.enum.interpolation.smooth</P>
+      <P Name="interp_method_unit">1</P>
+      <P Name="interp_method_conf">compiletime</P>
+      <P Name="extrap_method">simscape.enum.extrapolation.nearest</P>
+      <P Name="extrap_method_unit">1</P>
+      <P Name="extrap_method_conf">compiletime</P>
+      <P Name="SimscapeInstrumentationVariables" Ref="bdmxdata:SimscapeInstrumentationVariables_87"/>
+    </InstanceData>
+  </Block>
+  <Block BlockType="Lookup_n-D" Name="SL smooth1" SID="90">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[305, 177, 365, 213]</P>
+    <P Name="ZOrder">31160</P>
+    <P Name="HideAutomaticName">off</P>
+    <P Name="InputPortMap">u0</P>
+    <P Name="NumberOfTableDimensions">1</P>
+    <P Name="BreakpointsForDimension1">[0 1 2 4 5 6 7]</P>
+    <P Name="Table">[3 3 3  0 1 1 1]</P>
+    <P Name="InterpMethod">Akima spline</P>
+    <P Name="InternalRulePriority">Speed</P>
+    <P Name="RndMeth">Simplest</P>
+  </Block>
+  <Block BlockType="Lookup_n-D" Name="SL smooth2" SID="88">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[470, 177, 530, 213]</P>
+    <P Name="ZOrder">31159</P>
+    <P Name="HideAutomaticName">off</P>
+    <P Name="InputPortMap">u0</P>
+    <P Name="NumberOfTableDimensions">1</P>
+    <P Name="BreakpointsForDimension1">[0 1 2 4 5 6 7]</P>
+    <P Name="Table">[3 3 3  0 1 1 1]</P>
+    <P Name="InterpMethod">Akima spline</P>
+    <P Name="InternalRulePriority">Speed</P>
+    <P Name="RndMeth">Simplest</P>
+  </Block>
+  <Block BlockType="Outport" Name="Out1" SID="89">
+    <P Name="Position">[360, 103, 390, 117]</P>
+    <P Name="ZOrder">-2</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">84#out:1</P>
+    <P Name="Dst">89#in:1</P>
+  </Line>
+</System>
+
+__MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[30, 30, 1010, 769]</P>
+  <P Name="ReportName">simulink-default.rpt</P>
+  <P Name="SIDHighWatermark">90</P>
+  <Block BlockType="BusCreator" Name="Bus&#xA;Creator" SID="73">
+    <PortCounts in="3" out="1"/>
+    <P Name="Position">[-135, -108, -130, 98]</P>
+    <P Name="ZOrder">31150</P>
+    <P Name="Inputs">3</P>
+    <P Name="DisplayOption">bar</P>
+    <P Name="InheritFromInputs">on</P>
+  </Block>
+  <Block BlockType="Reference" Name="PS Lookup Table (1D)" SID="41">
+    <PortCounts lconn="1" rconn="1"/>
+    <P Name="Position">[-590, 156, -540, 204]</P>
+    <P Name="ZOrder">31147</P>
+    <P Name="BackgroundColor">automatic</P>
+    <P Name="HideAutomaticName">off</P>
+    <P Name="AttributesFormatString">interp_method: %&lt;interp_method&gt;
+extrap_method: %&lt;extrap_method&gt;
+f_unit: %&lt;f_unit&gt;
+x_unit: %&lt;x_unit&gt;</P>
+    <P Name="LibraryVersion">26000997.0</P>
+    <P Name="SourceBlock">fl_lib/Physical Signals/Lookup Tables/PS Lookup Table (1D)</P>
+    <P Name="SourceType">PS Lookup Table (1D)</P>
+    <InstanceData>
+      <P Name="LogSimulationData">off</P>
+      <P Name="SimscapeInstrumentationLogging">off</P>
+      <P Name="SourceFile">foundation.signal.lookup_tables.one_dimensional</P>
+      <P Name="SscBlockScalableBuild">off</P>
+      <P Name="ComponentPath">foundation.signal.lookup_tables.one_dimensional</P>
+      <P Name="ComponentVariants">[&quot;foundation.signal.lookup_tables.one_dimensional&quot;]</P>
+      <P Name="ComponentVariantNames">[&quot;one_dimensional&quot;]</P>
+      <P Name="ClassName">one_dimensional</P>
+      <P Name="SchemaVersion">1</P>
+      <P Name="x">[0 1 2 5 6 7]</P>
       <P Name="x_unit">1</P>
       <P Name="x_conf">compiletime</P>
-      <P Name="f">[0, 1, 2, 3, 4]</P>
+      <P Name="f">[0 1 -1 0 -1 1]</P>
       <P Name="f_unit">1</P>
       <P Name="f_conf">compiletime</P>
       <P Name="interp_method">simscape.enum.interpolation.linear</P>
@@ -1400,10 +1714,14 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
   </Block>
   <Block BlockType="Reference" Name="PS Lookup Table (1D)1" SID="74">
     <PortCounts lconn="1" rconn="1"/>
-    <P Name="Position">[-380, 156, -330, 204]</P>
+    <P Name="Position">[-295, 156, -245, 204]</P>
     <P Name="ZOrder">31151</P>
     <P Name="BackgroundColor">automatic</P>
     <P Name="HideAutomaticName">off</P>
+    <P Name="AttributesFormatString">interp_method: %&lt;interp_method&gt;
+extrap_method: %&lt;extrap_method&gt;
+f_unit: %&lt;f_unit&gt;
+x_unit: %&lt;x_unit&gt;</P>
     <P Name="LibraryVersion">26000997.0</P>
     <P Name="SourceBlock">fl_lib/Physical Signals/Lookup Tables/PS Lookup Table (1D)</P>
     <P Name="SourceType">PS Lookup Table (1D)</P>
@@ -1417,16 +1735,16 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
       <P Name="ComponentVariantNames">[&quot;one_dimensional&quot;]</P>
       <P Name="ClassName">one_dimensional</P>
       <P Name="SchemaVersion">1</P>
-      <P Name="x">[1, 2, 3, 4, 5]</P>
-      <P Name="x_unit">1</P>
+      <P Name="x">[0 1 2 5 6 7]</P>
+      <P Name="x_unit">s</P>
       <P Name="x_conf">compiletime</P>
-      <P Name="f">[0, 1, 2, 3, 4]</P>
+      <P Name="f">[2 2 2 4 4 4]</P>
       <P Name="f_unit">1</P>
       <P Name="f_conf">compiletime</P>
       <P Name="interp_method">simscape.enum.interpolation.smooth</P>
       <P Name="interp_method_unit">1</P>
       <P Name="interp_method_conf">compiletime</P>
-      <P Name="extrap_method">simscape.enum.extrapolation.linear</P>
+      <P Name="extrap_method">simscape.enum.extrapolation.nearest</P>
       <P Name="extrap_method_unit">1</P>
       <P Name="extrap_method_conf">compiletime</P>
       <P Name="SimscapeInstrumentationVariables" Ref="bdmxdata:SimscapeInstrumentationVariables_74"/>
@@ -1439,8 +1757,8 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
     <P Name="HideAutomaticName">off</P>
     <P Name="InputPortMap">u0</P>
     <P Name="NumberOfTableDimensions">1</P>
-    <P Name="BreakpointsForDimension1">[0, 1]</P>
-    <P Name="Table">[0, 0]</P>
+    <P Name="BreakpointsForDimension1">[0, 3, 5]</P>
+    <P Name="Table">[0, 2, 1]</P>
     <P Name="InterpMethod">Flat</P>
     <P Name="InternalRulePriority">Speed</P>
     <P Name="RndMeth">Simplest</P>
@@ -1453,7 +1771,7 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
     <P Name="NameLocation">left</P>
     <P Name="HideAutomaticName">off</P>
     <P Name="FontSize">12</P>
-    <P Name="Configuration">{&quot;components&quot;:[{&quot;name&quot;:&quot;BackgroundImageComponent&quot;,&quot;settings&quot;:{&quot;image&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;position&quot;:[0,0,1,1]}},{&quot;name&quot;:&quot;ButtonStateComponent&quot;,&quot;settings&quot;:{&quot;buttonType&quot;:&quot;momentary&quot;,&quot;clickFcn&quot;:&quot;SignalTool2.plotSimulink1DLookupTableBlock(gcs + \&quot;\/Vehicle speed reference\&quot;, DivsionType=\&quot;InterpolationInterval\&quot;, InterpolationInterval=0.2)&quot;,&quot;onValue&quot;:1,&quot;position&quot;:[0,0,1,1],&quot;pressDelay&quot;:&quot;500&quot;,&quot;pressFcn&quot;:&quot;&quot;,&quot;repeatInterval&quot;:&quot;0&quot;,&quot;states&quot;:[{&quot;horizontalAlignment&quot;:&quot;center&quot;,&quot;image&quot;:{&quot;position&quot;:[0,0,1,1],&quot;size&quot;:[1,1],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;label&quot;:{&quot;color&quot;:[0.01176470588,0.01176470588,0.01176470588,1],&quot;icon&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;iconOffset&quot;:0,&quot;iconPlacement&quot;:&quot;left&quot;,&quot;opacity&quot;:1,&quot;show&quot;:true,&quot;text&quot;:{&quot;content&quot;:&quot;Vehicle speed reference&quot;,&quot;font&quot;:&quot;Helvetica&quot;}},&quot;labelOffset&quot;:[0,0],&quot;verticalAlignment&quot;:&quot;middle&quot;},{&quot;horizontalAlignment&quot;:&quot;center&quot;,&quot;image&quot;:{&quot;position&quot;:[0,0,1,1],&quot;size&quot;:[1,1],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;label&quot;:{&quot;color&quot;:[0.01176470588,0.01176470588,0.01176470588,1],&quot;icon&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;iconOffset&quot;:0,&quot;iconPlacement&quot;:&quot;left&quot;,&quot;opacity&quot;:1,&quot;show&quot;:true,&quot;text&quot;:{&quot;content&quot;:&quot;Vehicle speed reference&quot;,&quot;font&quot;:&quot;Helvetica&quot;}},&quot;labelOffset&quot;:[0,0],&quot;verticalAlignment&quot;:&quot;middle&quot;},{&quot;horizontalAlignment&quot;:&quot;center&quot;,&quot;image&quot;:{&quot;position&quot;:[0,0,1,1],&quot;size&quot;:[1,1],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;label&quot;:{&quot;color&quot;:[0.01176470588,0.01176470588,0.01176470588,1],&quot;icon&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;iconOffset&quot;:0,&quot;iconPlacement&quot;:&quot;left&quot;,&quot;opacity&quot;:1,&quot;show&quot;:true,&quot;text&quot;:{&quot;content&quot;:&quot;Vehicle speed reference&quot;,&quot;font&quot;:&quot;Helvetica&quot;}},&quot;labelOffset&quot;:[0,0],&quot;verticalAlignment&quot;:&quot;middle&quot;},{&quot;horizontalAlignment&quot;:&quot;center&quot;,&quot;image&quot;:{&quot;position&quot;:[0,0,1,1],&quot;size&quot;:[1,1],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;label&quot;:{&quot;color&quot;:[0.01176470588,0.01176470588,0.01176470588,1],&quot;icon&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;iconOffset&quot;:0,&quot;iconPlacement&quot;:&quot;left&quot;,&quot;opacity&quot;:1,&quot;show&quot;:true,&quot;text&quot;:{&quot;content&quot;:&quot;Vehicle speed reference&quot;,&quot;font&quot;:&quot;Helvetica&quot;}},&quot;labelOffset&quot;:[0,0],&quot;verticalAlignment&quot;:&quot;middle&quot;}]}},{&quot;name&quot;:&quot;ForegroundImageComponent&quot;,&quot;settings&quot;:{&quot;image&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;isForeground&quot;:1,&quot;position&quot;:[0,0,1,1]}}],&quot;derived&quot;:{&quot;blockParameters&quot;:{&quot;AutoActivate&quot;:true,&quot;ButtonText&quot;:&quot;Vehicle speed reference&quot;,&quot;ButtonType&quot;:&quot;Momentary&quot;,&quot;ClickFcn&quot;:&quot;SignalTool2.plotSimulink1DLookupTableBlock(gcs + \&quot;\/Vehicle speed reference\&quot;, DivsionType=\&quot;InterpolationInterval\&quot;, InterpolationInterval=0.2)&quot;,&quot;OnValue&quot;:1,&quot;PressDelay&quot;:&quot;500&quot;,&quot;PressFcn&quot;:&quot;&quot;,&quot;RepeatInterval&quot;:&quot;0&quot;,&quot;fixedAspectRatio&quot;:&quot;off&quot;}},&quot;settings&quot;:{&quot;BindingType&quot;:&quot;standalone&quot;,&quot;autoActivate&quot;:true,&quot;backgroundColor&quot;:[244,244,244,1],&quot;backgroundOffset&quot;:0.2,&quot;backgroundOpacity&quot;:1,&quot;fixedAspectRatio&quot;:&quot;off&quot;,&quot;foregroundColor&quot;:[0.01176470588,0.01176470588,0.01176470588,1],&quot;migratedFromLegacy&quot;:true,&quot;useBackgroundColor&quot;:true,&quot;variant&quot;:&quot;callback&quot;,&quot;version&quot;:&quot;R2025a&quot;},&quot;type&quot;:&quot;Button&quot;}</P>
+    <P Name="Configuration">{&quot;components&quot;:[{&quot;name&quot;:&quot;BackgroundImageComponent&quot;,&quot;settings&quot;:{&quot;image&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;position&quot;:[0,0,1,1]}},{&quot;name&quot;:&quot;ButtonStateComponent&quot;,&quot;settings&quot;:{&quot;buttonType&quot;:&quot;momentary&quot;,&quot;clickFcn&quot;:&quot;mus1.ModelUtil.plotLookupTable1DBlocks(gcs, SearchDepth=1, Blocks=[\&quot;PWC\&quot; \&quot;SL smooth1\&quot; \&quot;SL smooth2\&quot; \&quot;PS Lookup Table (1D)\&quot; \&quot;PS Lookup Table (1D)1\&quot;])&quot;,&quot;onValue&quot;:1,&quot;position&quot;:[0,0,1,1],&quot;pressDelay&quot;:&quot;500&quot;,&quot;pressFcn&quot;:&quot;&quot;,&quot;repeatInterval&quot;:&quot;0&quot;,&quot;states&quot;:[{&quot;horizontalAlignment&quot;:&quot;center&quot;,&quot;image&quot;:{&quot;position&quot;:[0,0,1,1],&quot;size&quot;:[1,1],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;label&quot;:{&quot;color&quot;:[0.01176470588,0.01176470588,0.01176470588,1],&quot;icon&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;iconOffset&quot;:0,&quot;iconPlacement&quot;:&quot;left&quot;,&quot;opacity&quot;:1,&quot;show&quot;:true,&quot;text&quot;:{&quot;content&quot;:&quot;Lookup table 1D blocks&quot;,&quot;font&quot;:&quot;Helvetica&quot;}},&quot;labelOffset&quot;:[0,0],&quot;verticalAlignment&quot;:&quot;middle&quot;},{&quot;horizontalAlignment&quot;:&quot;center&quot;,&quot;image&quot;:{&quot;position&quot;:[0,0,1,1],&quot;size&quot;:[1,1],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;label&quot;:{&quot;color&quot;:[0.01176470588,0.01176470588,0.01176470588,1],&quot;icon&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;iconOffset&quot;:0,&quot;iconPlacement&quot;:&quot;left&quot;,&quot;opacity&quot;:1,&quot;show&quot;:true,&quot;text&quot;:{&quot;content&quot;:&quot;Lookup table 1D blocks&quot;,&quot;font&quot;:&quot;Helvetica&quot;}},&quot;labelOffset&quot;:[0,0],&quot;verticalAlignment&quot;:&quot;middle&quot;},{&quot;horizontalAlignment&quot;:&quot;center&quot;,&quot;image&quot;:{&quot;position&quot;:[0,0,1,1],&quot;size&quot;:[1,1],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;label&quot;:{&quot;color&quot;:[0.01176470588,0.01176470588,0.01176470588,1],&quot;icon&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;iconOffset&quot;:0,&quot;iconPlacement&quot;:&quot;left&quot;,&quot;opacity&quot;:1,&quot;show&quot;:true,&quot;text&quot;:{&quot;content&quot;:&quot;Lookup table 1D blocks&quot;,&quot;font&quot;:&quot;Helvetica&quot;}},&quot;labelOffset&quot;:[0,0],&quot;verticalAlignment&quot;:&quot;middle&quot;},{&quot;horizontalAlignment&quot;:&quot;center&quot;,&quot;image&quot;:{&quot;position&quot;:[0,0,1,1],&quot;size&quot;:[1,1],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;label&quot;:{&quot;color&quot;:[0.01176470588,0.01176470588,0.01176470588,1],&quot;icon&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;iconOffset&quot;:0,&quot;iconPlacement&quot;:&quot;left&quot;,&quot;opacity&quot;:1,&quot;show&quot;:true,&quot;text&quot;:{&quot;content&quot;:&quot;Lookup table 1D blocks&quot;,&quot;font&quot;:&quot;Helvetica&quot;}},&quot;labelOffset&quot;:[0,0],&quot;verticalAlignment&quot;:&quot;middle&quot;}]}},{&quot;name&quot;:&quot;ForegroundImageComponent&quot;,&quot;settings&quot;:{&quot;image&quot;:{&quot;size&quot;:[0,0],&quot;src&quot;:&quot;default&quot;,&quot;srcOrientation&quot;:&quot;Right&quot;},&quot;isForeground&quot;:1,&quot;position&quot;:[0,0,1,1]}}],&quot;derived&quot;:{&quot;blockParameters&quot;:{&quot;AutoActivate&quot;:true,&quot;ButtonText&quot;:&quot;Lookup table 1D blocks&quot;,&quot;ButtonType&quot;:&quot;Momentary&quot;,&quot;ClickFcn&quot;:&quot;mus1.ModelUtil.plotLookupTable1DBlocks(gcs, SearchDepth=1, Blocks=[\&quot;PWC\&quot; \&quot;SL smooth1\&quot; \&quot;SL smooth2\&quot; \&quot;PS Lookup Table (1D)\&quot; \&quot;PS Lookup Table (1D)1\&quot;])&quot;,&quot;OnValue&quot;:1,&quot;PressDelay&quot;:&quot;500&quot;,&quot;PressFcn&quot;:&quot;&quot;,&quot;RepeatInterval&quot;:&quot;0&quot;,&quot;fixedAspectRatio&quot;:&quot;off&quot;}},&quot;settings&quot;:{&quot;BindingType&quot;:&quot;standalone&quot;,&quot;autoActivate&quot;:true,&quot;backgroundColor&quot;:[244,244,244,1],&quot;backgroundOffset&quot;:0.2,&quot;backgroundOpacity&quot;:1,&quot;fixedAspectRatio&quot;:&quot;off&quot;,&quot;foregroundColor&quot;:[0.01176470588,0.01176470588,0.01176470588,1],&quot;migratedFromLegacy&quot;:true,&quot;useBackgroundColor&quot;:true,&quot;variant&quot;:&quot;callback&quot;,&quot;version&quot;:&quot;R2025a&quot;},&quot;type&quot;:&quot;Button&quot;}</P>
     <P Name="CustomBackgroundColor">{&quot;color&quot;:[0.9568627451,0.9568627451,0.9568627451],&quot;show&quot;:true}</P>
   </Block>
   <Block BlockType="Reference" Name="Ramp" SID="32">
@@ -1494,8 +1812,8 @@ Initial output: %&lt;InitialOutput&gt;
     <P Name="HideAutomaticName">off</P>
     <P Name="InputPortMap">u0</P>
     <P Name="NumberOfTableDimensions">1</P>
-    <P Name="BreakpointsForDimension1">[0; 0.5; 1]</P>
-    <P Name="Table">[0; 0; 0]</P>
+    <P Name="BreakpointsForDimension1">[0 1 2 3 5 6 7]</P>
+    <P Name="Table">[0 0 0 2 1 1 1]</P>
     <P Name="InterpMethod">Akima spline</P>
     <P Name="InternalRulePriority">Speed</P>
     <P Name="RndMeth">Simplest</P>
@@ -1513,8 +1831,8 @@ Initial output: %&lt;InitialOutput&gt;
     <P Name="HideAutomaticName">off</P>
     <P Name="InputPortMap">u0</P>
     <P Name="NumberOfTableDimensions">1</P>
-    <P Name="BreakpointsForDimension1">[0; 10; 20; 21; 30.5; 40]</P>
-    <P Name="Table">[0; 0; 0; -10; -10; -10]</P>
+    <P Name="BreakpointsForDimension1">[0 1 3 5 6 7]</P>
+    <P Name="Table">[0 1 0 -1 0 1]</P>
     <P Name="InterpMethod">Akima spline</P>
     <P Name="InternalRulePriority">Speed</P>
     <P Name="RndMeth">Simplest</P>
@@ -1527,7 +1845,7 @@ Initial output: %&lt;InitialOutput&gt;
   </Block>
   <Block BlockType="SubSystem" Name="Subsystem" SID="42">
     <PortCounts in="1" out="1"/>
-    <P Name="Position">[-220, 156, -170, 204]</P>
+    <P Name="Position">[-90, 156, -40, 204]</P>
     <P Name="ZOrder">31148</P>
     <P Name="HideAutomaticName">off</P>
     <P Name="LibrarySourceProduct" Ref="bdmxdata:LibrarySourceProduct_42"/>
@@ -1623,7 +1941,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
       <Object PropName="ExplorerBarInfo" ObjectID="4" ClassName="Simulink.ExplorerBarInfo">
         <P Name="Visible" Class="logical">1</P>
       </Object>
-      <Array PropName="EditorsInfo" Type="Simulink.EditorInfo" Dimension="1*6">
+      <Array PropName="EditorsInfo" Type="Simulink.EditorInfo" Dimension="1*7">
         <Object ObjectID="5">
           <P Name="IsActive" Class="logical">1</P>
           <P Name="IsTabbed" Class="logical">1</P>
@@ -1631,10 +1949,20 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="LoadSaveID" Class="char">0</P>
           <P Name="Extents" Class="double">[946.0, 505.0]</P>
           <P Name="ZoomFactor" Class="double">1.0</P>
-          <P Name="Offset" Class="double">[-812.2109375, -174.5]</P>
-          <P Name="SceneRectInView" Class="double">[-812.2109375, -174.5, 946.0, 505.0]</P>
+          <P Name="Offset" Class="double">[-823.51953125, -174.5]</P>
+          <P Name="SceneRectInView" Class="double">[-823.51953125, -174.5, 946.0, 505.0]</P>
         </Object>
         <Object ObjectID="6">
+          <P Name="IsActive" Class="logical">0</P>
+          <P Name="IsTabbed" Class="logical">1</P>
+          <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
+          <P Name="LoadSaveID" Class="char">47</P>
+          <P Name="Extents" Class="double">[1412.0, 771.0]</P>
+          <P Name="ZoomFactor" Class="double">1.0</P>
+          <P Name="Offset" Class="double">[-508.48828125, -249.0]</P>
+          <P Name="SceneRectInView" Class="double">[-508.48828125, -249.0, 1412.0, 771.0]</P>
+        </Object>
+        <Object ObjectID="7">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -1644,27 +1972,27 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Offset" Class="double">[-220.66666666666669, -147.5]</P>
           <P Name="SceneRectInView" Class="double">[-220.66666666666669, -147.5, 941.33333333333337, 514.0]</P>
         </Object>
-        <Object ObjectID="7">
+        <Object ObjectID="8">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
-          <P Name="LoadSaveID" Class="char">47</P>
+          <P Name="LoadSaveID" Class="char">83</P>
           <P Name="Extents" Class="double">[1412.0, 771.0]</P>
           <P Name="ZoomFactor" Class="double">1.0</P>
-          <P Name="Offset" Class="double">[-220.66666666666669, -209.16666666666669]</P>
-          <P Name="SceneRectInView" Class="double">[-220.66666666666669, -209.16666666666669, 941.33333333333337, 514.0]</P>
+          <P Name="Offset" Class="double">[-227.79166666666669, -122.66666666666669]</P>
+          <P Name="SceneRectInView" Class="double">[-227.79166666666669, -122.66666666666669, 941.33333333333337, 514.0]</P>
         </Object>
-        <Object ObjectID="8">
+        <Object ObjectID="9">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
           <P Name="LoadSaveID" Class="char">62</P>
           <P Name="Extents" Class="double">[1412.0, 771.0]</P>
           <P Name="ZoomFactor" Class="double">1.0</P>
-          <P Name="Offset" Class="double">[-220.66666666666669, -209.5]</P>
-          <P Name="SceneRectInView" Class="double">[-220.66666666666669, -209.5, 941.33333333333337, 514.0]</P>
+          <P Name="Offset" Class="double">[-170.21744791666669, -123.0]</P>
+          <P Name="SceneRectInView" Class="double">[-170.21744791666669, -123.0, 941.33333333333337, 514.0]</P>
         </Object>
-        <Object ObjectID="9">
+        <Object ObjectID="10">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -1674,7 +2002,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Offset" Class="double">[-220.66666666666669, -129.66666666666669]</P>
           <P Name="SceneRectInView" Class="double">[-220.66666666666669, -129.66666666666669, 941.33333333333337, 514.0]</P>
         </Object>
-        <Object ObjectID="10">
+        <Object ObjectID="11">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -1686,7 +2014,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
         </Object>
       </Array>
       <Array PropName="DockComponentsInfo" Type="Simulink.DockComponentInfo" Dimension="1*2">
-        <Object ObjectID="11">
+        <Object ObjectID="12">
           <P Name="Type" Class="char">GLUE2:PropertyInspector</P>
           <P Name="ID" Class="char">Property Inspector</P>
           <P Name="Visible" Class="logical">0</P>
@@ -1698,7 +2026,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Height" Class="int32">480</P>
           <P Name="Minimized" Class="char">Unset</P>
         </Object>
-        <Object ObjectID="12">
+        <Object ObjectID="13">
           <P Name="Type" Class="char">Simulink:Editor:ReferencedFiles</P>
           <P Name="ID" Class="char">Referenced Files</P>
           <P Name="Visible" Class="logical">0</P>
@@ -1716,7 +2044,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
       <Array PropName="PersistedApps" Type="Cell" Dimension="0*1"/>
       <P Name="WindowUuid" Class="char">b7c33820-69a7-485c-9936-6c50e2fb639b</P>
     </Object>
-    <P Name="BDUuid" Class="char">831a290a-9eb0-4e78-968d-60e895b349be</P>
+    <P Name="BDUuid" Class="char">c20dbcd6-e371-432d-8fb5-9143f729454e</P>
   </Object>
 </WindowsInfo>
 

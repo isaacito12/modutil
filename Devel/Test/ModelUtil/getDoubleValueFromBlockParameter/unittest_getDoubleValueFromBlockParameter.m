@@ -46,11 +46,11 @@ classdef unittest_getDoubleValueFromBlockParameter < matlab.unittest.TestCase
     end  % function
 
     function PassingTest_1(~)
-      SampleScript_getDoubleValueFromBlockParameter
+      getDoubleValueFromBlockParameter_SampleScript
     end  % function
 
     function Test_1(testcase)
-      model_name = "SampleModel_getDoubleValueFromBlockParameter_24b";
+      model_name = "getDoubleValueFromBlockParameter_SampleModel_24b";
       load_system(model_name)
       block_path = model_name + "/Constant1";
       actual = mus1.ModelUtil.getDoubleValueFromBlockParameter(block_path, "Value");
@@ -59,7 +59,7 @@ classdef unittest_getDoubleValueFromBlockParameter < matlab.unittest.TestCase
     end  % function
 
     function Test_2(testcase)
-      model_name = "SampleModel_getDoubleValueFromBlockParameter_24b";
+      model_name = "getDoubleValueFromBlockParameter_SampleModel_24b";
       load_system(model_name)
       block_path = model_name + "/1-D Lookup Table1";
 
@@ -73,7 +73,7 @@ classdef unittest_getDoubleValueFromBlockParameter < matlab.unittest.TestCase
     end  % function
 
     function Test_3(testcase)
-      model_name = "SampleModel_getDoubleValueFromBlockParameter_24b";
+      model_name = "getDoubleValueFromBlockParameter_SampleModel_24b";
       load_system(model_name)
       block_path = model_name + "/Motor & Drive (System Level)1";
       actual = mus1.ModelUtil.getDoubleValueFromBlockParameter(block_path, "eff");

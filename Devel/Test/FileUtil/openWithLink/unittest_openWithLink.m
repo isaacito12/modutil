@@ -99,7 +99,7 @@ classdef unittest_openWithLink < matlab.unittest.TestCase
     end  % function
 
     function PassingTest_2(testcase)
-      target_model = "SampleModel_openWithLink_1";
+      target_model = "openWithLink_SampleModel_1";
       % All models must have been closed by the test method set up.
       verifyTrue(testcase, not(bdIsLoaded(target_model)))
       mus1.FileUtil.openWithLink(target_model)  % !test-target

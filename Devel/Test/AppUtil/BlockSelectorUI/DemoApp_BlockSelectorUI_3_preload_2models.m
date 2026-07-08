@@ -27,18 +27,18 @@ block_selector_ui.TargetSimscapeBlockNames = "Rotational Friction";  % !test-tar
 
 % Add two models to the drop down.
 if isMATLABReleaseOlderThan("R2025a")
-  block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_1_fric_24b.mdl");  % !test-target
-  block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_2_fric2_24b.mdl");  % !test-target
+  block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_1_fric_24b.mdl");  % !test-target
+  block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_2_fric2_24b.mdl");  % !test-target
 else
-  block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_1_fric.mdl");  % !test-target
-  block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_2_fric2.mdl");  % !test-target
+  block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_1_fric.mdl");  % !test-target
+  block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_2_fric2.mdl");  % !test-target
 end  % if
 
 % Select an existing item to make it the current in the drop down.
 if isMATLABReleaseOlderThan("R2025a")
-  block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_1_fric_24b.mdl");  % !test-target
+  block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_1_fric_24b.mdl");  % !test-target
 else
-  block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_1_fric.mdl");  % !test-target
+  block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_1_fric.mdl");  % !test-target
 end  % if
 
 % -----------------------------------------------------------------------------

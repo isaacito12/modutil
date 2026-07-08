@@ -6,7 +6,7 @@ arguments (Output)
   App (1,:) struct
 end  % arguments
 
-model_name = "samplemodel_plotLookupTable1DBlocks_refsub";
+model_name = "plotLookupTable1DBlocks_SampleModel_refsub";
 disp("Target model: " + model_name)
 load_system(model_name)
 

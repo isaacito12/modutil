@@ -14,9 +14,9 @@ end  % arguments
 % Use getFileFullPath to validate that the specified file is found.
 % If not, an error is issued and the app does not open.
 if isMATLABReleaseOlderThan("R2025a")
-  modelfile_fullpath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_5_mix_24b.mdl");
+  modelfile_fullpath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_5_mix_24b.mdl");
 else
-  modelfile_fullpath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_5_mix.mdl");
+  modelfile_fullpath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_5_mix.mdl");
 end
 
 % -----------------------------------------------------------------------------

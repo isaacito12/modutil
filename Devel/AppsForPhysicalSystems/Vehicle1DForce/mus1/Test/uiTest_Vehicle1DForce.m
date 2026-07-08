@@ -109,12 +109,12 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
     %% Test with a model
 
     function option_ModelName_1(~)
-      model_name = "SampleModel_Vehicle1DForce_refsub_24b";
+      model_name = "Vehicle1DForce_SampleModel_refsub_24b";
       mus1.app.Vehicle1DForce.Vehicle1DForceAppMain(ModelName=model_name)
     end  % function
 
     function option_BlockPath_1(~)
-      block_path = "SampleModel_Vehicle1DForce_refsub_24b/Longitudinal Vehicle";
+      block_path = "Vehicle1DForce_SampleModel_refsub_24b/Longitudinal Vehicle";
       mus1.app.Vehicle1DForce.Vehicle1DForceAppMain(BlockPath=block_path)
     end  % function
 
@@ -122,8 +122,8 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
       % Load parameter definitions in the base workspace.
       evalin("base", "Vehicle1DForce_SampleParams1")
       % Specify the block which refers to the base workspace variables.
-      block_path = "SampleModel_Vehicle1DForce_refsub_24b/Longitudinal Vehicle1";
-      model_name = "SampleModel_Vehicle1DForce_refsub_24b";
+      block_path = "Vehicle1DForce_SampleModel_refsub_24b/Longitudinal Vehicle1";
+      model_name = "Vehicle1DForce_SampleModel_refsub_24b";
       % BlockPath must win over ModelName.
       mus1.app.Vehicle1DForce.Vehicle1DForceAppMain(BlockPath=block_path, ModelName=model_name)
     end  % function
@@ -219,7 +219,7 @@ classdef uiTest_Vehicle1DForce < matlab.uitest.TestCase
 
     function Test_error_InvalidBlockPath(testcase)
       % Model has the target block, but BlockPath points elsewhere.
-      model_name = "SampleModel_Vehicle1DForce_refsub_24b";
+      model_name = "Vehicle1DForce_SampleModel_refsub_24b";
       wrong_path = model_name + "/Nonexistent Block XYZ";
       verifyError(testcase, ...
         @() mus1.app.Vehicle1DForce.Vehicle1DForceAppMain(BlockPath=wrong_path), ...

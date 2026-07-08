@@ -97,9 +97,9 @@ classdef uiTest_BlockSelectorUI < matlab.uitest.TestCase
       function issue_error()
         % This assignment checks that the target block exists in the specified model.
         if isMATLABReleaseOlderThan("R2025a")
-          block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_6_invalid_24b.mdl");  % !test-target
+          block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_6_invalid_24b.mdl");  % !test-target
         else
-          block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_6_invalid.mdl");  % !test-target
+          block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_6_invalid.mdl");  % !test-target
         end  % if
       end  % nested function
 
@@ -134,19 +134,19 @@ classdef uiTest_BlockSelectorUI < matlab.uitest.TestCase
       block_selector_ui.TargetSimscapeBlockNames = "Rotational Friction";  % !test-target
 
       if isMATLABReleaseOlderThan("R2025a")
-        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_1_fric_24b.mdl");  % !test-target
-        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_1_fric_24b.mdl");  % !test-target
-        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_2_fric2_24b.mdl");  % !test-target
-        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_2_fric2_24b.mdl");  % !test-target
-        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_1_fric_24b.mdl");  % !test-target
-        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_2_fric2_24b.mdl");  % !test-target
+        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_1_fric_24b.mdl");  % !test-target
+        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_1_fric_24b.mdl");  % !test-target
+        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_2_fric2_24b.mdl");  % !test-target
+        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_2_fric2_24b.mdl");  % !test-target
+        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_1_fric_24b.mdl");  % !test-target
+        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_2_fric2_24b.mdl");  % !test-target
       else
-        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_1_fric.mdl");  % !test-target
-        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_1_fric.mdl");  % !test-target
-        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_2_fric2.mdl");  % !test-target
-        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_2_fric2.mdl");  % !test-target
-        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_1_fric.mdl");  % !test-target
-        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_2_fric2.mdl");  % !test-target
+        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_1_fric.mdl");  % !test-target
+        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_1_fric.mdl");  % !test-target
+        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_2_fric2.mdl");  % !test-target
+        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_2_fric2.mdl");  % !test-target
+        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_1_fric.mdl");  % !test-target
+        block_selector_ui.ModelFileFullPath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_2_fric2.mdl");  % !test-target
       end  % if
 
       movegui(main_figure, "center")

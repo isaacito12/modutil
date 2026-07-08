@@ -62,18 +62,18 @@ classdef unittest_getModelFileFullPath < matlab.unittest.TestCase
       % This error is issued by getFileFullPath, not getModelFileFullPath.
       verifyError(testcase, @() test_target, "getFileFullPath:TwoOrMoreMatches")
       function test_target
-        mus1.ModelUtil.getModelFileFullPath("SampleModel_getModelFileFullPath_3")
+        mus1.ModelUtil.getModelFileFullPath("getModelFileFullPath_SampleModel_3")
       end  % nested function
     end  % function
 
     % Regular cases
 
     function PassingTest_1(~)
-      mus1.ModelUtil.getModelFileFullPath("SampleModel_getModelFileFullPath_1");
+      mus1.ModelUtil.getModelFileFullPath("getModelFileFullPath_SampleModel_1");
     end  % function
 
     function PassingTest_2(~)
-      mus1.ModelUtil.getModelFileFullPath("SampleModel_getModelFileFullPath_1.mdl");
+      mus1.ModelUtil.getModelFileFullPath("getModelFileFullPath_SampleModel_1.mdl");
     end  % function
 
     function PassingTest_3(~)

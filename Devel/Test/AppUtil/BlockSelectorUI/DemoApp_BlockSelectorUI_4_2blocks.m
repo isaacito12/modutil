@@ -16,9 +16,9 @@ target_blockname = [
   ];
 
 if isMATLABReleaseOlderThan("R2025a")
-  modelfile_fullpath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_3_motor_24b.mdl");
+  modelfile_fullpath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_3_motor_24b.mdl");
 else
-  modelfile_fullpath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_3_motor.mdl");
+  modelfile_fullpath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_3_motor.mdl");
 end
 
 main_figure = uifigure(Visible="off");

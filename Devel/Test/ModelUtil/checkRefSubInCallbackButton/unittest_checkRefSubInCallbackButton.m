@@ -48,9 +48,9 @@ classdef unittest_checkRefSubInCallbackButton < matlab.unittest.TestCase
 
     function Test_1(testcase)
       if mus1.TestUtil.isR2024bOrOlder
-        result = mus1.ModelUtil.checkRefSubInCallbackButton("samplemodel_checkRefSubInCallbackButton_empty_24b");
+        result = mus1.ModelUtil.checkRefSubInCallbackButton("checkRefSubInCallbackButton_SampleModel_empty_24b");
       else
-        result = mus1.ModelUtil.checkRefSubInCallbackButton("samplemodel_checkRefSubInCallbackButton_empty");
+        result = mus1.ModelUtil.checkRefSubInCallbackButton("checkRefSubInCallbackButton_SampleModel_empty");
       end  % if
       verifyTrue(testcase, isempty(result))
     end  % function
@@ -59,12 +59,12 @@ classdef unittest_checkRefSubInCallbackButton < matlab.unittest.TestCase
       if mus1.TestUtil.isR2024bOrOlder
         % This test fails in 24b for some reason but passes in 25b.
         disp("!Skipping")
-        % result = mus1.ModelUtil.checkRefSubInCallbackButton("samplemodel_checkRefSubInCallbackButton_24b");
+        % result = mus1.ModelUtil.checkRefSubInCallbackButton("checkRefSubInCallbackButton_SampleModel_24b");
 
         return
 
       else
-        result = mus1.ModelUtil.checkRefSubInCallbackButton("samplemodel_checkRefSubInCallbackButton");
+        result = mus1.ModelUtil.checkRefSubInCallbackButton("checkRefSubInCallbackButton_SampleModel");
       end  % if
       verifyEqual(testcase, result.Found(1), true)
       verifyEqual(testcase, result.Found(2), true)
@@ -75,12 +75,12 @@ classdef unittest_checkRefSubInCallbackButton < matlab.unittest.TestCase
       if mus1.TestUtil.isR2024bOrOlder
         % This test fails in 24b for some reason but passes in 25b.
         disp("!Skipping") 
-        % result = mus1.ModelUtil.checkRefSubInCallbackButton("samplemodel_checkRefSubInCallbackButton_24b");
+        % result = mus1.ModelUtil.checkRefSubInCallbackButton("checkRefSubInCallbackButton_SampleModel_24b");
 
         return
 
       else
-        result = mus1.ModelUtil.checkRefSubInCallbackButton("samplemodel_checkRefSubInCallbackButton");
+        result = mus1.ModelUtil.checkRefSubInCallbackButton("checkRefSubInCallbackButton_SampleModel");
       end  % if
       verifyEqual(testcase, result.IsRefSub(1), true)
       verifyEqual(testcase, result.IsRefSub(2), true)

@@ -71,9 +71,9 @@ classdef uiTest_LookupTable1DBlockPlotApp < matlab.uitest.TestCase
     function PassingTest_App_1(testcase)
       % Check the ModelFilePath option.
       if mus1.TestUtil.isR2024bOrOlder
-        target = mus1.FileUtil.getFileFullPath("SampleModel_LookupTable1DBlockPlotApp_24b.mdl");
+        target = mus1.FileUtil.getFileFullPath("LookupTable1DBlockPlotApp_SampleModel_24b.mdl");
       else
-        target = mus1.FileUtil.getFileFullPath("SampleModel_LookupTable1DBlockPlotApp.mdl");
+        target = mus1.FileUtil.getFileFullPath("LookupTable1DBlockPlotApp_SampleModel.mdl");
       end  % if
       app = mus1_LookupTable1DBlockPlotApp(ModelFilePath=target);
       verifyTrue(testcase, isfield(app, "Window"))
@@ -82,9 +82,9 @@ classdef uiTest_LookupTable1DBlockPlotApp < matlab.uitest.TestCase
     function PassingTest_SampleModel_1(~)
       % Check that the Callback Button works.
       if mus1.TestUtil.isR2024bOrOlder
-        model_name = "SampleModel_LookupTable1DBlockPlotApp_24b";
+        model_name = "LookupTable1DBlockPlotApp_SampleModel_24b";
       else
-        model_name = "SampleModel_LookupTable1DBlockPlotApp";
+        model_name = "LookupTable1DBlockPlotApp_SampleModel";
       end  % if
       block_path = model_name + "/LookupTable1DBlockPlotApp";  % !test-target
       load_system(model_name)
@@ -96,9 +96,9 @@ classdef uiTest_LookupTable1DBlockPlotApp < matlab.uitest.TestCase
     function PassingTest_SampleModel_2(~)
       % Check that the Callback Button works.
       if mus1.TestUtil.isR2024bOrOlder
-        model_name = "SampleModel_LookupTable1DBlockPlotApp_24b";
+        model_name = "LookupTable1DBlockPlotApp_SampleModel_24b";
       else
-        model_name = "SampleModel_LookupTable1DBlockPlotApp";
+        model_name = "LookupTable1DBlockPlotApp_SampleModel";
       end  % if
       block_path = model_name + "/plotLookupTable1DBlocks";  % !test-target
       load_system(model_name)

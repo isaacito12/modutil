@@ -86,7 +86,7 @@ classdef uiUptodateTest_LookupTable1DBlockPlotApp < matlab.uitest.TestCase
       end  % if
 
       if needs_update
-        modelfile_fullpath = mus1.FileUtil.getFileFullPath("SampleModel_LookupTable1DBlockPlotApp_24b.mdl");
+        modelfile_fullpath = mus1.FileUtil.getFileFullPath("LookupTable1DBlockPlotApp_SampleModel_24b.mdl");
         app = mus1_LookupTable1DBlockPlotApp(ModelFilePath=modelfile_fullpath);  % !screenshot-target
         app.Window.MainFigure.Theme = "dark";
         drawnow
@@ -125,10 +125,10 @@ classdef uiUptodateTest_LookupTable1DBlockPlotApp < matlab.uitest.TestCase
 
       if mus1.TestUtil.isR2024bOrOlder
         destination_fullpath = fullfile(destination_folder, "screenshot-LookupTable1DBlockPlotApp-24b.png");
-        modelfile_fullpath = mus1.FileUtil.getFileFullPath("SampleModel_LookupTable1DBlockPlotApp_24b.mdl");
+        modelfile_fullpath = mus1.FileUtil.getFileFullPath("LookupTable1DBlockPlotApp_SampleModel_24b.mdl");
       else
         destination_fullpath = fullfile(destination_folder, "screenshot-LookupTable1DBlockPlotApp-light-1.png");
-        modelfile_fullpath = mus1.FileUtil.getFileFullPath("SampleModel_LookupTable1DBlockPlotApp.mdl");
+        modelfile_fullpath = mus1.FileUtil.getFileFullPath("LookupTable1DBlockPlotApp_SampleModel.mdl");
       end  % if
 
       if isfile(destination_fullpath)

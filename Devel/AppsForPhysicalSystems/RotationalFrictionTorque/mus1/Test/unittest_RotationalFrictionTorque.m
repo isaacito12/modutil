@@ -109,7 +109,7 @@ classdef unittest_RotationalFrictionTorque < matlab.unittest.TestCase
     %% Tests
 
     function Test_1_1(testcase)
-      model_name = "SampleModel_RotationalFrictionTorque_refsub_24b";
+      model_name = "RotationalFrictionTorque_SampleModel_refsub_24b";
 
       % Make sure the model exists in the MATLAB path.
       target_fullpath = mus1.FileUtil.getFileFullPath(model_name);
@@ -131,7 +131,7 @@ classdef unittest_RotationalFrictionTorque < matlab.unittest.TestCase
 
     function Test_1_2(testcase)
 
-      model_name = "SampleModel_RotationalFrictionTorque_refsub_24b";
+      model_name = "RotationalFrictionTorque_SampleModel_refsub_24b";
 
       % Make sure the model exists in the MATLAB path.
       target_fullpath = mus1.FileUtil.getFileFullPath(model_name);

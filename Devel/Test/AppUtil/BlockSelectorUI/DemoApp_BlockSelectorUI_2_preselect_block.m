@@ -9,9 +9,9 @@ end  % arguments
 % Use getFileFullPath to validate that the specified file is found.
 % If not, an error is issued and the app does not open.
 if isMATLABReleaseOlderThan("R2025a")
-  modelfile_fullpath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_1_fric_24b.mdl");
+  modelfile_fullpath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_1_fric_24b.mdl");
 else
-  modelfile_fullpath = mus1.FileUtil.getFileFullPath("samplemodel_BlockSelectorUI_test_1_fric.mdl");
+  modelfile_fullpath = mus1.FileUtil.getFileFullPath("BlockSelectorUI_SampleModel_test_1_fric.mdl");
 end  % if
 
 % -----------------------------------------------------------------------------
@@ -51,9 +51,9 @@ block_selector_ui.ModelFileFullPath = modelfile_fullpath;  % !test-target
 
 % Optionally, select the target block path programmatically.
 if isMATLABReleaseOlderThan("R2025a")
-  block_selector_ui.BlockPath = "samplemodel_BlockSelectorUI_test_1_fric_24b/Subsystem/Rotational Friction2";  % !test-target
+  block_selector_ui.BlockPath = "BlockSelectorUI_SampleModel_test_1_fric_24b/Subsystem/Rotational Friction2";  % !test-target
 else
-  block_selector_ui.BlockPath = "samplemodel_BlockSelectorUI_test_1_fric/Subsystem/Rotational Friction2";  % !test-target
+  block_selector_ui.BlockPath = "BlockSelectorUI_SampleModel_test_1_fric/Subsystem/Rotational Friction2";  % !test-target
 end  % if
 
 % Optionally, press the Highlight button programmatically.

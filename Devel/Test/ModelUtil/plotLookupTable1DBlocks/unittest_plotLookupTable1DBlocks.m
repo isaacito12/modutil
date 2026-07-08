@@ -39,9 +39,9 @@ classdef unittest_plotLookupTable1DBlocks < matlab.unittest.TestCase
 
     function PassingTest_1(~)
       if mus1.TestUtil.isR2024bOrOlder
-        load_system("samplemodel_plotLookupTable1DBlocks_refsub_24b")
+        load_system("plotLookupTable1DBlocks_SampleModel_refsub_24b")
       else
-        load_system("samplemodel_plotLookupTable1DBlocks_refsub")
+        load_system("plotLookupTable1DBlocks_SampleModel_refsub")
       end  % if
     end  % function
 
