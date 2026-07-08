@@ -71,7 +71,7 @@ classdef PassingTests < matlab.uitest.TestCase
     end  % function
 
     function PassingTest_AbstractMotorEfficiency_SampleModel_refsub_24b_1(~)
-      load_system("SampleModel_AbstractMotorEfficiency_refsub_24b")
+      load_system("AbstractMotorEfficiency_SampleModel_refsub_24b")
     end  % function
 
     function PassingTest_SampleParams_AbstractMotor_1(testcase)
@@ -111,7 +111,7 @@ classdef PassingTests < matlab.uitest.TestCase
     end  % function
 
     function PassingTest_SampleModel_1(~)
-      load_system("SampleModel_LookupTable1DBlockPlotApp_24b")
+      load_system("LookupTable1DBlockPlotApp_SampleModel_24b")
     end  % function
 
     function PassingTest_RotationalFrictionTorqueApp_1(testcase)
@@ -125,7 +125,7 @@ classdef PassingTests < matlab.uitest.TestCase
     end  % function
 
     function PassingTest_RotationalFrictionTorque_SampleModel_refsub_24b_1(~)
-      load_system("SampleModel_RotationalFrictionTorque_refsub_24b")
+      load_system("RotationalFrictionTorque_SampleModel_refsub_24b")
     end  % function
 
     function PassingTest_RotationalFrictionTorque_SampleParams1_1(testcase)
@@ -187,7 +187,7 @@ classdef PassingTests < matlab.uitest.TestCase
     end  % function
 
     function PassingTest_Vehicle1DForce_SampleModel_refsub_24b_1(~)
-      load_system("SampleModel_Vehicle1DForce_refsub_24b")
+      load_system("Vehicle1DForce_SampleModel_refsub_24b")
     end  % function
 
     function PassingTest_Vehicle1DForce_SampleParams1_1(testcase)
