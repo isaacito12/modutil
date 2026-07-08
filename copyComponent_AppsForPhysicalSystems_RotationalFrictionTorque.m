@@ -37,7 +37,7 @@ safe_copyfile(fullfile(source_folder, "mus1", "media", "screenshot-RotationalFri
 
 safe_copyfile(fullfile(source_folder, "mus1", "mus1_RotationalFrictionTorqueApp.m"), destination_top_folder, NameValuePair.DryRun)
 safe_copyfile(fullfile(source_folder, "mus1", "RotationalFrictionTorqueApp_Description_mus1.html"), destination_top_folder, NameValuePair.DryRun)
-safe_copyfile(fullfile(source_folder, "SampleModel_RotationalFrictionTorque_refsub_24b.mdl"), destination_top_folder, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_folder, "RotationalFrictionTorque_SampleModel_refsub_24b.mdl"), destination_top_folder, NameValuePair.DryRun)
 safe_copyfile(fullfile(source_folder, "RotationalFrictionTorque_SampleParams1.m"), destination_top_folder, NameValuePair.DryRun)
 safe_copyfile(fullfile(source_folder, "RotationalFrictionTorque_SampleParams2.m"), destination_top_folder, NameValuePair.DryRun)
 

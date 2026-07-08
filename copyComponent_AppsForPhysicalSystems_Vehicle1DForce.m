@@ -45,7 +45,7 @@ safe_copyfile(fullfile(src_desc_media, "figure_1.png"), dst_desc_media, NameValu
 
 safe_copyfile(fullfile(source_folder, "mus1", "mus1_Vehicle1DForceApp.m"), destination_top_folder, NameValuePair.DryRun)
 safe_copyfile(fullfile(source_folder, "mus1", "Vehicle1DForceApp_Description_mus1.html"), destination_top_folder, NameValuePair.DryRun)
-safe_copyfile(fullfile(source_folder, "SampleModel_Vehicle1DForce_refsub_24b.mdl"), destination_top_folder, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_folder, "Vehicle1DForce_SampleModel_refsub_24b.mdl"), destination_top_folder, NameValuePair.DryRun)
 safe_copyfile(fullfile(source_folder, "Vehicle1DForce_SampleParams1.m"), destination_top_folder, NameValuePair.DryRun)
 safe_copyfile(fullfile(source_folder, "Vehicle1DForce_SampleParams2.m"), destination_top_folder, NameValuePair.DryRun)
 

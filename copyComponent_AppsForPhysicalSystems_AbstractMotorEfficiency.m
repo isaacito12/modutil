@@ -46,7 +46,7 @@ safe_copyfile(fullfile(src_desc_media, "figure_2.png"), dst_desc_media, NameValu
 
 safe_copyfile(fullfile(source_folder, "mus1", "mus1_AbstractMotorEfficiencyApp.m"), destination_top_folder, NameValuePair.DryRun)
 safe_copyfile(fullfile(source_folder, "mus1", "AbstractMotorEfficiencyApp_Description_mus1.html"), destination_top_folder, NameValuePair.DryRun)
-safe_copyfile(fullfile(source_folder, "SampleModel_AbstractMotorEfficiency_refsub_24b.mdl"), destination_top_folder, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_folder, "AbstractMotorEfficiency_SampleModel_refsub_24b.mdl"), destination_top_folder, NameValuePair.DryRun)
 safe_copyfile(fullfile(source_folder, "AbstractMotorEfficiency_SampleParams1.m"), destination_top_folder, NameValuePair.DryRun)
 safe_copyfile(fullfile(source_folder, "AbstractMotorEfficiency_SampleParams2.m"), destination_top_folder, NameValuePair.DryRun)
 

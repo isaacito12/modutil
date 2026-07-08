@@ -39,7 +39,7 @@ safe_copyfile(file_to_copy, destination_media_folder, NameValuePair.DryRun)
 releasing_file = fullfile(source_folder, "mus1", "mus1_LookupTable1DBlockPlotApp.m");
 safe_copyfile(releasing_file, destination_top_folder, NameValuePair.DryRun)
 
-releasing_file = fullfile(source_folder, "SampleModel_LookupTable1DBlockPlotApp_24b.mdl");
+releasing_file = fullfile(source_folder, "LookupTable1DBlockPlotApp_SampleModel_24b.mdl");
 safe_copyfile(releasing_file, destination_top_folder, NameValuePair.DryRun)
 
 end  % function

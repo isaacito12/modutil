@@ -35,6 +35,6 @@ safe_copyfile(fullfile(source_folder, "mus1", "media", "screenshot-SignalDesignA
 
 safe_copyfile(fullfile(source_folder, "mus1", "mus1_SignalDesignApp.m"), dst, NameValuePair.DryRun)
 safe_copyfile(fullfile(source_folder, "mus1", "SignalDesignApp_Description_mus1.html"), dst, NameValuePair.DryRun)
-safe_copyfile(fullfile(source_folder, "SampleModel_SignalDesignAppMain_24b.mdl"), dst, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_folder, "SignalDesignAppMain_SampleModel_24b.mdl"), dst, NameValuePair.DryRun)
 
 end  % function

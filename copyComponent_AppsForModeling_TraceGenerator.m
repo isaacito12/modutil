@@ -35,7 +35,6 @@ safe_copyfile(fullfile(source_folder, "mus1", "media", "screenshot-TraceGenerato
 
 safe_copyfile(fullfile(source_folder, "mus1", "mus1_TraceGeneratorApp.m"), dst, NameValuePair.DryRun)
 safe_copyfile(fullfile(source_folder, "mus1", "TraceGeneratorApp_Description_mus1.html"), dst, NameValuePair.DryRun)
-safe_copyfile(fullfile(source_folder, "SampleModel_TraceGeneratorAppMain_24b.mdl"), dst, NameValuePair.DryRun)
-safe_copyfile(fullfile(source_folder, "SampleScript_TraceGeneratorAPI.mlx"), dst, NameValuePair.DryRun)
+safe_copyfile(fullfile(source_folder, "TraceGeneratorAppMain_SampleModel_24b.mdl"), dst, NameValuePair.DryRun)
 
 end  % function
