@@ -1,9 +1,13 @@
+function copyAll(NameValuePair)
 % Copy all target files and folders from the Devel folder to the Release folder.
 
 % Copyright 2025-2026 The MathWorks, Inc.
 
-dry_run_tf = false;
-% dry_run_tf = true;
+arguments (Input)
+  NameValuePair.DryRun (1,1) logical = true
+end  % arguments
+
+dry_run_tf = NameValuePair.DryRun;
 
 copyAPIFromDevToRelease(DryRun=dry_run_tf)
 
@@ -18,3 +22,5 @@ copyComponent_AppsForModeling_TraceGenerator(DryRun=dry_run_tf)
 copyComponent_AppsForPhysicalSystems_AbstractMotorEfficiency(DryRun=dry_run_tf)
 copyComponent_AppsForPhysicalSystems_RotationalFrictionTorque(DryRun=dry_run_tf)
 copyComponent_AppsForPhysicalSystems_Vehicle1DForce(DryRun=dry_run_tf)
+
+end  % function

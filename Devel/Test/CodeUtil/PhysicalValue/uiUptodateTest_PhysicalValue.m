@@ -1,8 +1,11 @@
 classdef uiUptodateTest_PhysicalValue < matlab.uitest.TestCase
-  % Class-based unit test for app
+  % UI up-to-date test for apps with class-based unit test
 
   % Overview of App Testing Framework
   % https://www.mathworks.com/help/matlab/matlab_prog/overview-of-app-testing-framework.html
+  %
+  % matlab.uitest.TestCase Class for testing apps
+  % https://www.mathworks.com/help/matlab/ref/matlab.uitest.testcase-class.html
   %
   % Table of Verifications, Assertions, and Other Qualifications
   % https://www.mathworks.com/help/matlab/matlab_prog/types-of-qualifications.html
@@ -26,18 +29,25 @@ classdef uiUptodateTest_PhysicalValue < matlab.uitest.TestCase
       % Close all before test
       close all
       bdclose all
+      evalin("base", "clearvars")
 
       % addTeardown adds a function which always runs after each test.
       % Even if the execution of a test ends with an error, the teardown function runs.
       addTeardown(testcase, @closeAllAfterTest)
       function closeAllAfterTest
-        % Close all figure windows. This closes not only the test targets but also other figure windows.
+        % Close/delete all figure windows. This closes/deletes not only the test targets but also
+        % all the other figure windows too to provide clean state for the next test.
         figs = findall(0, Type="Figure");
         if not(any(isempty(figs)))
           disp("Deleting figures (" + numel(figs) + ")")
           delete(figs)
         end  % if
+
         bdclose all
+
+        % Do not clear variables in the base workspace at the end of a test
+        % to make it easy to debug after test if necessary.
+
       end  % nested function
     end  % function
 

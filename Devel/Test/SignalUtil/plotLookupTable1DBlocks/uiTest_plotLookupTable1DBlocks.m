@@ -1,35 +1,48 @@
 classdef uiTest_plotLookupTable1DBlocks < matlab.uitest.TestCase
-  % Class-based unit test for app
+  % UI test - class-based unit test for apps
 
   % Overview of App Testing Framework
   % https://www.mathworks.com/help/matlab/matlab_prog/overview-of-app-testing-framework.html
   %
+  % matlab.uitest.TestCase Class for testing apps
+  % https://www.mathworks.com/help/matlab/ref/matlab.uitest.testcase-class.html
+  %
   % Table of Verifications, Assertions, and Other Qualifications
   % https://www.mathworks.com/help/matlab/matlab_prog/types-of-qualifications.html
+  %
+  % Test Browser
+  % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
   % Copyright 2024-2026 The MathWorks, Inc.
 
   methods (TestMethodSetup)
-    % Functions in the TestMethodSetup section always run before
-    % each test defined in the Test section runs.
+    % Functions in this "TestMethodSetup" section always run before
+    % each test defined in the "Test" section runs.
 
-    function test_method_setup(testcase)
+    function test_method_setup_1(testcase)
       %%
       % Close all before test
       close all
       bdclose all
+      evalin("base", "clearvars")
 
       % addTeardown adds a function which always runs after each test.
       % Even if the execution of a test ends with an error, the teardown function runs.
       addTeardown(testcase, @closeAllAfterTest)
       function closeAllAfterTest
-        % Close all figure windows. This closes not only the test targets but also other figure windows.
+        % Close/delete all figure windows. This closes/deletes not only the test targets but also
+        % all the other figure windows too to provide clean state for the next test.
         figs = findall(0, Type="Figure");
         if not(any(isempty(figs)))
           disp("Deleting figures (" + numel(figs) + ")")
           delete(figs)
         end  % if
+
         bdclose all
+
+        % Do not clear variables in the base workspace at the end of a test
+        % to make it easy to debug after test if necessary.
+
       end  % nested function
     end  % function
 
@@ -45,13 +58,17 @@ classdef uiTest_plotLookupTable1DBlocks < matlab.uitest.TestCase
     % Warnings can be displayed even when the app opens and starts working seemingly normally.
     % Make sure there is no warning when opening an app.
 
-    function app_launches_without_warnings_2(testcase)
+    function clean_launch_1(testcase)
+      verifyWarningFree(testcase, @AppForTesting_plotLookupTable1DBlocks_24b)
+    end  % function
+
+    function clean_launch_2(testcase)
       verifyWarningFree(testcase, @() test_target())
       function test_target()
-        if mus1.TestUtil.isR2024bOrOlder
-          demoapp_plotLookupTable1DBlocks_24b  % !test-target
+        if isMATLABReleaseOlderThan("R2026a")
+          disp("!Skipping: MATLAB is older than R2026a.")
         else
-          demoapp_plotLookupTable1DBlocks  % !test-target
+          AppForTesting_plotLookupTable1DBlocks  % !test-target
         end  % if
       end  % nested function
     end  % function

@@ -1,12 +1,12 @@
-function App = demoapp_plotLookupTable1DBlocks()
+function App = AppForTesting_plotLookupTable1DBlocks_24b()
 
-% Copyright 2025 The MathWorks, Inc.
+% Copyright 2025-2026 The MathWorks, Inc.
 
 arguments (Output)
   App (1,:) struct
 end  % arguments
 
-model_name = "plotLookupTable1DBlocks_SampleModel_refsub";
+model_name = "SampleModel_plotLookupTable1DBlocks_refsub_24b";
 disp("Target model: " + model_name)
 load_system(model_name)
 
@@ -23,9 +23,8 @@ label_ui.HorizontalAlignment = "center";
 
 panel_ui = mus1.AppUtil.Graphics.Panel(addVerticalGridLayout(vertical_container));
 panel_ui.ComponentHeight = 390;
-% panel_ui.HighlightBackground = "on";
 
-mus1.ModelUtil.plotLookupTable1DBlocks( ...
+mus1.SignalUtil.plotLookupTable1DBlocks( ...
   model_name + "/Subsystem", ...
   Blocks = ["PS smooth1" "SL smooth1"], ...
   ParentType = "Panel", ...

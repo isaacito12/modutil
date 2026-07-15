@@ -16,14 +16,10 @@ end
 % Running unit test can change the working folder, and it needs this settings.
 addpath(".")
 
-addpath("mus-icons")
-
-addpath(genpath("Test"))
-
 addpath(genpath("AppsForModeling"))
-
 addpath(genpath("AppsForPhysicalSystems"))
-
 addpath(genpath("BasicApps"))
+addpath("mus-icons")
+addpath(genpath("Test"))
 
 end  % function
