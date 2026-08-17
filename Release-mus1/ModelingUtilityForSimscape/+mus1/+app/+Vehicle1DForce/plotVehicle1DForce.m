@@ -95,8 +95,6 @@ arguments (Output)
   fig matlab.ui.Figure {mustBeScalarOrEmpty}
 end  % arguments
 
-errorID = "plotVehicle1DForce:";
-
 % -----------------------------------------------------------------------------
 % Collect properties from the specified data source.
 
@@ -214,18 +212,11 @@ end  %if
 % Create a plot.
 
 if isfield(NameValuePair, "ParentAxes")
-  if class(NameValuePair.ParentAxes) == "matlab.graphics.axis.Axes"
-    ax = NameValuePair.ParentAxes;
-    target_fig = ax.Parent;
-  else
-    id = errorID + "InvalidParentAxes";
-    msg = mus1.CodeUtil.i18n("ParentAxes must be of type matlab.graphics.axis.Axes.");
-
-    throw(MException(id, msg))
-
-  end  % if
+  % NameValuePair.ParentAxes is guaranteed to be of type matlab.graphics.axis.Axes.
+  ax = NameValuePair.ParentAxes;
+  target_fig = ax.Parent;
 else
-  target_fig = figure;
+  target_fig = figure(WindowStyle="normal");
   if not(isMATLABReleaseOlderThan("R2025a"))
     target_fig.ThemeMode = NameValuePair.ThemeMode;
     target_fig.Theme = NameValuePair.Theme;
@@ -266,9 +257,11 @@ ylim(ax, [0, value(plot_force_ub, plot_force_unit)])
 xlabel(ax, "Vehicle speed (" + plot_speed_unit + ")")
 
 ylabel(ax, [
-  "Longitudinal vehicle force, solid (" + plot_force_unit + ")"
-  "Force at constant power, dashed (" + plot_force_unit + ")"
+  "Force (" + plot_force_unit + ")"
+  "Dashed: force at constant power"
   ])
+
+title(ax, "Longitudinal vehicle force", Interpreter="none")
 
 %------------------------------------------------------------------------------
 % Vehicle force curves at constant powers - dashed curves

@@ -71,6 +71,7 @@ classdef Vehicle1DForceAppMain < handle
 
     UpdateButtonUI mus1.AppUtil.Component.EnabledButton
     OpenInFigureWindowUI mus1.AppUtil.Component.Hyperlink
+
     AxesUI mus1.AppUtil.Graphics.Axes
 
     % === Plot customization
@@ -599,7 +600,7 @@ classdef Vehicle1DForceAppMain < handle
       App.OpenInFigureWindowUI.HyperlinkClickedCallback = @open_in_figure_window;
       function open_in_figure_window
         mus1.app.Vehicle1DForce.plotVehicle1DForce( ...
-          ParentAxes = axes(figure), ...
+          ParentAxes = axes(figure(WindowStyle="normal")), ...
           DataSource="dataset", DataSet=App.DataSet)
       end  % nested function
 
@@ -1005,7 +1006,6 @@ classdef Vehicle1DForceAppMain < handle
         App.DataSet = updateDataSet(App.DataSet);
       catch exception
         App.DataSet = previous_dataset;
-
         App.VehicleMassUI.SimscapeValue = App.DataSet.ModelParams.VehicleMass;
         App.TireRollingCoefficientUI.SimscapeValue = App.DataSet.ModelParams.TireRollingCoefficient;
         App.AirDragCoefficientUI.SimscapeValue = App.DataSet.ModelParams.AirDragCoefficient;

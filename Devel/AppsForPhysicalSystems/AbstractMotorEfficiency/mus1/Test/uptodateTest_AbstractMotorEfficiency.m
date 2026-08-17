@@ -90,44 +90,5 @@ classdef uptodateTest_AbstractMotorEfficiency < matlab.unittest.TestCase
       verifyTrue(testcase, destination_is_newer)
     end  % function
 
-    function description_markdown_is_uptodate(testcase)
-      %%
-      if isMATLABReleaseOlderThan("R2025b")
-        disp("Skipping this test in R2025a or older.")
-
-        return
-
-      end  % if
-      if mus1.TestUtil.isNonLocal(testcase.LocalTopFolder)
-        disp("The current path is outside of LocalTopFolder. Skipping.")
-
-        return
-
-      end  % if
-      % Make sure the description Markdown file is up to date.
-
-      source_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiencyApp_Description_mus1.mlx");
-      [folder, file_base_name, ~] = fileparts(source_fullpath);
-      destination_fullpath = fullfile(folder, file_base_name + ".md");
-      if isfile(destination_fullpath)
-        destination_is_newer = not(mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath));
-        if destination_is_newer
-          disp("The Markdown file is up to date. Skipping.")
-
-          return
-
-        end  % if
-      end  % if
-      % Generate Markdown.
-      destination_folder = fileparts(destination_fullpath);
-      mus1.FileUtil.exportToMarkdown(source_fullpath, MarkdownFolderPath=destination_folder, HideCode=true);
-
-      num_lines = mus1.FileUtil.updateMarkdownForMathRendering(destination_fullpath);
-      disp("Updated markdown for math rendering. Number of lines updated: " + num_lines)
-
-      destination_is_newer = not(mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath, DisplayInfo=true));
-      verifyTrue(testcase, destination_is_newer)
-    end  % function
-
   end  % methods
 end  % classdef

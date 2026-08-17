@@ -17,6 +17,7 @@ classdef uptodateTest_Vehicle1DForce < matlab.unittest.TestCase
     LocalTopFolder (1,1) pattern = "C:\local"
   end  % properties
 
+
   methods (TestMethodSetup)
     % Functions in this "TestMethodSetup" section always run before
     % each test defined in the "Test" section runs.
@@ -26,20 +27,25 @@ classdef uptodateTest_Vehicle1DForce < matlab.unittest.TestCase
       % Close all before test
       close all
       bdclose all
+      evalin("base", "clearvars")
 
       % addTeardown adds a function which always runs after each test.
       % Even if the execution of a test ends with an error, the teardown function runs.
       addTeardown(testcase, @closeAllAfterTest)
       function closeAllAfterTest
-        % Running a live script can open figure windows.
-        % Delete all figure windows (not just making the window invisible).
-        % This closes not only the test targets but also all other figure windows.
+        % Close/delete all figure windows. This closes/deletes not only the test targets but also
+        % all the other figure windows too to provide clean state for the next test.
         figs = findall(0, Type="Figure");
         if not(any(isempty(figs)))
           disp("Deleting figures (" + numel(figs) + ")")
           delete(figs)
         end  % if
+
         bdclose all
+
+        % Do not clear variables in the base workspace at the end of a test
+        % to make it easy to debug after test if necessary.
+
       end  % nested function
     end  % function
 
@@ -67,7 +73,6 @@ classdef uptodateTest_Vehicle1DForce < matlab.unittest.TestCase
         return
 
       end  % if
-      % Make sure the description HTML file is up to date.
 
       source_fullpath = mus1.FileUtil.getFileFullPath("Vehicle1DForceApp_Description_mus1.mlx");
       [folder, file_base_name, ~] = fileparts(source_fullpath);
@@ -88,39 +93,39 @@ classdef uptodateTest_Vehicle1DForce < matlab.unittest.TestCase
       verifyTrue(testcase, destination_is_newer)
     end  % function
 
-    function description_markdown_is_uptodate(testcase)
+    function plot_image_is_uptodate(testcase)
       %%
-      if isMATLABReleaseOlderThan("R2025b")
-        disp("Skipping this test in R2025a or older.")
-
-        return
-
-      end  % if
       if mus1.TestUtil.isNonLocal(testcase.LocalTopFolder)
         disp("The current path is outside of LocalTopFolder. Skipping.")
 
         return
 
       end  % if
-      % Make sure the description Markdown file is up to date.
 
-      source_fullpath = mus1.FileUtil.getFileFullPath("Vehicle1DForceApp_Description_mus1.mlx");
-      [folder, file_base_name, ~] = fileparts(source_fullpath);
-      destination_fullpath = fullfile(folder, file_base_name + ".md");
-      if isfile(destination_fullpath)
-        destination_is_newer = not(mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath));
-        if destination_is_newer
-          disp("The Markdown file is up to date. Skipping.")
+      source_name = "mus1.app.Vehicle1DForce.plotVehicle1DForce";
+      image_filename = "plot-image-Vehicle1DForce.png";
 
-          return
+      source_fullpath = mus1.FileUtil.getFileFullPath(source_name);
 
-        end  % if
+      description_fullpath = mus1.FileUtil.getFileFullPath("Vehicle1DForceApp_Description_mus1.mlx");
+      description_folder = fileparts(description_fullpath);
+
+      destination_folder = fullfile(description_folder, "media");
+      destination_fullpath = fullfile(destination_folder, image_filename);
+
+      source_is_newer = mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
+      if source_is_newer
+        fig = mus1.app.Vehicle1DForce.plotVehicle1DForce;
+        fig.Position(3:4) = [600 500];  % width height
+        exportgraphics(fig, destination_fullpath)
+        disp("Saved: " + destination_fullpath)
+      else
+        disp("Skipping. Screenshot is up to date.")
       end  % if
-      % Generate Markdown.
-      destination_folder = fileparts(destination_fullpath);
-      mus1.FileUtil.exportToMarkdown(source_fullpath, MarkdownFolderPath=destination_folder, HideCode=true);
-      destination_is_newer = not(mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath, DisplayInfo=true));
-      verifyTrue(testcase, destination_is_newer)
+
+      source_is_newer = mus1.FileUtil.sourceFileIsNewer(Source=source_fullpath, Destination=destination_fullpath);
+      verifyFalse(testcase, source_is_newer)
+
     end  % function
 
   end  % methods

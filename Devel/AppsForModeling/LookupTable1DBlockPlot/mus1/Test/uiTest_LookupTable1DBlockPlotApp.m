@@ -68,11 +68,13 @@ classdef uiTest_LookupTable1DBlockPlotApp < matlab.uitest.TestCase
 
     %% Passing tests
 
-    function PassingTest_App_1(testcase)
-      % Check the ModelFilePath option.
+    function PassingTest_App_1_1(testcase)
+      % Check that the app opens with a specified model.
       if mus1.TestUtil.isR2024bOrOlder
+        % Test in 24b.
         target = mus1.FileUtil.getFileFullPath("LookupTable1DBlockPlotApp_SampleModel_24b.mdl");
       else
+        % Test in newer releases.
         target = mus1.FileUtil.getFileFullPath("LookupTable1DBlockPlotApp_SampleModel.mdl");
       end  % if
       app = mus1_LookupTable1DBlockPlotApp(ModelFilePath=target);

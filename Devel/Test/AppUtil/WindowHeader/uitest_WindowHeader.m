@@ -92,7 +92,7 @@ classdef uitest_WindowHeader < matlab.uitest.TestCase
     %% Color theme
     % Take screenshots of the app. Visually inspect the saved images.
 
-    function LightTheme_1(testcase)
+    function LightTheme_1(~)
       app = apptest_WindowHeader_3;
       drawnow
       if not(isMATLABReleaseOlderThan("R2025a"))
@@ -102,7 +102,7 @@ classdef uitest_WindowHeader < matlab.uitest.TestCase
       exportapp(app.MainFigure, save_path)
     end  % function
 
-    function DarkTheme_1(testcase)
+    function DarkTheme_1(~)
       if isMATLABReleaseOlderThan("R2025a")
 
         return

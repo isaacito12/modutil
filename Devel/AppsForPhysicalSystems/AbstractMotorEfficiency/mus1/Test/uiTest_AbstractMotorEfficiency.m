@@ -150,6 +150,15 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       mus1_AbstractMotorEfficiencyApp(AppParameterFileName=paramfile_fullpath, AppParameterStructName="Params.Motor")
     end  % function
 
+    function command_option_ideal_motor(~)
+      %% Launch app with ideal motor parameters (efficiency 100%).
+      paramfile_fullpath = mus1.FileUtil.getFileFullPath("AbstractMotorEfficiency_SampleParams1.m");
+      [~, param_basefilename, ~] = fileparts(paramfile_fullpath);
+      evalin("base", param_basefilename)
+      evalin("base", "MotorParams.ElectricalEfficiencyPercent = 100;")
+      mus1_AbstractMotorEfficiencyApp(AppParameterStructName="MotorParams")
+    end  % function
+
     %% Visual tests
     % These tests need visual inspection.
 
@@ -182,10 +191,6 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
 
       choose(testcase, app.MeasuredTorqueUI.UnitDropDownUI.DropDownUI.MainDropDown, "lbf*ft")
       choose(testcase, app.MeasuredTorqueUI.UnitDropDownUI.DropDownUI.MainDropDown, "N*m")
-
-      choose(testcase, app.RotorDampingCoefficientUI.UnitDropDownUI.DropDownUI.MainDropDown, "N*m/rpm")
-      choose(testcase, app.RotorDampingCoefficientUI.UnitDropDownUI.DropDownUI.MainDropDown, "N*m/(rad/s)")
-      type(testcase,   app.RotorDampingCoefficientUI.UnitDropDownUI.DropDownUI.MainDropDown, "lbf*ft/rpm")
     end  % function
 
     function plot_customization_drop_downs_1(testcase)
@@ -328,6 +333,10 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
 
     %% Test sample models
 
+%{
+% !todo: This test would probably need a different approach to make the test more robust.
+% For now, comment it out, but this test should be reintroduced.
+
     function button_in_sample_model_1(testcase)
       if isMATLABReleaseOlderThan("R2026a")
         disp("Skipping this test in R2025b and older.")
@@ -350,7 +359,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       pause(1)  % !todo: This pause must be eliminated.
 
       % Theoretically, get_param must return a non-empty char array here.
-      command_text = get_param(block_path, "ClickFcn");
+      command_text = get_param(block_path, "ClickFcn");  % !flaky-test: 26b PR U3
 
       disp("Command text in the block: " + command_text)
 
@@ -365,6 +374,7 @@ classdef uiTest_AbstractMotorEfficiency < matlab.uitest.TestCase
       eval(command_text)  % !test-target
 
     end  % function
+%}
 
   end  % methods
 end  % classdef

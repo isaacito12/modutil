@@ -104,17 +104,17 @@ classdef unittest_AbstractMotorEfficiencyModelParameters < matlab.unittest.TestC
 
       params = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyModelParameters(Initialization=true);
 
-      params.OverallEfficiencyPercent = 99.7;
+      params.ElectricalEfficiencyPercent = 99.7;
 
       % The code below is to calculate the nominal losses to display its value.
       % verifyError below does not depend on it.
-      normalized_measured_efficiency = params.OverallEfficiencyPercent / 100;
-      measured_mechanical_power = params.MeasuredAngularSpeed * params.MeasuredTorque;
-      measured_nominal_losses = convert((1/normalized_measured_efficiency - 1) * measured_mechanical_power, "W");
+      normalized_measured_efficiency = params.ElectricalEfficiencyPercent / 100;
+      measured_electrical_power = params.MeasuredAngularSpeed * params.MeasuredTorque;
+      measured_nominal_losses = convert((1/normalized_measured_efficiency - 1) * measured_electrical_power, "W");
       disp("Measured nominal losses (derived): " + value(measured_nominal_losses, "W") + " (W)")
       disp("Measured iron losses (specified): " + value(params.MeasuredIronLosses, "W") + " (W)")
 
-      verifyError(testcase, @test_target, "AbstractMotorEfficiencyModelParameters:InvalidIronLosses")
+      verifyError(testcase, @test_target, "AbstractMotorEfficiencyModelParameters:InvalidIronAndFixedLosses")
       function test_target
         updateDerivedParameters(params)
       end  % nested function
@@ -129,7 +129,7 @@ classdef unittest_AbstractMotorEfficiencyModelParameters < matlab.unittest.TestC
       params = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyModelParameters(Initialization=true);
 
       % Conversion efficiency above the internal threshold of 99.8 % sets the motor to be ideal.
-      params.OverallEfficiencyPercent = 99.9;
+      params.ElectricalEfficiencyPercent = 99.9;
 
       params = updateDerivedParameters(params);
 

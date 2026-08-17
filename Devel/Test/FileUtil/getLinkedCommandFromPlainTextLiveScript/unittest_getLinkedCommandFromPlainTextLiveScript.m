@@ -10,7 +10,7 @@ classdef unittest_getLinkedCommandFromPlainTextLiveScript < matlab.unittest.Test
   % Test Browser
   % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
-  % Copyright 2024-2025 The MathWorks, Inc.
+  % Copyright 2024-2026 The MathWorks, Inc.
 
   methods (TestMethodSetup)
     % Functions in this section always run before each test defined in the Test section runs.
@@ -35,7 +35,8 @@ classdef unittest_getLinkedCommandFromPlainTextLiveScript < matlab.unittest.Test
     %% Minimum quality check
     % Check that models, scripts, functions, and classes run right out of the box.
 
-    function PassingTest_1_R2025a_or_newer(~)
+    function PassingTest_1(~)
+      %%
       if isMATLABReleaseOlderThan("R2025a")
         % R2024b or older
         mus1.FileUtil.displayTimeAndFileLocation("Skipping this test.");
@@ -43,19 +44,29 @@ classdef unittest_getLinkedCommandFromPlainTextLiveScript < matlab.unittest.Test
         return
 
       end  % if
-      demo_getLinkedCommandFromPlainTextLiveScript
+      DemoScript_getLinkedCommandFromPlainTextLiveScript_1
+    end  % function
+
+    function PassingTest_2(~)
+      %%
+      if isMATLABReleaseOlderThan("R2025a")
+        % R2024b or older
+        mus1.FileUtil.displayTimeAndFileLocation("Skipping this test.");
+
+        return
+
+      end  % if
+      DemoScript_getLinkedCommandFromPlainTextLiveScript_2
     end  % function
 
     %% Tests
 
-    function Test_1(testcase)
-      verifyError(testcase, @() test_target, "MATLAB:minrhs")
-      function test_target
-        mus1.FileUtil.getLinkedCommandFromPlainTextLiveScript
-      end  % nested function
+    function error_case_1(testcase)
+      verifyError(testcase, @mus1.FileUtil.getLinkedCommandFromPlainTextLiveScript, "MATLAB:minrhs")
     end  % function
 
-    function Test_2_R2025a_or_newer(testcase)
+    function test_1(testcase)
+      %%
       if isMATLABReleaseOlderThan("R2025a")
         % R2024b or older
         mus1.FileUtil.displayTimeAndFileLocation("Skipping this test.");
@@ -63,11 +74,39 @@ classdef unittest_getLinkedCommandFromPlainTextLiveScript < matlab.unittest.Test
         return
 
       end  % if
-      fullpath = string( which("sampleScript_getLinkedCommandFromPlainTextLiveScript_1"));
+      fullpath = string( which("SampleScript_getLinkedCommandFromPlainTextLiveScript_1"));
       result = mus1.FileUtil.getLinkedCommandFromPlainTextLiveScript(fullpath);
       verifyEqual(testcase, result.Line, [2 2 3 3]')
       verifyEqual(testcase, result.LinkText, ["linked text" "another link" "Yet another linked text" "This"]')
       verifyEqual(testcase, result.Command, ["disp(""test 1"")" "disp(""test 2"")" "datetime" "logo"]')
+    end  % function
+
+    function test_2(testcase)
+      %%
+      if isMATLABReleaseOlderThan("R2025a")
+        % R2024b or older
+        mus1.FileUtil.displayTimeAndFileLocation("Skipping this test.");
+
+        return
+
+      end  % if
+      fullpath = string( which("SampleScript_getLinkedCommandFromPlainTextLiveScript_2"));
+      result = mus1.FileUtil.getLinkedCommandFromPlainTextLiveScript(fullpath);
+      verifyEqual(testcase, result.Line, [3, 6, 12, 19, 23]')
+      verifyEqual(testcase, result.LinkText, [
+        "BEV Project Navigation App"
+        "BEV system model"
+        "Vehicle 1D harness model"
+        "Motor drive unit harness model"
+        "High voltage battery harness model"
+        ])
+      verifyEqual(testcase, result.Command, [
+        "BEVProjectNavigationApp"
+        "bevutil1.ProjectUtil.openInProject('BEV_system_model')"
+        "bevutil1.ProjectUtil.openInProject('HarnessModel_Vehicle1D')"
+        "bevutil1.ProjectUtil.openInProject('HarnessModel_MotorDriveUnit')"
+        "bevutil1.ProjectUtil.openInProject('HarnessModel_BatteryHV')"
+        ])
     end  % function
 
   end  % methods

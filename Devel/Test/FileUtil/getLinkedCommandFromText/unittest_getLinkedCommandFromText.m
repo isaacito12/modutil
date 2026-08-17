@@ -10,7 +10,7 @@ classdef unittest_getLinkedCommandFromText < matlab.unittest.TestCase
   % Test Browser
   % https://www.mathworks.com/help/matlab/ref/testbrowser-app.html
 
-  % Copyright 2024-2025 The MathWorks, Inc.
+  % Copyright 2024-2026 The MathWorks, Inc.
 
   methods (TestMethodSetup)
     % Functions in this section always run before each test defined in the Test section runs.
@@ -36,16 +36,13 @@ classdef unittest_getLinkedCommandFromText < matlab.unittest.TestCase
     % Check that models, scripts, functions, and classes run right out of the box.
 
     function PassingTest_1(~)
-      demo_getLinkedCommandFromText
+      DemoScript_getLinkedCommandFromText
     end  % function
 
     %% Tests
 
     function Test_1(testcase)
-      verifyError(testcase, @() test_target, "MATLAB:minrhs")
-      function test_target
-        mus1.FileUtil.getLinkedCommandFromText
-      end  % nested function
+      verifyError(testcase, @mus1.FileUtil.getLinkedCommandFromText, "MATLAB:minrhs")
     end  % function
 
     function Test_2(testcase)
@@ -112,6 +109,21 @@ classdef unittest_getLinkedCommandFromText < matlab.unittest.TestCase
       verifyEqual(testcase, result.LinkText, ["t21" "t22" "t23" "t31" "t32" "t33"]')
     end  % function
 
-  end  % methods
+    function Test_9_namespace_1(testcase)
+      target_text = "[Linked text 1](<matlab:namespace1.command1(arg1, arg2)>)";
+      result = mus1.FileUtil.getLinkedCommandFromText(target_text);
+      verifyEqual(testcase, result.Line, 1)
+      verifyEqual(testcase, result.Command, "namespace1.command1(arg1, arg2)")
+      verifyEqual(testcase, result.LinkText, "Linked text 1")
+    end  % function
 
+    function Test_10_namespace_2(testcase)
+      target_text = "[Linked text 1](<matlab:namespace1.ns2.command1(arg1, arg2)>)";
+      result = mus1.FileUtil.getLinkedCommandFromText(target_text);
+      verifyEqual(testcase, result.Line, 1)
+      verifyEqual(testcase, result.Command, "namespace1.ns2.command1(arg1, arg2)")
+      verifyEqual(testcase, result.LinkText, "Linked text 1")
+    end  % function
+
+  end  % methods
 end  % classdef

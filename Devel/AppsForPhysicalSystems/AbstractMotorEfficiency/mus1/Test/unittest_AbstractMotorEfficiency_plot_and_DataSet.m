@@ -267,6 +267,23 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
 
       ds.PlotAutoRange = "off";
 
+      % When PlotAutoRange is "off" and MaxAngularSpeedMode is "specify", PlotAngularSpeedUpperBound is used.
+      ds.MaxAngularSpeedMode = "specify";
+      ds.PlotAngularSpeedUpperBound = simscape.Value(2000, "rad/s");
+      ds.MaxAngularSpeed = simscape.Value(1800, "rad/s");
+
+      ds.ModelParams.MaxPower = simscape.Value(90, "kW");
+
+      ds = updateDataSet(ds);
+
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency(DataSource="dataset", DataSet=ds)  % !test-target
+    end  % function
+
+    function Plot_DataSet_2_3(~)
+      ds = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyDataSet(Initialization=true);
+
+      ds.PlotAutoRange = "off";
+
       % When PlotAutoRange is "off", PlotTorqueUpperBound is used.
       ds.PlotTorqueUpperBound = simscape.Value(160, "lbf*ft");
       ds.ModelParams.MaxTorque = simscape.Value(150, "lbf*ft");
@@ -278,12 +295,12 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
 
       ds.ModelParams.MaxPower = simscape.Value(90, "kW");
 
-      updateDataSet(ds)
+      ds = updateDataSet(ds);
 
       mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency(DataSource="dataset", DataSet=ds)  % !test-target
     end  % function
 
-    function Plot_DataSet_2_3(~)
+    function Plot_DataSet_2_4(~)
       ds = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyDataSet(Initialization=true);
       ds.ShowContourText = "off";
       ds.ShowTorqueEnvelope = "off";
@@ -355,18 +372,20 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
         DataSource = "direct", ...
         MaxTorque = simscape.Value(10, "N*m"), ...
         MaxPower = simscape.Value(10, "kW"), ...
-        OverallEfficiencyPercent = 94, ...
+        ElectricalEfficiencyPercent = 94, ...
         MeasuredAngularSpeed = simscape.Value(30, "rad/s"), ...
         MeasuredTorque = simscape.Value(5, "N*m"), ...
-        MeasuredIronLosses = simscape.Value(1, "W") );
+        MeasuredIronLosses = simscape.Value(1, "W"), ...
+        FixedLosses = simscape.Value(0, "W") );
 
       ds = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyDataSet(Initialization=true);
       ds.ModelParams.MaxTorque = simscape.Value(10, "N*m");
       ds.ModelParams.MaxPower = simscape.Value(10, "kW");
-      ds.ModelParams.OverallEfficiencyPercent = 94;
+      ds.ModelParams.ElectricalEfficiencyPercent = 94;
       ds.ModelParams.MeasuredAngularSpeed = simscape.Value(30, "rad/s");
       ds.ModelParams.MeasuredTorque = simscape.Value(5, "N*m");
       ds.ModelParams.MeasuredIronLosses = simscape.Value(1, "W");
+      ds.ModelParams.FixedLosses = simscape.Value(0, "W");
       ds = updateDataSet(ds);
       [~, result_dataset] = mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency(DataSource="dataset", DataSet=ds);
 
@@ -416,12 +435,11 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
       verifyEqual(testcase, ds.ModelName, model_name)
       verifyEqual(testcase, ds.ModelParams.MaxTorque, simscape.Value(160, "N*m"))
       verifyEqual(testcase, ds.ModelParams.MaxPower, simscape.Value(55, "kW"))
-      verifyEqual(testcase, ds.ModelParams.OverallEfficiencyPercent, 95)
+      verifyEqual(testcase, ds.ModelParams.ElectricalEfficiencyPercent, 95)
       verifyEqual(testcase, ds.ModelParams.MeasuredAngularSpeed, simscape.Value(2000, "rpm"))
       verifyEqual(testcase, ds.ModelParams.MeasuredTorque, simscape.Value(50, "N*m"))
       verifyEqual(testcase, ds.ModelParams.MeasuredIronLosses, simscape.Value(55, "W"))
       verifyEqual(testcase, ds.ModelParams.FixedLosses, simscape.Value(40, "W"))
-      verifyEqual(testcase, ds.ModelParams.RotorDampingCoefficient, simscape.Value(0.05, "N*m/(rad/s)"))
 
     end  % function
 
@@ -446,13 +464,179 @@ classdef unittest_AbstractMotorEfficiency_plot_and_DataSet < matlab.unittest.Tes
       verifyEqual(testcase, ds.ModelName, model_name)
       verifyEqual(testcase, ds.ModelParams.MaxTorque, simscape.Value(160, "N*m"))
       verifyEqual(testcase, ds.ModelParams.MaxPower, simscape.Value(55, "kW"))
-      verifyEqual(testcase, ds.ModelParams.OverallEfficiencyPercent, simscape.Value(95, "1"))
+      verifyEqual(testcase, ds.ModelParams.ElectricalEfficiencyPercent, simscape.Value(95, "1"))
       verifyEqual(testcase, ds.ModelParams.MeasuredAngularSpeed, simscape.Value(2000, "rpm"))
       verifyEqual(testcase, ds.ModelParams.MeasuredTorque, simscape.Value(50, "N*m"))
       verifyEqual(testcase, ds.ModelParams.MeasuredIronLosses, simscape.Value(55, "W"))
       verifyEqual(testcase, ds.ModelParams.FixedLosses, simscape.Value(40, "W"))
-      verifyEqual(testcase, ds.ModelParams.RotorDampingCoefficient, simscape.Value(0.05, "N*m/(rad/s)"))
 
+    end  % function
+
+    %% Ideal motor and threshold tests
+
+    function Plot_DataSet_ideal_motor_1(testcase)
+      %% Dataset path with ideal motor (efficiency > 99.8%)
+
+      ds = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyDataSet(Initialization=true);
+      ds.ModelParams.ElectricalEfficiencyPercent = 99.9;
+      ds = ds.updateDataSet();
+
+      % All in-envelope values must be 100%.
+      mesh = ds.EfficiencyPercentMeshData;
+      in_envelope = mesh(mesh > 0);
+      verifyTrue(testcase, all(in_envelope == 100))
+
+      verifyWarningFree(testcase, @() plot_target())
+      function plot_target
+        mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency( ...
+          DataSource="dataset", DataSet=ds)
+      end
+    end  % function
+
+    function Test_DataSet_ideal_motor_equivalence(testcase)
+      %% Direct and dataset paths produce identical output for ideal motor.
+
+      max_torque = simscape.Value(160, "N*m");
+      max_power = simscape.Value(55, "kW");
+      efficiency_percent = 100;
+      measured_speed = simscape.Value(2000, "rpm");
+      measured_torque = simscape.Value(50, "N*m");
+      iron_losses = simscape.Value(0, "W");
+      fixed_losses = simscape.Value(0, "W");
+
+      fig1 = figure;
+      ax1 = axes(fig1);
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency( ...
+        MaxTorque=max_torque, MaxPower=max_power, ...
+        ElectricalEfficiencyPercent=efficiency_percent, ...
+        MeasuredAngularSpeed=measured_speed, MeasuredTorque=measured_torque, ...
+        MeasuredIronLosses=iron_losses, FixedLosses=fixed_losses, ...
+        ParentAxes=ax1)
+
+      ds = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyDataSet(Initialization=true);
+      ds.ModelParams.ElectricalEfficiencyPercent = efficiency_percent;
+      ds.ModelParams.MeasuredIronLosses = iron_losses;
+      ds.ModelParams.FixedLosses = fixed_losses;
+      ds = ds.updateDataSet();
+
+      fig2 = figure;
+      ax2 = axes(fig2);
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency( ...
+        DataSource="dataset", DataSet=ds, ParentAxes=ax2)
+
+      verifyEqual(testcase, ax1.Title.String, ax2.Title.String)
+    end  % function
+
+    function Plot_DataSet_threshold_boundary(testcase)
+      %% 99.8% exactly should NOT trigger ideal motor path.
+
+      ds = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyDataSet(Initialization=true);
+      ds.ModelParams.ElectricalEfficiencyPercent = 99.8;
+      ds.ModelParams.MeasuredIronLosses = simscape.Value(1, "W");
+      ds.ModelParams.FixedLosses = simscape.Value(0, "W");
+      ds = ds.updateDataSet();
+
+      fig = figure;
+      ax = axes(fig);
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency( ...
+        DataSource="dataset", DataSet=ds, ParentAxes=ax)
+
+      verifyTrue(testcase, contains(ax.Title.String{1}, "efficiency"))
+    end  % function
+
+    function Plot_custom_ideal_threshold(testcase)
+      %% Custom IdealMotorThresholdPercent activates ideal motor at lower efficiency.
+
+      fig = figure;
+      ax = axes(fig);
+      mus1.app.AbstractMotorEfficiency.plotAbstractMotorEfficiency( ...
+        MaxTorque=simscape.Value(160, "N*m"), ...
+        MaxPower=simscape.Value(55, "kW"), ...
+        ElectricalEfficiencyPercent=96, ...
+        MeasuredAngularSpeed=simscape.Value(2000, "rpm"), ...
+        MeasuredTorque=simscape.Value(50, "N*m"), ...
+        MeasuredIronLosses=simscape.Value(50, "W"), ...
+        FixedLosses=simscape.Value(10, "W"), ...
+        IdealMotorThresholdPercent=95, ...
+        ParentAxes=ax)
+
+      verifySubstring(testcase, ax.Title.String, "operating region")
+    end  % function
+
+    %% ModelParameters derived parameter tests
+
+    function Test_ModelParams_ideal_motor_derived(testcase)
+      %% Derived parameters are zeroed when efficiency > 99.8%.
+
+      mp = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyModelParameters;
+      mp.MaxTorque = simscape.Value(200, "N*m");
+      mp.MaxPower = simscape.Value(80, "kW");
+      mp.ElectricalEfficiencyPercent = 100;
+      mp.MeasuredAngularSpeed = simscape.Value(2000, "rpm");
+      mp.MeasuredTorque = simscape.Value(150, "N*m");
+      mp.MeasuredIronLosses = simscape.Value(0, "W");
+      mp.FixedLosses = simscape.Value(0, "W");
+      mp = mp.updateDerivedParameters();
+
+      verifyEqual(testcase, value(mp.MeasuredCopperLossCoefficient, "W/(N*m)^2"), 0)
+      verifyEqual(testcase, value(mp.MeasuredIronLossCoefficient, "W/(rad/s)^2"), 0)
+      verifyEqual(testcase, value(mp.MeasuredNominalLosses, "W"), 0)
+    end  % function
+
+    function Test_ModelParams_non_ideal_derived(testcase)
+      %% Derived parameters are positive when efficiency < 99.8%.
+
+      mp = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyModelParameters;
+      mp.MaxTorque = simscape.Value(200, "N*m");
+      mp.MaxPower = simscape.Value(80, "kW");
+      mp.ElectricalEfficiencyPercent = 95;
+      mp.MeasuredAngularSpeed = simscape.Value(2000, "rpm");
+      mp.MeasuredTorque = simscape.Value(150, "N*m");
+      mp.MeasuredIronLosses = simscape.Value(100, "W");
+      mp.FixedLosses = simscape.Value(50, "W");
+      mp = mp.updateDerivedParameters();
+
+      verifyGreaterThan(testcase, value(mp.MeasuredNominalLosses, "W"), 0)
+      verifyGreaterThan(testcase, value(mp.MeasuredCopperLossCoefficient, "W/(N*m)^2"), 0)
+      verifyGreaterThan(testcase, value(mp.MeasuredIronLossCoefficient, "W/(rad/s)^2"), 0)
+    end  % function
+
+    %% Calibration invariant test
+
+    function Test_DataSet_efficiency_at_measurement_point(testcase)
+      %% Efficiency at (measured_speed, measured_torque) must equal the specified percentage.
+
+      specified_efficiency = 92;
+
+      mp = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyModelParameters;
+      mp.MaxTorque = simscape.Value(200, "N*m");
+      mp.MaxPower = simscape.Value(60, "kW");
+      mp.ElectricalEfficiencyPercent = specified_efficiency;
+      mp.MeasuredAngularSpeed = simscape.Value(2000, "rpm");
+      mp.MeasuredTorque = simscape.Value(100, "N*m");
+      mp.MeasuredIronLosses = simscape.Value(100, "W");
+      mp.FixedLosses = simscape.Value(50, "W");
+      mp = mp.updateDerivedParameters();
+
+      omega_m = value(mp.MeasuredAngularSpeed, "rad/s");
+      tau_m = value(mp.MeasuredTorque, "N*m");
+      k_copper = value(mp.MeasuredCopperLossCoefficient, "W/(N*m)^2");
+      k_iron = value(mp.MeasuredIronLossCoefficient, "W/(rad/s)^2");
+      P_fixed = value(mp.FixedLosses, "W");
+
+      P_mech = tau_m * omega_m;
+      losses = P_fixed + k_copper * tau_m^2 + k_iron * omega_m^2;
+      computed_efficiency = 100 * P_mech / (P_mech + losses);
+
+      verifyEqual(testcase, computed_efficiency, specified_efficiency, RelTol=1e-10)
+    end  % function
+
+    %% Regression guard
+
+    function Test_no_rotor_damping_property(testcase)
+      %% RotorDampingCoefficient must not exist on ModelParameters.
+      mp = mus1.app.AbstractMotorEfficiency.AbstractMotorEfficiencyModelParameters;
+      verifyFalse(testcase, isprop(mp, "RotorDampingCoefficient"))
     end  % function
 
   end  % methods

@@ -33,6 +33,7 @@ safe_mkdir(destination_media_folder, NameValuePair.DryRun)
 
 safe_copyfile(fullfile(source_folder, "mus1", "media", "screenshot-AbstractMotorEfficiencyApp-light.png"), destination_media_folder, NameValuePair.DryRun)
 
+%{
 % Description media folder
 src_desc_media = fullfile(source_folder, "mus1", "media", "AbstractMotorEfficiencyApp_Description_mus1_media");
 dst_desc_media = fullfile(destination_media_folder, "AbstractMotorEfficiencyApp_Description_mus1_media");
@@ -41,6 +42,7 @@ safe_copyfile(fullfile(src_desc_media, "image_0.png"), dst_desc_media, NameValue
 safe_copyfile(fullfile(src_desc_media, "figure_0.png"), dst_desc_media, NameValuePair.DryRun)
 safe_copyfile(fullfile(src_desc_media, "figure_1.png"), dst_desc_media, NameValuePair.DryRun)
 safe_copyfile(fullfile(src_desc_media, "figure_2.png"), dst_desc_media, NameValuePair.DryRun)
+%}
 
 % ---
 
